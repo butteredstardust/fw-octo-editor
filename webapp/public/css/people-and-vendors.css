@@ -4,7 +4,7 @@
     .char-head { display: flex; align-items: center; gap: 0.75rem; }
     .char-icon { display:grid; place-items:center; width:2.5rem; height:2.5rem; flex:0 0 2.5rem; padding:.4rem; border:1px solid var(--chip-border); border-radius:7px; background:var(--chip-bg); color:var(--teal-soft); }
     .char-name { font-weight: 700; font-size: 1.1rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
-    .char-active-badge { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #1A1206; background: var(--amber); border-radius: 8px; padding: 0.1rem 0.45rem; }
+    .char-active-badge { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--on-amber); background: var(--amber); border-radius: 8px; padding: 0.1rem 0.45rem; }
     .char-role { font-size: 0.8rem; color: var(--teal-soft); }
     .char-blurb { font-size: 0.78rem; color: var(--text-2); line-height: 1.35; }
     .char-hp { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 6px; padding: 0.55rem 0.7rem; }
@@ -19,6 +19,7 @@
     .char-capped { color: var(--amber-warn); font-size: 0.72rem; cursor: help; }
     .char-xp-row { display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: 0.5rem; }
     .char-xp-bar { height: 6px; background: var(--gunmetal-dark); border-radius: 4px; overflow: hidden; min-width: 80px; }
+    @media (max-width: 430px) { .char-xp-bar { min-width: 40px; } }
     .char-xp-fill { display: block; height: 100%; background: linear-gradient(90deg,var(--green-border),var(--green)); }
     .char-skills { font-size: 0.74rem; color: #BBBFC6; line-height: 1.4; }
     .char-skills .k { color: var(--text-2); }
@@ -31,6 +32,8 @@
     .char-warn { font-size: 0.74rem; color: var(--amber-warn); }
     .char-skills-panel { margin-top: 0.5rem; border-top: 1px solid var(--gunmetal); padding-top: 0.6rem; }
     .skills-head { font-size: 0.8rem; color: var(--teal-soft); margin-bottom: 0.4rem; }
+    .char-section-heading { color: var(--teal-soft); margin: 1rem 0 .5rem; }
+    .char-section-heading.spaced { margin-top: 1.25rem; }
     .skills-group { margin-bottom: 0.6rem; }
     .skills-group-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-2); margin-bottom: 0.25rem; }
     .skill-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.74rem; color: var(--text-tooltip); padding: 0.1rem 0; cursor: pointer; }
@@ -43,6 +46,8 @@
     .char-detail-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-tooltip); margin-bottom: 0.75rem; }
     .char-detail-stats b { color: var(--text); }
     .char-detail-actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+    .char-detail-actions .char-level-input { width: 64px; }
+    .char-detail-actions .char-xp-input { width: 110px; }
     .skill-tracks { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
     .skill-track { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 8px; padding: 0.75rem; }
     .skill-track-title { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
@@ -61,6 +66,8 @@
     .vendor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
     .vendor-card { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
     .vendor-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .vendor-head-main { display: flex; align-items: center; gap: 0.55rem; min-width: 0; }
+    .vendor-icon { display:grid; place-items:center; width:2.25rem; height:2.25rem; flex:0 0 2.25rem; padding:.35rem; border:1px solid var(--chip-border); border-radius:7px; background:var(--chip-bg); color:var(--teal-soft); }
     .vendor-name { font-weight: 700; font-size: 1.05rem; color: var(--text); }
     .vendor-flag { font-size: 0.72rem; color: var(--text-2); }
     .vendor-tier { font-size: 0.72rem; padding: 0.18rem 0.55rem; border-radius: 10px; font-weight: 600; white-space: nowrap; }
@@ -74,6 +81,8 @@
     .trader-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:.7rem; }
     .trader-card { display:flex; flex-direction:column; gap:.45rem; min-width:0; padding:.75rem .8rem; }
     .trader-card-head, .trader-card-toggle { display:flex; align-items:center; justify-content:space-between; gap:.6rem; }
+    .trader-name-wrap { display:flex; align-items:center; gap:.45rem; min-width:0; }
+    .trader-icon { display:grid; place-items:center; width:1.85rem; height:1.85rem; flex:0 0 1.85rem; padding:.28rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); }
     .trader-faction { color:var(--teal-soft); font-size:.72rem; }
     .trader-card .vendor-note { margin:0; font-size:.76rem; line-height:1.35; }
     .trust-track { margin:.2rem 0 .35rem; }

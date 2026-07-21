@@ -98,20 +98,19 @@ $env:GVAS_UESAVE_BIN = "C:\path\to\uesave.exe"
 
 ## Step 4: Get the database key
 
-The save file is an encrypted SQLite3MC database. The app loads the 32-character key from a text file.
+The save file is an encrypted SQLite3MC database. Released builds ship an **encrypted** key resource (`webapp/resources/dbkey.resource.json`, AES-256-GCM) rather than a plaintext key file, so there is nothing to configure for a normal install — the app decrypts it automatically at boot.
 
-**Where to find it:**
-- Default expected location: `C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt`
-- The file should contain the key wrapped in single quotes, e.g.: `'abcdef1234567890abcdef1234567890'`
+**If your save needs a different key** (e.g. a different game build/region), you don't need to touch any files: open the app, go to **Settings → Database Key**, and paste in your 32-character key. It's verified against your live save before being accepted, and is stored encrypted at rest (never as plain text) — see `webapp/utils/keyProtect.js`.
 
-**If you have the game installed:**
-The key file is typically packaged alongside the app or can be extracted from the game's local configuration. Ensure the file exists at the path above, or set `FW_DB_KEY_FILE` to its location:
+**For local development** (building the encrypted resource yourself from a raw key):
+- Place the plaintext key in `C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt` (or wherever `FW_DB_KEY_FILE` points), wrapped in single quotes, e.g.: `'abcdef1234567890abcdef1234567890'`
+- Run `npm run key:build-resource` (from `webapp/`) to produce the encrypted resource. If the resource file is missing, `npm start` will build it automatically from the plaintext source the first time.
 
 ```powershell
 $env:FW_DB_KEY_FILE = "C:\path\to\your\key-file.txt"
 ```
 
-> **Security note:** Never commit this file to version control. It is already gitignored at the project level. Treat it as a secret.
+> **Security note:** Never commit the plaintext key file to version control. It is already gitignored at the project level, and never gets copied into a release build (`releases/build.ps1` builds and bundles only the encrypted resource).
 
 ---
 
@@ -175,7 +174,8 @@ If your saves live elsewhere, you can either:
 |----------|----------|---------|-------------|
 | `FW_SQLITE_BIN` | No | `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe` | Path to the SQLite3MC shell |
 | `GVAS_UESAVE_BIN` | No | `..\tools\uesave-src\target\release\uesave.exe` (relative to `webapp/`) | Path to `uesave.exe` |
-| `FW_DB_KEY_FILE` | No | `..\fwinter-db-key.txt` (relative to `webapp/`) | Path to the plaintext DB key |
+| `FW_DB_KEY_RESOURCE` | No | `webapp/resources/dbkey.resource.json` | Path to the encrypted DB key resource |
+| `FW_DB_KEY_FILE` | No | `..\fwinter-db-key.txt` (relative to `webapp/`) | Path to the plaintext DB key source (dev-only; used to build the resource) |
 | `FW_BACKUP_ROOT` | No | `%LOCALAPPDATA%\ForeverWinter\Saved\SaveBackups` | Where app backups are stored |
 | `LOCALAPPDATA` | Yes (OS) | e.g. `C:\Users\Admin\AppData\Local` | Used to derive default save/backup paths |
 

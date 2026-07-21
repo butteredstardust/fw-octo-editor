@@ -137,7 +137,7 @@ webapp/public/
 
 3. **Byte-identical round-trip verification**: All GVAS/inventory writes include a mandatory round-trip check: `uesave to-json -> in-memory edit -> uesave from-json` must reproduce the original binary blob exactly. If not, inventory writes are disabled.
 
-4. **Key file never persisted in settings**: Database keys are loaded only from `fwinter-db-key.txt` (bundled resource). The API explicitly rejects `dbKey` in `POST /api/settings` for security.
+4. **DB key never stored in plaintext**: The bundled default key ships as an AES-256-GCM-encrypted resource (`webapp/resources/dbkey.resource.json`, built from the private, gitignored `fwinter-db-key.txt` via `npm run key:build-resource`), not a plaintext file, so nothing readable ships in the distributed package. Users can also set their own key via `POST /api/settings` (`{dbKey}`, verified against the live save before being accepted) — it's stored encrypted at rest with a per-install secret (`webapp/config/.instance-secret`), never as plaintext. See `webapp/utils/keyProtect.js`.
 
 5. **Security by binding**: Server listens only on `127.0.0.1:3000`. No user authentication layer (acceptable for loopback-only threat model, but network exposure would require auth).
 
@@ -149,7 +149,7 @@ webapp/public/
 |------|--------------|--------------|---------|
 | **SQLite3MC** | `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe` | `FW_SQLITE_BIN` | Encrypted SQLite shell (cipher_compatibility = 3) |
 | **uesave** | `tools/uesave-src/target/release/uesave.exe` | `GVAS_UESAVE_BIN` | Rust CLI for GVAS blob serialization/deserialization |
-| **DB Key File** | `fwinter-db-key.txt` (in repo root) | `FW_DB_KEY_FILE` | 32-character plaintext database encryption key |
+| **DB Key Resource** | `webapp/resources/dbkey.resource.json` (encrypted; built from `fwinter-db-key.txt` in repo root) | `FW_DB_KEY_RESOURCE` (resource path), `FW_DB_KEY_FILE` (plaintext source, dev-only) | Encrypted 32-character database key. Regenerate via `npm run key:build-resource`. |
 
 ### Backup Root
 

@@ -46,7 +46,8 @@ const APP_ICON_ALIASES = {
   '🤖': 'robot', '🥁': 'shaman', '😶': 'mask', '🎒': 'pack', '👧': 'runner', '👴': 'medic', '🔹': 'generic',
   '🔫': 'ammo', '🛠️': 'workshop', '🔧': 'repair', '⚡': 'power', '💧': 'water', '🎯': 'target', '🧠': 'cradle',
   '🚙': 'vehicle', '📡': 'signal', '🚁': 'drone', '🛏️': 'quarters', '📺': 'screen', '🎵': 'music', '🐕': 'dog',
-  '⛩️': 'shrine', '🌳': 'tree', '🍺': 'bar', '💰': 'credits', '🛰️': 'recovery', '🎁': 'welfare', '🏷️': 'tag'
+  '⛩️': 'shrine', '🌳': 'tree', '🍺': 'bar', '💰': 'credits', '🛰️': 'recovery', '🎁': 'welfare', '🏷️': 'tag',
+  '📖': 'codex'
 };
 
 const APP_ICON_PATHS = {
@@ -78,7 +79,11 @@ const APP_ICON_PATHS = {
   credits: '<circle cx="12" cy="12" r="9"/><path d="M15 8h-4a3 3 0 0 0 0 6h2a3 3 0 0 1 0 6H9m3-15v3m0 12v2"/>',
   time: '<circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/>',
   welfare: '<path d="M4 10h16v11H4zM2 7h20v3H2zM12 7v14M12 7c-4 0-5-2-4-4 2-1 4 1 4 4zm0 0c4 0 5-2 4-4-2-1-4 1-4 4z"/>',
-  tag: '<path d="M3 12V4h8l10 10-7 7zM7 8h.01"/>'
+  tag: '<path d="M3 12V4h8l10 10-7 7zM7 8h.01"/>',
+  codex: '<path d="M12 6c-2.5-2-6-2-9-1v14c3-1 6.5-1 9 1 2.5-2 6-2 9-1V5c-3-1-6.5-1-9 1zM12 6v14"/>',
+  weapon: '<path d="M3 11h10l3-3h5v4h-4l-2 3h-4l-1 5H7l1-5H3z"/>',
+  quest: '<path d="M6 3h9l3 3v15H6zM14 3v4h4M9 12h6m-6 4h6"/>',
+  shield: '<path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="M9 12l2 2 4-4"/>'
 };
 
 function appIcon(name, className = '') {
@@ -382,8 +387,8 @@ const HUB_CATEGORY_LABELS = {
   special: 'Special'
 };
 
-const MUTATION_ACTIONS = new Set(['quest-ready','set-resource','add-resource','set-level','apply-prestige','set-character-xp','set-detail-level','detail-prestige','set-detail-xp','apply-skills','bulk-hub','toggle-upgrade','add-upgrade-materials','weapon-build-add-part','weapon-build-add','set-weapon-xp','update-item','set-quantity','add-item','add-rig','add-rig-kit','set-faction','toggle-trader','collect-repair']);
-const DIRECT_MUTATION_IDS = new Set(['setWeaponReferenceButton','weaponBuildAddOwned','craftingAddMissingButton','craftingAddAllButton','saveSettingsButton','createBackupButton']);
+const MUTATION_ACTIONS = new Set(['quest-ready','set-resource','add-resource','set-level','apply-prestige','set-character-xp','set-detail-level','detail-prestige','set-detail-xp','apply-skills','bulk-hub','toggle-upgrade','add-upgrade-materials','weapon-build-add-part','weapon-build-add','set-weapon-xp','update-item','set-quantity','add-item','add-rig','add-rig-kit','set-faction','toggle-trader','collect-repair','craft-add-missing','craft-add-all']);
+const DIRECT_MUTATION_IDS = new Set(['setWeaponReferenceButton','weaponBuildAddOwned','saveSettingsButton','clearDbKeyButton','createBackupButton']);
 let mutationClock = null;
 let mutationStartedAt = 0;
 const mutationDisabledState = new Map();

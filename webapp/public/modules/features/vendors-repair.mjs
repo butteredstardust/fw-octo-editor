@@ -1,8 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, technicalDetails, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, receiptHtml, confirmAction } = FW;
-function describeItem(...args) { return FW.describeItem(...args); }
-function renderInventory(...args) { return FW.renderInventory(...args); }
+const { api, esc, appIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction } = FW;
 function loadDashboard(...args) { return FW.loadDashboard(...args); }
 
 const TRUST_PRESETS = {
@@ -27,6 +25,19 @@ const VENDOR_ROSTER = [
   { name: 'Kane',       faction: 'Eurasia',    scope: 'Scope.Faction.Eurasia',    availability: 'flag',    note: 'Sells Eurasia weapons/ammo (4 days water).' },
   { name: 'Vladelets',  faction: 'Euruska',    scope: 'Scope.Faction.Euruska',    availability: 'default', note: 'SPETSNAZ quest giver (СПЕЦHAЗ Commission).' }
 ];
+
+// What each vendor is best known for selling, used to pick a representative
+// app-icon (see VENDOR_ROSTER notes above for the full description).
+const VENDOR_ICON = {
+  Heisenburg: 'medic',
+  Slade: 'runner',
+  Bunco: 'ammo',
+  Bundleton: 'pack',
+  'Auto-Vendor': 'robot',
+  Luca: 'weapon',
+  Kane: 'weapon',
+  Vladelets: 'quest'
+};
 
 function trustTier(score) {
   if (score >= 150000) return 'trusted';
@@ -99,7 +110,7 @@ function renderVendors(data) {
       statusCls = on ? 'on' : 'off';
     } else { status = 'Available'; statusCls = 'on'; }
     html += `<article class="trader-card">
-      <div class="trader-card-head"><span class="tname">${esc(v.name)}</span><span class="trader-status ${statusCls}">${esc(status)}</span></div>
+      <div class="trader-card-head"><span class="trader-name-wrap"><span class="trader-icon">${appIcon(VENDOR_ICON[v.name])}</span><span class="tname">${esc(v.name)}</span></span><span class="trader-status ${statusCls}">${esc(status)}</span></div>
       <div class="trader-faction">${esc(v.faction)}${tier ? ` · ${esc(tier)}` : ''}</div>
       <p class="vendor-note">${esc(v.note)}</p>
     </article>`;
@@ -114,9 +125,12 @@ function renderVendors(data) {
     const enc = encodeURIComponent(f.scope);
     html += `<div class="vendor-card">
       <div class="vendor-head">
-        <div>
-          <div class="vendor-name">${esc(f.faction)}</div>
-          <div class="vendor-flag">${esc(f.scope)}</div>
+        <div class="vendor-head-main">
+          <span class="vendor-icon">${appIcon('shield')}</span>
+          <div>
+            <div class="vendor-name">${esc(f.faction)}</div>
+            <div class="vendor-flag">${esc(f.scope)}</div>
+          </div>
         </div>
         <span class="vendor-tier ${tier}">${TRUST_TIER_LABEL[tier]}</span>
       </div>
@@ -142,7 +156,7 @@ function renderVendors(data) {
     for (const t of traderRows) {
       const label = t.key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '');
       html += `<div class="trader-card trader-card-toggle">
-        <span class="tname">${esc(label)}</span>
+        <span class="trader-name-wrap"><span class="trader-icon">${appIcon(VENDOR_ICON[label])}</span><span class="tname">${esc(label)}</span></span>
         <button class="trader-toggle ${t.unlocked ? 'on' : ''}" data-action="toggle-trader" data-key="${encodeURIComponent(t.key)}" aria-pressed="${t.unlocked ? 'true' : 'false'}">${t.unlocked ? 'Unlocked' : 'Locked'}</button>
       </div>`;
     }
@@ -176,53 +190,6 @@ async function toggleTrader(btn, encKey) {
   setOperationFeedback('vendorsOperationStatus', `Trader ${unlocked ? 'unlocked' : 'locked'}.`, result, 'success');
   loadVendors();
 }
-
-async function updateItem(encName) {
-  const name = decodeURIComponent(encName);
-  const input = document.getElementById(`qty-${encName}`);
-  const row = input?.closest('.inv-item');
-  const button = row?.querySelector('[data-action="update-item"]');
-  const inline = document.getElementById(`op-${encName}`);
-  const qty = readIntegerInput(input, 'Quantity', { min: 0, max: 2147483647 });
-  // Source map (Items / Base Weapons / Damaged Weapons) tells the backend which
-  // TempInventory map holds this row, so the write lands in the right place.
-  const srcEl = document.getElementById(`src-${encName}`);
-  const sourceMap = srcEl ? srcEl.value : undefined;
-  const body = { itemId: name, quantity: qty };
-  if (sourceMap) body.sourceMap = sourceMap;
-  setLocalBusy(button, true, 'Saving…');
-  if (inline) { inline.className = 'operation-inline pending'; inline.textContent = 'Saving and verifying…'; }
-  let result;
-  try {
-    result = await api('/inventory/update', { method: 'POST', body: JSON.stringify(body) });
-  } catch (error) {
-    if (inline) { inline.className = 'operation-inline error'; inline.textContent = error.message; }
-    showToast(`Could not update ${describeItem(name).wiki}.`, 'error');
-    return;
-  } finally {
-    setLocalBusy(button, false);
-  }
-  if (result.afterIntegrity.passed) {
-    const item = FW.findInventoryItem(name);
-    if (item) item.quantity = qty;
-    row?.querySelector('.inv-qty')?.replaceChildren(document.createTextNode(qty.toLocaleString()));
-    if (inline) { inline.className = 'operation-inline success'; inline.innerHTML = `Saved and verified.${receiptHtml(result)}`; }
-    row?.classList.add('changed-flash');
-    showToast(`${describeItem(name).wiki} is now ${qty.toLocaleString()}.`);
-  } else {
-    if (inline) { inline.className = 'operation-inline error'; inline.textContent = 'Verification failed. The displayed value was not changed.'; }
-    showToast('Save verification failed.', 'error');
-  }
-}
-
-async function setQty(encName, qty) {
-  document.getElementById(`qty-${encName}`).value = qty;
-  await updateItem(encName);
-}
-
-document.getElementById('inventorySearch')?.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') renderInventory();
-});
 
 // ---- Repair Bench ----
 
@@ -333,16 +300,23 @@ function renderRepairStatus(data) {
       <div class="repair-timer ${r.ready ? 'done' : ''}" id="${cdId}">${formatDuration(r.remainingMs)}</div>`;
   }
 
-  // IFF chips panel — also note how many repairable weapons need each chip.
+  // IFF chips — each faction/level combo gets its own small card (rather than
+  // one tall list) so they wrap into the available width instead of forcing
+  // the whole sidebar, and the Active Repair Job panel it sits beside, tall.
+  // Also note how many repairable weapons need each chip.
   const iffNeedCount = {};
   for (const rec of REPAIR_RECIPES) iffNeedCount[rec.iff] = (iffNeedCount[rec.iff] || 0) + 1;
-  const iffRows = data.iffs.map(f => {
+  const iffCards = data.iffs.map(f => {
     const meta = IFF_LABELS[f.tag] || { name: f.tag, faction: '', level: '' };
     const zero = f.quantity <= 0;
     const neededFor = iffNeedCount[f.tag] || 0;
-    return `<div class="repair-req-row">
-      <span class="repair-req-name">${esc(meta.name)} <span style="color:var(--text-2)">(${esc(meta.faction)} LVL${esc(meta.level)})</span></span>
-      <span class="repair-req-qty ${zero ? 'zero' : ''}">${esc(f.quantity)}${neededFor ? ` <span style="color:var(--text-2);font-weight:400">· used by ${esc(neededFor)} weapon(s)</span>` : ''}</span>
+    return `<div class="iff-card ${zero ? 'zero' : ''}">
+      <div class="iff-card-head">
+        <span class="iff-card-name">${esc(meta.faction)} LVL${esc(meta.level)}</span>
+        <span class="iff-card-qty ${zero ? 'zero' : ''}">${esc(f.quantity)}</span>
+      </div>
+      <div class="iff-card-meta">${esc(meta.name)}</div>
+      ${neededFor ? `<div class="iff-card-used">used by ${esc(neededFor)} weapon(s)</div>` : ''}
     </div>`;
   }).join('');
 
@@ -401,16 +375,15 @@ function renderRepairStatus(data) {
         </div>
         ${collectNote ? `<p class="char-hint" style="margin-top:.6rem">${collectNote}</p>` : ''}
       </section>
-      <div class="repair-side-stack"><section class="repair-panel repair-bench-panel">
+      <section class="repair-panel repair-bench-panel">
         <h3>Workbench</h3>
         <div class="repair-status-line"><span class="repair-status-label">Repair Bench</span><span class="repair-status-val">${bench}</span></div>
-        <p class="char-hint" style="margin-top:.75rem">A repair needs a <b>destroyed weapon item</b> plus the <b>IFF chip</b> of that weapon's origin faction. (See the Faction IFF Chips panel for what you have on hand.)</p>
+        <p class="char-hint" style="margin-top:.75rem">A repair needs a <b>destroyed weapon item</b> plus the <b>IFF chip</b> of that weapon's origin faction. (See Faction IFF Chips below for what you have on hand.)</p>
       </section>
-      <section class="repair-panel repair-iff-panel">
-        <h3>Faction IFF Chips</h3>
-        <p class="char-hint">Repairing a destroyed weapon needs the IFF of its origin faction. Amounts on hand are shown; "used by N weapon(s)" counts the recipes that require that chip.</p>
-        ${iffRows}
-      </section></div>
+    </div>
+    <div class="repair-cards-wrap">
+      <div class="repair-list-head"><div><h3>Faction IFF Chips</h3><p class="char-hint">Repairing a destroyed weapon needs the IFF of its origin faction. "used by N weapon(s)" counts the recipes that require that chip.</p></div></div>
+      <div class="iff-grid">${iffCards}</div>
     </div>
     <div class="repair-cards-wrap">
       <div class="repair-list-head"><div><h3>Repairable Weapons <span class="repair-count">${REPAIR_RECIPES.length} recipes</span></h3><p class="char-hint">Ready recipes appear first. Repairs are started in-game.</p></div><span class="repair-ready-total">${readyCount} ready now</span></div>
@@ -475,7 +448,7 @@ async function markQuestReady(questId) {
   }
 }
 
-expose({ loadVendors, setFactionScore, toggleTrader, updateItem, setQty, loadRepair, collectRepair, markQuestReady });
+expose({ loadVendors, setFactionScore, toggleTrader, loadRepair, collectRepair, markQuestReady });
 
 // ---- Settings page ----
 // Lets the user optionally override the save directory. Keys are loaded from

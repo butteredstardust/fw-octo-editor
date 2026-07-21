@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forever Winter Save Editor</title>
     <link rel="icon" href="favicon.ico?v=20260719-ui-2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap">
-    <link rel="stylesheet" href="styles.css?v=20260720-ui-19">
+    <link rel="stylesheet" href="styles.css?v=20260721-ui-35">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -51,6 +48,7 @@
   <main class="content" id="main-content" tabindex="-1">
     <div class="page active" id="page-dashboard">
         <div id="dashboardOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <p class="page-intro">Every change is backed up and verified before it's written to your save — see the safety status above for this session's details.</p>
         <div class="overview-pair">
           <section class="card overview-card"><h2>Active Character &amp; Loadout</h2><div id="dashCharacter">Loading...</div></section>
           <section class="card overview-card"><h2>Tracked Quests</h2><div id="dashQuests">Loading...</div></section>
@@ -58,7 +56,7 @@
         <section class="card overview-card" aria-labelledby="resourcesTitle">
           <h2 id="resourcesTitle">Resources</h2>
           <p class="char-hint">
-            Review and adjust your water, credits, and utility drones.
+            Review and adjust your water, credits, utility drones, and Codex items (the highest-value boss-drop loot — crafting and quest material, not a lore log).
           </p>
           <div id="dashResources">Loading...</div>
         </section>
@@ -90,10 +88,9 @@
 
     <div class="page" id="page-hub-upgrades">
       <div class="card">
-        <h2>Innards / Hub Upgrades</h2>
+        <h2>Innards</h2>
         <p class="hub-hint">
           <strong>Terminals</strong> are functional buildings; <strong>Welfare</strong> are comfort items. Each card shows the <strong>water cost</strong> and any <strong>prerequisite</strong> — an Unlock button stays greyed out until its prerequisite is unlocked. <span class="hub-legend"><span class="hub-pill unlocked">Unlocked</span> built &nbsp; <span class="hub-pill available">Available</span> can be unlocked &nbsp; <span class="hub-pill locked">Locked</span> needs prerequisite &nbsp; <span class="hub-pill unlocked">Permanent</span> DLC gift, fixed.</span>
-          Writes are <strong>experimental</strong> (verify in-game). Upgrades may be dismantled in-game at no cost.
         </p>
         <div id="hubOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="hubUpgradesList">Loading...</div>
@@ -105,30 +102,32 @@
         <div class="card">
           <h2>Saved Presets</h2>
           <p class="page-intro">Read-only weapon and rig configurations stored in the save, correlated with their local EXR preview files.</p>
-          <div class="preset-toolbar" role="search"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Preset, weapon, attachment, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
+          <div class="filter-bar preset-toolbar" role="search"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Preset, weapon, attachment, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
         </div>
       </div>
 
     <div class="page" id="page-weapon-builds">
       <div class="card">
-        <h2>Best-in-Slot Weapon Builds</h2>
+        <h2>Weapon Builds</h2>
           <p class="page-intro">Deterministic balanced endgame recommendations from structured wiki stats and compatibility data.</p>
           <div class="weapon-build-command"><div><strong>Owned weapon loadout kit</strong><span>Add missing best in slot parts for every supported weapon currently in your inventory.</span></div><button id="weaponBuildAddOwned" type="button">Add parts</button></div>
-          <div class="weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildStatus" class="sr-status" role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
+          <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildStatus" class="sr-status" role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
     </div>
 
     <div class="page" id="page-weapon-xp">
       <div class="card">
         <h2>Weapon XP</h2>
         <p class="char-hint">Each weapon earns XP by use, which unlocks better vendor parts and improves handling. The <strong>target</strong> shown for each weapon is its value from a 100% reference save — a sensible per-weapon goal (e.g. GRL02 ≈ 505k, PST02 = 100k). Weapons absent from the reference use a flat 100,000 fallback. Set any weapon's XP manually, or batch-set all visible weapons to 100,000 XP.</p>
-        <div class="weapon-controls">
-          <label>Filter:
+        <div class="filter-bar weapon-xp-controls">
+          <label class="filter-search">Search weapons<input type="search" id="weaponXpSearch" placeholder="Weapon name or ID…" autocomplete="off"></label>
+          <label>Category:
             <select id="weaponFilter">
               <option value="">All categories</option>
             </select>
           </label>
-          <button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button">Set visible to 100,000 XP</button>
+          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button">Set visible to 100,000 XP</button></div>
         </div>
+        <div id="weaponXpFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="weaponXpOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="weaponXpList">Loading...</div>
       </div>
@@ -138,7 +137,7 @@
       <div class="card">
         <h2>Inventory</h2>
         <p class="page-intro">Find items by their familiar name, category, or technical ID and change quantities in place. Avoid rows marked “Needs review.”</p>
-        <div class="filter-bar">
+        <div class="filter-bar inv-filter-bar">
           <label class="filter-search">Search items<input type="search" id="inventorySearch" placeholder="Name, category, source, or technical ID…" autocomplete="off"></label>
           <label>Category:
             <select id="inventoryFilter">
@@ -178,7 +177,7 @@
       <div class="card">
         <h2>Add Items to Inventory</h2>
         <p class="page-intro">Browse known game items and add ones that are missing. Items you already own can be adjusted from Inventory.</p>
-        <div class="filter-bar">
+        <div class="filter-bar add-filter-bar">
           <label class="filter-search">Search items<input type="search" id="addSearch" placeholder="Name, category, source, or technical ID…" autocomplete="off"></label>
           <label>Category:
             <select id="addFilter">
@@ -238,7 +237,7 @@
 
     <div class="page" id="page-vendors">
       <div class="card">
-        <h2>Vendors &amp; Faction Trust</h2>
+        <h2>Vendors</h2>
         <p class="char-hint">Vendor trust is stored as a per-faction <b>FactionScore</b>. The wiki's trust tiers (Untrusted / Neutral / Trusted) are derived from this score by the game. Set a faction's score directly, or use the tier presets. Trader availability flags toggle whether a vendor appears in the Innards.</p>
         <div id="vendorsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="vendorsList">Loading...</div>
@@ -255,27 +254,24 @@
     </div>
     <div class="page" id="page-crafting">
       <div class="card">
-        <h2>Crafting — Batch Component Planner</h2>
-        <p class="page-intro">Pick Workshop components or Munitions, choose a product to calculate what you need, and fill missing components after reviewing the plan.</p>
+        <h2>Crafting</h2>
+        <p class="page-intro">Browse Workshop components or Munitions. Each card shows what a recipe needs, what you already have, and whether you're ready to craft it now.</p>
         <div class="crafting-kind-tabs" role="tablist" aria-label="Crafting category">
           <button type="button" class="crafting-tab active" id="craftingKindWorkshop" data-kind="workshop" role="tab" aria-selected="true">Workshop Components</button>
           <button type="button" class="crafting-tab" id="craftingKindMunitions" data-kind="munitions" role="tab" aria-selected="false">Munitions</button>
         </div>
-        <div class="planner-split"><div class="planner-control-pane"><div class="planner-products">
-          <label class="filter-search">Search products<input type="search" id="craftingSearch" placeholder="Product or component…" autocomplete="off"></label>
-          <label>Product
-            <select id="craftingProduct"></select>
-          </label>
-          <label>Quantity to craft
-            <input type="number" id="craftingQty" value="1" min="1" max="2147483647" step="1">
+        <div class="filter-bar recipe-filter-bar">
+          <label class="filter-search">Search recipes<input type="search" id="craftingSearch" placeholder="Product or component…" autocomplete="off"></label>
+          <label>State
+            <select id="craftingStateFilter">
+              <option value="any">All recipes</option>
+              <option value="ready">Ready to craft</option>
+              <option value="missing">Missing components</option>
+            </select>
           </label>
         </div>
-        <span id="craftingCraftInfo" class="workshop-craft-info" role="status"></span>
-        <div class="workshop-actions">
-          <button class="btn-primary" id="craftingAddMissingButton" type="button">Add Missing</button>
-          <button class="btn-ghost" id="craftingAddAllButton" type="button">Add all</button>
-          <span id="craftingMsg" class="settings-msg"></span>
-        </div></div><div class="planner-result-pane"><h3>Required components</h3><div id="craftingPreview" class="workshop-preview"></div></div></div>
+        <div id="craftingFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="craftingGrid" class="recipe-grid" aria-busy="false">Loading…</div>
       </div>
     </div>
     <div class="page" id="page-diagnostics">
@@ -370,7 +366,7 @@
             <dt>Playwright (dev dependency)</dt>
             <dd>Apache-2.0 — Copyright (c) Microsoft Corporation. <a href="https://github.com/microsoft/playwright" rel="noopener" target="_blank">github.com/microsoft/playwright</a>. Used only for browser-based tests; not part of the distributed runtime.</dd>
             <dt>Black Ops One (typeface)</dt>
-            <dd>SIL Open Font License 1.1 (OFL-1.1) — Copyright (c) 2011, Asterism (https://www.asterism-fonts.com), with Reserved Font Name "Black Ops One". Loaded from Google Fonts (<a href="https://fonts.google.com/specimen/Black+Ops+One" rel="noopener" target="_blank">fonts.google.com/specimen/Black+Ops+One</a>). Used for the application title.</dd>
+            <dd>SIL Open Font License 1.1 (OFL-1.1) — Copyright (c) 2011, Asterism (https://www.asterism-fonts.com), with Reserved Font Name "Black Ops One". Bundled locally as a TTF file (originally from <a href="https://fonts.google.com/specimen/Black+Ops+One" rel="noopener" target="_blank">fonts.google.com/specimen/Black+Ops+One</a>) so the app never makes an outbound request to load it. Used for the application title.</dd>
           </dl>
 
           <h3>Trademarks</h3>
@@ -385,7 +381,7 @@
     <div class="page" id="page-settings">
       <div class="card">
         <h2>Settings</h2>
-        <p class="char-hint">The save-location override is optional. It is saved locally and persists across restarts. Database keys cannot be entered or stored in Settings.</p>
+        <p class="char-hint">The save-location override is optional. It is saved locally and persists across restarts. Database keys are always stored encrypted, never as plain text.</p>
         <div id="settingsStatus" class="settings-status"></div>
 
         <h3>Save Location</h3>
@@ -398,8 +394,18 @@
           <button class="btn-ghost" id="clearSaveDirButton" type="button">Use default</button>
         </div>
 
-        <h3 style="margin-top:1.25rem">Database Key</h3>
-        <p class="char-hint">Loaded from the local application resource at <code id="settingsKeyFile"></code>.</p>
+        <h3 class="settings-section-heading">Database Key</h3>
+        <p class="char-hint" id="settingsKeySourceHint">Loaded from the bundled application resource, stored encrypted at rest (not plain text). If your save file needs a different key (e.g. a different game build or region), enter it below — it is verified against your live save and stored encrypted, never as plain text.</p>
+        <div class="settings-row">
+          <label>Database key
+            <span class="settings-key-input-wrap">
+              <input type="password" id="settingsDbKey" placeholder="32-character key" maxlength="32" autocomplete="off" spellcheck="false">
+              <button class="btn-ghost" id="toggleDbKeyVisibilityButton" type="button" aria-pressed="false">Show</button>
+            </span>
+          </label>
+          <button class="btn-ghost" id="clearDbKeyButton" type="button">Use default key</button>
+        </div>
+        <p class="char-hint" id="settingsDbKeyHint"></p>
 
         <div class="settings-actions">
           <button class="btn-primary" id="saveSettingsButton" type="button">Save Settings</button>
@@ -411,6 +417,6 @@
   </div>
   <div id="appAnnouncements" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div id="toastRegion" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
-  <script type="module" src="app.mjs?v=20260720-modules-4"></script>
+  <script type="module" src="app.mjs?v=20260721-modules-16"></script>
 </body>
 </html>

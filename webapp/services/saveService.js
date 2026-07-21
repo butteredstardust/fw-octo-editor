@@ -66,6 +66,13 @@ function getSavePaths() {
   return SAVE_FILES.map(f => path.join(dir, f));
 }
 
+// Path to the live primary save file, for callers (e.g. a settings-page key
+// verification check) that need to test a candidate key without duplicating
+// the save-file naming convention.
+function getPrimarySavePath() {
+  return getSavePaths()[0];
+}
+
 async function getSchema(key) {
   const dbPath = getSavePaths()[0];
   const results = await runShell(dbPath, key, [
@@ -983,6 +990,7 @@ module.exports = {
   sqlStr,
   requireChangedRows,
   getSchema,
+  getPrimarySavePath,
   listCharacters,
   updateCharacterLevel,
   setPrestige,

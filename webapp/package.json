@@ -1,6 +1,6 @@
 {
   "name": "fwinter-save-webapp",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Forever Winter save editor webapp",
   "main": "server.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "coverage": "node --test --experimental-test-coverage test/*.test.js test/e2e/*.test.js",
     "test:coverage": "node scripts/coverage-gate.js",
     "lint": "eslint .",
+    "key:build-resource": "node scripts/build-key-resource.js",
     "items:generate": "node scripts/generate-item-data.js",
     "items:fetch-wiki": "node scripts/fetch-wiki-items.js",
     "items:extract-reference": "node scripts/extract-reference-items.js",

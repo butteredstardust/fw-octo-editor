@@ -13,6 +13,8 @@ archive/
 
 # Secrets
 fwinter-db-key.txt
+webapp/resources/dbkey.resource.json
+webapp/config/.instance-secret
 
 # Large/binary data, not source
 reference/*.dat

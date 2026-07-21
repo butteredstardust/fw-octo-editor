@@ -33,13 +33,15 @@ const toggleAddSection = feature('toggleAddSection');
 const toggleAllAddSections = feature('toggleAllAddSections');
 const renderRigs = feature('renderRigs');
 const clearRigFilters = feature('clearRigFilters');
-const craftingCompute = feature('craftingCompute');
-const craftingFilter = feature('craftingFilter');
+const renderCraftingGrid = feature('renderCraftingGrid');
+const updateCraftQty = feature('updateCraftQty');
 const craftingAddMissing = feature('craftingAddMissing');
 const craftingAddAll = feature('craftingAddAll');
 const pickSaveDir = feature('pickSaveDir');
 const clearSaveDir = feature('clearSaveDir');
 const saveSettings = feature('saveSettings');
+const toggleDbKeyVisibility = feature('toggleDbKeyVisibility');
+const clearDbKey = feature('clearDbKey');
 const markQuestReady = feature('markQuestReady');
 const setResource = feature('setResource');
 const addResource = feature('addResource');
@@ -145,6 +147,7 @@ bind('weaponBuildAddOwned','click',addMissingForOwnedWeapons);
 bind('weaponBuildCategory','change',renderWeaponBuildSelector);
 bind('weaponBuildSelect','change',()=>{sessionStorage.setItem('weaponBuildId',document.getElementById('weaponBuildSelect').value);renderWeaponBuild();});
 bind('weaponFilter', 'change', renderWeaponXp);
+bind('weaponXpSearch', 'input', debounce(renderWeaponXp, 120));
 bind('setWeaponReferenceButton', 'click', setAllToReference);
 bind('inventorySearch', 'input', debounce(() => { resetInvExpansion(); renderInventory(); }, 120));
 bind('inventoryFilter', 'change', onInvCategoryChange);
@@ -159,15 +162,20 @@ bind('rigSearch', 'input', debounce(renderRigs, 120));
 bind('rigOwnership', 'change', renderRigs);
 bind('rigClass', 'change', renderRigs);
 bind('clearRigFiltersButton', 'click', clearRigFilters);
-bind('craftingProduct', 'change', craftingCompute);
-bind('craftingSearch', 'input', debounce(craftingFilter, 120));
-bind('craftingQty', 'input', craftingCompute);
-bind('craftingAddMissingButton', 'click', craftingAddMissing);
-bind('craftingAddAllButton', 'click', craftingAddAll);
+bind('craftingSearch', 'input', debounce(renderCraftingGrid, 120));
+bind('craftingStateFilter', 'change', renderCraftingGrid);
 for (const tab of document.querySelectorAll('.crafting-tab')) tab.addEventListener('click', () => setCraftingKind(tab.dataset.kind));
+// Per-card craft-quantity fields are rendered dynamically, so they're bound
+// via delegation on the grid container rather than a static id.
+document.getElementById('craftingGrid').addEventListener('input', debounce(event => {
+  const input = event.target.closest('.recipe-qty-input');
+  if (input) updateCraftQty(decodeURIComponent(input.dataset.recipe), input.value);
+}, 200));
 bind('pickSaveDirButton', 'click', pickSaveDir);
 bind('clearSaveDirButton', 'click', clearSaveDir);
 bind('saveSettingsButton', 'click', saveSettings);
+bind('toggleDbKeyVisibilityButton', 'click', toggleDbKeyVisibility);
+bind('clearDbKeyButton', 'click', clearDbKey);
 bind('runDiagnosticsButton', 'click', runDiagnostics);
 
 function diagnosticCard(label, passed, detail, warning = false) {
@@ -261,6 +269,8 @@ const actionHandlers = new Map([
   ['add-item', control => addItem(control.dataset.id)],
   ['add-rig', control => addRig(control.dataset.id, control)],
   ['add-rig-kit', control => addRigKit(control.dataset.id, control)],
+  ['craft-add-missing', control => craftingAddMissing(control.dataset.recipe)],
+  ['craft-add-all', control => craftingAddAll(control.dataset.recipe)],
   ['set-faction', control => setFactionScore(control.dataset.scope, control.dataset.value === undefined ? undefined : Number(control.dataset.value))],
   ['toggle-trader', control => toggleTrader(control, control.dataset.key)],
   ['collect-repair', () => collectRepair()]
@@ -285,6 +295,43 @@ document.addEventListener('click', async event => {
     if (isPendingCapable) control.classList.remove('is-pending');
   }
 });
+
+// Containers where a number input is immediately paired with the button that
+// applies it (Set / Add Item / Set XP / Set Score / Set Prestige / Set XP).
+const QUICK_SUBMIT_SCOPE = '.inv-actions, .add-actions, .weapon-actions, .vendor-score, .char-detail-actions';
+
+// The button a given number input should submit to: the nearest button that
+// follows it (or its wrapping <label>, when the input is label-wrapped) in
+// document order, skipping over any non-button siblings (e.g. a hidden
+// sourceMap input). This also correctly disambiguates containers that hold
+// more than one input/button pair -- e.g. .char-detail-actions has both a
+// Prestige-level and an XP field -- since each input's own nearest button is
+// resolved independently rather than picking "the" primary button for the
+// whole container.
+function nextButtonFor(input) {
+  let sib = (input.closest('label') || input).nextElementSibling;
+  while (sib && sib.tagName !== 'BUTTON') sib = sib.nextElementSibling;
+  return sib;
+}
+
+// Quantity/value fields: Enter submits the same as clicking the paired
+// button, so a value can be typed and applied without reaching for the
+// mouse -- the single most repeated action on these pages.
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Enter') return;
+  const input = event.target;
+  if (input.tagName !== 'INPUT' || input.type !== 'number') return;
+  if (!input.closest(QUICK_SUBMIT_SCOPE)) return;
+  const primary = nextButtonFor(input);
+  if (primary && !primary.disabled) { event.preventDefault(); primary.click(); }
+});
+
+// Auto-select existing text when focusing one of these fields so typing
+// immediately replaces the value instead of requiring a manual select-all.
+document.addEventListener('focus', event => {
+  const input = event.target;
+  if (input.tagName === 'INPUT' && input.type === 'number' && input.closest(QUICK_SUBMIT_SCOPE)) input.select();
+}, true);
 
 document.querySelector('.nav').addEventListener('keydown', event => {
   if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;

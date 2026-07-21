@@ -52,7 +52,10 @@
       "Bash(rmdir tools/uesave-src/uesave-src/.git)",
       "Bash(rmdir tools/uesave-src/uesave-src)",
       "Bash(curl -s http://127.0.0.1:3000/api/status)",
-      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\({compatibility:j.compatibility, writeReady:j.writeReady, blockingReasons:j.blockingReasons}, null, 2\\)\\)}\\)\")"
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\({compatibility:j.compatibility, writeReady:j.writeReady, blockingReasons:j.blockingReasons}, null, 2\\)\\)}\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(npm run *)",
+      "PowerShell(npm test *)"
     ]
   }
 }

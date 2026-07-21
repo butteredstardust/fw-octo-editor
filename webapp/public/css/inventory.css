@@ -1,6 +1,7 @@
     .inv-section { margin: 0.5rem 0; }
+    .inv-summary-line { color: var(--text-2); font-size: 0.82rem; margin: 0 0 0.5rem; }
     .inv-cat-head { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--amber); font-size: 1.05rem; font-weight: 700; padding: 0.5rem 0.6rem; background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 7px; user-select: none; width:100%; text-align:left; }
-    .inv-cat-head:hover { background: #20232A; }
+    .inv-cat-head:hover { background: var(--surface-hover); }
     .inv-cat-head.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
     .inv-caret { width: 1rem; text-align: center; color: var(--amber); }
     .inv-cat-title { flex: 1; }

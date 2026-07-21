@@ -190,14 +190,28 @@ function renderDashFactionTrust(factions) {
   </article>`).join('')}</div>`);
 }
 
-// Resource cards: Water + Credits (Currencies table) and the three drones
-// (TempInventory items). Drones reuse the inventory update/add endpoints.
+// Resource cards: Water + Credits (Currencies table), the three drones, and
+// the six Codex variants (all TempInventory items; Drones/Codex reuse the
+// inventory update/add endpoints). Codex items are the highest-value loot
+// in the game (boss-drop crafting/quest materials -- see
+// https://theforeverwinter.wiki.gg/wiki/Codex), not a lore/collectible
+// system, so they're presented the same way as any other trackable
+// resource. Only variants confirmed present in the 100% reference save are
+// listed here (items.canonical.json); the wiki also names Toothy, OrgaMech,
+// and Kotleta Codex variants that aren't yet in the canonical catalog, so
+// they're intentionally omitted rather than guessed.
 const RESOURCE_DEFS = [
   { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Water Barrels' },
   { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits' },
   { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel Drone', icon: '🚁', cat: 'Utility Drone' },
   { id: 'Drone_Construction', kind: 'inventory', label: 'Construction Drone', icon: '🔧', cat: 'Utility Drone' },
-  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery Drone', icon: '🛰️', cat: 'Utility Drone' }
+  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery Drone', icon: '🛰️', cat: 'Utility Drone' },
+  { id: 'Codex.RatKing', kind: 'inventory', label: 'Rat King Codex', icon: '📖', cat: 'Codex' },
+  { id: 'Codex.MediumMech', kind: 'inventory', label: 'Medium Mech Codex', icon: '📖', cat: 'Codex' },
+  { id: 'Codex.Grabber', kind: 'inventory', label: 'Grabber Codex', icon: '📖', cat: 'Codex' },
+  { id: 'CodexShieldOfficer', kind: 'inventory', label: 'Shield Officer Codex', icon: '📖', cat: 'Codex' },
+  { id: 'Codex.MotherCourage', kind: 'inventory', label: 'Mother Courage Codex', icon: '📖', cat: 'Codex' },
+  { id: 'Codex.Opal', kind: 'inventory', label: 'Opal Codex', icon: '📖', cat: 'Codex' }
 ];
 
 function renderDashResources(dash) {
@@ -214,7 +228,8 @@ function renderDashResources(dash) {
       ? (currencies[def.id] != null ? currencies[def.id] : 0)
       : (invByName[def.id] != null ? invByName[def.id] : 0);
     const owned = def.kind === 'inventory' && invByName[def.id] != null;
-    if (def.kind === 'inventory' && def.id === 'Drone_FastTravel') html += '</div><div class="resource-secondary">';
+    if (def.id === 'Drone_FastTravel') html += '</div><div class="resource-secondary">';
+    else if (def.id === 'Codex.RatKing') html += '</div><div class="resource-tertiary">';
     html += `<div class="res-card ${def.kind === 'currency' ? 'metric' : 'utility'}">
       <div class="res-head">
         <span class="res-icon">${appIcon(def.icon)}</span>
@@ -224,7 +239,7 @@ function renderDashResources(dash) {
       <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
       <div class="res-controls">
         <input type="number" class="res-input" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1">
-        <button class="res-set" data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" aria-label="Set ${esc(def.label)} quantity">Set</button>
+        ${def.kind === 'currency' || owned ? `<button class="res-set" data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" aria-label="Set ${esc(def.label)} quantity">Set</button>` : ''}
         ${def.kind === 'inventory' && !owned ? `<button class="res-add" data-action="add-resource" data-id="${esc(def.id)}" aria-label="Add ${esc(def.label)}">Add</button>` : ''}
       </div>
       <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>

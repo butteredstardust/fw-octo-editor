@@ -61,7 +61,8 @@ services/
 
 utils/
   validation.js          SQLite3MC shell wrapper, integrity/FK checks, output sanitization (~85 lines)
-  keyLoader.js           Loads the 32-char DB key from the bundled resource (~11 lines)
+  keyLoader.js           Loads the 32-char DB key from the encrypted bundled resource
+  keyProtect.js          AES-256-GCM encrypt/decrypt + SCRAM-SHA-512-style verifier for the DB key
   processCheck.js        Detects if The Forever Winter game process is running (~18 lines)
 ```
 
@@ -77,7 +78,7 @@ utils/
 
 ### Read Request (e.g., `GET /api/characters`)
 1. **Middleware pipeline** (`server.js`): Host validation (rejects non-loopback `Host` headers), security headers (`X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, CSP), JSON body parsing (50MB limit), static file serving.
-2. **Route handler** (`routes/api.js`): Calls `resolveKey(req)` to get the DB key from `app.locals.dbKey`.
+2. **Route handler** (`routes/api.js`): Calls `resolveKey(req)`, which returns `configService.getActiveKeyOverride()` (a user-supplied key, if set) or falls back to the boot-time bundled key from `app.locals.dbKey`. Checked per-request so a key change in Settings takes effect without a restart.
 3. **Service layer** (`saveService.listCharacters(key)`): Builds parameterized SQL, calls `runShell(dbPath, key, [sql])`.
 4. **Shell execution** (`utils/validation.js`): Spawns `sqlite3mc_shell_x64.exe`, pipes `PRAGMA key`, `PRAGMA cipher_compatibility = 3`, the SQL, and `.quit`. Filters `ok` lines and redacts the key from output via `sanitizeOutput()`.
 5. **Response**: Service returns parsed JSON; route sends `res.json()`.
@@ -143,7 +144,7 @@ The single entry point for all database mutations. Enforces:
 Manages the save-directory override and `AsyncLocalStorage` context. Key behaviors:
 - `getSaveDir()` returns the override, the `AsyncLocalStorage` context (for staged mutations), or the default.
 - `withSaveDir(dir, callback)` runs a callback in an `AsyncLocalStorage` context so nested service calls resolve the temp directory correctly.
-- **Database keys are never persisted in settings**; the API explicitly rejects `dbKey` in `POST /api/settings`.
+- **Database keys are never persisted in plaintext.** `POST /api/settings` accepts an optional `dbKey`: a 32-character string is verified against the live save (if one exists) via `runIntegrityCheck`, then AES-256-GCM encrypted (`utils/keyProtect.js`) with a per-install secret (`config/.instance-secret`, gitignored) before being written to `config/settings.json`; `null`/`''` clears it back to the bundled default. `getActiveKeyOverride()` decrypts and returns the plaintext override in memory only, never persisting or logging it.
 
 ### `backupService.js`
 Creates timestamped backup directories with `MANIFEST.json` containing SHA-256 hashes for all three save variants. Restore requires the exact confirmation phrase `RESTORE <id>` and creates a safety backup before replacing the live primary.
@@ -307,8 +308,8 @@ Aggregated dashboard loading four endpoints in parallel:
 #### Settings (`page-settings`)
 - Loads `/api/settings`.
 - Save directory input with native directory picker (`webkitdirectory`) and "Use default" clear button.
-- DB key display only (loaded from local resource, cannot be overridden).
-- Save Settings persists `saveDir` to `config/settings.json` (mode `0o600`).
+- Database Key section: status line (bundled vs. custom key), a write-only password field to enter a custom key (with a show/hide toggle), and a "Use default key" button to clear the override. A candidate key is verified against the live save before being accepted.
+- Save Settings persists `saveDir` and (if provided) the AES-256-GCM-encrypted `dbKeyOverride` to `config/settings.json` (mode `0o600`); the plaintext key itself is never written to disk.
 
 ### Centralized Event Handling
 All click actions are dispatched through a single `document.addEventListener('click', ...)` handler that reads `data-action` attributes. Supported actions include:
@@ -330,7 +331,7 @@ All click actions are dispatched through a single `document.addEventListener('cl
 - **Key redaction**: `sanitizeOutput()` in `validation.js` replaces the DB key in all shell stdout/stderr with `***REDACTED***` before it reaches logs or error messages.
 - **Structured error objects**: Service errors are plain `Error` instances augmented with `.status` (e.g., `Object.assign(new Error('...'), { status: 422 })`). Routes use `err.status || 500`.
 - **Verification-first**: Every mutation verifies affected rows and target values before declaring success. Verification failures throw with status 422.
-- **No secrets in responses**: The API never returns the DB key. Settings responses include only `keySource: 'bundled-resource'`.
+- **No secrets in responses**: The API never returns the DB key. Settings responses include only `keySource: 'bundled-resource' | 'user-override'` and `hasCustomKey`.
 - **Frontend error presentation**: `showNotice()` renders a dialog; `showToast()` renders a transient banner. Inline operation regions show pending/success/error states with verification receipts.
 
 ## Adding New Features (Cookbook)
@@ -397,7 +398,7 @@ For GVAS/inventory writes, follow `gvasService.js`:
 ### Security
 - **No authentication**: The app relies entirely on loopback binding and CSRF tokens. If exposed beyond `127.0.0.1`, there is no user authentication layer. This is acceptable for the stated threat model but should be documented as a constraint.
 - **Shell injection defense**: SQL is built via string interpolation, but all user values pass through `sqlStr()` (escapes `'`, rejects NUL/newline) or `toInteger()`/`toNumber()`. The pattern is consistent but fragile—any new SQL construction that bypasses these helpers would be a vulnerability.
-- **Key file permissions**: `fwinter-db-key.txt` is read from the project root. `config/settings.json` is written with mode `0o600`, but the key file itself has no enforced permissions.
+- **Key material at rest**: The bundled key ships as an AES-256-GCM-encrypted resource (`resources/dbkey.resource.json`) rather than plaintext, and a user-supplied override is encrypted with a per-install secret (`config/.instance-secret`, mode `0o600`) before being written into `config/settings.json` (also `0o600`). This is obfuscation against a naive extract-and-grep of the shipped package, not a boundary against someone reading the app's own source — the dev-only plaintext source `fwinter-db-key.txt` still has no enforced permissions beyond being gitignored.
 - **CSRF token is static per process**: The token is generated once at boot (`crypto.randomBytes(32)`) and never rotated. For the loopback-only threat model this is acceptable, but a long-running process would benefit from rotation.
 
 ### Code Quality

@@ -103,16 +103,22 @@ Override it in the in-app `#settings` page (a `config/settings.json`, mode
 `0o600`, gitignored). If your saves live elsewhere, set the override there.
 
 ### "Failed to decrypt" / key errors
-The DB key is loaded from a **local resource only**:
+The DB key is loaded from an **encrypted local resource**, not a plaintext file:
 ```
-C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt
+webapp/resources/dbkey.resource.json
 ```
-or via `FW_DB_KEY_FILE`. The key is never logged, returned by the API, or written
-to settings. If decryption fails:
-- Confirm the key file exists and is readable.
-- If you relocated it, set `FW_DB_KEY_FILE` to the absolute path before starting.
-- Never paste the key into settings — the app rejects `dbKey` on save and
-  sanitizes any legacy value.
+(built at release time — or automatically on first `npm start` in a dev
+checkout — from the private, gitignored `fwinter-db-key.txt`). The plaintext
+key is never logged, returned by the API, or written to settings. If
+decryption fails:
+- Confirm the resource file exists (`FW_DB_KEY_RESOURCE` to override its
+  path), or that `fwinter-db-key.txt` / `FW_DB_KEY_FILE` exists so it can be
+  built automatically.
+- If your save needs a different key (different game build/region), use
+  **Settings → Database Key** in the app to enter your own — it's verified
+  against your live save before being accepted and stored encrypted at rest,
+  never as plain text. Use "Use default key" there to switch back to the
+  bundled key.
 
 ## Integrity / foreign-key failures
 

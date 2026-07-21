@@ -15,7 +15,7 @@ const APP_DIR = path.resolve(__dirname, '..');
 const NODE_EXE = path.join(__dirname, 'node.exe');
 const SERVER_JS = path.join(APP_DIR, 'server.js');
 const TOOLS_DIR = path.join(APP_DIR, 'tools');
-const KEY_FILE = path.join(APP_DIR, 'fwinter-db-key.txt');
+const KEY_RESOURCE_FILE = path.join(APP_DIR, 'resources', 'dbkey.resource.json');
 
 const PORT = 3000;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
@@ -99,7 +99,7 @@ function startServer() {
       ...process.env,
       FW_SQLITE_BIN: path.join(TOOLS_DIR, 'sqlite3mc_shell_x64.exe'),
       GVAS_UESAVE_BIN: path.join(TOOLS_DIR, 'uesave.exe'),
-      FW_DB_KEY_FILE: KEY_FILE,
+      FW_DB_KEY_RESOURCE: KEY_RESOURCE_FILE,
       PORT: String(PORT)
     }
   });

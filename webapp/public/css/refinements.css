@@ -21,7 +21,16 @@ body {
 .nav button.active::before { color:var(--amber-soft); }
 .content { width:100%; max-width:1480px; margin:0; padding:1.5rem clamp(1rem,3vw,2.5rem) 4rem; }
 .card { position:relative; overflow:hidden; background:linear-gradient(145deg,rgba(30,32,38,.96),rgba(20,22,27,.96)); border-color:#3a3e46; box-shadow:var(--shadow); }
-.card::before { content:''; position:absolute; inset:0 0 auto; height:2px; background:linear-gradient(90deg,var(--amber),transparent 42%); opacity:.75; }
+.card::before { content:''; position:absolute; inset:0 0 auto; height:2px; background:linear-gradient(90deg,var(--amber),transparent 42%); opacity:.75; border-radius:inherit; }
+/* .card's overflow:hidden exists only to clip ::before's top bar to the card's
+   rounded corners (now handled directly via border-radius:inherit above), but
+   it also silently breaks position:sticky on any descendant. The Inventory,
+   Add Items, and Rigs pages need a sticky filter bar (see .inv-filter-bar /
+   .add-filter-bar / .rig-filter-bar below), so their card opts back into
+   normal overflow instead of carrying the fix to every page. */
+#page-inventory .card, #page-add-items .card, #page-rigs .card, #page-weapon-xp .card, #page-crafting .card { overflow:visible; }
+.recipe-filter-bar { grid-template-columns:minmax(260px,2fr) minmax(180px,1fr); position:sticky; top:7rem; z-index:8; box-shadow:0 8px 18px rgba(0,0,0,.22); backdrop-filter:blur(8px); }
+@media (max-width:1050px) { .recipe-filter-bar { position:static; } }
 .card h2 { font-size:clamp(1.08rem,2vw,1.35rem); letter-spacing:.015em; }
 .page-intro { margin:-.35rem 0 1.1rem; color:var(--text-2); font-size:0.82rem; line-height:1.5; }
 .filter-bar { display:grid; grid-template-columns:minmax(220px,2fr) repeat(4,minmax(140px,1fr)); gap:.7rem; align-items:end; padding:.85rem; margin:1rem 0 .65rem; background:rgba(10,11,14,.45); border:1px solid var(--gunmetal-dark); border-radius:var(--radius-lg); box-shadow:0 8px 18px rgba(0,0,0,.18); }
@@ -32,8 +41,9 @@ body {
 .filter-checks { display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; }
 .filter-checks label { display:flex; align-items:center; gap:.4rem; }
 .filter-checks input { width:auto; }
-.filter-bar:not(.rig-filter-bar) .filter-checks { grid-column:1 / -1; margin-top:.15rem; padding-top:.6rem; border-top:1px solid var(--gunmetal-dark); }
-.filter-bar:not(.rig-filter-bar) .filter-checks .mini { margin-left:auto; }
+.filter-bar:not(.rig-filter-bar):not(.weapon-xp-controls) .filter-checks { grid-column:1 / -1; margin-top:.15rem; padding-top:.6rem; border-top:1px solid var(--gunmetal-dark); }
+.filter-bar:not(.rig-filter-bar):not(.weapon-xp-controls) .filter-checks .mini { margin-left:auto; }
+.weapon-xp-controls .filter-checks .hub-btn { width:auto; margin-top:0; padding:.4rem .8rem; }
 .filter-summary { min-height:1.8rem; display:flex; gap:.4rem; align-items:center; flex-wrap:wrap; color:var(--text-2); font-size:.8rem; }
 .filter-chip { display:inline-flex; padding:.2rem .48rem; border:1px solid var(--teal); border-radius:999px; color:var(--teal-soft); background:rgba(42,140,134,.08); }
 .result-count { color:var(--green); font-weight:700; }
@@ -42,9 +52,9 @@ body {
 .technical-details summary::-webkit-details-marker { display:none; }
 .technical-details .technical-id { position:absolute; z-index:15; left:0; top:1.55rem; min-width:max-content; max-width:min(420px,80vw); padding:.5rem .65rem; border:1px solid var(--gunmetal); border-radius:4px; background:var(--surface-deep); color:var(--text-tooltip); box-shadow:var(--shadow); font: .72rem/1.35 ui-monospace,Consolas,monospace; overflow-wrap:anywhere; }
 .technical-details:not([open]) .technical-id { display:none; }
-.inv-tag,.add-tag,.workshop-comp-tag { display:none; }
-.inv-item,.add-item,.workshop-comp { transition:border-color .18s,background .18s,transform .18s; }
-.inv-item:hover,.add-item:hover,.workshop-comp:hover { border-color:var(--divider-soft); background:var(--surface-hover); }
+.inv-tag,.add-tag { display:none; }
+.inv-item,.add-item { transition:border-color .18s,background .18s,transform .18s; }
+.inv-item:hover,.add-item:hover { border-color:var(--divider-soft); background:var(--surface-hover); }
 .operation-inline { min-height:1.35rem; margin-top:.4rem; color:var(--text-2); font-size:.77rem; }
 .operation-inline.pending { color:var(--amber-soft); }
 .operation-inline.success { color:var(--green); }
@@ -59,14 +69,7 @@ body {
 .receipt { margin-top:.65rem; border-top:1px solid var(--gunmetal-dark); padding-top:.55rem; color:var(--text-2); font-size:.74rem; }
 .receipt summary { cursor:pointer; color:var(--teal-soft); }
 .empty-state { padding:2.5rem 1rem; text-align:center; border:1px dashed var(--gunmetal); border-radius:8px; color:var(--text-2); }
-.planner-control-pane { min-width:0; overflow:hidden; }
-.planner-control-pane .planner-products { display:grid; grid-template-columns:minmax(0,1fr) 7rem; gap:.7rem; align-items:end; min-width:0; }
-.planner-control-pane .planner-products label { display:grid; min-width:0; gap:.3rem; color:var(--text-2); font-size:.72rem; }
-.planner-control-pane .planner-products .filter-search { grid-column:1 / -1; width:100%; max-width:100%; }
-.planner-control-pane .planner-products input,
-.planner-control-pane .planner-products select { width:100%; min-width:0; max-width:100%; }
-.workshop-comp-name { display:flex; align-items:center; }
-@media (max-width:1050px) { .filter-bar { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:1050px) { .filter-bar { grid-template-columns:repeat(2,minmax(0,1fr)); } .inv-filter-bar,.add-filter-bar { position:static; } }
 @media (max-width:780px) {
   .header { padding:.75rem 1rem; }
   .header .status { display:none; }
@@ -75,8 +78,7 @@ body {
   .nav { position:fixed; z-index:50; top:0; left:0; width:min(82vw,280px); height:100vh; padding-top:4.5rem; transform:translateX(-105%); transition:transform .2s ease; box-shadow:var(--shadow); }
   body.nav-open .nav { transform:translateX(0); }
   body.nav-open::after { content:''; position:fixed; z-index:45; inset:0; background:rgba(0,0,0,.68); }
-  .filter-bar,.planner-control-pane .planner-products { grid-template-columns:1fr; }
-  .planner-control-pane .planner-products .filter-search { grid-column:1; }
+  .filter-bar { grid-template-columns:1fr; }
   .content { padding:1rem .75rem 3rem; }
   .card { padding:1rem; border-radius:6px; }
 }
@@ -87,7 +89,7 @@ body {
 @media(prefers-reduced-motion:reduce){.mutation-spinner,.skeleton-card span{animation:none}.skeleton-card span{background:var(--gunmetal-dark)}}
 .app-icon{display:inline-flex;width:1em;height:1em;align-items:center;justify-content:center;vertical-align:-.12em;color:currentColor}
 .app-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.dash-char-icon .app-icon,.char-icon .app-icon,.hub-icon .app-icon,.res-icon .app-icon{width:100%;height:100%}
+.dash-char-icon .app-icon,.char-icon .app-icon,.hub-icon .app-icon,.res-icon .app-icon,.vendor-icon .app-icon,.trader-icon .app-icon,.weapon-icon .app-icon,.recipe-icon .app-icon{width:100%;height:100%}
 .hub-req-line .app-icon,.hub-cost .app-icon{margin-right:.25rem}
 .rig-experimental{padding:.7rem .85rem;font-size:.8rem}
 .rig-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}
@@ -95,6 +97,11 @@ body {
 .rig-metric span{color:var(--text-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
 .rig-metric strong{color:var(--amber-soft);font-size:1.1rem}
 .rig-filter-bar{grid-template-columns:minmax(260px,2fr) minmax(145px,1fr) minmax(160px,1fr) auto;position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
+.weapon-xp-controls{grid-template-columns:minmax(260px,2fr) minmax(180px,1fr) auto;position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
+/* Inventory and Add Items are the highest-traffic, longest-scrolling pages
+   (500+ rows vs. 11 rigs) -- keep search/filters reachable while scrolling,
+   same sticky treatment already proven on .rig-filter-bar. */
+.inv-filter-bar,.add-filter-bar{position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
 .rig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.8rem}
 .rig-card{position:relative;display:flex;flex-direction:column;gap:.72rem;min-width:0;padding:1rem;border:1px solid var(--gunmetal);border-radius:8px;background:var(--surface-2)}
 .rig-card.owned{border-color:var(--green-border);box-shadow:0 0 0 1px rgba(95,211,138,.14)}
@@ -121,14 +128,14 @@ body {
 .rig-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:auto;padding-top:.15rem}
 .rig-actions button{width:100%}
 .rig-card>.technical-details{position:absolute;right:.75rem;bottom:.75rem;transform:translateY(calc(100% + .25rem))}
-@media(max-width:1050px){.rig-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.rig-summary{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1050px){.rig-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.rig-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.weapon-xp-controls{grid-template-columns:repeat(2,minmax(0,1fr));position:static}}
 @media(max-width:780px){.rig-summary,.rig-capacity{grid-template-columns:1fr}.rig-grid{grid-template-columns:1fr}.rig-card{padding:.85rem}.rig-actions{grid-template-columns:1fr}.rig-kit-details li{grid-template-columns:minmax(0,1fr) auto}.rig-kit-details li .technical-details{grid-column:1/-1;margin-left:0}.rig-card>.technical-details{position:static;transform:none}}
 
-.weapon-build-toolbar{display:grid;grid-template-columns:2fr 1fr 2fr;gap:.75rem;align-items:end}.weapon-build-toolbar label{display:grid;gap:.35rem}.weapon-build-summary{display:flex;justify-content:space-between;gap:1rem;margin:1.25rem 0;padding:1rem;border:1px solid var(--gunmetal)}.build-metrics{display:grid;text-align:right}.build-metrics strong{font-size:2rem;color:var(--amber-soft)}.weapon-build-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}.weapon-part-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.75rem}.weapon-part-card{display:flex;gap:.75rem;padding:.8rem;border:1px solid var(--gunmetal);background:var(--surface-2)}.weapon-part-card img,.weapon-part-card>.item-type-icon{width:56px;height:56px;object-fit:contain;flex:0 0 56px}.weapon-part-card h4{margin:.2rem 0}.weapon-part-card p{font-size:.78rem;color:var(--text-2);margin:.3rem 0}.weapon-part-card.is-owned{border-left:3px solid var(--green)}.weapon-part-card.is-missing{border-left:3px solid var(--amber)}.source-disclosure{margin-top:1rem;padding:1rem;background:rgba(255,255,255,.035);font-size:.8rem;color:var(--text-2)}
+.weapon-build-toolbar{grid-template-columns:2fr 1fr 2fr}.weapon-build-summary{display:flex;justify-content:space-between;gap:1rem;margin:1.25rem 0;padding:1rem;border:1px solid var(--gunmetal)}.build-metrics{display:grid;text-align:right}.build-metrics strong{font-size:2rem;color:var(--amber-soft)}.weapon-build-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}.weapon-part-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.75rem}.weapon-part-card{display:flex;gap:.75rem;padding:.8rem;border:1px solid var(--gunmetal);background:var(--surface-2)}.weapon-part-card img,.weapon-part-card>.item-type-icon{width:56px;height:56px;object-fit:contain;flex:0 0 56px}.weapon-part-card h4{margin:.2rem 0}.weapon-part-card p{font-size:.78rem;color:var(--text-2);margin:.3rem 0}.weapon-part-card.is-owned{border-left:3px solid var(--green)}.weapon-part-card.is-missing{border-left:3px solid var(--amber)}.source-disclosure{margin-top:1rem;padding:1rem;background:rgba(255,255,255,.035);font-size:.8rem;color:var(--text-2)}
 @media(max-width:700px){.weapon-build-toolbar{grid-template-columns:1fr}.weapon-build-summary{display:block}.build-metrics{text-align:left}.weapon-part-grid{grid-template-columns:1fr}.weapon-build-actions button{min-height:44px}}
 
 .weapon-build-command{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem;padding:1rem;border:1px solid var(--gunmetal);background:rgba(217,107,39,.08)}.weapon-build-command div{display:grid;gap:.2rem}.weapon-build-command span{color:var(--text-2);font-size:.8rem}.weapon-build-command button{min-height:44px}@media(max-width:700px){.weapon-build-command{align-items:stretch;flex-direction:column}}
 
-.preset-toolbar{display:grid;grid-template-columns:minmax(260px,2fr) minmax(160px,1fr);gap:.75rem;align-items:end}.preset-toolbar label{display:grid;gap:.35rem}.preset-summary{margin:1rem 0;color:var(--text-2)}.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.85rem;margin-top:1rem}.preset-card{border:1px solid var(--gunmetal);background:var(--surface-2);padding:1rem}.preset-card.is-active{border-left:3px solid var(--green)}.preset-card header{display:flex;align-items:flex-start;gap:.7rem}.preset-card header>.item-type-icon{width:42px;height:42px;flex:0 0 42px}.preset-card h3,.preset-card header p{margin:.12rem 0}.preset-badges{margin-left:auto;display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end}.preset-badge{padding:.2rem .4rem;border:1px solid var(--gunmetal);font-size:.68rem;text-transform:uppercase}.preset-badge.active{color:var(--green);border-color:var(--green)}.preset-badge.score{color:var(--amber-soft);border-color:var(--amber);font-variant-numeric:tabular-nums}.preset-parts{display:grid;gap:.35rem;margin:.8rem 0}.preset-part{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:.5rem;padding:.4rem;border-top:1px solid var(--gunmetal);font-size:.76rem}.preset-part>span{color:var(--text-2)}.preset-part.placeholder{opacity:.55}.preset-card footer{display:grid;gap:.4rem;color:var(--text-2);font-size:.76rem}.preset-card footer ul{margin:.4rem 0;padding-left:1.25rem}@media(max-width:700px){.preset-toolbar{grid-template-columns:1fr}.preset-grid{grid-template-columns:1fr}.preset-card header{flex-wrap:wrap}.preset-badges{width:100%;margin-left:0;justify-content:flex-start}}
+.preset-toolbar{grid-template-columns:minmax(260px,2fr) minmax(160px,1fr)}.preset-summary{margin:1rem 0;color:var(--text-2)}.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.85rem;margin-top:1rem}.preset-card{border:1px solid var(--gunmetal);background:var(--surface-2);padding:1rem}.preset-card.is-active{border-left:3px solid var(--green)}.preset-card header{display:flex;align-items:flex-start;gap:.7rem}.preset-card header>.item-type-icon{width:42px;height:42px;flex:0 0 42px}.preset-card h3,.preset-card header p{margin:.12rem 0}.preset-badges{margin-left:auto;display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end}.preset-badge{padding:.2rem .4rem;border:1px solid var(--gunmetal);font-size:.68rem;text-transform:uppercase}.preset-badge.active{color:var(--green);border-color:var(--green)}.preset-badge.score{color:var(--amber-soft);border-color:var(--amber);font-variant-numeric:tabular-nums}.preset-parts{display:grid;gap:.35rem;margin:.8rem 0}.preset-part{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:.5rem;padding:.4rem;border-top:1px solid var(--gunmetal);font-size:.76rem}.preset-part>span{color:var(--text-2)}.preset-part.placeholder{opacity:.55}.preset-card footer{display:grid;gap:.4rem;color:var(--text-2);font-size:.76rem}.preset-card footer ul{margin:.4rem 0;padding-left:1.25rem}@media(max-width:700px){.preset-toolbar{grid-template-columns:1fr}.preset-grid{grid-template-columns:1fr}.preset-card header{flex-wrap:wrap}.preset-badges{width:100%;margin-left:0;justify-content:flex-start}}
 
 .weapon-part-state{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:.55rem}.weapon-part-state .mini{min-width:64px;min-height:36px;padding:.35rem .7rem}

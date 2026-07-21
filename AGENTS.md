@@ -7,7 +7,7 @@ Read this before editing the webapp or save files. The **webapp** is the only su
 - All save edits go through the **webapp API** (`webapp/`, port 3000). Every write runs `integrity_check` + `foreign_key_check` + SHA-256 before/after hashes.
 - The game **must be closed** while the app edits the live save.
 - The app edits the **primary** `.dat` only. Two known-good variants are preserved automatically.
-- The DB key is loaded from a local resource and **never logged or exposed**.
+- The DB key is loaded from a local encrypted resource (never a plaintext file) and **never logged or exposed**. Users may set their own key via Settings; it's verified against the live save and stored AES-256-GCM-encrypted at rest.
 - Inventory writes use the **uesave** engine (GVAS v3 / UE5). Structured edits are verified byte-identically.
 - `setQuestReady` is **experimental** — the game may re-validate quest counters on load.
 
@@ -119,7 +119,7 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 | GET | `/api/status` | Game running, schema, backup hashes, mutation state, write readiness |
 | GET | `/api/diagnostics` | Full readiness: compatibility, inventory round-trip, mutation state |
 | GET | `/api/settings` | Active save dir, defaults, key source |
-| POST | `/api/settings` | Update save-dir override (dbKey rejected) |
+| POST | `/api/settings` | Update save-dir override and/or set/clear a custom DB key (verified against the live save; stored encrypted) |
 | GET | `/api/schema` | Current DB schema |
 
 ### Characters
@@ -222,7 +222,8 @@ After a major game update, treat encryption, table schema, internal tags, refere
 Live save directory:    C:\Users\Admin\AppData\Local\ForeverWinter\Saved\SaveGames
 Backup root:            C:\Users\Admin\AppData\Local\ForeverWinter\Saved\SaveBackups
 SQLite3MC shell:        C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
-Key file:               C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt
+Key source (dev):       C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt (plaintext, private, never shipped)
+Key resource (runtime): C:\Users\Admin\Documents\Forever Winter\webapp\resources\dbkey.resource.json (AES-256-GCM encrypted)
 100% reference save:    C:\Users\Admin\Documents\Forever Winter\reference\YOUR_HASHCODE_HERE.dat
 Webapp:                 C:\Users\Admin\Documents\Forever Winter\webapp\
 uesave binary:          C:\Users\Admin\Documents\Forever Winter\tools\uesave-src\target\release\uesave.exe

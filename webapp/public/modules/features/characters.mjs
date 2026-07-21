@@ -224,14 +224,14 @@ function renderCharacterDetail(c, details) {
     <span>XP: <b>${details.xp != null ? (details.xp).toLocaleString() : (c.xp != null ? c.xp.toLocaleString() : 0)}</b>${PRESTIGE_XP_CAP[lvl] != null ? ` <small>/ ${(PRESTIGE_XP_CAP[lvl]).toLocaleString()} cap</small>` : ''}</span>
   </div>`;
   html += `<div class="char-detail-actions">
-    <label>Prestige level <input type="number" id="d-level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1" style="width:64px"></label>
+    <label>Prestige level <input type="number" class="char-level-input" id="d-level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1"></label>
     <button class="btn-primary" data-action="set-detail-level" data-id="${esc(c.characterId)}">Set Prestige</button>
     <button class="btn-warn" data-action="detail-prestige" data-id="${esc(c.characterId)}" title="Sets the prestige level AND resets this character's skills to match it">Apply Prestige</button>
-    <label>XP <input type="number" id="d-xp-${esc(c.characterId)}" value="${esc(details.xp != null ? details.xp : c.xp)}" min="0" step="1" style="width:110px"></label>
+    <label>XP <input type="number" class="char-xp-input" id="d-xp-${esc(c.characterId)}" value="${esc(details.xp != null ? details.xp : c.xp)}" min="0" step="1"></label>
     <button data-action="set-detail-xp" data-id="${esc(c.characterId)}">Set XP</button>
   </div>`;
 
-  html += `<h3 style="color:var(--teal-soft);margin:1rem 0 .5rem">Skill Tracks</h3>`;
+  html += `<h3 class="char-section-heading">Skill Tracks</h3>`;
   html += `<p class="char-hint" style="margin-bottom:1rem">Click a node to enable/disable a skill tier. Higher tiers are locked until the previous tier is enabled (skills must be learned in order). Apply saves all changes.</p>`;
   html += '<div class="skill-tracks">';
   for (const g of tracks) {
@@ -250,7 +250,7 @@ function renderCharacterDetail(c, details) {
   html += '</div>';
 
   if (prestigeSkills.length) {
-    html += `<h3 style="color:var(--teal-soft);margin:1.25rem 0 .5rem">Prestige Bonuses</h3><div class="skill-tracks">`;
+    html += `<h3 class="char-section-heading spaced">Prestige Bonuses</h3><div class="skill-tracks">`;
     const pg = { base: 'Prestige', label: 'Prestige (Health / Speed)', kind: 'single', nodes: prestigeSkills.map(s => ({ name: s.name, tier: 0, state: s.state === 1, order: 0 })) };
     html += `<div class="skill-track"><div class="skill-track-title">${pg.label}</div><div class="skill-nodes">`;
     pg.nodes.forEach(n => {

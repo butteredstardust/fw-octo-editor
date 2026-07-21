@@ -26,8 +26,8 @@ test('canonical recipe snapshot covers all three implemented stations', () => {
     munitions: 23,
     upgrades: 36,
     components: 332,
-    unsupportedComponents: 22,
-    unsupportedProducts: 2
+    unsupportedComponents: 11,
+    unsupportedProducts: 1
   });
 });
 
@@ -51,6 +51,13 @@ test('known hand-transcription regressions resolve to reference-save identities'
   assert.equal(whiskey.itemId, 'Alcohol01');
 });
 
+test('components already resolvable elsewhere in the app are writable from recipes', () => {
+  const all = [...canonical.recipes.workshop, ...canonical.recipes.munitions, ...canonical.recipes.upgrades];
+  const drone = all.flatMap(recipe => recipe.components).find(component => component.name === 'Construction Drone');
+  assert.equal(drone.itemId, 'Drone_Construction');
+  assert.equal(drone.writable, true);
+});
+
 test('crafted intermediates use output batch sizes rather than multiplying full recipes', () => {
   const recipes = canonical.recipes.munitions;
   const cluster = recipes.find(recipe => recipe.product.name === 'Cluster Grenade');
@@ -70,7 +77,7 @@ test('crafted intermediates use output batch sizes rather than multiplying full 
 
 test('unsupported requirements are explicit and filtered before mutation', () => {
   assert.ok(audit.unresolved.some(row => row.name === 'Explosives' && row.status === 'unsupported'));
-  assert.ok(audit.unresolved.some(row => row.name === 'Construction Drone' && row.status === 'unsupported'));
+  assert.ok(audit.unresolved.some(row => row.name === 'Military Hard Drive' && row.status === 'unsupported'));
   const app = frontendSource();
   assert.match(app, /components\.filter\(component => component\.writable && component\.itemId\)/);
   assert.match(app, /sourceMap: component\.sourceMap/);
