@@ -3,7 +3,7 @@
 
 # Vendored third-party clone (trumank/uesave, has its own git history) — required
 # build tool, kept on disk, not tracked as part of this repo
-experiment/uesave-src/
+tools/uesave-src/
 
 # Unrelated IDE-extension state (Kilo Code)
 .kilo/

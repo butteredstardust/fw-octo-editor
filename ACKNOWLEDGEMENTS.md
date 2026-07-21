@@ -65,7 +65,7 @@ and associated scripts) is licensed under the **MIT License**. See
   (<https://github.com/unicode-org/icu>, Unicode Data License).
 
 ### uesave
-- Binary: `uesave.exe` (from `experiment/uesave-src`)
+- Binary: `uesave.exe` (from `tools/uesave-src`)
 - License: MIT
 - Copyright: Copyright (c) 2022 Truman Kilen
 - <https://github.com/trumank/uesave-rs>

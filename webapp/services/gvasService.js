@@ -26,11 +26,11 @@ const CONTAINER_DATA_TABLE = '/Game/Blueprints/Data/InventoryContainerData.Inven
 
 const SAVE_PREFIX = '0002524f464349c086ad775367f0b95a';
 
-// Built CLI from experiment/uesave-src. Override via env GVAS_UESAVE_BIN.
+// Built CLI from tools/uesave-src. Override via env GVAS_UESAVE_BIN.
 const DEFAULT_UESAVE = path.join(
   process.cwd(),
   '..',
-  'experiment',
+  'tools',
   'uesave-src',
   'target',
   'release',
@@ -53,7 +53,7 @@ function getSavePaths() {
 function runUesave(args, inputBuffer) {
   return new Promise((resolve, reject) => {
     if (!UESAVE_BIN || !fs.existsSync(UESAVE_BIN)) {
-      return reject(new Error('uesave.exe not found. Build experiment/uesave-src or set GVAS_UESAVE_BIN.'));
+      return reject(new Error('uesave.exe not found. Build tools/uesave-src or set GVAS_UESAVE_BIN.'));
     }
     const child = spawn(UESAVE_BIN, args, { stdio: ['pipe', 'pipe', 'pipe'] });
     let stdout = '';

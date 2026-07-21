@@ -75,10 +75,10 @@ Inventory **writes** are disabled unless `uesave.exe` is available. Reads fall
 back to a heuristic parser, but you'll see "uesave.exe is required for inventory
 writes" (HTTP 503) if it's absent. Expected location:
 ```
-C:\Users\Admin\Documents\Forever Winter\experiment\uesave-src\target\release\uesave.exe
+C:\Users\Admin\Documents\Forever Winter\tools\uesave-src\target\release\uesave.exe
 ```
 Fix it by:
-- Building the Rust crate in `experiment/uesave-src` (requires a Rust toolchain),
+- Building the Rust crate in `tools/uesave-src` (requires a Rust toolchain),
   **or**
 - Pointing at a prebuilt binary:
   ```powershell
