@@ -31,11 +31,11 @@ A local, loopback-only Node.js/Express web application for safely reading and ed
    ..\tools\uesave-src\target\release\uesave.exe
    ```
    Override with env `GVAS_UESAVE_BIN` if moved.
-5. **Ensure the DB key file exists** at:
+5. **Ensure the DB key resource exists.** Released builds bundle an encrypted resource (`webapp/resources/dbkey.resource.json`); for local dev, place the plaintext key at:
    ```
    C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt
    ```
-   Override with env `FW_DB_KEY_FILE`.
+   and it will be encrypted into the resource automatically on first `npm start` (or run `npm run key:build-resource` from `webapp/`). Override the plaintext source with env `FW_DB_KEY_FILE`, or the resource path with `FW_DB_KEY_RESOURCE`. You can also set your own key at any time via the in-app Settings page.
 6. **Start the server:**
    ```bash
    npm start
@@ -48,11 +48,12 @@ A local, loopback-only Node.js/Express web application for safely reading and ed
 |----------|---------|---------|
 | `FW_SQLITE_BIN` | Path to `sqlite3mc_shell_x64.exe` | `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe` |
 | `GVAS_UESAVE_BIN` | Path to `uesave.exe` | `..\tools\uesave-src\target\release\uesave.exe` |
-| `FW_DB_KEY_FILE` | Path to the plaintext key resource | `..\fwinter-db-key.txt` |
+| `FW_DB_KEY_RESOURCE` | Path to the encrypted key resource | `webapp/resources/dbkey.resource.json` |
+| `FW_DB_KEY_FILE` | Path to the plaintext key source (dev-only) | `..\fwinter-db-key.txt` |
 | `FW_BACKUP_ROOT` | Root directory for app backups | `%LOCALAPPDATA%\ForeverWinter\Saved\SaveBackups` |
 | `LOCALAPPDATA` | Used to derive default save/backup paths | OS environment variable |
 
-The app also persists a user-selected save-directory override in `webapp/config/settings.json`. **Database key overrides via the API are explicitly rejected**; the key is loaded only from the bundled resource file.
+The app also persists a user-selected save-directory override in `webapp/config/settings.json`. **The DB key is never stored in plaintext**: the bundled default ships AES-256-GCM-encrypted, and an optional user-supplied override (set via the Settings page, verified against the live save first) is likewise encrypted at rest with a per-install secret — never written as plaintext, never returned by the API.
 
 ## Available Scripts
 
@@ -99,7 +100,7 @@ The application is a single-page app (SPA) with no build step. The entry point i
 ### System
 - **Backups**: Create timestamped backups with SHA-256 manifest. Restore primary from backup (requires exact confirmation phrase, creates safety backup first). Delete backups (requires confirmation). Shows manifest validity and app version.
 - **Diagnostics**: Read-only readiness checks verifying save variants, SQLite3MC availability, uesave availability, key/schema compatibility, inventory byte-identical round-trip, game process status, and write readiness. Includes Steam Cloud warning.
-- **Settings**: Override the save directory (persisted locally). View the DB key file path (cannot be overridden via UI for security).
+- **Settings**: Override the save directory (persisted locally). Optionally set a custom DB key (verified against the live save, stored encrypted — never as plain text), or switch back to the bundled default key.
 
 ## API / Core Route Summary
 
@@ -109,7 +110,7 @@ The application is a single-page app (SPA) with no build step. The entry point i
 - `GET /api/diagnostics` — Full diagnostic card (save variants, tools, round-trip, Steam Cloud warning)
 - `GET /api/schema` — List database tables
 - `GET /api/settings` — Active/default save dir and key source
-- `POST /api/settings` — Update save dir override (dbKey rejected)
+- `POST /api/settings` — Update save dir override and/or set/clear a custom DB key (verified against the live save; stored encrypted, never as plain text)
 
 ### Characters
 - `GET /api/characters` — List characters with level and XP

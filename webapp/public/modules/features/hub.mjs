@@ -61,7 +61,7 @@ function renderHubUpgrades(unlockedTags) {
         const groupTotal = tags.length;
         const progress = groupTotal > 1 ? `<span class="hub-group-progress ${groupBuilt === groupTotal ? 'complete' : ''}">${groupBuilt} / ${groupTotal} built</span>` : '';
         html += `<div class="hub-group">
-          <button type="button" class="hub-group-title collapsible" data-action="toggle-section" data-target="${groupId}" aria-expanded="true"><span class="hub-chevron">▾</span>${group} ${progress}</button>
+          <button type="button" class="hub-group-title collapsible" data-action="toggle-section" data-target="${groupId}" aria-expanded="true"><span class="hub-chevron">▾</span>${esc(group)} ${progress}</button>
           <div class="hub-cards" id="${groupId}">`;
         for (const tag of tags) {
           const meta = HUB_UPGRADE_META[tag] || { name: tag.split('.').pop(), icon: '🔹', desc: '', group: 'Other' };
@@ -96,7 +96,7 @@ function renderHubUpgrades(unlockedTags) {
           html += `<div class="hub-card ${status} ${permanent ? 'perm' : ''}">
             <div class="hub-card-head">
             <span class="hub-icon">${appIcon(meta.icon)}</span>
-              <span class="hub-name">${meta.name}</span>
+              <span class="hub-name">${esc(meta.name)}</span>
               <span class="hub-pill ${status}">${statusLabel}</span>
             </div>
             ${water ? `<div class="hub-cost">${appIcon('water')} ${water} days water to unlock</div>` : ''}

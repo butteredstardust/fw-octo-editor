@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const config = require('../services/configService');
-const { getSchema } = require('../services/saveService');
+const { getSchema, getPrimarySavePath } = require('../services/saveService');
+const fs = require('fs');
 const { listCharacters, updateCharacterLevel, setPrestige, listCharacterDetails, setCharacterXp, setCharacterSkills } = require('../services/saveService');
 const { listHubUpgrades, setHubUpgrades } = require('../services/saveService');
 const { listWeaponXp, setWeaponXp, batchSetWeaponXp, getReferenceWeaponXp, listFactionScores, setFactionScore, listTraderUnlocks, setTraderUnlock, getDashboardData, getCurrencies, setCurrency } = require('../services/saveService');
@@ -22,10 +23,11 @@ async function runMutation(req, label, callback) {
 }
 
 // Resolve the active DB key for a request: a user-supplied override (persisted
-// in configService) takes precedence over the boot-time key loaded from the
-// PowerShell key file. The key is never logged.
+// in configService, decrypted on demand) takes precedence over the boot-time
+// bundled key. Checked per-request so a key change takes effect without a
+// restart. The key is never logged.
 function resolveKey(req) {
-  return req.app.locals.dbKey;
+  return config.getActiveKeyOverride() || req.app.locals.dbKey;
 }
 
 // Current settings: the active save directory, the default path, and whether a
@@ -37,7 +39,8 @@ router.get('/settings', async (req, res) => {
       saveDir: overrides.saveDir,
       defaultSaveDir: config.getDefaultSaveDir(),
       defaultKeyFile: config.getDefaultKeyFile(),
-      keySource: 'bundled-resource',
+      hasCustomKey: overrides.hasCustomKey,
+      keySource: overrides.hasCustomKey ? 'user-override' : 'bundled-resource',
       activeSaveDir: config.getSaveDir()
     });
   } catch (err) {
@@ -45,19 +48,39 @@ router.get('/settings', async (req, res) => {
   }
 });
 
-// Update settings. Both fields are optional and may be null to clear the
-// override. `saveDir` is validated; `dbKey` is stored only if non-empty.
-// Returns the sanitized (key value omitted) settings state.
+// Update settings. `saveDir` is validated as before. `dbKey` is optional:
+// omit it to leave any existing key override untouched, send null/'' to
+// clear it back to the bundled default, or a 32-character string to set a
+// custom key. A non-empty candidate key is verified against the live save
+// (if one exists) before being persisted, so a typo can't silently lock the
+// user out. The key value itself is never echoed back.
 router.post('/settings', async (req, res) => {
   try {
-    const { saveDir } = req.body || {};
+    const body = req.body || {};
+    const { saveDir } = body;
     const cleanDir = (typeof saveDir === 'string' && saveDir.trim()) ? saveDir.trim() : null;
-    if (Object.hasOwn(req.body || {}, 'dbKey')) return res.status(400).json({ error: 'Database key overrides are not accepted' });
-    const result = config.setOverrides({ saveDir: cleanDir });
+
+    let dbKey;
+    if (Object.hasOwn(body, 'dbKey')) {
+      dbKey = (body.dbKey === null || body.dbKey === '') ? null : body.dbKey;
+      if (dbKey !== null) {
+        if (typeof dbKey !== 'string' || dbKey.length !== 32) {
+          return res.status(400).json({ error: 'Database key must be exactly 32 characters' });
+        }
+        const dbPath = getPrimarySavePath();
+        if (fs.existsSync(dbPath)) {
+          const integrity = await runIntegrityCheck(dbPath, dbKey);
+          if (!integrity.passed) return res.status(400).json({ error: 'Key does not open the save file' });
+        }
+      }
+    }
+
+    const result = config.setOverrides({ saveDir: cleanDir, dbKey });
     res.json({
       saveDir: result.saveDir,
       defaultSaveDir: config.getDefaultSaveDir(),
-      keySource: 'bundled-resource',
+      hasCustomKey: result.hasCustomKey,
+      keySource: result.hasCustomKey ? 'user-override' : 'bundled-resource',
       activeSaveDir: config.getSaveDir()
     });
   } catch (err) {

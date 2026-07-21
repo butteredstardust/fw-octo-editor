@@ -3,7 +3,7 @@
     .hub-section { margin: 1rem 0; }
     .hub-cat { color: var(--amber); font-size: 1rem; margin: 1.25rem 0 0.5rem; border-bottom: 1px solid var(--gunmetal); padding-bottom: 0.25rem; width:100%; text-align:left; }
     .hub-cat.collapsible { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 0.45rem; margin: 0; border-bottom: none; padding: 0.45rem 0.5rem; background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 6px; }
-    .hub-cat.collapsible:hover { background: #20232A; }
+    .hub-cat.collapsible:hover { background: var(--surface-hover); }
     .hub-cat-count { font-size: 0.7rem; color: var(--green); background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 10px; padding: 0.1rem 0.5rem; margin-left: auto; }
     .hub-chevron { font-size: 0.7rem; color: var(--amber); transition: transform 0.15s; display: inline-block; }
     .collapsible.collapsed .hub-chevron { transform: rotate(-90deg); }
@@ -11,7 +11,7 @@
     .hub-group { margin-bottom: 0.75rem; }
     .hub-group-title { color: var(--text-2); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.5rem 0 0.4rem; display: flex; align-items: center; gap: 0.6rem; width:100%; text-align:left; }
     .hub-group-title.collapsible { cursor: pointer; user-select: none; padding: 0.3rem 0.4rem; background: var(--surface-2); border: 1px solid var(--gunmetal-dark); border-radius: 5px; }
-    .hub-group-title.collapsible:hover { background: #20232A; }
+    .hub-group-title.collapsible:hover { background: var(--surface-hover); }
     .hub-group-progress { font-size: 0.68rem; color: var(--text-2); text-transform: none; letter-spacing: 0; background: var(--progress-bg); border: 1px solid var(--gunmetal); border-radius: 10px; padding: 0.1rem 0.5rem; }
     .hub-group-progress.complete { color: var(--green); border-color: var(--green-border); }
     .hub-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; }
@@ -39,21 +39,19 @@
     .hub-reqs ul { margin: 0.3rem 0 0; padding-left: 1.1rem; columns: 2; column-gap: 1rem; }
     .hub-reqs li { font-size: 0.72rem; color: var(--text-2); line-height: 1.4; }
     .hub-btn { margin-top: 0.4rem; width: 100%; font-size: 0.82rem; padding: 0.4rem 0.5rem; }
-    .hub-btn.unlock-btn { background: var(--amber); }
-    .hub-btn.unlock-btn:hover:not(:disabled) { background: var(--amber-hover); }
+    .hub-btn.unlock-btn { background: var(--amber); color: var(--on-amber); }
+    .hub-btn.unlock-btn:hover:not(:disabled) { background: var(--amber-soft); }
     .hub-btn.lock-btn { background: var(--red-bg); }
     .hub-btn.lock-btn:hover:not(:disabled) { background: var(--red-bg-hover); }
     .hub-btn.perm-btn { background: var(--warn-bg); color: var(--amber-warn); cursor: default; }
     .char-hint { font-size: 0.82rem; color: var(--text-2); margin-bottom: 1rem; line-height: 1.4; }
-    .weapon-controls { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .weapon-controls label { display: inline-flex; align-items: center; gap: 0.35rem; }
-    .weapon-controls .hub-btn { width: auto; padding: 0.28rem 0.55rem; font-size: 0.75rem; margin-top: 0; }
-    .weapon-controls select { background: var(--surface-2); color: var(--text); border: 1px solid var(--gunmetal); border-radius: 5px; padding: 0.35rem 0.5rem; }
     .weapon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
     .weapon-cat { color: var(--amber); font-size: 1.05rem; margin: 1.25rem 0 0.6rem; border-bottom: 1px solid var(--gunmetal); padding-bottom: 0.25rem; grid-column: 1 / -1; }
     .weapon-card { padding: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; }
     .weapon-card.done { border-color: var(--green-border); box-shadow: 0 0 0 1px rgba(95,211,138,0.25); }
     .weapon-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .weapon-name-wrap { display: flex; align-items: center; gap: 0.45rem; min-width: 0; }
+    .weapon-icon { display:grid; place-items:center; width:1.85rem; height:1.85rem; flex:0 0 1.85rem; padding:.28rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); }
     .weapon-name { font-weight: 700; color: var(--text); font-size: 1rem; }
     .weapon-scope { font-size: 0.7rem; color: var(--text-2); word-break: break-all; }
     .weapon-cat-badge { font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 10px; background: var(--teal-bg); color: var(--teal-soft); white-space: nowrap; }

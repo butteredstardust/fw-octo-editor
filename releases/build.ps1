@@ -40,8 +40,11 @@ New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
 Copy-Item -LiteralPath $sqliteBin -Destination (Join-Path $toolsDir 'sqlite3mc_shell_x64.exe') -Force
 Copy-Item -LiteralPath $uesaveBin -Destination (Join-Path $toolsDir 'uesave.exe') -Force
 
-# --- 5. Bundle DB key resource (loaded only from local resource) ---
-Copy-Item -LiteralPath $keyFile -Destination (Join-Path $appDest 'fwinter-db-key.txt') -Force
+# --- 5. Bundle DB key resource (encrypted at rest; the plaintext key file
+#        never leaves this build machine / is never staged into the release) ---
+$keyResourceDest = Join-Path $appDest 'resources\dbkey.resource.json'
+& $nodeExe (Join-Path $webapp 'scripts\build-key-resource.js') $keyFile $keyResourceDest
+if ($LASTEXITCODE -ne 0) { throw "Failed to build encrypted key resource" }
 
 # --- 5b. Bundle the released app icon for the Start Menu / desktop shortcuts ---
 $iconSrc = Join-Path $root 'icons\app_icon.ico'

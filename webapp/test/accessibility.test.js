@@ -58,6 +58,15 @@ test('application dialogs replace blocking browser alert and confirm calls', () 
   assert.match(frontendJs, /function showNotice\(/);
 });
 
+test('interpolated hub and inventory category/name text is escaped', () => {
+  // Regression guard: these were previously interpolated raw while sibling
+  // fields on the same rendered card were already escaped.
+  assert.match(frontendJs, /<span class="hub-name">\$\{esc\(meta\.name\)\}<\/span>/);
+  assert.match(frontendJs, /<span class="hub-chevron">▾<\/span>\$\{esc\(group\)\}/);
+  assert.match(frontendJs, /<span class="inv-cat-title">\$\{esc\(cat\)\}<\/span>/);
+  assert.match(frontendJs, /<span class="add-cat-title">\$\{esc\(cat\)\}<\/span>/);
+});
+
 test('frontend rejects duplicate mutation requests', () => {
   assert.match(apiClientJs, /mutationActive/);
   assert.match(apiClientJs, /Please wait for the current save operation to finish/);
@@ -129,13 +138,12 @@ test('user-facing overview copy omits database implementation notes', () => {
   assert.match(html, /Every change is backed up and verified/);
 });
 
-test('overview is resources-first and leaves technical save data to diagnostics', () => {
+test('overview leads with an at-a-glance character/quest pair and leaves technical save data to diagnostics', () => {
   const overview = html.match(/id="page-dashboard">([\s\S]*?)<div class="page" id="page-characters">/)[1];
-  assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashCharacter"'));
   assert.ok(overview.indexOf('id="dashCharacter"') < overview.indexOf('id="dashQuests"'));
-  assert.ok(overview.indexOf('id="dashQuests"') < overview.indexOf('id="dashInventory"'));
+  assert.ok(overview.indexOf('id="dashQuests"') < overview.indexOf('id="dashResources"'));
+  assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashInventory"'));
   assert.doesNotMatch(overview, /Save Readiness|Save Verification|schemaList|id="hashes"/);
-  assert.match(overview, /Steam Cloud:/);
 });
 
 test('overview mutations and disclosures preserve surrounding dashboard state', () => {
@@ -151,23 +159,46 @@ test('overview does not present the internal GRL00 throw mechanism as an equippe
   assert.doesNotMatch(frontendJs, /Selection is not stored in PlayerLoadout/);
 });
 
+test('overview resource cards include all six reference-save-confirmed Codex variants', () => {
+  // Only variants actually present in items.canonical.json (confirmed via a
+  // 100% reference save) are listed -- Toothy/OrgaMech/Kotleta are named on
+  // the wiki but not yet confirmed, so they're intentionally absent here.
+  const codexIds = ['Codex.RatKing', 'Codex.MediumMech', 'Codex.Grabber', 'CodexShieldOfficer', 'Codex.MotherCourage', 'Codex.Opal'];
+  const items = require('../data/items.canonical.json').items;
+  for (const id of codexIds) {
+    assert.ok(items[id], `expected ${id} to exist in items.canonical.json`);
+    assert.match(frontendJs, new RegExp(`id:\\s*'${id.replace('.', '\\.')}'.*kind:\\s*'inventory'`));
+  }
+});
+
 test('overview rig build hides its internal row behind the shared technical disclosure', () => {
   assert.match(frontendJs, /technicalDetails\(loadout\.rigRow, 'Show rig technical ID'\)/);
   assert.doesNotMatch(frontendJs, /<span class="dash-wtag">\$\{loadout\.rigRow\}<\/span>/);
 });
 
-test('remaining pages use consistent width tiers and crafting split layouts', () => {
-  assert.match(frontendCss, /#page-inventory, #page-add-items, #page-rigs, #page-hub-upgrades, #page-weapon-xp \{ max-width:var\(--content-wide\)/);
-  assert.match(frontendCss, /#page-characters[\s\S]*#page-backups \{ max-width:var\(--content-medium\)/);
-  assert.match(frontendCss, /#page-settings, #page-diagnostics \{ max-width:var\(--content-narrow\)/);
-  assert.equal((html.match(/class="planner-split"/g) || []).length, 1);
-  assert.equal((html.match(/class="planner-result-pane"/g) || []).length, 1);
+test('remaining pages share one consistent full-width tier', () => {
+  assert.match(frontendCss, /#page-inventory, #page-add-items, #page-rigs, #page-hub-upgrades, #page-weapon-xp, #page-characters, #page-character, #page-vendors, #page-repair, #page-crafting, #page-backups, #page-weapon-builds, #page-presets \{ max-width:var\(--content-wide\)/);
+  assert.match(frontendCss, /#page-settings, #page-diagnostics \{ max-width:var\(--content-wide\)/);
+});
+
+// Crafting was rewritten from a single dropdown-driven detail view to a
+// searchable/filterable card-per-recipe grid (matching the Rigs/Inventory/
+// Weapon XP pattern) so every recipe, and which ones are already craftable,
+// is scannable at a glance instead of hidden behind a product picker.
+test('crafting recipes render as a searchable, filterable card grid with per-card actions', () => {
+  assert.match(html, /id="craftingSearch"/);
+  assert.match(html, /id="craftingStateFilter"/);
+  assert.match(html, /id="craftingGrid" class="recipe-grid"/);
+  assert.doesNotMatch(html, /id="craftingProduct"/);
+  assert.match(frontendJs, /class="recipe-card \$\{ready \? 'is-ready' : ''\}"/);
+  assert.match(frontendJs, /data-action="craft-add-missing"/);
+  assert.match(frontendJs, /data-action="craft-add-all"/);
 });
 
 test('dense app-wide controls retain mobile and reduced-motion fallbacks', () => {
   assert.match(frontendCss, /input, select, button \{ min-height:var\(--control-h\)/);
   assert.match(frontendCss, /@media \(max-width:800px\)/);
-  assert.match(frontendCss, /\.planner-control-pane \{ position:static/);
+  assert.match(frontendCss, /\.recipe-filter-bar \{ position:static/);
 });
 
 test('inventory and add-item cards expose local iconography and visible taxonomy', () => {
@@ -232,10 +263,10 @@ test('rig page exposes ownership filters, accessible cards, and explicit verifie
   assert.match(frontendJs, /sessionStorage\.setItem\(RIG_FILTER_KEY/);
 });
 
-test('overview surfaces read-only faction trust near the top with a vendor shortcut', () => {
+test('overview surfaces read-only faction trust with a vendor shortcut', () => {
   const overview = html.match(/id="page-dashboard">([\s\S]*?)<div class="page" id="page-characters">/)[1];
   assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashFactionTrust"'));
-  assert.ok(overview.indexOf('id="dashFactionTrust"') < overview.indexOf('id="dashCharacter"'));
+  assert.ok(overview.indexOf('id="dashFactionTrust"') < overview.indexOf('id="dashInventory"'));
   assert.match(overview, /data-page-target="vendors"/);
   assert.match(frontendJs, /function renderDashFactionTrust\(factions\)/);
   assert.match(frontendJs, /api\('\/vendors'\)\.catch/);

@@ -1,27 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T22:42:52.554Z",
+  "generatedAt": "2026-07-21T19:27:09.678Z",
   "counts": {
     "workshop": 37,
     "munitions": 23,
     "upgrades": 36,
     "components": 332,
-    "unsupportedComponents": 22,
-    "unsupportedProducts": 2
+    "unsupportedComponents": 11,
+    "unsupportedProducts": 1
   },
   "unresolved": [
-    {
-      "recipeId": "Construction Drone1",
-      "role": "product",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 1
-    },
     {
       "recipeId": "Gunpowder1",
       "role": "component",
@@ -38,12 +26,12 @@
       "recipeId": "IED1",
       "role": "product",
       "name": "IED",
-      "itemId": null,
+      "itemId": "IEDxplosive",
       "inventoryMap": null,
       "sourceMap": null,
       "status": "unsupported",
       "writable": false,
-      "resolution": "unresolved",
+      "resolution": "override",
       "quantity": 1
     },
     {
@@ -95,90 +83,6 @@
       "quantity": 1
     },
     {
-      "recipeId": "+28 days1",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 3
-    },
-    {
-      "recipeId": "Bar V21",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 1
-    },
-    {
-      "recipeId": "Bar V31",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 3
-    },
-    {
-      "recipeId": "Cognition Cradle Containment Chamber1",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 5
-    },
-    {
-      "recipeId": "Cognition Cradle Frame1",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 4
-    },
-    {
-      "recipeId": "Garage1",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 3
-    },
-    {
-      "recipeId": "Personal Quarters Upgrade v21",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 1
-    },
-    {
       "recipeId": "Personal Quarters Upgrade v31",
       "role": "component",
       "name": "Toothy Codex",
@@ -201,30 +105,6 @@
       "writable": false,
       "resolution": "override",
       "quantity": 8
-    },
-    {
-      "recipeId": "Shooting Range Upgrade v21",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 1
-    },
-    {
-      "recipeId": "Shooting Range Upgrade v31",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 3
     },
     {
       "recipeId": "Shooting Range Upgrade v31",
@@ -261,30 +141,6 @@
       "writable": false,
       "resolution": "override",
       "quantity": 1
-    },
-    {
-      "recipeId": "The Cognition Cradle1",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 3
-    },
-    {
-      "recipeId": "Transmission Tower1",
-      "role": "component",
-      "name": "Construction Drone",
-      "itemId": "Drone_Construction",
-      "inventoryMap": null,
-      "sourceMap": null,
-      "status": "unsupported",
-      "writable": false,
-      "resolution": "override",
-      "quantity": 3
     },
     {
       "recipeId": "Water Bots V31",

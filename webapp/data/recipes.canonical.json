@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T22:42:52.554Z",
+  "generatedAt": "2026-07-21T19:27:09.678Z",
   "source": {
     "url": "https://theforeverwinter.wiki.gg/api.php",
     "fetchedAt": "2026-07-18T22:34:09.360Z",
@@ -375,10 +375,10 @@
         "product": {
           "name": "Construction Drone",
           "itemId": "Drone_Construction",
-          "inventoryMap": null,
-          "sourceMap": null,
-          "status": "unsupported",
-          "writable": false,
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reviewed",
+          "writable": true,
           "resolution": "override",
           "quantity": 1
         },
@@ -1104,12 +1104,12 @@
         "sourcePage": "IED",
         "product": {
           "name": "IED",
-          "itemId": null,
+          "itemId": "IEDxplosive",
           "inventoryMap": null,
           "sourceMap": null,
           "status": "unsupported",
           "writable": false,
-          "resolution": "unresolved",
+          "resolution": "override",
           "quantity": 1
         },
         "duration": {
@@ -3277,10 +3277,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 3
           },
@@ -3443,10 +3443,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -3511,10 +3511,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 3
           },
@@ -3569,10 +3569,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 5
           },
@@ -3657,10 +3657,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 4
           },
@@ -3803,10 +3803,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 3
           },
@@ -4454,10 +4454,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -4864,10 +4864,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -4922,10 +4922,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 3
           },
@@ -5322,10 +5322,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 3
           },
@@ -5390,10 +5390,10 @@
           {
             "name": "Construction Drone",
             "itemId": "Drone_Construction",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 3
           },

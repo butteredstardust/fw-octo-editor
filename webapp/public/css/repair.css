@@ -3,19 +3,11 @@
     .repair-metric span { display:block; color:var(--text-2); font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; }
     .repair-metric strong { display:block; margin-top:.2rem; color:var(--text); font-size:1.25rem; }
     .repair-metric strong small { color:var(--text-2); font-size:.72rem; font-weight:500; }
-    .repair-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr); gap:.8rem; align-items:start; }
-    .repair-side-stack { display:grid; gap:.8rem; }
+    .repair-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; align-items:start; }
     .repair-panel { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 8px; padding: 1rem; }
     .repair-job-panel { min-height:100%; display:flex; flex-direction:column; }
     .repair-job-panel .repair-timer { margin:.8rem 0; font-size:clamp(2.25rem,5vw,4rem); letter-spacing:.04em; }
     .repair-job-panel .repair-actions { margin-top:auto; }
-    .repair-iff-panel { overflow:visible; }
-    .repair-iff-panel .char-hint { margin-bottom:.45rem; }
-    .repair-iff-panel .repair-req-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:.5rem; padding:.28rem 0; font-size:.78rem; }
-    .repair-iff-panel .repair-req-name { min-width:0; line-height:1.25; }
-    .repair-iff-panel .repair-req-name > span { display:none; }
-    .repair-iff-panel .repair-req-qty { text-align:right; white-space:nowrap; }
-    .repair-iff-panel .repair-req-qty > span { display:block; font-size:.62rem; line-height:1.2; }
     .repair-panel h3 { color: var(--amber); font-size: 0.95rem; margin-bottom: 0.6rem; }
     .repair-status-line { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.95rem; margin-bottom: 0.4rem; }
     .repair-status-label { color: var(--text-2); min-width: 130px; }
@@ -29,11 +21,16 @@
     .repair-badge.idle { background: var(--gunmetal-dark); color: var(--text-2); }
     .repair-badge.ok { background: var(--green-bg); color: var(--green); }
     .repair-badge.missing { background: var(--red-bg); color: var(--red); }
-    .repair-req-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px solid var(--gunmetal-dark); font-size: 0.85rem; }
-    .repair-req-name { color: var(--text); }
-    .repair-req-qty { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
-    .repair-req-qty.zero { color: var(--red); }
     .repair-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .iff-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:.6rem; margin-top:.5rem; }
+    .iff-card { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 7px; padding: .6rem .7rem; }
+    .iff-card.zero { border-color: var(--red-soft-border); }
+    .iff-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+    .iff-card-name { font-weight: 700; color: var(--text); font-size: .84rem; }
+    .iff-card-qty { font-weight: 700; font-size: 1.1rem; color: var(--text); font-variant-numeric: tabular-nums; }
+    .iff-card-qty.zero { color: var(--red); }
+    .iff-card-meta { color: var(--text-2); font-size: .7rem; margin-top: .15rem; }
+    .iff-card-used { color: var(--text-2); font-size: .68rem; margin-top: .3rem; }
     .repair-cards-wrap { margin-top: 1.5rem; }
     .repair-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.65rem; margin-top:.5rem; }
     .repair-cards-wrap h3 { display: flex; align-items: center; gap: 0.6rem; }
@@ -41,7 +38,7 @@
     .repair-card { padding: 0.7rem 0.8rem; }
     .repair-card.ok { border-color: var(--green-border); background: var(--green-deep-bg); }
     .repair-card.no { border-color: var(--red-soft-border); }
-    .repair-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+    .repair-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem; }
     .repair-card-name { font-weight: 700; color: var(--text); font-size: 0.95rem; }
     .repair-card-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
     .repair-card-dot.ok { background: var(--green); }
@@ -56,8 +53,8 @@
     .repair-list-head { display:flex; align-items:start; justify-content:space-between; gap:1rem; border-bottom:1px solid var(--gunmetal-dark); padding-bottom:.55rem; }
     .repair-list-head .char-hint { margin:.25rem 0 0; }
     .repair-ready-total { flex:none; padding:.25rem .6rem; border:1px solid var(--green-border); border-radius:999px; background:var(--green-bg); color:var(--green); font-size:.72rem; }
-    @media (max-width:850px) { .repair-grid { grid-template-columns:1fr; } .repair-side-stack { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:600px) { .repair-summary, .repair-side-stack { grid-template-columns:1fr; } .repair-list-head { align-items:flex-start; flex-direction:column; } }
+    @media (max-width:850px) { .repair-grid { grid-template-columns:1fr; } .repair-job-panel { min-height:0; } }
+    @media (max-width:600px) { .repair-summary { grid-template-columns:1fr; } .repair-list-head { align-items:flex-start; flex-direction:column; } }
     .add-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.6rem; }
     .add-item { background: var(--surface-2); border:1px solid var(--gunmetal); border-radius:8px; padding:.7rem .8rem; display:grid; grid-template-columns:auto minmax(0,1fr); align-items:start; gap:.65rem; }
     .add-item.owned { border-color: var(--gunmetal); background: var(--surface-owned); }
@@ -71,7 +68,7 @@
     .add-actions input[type=number] { width: 72px; background: var(--surface-2); color: var(--text); border: 1px solid var(--gunmetal); border-radius: 5px; padding: 0.3rem 0.4rem; }
     .add-section { margin: 0.5rem 0; }
     .add-cat-head { display:flex; align-items:center; gap:.5rem; cursor:pointer; color:var(--amber); font-size:1.05rem; font-weight:700; padding:.5rem .6rem; background:var(--surface-2); border:1px solid var(--gunmetal); border-radius:7px; user-select:none; width:100%; text-align:left; }
-    .add-cat-head:hover { background:#20232A; }
+    .add-cat-head:hover { background:var(--surface-hover); }
     .add-cat-head.open { border-bottom-left-radius:0; border-bottom-right-radius:0; }
     .add-caret { width:1rem; text-align:center; color:var(--amber); }
     .add-cat-title { flex:1; }
@@ -88,3 +85,6 @@
     .settings-status code { color: var(--teal-soft); }
     .settings-status .active-dir { color: var(--amber-soft); }
     #page-settings h3 { color: var(--amber); margin: 0 0 0.4rem; font-size: 1rem; }
+    #page-settings h3.settings-section-heading { margin-top: 1.25rem; }
+    .settings-key-input-wrap { display: flex; gap: 0.4rem; align-items: center; }
+    .settings-key-input-wrap input { flex: 1; min-width: 0; }

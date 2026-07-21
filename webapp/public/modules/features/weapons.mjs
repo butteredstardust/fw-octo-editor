@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml } = FW;
+const { api, esc, appIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml } = FW;
 
 const WEAPON_META = {
   'PST01': { name: 'USP', cat: 'Pistols' },
@@ -123,10 +123,18 @@ async function loadWeaponXp() {
 function renderWeaponXp() {
   const el = document.getElementById('weaponXpList');
   const filter = document.getElementById('weaponFilter').value;
-  const rows = _weaponXp
+  const q = document.getElementById('weaponXpSearch').value.trim();
+  let rows = _weaponXp
     .map(w => ({ ...w, meta: weaponLabel(w.weapon) }))
-    .filter(w => !filter || w.meta.cat === filter)
-    .sort((a, b) => a.meta.cat.localeCompare(b.meta.cat) || a.meta.name.localeCompare(b.meta.name));
+    .filter(w => !filter || w.meta.cat === filter);
+  // Ranked search order matters (best match first) when there's a query;
+  // otherwise fall back to a stable alphabetical order.
+  rows = q ? filterAndRank(rows, q, w => [w.meta.name, w.weapon, w.meta.cat]) : rows.slice().sort((a, b) => a.meta.name.localeCompare(b.meta.name));
+
+  const parts = [];
+  if (filter) parts.push(filter);
+  if (q) parts.push('“' + q + '”');
+  document.getElementById('weaponXpFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
   if (!rows.length) {
     el.innerHTML = '<div class="empty-state"><strong>No weapons found</strong><br>Try a different filter.</div>';
@@ -137,7 +145,8 @@ function renderWeaponXp() {
   for (const w of rows) (groups[w.meta.cat] = groups[w.meta.cat] || []).push(w);
 
   let html = '<div class="weapon-grid">';
-  for (const [cat, list] of Object.entries(groups)) {
+  for (const cat of Object.keys(groups).sort()) {
+    const list = groups[cat];
     html += `<div class="weapon-cat">${esc(cat)}</div>`;
     for (const w of list) {
       const currentXp = Number(w.xp) || 0;
@@ -148,7 +157,7 @@ function renderWeaponXp() {
       const delta = target - currentXp;
       html += `<div class="weapon-card ${atRef ? 'done' : ''}">
         <div class="weapon-card-head">
-          <span class="weapon-name">${esc(w.meta.name)}</span>
+          <span class="weapon-name-wrap"><span class="weapon-icon">${appIcon('weapon')}</span><span class="weapon-name">${esc(w.meta.name)}</span></span>
           <span class="weapon-cat-badge">${esc(w.meta.cat)}</span>
         </div>
         <div class="weapon-scope">${technicalDetails(w.weapon, 'Show weapon scope ID')}</div>

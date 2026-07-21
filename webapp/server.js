@@ -47,9 +47,11 @@ app.use(pagesRoutes);
     // Bind to loopback only: this editor can overwrite the live game save,
     // so it must never be reachable from the network.
     app.listen(PORT, '127.0.0.1', () => {
+      // eslint-disable-next-line no-console -- boot confirmation; no logger in this app
       console.log(`Server running on http://127.0.0.1:${PORT} (loopback only)`);
     });
   } catch (err) {
+    // eslint-disable-next-line no-console -- fatal boot error, printed right before exit
     console.error('Failed to initialize:', err.message);
     process.exit(1);
   }

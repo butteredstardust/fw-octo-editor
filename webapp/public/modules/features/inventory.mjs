@@ -176,7 +176,7 @@ function renderInventory() {
   }
 
   const totalUnits = rows.reduce((n, r) => n + (r.quantity || 0), 0);
-  let html = `<div style="color:var(--text-2);font-size:0.82rem;margin:0 0 0.5rem">${rows.length} item type(s) · ${totalUnits.toLocaleString()} total unit(s) shown · ` +
+  let html = `<div class="inv-summary-line">${rows.length} item type(s) · ${totalUnits.toLocaleString()} total unit(s) shown · ` +
     `<button type="button" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="true">expand all</button> · ` +
     `<button type="button" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="false">collapse all</button></div>`;
   for (const cat of catsShown) {
@@ -186,7 +186,7 @@ function renderInventory() {
     html += `<div class="inv-section">
       <button type="button" class="inv-cat-head ${open ? 'open' : ''}" data-action="toggle-inventory-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
         <span class="inv-caret">${open ? '▾' : '▸'}</span>
-        <span class="inv-cat-title">${cat}</span>
+        <span class="inv-cat-title">${esc(cat)}</span>
         <span class="inv-cat-count">${list.length} types · ${catUnits.toLocaleString()} units</span>
       </button>`;
     if (open) {
@@ -354,7 +354,7 @@ function renderAddCatalog() {
     _addExpanded = new Set(catsShown.length ? [catsShown[0]] : []);
   }
 
-  let html = `<div style="color:var(--text-2);font-size:0.82rem;margin:0 0 0.5rem">${rows.length} item(s) available to add · ` +
+  let html = `<div class="inv-summary-line">${rows.length} item(s) available to add · ` +
     `<button type="button" class="inv-toggle-all" data-action="toggle-all-add-items" data-open="true">expand all</button> · ` +
     `<button type="button" class="inv-toggle-all" data-action="toggle-all-add-items" data-open="false">collapse all</button></div>`;
   for (const cat of catsShown) {
@@ -363,7 +363,7 @@ function renderAddCatalog() {
     html += `<div class="add-section">
       <button type="button" class="add-cat-head ${open ? 'open' : ''}" data-action="toggle-add-items-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
         <span class="add-caret">${open ? '▾' : '▸'}</span>
-        <span class="add-cat-title">${cat}</span>
+        <span class="add-cat-title">${esc(cat)}</span>
         <span class="add-cat-count">${list.length} items</span>
       </button>`;
     if (open) {

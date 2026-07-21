@@ -73,11 +73,19 @@ test('acknowledgements dialog opens with the gif and returns focus to the info b
   expect(pageErrors).toEqual([]);
 });
 
-// D2: the application title actually renders in the Black Ops One typeface
-// (regression guard for the "old font" caching bug).
+// D2: the application title actually renders in the Black Ops One typeface.
+// Checking computed font-family alone only proves the CSS *declares* the
+// font -- it stays 'Black Ops One' in the stack even if the browser silently
+// fails to fetch it (which is exactly what happened when CSP's style-src
+// blocked the old fonts.googleapis.com stylesheet, and this same assertion
+// kept passing throughout). Assert the font actually finished loading via
+// the FontFaceSet API instead.
 test('application title uses the Black Ops One font family', async ({ page }) => {
   await mockApi(page);
   await page.goto(baseURL);
   const fontFamily = await page.locator('.header h1').evaluate(el => getComputedStyle(el).fontFamily);
   expect(fontFamily.toLowerCase()).toContain('black ops one');
+  await page.evaluate(() => document.fonts.ready);
+  const loaded = await page.evaluate(() => document.fonts.check("16px 'Black Ops One'"));
+  expect(loaded).toBe(true);
 });
