@@ -1,0 +1,5924 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T22:42:52.554Z",
+  "source": {
+    "url": "https://theforeverwinter.wiki.gg/api.php",
+    "fetchedAt": "2026-07-18T22:34:09.360Z",
+    "attribution": "The Forever Winter Wiki contributors, CC BY-SA",
+    "pages": [
+      {
+        "title": "Innards",
+        "pageId": 238,
+        "revisionId": 32156,
+        "revisionTimestamp": "2026-07-08T06:40:13Z"
+      },
+      {
+        "title": "Munitions Printer",
+        "pageId": 3437,
+        "revisionId": 24796,
+        "revisionTimestamp": "2026-02-20T11:01:43Z"
+      },
+      {
+        "title": "Workshop",
+        "pageId": 3438,
+        "revisionId": 24798,
+        "revisionTimestamp": "2026-02-20T11:05:53Z"
+      }
+    ]
+  },
+  "recipes": {
+    "workshop": [
+      {
+        "id": "20mm Turret1",
+        "station": "workshop",
+        "sourcePage": "20mm Turret",
+        "product": {
+          "name": "20mm Turret",
+          "itemId": "RIG_EQUIPMENT_20mmTurret",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Camera Lens",
+            "itemId": "RareLoot_99_CameraLens",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Electric Motor",
+            "itemId": "RareLoot_31_ElectricMotor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Power Cell",
+            "itemId": "RareLoot_133_PowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Turret Component",
+            "itemId": "Turret_Debris_Loot",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Adrenaline Stim1",
+        "station": "workshop",
+        "sourcePage": "Adrenaline Stim",
+        "product": {
+          "name": "Adrenaline Stim",
+          "itemId": "Stim",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Energy Bar",
+            "itemId": "JunkFood04",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Syringe",
+            "itemId": "RareLoot_81_Syringe",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Advanced First Aid Kit1",
+        "station": "workshop",
+        "sourcePage": "Advanced First Aid Kit",
+        "product": {
+          "name": "Advanced First Aid Kit",
+          "itemId": "FirstAid_Large",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Blood Packs",
+            "itemId": "RareLoot_83_BloodPacs",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Medical Tools",
+            "itemId": "RareLoot_84_MedicalTools",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Advanced Navigation Device1",
+        "station": "workshop",
+        "sourcePage": "Advanced Navigation Device",
+        "product": {
+          "name": "Advanced Navigation Device",
+          "itemId": "RareLoot_20_MilitaryComputer",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 10,
+          "unit": "minutes",
+          "seconds": 600,
+          "label": "10 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Computer Fan",
+            "itemId": "RareLoot_17_ComputerFan",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Modem",
+            "itemId": "RareLoot_13_SSD",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Organoid Memory Board",
+            "itemId": "RareLoot_16_GPC",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "AT-43 MASS1",
+        "station": "workshop",
+        "sourcePage": "AT-43 MASS",
+        "product": {
+          "name": "AT-43 MASS",
+          "itemId": "HRF05",
+          "inventoryMap": "Weapons",
+          "sourceMap": "Base Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 60,
+          "unit": "minutes",
+          "seconds": 3600,
+          "label": "60 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Armorer's Wrench",
+            "itemId": "HRF05_Manufacture_MaintenanceTool",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "AT-43 Breech Assembly",
+            "itemId": "HRF05_Manufacture_BreechAssembly",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "AT-43 Feed Mechanism",
+            "itemId": "HRF05_Manufacture_FeedMechanism",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "AT-43 Muzzle Break",
+            "itemId": "HRF05_Manufacture_MuzzleAssembly",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "AT-43 Spring System",
+            "itemId": "HRF05_Manufacture_SpringSystem",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "AT-43 Trigger Assembly",
+            "itemId": "HRF05_Manufacture_TriggerAssembly",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Crucible",
+            "itemId": "HRF05_Manufacture_Crucible",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Grindstone",
+            "itemId": "HRF05_Manufacture_GrindStone",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Military Grade Lubricant",
+            "itemId": "RareLoot_72_WeaponLubricant",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Weapon Parts",
+            "itemId": "RareLoot_117_WeaponParts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Construction Drone1",
+        "station": "workshop",
+        "sourcePage": "Construction Drone",
+        "product": {
+          "name": "Construction Drone",
+          "itemId": "Drone_Construction",
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "override",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 30,
+          "unit": "minutes",
+          "seconds": 1800,
+          "label": "30 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "CPU",
+            "itemId": "RareLoot_9_CPU",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Electric Motor",
+            "itemId": "RareLoot_31_ElectricMotor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Military Power Cell",
+            "itemId": "RareLoot_132_MCCMilitaryComputerPowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Precision Tool Set",
+            "itemId": "Tools10",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "CPU1",
+        "station": "workshop",
+        "sourcePage": "CPU",
+        "product": {
+          "name": "CPU",
+          "itemId": "RareLoot_9_CPU",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 10,
+          "unit": "minutes",
+          "seconds": 600,
+          "label": "10 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Modem",
+            "itemId": "RareLoot_13_SSD",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Screwdriver",
+            "itemId": "RareLoot_36_ScrewDriver",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Electric Motor1",
+        "station": "workshop",
+        "sourcePage": "Electric Motor",
+        "product": {
+          "name": "Electric Motor",
+          "itemId": "RareLoot_31_ElectricMotor",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 10,
+          "unit": "minutes",
+          "seconds": 600,
+          "label": "10 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Bolts",
+            "itemId": "RareLoot_33_Bolts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Machine Parts",
+            "itemId": "RareLoot_74_MachineParts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Nuts",
+            "itemId": "RareLoot_34_Nuts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Relay",
+            "itemId": "RareLoot_30_Relay",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Eurasian IFF Chip LVL21",
+        "station": "workshop",
+        "sourcePage": "Eurasian IFF Chip LVL2",
+        "product": {
+          "name": "Eurasian IFF Chip LVL2",
+          "itemId": "IFF_Eurasia_02",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "minutes",
+          "seconds": 300,
+          "label": "5 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Eurasian IFF Chip LVL1",
+            "itemId": "IFF_Eurasia_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ]
+      },
+      {
+        "id": "Eurasian IFF Chip LVL31",
+        "station": "workshop",
+        "sourcePage": "Eurasian IFF Chip LVL3",
+        "product": {
+          "name": "Eurasian IFF Chip LVL3",
+          "itemId": "IFF_Eurasia_03",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Eurasian IFF Chip LVL2",
+            "itemId": "IFF_Eurasia_02",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "Europan IFF Chip LVL21",
+        "station": "workshop",
+        "sourcePage": "Europan IFF Chip LVL2",
+        "product": {
+          "name": "Europan IFF Chip LVL2",
+          "itemId": "IFF_Europa_02",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "minutes",
+          "seconds": 300,
+          "label": "5 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Europan IFF Chip LVL1",
+            "itemId": "IFF_Europa_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ]
+      },
+      {
+        "id": "Europan IFF Chip LVL31",
+        "station": "workshop",
+        "sourcePage": "Europan IFF Chip LVL3",
+        "product": {
+          "name": "Europan IFF Chip LVL3",
+          "itemId": "IFF_Europa_03",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Europan IFF Chip LVL2",
+            "itemId": "IFF_Europa_02",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "Euruskan IFF Chip LVL21",
+        "station": "workshop",
+        "sourcePage": "Euruskan IFF Chip LVL2",
+        "product": {
+          "name": "Euruskan IFF Chip LVL2",
+          "itemId": "IFF_Euruskan_02",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "minutes",
+          "seconds": 300,
+          "label": "5 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Euruskan IFF Chip LVL1",
+            "itemId": "IFF_Euruskan_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ]
+      },
+      {
+        "id": "Euruskan IFF Chip LVL31",
+        "station": "workshop",
+        "sourcePage": "Euruskan IFF Chip LVL3",
+        "product": {
+          "name": "Euruskan IFF Chip LVL3",
+          "itemId": "IFF_Euruskan_03",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Euruskan IFF Chip LVL2",
+            "itemId": "IFF_Euruskan_02",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "Exo Stamina Equipment1",
+        "station": "workshop",
+        "sourcePage": "Exo Stamina Equipment",
+        "product": {
+          "name": "Exo Stamina Equipment",
+          "itemId": "RIG_EQUIPMENT_ExoLegs",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 30,
+          "unit": "minutes",
+          "seconds": 1800,
+          "label": "30 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Advanced Joint",
+            "itemId": "Quest_AdvancedJoint",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Exo Component",
+            "itemId": "ExoDebrisLoot",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Heavy-Duty Battery",
+            "itemId": "Tools11",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Military Cables",
+            "itemId": "RareLoot_28_MilitaryCables",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Fast Travel Drone1",
+        "station": "workshop",
+        "sourcePage": "Fast Travel Drone",
+        "product": {
+          "name": "Fast Travel Drone",
+          "itemId": "Drone_FastTravel",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Electric Motor",
+            "itemId": "RareLoot_31_ElectricMotor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "LCD",
+            "itemId": "RareLoot_24_LCD",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Power Cell",
+            "itemId": "RareLoot_133_PowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Sheet Metal",
+            "itemId": "RareLoot_128_sheetmetal",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Fertilizer1",
+        "station": "workshop",
+        "sourcePage": "Fertilizer",
+        "product": {
+          "name": "Fertilizer",
+          "itemId": "Poo01",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 3
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Food Tin",
+            "itemId": "FoodTin",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Urea",
+            "itemId": "RareLoot_112_Alkaline",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Food Tin1",
+        "station": "workshop",
+        "sourcePage": "Food Tin",
+        "product": {
+          "name": "Food Tin",
+          "itemId": "FoodTin",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 8
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Smuggled Organs",
+            "itemId": "Plans08",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Gunpowder1",
+        "station": "workshop",
+        "sourcePage": "Gunpowder",
+        "product": {
+          "name": "Gunpowder",
+          "itemId": "GunPoweder",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 3
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Basic Pliers",
+            "itemId": "RareLoot_44_BasicPliers",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Explosives",
+            "itemId": "BP_Loot_Explosives_C",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Heavy-Duty Trauma Kit1",
+        "station": "workshop",
+        "sourcePage": "Heavy-Duty Trauma Kit",
+        "product": {
+          "name": "Heavy-Duty Trauma Kit",
+          "itemId": "RareLoot_85_AdvancedMedicalTools",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 10,
+          "unit": "minutes",
+          "seconds": 600,
+          "label": "10 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Assorted Medicine",
+            "itemId": "RareLoot_88_MiscMedication",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Bandages",
+            "itemId": "RareLoot_89_Bandages",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Medical Alcohol",
+            "itemId": "RareLoot_80_MedicalAlchohol",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Medical Tools",
+            "itemId": "RareLoot_84_MedicalTools",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Tourniquet",
+            "itemId": "RareLoot_90_Tourniquets",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "IED1",
+        "station": "workshop",
+        "sourcePage": "IED",
+        "product": {
+          "name": "IED",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "minutes",
+          "seconds": 300,
+          "label": "5 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Explosives",
+            "itemId": "BP_Loot_Explosives_C",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Printed Circuit Board",
+            "itemId": "RareLoot_11_GPUCaps",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Wires",
+            "itemId": "RareLoot_27_Wires",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Military Codebreaker1",
+        "station": "workshop",
+        "sourcePage": "Military Codebreaker",
+        "product": {
+          "name": "Military Codebreaker",
+          "itemId": "RareLoot_98_Militarycodebreaker",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Intelligence Disk",
+            "itemId": "Plans02",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Military Hard Drive",
+            "itemId": "Plans03",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Military PDA",
+            "itemId": "PDA",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Motherboard",
+            "itemId": "RareLoot_19_MotherBoard",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Telemetry Unit",
+            "itemId": "Plans06",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "MRE1",
+        "station": "workshop",
+        "sourcePage": "MRE",
+        "product": {
+          "name": "MRE",
+          "itemId": "CerealBox",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Boinco Candy Bar",
+            "itemId": "JunkFood01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Food Tin",
+            "itemId": "FoodTin",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Pretzels",
+            "itemId": "JunkFood03",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Organoid Networking Board1",
+        "station": "workshop",
+        "sourcePage": "Organoid Networking Board",
+        "product": {
+          "name": "Organoid Networking Board",
+          "itemId": "RareLoot_97_AdvancedNetworkboard",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 10,
+          "unit": "minutes",
+          "seconds": 600,
+          "label": "10 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Military Power Cell",
+            "itemId": "RareLoot_132_MCCMilitaryComputerPowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Motherboard",
+            "itemId": "RareLoot_19_MotherBoard",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Neuro Uplink Board",
+            "itemId": "Quest_Neuro_Uplink",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Organoid Memory Board",
+            "itemId": "RareLoot_16_GPC",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Pneumatic Jump1",
+        "station": "workshop",
+        "sourcePage": "Pneumatic Jump",
+        "product": {
+          "name": "Pneumatic Jump",
+          "itemId": "RIG_EQUIPMENT_SuperJump",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Heavy Joint Assembly",
+            "itemId": "recipe.ingredient.fixedweapons.02",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Military Circuitry",
+            "itemId": "RareComputerBits",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Power Cell",
+            "itemId": "RareLoot_133_PowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Power Cell1",
+        "station": "workshop",
+        "sourcePage": "Power Cell",
+        "product": {
+          "name": "Power Cell",
+          "itemId": "RareLoot_133_PowerCell",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "minutes",
+          "seconds": 300,
+          "label": "5 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Battery Charger",
+            "itemId": "RareLoot_138_RechargeableBatteryCharger",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Machine Parts",
+            "itemId": "RareLoot_74_MachineParts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Rechargeable Battery",
+            "itemId": "RareLoot_135_RechargeableBattery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Processor Board1",
+        "station": "workshop",
+        "sourcePage": "Processor Board",
+        "product": {
+          "name": "Processor Board",
+          "itemId": "RareLoot_18_Processorboard",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "minutes",
+          "seconds": 300,
+          "label": "5 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Military PDA",
+            "itemId": "PDA",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Screwdriver",
+            "itemId": "RareLoot_36_ScrewDriver",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Rail Gun Turret Ammo Supply1",
+        "station": "workshop",
+        "sourcePage": "Railgun",
+        "product": {
+          "name": "Rail Gun Turret Ammo Supply",
+          "itemId": "CRW03TurretAmmo",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 4,
+          "unit": "hours",
+          "seconds": 14400,
+          "label": "4 hours"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Railgun Assembly Component",
+            "itemId": "recipe.ingredient.fixedweapons.08",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Railgun Cooling Component",
+            "itemId": "recipe.ingredient.fixedweapons.14",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Railgun Power Bank",
+            "itemId": "recipe.ingredient.fixedweapons.11",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Rail Gun Turret Weapon1",
+        "station": "workshop",
+        "sourcePage": "Railgun",
+        "product": {
+          "name": "Rail Gun Turret Weapon",
+          "itemId": "CRW03TurretBarrel",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 5,
+          "unit": "hours",
+          "seconds": 18000,
+          "label": "5 hours"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "High Durability Rail Component",
+            "itemId": "recipe.ingredient.fixedweapons.07",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Railgun Body Component",
+            "itemId": "recipe.ingredient.fixedweapons.10",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Railgun Breech Component",
+            "itemId": "recipe.ingredient.fixedweapons.13",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Railgun Magazine",
+            "itemId": "recipe.ingredient.fixedweapons.05",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Recovery Drone1",
+        "station": "workshop",
+        "sourcePage": "Recovery Drone",
+        "product": {
+          "name": "Recovery Drone",
+          "itemId": "Drone_Recovery",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 60,
+          "unit": "minutes",
+          "seconds": 3600,
+          "label": "60 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Camera Lens",
+            "itemId": "RareLoot_99_CameraLens",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Electric Motor",
+            "itemId": "RareLoot_31_ElectricMotor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Military Battery",
+            "itemId": "RareLoot_139_MilitaryBattery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Repair Dronelet",
+            "itemId": "RareLoot_121_ArmorRepairKit",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Rig Light1",
+        "station": "workshop",
+        "sourcePage": "Rig Light",
+        "product": {
+          "name": "Rig Light",
+          "itemId": "RIG_EQUIPMENT_RigLight",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 60,
+          "unit": "seconds",
+          "seconds": 60,
+          "label": "60 seconds"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Car Battery",
+            "itemId": "RareLoot_136_CarBattery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Light Bulb",
+            "itemId": "RareLoot_64_LightBulb",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Wires",
+            "itemId": "RareLoot_27_Wires",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Sentient Drill1",
+        "station": "workshop",
+        "sourcePage": "Sentient Drill",
+        "product": {
+          "name": "Sentient Drill",
+          "itemId": "RareLoot_47_SentientDrill",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 10,
+          "unit": "minutes",
+          "seconds": 600,
+          "label": "10 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Organoid Outlet",
+            "itemId": "RareLoot_29_OutletPort",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Organoid Plug",
+            "itemId": "RareLoot_78_Plugcord",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Wetware Processor",
+            "itemId": "RareLoot_26_AdvancedProcessor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Small First Aid Kit1",
+        "station": "workshop",
+        "sourcePage": "Small First Aid Kit",
+        "product": {
+          "name": "Small First Aid Kit",
+          "itemId": "FirstAid",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "\"Beef\" Flavor Packet",
+            "itemId": "RareLoot_110_Soidum",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Syringe",
+            "itemId": "RareLoot_81_Syringe",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Standard First Aid Kit1",
+        "station": "workshop",
+        "sourcePage": "Standard First Aid Kit",
+        "product": {
+          "name": "Standard First Aid Kit",
+          "itemId": "FirstAid_Med",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Assorted Medicine",
+            "itemId": "RareLoot_88_MiscMedication",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Bandages",
+            "itemId": "RareLoot_89_Bandages",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Tactical Camera1",
+        "station": "workshop",
+        "sourcePage": "Tactical Camera",
+        "product": {
+          "name": "Tactical Camera",
+          "itemId": "RIG_EQUIPMENT_TacCam",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Cyborg's Head",
+            "itemId": "Cyborg_Loot_Eurasia",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Laser Rangefinder",
+            "itemId": "EM_LootObject_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Military Cables",
+            "itemId": "RareLoot_28_MilitaryCables",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Turret Base1",
+        "station": "workshop",
+        "sourcePage": "Railgun",
+        "product": {
+          "name": "Turret Base",
+          "itemId": "CRWUniversalTurretBase",
+          "inventoryMap": "DamagedWeapons",
+          "sourceMap": "Damaged Weapons",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 3,
+          "unit": "hours",
+          "seconds": 10800,
+          "label": "3 hours"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Heavy Joint Assembly",
+            "itemId": "recipe.ingredient.fixedweapons.02",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 4
+          }
+        ]
+      },
+      {
+        "id": "Water Canteen1",
+        "station": "workshop",
+        "sourcePage": "Water Canteen",
+        "product": {
+          "name": "Water Canteen",
+          "itemId": "ChocBar",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 2
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Workshop",
+        "components": [
+          {
+            "name": "Blood Packs",
+            "itemId": "RareLoot_83_BloodPacs",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "munitions": [
+      {
+        "id": ".308 Ammo1",
+        "station": "munitions",
+        "sourcePage": ".308 Ammo",
+        "product": {
+          "name": ".308 Ammo",
+          "itemId": "Item.Ammo.308",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 90
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Nails",
+            "itemId": "RareLoot_35_Nails",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": ".357 Magnum Ammo1",
+        "station": "munitions",
+        "sourcePage": ".357 Magnum Ammo",
+        "product": {
+          "name": ".357 Magnum Ammo",
+          "itemId": "Item.Ammo.357",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 60
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Nails",
+            "itemId": "RareLoot_35_Nails",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": ".45 ACP Ammo1",
+        "station": "munitions",
+        "sourcePage": ".45 ACP Ammo",
+        "product": {
+          "name": ".45 ACP Ammo",
+          "itemId": "Item.Ammo.45ACP",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 90
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": ".50 BMG1",
+        "station": "munitions",
+        "sourcePage": ".50 BMG",
+        "product": {
+          "name": ".50 BMG",
+          "itemId": "Item.Ammo.50cal",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 30
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Rare Metals",
+            "itemId": "RareMetals",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": ".50 PST Ammo1",
+        "station": "munitions",
+        "sourcePage": ".50 PST Ammo",
+        "product": {
+          "name": ".50 PST Ammo",
+          "itemId": "Item.Ammo.50PST",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 8
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": ".50 BMG",
+            "itemId": "Item.Ammo.50cal",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Diodegradable Multi-tool",
+            "itemId": "RareLoot_51_Multitool",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Thermite",
+            "itemId": "RareLoot_101_Thermite",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 4
+          }
+        ]
+      },
+      {
+        "id": "12-Gauge Buckshot1",
+        "station": "munitions",
+        "sourcePage": "12-Gauge Buckshot",
+        "product": {
+          "name": "12-Gauge Buckshot",
+          "itemId": "Item.Ammo.12g",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 30
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Ball Bearings",
+            "itemId": "BallBearings",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Fertilizer",
+            "itemId": "Poo01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "12.7x55mm Subsonic Ammo1",
+        "station": "munitions",
+        "sourcePage": "12.7x55mm Subsonic Ammo",
+        "product": {
+          "name": "12.7x55mm Subsonic Ammo",
+          "itemId": "Item.Ammo.127",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 30
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Rare Metals",
+            "itemId": "RareMetals",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "20x105mm Anti-Tank1",
+        "station": "munitions",
+        "sourcePage": "20x105mm Anti-Tank",
+        "product": {
+          "name": "20x105mm Anti-Tank",
+          "itemId": "Item.Ammo.20mm",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 10
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Explosives",
+            "itemId": "BP_Loot_Explosives_C",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Rare Metals",
+            "itemId": "RareMetals",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "40mm Grenade1",
+        "station": "munitions",
+        "sourcePage": "40mm Grenade",
+        "product": {
+          "name": "40mm Grenade",
+          "itemId": "Item.Ammo.40mmHE",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 6
+        },
+        "duration": {
+          "amount": 15,
+          "unit": "minutes",
+          "seconds": 900,
+          "label": "15 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Explosive Charge",
+            "itemId": "RareLoot_106_PlasticExplosive",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Thermite",
+            "itemId": "RareLoot_101_Thermite",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "5.45x39mm Ammo1",
+        "station": "munitions",
+        "sourcePage": "5.45x39mm Ammo",
+        "product": {
+          "name": "5.45x39mm Ammo",
+          "itemId": "Item.Ammo.545",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 90
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "5.45x39mm Cryo Ammo1",
+        "station": "munitions",
+        "sourcePage": "5.45x39mm Cryo Ammo",
+        "product": {
+          "name": "5.45x39mm Cryo Ammo",
+          "itemId": "Item.Ammo.545.Cryo",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 30
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "5.45x39mm Ammo",
+            "itemId": "Item.Ammo.545",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 30
+          },
+          {
+            "name": "Dogboro Cigarettes",
+            "itemId": "Tobacco01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "5.45x39mm Cryo Ammo2",
+        "station": "munitions",
+        "sourcePage": "5.45x39mm Cryo Ammo",
+        "product": {
+          "name": "5.45x39mm Cryo Ammo",
+          "itemId": "Item.Ammo.545.Cryo",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 30
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "5.45x39mm Ammo",
+            "itemId": "Item.Ammo.545",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 30
+          },
+          {
+            "name": "Whiskey",
+            "itemId": "Alcohol01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "5.56x45mm Ammo1",
+        "station": "munitions",
+        "sourcePage": "5.56x45mm Ammo",
+        "product": {
+          "name": "5.56x45mm Ammo",
+          "itemId": "Item.Ammo.556",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 90
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "5.7x28mm Ammo1",
+        "station": "munitions",
+        "sourcePage": "5.7x28mm Ammo",
+        "product": {
+          "name": "5.7x28mm Ammo",
+          "itemId": "Item.Ammo.57x28",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 90
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "7.62x39mm Ammo1",
+        "station": "munitions",
+        "sourcePage": "7.62x39mm Ammo",
+        "product": {
+          "name": "7.62x39mm Ammo",
+          "itemId": "Item.Ammo.762",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 90
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Nails",
+            "itemId": "RareLoot_35_Nails",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "7.62x54mmR Ammo1",
+        "station": "munitions",
+        "sourcePage": "7.62x54mmR Ammo",
+        "product": {
+          "name": "7.62x54mmR Ammo",
+          "itemId": "Item.Ammo.54R",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 30
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Rare Metals",
+            "itemId": "RareMetals",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "9x19mm Ammo1",
+        "station": "munitions",
+        "sourcePage": "9x19mm Ammo",
+        "product": {
+          "name": "9x19mm Ammo",
+          "itemId": "Item.Ammo.919",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 120
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Fertilizer",
+            "itemId": "Poo01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "id": "Cluster Grenade1",
+        "station": "munitions",
+        "sourcePage": "Cluster Grenade",
+        "product": {
+          "name": "Cluster Grenade",
+          "itemId": "Item.Ammo.ClusterGrenade",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Frag Grenade",
+            "itemId": "Item.Ammo.FragGrenade",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Military Tape",
+            "itemId": "RareLoot_5_MilitaryTape",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Decoy Grenade1",
+        "station": "munitions",
+        "sourcePage": "Decoy Grenade",
+        "product": {
+          "name": "Decoy Grenade",
+          "itemId": "Item.Ammo.NoiseMakerGrenade",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 3
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Fuse",
+            "itemId": "Fuse",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Neuralink Disc Player",
+            "itemId": "RareLoot_21_DVDplayer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Old Paint Can",
+            "itemId": "CompCanister",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "Frag Grenade1",
+        "station": "munitions",
+        "sourcePage": "Frag Grenade",
+        "product": {
+          "name": "Frag Grenade",
+          "itemId": "Item.Ammo.FragGrenade",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 3
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Explosives",
+            "itemId": "BP_Loot_Explosives_C",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Fuse",
+            "itemId": "Fuse",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Old Paint Can",
+            "itemId": "CompCanister",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "Item Extraction Beacon1",
+        "station": "munitions",
+        "sourcePage": "Item Extraction Beacon",
+        "product": {
+          "name": "Item Extraction Beacon",
+          "itemId": "AntiBossExtractSummon",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Advanced Navigation Device",
+            "itemId": "RareLoot_20_MilitaryComputer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Military Power Cell",
+            "itemId": "RareLoot_132_MCCMilitaryComputerPowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Recovery Drone",
+            "itemId": "Drone_Recovery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "id": "Signal Scrambler Grenade1",
+        "station": "munitions",
+        "sourcePage": "Signal Scrambler Grenade",
+        "product": {
+          "name": "Signal Scrambler Grenade",
+          "itemId": "Item.Ammo.FactionGrenade",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 3
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Frequency Tap",
+            "itemId": "TransTower_Quest_Marker",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Fuse",
+            "itemId": "Fuse",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Metal Pipe",
+            "itemId": "MetalPipe",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Old Paint Can",
+            "itemId": "CompCanister",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "id": "Special Units DetPack1",
+        "station": "munitions",
+        "sourcePage": "Special Units DetPack",
+        "product": {
+          "name": "Special Units DetPack",
+          "itemId": "AntiBossC4",
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reference-verified",
+          "writable": true,
+          "resolution": "canonical-display-name",
+          "quantity": 1
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "second",
+          "seconds": 1,
+          "label": "1 second"
+        },
+        "minimumWater": 0,
+        "credits": 0,
+        "prerequisiteName": "Munitions Printer",
+        "components": [
+          {
+            "name": "Explosive Charge",
+            "itemId": "RareLoot_106_PlasticExplosive",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Military Circuitry",
+            "itemId": "RareComputerBits",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Thermite",
+            "itemId": "RareLoot_101_Thermite",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          }
+        ]
+      }
+    ],
+    "upgrades": [
+      {
+        "id": "+16 days1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "+16 days",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 60,
+          "unit": "minutes",
+          "seconds": 3600,
+          "label": "60 minutes"
+        },
+        "minimumWater": 10,
+        "credits": 175000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Bolts",
+            "itemId": "RareLoot_33_Bolts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 15
+          },
+          {
+            "name": "Intermediate Tool Set",
+            "itemId": "RareLoot_48_MastertoldSet",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Metal Pipe",
+            "itemId": "MetalPipe",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          },
+          {
+            "name": "Pressure Gauge",
+            "itemId": "RareLoot_95_Pressuregauge",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Valve Adjustment Tool",
+            "itemId": "RareLoot_131_ValveAdjustmentTool",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Water.V1",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "+28 days1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "+28 days",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 6,
+          "unit": "hours",
+          "seconds": 21600,
+          "label": "6 hours"
+        },
+        "minimumWater": 20,
+        "credits": 750000,
+        "prerequisiteName": "+16 days",
+        "components": [
+          {
+            "name": "Carbon Fiber",
+            "itemId": "RareLoot_116_CarbonFiber",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 3
+          },
+          {
+            "name": "Industrial Sealant",
+            "itemId": "RareLoot_2_SealantBuildingGlue",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Mother Courage Codex",
+            "itemId": "Codex.MotherCourage",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Sledgehammer",
+            "itemId": "RareLoot_46_Sledgehammer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Water.V2",
+        "prerequisiteTag": "Hub.Upgrade.Category.Water.V1"
+      },
+      {
+        "id": "Bar V11",
+        "station": "upgrades",
+        "sourcePage": "Bar",
+        "product": {
+          "name": "Bar V1",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 12,
+          "unit": "hours",
+          "seconds": 43200,
+          "label": "12 hours"
+        },
+        "minimumWater": 44,
+        "credits": 750000,
+        "prerequisiteName": "The Bar",
+        "components": [
+          {
+            "name": "Clear Tube",
+            "itemId": "RareLoot_59_ClearTube",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Goodies",
+            "itemId": "RareLoot_124_Goodies",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Printing Resin",
+            "itemId": "RareLoot_130_3DPrintingmaterial",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Rum",
+            "itemId": "Bar_Rum",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Sheet Metal",
+            "itemId": "RareLoot_128_sheetmetal",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Bar.01",
+        "prerequisiteTag": "Hub.Upgrade.Category.Bar.00"
+      },
+      {
+        "id": "Bar V21",
+        "station": "upgrades",
+        "sourcePage": "Bar",
+        "product": {
+          "name": "Bar V2",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "days",
+          "seconds": 86400,
+          "label": "1 days"
+        },
+        "minimumWater": 56,
+        "credits": 1500000,
+        "prerequisiteName": "Bar V1",
+        "components": [
+          {
+            "name": "Concrete Mixer",
+            "itemId": "RareLoot_77_ConcreteMixer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Concrete Powder",
+            "itemId": "RareLoot_76_ConcretePowder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "MRE",
+            "itemId": "CerealBox",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Tequila",
+            "itemId": "Bar_Tequila",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Bar.02",
+        "prerequisiteTag": "Hub.Upgrade.Category.Bar.01"
+      },
+      {
+        "id": "Bar V31",
+        "station": "upgrades",
+        "sourcePage": "Bar",
+        "product": {
+          "name": "Bar V3",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "days",
+          "seconds": 172800,
+          "label": "2 days"
+        },
+        "minimumWater": 68,
+        "credits": 2500000,
+        "prerequisiteName": "Bar V2",
+        "components": [
+          {
+            "name": "Bulkhead Lights",
+            "itemId": "RareLoot_62_AdvancedLightBulbs",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 3
+          },
+          {
+            "name": "Rat King Codex",
+            "itemId": "Codex.RatKing",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Sentient Drill",
+            "itemId": "RareLoot_47_SentientDrill",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Bar.03",
+        "prerequisiteTag": "Hub.Upgrade.Category.Bar.02"
+      },
+      {
+        "id": "Cognition Cradle Containment Chamber1",
+        "station": "upgrades",
+        "sourcePage": "Cognition Cradle",
+        "product": {
+          "name": "Cognition Cradle Containment Chamber",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "days",
+          "seconds": 172800,
+          "label": "2 days"
+        },
+        "minimumWater": 70,
+        "credits": 5000000,
+        "prerequisiteName": "Cognition Cradle Frame",
+        "components": [
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 5
+          },
+          {
+            "name": "Military Codebreaker",
+            "itemId": "RareLoot_98_Militarycodebreaker",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Quantum Hard Drive",
+            "itemId": "RareLoot_92_SolidState",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Rootkit Device",
+            "itemId": "Awareness_LootObject_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Wetware Processor",
+            "itemId": "RareLoot_26_AdvancedProcessor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 4
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.BossRoom.02",
+        "prerequisiteTag": "Hub.Upgrade.Category.BossRoom.01"
+      },
+      {
+        "id": "Cognition Cradle Frame1",
+        "station": "upgrades",
+        "sourcePage": "Cognition Cradle",
+        "product": {
+          "name": "Cognition Cradle Frame",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "days",
+          "seconds": 86400,
+          "label": "1 days"
+        },
+        "minimumWater": 60,
+        "credits": 3500000,
+        "prerequisiteName": "The Cognition Cradle",
+        "components": [
+          {
+            "name": "Carbon Fiber Tube",
+            "itemId": "RareLoot_57_CarbonFiberTube",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 4
+          },
+          {
+            "name": "Military Power Cell",
+            "itemId": "RareLoot_132_MCCMilitaryComputerPowerCell",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 4
+          },
+          {
+            "name": "Organoid Outlet",
+            "itemId": "RareLoot_29_OutletPort",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Organoid Plug",
+            "itemId": "RareLoot_78_Plugcord",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.BossRoom.01",
+        "prerequisiteTag": "Hub.Upgrade.Category.BossRoom.00"
+      },
+      {
+        "id": "Dog House1",
+        "station": "upgrades",
+        "sourcePage": "Dog House",
+        "product": {
+          "name": "Dog House",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "hours",
+          "seconds": 3600,
+          "label": "1 hours"
+        },
+        "minimumWater": 1,
+        "credits": 250000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Food Tin",
+            "itemId": "FoodTin",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Glue",
+            "itemId": "RareLoot_1_Glue",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Measuring Tape",
+            "itemId": "RareLoot_3_MeasuringTape",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Sheet Metal",
+            "itemId": "RareLoot_128_sheetmetal",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          },
+          {
+            "name": "Wooden Plank",
+            "itemId": "RareLoot_125_2x4s",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.DogHouse",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Garage1",
+        "station": "upgrades",
+        "sourcePage": "Garage",
+        "product": {
+          "name": "Garage",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 24,
+          "unit": "hours",
+          "seconds": 86400,
+          "label": "24 hours"
+        },
+        "minimumWater": 32,
+        "credits": 2500000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 3
+          },
+          {
+            "name": "Hard Shell Laptop",
+            "itemId": "Plans09",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Portable Generator",
+            "itemId": "Tools05",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Precision Tool Set",
+            "itemId": "Tools10",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Ratchet",
+            "itemId": "RareLoot_50_Ratchet",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Garage.00",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Innards Defense Turrets V11",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Innards Defense Turrets V1",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "hours",
+          "seconds": 3600,
+          "label": "1 hours"
+        },
+        "minimumWater": 25,
+        "credits": 75000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Ball Bearings",
+            "itemId": "BallBearings",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Motherboard",
+            "itemId": "RareLoot_19_MotherBoard",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Turret Component",
+            "itemId": "Turret_Debris_Loot",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          },
+          {
+            "name": "Weapon Parts",
+            "itemId": "RareLoot_117_WeaponParts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Defense.Turrets.01",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Innards Defense Turrets V21",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Innards Defense Turrets V2",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 6,
+          "unit": "hours",
+          "seconds": 21600,
+          "label": "6 hours"
+        },
+        "minimumWater": 50,
+        "credits": 150000,
+        "prerequisiteName": "Innards Defense Turrets V1",
+        "components": [
+          {
+            "name": "Camera Lens",
+            "itemId": "RareLoot_99_CameraLens",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Electric Motor",
+            "itemId": "RareLoot_31_ElectricMotor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Heavy-Duty Battery",
+            "itemId": "Tools11",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Military Grade Lubricant",
+            "itemId": "RareLoot_72_WeaponLubricant",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "WD40",
+            "itemId": "RareLoot_69_WD40",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Defense.Turrets.02",
+        "prerequisiteTag": "Hub.Upgrade.Category.Defense.Turrets.01"
+      },
+      {
+        "id": "Innards Defense Turrets V31",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Innards Defense Turrets V3",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 12,
+          "unit": "hours",
+          "seconds": 43200,
+          "label": "12 hours"
+        },
+        "minimumWater": 75,
+        "credits": 500000,
+        "prerequisiteName": "Innards Defense Turrets V2",
+        "components": [
+          {
+            "name": "Gyroscopic Stabilizer",
+            "itemId": "Quest_TargetingSoftwareChip",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Military Battery",
+            "itemId": "RareLoot_139_MilitaryBattery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Military Circuitry",
+            "itemId": "RareComputerBits",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Telemetry Unit",
+            "itemId": "Plans06",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Wetware Processor",
+            "itemId": "RareLoot_26_AdvancedProcessor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Defense.Turrets.03",
+        "prerequisiteTag": "Hub.Upgrade.Category.Defense.Turrets.02"
+      },
+      {
+        "id": "Lift1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Lift",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 30,
+          "unit": "minutes",
+          "seconds": 1800,
+          "label": "30 minutes"
+        },
+        "minimumWater": 0,
+        "credits": 25000,
+        "prerequisiteName": null,
+        "components": [],
+        "upgradeTag": "Hub.Upgrade.Category.Lift",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Manufacture Booster1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Manufacture Booster",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "hours",
+          "seconds": 7200,
+          "label": "2 hours"
+        },
+        "minimumWater": 50,
+        "credits": 332800,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Basic Pliers",
+            "itemId": "RareLoot_44_BasicPliers",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Fuse",
+            "itemId": "Fuse",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Intermediate Tool Set",
+            "itemId": "RareLoot_48_MastertoldSet",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Leather Hole Punch",
+            "itemId": "RareLoot_53_Punch",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Crafting.Booster",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Munition Printer1",
+        "station": "upgrades",
+        "sourcePage": "Munitions Printer",
+        "product": {
+          "name": "Munitions Printer",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "hours",
+          "seconds": 7200,
+          "label": "2 hours"
+        },
+        "minimumWater": 12,
+        "credits": 150000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Basic Pliers",
+            "itemId": "RareLoot_44_BasicPliers",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Fuse",
+            "itemId": "Fuse",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Gunpowder",
+            "itemId": "GunPoweder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Intermediate Tool Set",
+            "itemId": "RareLoot_48_MastertoldSet",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Leather Hole Punch",
+            "itemId": "RareLoot_53_Punch",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Crafting.Ammo",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Music System1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Music System",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "hours",
+          "seconds": 7200,
+          "label": "2 hours"
+        },
+        "minimumWater": 1,
+        "credits": 25000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Intelligence Cassette",
+            "itemId": "Plans01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Mini MD Drive",
+            "itemId": "RareLoot_10_PortableHardDrive",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Neuralink Disc Player",
+            "itemId": "RareLoot_21_DVDplayer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "UMEGA Media Player",
+            "itemId": "RareLoot_22_Blu-RayPlayer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Wires",
+            "itemId": "RareLoot_27_Wires",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.MusicSystem",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Personal Quarters Upgrade v11",
+        "station": "upgrades",
+        "sourcePage": "Personal Quarters",
+        "product": {
+          "name": "Personal Quarters Upgrade v1",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 12,
+          "unit": "hours",
+          "seconds": 43200,
+          "label": "12 hours"
+        },
+        "minimumWater": 26,
+        "credits": 0,
+        "prerequisiteName": "Personal Quarters",
+        "components": [
+          {
+            "name": "Drywall",
+            "itemId": "RareLoot_126_sheetrock",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Fleece",
+            "itemId": "RareLoot_114_Fleece",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Intermediate Tool Set",
+            "itemId": "RareLoot_48_MastertoldSet",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Light Bulb",
+            "itemId": "RareLoot_64_LightBulb",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          },
+          {
+            "name": "Medical Tools",
+            "itemId": "RareLoot_84_MedicalTools",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.PersonalQuarters.01",
+        "prerequisiteTag": "Hub.Upgrade.Category.PersonalQuarters.00"
+      },
+      {
+        "id": "Personal Quarters Upgrade v21",
+        "station": "upgrades",
+        "sourcePage": "Personal Quarters",
+        "product": {
+          "name": "Personal Quarters Upgrade v2",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "days",
+          "seconds": 86400,
+          "label": "1 days"
+        },
+        "minimumWater": 52,
+        "credits": 750000,
+        "prerequisiteName": "Personal Quarters Upgrade v1",
+        "components": [
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Heavy-Duty Trauma Kit",
+            "itemId": "RareLoot_85_AdvancedMedicalTools",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "OLED",
+            "itemId": "RareLoot_25_OLED",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Rotary Hammer",
+            "itemId": "RareLoot_39_PowerDrill",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "UV Light Bulb",
+            "itemId": "RareLoot_63_UVLightBulb",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.PersonalQuarters.02",
+        "prerequisiteTag": "Hub.Upgrade.Category.PersonalQuarters.01"
+      },
+      {
+        "id": "Personal Quarters Upgrade v31",
+        "station": "upgrades",
+        "sourcePage": "Personal Quarters",
+        "product": {
+          "name": "Personal Quarters Upgrade v3",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "days",
+          "seconds": 172800,
+          "label": "2 days"
+        },
+        "minimumWater": 72,
+        "credits": 1500000,
+        "prerequisiteName": "Personal Quarters Upgrade v2",
+        "components": [
+          {
+            "name": "Bulkhead Lights",
+            "itemId": "RareLoot_62_AdvancedLightBulbs",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Diagnostic Scanner",
+            "itemId": "RareLoot_82_MedicalScanner",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Toilet Paper",
+            "itemId": "RareLoot_108_ToiletPaper",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Toothy Codex",
+            "itemId": "Codex.Toothy",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Zonophor Tablets",
+            "itemId": "RareLoot_79_Vitamins",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.PersonalQuarters.03",
+        "prerequisiteTag": "Hub.Upgrade.Category.PersonalQuarters.02"
+      },
+      {
+        "id": "Personal Quarters1",
+        "station": "upgrades",
+        "sourcePage": "Personal Quarters",
+        "product": {
+          "name": "Personal Quarters",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 6,
+          "unit": "hours",
+          "seconds": 21600,
+          "label": "6 hours"
+        },
+        "minimumWater": 12,
+        "credits": 250000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Cleaner",
+            "itemId": "RareLoot_73_Cleaner",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Explosives",
+            "itemId": "BP_Loot_Explosives_C",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 8
+          },
+          {
+            "name": "Hand Drill",
+            "itemId": "RareLoot_40_HandDrill",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Scavenger's Tool Kit",
+            "itemId": "Tools06",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Wooden Plank",
+            "itemId": "RareLoot_125_2x4s",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.PersonalQuarters.00",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Repair Bench1",
+        "station": "upgrades",
+        "sourcePage": "Repair Bench",
+        "product": {
+          "name": "Repair Bench",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "hours",
+          "seconds": 3600,
+          "label": "1 hours"
+        },
+        "minimumWater": 16,
+        "credits": 150000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Clamp",
+            "itemId": "RareLoot_67_ReleaseClamp",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Eurasian IFF Chip LVL1",
+            "itemId": "IFF_Eurasia_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Europan IFF Chip LVL1",
+            "itemId": "IFF_Europa_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Euruskan IFF Chip LVL1",
+            "itemId": "IFF_Euruskan_01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Field Repair Kit",
+            "itemId": "Tools01",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Crafting.WeaponRepairs",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Shooting Range Upgrade v11",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Shooting Range Upgrade v1",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 12,
+          "unit": "hours",
+          "seconds": 43200,
+          "label": "12 hours"
+        },
+        "minimumWater": 12,
+        "credits": 125000,
+        "prerequisiteName": "Shooting Range",
+        "components": [
+          {
+            "name": "Drywall",
+            "itemId": "RareLoot_126_sheetrock",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "ES Lamp",
+            "itemId": "RareLoot_65_ESLamp",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Nails",
+            "itemId": "RareLoot_35_Nails",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          },
+          {
+            "name": "Sheet Metal",
+            "itemId": "RareLoot_128_sheetmetal",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "WD40",
+            "itemId": "RareLoot_69_WD40",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.ShootingRange.01",
+        "prerequisiteTag": "Hub.Upgrade.Category.ShootingRange.00"
+      },
+      {
+        "id": "Shooting Range Upgrade v21",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Shooting Range Upgrade v2",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "days",
+          "seconds": 86400,
+          "label": "1 days"
+        },
+        "minimumWater": 24,
+        "credits": 250000,
+        "prerequisiteName": "Shooting Range Upgrade v1",
+        "components": [
+          {
+            "name": "Concrete Mixer",
+            "itemId": "RareLoot_77_ConcreteMixer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Concrete Powder",
+            "itemId": "RareLoot_76_ConcretePowder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Industrial Sealant",
+            "itemId": "RareLoot_2_SealantBuildingGlue",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "UV Light Bulb",
+            "itemId": "RareLoot_63_UVLightBulb",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.ShootingRange.02",
+        "prerequisiteTag": "Hub.Upgrade.Category.ShootingRange.01"
+      },
+      {
+        "id": "Shooting Range Upgrade v31",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Shooting Range Upgrade v3",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "days",
+          "seconds": 172800,
+          "label": "2 days"
+        },
+        "minimumWater": 48,
+        "credits": 500000,
+        "prerequisiteName": "Shooting Range Upgrade v2",
+        "components": [
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 3
+          },
+          {
+            "name": "Construction Foam",
+            "itemId": "RareLoot_75_ConstructionFoam",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Shield Officer Codex",
+            "itemId": "CodexShieldOfficer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Water Thief's Mask \"Bozo\"",
+            "itemId": "DecoLoot_06_WaterThiefMask03",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Water Thief's Mask \"Thirsty\"",
+            "itemId": "DecoLoot_05_WaterThiefMask02",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.ShootingRange.03",
+        "prerequisiteTag": "Hub.Upgrade.Category.ShootingRange.02"
+      },
+      {
+        "id": "Shooting Range1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Shooting Range",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 6,
+          "unit": "hours",
+          "seconds": 21600,
+          "label": "6 hours"
+        },
+        "minimumWater": 6,
+        "credits": 50000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Bolts",
+            "itemId": "RareLoot_33_Bolts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          },
+          {
+            "name": "Masking Tape",
+            "itemId": "RareLoot_6_MaskingTape",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Metal Pipe",
+            "itemId": "MetalPipe",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Nuts",
+            "itemId": "RareLoot_34_Nuts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          },
+          {
+            "name": "Wooden Plank",
+            "itemId": "RareLoot_125_2x4s",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.ShootingRange.00",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Shrine1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Shrine",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "days",
+          "seconds": 86400,
+          "label": "1 days"
+        },
+        "minimumWater": 5,
+        "credits": 2500000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Heirloom Seeds",
+            "itemId": "RareLoot_123_Apocalypseseeds",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Preserved Cryo Coffee",
+            "itemId": "RareLoot_119_CryoCoffeeSaved",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Rat King's Wake",
+            "itemId": "Quest_RatKingPart",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Smuggled Organs",
+            "itemId": "Plans08",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Water Thief's Mask \"Oni\"",
+            "itemId": "DecoLoot_04_WaterThiefMask01",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Shrine",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Special Tree1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Special Tree",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 45,
+          "unit": "minutes",
+          "seconds": 2700,
+          "label": "45 minutes"
+        },
+        "minimumWater": 1,
+        "credits": 100000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "ES Lamp",
+            "itemId": "RareLoot_65_ESLamp",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Light Bulb",
+            "itemId": "RareLoot_64_LightBulb",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Metal Slats",
+            "itemId": "RareLoot_129_slats",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          },
+          {
+            "name": "UV Light Bulb",
+            "itemId": "RareLoot_63_UVLightBulb",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Weapon Parts",
+            "itemId": "RareLoot_117_WeaponParts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.SpecialTree",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "The Bar1",
+        "station": "upgrades",
+        "sourcePage": "Bar",
+        "product": {
+          "name": "The Bar",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 6,
+          "unit": "hours",
+          "seconds": 21600,
+          "label": "6 hours"
+        },
+        "minimumWater": 32,
+        "credits": 250000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Food Tin",
+            "itemId": "FoodTin",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          },
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 15
+          },
+          {
+            "name": "Metal Pipe",
+            "itemId": "MetalPipe",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 12
+          },
+          {
+            "name": "Ribbed Tube",
+            "itemId": "RareLoot_58_RibbedTube",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 8
+          },
+          {
+            "name": "Vodka",
+            "itemId": "Bar_Vodka",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Bar.00",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "The Cognition Cradle1",
+        "station": "upgrades",
+        "sourcePage": "Cognition Cradle",
+        "product": {
+          "name": "Cognition Cradle",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 12,
+          "unit": "hours",
+          "seconds": 43200,
+          "label": "12 hours"
+        },
+        "minimumWater": 50,
+        "credits": 2000000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Concrete Powder",
+            "itemId": "RareLoot_76_ConcretePowder",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 3
+          },
+          {
+            "name": "Construction Foam",
+            "itemId": "RareLoot_75_ConstructionFoam",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Sentient Drill",
+            "itemId": "RareLoot_47_SentientDrill",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Ventilation Regulator",
+            "itemId": "RareLoot_96_VentilationRegulator",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.BossRoom.00",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Transmission Tower1",
+        "station": "upgrades",
+        "sourcePage": "Transmission Tower",
+        "product": {
+          "name": "Transmission Tower",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 24,
+          "unit": "hours",
+          "seconds": 86400,
+          "label": "24 hours"
+        },
+        "minimumWater": 80,
+        "credits": 5000000,
+        "prerequisiteName": "Bar V3",
+        "components": [
+          {
+            "name": "Construction Drone",
+            "itemId": "Drone_Construction",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 3
+          },
+          {
+            "name": "Construction Foam",
+            "itemId": "RareLoot_75_ConstructionFoam",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Military Codebreaker",
+            "itemId": "RareLoot_98_Militarycodebreaker",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Multi-frequency Broadcaster",
+            "itemId": "SignalScrambler",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Organoid Networking Board",
+            "itemId": "RareLoot_97_AdvancedNetworkboard",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          },
+          {
+            "name": "Wetware Processor",
+            "itemId": "RareLoot_26_AdvancedProcessor",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 2
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.TransRoom.00",
+        "prerequisiteTag": "Hub.Upgrade.Category.Bar.03"
+      },
+      {
+        "id": "TV Screens Mega1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "TV Screens Mega",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1.5,
+          "unit": "hours",
+          "seconds": 5400,
+          "label": "1.5 hours"
+        },
+        "minimumWater": 8,
+        "credits": 1000000,
+        "prerequisiteName": "TV Screens Small",
+        "components": [
+          {
+            "name": "OLED",
+            "itemId": "RareLoot_25_OLED",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Quantum Hard Drive",
+            "itemId": "RareLoot_92_SolidState",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Relay",
+            "itemId": "RareLoot_30_Relay",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 10
+          },
+          {
+            "name": "Solar Battery",
+            "itemId": "RareLoot_137_SolarBattery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "UMEGA Media Player",
+            "itemId": "RareLoot_22_Blu-RayPlayer",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.TvScreens.Mega",
+        "prerequisiteTag": "Hub.Upgrade.Category.TvScreens.Small"
+      },
+      {
+        "id": "TV Screens Small1",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "TV Screens Small",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 30,
+          "unit": "minutes",
+          "seconds": 1800,
+          "label": "30 minutes"
+        },
+        "minimumWater": 5,
+        "credits": 75000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Battery Charger",
+            "itemId": "RareLoot_138_RechargeableBatteryCharger",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "LCD",
+            "itemId": "RareLoot_24_LCD",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Printed Circuit Board",
+            "itemId": "RareLoot_11_GPUCaps",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Rechargeable Battery",
+            "itemId": "RareLoot_135_RechargeableBattery",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Wires",
+            "itemId": "RareLoot_27_Wires",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.TvScreens.Small",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Water Bots V11",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Water Bots V1",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 1,
+          "unit": "hours",
+          "seconds": 3600,
+          "label": "1 hours"
+        },
+        "minimumWater": 25,
+        "credits": 50000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Eurasian Drone Cortex",
+            "itemId": "Drone_Debris_Loot_Eurasia",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Europan Drone Flight Controller",
+            "itemId": "Drone_Debris_Loot_Europa",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          },
+          {
+            "name": "Liquid Cooling Unit",
+            "itemId": "RareLoot_93_LiquidCoolingUnit",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Machine Parts",
+            "itemId": "RareLoot_74_MachineParts",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Screwdriver",
+            "itemId": "RareLoot_36_ScrewDriver",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v1",
+        "prerequisiteTag": null
+      },
+      {
+        "id": "Water Bots V21",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Water Bots V2",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 6,
+          "unit": "hours",
+          "seconds": 21600,
+          "label": "6 hours"
+        },
+        "minimumWater": 50,
+        "credits": 250000,
+        "prerequisiteName": "Water Bots V1",
+        "components": [
+          {
+            "name": "Brawler Spinal Joint",
+            "itemId": "Quest_SpineComponent",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Organoid Memory Board",
+            "itemId": "RareLoot_16_GPC",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Organoid Outlet",
+            "itemId": "RareLoot_29_OutletPort",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Organoid Plug",
+            "itemId": "RareLoot_78_Plugcord",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Processor Board",
+            "itemId": "RareLoot_18_Processorboard",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 5
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v2",
+        "prerequisiteTag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v1"
+      },
+      {
+        "id": "Water Bots V31",
+        "station": "upgrades",
+        "sourcePage": "Innards",
+        "product": {
+          "name": "Water Bots V3",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 12,
+          "unit": "hours",
+          "seconds": 43200,
+          "label": "12 hours"
+        },
+        "minimumWater": 75,
+        "credits": 750000,
+        "prerequisiteName": "Water Bots V2",
+        "components": [
+          {
+            "name": "EOD Armor Plate",
+            "itemId": "Quest_EM_Armor_Shards",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Multi-frequency Broadcaster",
+            "itemId": "SignalScrambler",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 3
+          },
+          {
+            "name": "Orga Codex",
+            "itemId": "Codex.Orga",
+            "inventoryMap": null,
+            "sourceMap": null,
+            "status": "unsupported",
+            "writable": false,
+            "resolution": "override",
+            "quantity": 1
+          },
+          {
+            "name": "Organoid Networking Board",
+            "itemId": "RareLoot_97_AdvancedNetworkboard",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Precision Tool Set",
+            "itemId": "Tools10",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v3",
+        "prerequisiteTag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v2"
+      },
+      {
+        "id": "Workshop1",
+        "station": "upgrades",
+        "sourcePage": "Workshop",
+        "product": {
+          "name": "Workshop",
+          "itemId": null,
+          "inventoryMap": null,
+          "sourceMap": null,
+          "status": "unsupported",
+          "writable": false,
+          "resolution": "unresolved",
+          "quantity": 0
+        },
+        "duration": {
+          "amount": 2,
+          "unit": "hours",
+          "seconds": 7200,
+          "label": "2 hours"
+        },
+        "minimumWater": 8,
+        "credits": 75000,
+        "prerequisiteName": null,
+        "components": [
+          {
+            "name": "Metal Fragments",
+            "itemId": "MetalFragments",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Old Tool Set",
+            "itemId": "RareLoot_49_NormalToolset",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Printing Resin",
+            "itemId": "RareLoot_130_3DPrintingmaterial",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 6
+          },
+          {
+            "name": "Scavenger's Tool Kit",
+            "itemId": "Tools06",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          },
+          {
+            "name": "Sewing Kit",
+            "itemId": "RareLoot_54_SewingKit",
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reference-verified",
+            "writable": true,
+            "resolution": "canonical-display-name",
+            "quantity": 1
+          }
+        ],
+        "upgradeTag": "Hub.Upgrade.Category.Crafting.WeaponParts",
+        "prerequisiteTag": null
+      }
+    ]
+  }
+}

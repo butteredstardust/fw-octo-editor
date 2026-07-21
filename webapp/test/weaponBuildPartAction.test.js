@@ -1,0 +1,3 @@
+'use strict';
+const test=require('node:test');const assert=require('node:assert/strict');const service=require('../services/weaponBuildService');const data=require('../data/weapon-builds.canonical.json');
+test('individual part action resolves only a trusted generated BIS member',()=>{const weapon=data.weapons.find(row=>row.name==='AK'),part=service.selectBuild(weapon).parts[0],resolved=service.getBuildPart(weapon.id,part.itemId);assert.equal(resolved.weapon.id,weapon.id);assert.equal(resolved.part.itemId,part.itemId);assert.throws(()=>service.getBuildPart(weapon.id,'RareLoot_1_Glue'),/not in the trusted BIS build/);assert.throws(()=>service.getBuildPart(weapon.id,'../ATTMD'),/Invalid partId/);});

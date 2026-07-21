@@ -1,0 +1,4281 @@
+{
+  "schemaVersion": 1,
+  "extractedAt": "2026-07-18T21:30:40.166Z",
+  "sourceFile": "YOUR_HASHCODE_HERE.dat",
+  "engine": "uesave",
+  "count": 712,
+  "items": [
+    {
+      "name": "Alcohol01",
+      "quantity": 287,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Alcohol02",
+      "quantity": 295,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Alcohol03",
+      "quantity": 315,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Alcohol04",
+      "quantity": 385,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Alcohol05",
+      "quantity": 298,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Alcohol06_HighValue",
+      "quantity": 174,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "AntiBossC4",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "AntiBossExtractSummon",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "AshenMesa_LootObject_01",
+      "quantity": 15,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD1_1",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD1_2",
+      "quantity": 13,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD2_1",
+      "quantity": 10,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_1",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_10",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_11",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_12",
+      "quantity": 10,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_2",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_3",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_4",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_5",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_6",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_7",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_8",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD3_9",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD4_1",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD4_2",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD4_3",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD4_4",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD4_5",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD4_6",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD5_1",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ATTMD5_2",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Awareness_LootObject_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "BallBearings",
+      "quantity": 282,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Absinthe",
+      "quantity": 79,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Beer",
+      "quantity": 134,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_EthylAlcohol",
+      "quantity": 127,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Mead",
+      "quantity": 73,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Mezcal",
+      "quantity": 35,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Rum",
+      "quantity": 70,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Tequila",
+      "quantity": 23,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Bar_Vodka",
+      "quantity": 120,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Brawler_Loot_Eurasia",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "CerealBox",
+      "quantity": 131,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ChocBar",
+      "quantity": 45,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Codex.Grabber",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Codex.MediumMech",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Codex.MotherCourage",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Codex.Opal",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Codex.RatKing",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "CodexShieldOfficer",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "CompCanister",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "CRW03TurretAmmo",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "CRW03TurretBarrel",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "CRWUniversalTurretBase",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "Cyborg_Loot_Eurasia",
+      "quantity": 54,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "DataCache_Quest",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "DecoLoot_01_MusicCassette",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "DecoLoot_02_Headset",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "DecoLoot_03_Stereo",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "DrillDevice",
+      "quantity": 994,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Drone_Debris_Loot_Eurasia",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Drone_Debris_Loot_Europa",
+      "quantity": 28,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Drone_FastTravel",
+      "quantity": 22,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Drone_Recovery",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "EM_LootObject_01",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ENuggets",
+      "quantity": 150,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "ExoDebrisLoot",
+      "quantity": 22,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "FirstAid",
+      "quantity": 2199,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "FirstAid_Large",
+      "quantity": 1122,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "FirstAid_Med",
+      "quantity": 1283,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "FoodTin",
+      "quantity": 213,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "FrozenSwamp_LootObject_01",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Fuse",
+      "quantity": 77,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "GRL01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "GRL02",
+      "quantity": 160,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "GunPoweder",
+      "quantity": 28,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HK_Loot_Europa",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HMG01",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "HRF01",
+      "quantity": 24,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "HRF02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "HRF03",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "HRF04",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "HRF05",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "HRF05_Manufacture_BreechAssembly",
+      "quantity": 23,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_Crucible",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_FeedMechanism",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_GrindStone",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_MaintenanceTool",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_MuzzleAssembly",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_SpringSystem",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "HRF05_Manufacture_TriggerAssembly",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Eurasia_01",
+      "quantity": 496,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Eurasia_02",
+      "quantity": 159,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Eurasia_03",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Europa_01",
+      "quantity": 1788,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Europa_02",
+      "quantity": 479,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Europa_03",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Euruskan_01",
+      "quantity": 284,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Euruskan_02",
+      "quantity": 79,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "IFF_Euruskan_03",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.127",
+      "quantity": 9930,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.12g",
+      "quantity": 19195,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.20mm",
+      "quantity": 2711,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.308",
+      "quantity": 17939,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.357",
+      "quantity": 10753,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.40mmHE",
+      "quantity": 26358,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.45ACP",
+      "quantity": 19504,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.50cal",
+      "quantity": 24333,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.50PST",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.545",
+      "quantity": 41085,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.545.Cryo",
+      "quantity": 1140,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.545.Junk",
+      "quantity": 54640,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.54R",
+      "quantity": 11640,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.556",
+      "quantity": 43850,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.57x28",
+      "quantity": 19130,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.762",
+      "quantity": 45700,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.919",
+      "quantity": 59201,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.ClusterGrenade",
+      "quantity": 440,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.FactionGrenade",
+      "quantity": 297,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.FragGrenade",
+      "quantity": 517,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Item.Ammo.NoiseMakerGrenade",
+      "quantity": 25,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "JunkFood01",
+      "quantity": 93,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "JunkFood02",
+      "quantity": 147,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "JunkFood03",
+      "quantity": 148,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "JunkFood04",
+      "quantity": 75,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "JunkFood05",
+      "quantity": 100,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "LMG01",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "LMG01_Broken",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "LMG02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "LMG03",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "LMG04",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "LMG06",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "Merkava_Debirs_Loot",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "MetalFragments",
+      "quantity": 59,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "MetalPipe",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Octogirl_Tools_FrequencyCard",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Octogirl_Tools_QuestItem",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PDA",
+      "quantity": 93,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR1",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR10",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR11",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR12",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR13",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR14",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR15",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR16",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR17",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR2",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR3",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR4",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR5",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR6",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR7",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR8",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFGR9",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFLL1",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFLL2",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICFLL3",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICLAM1",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICLAM2",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICLAM3",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT1",
+      "quantity": 55,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT10",
+      "quantity": 54,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT11",
+      "quantity": 75,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT12",
+      "quantity": 65,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT13",
+      "quantity": 46,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT14",
+      "quantity": 59,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT15",
+      "quantity": 50,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT16",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT17",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT2",
+      "quantity": 65,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT3",
+      "quantity": 49,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT4",
+      "quantity": 62,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT5",
+      "quantity": 63,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT6",
+      "quantity": 57,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT7",
+      "quantity": 45,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT8",
+      "quantity": 56,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICOPT9",
+      "quantity": 53,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP1",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP10",
+      "quantity": 41,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP12",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP13",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP14",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP15",
+      "quantity": 50,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP2",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP3",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP6",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP8",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PICSCP9",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans01",
+      "quantity": 64,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans02",
+      "quantity": 61,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans05",
+      "quantity": 52,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans06",
+      "quantity": 41,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans07",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans08",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Plans09",
+      "quantity": 37,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Poo01",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "PST01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST03",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST04",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST05",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST06",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST07",
+      "quantity": 28,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST08",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "PST10",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "Quest_AdvancedJoint",
+      "quantity": 33,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_ArtificialNervousSystem",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_Brawler_Insignia",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_Cbyerlung",
+      "quantity": 122,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_CommsDevice",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_ConvoySchedule",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_DogTags",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_EM_Armor_Shards",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_EM_Precision_Components",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_ExoHardDrive",
+      "quantity": 15,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_FamilyPhoto",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_HIND_Nav_Comp",
+      "quantity": 10,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_Logbook",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_MedicalSupplies",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_Memento",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_Neuro_Uplink",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_PersonnelData",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_PowerSchematics",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_RatKingPart",
+      "quantity": 472,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_SE_Weapon_Tech",
+      "quantity": 76,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_SpineComponent",
+      "quantity": 25,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_TargetingSoftwareChip",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_Water_Map",
+      "quantity": 26,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_WeaponSchematics",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Quest_WetwareSystem",
+      "quantity": 62,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareComputerBits",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_1_Glue",
+      "quantity": 130,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_10_PortableHardDrive",
+      "quantity": 121,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_100_SparkPlug",
+      "quantity": 119,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_101_Thermite",
+      "quantity": 140,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_102_Matches",
+      "quantity": 238,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_103_Zippo",
+      "quantity": 232,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_104_FireStarterkit",
+      "quantity": 157,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_105_ThermalMatches",
+      "quantity": 131,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_106_PlasticExplosive",
+      "quantity": 115,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_107_Soap",
+      "quantity": 117,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_108_ToiletPaper",
+      "quantity": 221,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_109_Toothpaste",
+      "quantity": 129,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_11_GPUCaps",
+      "quantity": 152,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_110_Soidum",
+      "quantity": 231,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_111_Salt",
+      "quantity": 91,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_112_Alkaline",
+      "quantity": 143,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_113_BugSpray",
+      "quantity": 156,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_114_Fleece",
+      "quantity": 194,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_115_Cordura",
+      "quantity": 96,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_116_CarbonFiber",
+      "quantity": 92,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_117_WeaponParts",
+      "quantity": 199,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_118_Coffee",
+      "quantity": 215,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_119_CryoCoffeeSaved",
+      "quantity": 81,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_12_HardDrive",
+      "quantity": 133,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_120_Camera",
+      "quantity": 91,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_121_ArmorRepairKit",
+      "quantity": 111,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_122_SeedsHighvalue",
+      "quantity": 83,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_123_Apocalypseseeds",
+      "quantity": 69,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_124_Goodies",
+      "quantity": 268,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_125_2x4s",
+      "quantity": 162,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_126_sheetrock",
+      "quantity": 130,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_127_woodplanks",
+      "quantity": 59,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_128_sheetmetal",
+      "quantity": 154,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_129_slats",
+      "quantity": 164,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_13_SSD",
+      "quantity": 85,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_130_3DPrintingmaterial",
+      "quantity": 219,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_131_ValveAdjustmentTool",
+      "quantity": 123,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_132_MCCMilitaryComputerPowerCell",
+      "quantity": 90,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_133_PowerCell",
+      "quantity": 120,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_134_Battery",
+      "quantity": 160,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_135_RechargeableBattery",
+      "quantity": 118,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_136_CarBattery",
+      "quantity": 82,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_137_SolarBattery",
+      "quantity": 72,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_138_RechargeableBatteryCharger",
+      "quantity": 64,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_139_MilitaryBattery",
+      "quantity": 189,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_14_HDD",
+      "quantity": 93,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_140_GasmaskFilter",
+      "quantity": 140,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_15_USBStick",
+      "quantity": 185,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_16_GPC",
+      "quantity": 85,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_17_ComputerFan",
+      "quantity": 128,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_18_Processorboard",
+      "quantity": 369,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_19_MotherBoard",
+      "quantity": 117,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_2_SealantBuildingGlue",
+      "quantity": 74,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_20_MilitaryComputer",
+      "quantity": 275,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_21_DVDplayer",
+      "quantity": 80,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_22_Blu-RayPlayer",
+      "quantity": 95,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_23_PSU",
+      "quantity": 125,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_24_LCD",
+      "quantity": 197,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_25_OLED",
+      "quantity": 172,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_26_AdvancedProcessor",
+      "quantity": 80,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_27_Wires",
+      "quantity": 174,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_28_MilitaryCables",
+      "quantity": 299,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_29_OutletPort",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_3_MeasuringTape",
+      "quantity": 132,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_30_Relay",
+      "quantity": 47,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_31_ElectricMotor",
+      "quantity": 92,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_32_Screws",
+      "quantity": 31,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_33_Bolts",
+      "quantity": 78,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_34_Nuts",
+      "quantity": 120,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_35_Nails",
+      "quantity": 73,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_36_ScrewDriver",
+      "quantity": 73,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_37_BoltCutters",
+      "quantity": 31,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_38_PrecisionBoltCutters",
+      "quantity": 13,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_39_PowerDrill",
+      "quantity": 25,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_4_DuctTape",
+      "quantity": 77,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_40_HandDrill",
+      "quantity": 50,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_41_Hammer",
+      "quantity": 62,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_42_Drill",
+      "quantity": 54,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_43_Wrench",
+      "quantity": 27,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_44_BasicPliers",
+      "quantity": 36,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_45_AdvancedPliers",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_46_Sledgehammer",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_47_SentientDrill",
+      "quantity": 234,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_48_MastertoldSet",
+      "quantity": 39,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_49_NormalToolset",
+      "quantity": 39,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_5_MilitaryTape",
+      "quantity": 131,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_50_Ratchet",
+      "quantity": 30,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_51_Multitool",
+      "quantity": 37,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_52_Crowbar",
+      "quantity": 32,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_53_Punch",
+      "quantity": 38,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_54_SewingKit",
+      "quantity": 37,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_55_Multitool",
+      "quantity": 32,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_56_Hose",
+      "quantity": 146,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_57_CarbonFiberTube",
+      "quantity": 52,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_58_RibbedTube",
+      "quantity": 120,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_59_ClearTube",
+      "quantity": 88,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_6_MaskingTape",
+      "quantity": 83,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_60_Lighter",
+      "quantity": 152,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_61_LightBulbs",
+      "quantity": 74,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_62_AdvancedLightBulbs",
+      "quantity": 135,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_63_UVLightBulb",
+      "quantity": 159,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_64_LightBulb",
+      "quantity": 86,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_65_ESLamp",
+      "quantity": 114,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_66_Blacklight",
+      "quantity": 166,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_67_ReleaseClamp",
+      "quantity": 124,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_68_SurvivalLighter",
+      "quantity": 135,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_69_WD40",
+      "quantity": 90,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_7_SuperGlueSmall",
+      "quantity": 75,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_70_LiquidCooling",
+      "quantity": 63,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_71_VentilationFilter",
+      "quantity": 92,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_72_WeaponLubricant",
+      "quantity": 128,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_73_Cleaner",
+      "quantity": 99,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_74_MachineParts",
+      "quantity": 95,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_75_ConstructionFoam",
+      "quantity": 318,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_76_ConcretePowder",
+      "quantity": 102,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_77_ConcreteMixer",
+      "quantity": 102,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_78_Plugcord",
+      "quantity": 35,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_79_Vitamins",
+      "quantity": 39,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_8_ConstructionGlue",
+      "quantity": 81,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_80_MedicalAlchohol",
+      "quantity": 39,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_81_Syringe",
+      "quantity": 140,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_82_MedicalScanner",
+      "quantity": 151,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_83_BloodPacs",
+      "quantity": 63,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_84_MedicalTools",
+      "quantity": 68,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_85_AdvancedMedicalTools",
+      "quantity": 275,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_86_Ai.Medicaltools",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_87_Stethoscope",
+      "quantity": 103,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_88_MiscMedication",
+      "quantity": 315,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_89_Bandages",
+      "quantity": 213,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_9_CPU",
+      "quantity": 252,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_90_Tourniquets",
+      "quantity": 203,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_91_CyborgImmunosuppressant",
+      "quantity": 43,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_92_SolidState",
+      "quantity": 143,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_93_LiquidCoolingUnit",
+      "quantity": 138,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_94_Thermometer",
+      "quantity": 131,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_95_Pressuregauge",
+      "quantity": 152,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_96_VentilationRegulator",
+      "quantity": 110,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_97_AdvancedNetworkboard",
+      "quantity": 229,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_98_Militarycodebreaker",
+      "quantity": 248,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareLoot_99_CameraLens",
+      "quantity": 118,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RareMetals",
+      "quantity": 31,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.02",
+      "quantity": 17,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.05",
+      "quantity": 27,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.07",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.08",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.10",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.11",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.13",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "recipe.ingredient.fixedweapons.14",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "RFL01",
+      "quantity": 17,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL01B",
+      "quantity": 57,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL02",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL05",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL10",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL12",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL15",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL16",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL19",
+      "quantity": 31,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL19_Broken",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RFL20",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL23",
+      "quantity": 13,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL29",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RFL30",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "RIG_EQUIPMENT_20mmTurret",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RIG_EQUIPMENT_ExoLegs",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RIG_EQUIPMENT_IED",
+      "quantity": 77,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RIG_EQUIPMENT_RigLight",
+      "quantity": 143,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RIG_EQUIPMENT_SuperJump",
+      "quantity": 145,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RIG_EQUIPMENT_TacCam",
+      "quantity": 214,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "RigPilot",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "Shanti_LootObject_01",
+      "quantity": 43,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "SHG01",
+      "quantity": 17,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SHG01_Broken",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "SHG03",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SHG04",
+      "quantity": 15,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SHG05",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SHG05_Broken",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Damaged Weapons"
+    },
+    {
+      "name": "SHG06",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SignalScrambler",
+      "quantity": 10,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "SMG01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG03",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG04",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG05",
+      "quantity": 27,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG06",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG07",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG08",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "SMG09",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Base Weapons"
+    },
+    {
+      "name": "Stim",
+      "quantity": 1277,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "T90_Debirs_Loot",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tobacco01",
+      "quantity": 283,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tobacco02",
+      "quantity": 78,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tobacco03",
+      "quantity": 183,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools01",
+      "quantity": 29,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools02",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools03",
+      "quantity": 37,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools04",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools05",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools06",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools10",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Tools11",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Toy01",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Toy02",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Toy03",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "TransTower_Quest_Marker",
+      "quantity": 141,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Turret_Debris_Loot",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Validation_LootObject_01",
+      "quantity": 43,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_BRL_01",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_BRL_02",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_BRL_03",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_BRL_04",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_HGD_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_HGD_02",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_HGD_03",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_HGD_04",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_HGD_05",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_HGD_06",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_MAG_50_01",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_MAG_50_02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_MAG_50_03",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_HRF01_MAG_50_04",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_BRL_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_BRL_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_GAS_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_GAS_02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_HGD_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_HGD_01_1",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_HGD_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_HGD_03",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_MAG_556_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_MAG_556_02",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_PGR_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_PGR_02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_STK_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG02_STK_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG03_HGD_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG03_HGD_01_1",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG04_BRL_01",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG04_BRL_02",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG04_HGD_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG04_HGD_01_1",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_LMG04_STK_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST02_UPP_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST02_UPP_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST03_MAG_919_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST03_MAG_919_02",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST04_UPP_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST04_UPP_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_BRL_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_BRL_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_FMS_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_FMS_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_HGD_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_HGD_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_MAG_40m_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_MAG_40m_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_PGR_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_PGR_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_RLS_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_RLS_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_TRG_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_TRG_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_UPP_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST07_UPP_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST10_MAG_919_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST10_MAG_919_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST10_UPP_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST10_UPP_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_PST10_UPP_03",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_BRL_01",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_BRL_02",
+      "quantity": 24,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_BRL_03",
+      "quantity": 25,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_BRL_04",
+      "quantity": 25,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_GAS_02",
+      "quantity": 36,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_GAS_03",
+      "quantity": 27,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_GAS_04",
+      "quantity": 26,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_GAS_05",
+      "quantity": 30,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_01",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_01A",
+      "quantity": 17,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_01B",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_02",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_02A",
+      "quantity": 13,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_02B",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_03",
+      "quantity": 25,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_04",
+      "quantity": 17,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_05",
+      "quantity": 26,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_06",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_07",
+      "quantity": 24,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD_10",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD09",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_HGD11",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_01",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_02",
+      "quantity": 22,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_03",
+      "quantity": 31,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_04",
+      "quantity": 26,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_05",
+      "quantity": 24,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_05A",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_06",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_07",
+      "quantity": 22,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_08",
+      "quantity": 34,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_MAG_545_10",
+      "quantity": 9,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_01",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_01A",
+      "quantity": 32,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_01B",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_02",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_03",
+      "quantity": 23,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_04",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_PGR_06",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_01",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_02",
+      "quantity": 17,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_02A",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_02B",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_03",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_03A",
+      "quantity": 14,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_03B",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_04",
+      "quantity": 35,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_STK_05",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_UPP_01",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL01_UPP_02",
+      "quantity": 51,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_BRL_01",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_BRL_02",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_BRL_03",
+      "quantity": 24,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_CHG_01",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_CHG_02",
+      "quantity": 13,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_CHG_03",
+      "quantity": 16,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_GAS_01",
+      "quantity": 34,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_GAS_02",
+      "quantity": 20,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_GAS_03",
+      "quantity": 19,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_GAS_04",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_01",
+      "quantity": 28,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_02",
+      "quantity": 31,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_03",
+      "quantity": 21,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_05",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_06",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_07",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_08",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_09",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_10",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_11",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_12",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_13",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_14",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_17",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_HGD_18",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_MAG_556_01",
+      "quantity": 23,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_MAG_556_02",
+      "quantity": 34,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_MAG_556_03",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_PGR_01",
+      "quantity": 35,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_PGR_02",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_PGR_03",
+      "quantity": 15,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_PGR_04",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_PGR_05",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_PGR_06",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_01",
+      "quantity": 33,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_02",
+      "quantity": 28,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_03",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_04",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_05",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_06",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_07",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_08",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_STK_09",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_UPP_01",
+      "quantity": 35,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_UPP_02",
+      "quantity": 18,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL12_UPP_03",
+      "quantity": 23,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL15_BRL_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL15_BRL_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL15_MAG_308_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL15_MAG_308_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_BRL_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_BRL_02",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_BRL_03",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_HGD_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_HGD_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_HGD_03",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_HGD_04",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_HGD_05",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_MAG_556_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_MAG_556_02",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_STK_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_STK_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_UPP_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_UPP_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_UPP_03",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL16_UPP_04",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL19_HGD_01",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL19_PGR_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL19_STK_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_BRL_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_BRL_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_BRL_03",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_BRL_04",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_STK_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_STK_02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_UPP_01",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_UPP_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_UPP_03",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_UPP_04",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_UPP_05",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL20_UPP_06",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_BRL_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_GAS_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_GAS_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_03",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_04",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_05",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_06",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_07",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_HGD_08",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_MAG_556_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_MAG_556_02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_STK_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_STK_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_STK_03",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_UPP_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_UPP_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL23_UPP_03",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL29_FRS_01",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL29_HGD_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL29_HGD_01_1",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL30_HGD_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_RFL30_HGD_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_BRL_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_BRL_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_BRL_03",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_HGD01_HAX",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_MAG_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_MAG_02",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG01_MAG_03",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_BRL_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_BRL_02",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_BRL_03",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_MAG_12G_01",
+      "quantity": 12,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_MAG_12G_02",
+      "quantity": 10,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_MAG_12G_03",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG03_PGR_01",
+      "quantity": 10,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG04_HGD_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG04_HGD_02",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG04_HGD_03",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG04_MAG_12G_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG04_MAG_12G_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG05_HGD_01_1",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG05_MAG_12G_01",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SHG05_MAG_12G_02",
+      "quantity": 8,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG01_HGD_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG01_HGD_01_1",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_BRL_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_BRL_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_BRL_03",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_MAG_919_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_MAG_919_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_STK_02_STKEND_1",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_STK_02_STKEND_2",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_STK_02_STKEND_3",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_STK_02_STKEND_4",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_UPP_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG03_UPP_01_1",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG04_HGD_01_1",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG05_BRL_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG05_BRL_02",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG05_STK_01",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_BRL_01",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_BRL_02",
+      "quantity": 11,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_HGD_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_HGD_02",
+      "quantity": 13,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_MAG_919_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_MAG_919_02",
+      "quantity": 5,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_PGR_01",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_PGR_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_STK_01",
+      "quantity": 6,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_STK_02",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_TRG_01",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_TRG_02",
+      "quantity": 2,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_UPP_01",
+      "quantity": 4,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG07_UPP_02",
+      "quantity": 7,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "WPN_SMG08_HGD_01_1",
+      "quantity": 3,
+      "validLayout": true,
+      "sourceMap": "Items"
+    },
+    {
+      "name": "Drone_Construction",
+      "quantity": 1,
+      "validLayout": true,
+      "sourceMap": "Items"
+    }
+  ]
+}

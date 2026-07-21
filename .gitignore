@@ -1,0 +1,28 @@
+# Dependencies
+**/node_modules/
+
+# Vendored third-party clone (trumank/uesave, has its own git history) — required
+# build tool, kept on disk, not tracked as part of this repo
+experiment/uesave-src/
+
+# Unrelated IDE-extension state (Kilo Code)
+.kilo/
+
+# Retired content — local safety net, not meant for commit history
+archive/
+
+# Secrets
+fwinter-db-key.txt
+
+# Large/binary data, not source
+reference/*.dat
+
+# Release build output (regenerate via releases/build.ps1)
+releases/build/
+releases/*.exe
+
+# Local overrides and scratch space
+webapp/config/settings.json
+.temp/*
+!.temp/README.md
+webapp/.temp/

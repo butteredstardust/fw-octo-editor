@@ -1,0 +1,337 @@
+import { FW, expose } from '../runtime.mjs';
+
+const { api, esc, technicalDetails, appIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META } = FW;
+function describeItem(...args) { return FW.describeItem(...args); }
+function loadCatalog(...args) { return FW.loadCatalog(...args); }
+
+function loadoutWeaponName(tag) {
+  if (!tag) return null;
+  const m = WEAPON_META[tag];
+  return m ? { name: m.name, cat: m.cat } : { name: describeItem(tag).wiki, cat: 'Weapon' };
+}
+
+// Render one weapon slot object (from /api/dashboard loadout: {weapon, nickname,
+// attachments[]}). Shows the friendly name, internal tag + category, optional
+// nickname, and the attached parts list.
+function renderLoadoutWeapon(slot, slotLabel) {
+  if (!slot || !slot.weapon) return `<span class="dash-empty">—</span>`;
+  const info = loadoutWeaponName(slot.weapon);
+  let html = `<span class="dash-wname" title="${esc(slot.weapon)}">${esc(info.name)}</span>${technicalDetails(slot.weapon, 'Show weapon technical ID')} <span class="dash-wtag">${esc(info.cat)}</span>`;
+  if (slot.nickname) html += ` <span class="dash-wnick">“${esc(slot.nickname)}”</span>`;
+  if (slot.attachments && slot.attachments.length) {
+    const parts = slot.attachments.map(a => {
+      const m = WEAPON_META[a.item];
+      const label = m ? m.name : describeItem(a.item).wiki;
+      const cat = (a.category || '').replace('ECustomizationType::', '');
+      return `<span class="dash-att" title="${esc(a.item)}">${esc(label)}${technicalDetails(a.item, 'Show attachment technical ID')}<small>${esc(cat)}${a.index != null ? ' #' + Number(a.index) : ''}</small></span>`;
+    }).join('');
+    html += `<details class="dash-attachments-disclosure"><summary>${slot.attachments.length} attachment${slot.attachments.length === 1 ? '' : 's'}</summary><div class="dash-attachments">${parts}</div></details>`;
+  }
+  return html;
+}
+
+function renderDashCharacter(character, loadout) {
+  const el = document.getElementById('dashCharacter');
+  if (!character) {
+    setRenderedHtml(el, '<p class="char-blurb">No selected character found in save (SelectedCharacterTag missing).</p>');
+    return;
+  }
+  const meta = CHARACTER_META[character.tag] || { name: character.shortName, icon: '🔹', health: '?', walk: '?', sprint: '?' };
+  const lvl = parseInt(character.level, 10) || 0;
+  const bonus = prestigeBonus(lvl);
+  const totalHealth = (typeof meta.health === 'number') ? meta.health + bonus.health : '?';
+  const capped = lvl >= PRESTIGE_MAX_FOR_WARNING;
+  const xpCap = PRESTIGE_XP_CAP[lvl] != null ? PRESTIGE_XP_CAP[lvl] : null;
+  const xpPct = (xpCap && character.xp != null) ? Math.min(100, Math.round((character.xp / xpCap) * 100)) : null;
+
+  const rig = loadout && loadout.rig
+    ? `<span class="dash-wname">${esc(loadout.rig)}</span>${loadout.rigRow ? technicalDetails(loadout.rigRow, 'Show rig technical ID') : ''}`
+    : '<span class="dash-empty">None equipped</span>';
+
+  setRenderedHtml(el, `
+    <div class="dash-char-head">
+        <span class="dash-char-icon">${appIcon(meta.icon)}</span>
+      <div>
+        <div class="dash-char-name">${esc(character.shortName)} <span class="char-active-badge">Active</span></div>
+        <div class="dash-char-tag">${technicalDetails(character.tag, 'Show character technical ID')}</div>
+      </div>
+    </div>
+    <div class="char-hp">
+      <div class="char-hp-total">${totalHealth}<span class="char-hp-unit"> HP</span></div>
+      <div class="char-hp-breakdown">base ${meta.health}${bonus.health ? ` + <span class="pos">${bonus.health} prestige</span>` : ''}${bonus.speed ? ` &middot; <span class="pos">+${bonus.speed}% speed</span>` : ''}</div>
+    </div>
+    <div class="dash-stats">
+      <div><span class="k">Prestige Level</span><span class="v">${lvl}${capped ? ' <span class="char-capped" title="Wiki: no further health/speed past 25">&#9888; capped</span>' : ''}</span></div>
+      <div><span class="k">Walk / Sprint</span><span class="v">${meta.walk} / ${meta.sprint} m/s</span></div>
+      <div class="char-xp-row" style="grid-column: 1 / -1">
+        <span class="k">Character XP</span>
+        <span class="v">${character.xp != null ? character.xp.toLocaleString() : 0}${xpCap != null ? ` <small>/ ${xpCap.toLocaleString()} cap</small>` : ''}</span>
+        ${xpPct != null ? `<span class="char-xp-bar"><span class="char-xp-fill" style="width:${xpPct}%"></span></span>` : ''}
+      </div>
+    </div>
+    <div class="dash-loadout">
+      <div class="dash-loadout-row"><span class="dash-slot">Primary</span><div class="dash-slot-body">${renderLoadoutWeapon(loadout && loadout.primary, 'Primary')}</div></div>
+      <div class="dash-loadout-row"><span class="dash-slot">Secondary</span><div class="dash-slot-body">${renderLoadoutWeapon(loadout && loadout.secondary, 'Secondary')}</div></div>
+      <div class="dash-loadout-row"><span class="dash-slot">Rig Build</span><div class="dash-slot-body">${rig}</div></div>
+    </div>`);
+}
+
+function renderDashQuests(quests) {
+  const el = document.getElementById('dashQuests');
+  if (!quests || !quests.length) {
+    setRenderedHtml(el, '<div class="empty-state"><strong>No quests found</strong><br>The save does not currently expose tracked quests.</div>');
+    return;
+  }
+  const complete = quests.filter(q => q.state === 'complete').length;
+  const ready = quests.filter(q => q.state === 'ready').length;
+  const inProgress = quests.filter(q => q.state === 'in_progress').length;
+  const notStarted = quests.filter(q => q.state === 'not_started').length;
+  // Active = not yet turned in (ready + in progress + not started).
+  const active = quests.filter(q => q.state === 'ready' || q.state === 'in_progress');
+
+  let html = `<div class="dash-quest-summary">
+    <span class="dash-badge complete">${complete} Complete</span>
+    <span class="dash-badge ready">${ready} Ready to Turn In</span>
+    <span class="dash-badge inprog">${inProgress} In Progress</span>
+    <span class="dash-badge notstart">${notStarted} Not Started</span>
+  </div>`;
+
+  if (active.length) {
+    html += '<div class="dash-quest-list">';
+    // Order: ready (most urgent) first, then in progress, then not started.
+    const order = { ready: 0, in_progress: 1, not_started: 2 };
+    const sorted = [...active].sort((a, b) => order[a.state] - order[b.state]);
+    for (const q of sorted.slice(0, 5)) {
+      const label = q.name.replace(/^Quest\./, '').replace(/\./g, ' ');
+      const cls = q.state === 'ready' ? 'ready' : q.state === 'in_progress' ? 'inprog' : 'notstart';
+      const statusTxt = q.state === 'ready' ? 'Ready to Turn In' : q.state === 'in_progress' ? 'In Progress' : 'Not Started';
+      let detail = '';
+      if (q.state === 'in_progress') {
+        const done = q.steps.filter(s => s.value > 0).length;
+        const total = q.steps.length;
+      const progress = Number(q.progress) || 0;
+      const prog = progress > 0 ? ` · progress ${progress.toLocaleString()}` : '';
+        if (total > 0) detail = `<span class="dash-quest-sub">${done}/${total} objectives${prog}</span>`;
+        else if (progress > 0) detail = `<span class="dash-quest-sub">progress ${progress.toLocaleString()}</span>`;
+      } else if (q.state === 'ready') {
+        detail = `<span class="dash-quest-sub">all conditions met</span>`;
+      }
+      // Only in-progress quests can be marked ready (experimental).
+      const action = q.state === 'in_progress'
+        ? `<button class="dash-quest-btn" data-action="quest-ready" data-id="${esc(q.id)}">Mark Ready to Turn In</button>`
+        : '';
+      html += `<div class="dash-quest-row ${cls}"><span class="dash-quest-status">${statusTxt}</span><span class="dash-quest-name">${esc(label)}${detail}</span>${action}</div>`;
+    }
+    html += '</div>';
+    if (sorted.length > 5) {
+      html += `<details class="dash-quest-more"><summary>Show all ${sorted.length} actionable quests</summary><div class="dash-quest-list">`;
+      for (const q of sorted.slice(5)) html += `<div class="dash-quest-row ${q.state === 'ready' ? 'ready' : 'inprog'}"><span class="dash-quest-status">${q.state === 'ready' ? 'Ready to Turn In' : 'In Progress'}</span><span class="dash-quest-name">${esc(q.name.replace(/^Quest\./, '').replace(/\./g, ' '))}</span></div>`;
+      html += '</div></details>';
+    }
+  } else {
+    html += '<p class="char-blurb">All quests complete.</p>';
+  }
+  setRenderedHtml(el, html);
+}
+
+function renderDashInventory(inventory) {
+  const el = document.getElementById('dashInventory');
+  if (!inventory || !inventory.length) {
+    setRenderedHtml(el, '<div class="empty-state"><strong>Inventory is empty</strong><br>Open Add Items to add a known item.</div>');
+    return;
+  }
+  const total = inventory.reduce((a, i) => a + i.quantity, 0);
+  setRenderedHtml(el, `<div class="inventory-shortcuts"><div class="inventory-metric"><strong>${inventory.length.toLocaleString()}</strong> item types · ${total.toLocaleString()} total units</div><button class="shortcut" data-action="show-page" data-page-target="inventory">Manage Inventory</button><button class="shortcut" data-action="show-page" data-page-target="add-items">Add Items</button></div>`);
+}
+
+// Kept local to this module: ES modules do not share vendor-page helpers.
+// The overview uses the same three-stage display without depending on the
+// Vendors page having loaded first.
+const TRUST_PRESETS = {
+  untrusted: -1000,
+  trusted: 239000
+};
+
+const TRUST_TIER_LABEL = {
+  untrusted: 'Untrusted (I)',
+  neutral: 'Neutral (II)',
+  trusted: 'Trusted (III)'
+};
+
+function trustTier(score) {
+  if (score >= 150000) return 'trusted';
+  if (score >= 0) return 'neutral';
+  return 'untrusted';
+}
+
+function trustProgress(score) {
+  const n = Number(score) || 0;
+  if (n < 0) return Math.max(0, Math.min(33, ((n - TRUST_PRESETS.untrusted) / -TRUST_PRESETS.untrusted) * 33));
+  if (n < 150000) return 33 + Math.min(33, (n / 150000) * 33);
+  return 66 + Math.min(34, ((n - 150000) / (TRUST_PRESETS.trusted - 150000)) * 34);
+}
+
+function trustTrack(score) {
+  const pct = trustProgress(score);
+  return `<div class="trust-track" role="img" aria-label="Faction trust: ${esc(TRUST_TIER_LABEL[trustTier(score)])}; score ${Number(score).toLocaleString()}">
+    <div class="trust-track-bar"><span style="width:${pct.toFixed(1)}%"></span><i style="left:${pct.toFixed(1)}%"></i></div>
+    <div class="trust-track-labels"><span>Untrusted</span><span>Neutral</span><span>Trusted</span></div>
+  </div>`;
+}
+function renderDashFactionTrust(factions) {
+  const el = document.getElementById('dashFactionTrust');
+  if (!factions || !factions.length) {
+    setRenderedHtml(el, '<div class="empty-state"><strong>No faction scores found</strong></div>');
+    return;
+  }
+  setRenderedHtml(el, `<div class="overview-trust-grid">${factions.map(f => `<article class="overview-trust-card">
+    <div class="overview-trust-meta"><span class="overview-trust-name">${esc(f.faction)}</span><span class="overview-trust-score">${Number(f.score).toLocaleString()}</span></div>
+    ${trustTrack(f.score)}
+  </article>`).join('')}</div>`);
+}
+
+// Resource cards: Water + Credits (Currencies table) and the three drones
+// (TempInventory items). Drones reuse the inventory update/add endpoints.
+const RESOURCE_DEFS = [
+  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Water Barrels' },
+  { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits' },
+  { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel Drone', icon: '🚁', cat: 'Utility Drone' },
+  { id: 'Drone_Construction', kind: 'inventory', label: 'Construction Drone', icon: '🔧', cat: 'Utility Drone' },
+  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery Drone', icon: '🛰️', cat: 'Utility Drone' }
+];
+
+function renderDashResources(dash) {
+  const el = document.getElementById('dashResources');
+  const currencies = (dash && dash.currencies) || {};
+  const invByName = {};
+  if (dash && dash.inventory) {
+    for (const i of dash.inventory) invByName[i.name] = i.quantity;
+  }
+
+  let html = '<div class="resource-primary">';
+  for (const def of RESOURCE_DEFS) {
+    const current = def.kind === 'currency'
+      ? (currencies[def.id] != null ? currencies[def.id] : 0)
+      : (invByName[def.id] != null ? invByName[def.id] : 0);
+    const owned = def.kind === 'inventory' && invByName[def.id] != null;
+    if (def.kind === 'inventory' && def.id === 'Drone_FastTravel') html += '</div><div class="resource-secondary">';
+    html += `<div class="res-card ${def.kind === 'currency' ? 'metric' : 'utility'}">
+      <div class="res-head">
+        <span class="res-icon">${appIcon(def.icon)}</span>
+        <span class="res-name">${esc(def.label)}</span>
+        <span class="res-cat">${esc(def.cat)}</span>
+      </div>
+      <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
+      <div class="res-controls">
+        <input type="number" class="res-input" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1">
+        <button class="res-set" data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" aria-label="Set ${esc(def.label)} quantity">Set</button>
+        ${def.kind === 'inventory' && !owned ? `<button class="res-add" data-action="add-resource" data-id="${esc(def.id)}" aria-label="Add ${esc(def.label)}">Add</button>` : ''}
+      </div>
+      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
+    </div>`;
+  }
+  html += '</div>';
+  setRenderedHtml(el, html);
+}
+
+async function setResource(id, kind) {
+  const def = RESOURCE_DEFS.find(d => d.id === id);
+  const input = document.getElementById('res-' + id);
+  const msg = document.getElementById('resmsg-' + id);
+  let qty;
+  try { qty = readIntegerInput(input, 'Quantity', { min: 0, max: 2147483647 }); } catch (error) {
+    msg.className = 'res-msg err';
+    msg.textContent = error.message;
+    return;
+  }
+  msg.className = 'res-msg';
+  msg.textContent = 'Saving…';
+  try {
+    if (kind === 'currency') {
+      const r = await api('/currencies/' + encodeURIComponent(id), { method: 'PUT', body: JSON.stringify({ amount: qty }) });
+      if (!r.afterIntegrity || !r.afterIntegrity.passed) throw new Error('integrity check failed');
+    } else {
+      const r = await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
+      if (!r.afterIntegrity || !r.afterIntegrity.passed) throw new Error('integrity check failed');
+    }
+    msg.className = 'res-msg ok';
+    msg.textContent = `Set to ${qty.toLocaleString()}.`;
+    document.getElementById('resvalue-' + id).textContent = qty.toLocaleString();
+    input.value = '';
+    showToast(`${def ? def.label : id} set to ${qty.toLocaleString()}.`);
+  } catch (err) {
+    msg.className = 'res-msg err';
+    msg.textContent = 'Error: ' + err.message;
+  }
+}
+
+async function addResource(id) {
+  const def = RESOURCE_DEFS.find(d => d.id === id);
+  const input = document.getElementById('res-' + id);
+  const msg = document.getElementById('resmsg-' + id);
+  let qty;
+  try { qty = input.value === '' ? 1 : readIntegerInput(input, 'Quantity', { min: 1, max: 2147483647 }); } catch (error) { msg.className = 'res-msg err'; msg.textContent = error.message; return; }
+  msg.className = 'res-msg';
+  msg.textContent = 'Adding…';
+  try {
+    const r = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
+    if (r.added === false) {
+      // Already present (or game re-added) — fall back to a quantity update.
+      const u = await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
+      if (!u.afterIntegrity || !u.afterIntegrity.passed) throw new Error('integrity check failed');
+    } else if (!r.afterIntegrity || !r.afterIntegrity.passed) {
+      throw new Error('integrity check failed');
+    }
+    msg.className = 'res-msg ok';
+    msg.textContent = `Added ${qty.toLocaleString()}.`;
+    document.getElementById('resvalue-' + id).textContent = qty.toLocaleString();
+    input.value = '';
+    showToast(`Added ${qty.toLocaleString()} ${def ? def.label : id}.`);
+  } catch (err) {
+    msg.className = 'res-msg err';
+    msg.textContent = 'Error: ' + err.message;
+  }
+}
+
+async function loadDashboard() {
+  showLoading(document.getElementById('dashCharacter'), 1, 'Loading character');
+  showLoading(document.getElementById('dashQuests'), 3, 'Loading quests');
+  showLoading(document.getElementById('dashInventory'), 1, 'Loading inventory');
+  showLoading(document.getElementById('dashFactionTrust'), 3, 'Loading faction trust');
+  showLoading(document.getElementById('dashResources'), 5, 'Loading resources');
+  try {
+    await loadCatalog();
+    const status = await api('/status');
+    document.getElementById('gameStatus').textContent = status.gameRunning
+      ? `Game Running: ${status.gameRunning.join(', ')}`
+      : 'Game Not Running';
+
+    const [dash, vendors] = await Promise.all([
+      api('/dashboard').catch(() => null),
+      api('/vendors').catch(() => null)
+    ]);
+    if (dash) {
+      renderDashCharacter(dash.character, dash.loadout);
+      renderDashQuests(dash.quests);
+      renderDashInventory(dash.inventory);
+      renderDashResources(dash);
+    } else {
+      const failMsg = '<div class="empty-state"><strong>Could not load dashboard data</strong></div>';
+      setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
+      setRenderedHtml(document.getElementById('dashQuests'), failMsg);
+      setRenderedHtml(document.getElementById('dashInventory'), failMsg);
+      setRenderedHtml(document.getElementById('dashResources'), failMsg);
+    }
+    renderDashFactionTrust(vendors && vendors.factions);
+  } catch (err) {
+    const failMsg = `<div class="empty-state"><strong>Error</strong><br>${esc(err.message)}</div>`;
+    setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
+    setRenderedHtml(document.getElementById('dashQuests'), failMsg);
+    setRenderedHtml(document.getElementById('dashInventory'), failMsg);
+    setRenderedHtml(document.getElementById('dashFactionTrust'), failMsg);
+    setRenderedHtml(document.getElementById('dashResources'), failMsg);
+  }
+}
+
+expose({ loadDashboard, setResource, addResource });
+

@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://theforeverwinter.wiki.gg/wiki/Innards",
+  "verifiedAt": "2026-07-18T22:34:09.360Z",
+  "supportedGameVersion": "unverified-current",
+  "attribution": "The Forever Winter Wiki contributors, CC BY-SA",
+  "upgrades": [
+    {
+      "tag": "Hub.Upgrade.Category.Water.V1",
+      "recipeId": "+16 days1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Water.V2",
+      "recipeId": "+28 days1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Bar.01",
+      "recipeId": "Bar V11"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Bar.02",
+      "recipeId": "Bar V21"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Bar.03",
+      "recipeId": "Bar V31"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.BossRoom.02",
+      "recipeId": "Cognition Cradle Containment Chamber1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.BossRoom.01",
+      "recipeId": "Cognition Cradle Frame1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.DogHouse",
+      "recipeId": "Dog House1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Garage.00",
+      "recipeId": "Garage1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Defense.Turrets.01",
+      "recipeId": "Innards Defense Turrets V11"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Defense.Turrets.02",
+      "recipeId": "Innards Defense Turrets V21"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Defense.Turrets.03",
+      "recipeId": "Innards Defense Turrets V31"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Lift",
+      "recipeId": "Lift1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Crafting.Booster",
+      "recipeId": "Manufacture Booster1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Crafting.Ammo",
+      "recipeId": "Munition Printer1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.MusicSystem",
+      "recipeId": "Music System1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.PersonalQuarters.01",
+      "recipeId": "Personal Quarters Upgrade v11"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.PersonalQuarters.02",
+      "recipeId": "Personal Quarters Upgrade v21"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.PersonalQuarters.03",
+      "recipeId": "Personal Quarters Upgrade v31"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.PersonalQuarters.00",
+      "recipeId": "Personal Quarters1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Crafting.WeaponRepairs",
+      "recipeId": "Repair Bench1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.ShootingRange.01",
+      "recipeId": "Shooting Range Upgrade v11"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.ShootingRange.02",
+      "recipeId": "Shooting Range Upgrade v21"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.ShootingRange.03",
+      "recipeId": "Shooting Range Upgrade v31"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.ShootingRange.00",
+      "recipeId": "Shooting Range1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Shrine",
+      "recipeId": "Shrine1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.SpecialTree",
+      "recipeId": "Special Tree1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Bar.00",
+      "recipeId": "The Bar1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.BossRoom.00",
+      "recipeId": "The Cognition Cradle1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.TransRoom.00",
+      "recipeId": "Transmission Tower1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.TvScreens.Mega",
+      "recipeId": "TV Screens Mega1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.TvScreens.Small",
+      "recipeId": "TV Screens Small1"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v1",
+      "recipeId": "Water Bots V11"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v2",
+      "recipeId": "Water Bots V21"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Water.WaterBot.Delivery.v3",
+      "recipeId": "Water Bots V31"
+    },
+    {
+      "tag": "Hub.Upgrade.Category.Crafting.WeaponParts",
+      "recipeId": "Workshop1"
+    }
+  ]
+}

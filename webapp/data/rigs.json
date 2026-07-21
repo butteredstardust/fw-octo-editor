@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "sources": {
+    "rigs": "https://theforeverwinter.wiki.gg/wiki/Rigs",
+    "modules": "https://theforeverwinter.wiki.gg/wiki/Rig_Module",
+    "referenceSave": "YOUR_HASHCODE_HERE.dat"
+  },
+  "rigs": [
+    {
+      "id": "RIGBUILDS_01_Default_Small",
+      "name": "Standard Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 397.04,
+      "maxCapacity": 794.08,
+      "weight": 3,
+      "price": 0,
+      "slots": { "open": 1, "large": 1, "medium": 0, "small": 0, "weapon": 0 },
+      "compatibleCharacters": ["Old Man", "Scav Girl", "Mask Man", "Shaman", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLarge_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_05_TinyBackPack",
+      "name": "Tiny Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 297.92,
+      "maxCapacity": 595.85,
+      "weight": 2,
+      "price": 1200000,
+      "slots": { "open": 0, "large": 0, "medium": 1, "small": 0, "weapon": 0 },
+      "compatibleCharacters": ["Scav Girl"],
+      "highQualityContainers": ["BP_CentreMedium_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_01_Default_Small_Gundang",
+      "name": "Standard Gunrunner Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 397.04,
+      "maxCapacity": 794.08,
+      "weight": 3,
+      "price": 0,
+      "slots": { "open": 1, "large": 1, "medium": 0, "small": 0, "weapon": 1 },
+      "compatibleCharacters": ["Old Man", "Scav Girl", "Mask Man", "Shaman", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLarge_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_02_Medim_MoreContainers",
+      "name": "Enhanced Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 656.08,
+      "maxCapacity": 1312.16,
+      "weight": 5,
+      "price": 225000,
+      "slots": { "open": 1, "large": 0, "medium": 1, "small": 3, "weapon": 0 },
+      "compatibleCharacters": ["Old Man", "Scav Girl", "Mask Man", "Shaman", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopMedium_3_C", "BP_LeftSmall_3_C", "BP_CentreSmall_3_C", "BP_RightSmall_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_02_Medim_MoreContainers_Gundang",
+      "name": "Enhanced Gunrunner Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 595.85,
+      "maxCapacity": 1191.7,
+      "weight": 4,
+      "price": 337500,
+      "slots": { "open": 1, "large": 0, "medium": 2, "small": 0, "weapon": 1 },
+      "compatibleCharacters": ["Old Man", "Scav Girl", "Mask Man", "Shaman", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLeftMedium_3_C", "BP_TopRightMedium_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_02a_Medium_MoreDangles",
+      "name": "Equipment Runner Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 1013.14,
+      "maxCapacity": 2026.32,
+      "weight": 7,
+      "price": 562500,
+      "slots": { "open": 3, "large": 0, "medium": 3, "small": 1, "weapon": 0 },
+      "compatibleCharacters": ["Old Man", "Scav Girl", "Mask Man", "Shaman", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopMedium_3_C", "BP_LeftMedium_3_C", "BP_RightMedium_3_C", "BP_CentreSmall_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_02a_Medium_MoreDangles_Gundang",
+      "name": "Medium Equipment Gunrunner Rig",
+      "weightClass": "Light / Medium",
+      "minCapacity": 893.77,
+      "maxCapacity": 1787.55,
+      "weight": 6,
+      "price": 345000,
+      "slots": { "open": 2, "large": 0, "medium": 3, "small": 0, "weapon": 1 },
+      "compatibleCharacters": ["Old Man", "Scav Girl", "Mask Man", "Shaman", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLeftMedium_3_C", "BP_TopMedium_3_C", "BP_TopRightMedium_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_04_Large_MoreContainers_Gundang",
+      "name": "Heavy Container Gunrunner Rig",
+      "weightClass": "Heavy",
+      "minCapacity": 2382.24,
+      "maxCapacity": 4764.48,
+      "weight": 18,
+      "price": 1387500,
+      "slots": { "open": 0, "large": 6, "medium": 0, "small": 0, "weapon": 1 },
+      "compatibleCharacters": ["Old Man", "Mask Man", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLeftLarge_3_C", "BP_TopLarge_3_C", "BP_TopRightLarge_3_C", "BP_BotLeftLarge_3_C", "BP_BotLarge_3_C", "BP_BotRightLarge_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_04_Large_MoreContainers",
+      "name": "Pack Mule Rig",
+      "weightClass": "Heavy",
+      "minCapacity": 2680.72,
+      "maxCapacity": 5361.49,
+      "weight": 19,
+      "price": 1237500,
+      "slots": { "open": 1, "large": 3, "medium": 5, "small": 0, "weapon": 0 },
+      "compatibleCharacters": ["Old Man", "Mask Man", "Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLeftLarge_3_C", "BP_TopLarge_3_C", "BP_TopRightLarge_3_C", "BP_LeftMedium_3_C", "BP_CentreMedium_3_C", "BP_RightMedium_3_C", "BP_BotLeftMedium_3_C", "BP_BotRightMedium_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_03_Large_MoreDangles_Gundang",
+      "name": "Heavy Equipment Gunrunner Rig",
+      "weightClass": "Super Heavy",
+      "minCapacity": 397.04,
+      "maxCapacity": 794.08,
+      "weight": 3,
+      "price": 1612500,
+      "slots": { "open": 2, "large": 1, "medium": 0, "small": 0, "weapon": 2 },
+      "compatibleCharacters": ["Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_TopLarge_3_C"]
+    },
+    {
+      "id": "RIGBUILDS_03_Large_MoreDangles",
+      "name": "The Rack Rig",
+      "weightClass": "Super Heavy",
+      "minCapacity": 397.04,
+      "maxCapacity": 794.08,
+      "weight": 3,
+      "price": 1875000,
+      "slots": { "open": 8, "large": 1, "medium": 0, "small": 0, "weapon": 0 },
+      "compatibleCharacters": ["Bag Man", "Gunhead"],
+      "highQualityContainers": ["BP_CentreLarge_3_C"]
+    }
+  ]
+}
