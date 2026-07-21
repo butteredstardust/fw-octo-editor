@@ -148,7 +148,7 @@ webapp/public/
 | Tool | Default Path | Env Override | Purpose |
 |------|--------------|--------------|---------|
 | **SQLite3MC** | `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe` | `FW_SQLITE_BIN` | Encrypted SQLite shell (cipher_compatibility = 3) |
-| **uesave** | `experiment/uesave-src/target/release/uesave.exe` | `GVAS_UESAVE_BIN` | Rust CLI for GVAS blob serialization/deserialization |
+| **uesave** | `tools/uesave-src/target/release/uesave.exe` | `GVAS_UESAVE_BIN` | Rust CLI for GVAS blob serialization/deserialization |
 | **DB Key File** | `fwinter-db-key.txt` (in repo root) | `FW_DB_KEY_FILE` | 32-character plaintext database encryption key |
 
 ### Backup Root

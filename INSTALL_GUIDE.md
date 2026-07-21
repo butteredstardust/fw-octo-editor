@@ -35,9 +35,9 @@ The repository root should contain:
 ```
 AGENTS.md
 README.md
-experiment/
 reference/
 releases/
+tools/
 webapp/
 ```
 
@@ -73,7 +73,7 @@ If the binary is missing:
 The app requires `uesave.exe` (trumank/uesave, pinned v0.7.1) for structured inventory reads and writes.
 
 ```bash
-cd experiment
+cd tools
 git clone https://github.com/trumank/uesave.git uesave-src
 cd uesave-src
 cargo build --release -p uesave_cli
@@ -81,12 +81,12 @@ cargo build --release -p uesave_cli
 
 After a successful build, the binary should be at:
 ```
-experiment/uesave-src/target/release/uesave.exe
+tools/uesave-src/target/release/uesave.exe
 ```
 
 Verify it:
 ```bash
-experiment/uesave-src/target/release\uesave.exe --help
+tools/uesave-src/target/release\uesave.exe --help
 ```
 
 If you place the binary elsewhere, set the environment variable:
@@ -174,7 +174,7 @@ If your saves live elsewhere, you can either:
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `FW_SQLITE_BIN` | No | `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe` | Path to the SQLite3MC shell |
-| `GVAS_UESAVE_BIN` | No | `..\experiment\uesave-src\target\release\uesave.exe` (relative to `webapp/`) | Path to `uesave.exe` |
+| `GVAS_UESAVE_BIN` | No | `..\tools\uesave-src\target\release\uesave.exe` (relative to `webapp/`) | Path to `uesave.exe` |
 | `FW_DB_KEY_FILE` | No | `..\fwinter-db-key.txt` (relative to `webapp/`) | Path to the plaintext DB key |
 | `FW_BACKUP_ROOT` | No | `%LOCALAPPDATA%\ForeverWinter\Saved\SaveBackups` | Where app backups are stored |
 | `LOCALAPPDATA` | Yes (OS) | e.g. `C:\Users\Admin\AppData\Local` | Used to derive default save/backup paths |
@@ -182,7 +182,7 @@ If your saves live elsewhere, you can either:
 Example — setting all overrides in PowerShell before launch:
 ```powershell
 $env:FW_SQLITE_BIN = "C:\tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe"
-$env:GVAS_UESAVE_BIN = "C:\dev\FW\experiment\uesave-src\target\release\uesave.exe"
+$env:GVAS_UESAVE_BIN = "C:\dev\FW\tools\uesave-src\target\release\uesave.exe"
 $env:FW_DB_KEY_FILE = "C:\dev\FW\fwinter-db-key.txt"
 $env:FW_BACKUP_ROOT = "C:\dev\FW\backups"
 ```
@@ -252,8 +252,8 @@ This invokes Node's built-in test runner (`node --test`) against the `test/` dir
 ## Troubleshooting
 
 ### `uesave.exe not found`
-- Confirm the binary exists at `experiment/uesave-src/target/release/uesave.exe`.
-- Rebuild with `cargo build --release -p uesave_cli` inside `experiment/uesave-src`.
+- Confirm the binary exists at `tools/uesave-src/target/release/uesave.exe`.
+- Rebuild with `cargo build --release -p uesave_cli` inside `tools/uesave-src`.
 - If you placed it elsewhere, set `$env:GVAS_UESAVE_BIN` to the full path.
 
 ### `sqlite3mc_shell_x64.exe not found`
@@ -295,14 +295,14 @@ Forever-Winter/
   README.md                  Project overview and API docs
   INSTALL_GUIDE.md           This file
   TODO.md                    0.9 stabilization checklist
-  experiment/
+  tools/
     uesave-src/              trumank/uesave repo (v0.7.1) — required build tool
   reference/
     README.md                Reference save instructions
     YOUR_HASHCODE_HERE.dat   100% reference save (placeholder name)
   archive/                   Retired backups, deprecated legacy/ scripts, and
-                              one-off experiment/ investigation scripts. Not part
-                              of the working app; kept only as historical reference.
+                              one-off GVAS investigation scripts. Not part of
+                              the working app; kept only as historical reference.
   webapp/
     server.js                Express boot, loopback bind, key load
     start.bat                Windows launcher (install + start + open browser)

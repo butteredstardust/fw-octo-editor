@@ -28,7 +28,7 @@ A local, loopback-only Node.js/Express web application for safely reading and ed
    Override with env `FW_SQLITE_BIN` if moved.
 4. **Ensure the uesave binary exists** at:
    ```
-   ..\experiment\uesave-src\target\release\uesave.exe
+   ..\tools\uesave-src\target\release\uesave.exe
    ```
    Override with env `GVAS_UESAVE_BIN` if moved.
 5. **Ensure the DB key file exists** at:
@@ -47,7 +47,7 @@ A local, loopback-only Node.js/Express web application for safely reading and ed
 | Variable | Purpose | Default |
 |----------|---------|---------|
 | `FW_SQLITE_BIN` | Path to `sqlite3mc_shell_x64.exe` | `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe` |
-| `GVAS_UESAVE_BIN` | Path to `uesave.exe` | `..\experiment\uesave-src\target\release\uesave.exe` |
+| `GVAS_UESAVE_BIN` | Path to `uesave.exe` | `..\tools\uesave-src\target\release\uesave.exe` |
 | `FW_DB_KEY_FILE` | Path to the plaintext key resource | `..\fwinter-db-key.txt` |
 | `FW_BACKUP_ROOT` | Root directory for app backups | `%LOCALAPPDATA%\ForeverWinter\Saved\SaveBackups` |
 | `LOCALAPPDATA` | Used to derive default save/backup paths | OS environment variable |

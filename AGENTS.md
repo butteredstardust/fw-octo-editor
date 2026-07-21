@@ -197,7 +197,7 @@ Every write route returns `beforeIntegrity/afterIntegrity`, `beforeFk/afterFk`, 
 - Start: `cd webapp && npm start` (or `start.bat`). Opens `http://127.0.0.1:3000`.
 - Stop: `webapp\stop.bat` (PowerShell wrapper around `stop.ps1`).
 - **No hot-reload.** After editing `services/`, `routes/`, `utils/`, or `server.js`, restart node. `public/*` changes need only a browser refresh.
-- Requires `experiment/uesave-src/target/release/uesave.exe` for inventory read/write. Override with `GVAS_UESAVE_BIN`.
+- Requires `tools/uesave-src/target/release/uesave.exe` for inventory read/write. Override with `GVAS_UESAVE_BIN`.
 - Requires `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe`. Override with `FW_SQLITE_BIN`.
 - The game must be closed while the app edits the live save.
 
@@ -225,7 +225,7 @@ SQLite3MC shell:        C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
 Key file:               C:\Users\Admin\Documents\Forever Winter\fwinter-db-key.txt
 100% reference save:    C:\Users\Admin\Documents\Forever Winter\reference\YOUR_HASHCODE_HERE.dat
 Webapp:                 C:\Users\Admin\Documents\Forever Winter\webapp\
-uesave binary:          C:\Users\Admin\Documents\Forever Winter\experiment\uesave-src\target\release\uesave.exe
+uesave binary:          C:\Users\Admin\Documents\Forever Winter\tools\uesave-src\target\release\uesave.exe
 App settings:           C:\Users\Admin\Documents\Forever Winter\webapp\config\settings.json (gitignored, mode 0o600)
 Temp scripts/exports:   C:\Users\Admin\Documents\Forever Winter\.temp/  (clean before session end)
 ```

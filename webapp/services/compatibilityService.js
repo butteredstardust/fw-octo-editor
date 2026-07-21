@@ -6,7 +6,7 @@ const { SAVE_FILES } = require('./backupService');
 const { runShell } = require('../utils/validation');
 
 const SQLITE_SHELL = process.env.FW_SQLITE_BIN || 'C:\\tmp\\fw-tools\\sqlite3mc\\bin\\sqlite3mc_shell_x64.exe';
-const UESAVE_BIN = process.env.GVAS_UESAVE_BIN || path.resolve(__dirname, '..', '..', 'experiment', 'uesave-src', 'target', 'release', 'uesave.exe');
+const UESAVE_BIN = process.env.GVAS_UESAVE_BIN || path.resolve(__dirname, '..', '..', 'tools', 'uesave-src', 'target', 'release', 'uesave.exe');
 const REQUIRED_TABLES = ['BinaryData','Characters','CharacterSkills','Currencies','Names','PlayerUpgrades','ScopedCounterValues'];
 
 async function checkCompatibility(key) {

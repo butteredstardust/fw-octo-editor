@@ -7,7 +7,7 @@ $appDest = Join-Path $build 'app'
 $iscc = 'C:\Users\Admin\AppData\Local\Programs\Inno Setup 6\ISCC.exe'
 $nodeExe = 'C:\Program Files\nodejs\node.exe'
 $sqliteBin = 'C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe'
-$uesaveBin = 'C:\Users\Admin\Documents\Forever Winter\experiment\uesave-src\target\release\uesave.exe'
+$uesaveBin = 'C:\Users\Admin\Documents\Forever Winter\tools\uesave-src\target\release\uesave.exe'
 $keyFile = Join-Path $root 'fwinter-db-key.txt'
 
 # --- 1. Stage webapp runtime files (exclude dev/test/CI artifacts) ---
