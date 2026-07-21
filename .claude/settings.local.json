@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i \"s/style=\\\\\\\\\\\\\\\\\\\\\"color:#aaa;font-size:0.82rem;margin:0 0 0.5rem\\\\\\\\\\\\\\\\\\\\\"/style=\\\\\\\\\\\\\\\\\\\\\"color:var\\(--text-2\\);font-size:0.82rem;margin:0 0 0.5rem\\\\\\\\\\\\\\\\\\\\\"/g\" inventory.mjs)",
+      "Bash(sed -i 's/style=\"color:#666\"/style=\"color:var\\(--text-2\\)\"/g; s/style=\"color:#666;font-weight:400\"/style=\"color:var\\(--text-2\\);font-weight:400\"/g' vendors-repair.mjs)",
+      "Bash(grep -noE '#[0-9A-Fa-f]{3,6}' refinements.css shared-pages.css inventory.css progression.css people-and-vendors.css planners.css repair.css)",
+      "Bash(mkdir -p \"C:/Users/Admin/.claude/plans\" 2>/dev/null; echo ok)",
+      "Bash(node --check \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\modules\\\\features\\\\weapons.mjs\")",
+      "Bash(node --check \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\modules\\\\features\\\\dashboard.mjs\")",
+      "Bash(node --check \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\modules\\\\features\\\\hub.mjs\")",
+      "Bash(node --check \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\modules\\\\features\\\\characters.mjs\")",
+      "Bash(rtk npm *)",
+      "Bash(node --check public/css/../modules/features/hub.mjs)",
+      "Bash(node -e \"console.log\\('css files have no syntax checker, skipping'\\)\")",
+      "Bash(sed -i '11s/v=20260719-ui-2/v=20260720-ui-3/' index.html)",
+      "Bash(sed -i 's/v=20260719-ui-2/v=20260720-ui-3/g' styles.css)",
+      "Bash(node --check public/modules/features/inventory.mjs)",
+      "Bash(sed -i 's/20260720-ui-8/20260720-ui-9/g' \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\styles.css\" \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\index.html\")",
+      "Bash(sed -i 's/20260720-modules-3/20260720-modules-4/g' \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\\\\public\\\\index.html\")",
+      "Bash(grep -rn \"releases[\\\\\\\\/]build\\\\|releases\\\\\\\\\\\\\\\\build\" --include=\"*.ps1\" --include=\"*.md\" --include=\"*.json\" .)",
+      "Bash(grep -v \"backups\\\\\\\\\\\\\\\\\")",
+      "Bash(grep -rn \"\\\\.temp/\\\\|\\\\.temp\\\\\\\\\\\\\\\\\" --include=\"*.md\" --include=\"*.js\" --include=\"*.json\" .)",
+      "Bash(grep -n -i \"legacy\\\\|experiment\\\\|\\\\.temp\\\\|reference/\\\\|kilo\\\\|debug-playwright\\\\|releases/build\\\\|releases\\\\\\\\\\\\\\\\build\\\\|Categorized\" README.md)",
+      "Bash(mkdir -p archive/experiment-exploration archive/root-temp archive/webapp-temp)",
+      "Bash(mv backups *)",
+      "Bash(mv webapp/backups archive/webapp-backups)",
+      "Bash(mv legacy *)",
+      "Bash(mv \"Forever-Winter-ItemName-Conversion-Table-Categorized.csv\" archive/)",
+      "PowerShell(Move-Item *)"
+    ]
+  }
+}

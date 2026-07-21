@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Winter Save Editor</title>
+    <link rel="icon" href="favicon.ico?v=20260719-ui-2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap">
+    <link rel="stylesheet" href="styles.css?v=20260720-ui-19">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="header">
+    <div class="brand-lockup">
+      <img class="brand-mark" src="favicon.ico?v=20260719-ui-2" alt="Forever Winter Save Editor" width="32" height="32">
+      <h1><span class="header-kicker">Local save utility</span>Forever Winter Save Editor</h1>
+    </div>
+    <div class="header-tools">
+      <div class="status status-pill" id="gameStatus" role="status" data-state="checking">Checking game status...</div>
+      <button class="info-button" id="infoButton" type="button" aria-label="Acknowledgements and attributions" aria-haspopup="dialog" title="Acknowledgements">
+        <svg class="info-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <line x1="12" y1="11" x2="12" y2="16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="12" cy="7.6" r="1.25" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-controls="primaryNav" aria-expanded="false">Menu</button>
+  </header>
+  <section class="safety-bar" aria-label="Save editing safety status">
+    <div class="safety-item"><span class="safety-label">Game</span><span class="safety-value warn" id="safetyGame">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Compatibility</span><span class="safety-value warn" id="safetyCompatibility">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Writes</span><span class="safety-value warn" id="safetyWrites">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Session backup</span><span class="safety-value warn" id="safetyBackup">Not created</span></div>
+    <div class="safety-item"><span class="safety-label">Active save</span><span class="safety-value" id="safetySave">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Last verified edit</span><span class="safety-value" id="safetyLastEdit">None this session</span></div>
+  </section>
+  <div id="connectionBanner" class="connection-banner" role="alert" hidden>The local editor server is unavailable. Read requests can be retried, but do not repeat an interrupted save until status is refreshed. <button type="button" id="retryConnectionButton">Retry status</button></div>
+  <div id="mutationStatus" class="mutation-status" role="status" aria-live="polite" aria-atomic="true" hidden><span class="mutation-spinner" aria-hidden="true"></span><strong id="mutationStatusLabel">Saving and verifying</strong><span id="mutationElapsed">0s</span></div>
+  <div class="app-frame">
+  <nav class="nav" id="primaryNav" aria-label="Primary">
+    <div class="nav-group"><div class="nav-group-title">Overview</div><button data-page="dashboard" class="active">Overview</button></div>
+    <div class="nav-group"><div class="nav-group-title">Progression</div><button data-page="characters">Characters</button><button data-page="weapon-builds">Weapon Builds</button><button data-page="presets">Presets</button><button data-page="weapon-xp">Weapon XP</button><button data-page="vendors">Vendors</button></div>
+    <div class="nav-group"><div class="nav-group-title">Innards</div><button data-page="hub-upgrades">Upgrades</button><button data-page="crafting">Crafting</button><button data-page="repair">Repair Bench</button></div>
+    <div class="nav-group"><div class="nav-group-title">Inventory</div><button data-page="inventory">Manage</button><button data-page="add-items">Add Items</button><button data-page="rigs">Rigs</button></div>
+    <div class="nav-group"><div class="nav-group-title">System</div><button data-page="backups">Backups</button><button data-page="diagnostics">Diagnostics</button><button data-page="settings">Settings</button></div>
+  </nav>
+  <button class="nav-backdrop" id="navBackdrop" type="button" aria-label="Close navigation" tabindex="-1" hidden></button>
+  <main class="content" id="main-content" tabindex="-1">
+    <div class="page active" id="page-dashboard">
+        <div id="dashboardOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div class="overview-pair">
+          <section class="card overview-card"><h2>Active Character &amp; Loadout</h2><div id="dashCharacter">Loading...</div></section>
+          <section class="card overview-card"><h2>Tracked Quests</h2><div id="dashQuests">Loading...</div></section>
+        </div>
+        <section class="card overview-card" aria-labelledby="resourcesTitle">
+          <h2 id="resourcesTitle">Resources</h2>
+          <p class="char-hint">
+            Review and adjust your water, credits, and utility drones.
+          </p>
+          <div id="dashResources">Loading...</div>
+        </section>
+        <section class="card overview-card" aria-labelledby="overviewTrustTitle">
+          <div class="overview-trust-head"><h2 id="overviewTrustTitle">Faction Trust</h2><button class="btn-ghost" data-action="show-page" data-page-target="vendors" type="button">Manage Vendors</button></div>
+          <div id="dashFactionTrust">Loading...</div>
+        </section>
+        <section class="card overview-card">
+          <h2>Inventory Summary</h2>
+          <div id="dashInventory">Loading...</div>
+        </section>
+      </div>
+
+    <div class="page" id="page-characters">
+      <div class="card">
+        <h2>Characters</h2>
+        <div id="charactersOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div id="charactersList">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-character">
+      <div class="card">
+        <h2 class="sr-only">Character details</h2>
+        <div id="characterOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div id="characterDetail">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-hub-upgrades">
+      <div class="card">
+        <h2>Innards / Hub Upgrades</h2>
+        <p class="hub-hint">
+          <strong>Terminals</strong> are functional buildings; <strong>Welfare</strong> are comfort items. Each card shows the <strong>water cost</strong> and any <strong>prerequisite</strong> — an Unlock button stays greyed out until its prerequisite is unlocked. <span class="hub-legend"><span class="hub-pill unlocked">Unlocked</span> built &nbsp; <span class="hub-pill available">Available</span> can be unlocked &nbsp; <span class="hub-pill locked">Locked</span> needs prerequisite &nbsp; <span class="hub-pill unlocked">Permanent</span> DLC gift, fixed.</span>
+          Writes are <strong>experimental</strong> (verify in-game). Upgrades may be dismantled in-game at no cost.
+        </p>
+        <div id="hubOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div id="hubUpgradesList">Loading...</div>
+        <p style="margin-top:1rem"><button id="reloadHubButton" type="button" hidden>Reload from Save</button></p>
+      </div>
+    </div>
+
+    <div class="page" id="page-presets">
+        <div class="card">
+          <h2>Saved Presets</h2>
+          <p class="page-intro">Read-only weapon and rig configurations stored in the save, correlated with their local EXR preview files.</p>
+          <div class="preset-toolbar" role="search"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Preset, weapon, attachment, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
+        </div>
+      </div>
+
+    <div class="page" id="page-weapon-builds">
+      <div class="card">
+        <h2>Best-in-Slot Weapon Builds</h2>
+          <p class="page-intro">Deterministic balanced endgame recommendations from structured wiki stats and compatibility data.</p>
+          <div class="weapon-build-command"><div><strong>Owned weapon loadout kit</strong><span>Add missing best in slot parts for every supported weapon currently in your inventory.</span></div><button id="weaponBuildAddOwned" type="button">Add parts</button></div>
+          <div class="weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildStatus" class="sr-status" role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
+    </div>
+
+    <div class="page" id="page-weapon-xp">
+      <div class="card">
+        <h2>Weapon XP</h2>
+        <p class="char-hint">Each weapon earns XP by use, which unlocks better vendor parts and improves handling. The <strong>target</strong> shown for each weapon is its value from a 100% reference save — a sensible per-weapon goal (e.g. GRL02 ≈ 505k, PST02 = 100k). Weapons absent from the reference use a flat 100,000 fallback. Set any weapon's XP manually, or batch-set all visible weapons to 100,000 XP.</p>
+        <div class="weapon-controls">
+          <label>Filter:
+            <select id="weaponFilter">
+              <option value="">All categories</option>
+            </select>
+          </label>
+          <button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button">Set visible to 100,000 XP</button>
+        </div>
+        <div id="weaponXpOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div id="weaponXpList">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-inventory">
+      <div class="card">
+        <h2>Inventory</h2>
+        <p class="page-intro">Find items by their familiar name, category, or technical ID and change quantities in place. Avoid rows marked “Needs review.”</p>
+        <div class="filter-bar">
+          <label class="filter-search">Search items<input type="search" id="inventorySearch" placeholder="Name, category, source, or technical ID…" autocomplete="off"></label>
+          <label>Category:
+            <select id="inventoryFilter">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>Sub-type:
+            <select id="inventorySubFilter">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>Source:
+            <select id="inventorySource">
+              <option value="">All sources</option>
+              <option value="Base Weapons">Base Weapons</option>
+              <option value="Damaged Weapons">Damaged Weapons</option>
+              <option value="Items">Items / Parts</option>
+            </select>
+          </label>
+          <label>State:
+            <select id="inventoryQty">
+              <option value="any">Any quantity</option>
+              <option value="gt0">Owned (&gt;0)</option>
+              <option value="eq0">Empty (0)</option>
+              <option value="gte10">≥ 10</option>
+              <option value="gte100">≥ 100</option>
+            </select>
+          </label>
+          <div class="filter-checks"><label><input type="checkbox" id="inventoryInvalidOnly"> Needs review</label><button class="mini" id="clearInventoryFiltersButton" type="button">Clear filters</button></div>
+        </div>
+        <div id="invFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="inventoryList">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-add-items">
+      <div class="card">
+        <h2>Add Items to Inventory</h2>
+        <p class="page-intro">Browse known game items and add ones that are missing. Items you already own can be adjusted from Inventory.</p>
+        <div class="filter-bar">
+          <label class="filter-search">Search items<input type="search" id="addSearch" placeholder="Name, category, source, or technical ID…" autocomplete="off"></label>
+          <label>Category:
+            <select id="addFilter">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>Sub-type:
+            <select id="addSubFilter">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>Source:
+            <select id="addSource">
+              <option value="">All sources</option>
+              <option value="Base Weapons">Base Weapons</option>
+              <option value="Damaged Weapons">Damaged Weapons</option>
+              <option value="Items">Items / Parts</option>
+            </select>
+          </label>
+          <label>State:
+            <select id="addState">
+              <option value="any">Any ownership</option>
+              <option value="missing">Missing</option>
+              <option value="owned">Owned</option>
+            </select>
+          </label>
+          <div class="filter-checks"><button class="mini" id="clearAddFiltersButton" type="button">Clear filters</button></div>
+        </div>
+        <div id="addFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="addCatalogList">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-rigs">
+      <div class="card">
+        <h2>Rigs</h2>
+        <p class="page-intro">Review owned rigs, add a missing rig, or add another complete set of high-quality containers for its fixed layout.</p>
+        <div id="rigSummary" class="rig-summary" aria-live="polite"></div>
+        <div class="filter-bar rig-filter-bar">
+          <label class="filter-search">Search rigs<input type="search" id="rigSearch" placeholder="Rig name, class, character, or technical ID…" autocomplete="off"></label>
+          <label>Ownership:
+            <select id="rigOwnership">
+              <option value="all">All rigs</option>
+              <option value="missing">Missing</option>
+              <option value="owned">Owned</option>
+            </select>
+          </label>
+          <label>Weight class:
+            <select id="rigClass"><option value="">All classes</option></select>
+          </label>
+          <div class="filter-checks"><button class="mini" id="clearRigFiltersButton" type="button">Clear filters</button></div>
+        </div>
+        <div id="rigFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="rigList" class="rig-grid" aria-busy="false">Loading…</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-vendors">
+      <div class="card">
+        <h2>Vendors &amp; Faction Trust</h2>
+        <p class="char-hint">Vendor trust is stored as a per-faction <b>FactionScore</b>. The wiki's trust tiers (Untrusted / Neutral / Trusted) are derived from this score by the game. Set a faction's score directly, or use the tier presets. Trader availability flags toggle whether a vendor appears in the Innards.</p>
+        <div id="vendorsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div id="vendorsList">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="page-repair">
+      <div class="card">
+        <h2>Repair Bench</h2>
+        <p class="char-hint">The Repair Bench repairs one destroyed weapon at a time. A job runs on a timer (the in-game workbench shows a countdown); you cannot start another repair while one is running. To repair you need a <b>destroyed weapon item</b> and the matching faction <b>IFF chip</b> for that weapon's origin. When the timer reaches zero the item is <b>ready to collect</b> from the bench. This page reads the live repair timer and your on-hand IFF chips, and can complete/collect a finished repair so the bench is free again.</p>
+        <div id="repairOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
+        <div id="repairStatus">Loading...</div>
+      </div>
+    </div>
+    <div class="page" id="page-crafting">
+      <div class="card">
+        <h2>Crafting — Batch Component Planner</h2>
+        <p class="page-intro">Pick Workshop components or Munitions, choose a product to calculate what you need, and fill missing components after reviewing the plan.</p>
+        <div class="crafting-kind-tabs" role="tablist" aria-label="Crafting category">
+          <button type="button" class="crafting-tab active" id="craftingKindWorkshop" data-kind="workshop" role="tab" aria-selected="true">Workshop Components</button>
+          <button type="button" class="crafting-tab" id="craftingKindMunitions" data-kind="munitions" role="tab" aria-selected="false">Munitions</button>
+        </div>
+        <div class="planner-split"><div class="planner-control-pane"><div class="planner-products">
+          <label class="filter-search">Search products<input type="search" id="craftingSearch" placeholder="Product or component…" autocomplete="off"></label>
+          <label>Product
+            <select id="craftingProduct"></select>
+          </label>
+          <label>Quantity to craft
+            <input type="number" id="craftingQty" value="1" min="1" max="2147483647" step="1">
+          </label>
+        </div>
+        <span id="craftingCraftInfo" class="workshop-craft-info" role="status"></span>
+        <div class="workshop-actions">
+          <button class="btn-primary" id="craftingAddMissingButton" type="button">Add Missing</button>
+          <button class="btn-ghost" id="craftingAddAllButton" type="button">Add all</button>
+          <span id="craftingMsg" class="settings-msg"></span>
+        </div></div><div class="planner-result-pane"><h3>Required components</h3><div id="craftingPreview" class="workshop-preview"></div></div></div>
+      </div>
+    </div>
+    <div class="page" id="page-diagnostics">
+      <div class="card">
+        <h2>Diagnostics</h2>
+        <p class="char-hint">Read-only readiness checks. Running diagnostics decrypts and byte-round-trips TempInventory in a temporary directory but does not write the database.</p>
+        <div class="diagnostic-controls">
+          <button id="runDiagnosticsButton" type="button">Run diagnostics</button>
+          <span id="diagnosticsStatus" class="settings-msg" role="status" aria-live="polite"></span>
+        </div>
+        <div id="diagnosticsSummary" class="diagnostic-summary" aria-busy="false"></div>
+        <div id="diagnosticsDetails"></div>
+      </div>
+    </div>
+
+    <div class="page" id="page-backups">
+      <div class="card">
+        <h2>Backups</h2>
+        <p class="char-hint">Every backup contains three independently verified save variants. Restore replaces only the primary save and creates a fresh safety backup first. Restore and delete require typing the exact confirmation shown.</p>
+        <div class="backup-toolbar">
+          <label>Backup label
+            <input id="backupLabel" maxlength="48" value="manual" autocomplete="off">
+          </label>
+          <button id="createBackupButton" type="button">Create verified backup</button>
+          <button id="refreshBackupsButton" class="btn-ghost" type="button">Refresh</button>
+        </div>
+        <div id="backupStatus" class="settings-msg" role="status" aria-live="polite"></div>
+        <div id="backupReceipt" aria-live="polite"></div>
+        <div id="backupList" class="backup-list" aria-busy="false"></div>
+      </div>
+    </div>
+
+    <dialog id="backupConfirmDialog" aria-labelledby="backupDialogTitle" aria-describedby="backupDialogDescription">
+      <form method="dialog" class="confirm-dialog">
+        <h2 id="backupDialogTitle">Confirm backup operation</h2>
+        <p id="backupDialogDescription"></p>
+        <p>Type <strong id="backupDialogPhrase" class="confirm-copy"></strong> to continue.</p>
+        <label>Confirmation
+          <input id="backupDialogInput" autocomplete="off" spellcheck="false">
+        </label>
+        <div id="backupDialogError" class="settings-msg err" role="alert"></div>
+        <menu>
+          <button value="cancel" class="btn-ghost">Cancel</button>
+          <button id="backupDialogConfirm" value="default" type="button">Continue</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <dialog id="appDialog" aria-labelledby="appDialogTitle" aria-describedby="appDialogMessage">
+      <form method="dialog" class="confirm-dialog">
+        <h2 id="appDialogTitle">Confirm operation</h2>
+        <p id="appDialogMessage"></p>
+        <menu>
+          <button id="appDialogCancel" value="cancel" class="btn-ghost">Cancel</button>
+          <button id="appDialogAccept" value="default" type="button">Continue</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <dialog id="acknowledgementsDialog" aria-labelledby="ackDialogTitle" aria-describedby="ackDialogBody">
+      <form method="dialog" class="ack-dialog">
+        <div class="ack-head">
+          <h2 id="ackDialogTitle">Acknowledgements</h2>
+          <button class="ack-close" id="ackCloseButton" type="button" aria-label="Close acknowledgements">×</button>
+        </div>
+        <div class="ack-body" id="ackDialogBody">
+          <figure class="ack-card">
+            <img class="ack-banner" src="mc_loop_res1.gif" alt="Forever Winter animation loop" width="480" height="270">
+            <figcaption class="ack-card-caption"><em><strong>Made with &lt;3 By tuxg33k 2026. Thanks to the developers and community of the Forever Winter</strong></em></figcaption>
+          </figure>
+          <p>This project bundles data and third-party software. We are grateful to the respective authors and communities.</p>
+
+          <h3>Dataset Attribution (CC BY-SA)</h3>
+          <p>Game data used by this application (item catalogs, weapon build tables, workshop/munitions recipes, and hub upgrade projections) is derived from and incorporates content from <strong>The Forever Winter Wiki</strong> (<a href="https://theforeverwinter.wiki.gg" rel="noopener" target="_blank">theforeverwinter.wiki.gg</a>).</p>
+          <blockquote>The Forever Winter Wiki contributors — <em>CC BY-SA</em></blockquote>
+          <p>The underlying wiki content is licensed under the <strong>Creative Commons Attribution-ShareAlike (CC BY-SA)</strong> license. A copy of the license is available at <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank">creativecommons.org/licenses/by-sa/4.0</a>.</p>
+
+          <h3>Application License</h3>
+          <p>The Forever Winter Save Editor webapp source code (the <code>webapp/</code> directory and associated scripts) is licensed under the <strong>MIT License</strong>. See <code>webapp/LICENSE</code> for the full text.</p>
+          <blockquote>Copyright (c) 2026 Forever Winter Save Editor contributors.<br>The MIT License does not grant any rights to the game <em>Forever Winter</em> or its assets, which are the property of their respective owners. This is an unofficial, community-made tool and is not affiliated with or endorsed by the game's developers or publishers.</blockquote>
+
+          <h3>Third-Party Software Notices</h3>
+          <dl class="ack-notices">
+            <dt>Express</dt>
+            <dd>MIT — Copyright (c) Express.js Foundation and other contributors. <a href="https://github.com/expressjs/express" rel="noopener" target="_blank">github.com/expressjs/express</a>. Depends on many MIT-licensed sub-packages.</dd>
+            <dt>Node.js</dt>
+            <dd>MIT — Copyright (c) Node.js contributors. <a href="https://github.com/nodejs/node/blob/main/LICENSE" rel="noopener" target="_blank">github.com/nodejs/node</a>.</dd>
+            <dt>SQLite3 Multiple Ciphers (SQLite3MC)</dt>
+            <dd>SQLite Public Domain License / MPL 2.0 — Copyright (c) 2026 Ulrich Telle. <a href="https://github.com/utelle/SQLite3MultipleCiphers" rel="noopener" target="_blank">github.com/utelle/SQLite3MultipleCiphers</a>. Binary: <code>sqlite3mc_shell_x64.exe</code> (SQLite3MC 2.3.6, SQLite 3.53.3).</dd>
+            <dt>uesave</dt>
+            <dd>MIT — Copyright (c) 2022 Truman Kilen. <a href="https://github.com/trumank/uesave-rs" rel="noopener" target="_blank">github.com/trumank/uesave-rs</a>. Used to read/write the GVAS <code>TempInventory</code> blob (Unreal Engine 5 save data).</dd>
+            <dt>Playwright (dev dependency)</dt>
+            <dd>Apache-2.0 — Copyright (c) Microsoft Corporation. <a href="https://github.com/microsoft/playwright" rel="noopener" target="_blank">github.com/microsoft/playwright</a>. Used only for browser-based tests; not part of the distributed runtime.</dd>
+            <dt>Black Ops One (typeface)</dt>
+            <dd>SIL Open Font License 1.1 (OFL-1.1) — Copyright (c) 2011, Asterism (https://www.asterism-fonts.com), with Reserved Font Name "Black Ops One". Loaded from Google Fonts (<a href="https://fonts.google.com/specimen/Black+Ops+One" rel="noopener" target="_blank">fonts.google.com/specimen/Black+Ops+One</a>). Used for the application title.</dd>
+          </dl>
+
+          <h3>Trademarks</h3>
+          <p>"Forever Winter" and related names, logos, and assets are trademarks or copyrights of their respective owners. All such material is used here for informational and interoperability purposes only and remains the property of its owners.</p>
+        </div>
+        <menu>
+          <button id="ackAcceptButton" value="default" type="button" class="btn-primary">Close</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <div class="page" id="page-settings">
+      <div class="card">
+        <h2>Settings</h2>
+        <p class="char-hint">The save-location override is optional. It is saved locally and persists across restarts. Database keys cannot be entered or stored in Settings.</p>
+        <div id="settingsStatus" class="settings-status"></div>
+
+        <h3>Save Location</h3>
+        <p class="char-hint">The folder that contains your live <code>.dat</code> save files. Defaults to <code id="settingsDefaultDir"></code>. Enter a custom path only if your saves live elsewhere (e.g. a backed-up or test copy).</p>
+        <div class="settings-row">
+          <label>Save directory
+            <input type="text" id="settingsSaveDir" placeholder="C:\Path\To\SaveGames">
+          </label>
+          <button id="pickSaveDirButton" type="button">Browse…</button>
+          <button class="btn-ghost" id="clearSaveDirButton" type="button">Use default</button>
+        </div>
+
+        <h3 style="margin-top:1.25rem">Database Key</h3>
+        <p class="char-hint">Loaded from the local application resource at <code id="settingsKeyFile"></code>.</p>
+
+        <div class="settings-actions">
+          <button class="btn-primary" id="saveSettingsButton" type="button">Save Settings</button>
+          <span id="settingsMsg" class="settings-msg"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+  </div>
+  <div id="appAnnouncements" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div id="toastRegion" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="app.mjs?v=20260720-modules-4"></script>
+</body>
+</html>

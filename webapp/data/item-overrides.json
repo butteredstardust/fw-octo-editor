@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "items": {
+    "RareLoot_47_SentientDrill": {
+      "wiki": {
+        "page": "Sentient Drill",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Sentient_Drill",
+        "imageFile": "T_Portrait_JunkEcon_85_SentientDrill.png"
+      },
+      "match": { "method": "reviewed-wiki-page-and-image", "confidence": 1, "reviewed": true }
+    },
+    "PICSCP1": { "displayName": "Scope 1", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "PICSCP2": { "displayName": "Scope 2", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "PICSCP3": { "displayName": "Scope 3", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "PICSCP6": { "displayName": "Scope 6", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "PICSCP12": { "displayName": "Scope 12", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "PICSCP13": { "displayName": "Scope 13", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "PICSCP14": { "displayName": "Scope 14", "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "RIG_EQUIPMENT_IED": { "displayName": "IED Equipment", "taxonomy": { "group": "Equipment", "type": "Equipment", "subtype": "Deployable", "tags": ["Equipment", "Deployable"] }, "match": { "method": "inferred-internal-id", "confidence": 0.45, "reviewed": false } },
+    "WPN_RFL01_BRL_01": { "displayName": "Kala Barrel A", "match": { "method": "inferred-part-family", "confidence": 0.55, "reviewed": false } },
+    "WPN_RFL01_BRL_04": { "displayName": "Kala Barrel D", "match": { "method": "inferred-part-family", "confidence": 0.55, "reviewed": false } },
+    "WPN_RFL01_HGD_01": { "displayName": "Kala Handguard A", "match": { "method": "inferred-part-family", "confidence": 0.55, "reviewed": false } },
+    "WPN_RFL01_HGD_01A": { "displayName": "Kala Handguard A-1", "match": { "method": "inferred-part-family", "confidence": 0.55, "reviewed": false } },
+    "WPN_RFL01_HGD_01B": { "displayName": "Kala Handguard A-2", "match": { "method": "inferred-part-family", "confidence": 0.55, "reviewed": false } },
+    "WPN_RFL01_PGR_06": { "displayName": "Kala Grip F", "match": { "method": "inferred-part-family", "confidence": 0.55, "reviewed": false } },
+    "WPN_SHG01_HGD01_HAX": { "displayName": "Shotgun Handguard HAX", "match": { "method": "inferred-internal-id", "confidence": 0.4, "reviewed": false } },
+    "WPN_SMG03_STK_02_STKEND_1": { "displayName": "PM-9 Stock End A", "match": { "method": "inferred-part-family", "confidence": 0.5, "reviewed": false } },
+    "WPN_SMG03_STK_02_STKEND_2": { "displayName": "PM-9 Stock End B", "match": { "method": "inferred-part-family", "confidence": 0.5, "reviewed": false } },
+    "WPN_SMG03_STK_02_STKEND_3": { "displayName": "PM-9 Stock End C", "match": { "method": "inferred-part-family", "confidence": 0.5, "reviewed": false } },
+    "WPN_SMG03_STK_02_STKEND_4": { "displayName": "PM-9 Stock End D", "match": { "method": "inferred-part-family", "confidence": 0.5, "reviewed": false } }
+  }
+}

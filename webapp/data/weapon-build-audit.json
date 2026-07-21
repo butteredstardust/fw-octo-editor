@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T23:09:06.503Z",
+  "counts": {
+    "weapons": 49,
+    "mappedParts": 327,
+    "unresolved": 10,
+    "duplicates": 0,
+    "excludedCompatibility": 31
+  },
+  "unresolved": [
+    {
+      "kind": "part",
+      "name": "HK CAWS Magazine B",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "M4A1 Barrel",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "M4A1 Handguard Upgrade L",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "M4A1 Handguard Upgrade M",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "M79 Sight A",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "M79 Sight B",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "USAS-12 Shotgun Handguard B",
+      "matches": []
+    },
+    {
+      "kind": "part",
+      "name": "VHS2 Upper Assembly B",
+      "matches": []
+    },
+    {
+      "kind": "weapon",
+      "name": "Surplus Rifle",
+      "matches": []
+    },
+    {
+      "kind": "weapon",
+      "name": "Surplus Shotgun",
+      "matches": []
+    }
+  ],
+  "duplicates": [],
+  "excludedCompatibility": [
+    {
+      "weapon": "CLAW",
+      "part": "HK CAWS Magazine B",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "M4A1",
+      "part": "M4A1 Barrel",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "M4A1",
+      "part": "M4A1 Handguard Upgrade L",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "M4A1",
+      "part": "M4A1 Handguard Upgrade M",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "M79 Sawed-off",
+      "part": "M79 Sight A",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "M79 Sawed-off",
+      "part": "M79 Sight B",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Aimp H2 Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Aimp Micro Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "E-TECH XP Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "ET EFX Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "ET HWS EXP Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "ET XP2 Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "H-sun Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "P Arms 3P Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Rail Mounted Flashlight A",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Rail Mounted Flashlight B",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Rail Mounted Flashlight C",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Rail Mounted Laser Sight A",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Rail Mounted Laser Sight B",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Rail Mounted Laser Sight C",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Sfox QueenKiller Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Spook Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Stein R Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Tri M Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "USAS-12 Shotgun Handguard B",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Vtex Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Vtex Raz Gen 2 Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Vtex Strike Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Vtex V Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "USAS-12",
+      "part": "Zeni-B P6 Optic",
+      "dependencies": [
+        "USAS-12 Shotgun Handguard B"
+      ],
+      "reason": "unresolved canonical record"
+    },
+    {
+      "weapon": "VH-Ambi 2",
+      "part": "VHS2 Upper Assembly B",
+      "dependencies": [],
+      "reason": "unresolved canonical record"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-19T16:35:46.255Z",
+  "source": "public/items.csv",
+  "counts": {
+    "canonical": 712,
+    "exactFriendlyNames": 693,
+    "inferredNames": 19,
+    "unresolvedNames": 0,
+    "uncategorized": 0,
+    "withImages": 693,
+    "reviewed": 1,
+    "excludedWikiRows": 3,
+    "wikiSnapshotItems": 764,
+    "referenceSnapshotItems": 712
+  },
+  "unresolvedIds": [],
+  "uncategorizedIds": [],
+  "excludedWikiRows": [
+    {
+      "id": "Gacha_HighValueRandom_West<br>Inventory.Dangly.Gacha_RailGunComponents",
+      "displayName": "Sealed Mystery Box",
+      "source": "Wiki Only",
+      "reason": "composite-wiki-cell"
+    },
+    {
+      "id": "Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
+      "displayName": "Codex",
+      "source": "Wiki Only",
+      "reason": "composite-wiki-cell"
+    },
+    {
+      "id": null,
+      "displayName": "GDC Food QUEST / item",
+      "source": "Wiki Only",
+      "reason": "no-save-id"
+    }
+  ]
+}

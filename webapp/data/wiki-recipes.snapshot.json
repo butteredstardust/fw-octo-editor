@@ -1,0 +1,4260 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-07-18T22:34:09.360Z",
+  "sourceUrl": "https://theforeverwinter.wiki.gg/api.php",
+  "attribution": "The Forever Winter Wiki contributors, CC BY-SA",
+  "pages": [
+    {
+      "title": "Innards",
+      "pageId": 238,
+      "revisionId": 32156,
+      "revisionTimestamp": "2026-07-08T06:40:13Z"
+    },
+    {
+      "title": "Munitions Printer",
+      "pageId": 3437,
+      "revisionId": 24796,
+      "revisionTimestamp": "2026-02-20T11:01:43Z"
+    },
+    {
+      "title": "Workshop",
+      "pageId": 3438,
+      "revisionId": 24798,
+      "revisionTimestamp": "2026-02-20T11:05:53Z"
+    }
+  ],
+  "recipes": [
+    {
+      "RecipeId": ".308 Ammo1",
+      "RecipeType": "Crafting",
+      "Product": ".308 Ammo",
+      "ProductAmount": "90",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": ".308 Ammo"
+    },
+    {
+      "RecipeId": ".357 Magnum Ammo1",
+      "RecipeType": "Crafting",
+      "Product": ".357 Magnum Ammo",
+      "ProductAmount": "60",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": ".357 Magnum Ammo"
+    },
+    {
+      "RecipeId": ".45 ACP Ammo1",
+      "RecipeType": "Crafting",
+      "Product": ".45 ACP Ammo",
+      "ProductAmount": "90",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": ".45 ACP Ammo"
+    },
+    {
+      "RecipeId": ".50 BMG1",
+      "RecipeType": "Crafting",
+      "Product": ".50 BMG",
+      "ProductAmount": "30",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": ".50 BMG"
+    },
+    {
+      "RecipeId": ".50 PST Ammo1",
+      "RecipeType": "Crafting",
+      "Product": ".50 PST Ammo",
+      "ProductAmount": "8",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": ".50 PST Ammo"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "RecipeType": "Building",
+      "Product": "+16 days",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "10",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "RecipeType": "Building",
+      "Product": "+28 days",
+      "ProductAmount": "0",
+      "Prerequisite": "+16 days",
+      "MinimumWater": "20",
+      "TimeUnit": "hours",
+      "TimeAmount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "12-Gauge Buckshot1",
+      "RecipeType": "Crafting",
+      "Product": "12-Gauge Buckshot",
+      "ProductAmount": "30",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "12-Gauge Buckshot"
+    },
+    {
+      "RecipeId": "12.7x55mm Subsonic Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "12.7x55mm Subsonic Ammo",
+      "ProductAmount": "30",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "12.7x55mm Subsonic Ammo"
+    },
+    {
+      "RecipeId": "20mm Turret1",
+      "RecipeType": "Crafting",
+      "Product": "20mm Turret",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "20mm Turret"
+    },
+    {
+      "RecipeId": "20x105mm Anti-Tank1",
+      "RecipeType": "Crafting",
+      "Product": "20x105mm Anti-Tank",
+      "ProductAmount": "10",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "20x105mm Anti-Tank"
+    },
+    {
+      "RecipeId": "36M AntiTank1",
+      "RecipeType": "Crafting",
+      "Product": "36M AntiTank",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "11",
+      "_pageName": "36M AntiTank"
+    },
+    {
+      "RecipeId": "40mm Grenade1",
+      "RecipeType": "Crafting",
+      "Product": "40mm Grenade",
+      "ProductAmount": "6",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "40mm Grenade"
+    },
+    {
+      "RecipeId": "5.45x39mm Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "5.45x39mm Ammo",
+      "ProductAmount": "90",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "5.45x39mm Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Cryo Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "5.45x39mm Cryo Ammo",
+      "ProductAmount": "30",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "5.45x39mm Cryo Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Cryo Ammo2",
+      "RecipeType": "Crafting",
+      "Product": "5.45x39mm Cryo Ammo",
+      "ProductAmount": "30",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "5.45x39mm Cryo Ammo"
+    },
+    {
+      "RecipeId": "5.56x45mm Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "5.56x45mm Ammo",
+      "ProductAmount": "90",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "5.56x45mm Ammo"
+    },
+    {
+      "RecipeId": "5.7x28mm Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "5.7x28mm Ammo",
+      "ProductAmount": "90",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "5.7x28mm Ammo"
+    },
+    {
+      "RecipeId": "7.62x39mm Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "7.62x39mm Ammo",
+      "ProductAmount": "90",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "7.62x39mm Ammo"
+    },
+    {
+      "RecipeId": "7.62x54mmR Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "7.62x54mmR Ammo",
+      "ProductAmount": "30",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "7.62x54mmR Ammo"
+    },
+    {
+      "RecipeId": "87 Target1",
+      "RecipeType": "Crafting",
+      "Product": "87 Target",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "87 Target"
+    },
+    {
+      "RecipeId": "9x19mm Ammo1",
+      "RecipeType": "Crafting",
+      "Product": "9x19mm Ammo",
+      "ProductAmount": "120",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "9x19mm Ammo"
+    },
+    {
+      "RecipeId": "AA121",
+      "RecipeType": "Crafting",
+      "Product": "AA12",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "90",
+      "_pageName": "AA12"
+    },
+    {
+      "RecipeId": "Adrenaline Stim1",
+      "RecipeType": "Crafting",
+      "Product": "Adrenaline Stim",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Adrenaline Stim"
+    },
+    {
+      "RecipeId": "Advanced First Aid Kit1",
+      "RecipeType": "Crafting",
+      "Product": "Advanced First Aid Kit",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Advanced First Aid Kit"
+    },
+    {
+      "RecipeId": "Advanced Navigation Device1",
+      "RecipeType": "Crafting",
+      "Product": "Advanced Navigation Device",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "10",
+      "_pageName": "Advanced Navigation Device"
+    },
+    {
+      "RecipeId": "AK1",
+      "RecipeType": "Crafting",
+      "Product": "AK",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "AK"
+    },
+    {
+      "RecipeId": "APC9 Pro1",
+      "RecipeType": "Crafting",
+      "Product": "APC9 Pro",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "APC9 Pro"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "RecipeType": "Crafting",
+      "Product": "AT-43 MASS",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "RecipeType": "Building",
+      "Product": "Bar V1",
+      "ProductAmount": "0",
+      "Prerequisite": "The Bar",
+      "MinimumWater": "44",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "RecipeType": "Building",
+      "Product": "Bar V2",
+      "ProductAmount": "0",
+      "Prerequisite": "Bar V1",
+      "MinimumWater": "56",
+      "TimeUnit": "days",
+      "TimeAmount": "1",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V31",
+      "RecipeType": "Building",
+      "Product": "Bar V3",
+      "ProductAmount": "0",
+      "Prerequisite": "Bar V2",
+      "MinimumWater": "68",
+      "TimeUnit": "days",
+      "TimeAmount": "2",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "C961",
+      "RecipeType": "Crafting",
+      "Product": "C96",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "C96"
+    },
+    {
+      "RecipeId": "Cluster Grenade1",
+      "RecipeType": "Crafting",
+      "Product": "Cluster Grenade",
+      "ProductAmount": "1",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Cluster Grenade"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "RecipeType": "Building",
+      "Product": "Cognition Cradle Containment Chamber",
+      "ProductAmount": "0",
+      "Prerequisite": "Cognition Cradle Frame",
+      "MinimumWater": "70",
+      "TimeUnit": "days",
+      "TimeAmount": "2",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "RecipeType": "Building",
+      "Product": "Cognition Cradle Frame",
+      "ProductAmount": "0",
+      "Prerequisite": "The Cognition Cradle",
+      "MinimumWater": "60",
+      "TimeUnit": "days",
+      "TimeAmount": "1",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Construction Drone1",
+      "RecipeType": "Crafting",
+      "Product": "Construction Drone",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "Construction Drone"
+    },
+    {
+      "RecipeId": "CPU1",
+      "RecipeType": "Crafting",
+      "Product": "CPU",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "10",
+      "_pageName": "CPU"
+    },
+    {
+      "RecipeId": "Decoy Grenade1",
+      "RecipeType": "Crafting",
+      "Product": "Decoy Grenade",
+      "ProductAmount": "3",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Decoy Grenade"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "RecipeType": "Building",
+      "Product": "Dog House",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "1",
+      "TimeUnit": "hours",
+      "TimeAmount": "1",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Electric Motor1",
+      "RecipeType": "Crafting",
+      "Product": "Electric Motor",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "10",
+      "_pageName": "Electric Motor"
+    },
+    {
+      "RecipeId": "Eurasian IFF Chip LVL21",
+      "RecipeType": "Crafting",
+      "Product": "Eurasian IFF Chip LVL2",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "5",
+      "_pageName": "Eurasian IFF Chip LVL2"
+    },
+    {
+      "RecipeId": "Eurasian IFF Chip LVL31",
+      "RecipeType": "Crafting",
+      "Product": "Eurasian IFF Chip LVL3",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Eurasian IFF Chip LVL3"
+    },
+    {
+      "RecipeId": "Europan IFF Chip LVL21",
+      "RecipeType": "Crafting",
+      "Product": "Europan IFF Chip LVL2",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "5",
+      "_pageName": "Europan IFF Chip LVL2"
+    },
+    {
+      "RecipeId": "Europan IFF Chip LVL31",
+      "RecipeType": "Crafting",
+      "Product": "Europan IFF Chip LVL3",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Europan IFF Chip LVL3"
+    },
+    {
+      "RecipeId": "Euruskan IFF Chip LVL21",
+      "RecipeType": "Crafting",
+      "Product": "Euruskan IFF Chip LVL2",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "5",
+      "_pageName": "Euruskan IFF Chip LVL2"
+    },
+    {
+      "RecipeId": "Euruskan IFF Chip LVL31",
+      "RecipeType": "Crafting",
+      "Product": "Euruskan IFF Chip LVL3",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Euruskan IFF Chip LVL3"
+    },
+    {
+      "RecipeId": "Exo Stamina Equipment1",
+      "RecipeType": "Crafting",
+      "Product": "Exo Stamina Equipment",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "Exo Stamina Equipment"
+    },
+    {
+      "RecipeId": "Fast Travel Drone1",
+      "RecipeType": "Crafting",
+      "Product": "Fast Travel Drone",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Fast Travel Drone"
+    },
+    {
+      "RecipeId": "Fertilizer1",
+      "RecipeType": "Crafting",
+      "Product": "Fertilizer",
+      "ProductAmount": "3",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Fertilizer"
+    },
+    {
+      "RecipeId": "Food Tin1",
+      "RecipeType": "Crafting",
+      "Product": "Food Tin",
+      "ProductAmount": "8",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Food Tin"
+    },
+    {
+      "RecipeId": "Frag Grenade1",
+      "RecipeType": "Crafting",
+      "Product": "Frag Grenade",
+      "ProductAmount": "3",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Frag Grenade"
+    },
+    {
+      "RecipeId": "G-L 191",
+      "RecipeType": "Crafting",
+      "Product": "G-L 19",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "25",
+      "_pageName": "G-L 19"
+    },
+    {
+      "RecipeId": "G361",
+      "RecipeType": "Crafting",
+      "Product": "G36",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "G36"
+    },
+    {
+      "RecipeId": "Garage1",
+      "RecipeType": "Building",
+      "Product": "Garage",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "32",
+      "TimeUnit": "hours",
+      "TimeAmount": "24",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "GM61",
+      "RecipeType": "Crafting",
+      "Product": "GM6",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "11",
+      "_pageName": "GM6"
+    },
+    {
+      "RecipeId": "Grenade Launcher1",
+      "RecipeType": "Crafting",
+      "Product": "Grenade Launcher",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Grenade Launcher"
+    },
+    {
+      "RecipeId": "Gunpowder1",
+      "RecipeType": "Crafting",
+      "Product": "Gunpowder",
+      "ProductAmount": "3",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Gunpowder"
+    },
+    {
+      "RecipeId": "Heavy-Duty Trauma Kit1",
+      "RecipeType": "Crafting",
+      "Product": "Heavy-Duty Trauma Kit",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "10",
+      "_pageName": "Heavy-Duty Trauma Kit"
+    },
+    {
+      "RecipeId": "IED1",
+      "RecipeType": "Crafting",
+      "Product": "IED",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "5",
+      "_pageName": "IED"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "RecipeType": "Building",
+      "Product": "Innards Defense Turrets V1",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "25",
+      "TimeUnit": "hours",
+      "TimeAmount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "RecipeType": "Building",
+      "Product": "Innards Defense Turrets V2",
+      "ProductAmount": "0",
+      "Prerequisite": "Innards Defense Turrets V1",
+      "MinimumWater": "50",
+      "TimeUnit": "hours",
+      "TimeAmount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "RecipeType": "Building",
+      "Product": "Innards Defense Turrets V3",
+      "ProductAmount": "0",
+      "Prerequisite": "Innards Defense Turrets V2",
+      "MinimumWater": "75",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Item Extraction Beacon1",
+      "RecipeType": "Crafting",
+      "Product": "Item Extraction Beacon",
+      "ProductAmount": "1",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Item Extraction Beacon"
+    },
+    {
+      "RecipeId": "Kriss Vector 451",
+      "RecipeType": "Crafting",
+      "Product": "Kriss Vector 45",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "Kriss Vector 45"
+    },
+    {
+      "RecipeId": "Lift1",
+      "RecipeType": "Building",
+      "Product": "Lift",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "M161",
+      "RecipeType": "Crafting",
+      "Product": "M16",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "M16"
+    },
+    {
+      "RecipeId": "M4A11",
+      "RecipeType": "Crafting",
+      "Product": "M4A1",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "M4A1"
+    },
+    {
+      "RecipeId": "M601",
+      "RecipeType": "Crafting",
+      "Product": "M60",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "M60"
+    },
+    {
+      "RecipeId": "M79 Sawed-off1",
+      "RecipeType": "Crafting",
+      "Product": "M79 Sawed-off",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "8",
+      "_pageName": "M79 Sawed-off"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "RecipeType": "Building",
+      "Product": "Manufacture Booster",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "50",
+      "TimeUnit": "hours",
+      "TimeAmount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "MG341",
+      "RecipeType": "Crafting",
+      "Product": "MG34",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "MG34"
+    },
+    {
+      "RecipeId": "Military Cables1",
+      "RecipeType": "Crafting",
+      "Product": "Military Cables",
+      "ProductAmount": "1",
+      "Prerequisite": "Special Projects",
+      "MinimumWater": "0",
+      "TimeUnit": "seconds",
+      "TimeAmount": "60",
+      "_pageName": "Military Cables"
+    },
+    {
+      "RecipeId": "Military Codebreaker1",
+      "RecipeType": "Crafting",
+      "Product": "Military Codebreaker",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Military Codebreaker"
+    },
+    {
+      "RecipeId": "MRE1",
+      "RecipeType": "Crafting",
+      "Product": "MRE",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "MRE"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "RecipeType": "Building",
+      "Product": "Munitions Printer",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "12",
+      "TimeUnit": "hours",
+      "TimeAmount": "2",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Music System1",
+      "RecipeType": "Building",
+      "Product": "Music System",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "1",
+      "TimeUnit": "hours",
+      "TimeAmount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "NTW-201",
+      "RecipeType": "Crafting",
+      "Product": "NTW-20",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "11",
+      "_pageName": "NTW-20"
+    },
+    {
+      "RecipeId": "Organoid Networking Board1",
+      "RecipeType": "Crafting",
+      "Product": "Organoid Networking Board",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "10",
+      "_pageName": "Organoid Networking Board"
+    },
+    {
+      "RecipeId": "P901",
+      "RecipeType": "Crafting",
+      "Product": "P90",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "P90"
+    },
+    {
+      "RecipeId": "Painless1",
+      "RecipeType": "Crafting",
+      "Product": "Painless",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "15",
+      "_pageName": "Painless"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v11",
+      "RecipeType": "Building",
+      "Product": "Personal Quarters Upgrade v1",
+      "ProductAmount": "0",
+      "Prerequisite": "Personal Quarters",
+      "MinimumWater": "26",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "RecipeType": "Building",
+      "Product": "Personal Quarters Upgrade v2",
+      "ProductAmount": "0",
+      "Prerequisite": "Personal Quarters Upgrade v1",
+      "MinimumWater": "52",
+      "TimeUnit": "days",
+      "TimeAmount": "1",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "RecipeType": "Building",
+      "Product": "Personal Quarters Upgrade v3",
+      "ProductAmount": "0",
+      "Prerequisite": "Personal Quarters Upgrade v2",
+      "MinimumWater": "72",
+      "TimeUnit": "days",
+      "TimeAmount": "2",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "RecipeType": "Building",
+      "Product": "Personal Quarters",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "12",
+      "TimeUnit": "hours",
+      "TimeAmount": "6",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "PM-91",
+      "RecipeType": "Crafting",
+      "Product": "PM-9",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "PM-9"
+    },
+    {
+      "RecipeId": "Pneumatic Jump1",
+      "RecipeType": "Crafting",
+      "Product": "Pneumatic Jump",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Pneumatic Jump"
+    },
+    {
+      "RecipeId": "Power Cell1",
+      "RecipeType": "Crafting",
+      "Product": "Power Cell",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "5",
+      "_pageName": "Power Cell"
+    },
+    {
+      "RecipeId": "PP-19 Vityaz1",
+      "RecipeType": "Crafting",
+      "Product": "PP-19 Vityaz",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "PP-19 Vityaz"
+    },
+    {
+      "RecipeId": "PPSH-411",
+      "RecipeType": "Crafting",
+      "Product": "PPSH-41",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "PPSH-41"
+    },
+    {
+      "RecipeId": "Processor Board1",
+      "RecipeType": "Crafting",
+      "Product": "Processor Board",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "5",
+      "_pageName": "Processor Board"
+    },
+    {
+      "RecipeId": "R11 RSASS1",
+      "RecipeType": "Crafting",
+      "Product": "R11 RSASS",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "R11 RSASS"
+    },
+    {
+      "RecipeId": "R81",
+      "RecipeType": "Crafting",
+      "Product": "R8",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "R8"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Ammo Supply1",
+      "RecipeType": "Crafting",
+      "Product": "Rail Gun Turret Ammo Supply",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "4",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Weapon1",
+      "RecipeType": "Crafting",
+      "Product": "Rail Gun Turret Weapon",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "5",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Recovery Drone1",
+      "RecipeType": "Crafting",
+      "Product": "Recovery Drone",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "Recovery Drone"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "RecipeType": "Building",
+      "Product": "Repair Bench",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "16",
+      "TimeUnit": "hours",
+      "TimeAmount": "1",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Rig Light1",
+      "RecipeType": "Crafting",
+      "Product": "Rig Light",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "seconds",
+      "TimeAmount": "60",
+      "_pageName": "Rig Light"
+    },
+    {
+      "RecipeId": "RPD1",
+      "RecipeType": "Crafting",
+      "Product": "RPD",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "RPD"
+    },
+    {
+      "RecipeId": "RPK1",
+      "RecipeType": "Crafting",
+      "Product": "RPK",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "RPK"
+    },
+    {
+      "RecipeId": "S121",
+      "RecipeType": "Crafting",
+      "Product": "S12",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "S12"
+    },
+    {
+      "RecipeId": "SA581",
+      "RecipeType": "Crafting",
+      "Product": "SA58",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "SA58"
+    },
+    {
+      "RecipeId": "SAW1",
+      "RecipeType": "Crafting",
+      "Product": "SAW",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "SAW"
+    },
+    {
+      "RecipeId": "SCAR1",
+      "RecipeType": "Crafting",
+      "Product": "SCAR",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "SCAR"
+    },
+    {
+      "RecipeId": "Sentient Drill1",
+      "RecipeType": "Crafting",
+      "Product": "Sentient Drill",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "10",
+      "_pageName": "Sentient Drill"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "RecipeType": "Building",
+      "Product": "Shooting Range Upgrade v1",
+      "ProductAmount": "0",
+      "Prerequisite": "Shooting Range",
+      "MinimumWater": "12",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "RecipeType": "Building",
+      "Product": "Shooting Range Upgrade v2",
+      "ProductAmount": "0",
+      "Prerequisite": "Shooting Range Upgrade v1",
+      "MinimumWater": "24",
+      "TimeUnit": "days",
+      "TimeAmount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "RecipeType": "Building",
+      "Product": "Shooting Range Upgrade v3",
+      "ProductAmount": "0",
+      "Prerequisite": "Shooting Range Upgrade v2",
+      "MinimumWater": "48",
+      "TimeUnit": "days",
+      "TimeAmount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "RecipeType": "Building",
+      "Product": "Shooting Range",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "6",
+      "TimeUnit": "hours",
+      "TimeAmount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "RecipeType": "Building",
+      "Product": "Shrine",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "5",
+      "TimeUnit": "days",
+      "TimeAmount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Signal Scrambler Grenade1",
+      "RecipeType": "Crafting",
+      "Product": "Signal Scrambler Grenade",
+      "ProductAmount": "3",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Signal Scrambler Grenade"
+    },
+    {
+      "RecipeId": "Small First Aid Kit1",
+      "RecipeType": "Crafting",
+      "Product": "Small First Aid Kit",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Small First Aid Kit"
+    },
+    {
+      "RecipeId": "SOG1",
+      "RecipeType": "Crafting",
+      "Product": "SOG",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "SOG"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "RecipeType": "Building",
+      "Product": "Special Tree",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "1",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Units DetPack1",
+      "RecipeType": "Crafting",
+      "Product": "Special Units DetPack",
+      "ProductAmount": "1",
+      "Prerequisite": "Munitions Printer",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Special Units DetPack"
+    },
+    {
+      "RecipeId": "Spectre M41",
+      "RecipeType": "Crafting",
+      "Product": "Spectre M4",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "60",
+      "_pageName": "Spectre M4"
+    },
+    {
+      "RecipeId": "Standard First Aid Kit1",
+      "RecipeType": "Crafting",
+      "Product": "Standard First Aid Kit",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Standard First Aid Kit"
+    },
+    {
+      "RecipeId": "SVD1",
+      "RecipeType": "Crafting",
+      "Product": "SVD",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "35",
+      "_pageName": "SVD"
+    },
+    {
+      "RecipeId": "Tactical Camera1",
+      "RecipeType": "Crafting",
+      "Product": "Tactical Camera",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "Tactical Camera"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "RecipeType": "Building",
+      "Product": "The Bar",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "32",
+      "TimeUnit": "hours",
+      "TimeAmount": "6",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "RecipeType": "Building",
+      "Product": "Cognition Cradle",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "50",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "TKB-01461",
+      "RecipeType": "Crafting",
+      "Product": "TKB-0146",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "TKB-0146"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "RecipeType": "Building",
+      "Product": "Transmission Tower",
+      "ProductAmount": "0",
+      "Prerequisite": "Bar V3",
+      "MinimumWater": "80",
+      "TimeUnit": "hours",
+      "TimeAmount": "24",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Turret Base1",
+      "RecipeType": "Crafting",
+      "Product": "Turret Base",
+      "ProductAmount": "1",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "3",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "RecipeType": "Building",
+      "Product": "TV Screens Mega",
+      "ProductAmount": "0",
+      "Prerequisite": "TV Screens Small",
+      "MinimumWater": "8",
+      "TimeUnit": "hours",
+      "TimeAmount": "1.5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "RecipeType": "Building",
+      "Product": "TV Screens Small",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "5",
+      "TimeUnit": "minutes",
+      "TimeAmount": "30",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "USAS-121",
+      "RecipeType": "Crafting",
+      "Product": "USAS-12",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "90",
+      "_pageName": "USAS-12"
+    },
+    {
+      "RecipeId": "USP1",
+      "RecipeType": "Crafting",
+      "Product": "USP",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "USP"
+    },
+    {
+      "RecipeId": "VEPR-121",
+      "RecipeType": "Crafting",
+      "Product": "VEPR-12",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "90",
+      "_pageName": "VEPR-12"
+    },
+    {
+      "RecipeId": "Viper1",
+      "RecipeType": "Crafting",
+      "Product": "Viper",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "Viper"
+    },
+    {
+      "RecipeId": "VKS Vykhlop1",
+      "RecipeType": "Crafting",
+      "Product": "VKS Vykhlop",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "45",
+      "_pageName": "VKS Vykhlop"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "RecipeType": "Building",
+      "Product": "Water Bots V1",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "25",
+      "TimeUnit": "hours",
+      "TimeAmount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "RecipeType": "Building",
+      "Product": "Water Bots V2",
+      "ProductAmount": "0",
+      "Prerequisite": "Water Bots V1",
+      "MinimumWater": "50",
+      "TimeUnit": "hours",
+      "TimeAmount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "RecipeType": "Building",
+      "Product": "Water Bots V3",
+      "ProductAmount": "0",
+      "Prerequisite": "Water Bots V2",
+      "MinimumWater": "75",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Canteen1",
+      "RecipeType": "Crafting",
+      "Product": "Water Canteen",
+      "ProductAmount": "2",
+      "Prerequisite": "Workshop",
+      "MinimumWater": "0",
+      "TimeUnit": "second",
+      "TimeAmount": "1",
+      "_pageName": "Water Canteen"
+    },
+    {
+      "RecipeId": "WLT MPL1",
+      "RecipeType": "Crafting",
+      "Product": "WLT MPL",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "minutes",
+      "TimeAmount": "15",
+      "_pageName": "WLT MPL"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "RecipeType": "Building",
+      "Product": "Workshop",
+      "ProductAmount": "0",
+      "Prerequisite": "None",
+      "MinimumWater": "8",
+      "TimeUnit": "hours",
+      "TimeAmount": "2",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "XM251",
+      "RecipeType": "Crafting",
+      "Product": "XM25",
+      "ProductAmount": "1",
+      "Prerequisite": "Repair Bench",
+      "MinimumWater": "0",
+      "TimeUnit": "hours",
+      "TimeAmount": "12",
+      "_pageName": "XM25"
+    }
+  ],
+  "components": [
+    {
+      "RecipeId": ".308 Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "1",
+      "_pageName": ".308 Ammo"
+    },
+    {
+      "RecipeId": ".308 Ammo1",
+      "Item": "Nails",
+      "Amount": "2",
+      "_pageName": ".308 Ammo"
+    },
+    {
+      "RecipeId": ".357 Magnum Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "1",
+      "_pageName": ".357 Magnum Ammo"
+    },
+    {
+      "RecipeId": ".357 Magnum Ammo1",
+      "Item": "Nails",
+      "Amount": "2",
+      "_pageName": ".357 Magnum Ammo"
+    },
+    {
+      "RecipeId": ".45 ACP Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "1",
+      "_pageName": ".45 ACP Ammo"
+    },
+    {
+      "RecipeId": ".45 ACP Ammo1",
+      "Item": "Metal Fragments",
+      "Amount": "2",
+      "_pageName": ".45 ACP Ammo"
+    },
+    {
+      "RecipeId": ".50 BMG1",
+      "Item": "Gunpowder",
+      "Amount": "2",
+      "_pageName": ".50 BMG"
+    },
+    {
+      "RecipeId": ".50 BMG1",
+      "Item": "Rare Metals",
+      "Amount": "2",
+      "_pageName": ".50 BMG"
+    },
+    {
+      "RecipeId": ".50 PST Ammo1",
+      "Item": ".50 BMG",
+      "Amount": "8",
+      "_pageName": ".50 PST Ammo"
+    },
+    {
+      "RecipeId": ".50 PST Ammo1",
+      "Item": "Diodegradable Multi-tool",
+      "Amount": "1",
+      "_pageName": ".50 PST Ammo"
+    },
+    {
+      "RecipeId": ".50 PST Ammo1",
+      "Item": "Thermite",
+      "Amount": "4",
+      "_pageName": ".50 PST Ammo"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "Item": "Bolts",
+      "Amount": "15",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "Item": "Credits",
+      "Amount": "175000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "Item": "Intermediate Tool Set",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "Item": "Metal Pipe",
+      "Amount": "12",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "Item": "Pressure Gauge",
+      "Amount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+16 days1",
+      "Item": "Valve Adjustment Tool",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "Item": "Carbon Fiber",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "Item": "Construction Drone",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "Item": "Credits",
+      "Amount": "750000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "Item": "Industrial Sealant",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "Item": "Mother Courage Codex",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "+28 days1",
+      "Item": "Sledgehammer",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "12-Gauge Buckshot1",
+      "Item": "Ball Bearings",
+      "Amount": "2",
+      "_pageName": "12-Gauge Buckshot"
+    },
+    {
+      "RecipeId": "12-Gauge Buckshot1",
+      "Item": "Fertilizer",
+      "Amount": "1",
+      "_pageName": "12-Gauge Buckshot"
+    },
+    {
+      "RecipeId": "12.7x55mm Subsonic Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "2",
+      "_pageName": "12.7x55mm Subsonic Ammo"
+    },
+    {
+      "RecipeId": "12.7x55mm Subsonic Ammo1",
+      "Item": "Rare Metals",
+      "Amount": "1",
+      "_pageName": "12.7x55mm Subsonic Ammo"
+    },
+    {
+      "RecipeId": "20mm Turret1",
+      "Item": "Camera Lens",
+      "Amount": "1",
+      "_pageName": "20mm Turret"
+    },
+    {
+      "RecipeId": "20mm Turret1",
+      "Item": "Electric Motor",
+      "Amount": "1",
+      "_pageName": "20mm Turret"
+    },
+    {
+      "RecipeId": "20mm Turret1",
+      "Item": "Power Cell",
+      "Amount": "1",
+      "_pageName": "20mm Turret"
+    },
+    {
+      "RecipeId": "20mm Turret1",
+      "Item": "Turret Component",
+      "Amount": "1",
+      "_pageName": "20mm Turret"
+    },
+    {
+      "RecipeId": "20x105mm Anti-Tank1",
+      "Item": "Explosives",
+      "Amount": "1",
+      "_pageName": "20x105mm Anti-Tank"
+    },
+    {
+      "RecipeId": "20x105mm Anti-Tank1",
+      "Item": "Rare Metals",
+      "Amount": "2",
+      "_pageName": "20x105mm Anti-Tank"
+    },
+    {
+      "RecipeId": "36M AntiTank1",
+      "Item": "Destroyed 36M AntiTank",
+      "Amount": "1",
+      "_pageName": "36M AntiTank"
+    },
+    {
+      "RecipeId": "36M AntiTank1",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "36M AntiTank"
+    },
+    {
+      "RecipeId": "40mm Grenade1",
+      "Item": "Explosive Charge",
+      "Amount": "1",
+      "_pageName": "40mm Grenade"
+    },
+    {
+      "RecipeId": "40mm Grenade1",
+      "Item": "Thermite",
+      "Amount": "1",
+      "_pageName": "40mm Grenade"
+    },
+    {
+      "RecipeId": "5.45x39mm Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "1",
+      "_pageName": "5.45x39mm Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Ammo1",
+      "Item": "Metal Fragments",
+      "Amount": "2",
+      "_pageName": "5.45x39mm Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Cryo Ammo1",
+      "Item": "5.45x39mm Ammo",
+      "Amount": "30",
+      "_pageName": "5.45x39mm Cryo Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Cryo Ammo1",
+      "Item": "Dogboro Cigarettes",
+      "Amount": "3",
+      "_pageName": "5.45x39mm Cryo Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Cryo Ammo2",
+      "Item": "5.45x39mm Ammo",
+      "Amount": "30",
+      "_pageName": "5.45x39mm Cryo Ammo"
+    },
+    {
+      "RecipeId": "5.45x39mm Cryo Ammo2",
+      "Item": "Whiskey",
+      "Amount": "1",
+      "_pageName": "5.45x39mm Cryo Ammo"
+    },
+    {
+      "RecipeId": "5.56x45mm Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "1",
+      "_pageName": "5.56x45mm Ammo"
+    },
+    {
+      "RecipeId": "5.56x45mm Ammo1",
+      "Item": "Metal Fragments",
+      "Amount": "2",
+      "_pageName": "5.56x45mm Ammo"
+    },
+    {
+      "RecipeId": "5.7x28mm Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "1",
+      "_pageName": "5.7x28mm Ammo"
+    },
+    {
+      "RecipeId": "5.7x28mm Ammo1",
+      "Item": "Metal Fragments",
+      "Amount": "2",
+      "_pageName": "5.7x28mm Ammo"
+    },
+    {
+      "RecipeId": "7.62x39mm Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "2",
+      "_pageName": "7.62x39mm Ammo"
+    },
+    {
+      "RecipeId": "7.62x39mm Ammo1",
+      "Item": "Nails",
+      "Amount": "2",
+      "_pageName": "7.62x39mm Ammo"
+    },
+    {
+      "RecipeId": "7.62x54mmR Ammo1",
+      "Item": "Gunpowder",
+      "Amount": "2",
+      "_pageName": "7.62x54mmR Ammo"
+    },
+    {
+      "RecipeId": "7.62x54mmR Ammo1",
+      "Item": "Rare Metals",
+      "Amount": "1",
+      "_pageName": "7.62x54mmR Ammo"
+    },
+    {
+      "RecipeId": "87 Target1",
+      "Item": "Destroyed 87 Target Pistol",
+      "Amount": "1",
+      "_pageName": "87 Target"
+    },
+    {
+      "RecipeId": "87 Target1",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "2",
+      "_pageName": "87 Target"
+    },
+    {
+      "RecipeId": "9x19mm Ammo1",
+      "Item": "Fertilizer",
+      "Amount": "1",
+      "_pageName": "9x19mm Ammo"
+    },
+    {
+      "RecipeId": "9x19mm Ammo1",
+      "Item": "Metal Fragments",
+      "Amount": "2",
+      "_pageName": "9x19mm Ammo"
+    },
+    {
+      "RecipeId": "AA121",
+      "Item": "Destroyed AA12",
+      "Amount": "1",
+      "_pageName": "AA12"
+    },
+    {
+      "RecipeId": "AA121",
+      "Item": "Europan IFF Chip LVL3",
+      "Amount": "2",
+      "_pageName": "AA12"
+    },
+    {
+      "RecipeId": "Adrenaline Stim1",
+      "Item": "Energy Bar",
+      "Amount": "1",
+      "_pageName": "Adrenaline Stim"
+    },
+    {
+      "RecipeId": "Adrenaline Stim1",
+      "Item": "Syringe",
+      "Amount": "2",
+      "_pageName": "Adrenaline Stim"
+    },
+    {
+      "RecipeId": "Advanced First Aid Kit1",
+      "Item": "Blood Packs",
+      "Amount": "1",
+      "_pageName": "Advanced First Aid Kit"
+    },
+    {
+      "RecipeId": "Advanced First Aid Kit1",
+      "Item": "Medical Tools",
+      "Amount": "2",
+      "_pageName": "Advanced First Aid Kit"
+    },
+    {
+      "RecipeId": "Advanced Navigation Device1",
+      "Item": "Computer Fan",
+      "Amount": "1",
+      "_pageName": "Advanced Navigation Device"
+    },
+    {
+      "RecipeId": "Advanced Navigation Device1",
+      "Item": "Modem",
+      "Amount": "1",
+      "_pageName": "Advanced Navigation Device"
+    },
+    {
+      "RecipeId": "Advanced Navigation Device1",
+      "Item": "Organoid Memory Board",
+      "Amount": "1",
+      "_pageName": "Advanced Navigation Device"
+    },
+    {
+      "RecipeId": "AK1",
+      "Item": "Destroyed AK",
+      "Amount": "1",
+      "_pageName": "AK"
+    },
+    {
+      "RecipeId": "AK1",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "AK"
+    },
+    {
+      "RecipeId": "APC9 Pro1",
+      "Item": "Destroyed APC9 Pro",
+      "Amount": "1",
+      "_pageName": "APC9 Pro"
+    },
+    {
+      "RecipeId": "APC9 Pro1",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "APC9 Pro"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "Armorer's Wrench",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "AT-43 Breech Assembly",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "AT-43 Feed Mechanism",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "AT-43 Muzzle Break",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "AT-43 Spring System",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "AT-43 Trigger Assembly",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "Crucible",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "Grindstone",
+      "Amount": "5",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "Military Grade Lubricant",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "AT-43 MASS1",
+      "Item": "Weapon Parts",
+      "Amount": "1",
+      "_pageName": "AT-43 MASS"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "Item": "Clear Tube",
+      "Amount": "6",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "Item": "Credits",
+      "Amount": "750000",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "Item": "Goodies",
+      "Amount": "8",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "Item": "Printing Resin",
+      "Amount": "8",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "Item": "Rum",
+      "Amount": "8",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V11",
+      "Item": "Sheet Metal",
+      "Amount": "12",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "Item": "Concrete Mixer",
+      "Amount": "2",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "Item": "Concrete Powder",
+      "Amount": "6",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "Item": "Construction Drone",
+      "Amount": "1",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "Item": "Credits",
+      "Amount": "1500000",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "Item": "MRE",
+      "Amount": "6",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V21",
+      "Item": "Tequila",
+      "Amount": "6",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V31",
+      "Item": "Bulkhead Lights",
+      "Amount": "5",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V31",
+      "Item": "Construction Drone",
+      "Amount": "3",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V31",
+      "Item": "Credits",
+      "Amount": "2500000",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V31",
+      "Item": "Rat King Codex",
+      "Amount": "1",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "Bar V31",
+      "Item": "Sentient Drill",
+      "Amount": "2",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "C961",
+      "Item": "Destroyed C96 Pistol",
+      "Amount": "1",
+      "_pageName": "C96"
+    },
+    {
+      "RecipeId": "C961",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "C96"
+    },
+    {
+      "RecipeId": "Cluster Grenade1",
+      "Item": "Frag Grenade",
+      "Amount": "3",
+      "_pageName": "Cluster Grenade"
+    },
+    {
+      "RecipeId": "Cluster Grenade1",
+      "Item": "Military Tape",
+      "Amount": "1",
+      "_pageName": "Cluster Grenade"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "Item": "Construction Drone",
+      "Amount": "5",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "Item": "Credits",
+      "Amount": "5000000",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "Item": "Military Codebreaker",
+      "Amount": "3",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "Item": "Quantum Hard Drive",
+      "Amount": "5",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "Item": "Rootkit Device",
+      "Amount": "3",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Containment Chamber1",
+      "Item": "Wetware Processor",
+      "Amount": "4",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "Item": "Carbon Fiber Tube",
+      "Amount": "6",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "Item": "Construction Drone",
+      "Amount": "4",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "Item": "Credits",
+      "Amount": "3500000",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "Item": "Military Power Cell",
+      "Amount": "4",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "Item": "Organoid Outlet",
+      "Amount": "5",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Cognition Cradle Frame1",
+      "Item": "Organoid Plug",
+      "Amount": "5",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "Construction Drone1",
+      "Item": "CPU",
+      "Amount": "1",
+      "_pageName": "Construction Drone"
+    },
+    {
+      "RecipeId": "Construction Drone1",
+      "Item": "Electric Motor",
+      "Amount": "1",
+      "_pageName": "Construction Drone"
+    },
+    {
+      "RecipeId": "Construction Drone1",
+      "Item": "Military Power Cell",
+      "Amount": "1",
+      "_pageName": "Construction Drone"
+    },
+    {
+      "RecipeId": "Construction Drone1",
+      "Item": "Precision Tool Set",
+      "Amount": "1",
+      "_pageName": "Construction Drone"
+    },
+    {
+      "RecipeId": "CPU1",
+      "Item": "Modem",
+      "Amount": "1",
+      "_pageName": "CPU"
+    },
+    {
+      "RecipeId": "CPU1",
+      "Item": "Screwdriver",
+      "Amount": "1",
+      "_pageName": "CPU"
+    },
+    {
+      "RecipeId": "Decoy Grenade1",
+      "Item": "Fuse",
+      "Amount": "3",
+      "_pageName": "Decoy Grenade"
+    },
+    {
+      "RecipeId": "Decoy Grenade1",
+      "Item": "Neuralink Disc Player",
+      "Amount": "1",
+      "_pageName": "Decoy Grenade"
+    },
+    {
+      "RecipeId": "Decoy Grenade1",
+      "Item": "Old Paint Can",
+      "Amount": "3",
+      "_pageName": "Decoy Grenade"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "Item": "Credits",
+      "Amount": "250000",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "Item": "Food Tin",
+      "Amount": "1",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "Item": "Glue",
+      "Amount": "3",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "Item": "Measuring Tape",
+      "Amount": "1",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "Item": "Sheet Metal",
+      "Amount": "12",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Dog House1",
+      "Item": "Wooden Plank",
+      "Amount": "12",
+      "_pageName": "Dog House"
+    },
+    {
+      "RecipeId": "Electric Motor1",
+      "Item": "Bolts",
+      "Amount": "2",
+      "_pageName": "Electric Motor"
+    },
+    {
+      "RecipeId": "Electric Motor1",
+      "Item": "Machine Parts",
+      "Amount": "1",
+      "_pageName": "Electric Motor"
+    },
+    {
+      "RecipeId": "Electric Motor1",
+      "Item": "Nuts",
+      "Amount": "2",
+      "_pageName": "Electric Motor"
+    },
+    {
+      "RecipeId": "Electric Motor1",
+      "Item": "Relay",
+      "Amount": "2",
+      "_pageName": "Electric Motor"
+    },
+    {
+      "RecipeId": "Eurasian IFF Chip LVL21",
+      "Item": "Eurasian IFF Chip LVL1",
+      "Amount": "5",
+      "_pageName": "Eurasian IFF Chip LVL2"
+    },
+    {
+      "RecipeId": "Eurasian IFF Chip LVL31",
+      "Item": "Eurasian IFF Chip LVL2",
+      "Amount": "3",
+      "_pageName": "Eurasian IFF Chip LVL3"
+    },
+    {
+      "RecipeId": "Europan IFF Chip LVL21",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "5",
+      "_pageName": "Europan IFF Chip LVL2"
+    },
+    {
+      "RecipeId": "Europan IFF Chip LVL31",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "3",
+      "_pageName": "Europan IFF Chip LVL3"
+    },
+    {
+      "RecipeId": "Euruskan IFF Chip LVL21",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "5",
+      "_pageName": "Euruskan IFF Chip LVL2"
+    },
+    {
+      "RecipeId": "Euruskan IFF Chip LVL31",
+      "Item": "Euruskan IFF Chip LVL2",
+      "Amount": "3",
+      "_pageName": "Euruskan IFF Chip LVL3"
+    },
+    {
+      "RecipeId": "Exo Stamina Equipment1",
+      "Item": "Advanced Joint",
+      "Amount": "1",
+      "_pageName": "Exo Stamina Equipment"
+    },
+    {
+      "RecipeId": "Exo Stamina Equipment1",
+      "Item": "Exo Component",
+      "Amount": "1",
+      "_pageName": "Exo Stamina Equipment"
+    },
+    {
+      "RecipeId": "Exo Stamina Equipment1",
+      "Item": "Heavy-Duty Battery",
+      "Amount": "1",
+      "_pageName": "Exo Stamina Equipment"
+    },
+    {
+      "RecipeId": "Exo Stamina Equipment1",
+      "Item": "Military Cables",
+      "Amount": "1",
+      "_pageName": "Exo Stamina Equipment"
+    },
+    {
+      "RecipeId": "Fast Travel Drone1",
+      "Item": "Electric Motor",
+      "Amount": "2",
+      "_pageName": "Fast Travel Drone"
+    },
+    {
+      "RecipeId": "Fast Travel Drone1",
+      "Item": "LCD",
+      "Amount": "2",
+      "_pageName": "Fast Travel Drone"
+    },
+    {
+      "RecipeId": "Fast Travel Drone1",
+      "Item": "Power Cell",
+      "Amount": "2",
+      "_pageName": "Fast Travel Drone"
+    },
+    {
+      "RecipeId": "Fast Travel Drone1",
+      "Item": "Sheet Metal",
+      "Amount": "2",
+      "_pageName": "Fast Travel Drone"
+    },
+    {
+      "RecipeId": "Fertilizer1",
+      "Item": "Food Tin",
+      "Amount": "1",
+      "_pageName": "Fertilizer"
+    },
+    {
+      "RecipeId": "Fertilizer1",
+      "Item": "Urea",
+      "Amount": "1",
+      "_pageName": "Fertilizer"
+    },
+    {
+      "RecipeId": "Food Tin1",
+      "Item": "Smuggled Organs",
+      "Amount": "1",
+      "_pageName": "Food Tin"
+    },
+    {
+      "RecipeId": "Frag Grenade1",
+      "Item": "Explosives",
+      "Amount": "1",
+      "_pageName": "Frag Grenade"
+    },
+    {
+      "RecipeId": "Frag Grenade1",
+      "Item": "Fuse",
+      "Amount": "3",
+      "_pageName": "Frag Grenade"
+    },
+    {
+      "RecipeId": "Frag Grenade1",
+      "Item": "Old Paint Can",
+      "Amount": "3",
+      "_pageName": "Frag Grenade"
+    },
+    {
+      "RecipeId": "G-L 191",
+      "Item": "Destroyed Glock 19 Pistol",
+      "Amount": "1",
+      "_pageName": "G-L 19"
+    },
+    {
+      "RecipeId": "G-L 191",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "G-L 19"
+    },
+    {
+      "RecipeId": "G361",
+      "Item": "Destroyed G36",
+      "Amount": "1",
+      "_pageName": "G36"
+    },
+    {
+      "RecipeId": "G361",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "2",
+      "_pageName": "G36"
+    },
+    {
+      "RecipeId": "Garage1",
+      "Item": "Construction Drone",
+      "Amount": "3",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "Garage1",
+      "Item": "Credits",
+      "Amount": "2500000",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "Garage1",
+      "Item": "Hard Shell Laptop",
+      "Amount": "1",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "Garage1",
+      "Item": "Portable Generator",
+      "Amount": "2",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "Garage1",
+      "Item": "Precision Tool Set",
+      "Amount": "1",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "Garage1",
+      "Item": "Ratchet",
+      "Amount": "1",
+      "_pageName": "Garage"
+    },
+    {
+      "RecipeId": "GM61",
+      "Item": "Destroyed GM6",
+      "Amount": "1",
+      "_pageName": "GM6"
+    },
+    {
+      "RecipeId": "GM61",
+      "Item": "Eurasian IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "GM6"
+    },
+    {
+      "RecipeId": "Grenade Launcher1",
+      "Item": "Destroyed Grenade Launcher",
+      "Amount": "1",
+      "_pageName": "Grenade Launcher"
+    },
+    {
+      "RecipeId": "Grenade Launcher1",
+      "Item": "Europan IFF Chip LVL3",
+      "Amount": "2",
+      "_pageName": "Grenade Launcher"
+    },
+    {
+      "RecipeId": "Gunpowder1",
+      "Item": "Basic Pliers",
+      "Amount": "1",
+      "_pageName": "Gunpowder"
+    },
+    {
+      "RecipeId": "Gunpowder1",
+      "Item": "Explosives",
+      "Amount": "1",
+      "_pageName": "Gunpowder"
+    },
+    {
+      "RecipeId": "Heavy-Duty Trauma Kit1",
+      "Item": "Assorted Medicine",
+      "Amount": "1",
+      "_pageName": "Heavy-Duty Trauma Kit"
+    },
+    {
+      "RecipeId": "Heavy-Duty Trauma Kit1",
+      "Item": "Bandages",
+      "Amount": "1",
+      "_pageName": "Heavy-Duty Trauma Kit"
+    },
+    {
+      "RecipeId": "Heavy-Duty Trauma Kit1",
+      "Item": "Medical Alcohol",
+      "Amount": "1",
+      "_pageName": "Heavy-Duty Trauma Kit"
+    },
+    {
+      "RecipeId": "Heavy-Duty Trauma Kit1",
+      "Item": "Medical Tools",
+      "Amount": "1",
+      "_pageName": "Heavy-Duty Trauma Kit"
+    },
+    {
+      "RecipeId": "Heavy-Duty Trauma Kit1",
+      "Item": "Tourniquet",
+      "Amount": "1",
+      "_pageName": "Heavy-Duty Trauma Kit"
+    },
+    {
+      "RecipeId": "IED1",
+      "Item": "Explosives",
+      "Amount": "1",
+      "_pageName": "IED"
+    },
+    {
+      "RecipeId": "IED1",
+      "Item": "Printed Circuit Board",
+      "Amount": "1",
+      "_pageName": "IED"
+    },
+    {
+      "RecipeId": "IED1",
+      "Item": "Wires",
+      "Amount": "1",
+      "_pageName": "IED"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "Item": "Ball Bearings",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "Item": "Credits",
+      "Amount": "75000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "Item": "Gunpowder",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "Item": "Motherboard",
+      "Amount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "Item": "Turret Component",
+      "Amount": "10",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V11",
+      "Item": "Weapon Parts",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "Item": "Camera Lens",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "Item": "Credits",
+      "Amount": "150000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "Item": "Electric Motor",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "Item": "Heavy-Duty Battery",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "Item": "Military Grade Lubricant",
+      "Amount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V21",
+      "Item": "WD40",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "Item": "Credits",
+      "Amount": "500000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "Item": "Gyroscopic Stabilizer",
+      "Amount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "Item": "Military Battery",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "Item": "Military Circuitry",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "Item": "Telemetry Unit",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Innards Defense Turrets V31",
+      "Item": "Wetware Processor",
+      "Amount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Item Extraction Beacon1",
+      "Item": "Advanced Navigation Device",
+      "Amount": "2",
+      "_pageName": "Item Extraction Beacon"
+    },
+    {
+      "RecipeId": "Item Extraction Beacon1",
+      "Item": "Military Power Cell",
+      "Amount": "1",
+      "_pageName": "Item Extraction Beacon"
+    },
+    {
+      "RecipeId": "Item Extraction Beacon1",
+      "Item": "Recovery Drone",
+      "Amount": "1",
+      "_pageName": "Item Extraction Beacon"
+    },
+    {
+      "RecipeId": "Kriss Vector 451",
+      "Item": "Destroyed Kriss Vector 45",
+      "Amount": "1",
+      "_pageName": "Kriss Vector 45"
+    },
+    {
+      "RecipeId": "Kriss Vector 451",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "Kriss Vector 45"
+    },
+    {
+      "RecipeId": "Lift1",
+      "Item": "Credits",
+      "Amount": "25000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "M161",
+      "Item": "Destroyed M16",
+      "Amount": "2",
+      "_pageName": "M16"
+    },
+    {
+      "RecipeId": "M161",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "M16"
+    },
+    {
+      "RecipeId": "M4A11",
+      "Item": "Destroyed M4",
+      "Amount": "1",
+      "_pageName": "M4A1"
+    },
+    {
+      "RecipeId": "M4A11",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "M4A1"
+    },
+    {
+      "RecipeId": "M601",
+      "Item": "Destroyed M60",
+      "Amount": "1",
+      "_pageName": "M60"
+    },
+    {
+      "RecipeId": "M601",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "M60"
+    },
+    {
+      "RecipeId": "M79 Sawed-off1",
+      "Item": "Destroyed M79 Pistol",
+      "Amount": "1",
+      "_pageName": "M79 Sawed-off"
+    },
+    {
+      "RecipeId": "M79 Sawed-off1",
+      "Item": "Europan IFF Chip LVL3",
+      "Amount": "1",
+      "_pageName": "M79 Sawed-off"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "Item": "Basic Pliers",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "Item": "Credits",
+      "Amount": "332800",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "Item": "Fuse",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "Item": "Gunpowder",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "Item": "Intermediate Tool Set",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Manufacture Booster1",
+      "Item": "Leather Hole Punch",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "MG341",
+      "Item": "Destroyed MG34",
+      "Amount": "1",
+      "_pageName": "MG34"
+    },
+    {
+      "RecipeId": "MG341",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "MG34"
+    },
+    {
+      "RecipeId": "Military Cables1",
+      "Item": "Military Tape",
+      "Amount": "1",
+      "_pageName": "Military Cables"
+    },
+    {
+      "RecipeId": "Military Cables1",
+      "Item": "Wires",
+      "Amount": "1",
+      "_pageName": "Military Cables"
+    },
+    {
+      "RecipeId": "Military Codebreaker1",
+      "Item": "Intelligence Disk",
+      "Amount": "1",
+      "_pageName": "Military Codebreaker"
+    },
+    {
+      "RecipeId": "Military Codebreaker1",
+      "Item": "Military Hard Drive",
+      "Amount": "1",
+      "_pageName": "Military Codebreaker"
+    },
+    {
+      "RecipeId": "Military Codebreaker1",
+      "Item": "Military PDA",
+      "Amount": "1",
+      "_pageName": "Military Codebreaker"
+    },
+    {
+      "RecipeId": "Military Codebreaker1",
+      "Item": "Motherboard",
+      "Amount": "1",
+      "_pageName": "Military Codebreaker"
+    },
+    {
+      "RecipeId": "Military Codebreaker1",
+      "Item": "Telemetry Unit",
+      "Amount": "1",
+      "_pageName": "Military Codebreaker"
+    },
+    {
+      "RecipeId": "MRE1",
+      "Item": "Boinco Candy Bar",
+      "Amount": "1",
+      "_pageName": "MRE"
+    },
+    {
+      "RecipeId": "MRE1",
+      "Item": "Food Tin",
+      "Amount": "1",
+      "_pageName": "MRE"
+    },
+    {
+      "RecipeId": "MRE1",
+      "Item": "Pretzels",
+      "Amount": "1",
+      "_pageName": "MRE"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "Item": "Basic Pliers",
+      "Amount": "1",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "Item": "Credits",
+      "Amount": "150000",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "Item": "Fuse",
+      "Amount": "6",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "Item": "Gunpowder",
+      "Amount": "6",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "Item": "Intermediate Tool Set",
+      "Amount": "1",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Munition Printer1",
+      "Item": "Leather Hole Punch",
+      "Amount": "1",
+      "_pageName": "Munitions Printer"
+    },
+    {
+      "RecipeId": "Music System1",
+      "Item": "Credits",
+      "Amount": "25000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Music System1",
+      "Item": "Intelligence Cassette",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Music System1",
+      "Item": "Mini MD Drive",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Music System1",
+      "Item": "Neuralink Disc Player",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Music System1",
+      "Item": "UMEGA Media Player",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Music System1",
+      "Item": "Wires",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "NTW-201",
+      "Item": "Destroyed NTW-20",
+      "Amount": "1",
+      "_pageName": "NTW-20"
+    },
+    {
+      "RecipeId": "NTW-201",
+      "Item": "Eurasian IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "NTW-20"
+    },
+    {
+      "RecipeId": "Organoid Networking Board1",
+      "Item": "Military Power Cell",
+      "Amount": "1",
+      "_pageName": "Organoid Networking Board"
+    },
+    {
+      "RecipeId": "Organoid Networking Board1",
+      "Item": "Motherboard",
+      "Amount": "1",
+      "_pageName": "Organoid Networking Board"
+    },
+    {
+      "RecipeId": "Organoid Networking Board1",
+      "Item": "Neuro Uplink Board",
+      "Amount": "1",
+      "_pageName": "Organoid Networking Board"
+    },
+    {
+      "RecipeId": "Organoid Networking Board1",
+      "Item": "Organoid Memory Board",
+      "Amount": "1",
+      "_pageName": "Organoid Networking Board"
+    },
+    {
+      "RecipeId": "P901",
+      "Item": "Destroyed P90",
+      "Amount": "1",
+      "_pageName": "P90"
+    },
+    {
+      "RecipeId": "P901",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "P90"
+    },
+    {
+      "RecipeId": "Painless1",
+      "Item": "Destroyed HMG",
+      "Amount": "1",
+      "_pageName": "Painless"
+    },
+    {
+      "RecipeId": "Painless1",
+      "Item": "Eurasian IFF Chip LVL3",
+      "Amount": "3",
+      "_pageName": "Painless"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v11",
+      "Item": "Drywall",
+      "Amount": "8",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v11",
+      "Item": "Fleece",
+      "Amount": "6",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v11",
+      "Item": "Intermediate Tool Set",
+      "Amount": "1",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v11",
+      "Item": "Light Bulb",
+      "Amount": "12",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v11",
+      "Item": "Medical Tools",
+      "Amount": "5",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "Item": "Construction Drone",
+      "Amount": "1",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "Item": "Credits",
+      "Amount": "750000",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "Item": "Heavy-Duty Trauma Kit",
+      "Amount": "2",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "Item": "OLED",
+      "Amount": "5",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "Item": "Rotary Hammer",
+      "Amount": "2",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v21",
+      "Item": "UV Light Bulb",
+      "Amount": "8",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "Item": "Bulkhead Lights",
+      "Amount": "5",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "Item": "Credits",
+      "Amount": "1500000",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "Item": "Diagnostic Scanner",
+      "Amount": "1",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "Item": "Toilet Paper",
+      "Amount": "3",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "Item": "Toothy Codex",
+      "Amount": "1",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters Upgrade v31",
+      "Item": "Zonophor Tablets",
+      "Amount": "3",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Cleaner",
+      "Amount": "8",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Credits",
+      "Amount": "75000",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Credits",
+      "Amount": "250000",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Explosives",
+      "Amount": "8",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Hand Drill",
+      "Amount": "3",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Scavenger's Tool Kit",
+      "Amount": "1",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "Personal Quarters1",
+      "Item": "Wooden Plank",
+      "Amount": "8",
+      "_pageName": "Personal Quarters"
+    },
+    {
+      "RecipeId": "PM-91",
+      "Item": "Destroyed PM-9",
+      "Amount": "1",
+      "_pageName": "PM-9"
+    },
+    {
+      "RecipeId": "PM-91",
+      "Item": "Eurasian IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "PM-9"
+    },
+    {
+      "RecipeId": "Pneumatic Jump1",
+      "Item": "Heavy Joint Assembly",
+      "Amount": "1",
+      "_pageName": "Pneumatic Jump"
+    },
+    {
+      "RecipeId": "Pneumatic Jump1",
+      "Item": "Military Circuitry",
+      "Amount": "1",
+      "_pageName": "Pneumatic Jump"
+    },
+    {
+      "RecipeId": "Pneumatic Jump1",
+      "Item": "Power Cell",
+      "Amount": "1",
+      "_pageName": "Pneumatic Jump"
+    },
+    {
+      "RecipeId": "Power Cell1",
+      "Item": "Battery Charger",
+      "Amount": "1",
+      "_pageName": "Power Cell"
+    },
+    {
+      "RecipeId": "Power Cell1",
+      "Item": "Machine Parts",
+      "Amount": "1",
+      "_pageName": "Power Cell"
+    },
+    {
+      "RecipeId": "Power Cell1",
+      "Item": "Rechargeable Battery",
+      "Amount": "1",
+      "_pageName": "Power Cell"
+    },
+    {
+      "RecipeId": "PP-19 Vityaz1",
+      "Item": "Destroyed PP-19 Vityaz",
+      "Amount": "1",
+      "_pageName": "PP-19 Vityaz"
+    },
+    {
+      "RecipeId": "PP-19 Vityaz1",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "PP-19 Vityaz"
+    },
+    {
+      "RecipeId": "PPSH-411",
+      "Item": "Destroyed PPSH-41",
+      "Amount": "1",
+      "_pageName": "PPSH-41"
+    },
+    {
+      "RecipeId": "PPSH-411",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "2",
+      "_pageName": "PPSH-41"
+    },
+    {
+      "RecipeId": "Processor Board1",
+      "Item": "Military PDA",
+      "Amount": "1",
+      "_pageName": "Processor Board"
+    },
+    {
+      "RecipeId": "Processor Board1",
+      "Item": "Screwdriver",
+      "Amount": "1",
+      "_pageName": "Processor Board"
+    },
+    {
+      "RecipeId": "R11 RSASS1",
+      "Item": "Destroyed RSASS",
+      "Amount": "1",
+      "_pageName": "R11 RSASS"
+    },
+    {
+      "RecipeId": "R11 RSASS1",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "R11 RSASS"
+    },
+    {
+      "RecipeId": "R81",
+      "Item": "Destroyed R8 Pistol",
+      "Amount": "1",
+      "_pageName": "R8"
+    },
+    {
+      "RecipeId": "R81",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "2",
+      "_pageName": "R8"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Ammo Supply1",
+      "Item": "Railgun Assembly Component",
+      "Amount": "1",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Ammo Supply1",
+      "Item": "Railgun Cooling Component",
+      "Amount": "1",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Ammo Supply1",
+      "Item": "Railgun Power Bank",
+      "Amount": "2",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Weapon1",
+      "Item": "High Durability Rail Component",
+      "Amount": "1",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Weapon1",
+      "Item": "Railgun Body Component",
+      "Amount": "1",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Weapon1",
+      "Item": "Railgun Breech Component",
+      "Amount": "1",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Rail Gun Turret Weapon1",
+      "Item": "Railgun Magazine",
+      "Amount": "1",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "Recovery Drone1",
+      "Item": "Camera Lens",
+      "Amount": "1",
+      "_pageName": "Recovery Drone"
+    },
+    {
+      "RecipeId": "Recovery Drone1",
+      "Item": "Electric Motor",
+      "Amount": "1",
+      "_pageName": "Recovery Drone"
+    },
+    {
+      "RecipeId": "Recovery Drone1",
+      "Item": "Military Battery",
+      "Amount": "1",
+      "_pageName": "Recovery Drone"
+    },
+    {
+      "RecipeId": "Recovery Drone1",
+      "Item": "Repair Dronelet",
+      "Amount": "1",
+      "_pageName": "Recovery Drone"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "Item": "Clamp",
+      "Amount": "1",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "Item": "Credits",
+      "Amount": "150000",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "Item": "Eurasian IFF Chip LVL1",
+      "Amount": "3",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "3",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "3",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Repair Bench1",
+      "Item": "Field Repair Kit",
+      "Amount": "1",
+      "_pageName": "Repair Bench"
+    },
+    {
+      "RecipeId": "Rig Light1",
+      "Item": "Car Battery",
+      "Amount": "1",
+      "_pageName": "Rig Light"
+    },
+    {
+      "RecipeId": "Rig Light1",
+      "Item": "Light Bulb",
+      "Amount": "1",
+      "_pageName": "Rig Light"
+    },
+    {
+      "RecipeId": "Rig Light1",
+      "Item": "Wires",
+      "Amount": "1",
+      "_pageName": "Rig Light"
+    },
+    {
+      "RecipeId": "RPD1",
+      "Item": "Destroyed RPD",
+      "Amount": "1",
+      "_pageName": "RPD"
+    },
+    {
+      "RecipeId": "RPD1",
+      "Item": "Euruskan IFF Chip LVL3",
+      "Amount": "1",
+      "_pageName": "RPD"
+    },
+    {
+      "RecipeId": "RPK1",
+      "Item": "Destroyed RPK",
+      "Amount": "1",
+      "_pageName": "RPK"
+    },
+    {
+      "RecipeId": "RPK1",
+      "Item": "Euruskan IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "RPK"
+    },
+    {
+      "RecipeId": "S121",
+      "Item": "Destroyed S12",
+      "Amount": "1",
+      "_pageName": "S12"
+    },
+    {
+      "RecipeId": "S121",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "S12"
+    },
+    {
+      "RecipeId": "SA581",
+      "Item": "Destroyed SA58",
+      "Amount": "1",
+      "_pageName": "SA58"
+    },
+    {
+      "RecipeId": "SA581",
+      "Item": "Europan IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "SA58"
+    },
+    {
+      "RecipeId": "SAW1",
+      "Item": "Destroyed SAW",
+      "Amount": "1",
+      "_pageName": "SAW"
+    },
+    {
+      "RecipeId": "SAW1",
+      "Item": "Europan IFF Chip LVL3",
+      "Amount": "1",
+      "_pageName": "SAW"
+    },
+    {
+      "RecipeId": "SCAR1",
+      "Item": "Destroyed SCAR",
+      "Amount": "1",
+      "_pageName": "SCAR"
+    },
+    {
+      "RecipeId": "SCAR1",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "SCAR"
+    },
+    {
+      "RecipeId": "Sentient Drill1",
+      "Item": "Organoid Outlet",
+      "Amount": "1",
+      "_pageName": "Sentient Drill"
+    },
+    {
+      "RecipeId": "Sentient Drill1",
+      "Item": "Organoid Plug",
+      "Amount": "1",
+      "_pageName": "Sentient Drill"
+    },
+    {
+      "RecipeId": "Sentient Drill1",
+      "Item": "Wetware Processor",
+      "Amount": "1",
+      "_pageName": "Sentient Drill"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "Item": "Credits",
+      "Amount": "125000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "Item": "Drywall",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "Item": "ES Lamp",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "Item": "Nails",
+      "Amount": "10",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "Item": "Sheet Metal",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v11",
+      "Item": "WD40",
+      "Amount": "2",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "Item": "Concrete Mixer",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "Item": "Concrete Powder",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "Item": "Construction Drone",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "Item": "Credits",
+      "Amount": "250000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "Item": "Industrial Sealant",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v21",
+      "Item": "UV Light Bulb",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "Item": "Construction Drone",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "Item": "Construction Foam",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "Item": "Credits",
+      "Amount": "500000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "Item": "Shield Officer Codex",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "Item": "Water Thief's Mask \"Bozo\"",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range Upgrade v31",
+      "Item": "Water Thief's Mask \"Thirsty\"",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "Item": "Bolts",
+      "Amount": "12",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "Item": "Credits",
+      "Amount": "50000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "Item": "Masking Tape",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "Item": "Metal Pipe",
+      "Amount": "8",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "Item": "Nuts",
+      "Amount": "12",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shooting Range1",
+      "Item": "Wooden Plank",
+      "Amount": "10",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "Item": "Credits",
+      "Amount": "2500000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "Item": "Heirloom Seeds",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "Item": "Preserved Cryo Coffee",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "Item": "Rat King's Wake",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "Item": "Smuggled Organs",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Shrine1",
+      "Item": "Water Thief's Mask \"Oni\"",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Signal Scrambler Grenade1",
+      "Item": "Frequency Tap",
+      "Amount": "1",
+      "_pageName": "Signal Scrambler Grenade"
+    },
+    {
+      "RecipeId": "Signal Scrambler Grenade1",
+      "Item": "Fuse",
+      "Amount": "3",
+      "_pageName": "Signal Scrambler Grenade"
+    },
+    {
+      "RecipeId": "Signal Scrambler Grenade1",
+      "Item": "Metal Pipe",
+      "Amount": "1",
+      "_pageName": "Signal Scrambler Grenade"
+    },
+    {
+      "RecipeId": "Signal Scrambler Grenade1",
+      "Item": "Old Paint Can",
+      "Amount": "3",
+      "_pageName": "Signal Scrambler Grenade"
+    },
+    {
+      "RecipeId": "Small First Aid Kit1",
+      "Item": "\"Beef\" Flavor Packet",
+      "Amount": "1",
+      "_pageName": "Small First Aid Kit"
+    },
+    {
+      "RecipeId": "Small First Aid Kit1",
+      "Item": "Syringe",
+      "Amount": "2",
+      "_pageName": "Small First Aid Kit"
+    },
+    {
+      "RecipeId": "SOG1",
+      "Item": "Destroyed SOG Pistol",
+      "Amount": "1",
+      "_pageName": "SOG"
+    },
+    {
+      "RecipeId": "SOG1",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "SOG"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "Item": "Credits",
+      "Amount": "100000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "Item": "ES Lamp",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "Item": "Light Bulb",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "Item": "Metal Slats",
+      "Amount": "10",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "Item": "UV Light Bulb",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Tree1",
+      "Item": "Weapon Parts",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Special Units DetPack1",
+      "Item": "Explosive Charge",
+      "Amount": "2",
+      "_pageName": "Special Units DetPack"
+    },
+    {
+      "RecipeId": "Special Units DetPack1",
+      "Item": "Military Circuitry",
+      "Amount": "1",
+      "_pageName": "Special Units DetPack"
+    },
+    {
+      "RecipeId": "Special Units DetPack1",
+      "Item": "Thermite",
+      "Amount": "6",
+      "_pageName": "Special Units DetPack"
+    },
+    {
+      "RecipeId": "Spectre M41",
+      "Item": "Destroyed Spectre M4",
+      "Amount": "1",
+      "_pageName": "Spectre M4"
+    },
+    {
+      "RecipeId": "Spectre M41",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "Spectre M4"
+    },
+    {
+      "RecipeId": "Standard First Aid Kit1",
+      "Item": "Assorted Medicine",
+      "Amount": "1",
+      "_pageName": "Standard First Aid Kit"
+    },
+    {
+      "RecipeId": "Standard First Aid Kit1",
+      "Item": "Bandages",
+      "Amount": "2",
+      "_pageName": "Standard First Aid Kit"
+    },
+    {
+      "RecipeId": "SVD1",
+      "Item": "Destroyed SVD",
+      "Amount": "1",
+      "_pageName": "SVD"
+    },
+    {
+      "RecipeId": "SVD1",
+      "Item": "Euruskan IFF Chip LVL2",
+      "Amount": "2",
+      "_pageName": "SVD"
+    },
+    {
+      "RecipeId": "Tactical Camera1",
+      "Item": "Cyborg's Head",
+      "Amount": "1",
+      "_pageName": "Tactical Camera"
+    },
+    {
+      "RecipeId": "Tactical Camera1",
+      "Item": "Laser Rangefinder",
+      "Amount": "1",
+      "_pageName": "Tactical Camera"
+    },
+    {
+      "RecipeId": "Tactical Camera1",
+      "Item": "Military Cables",
+      "Amount": "1",
+      "_pageName": "Tactical Camera"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "Item": "Credits",
+      "Amount": "250000",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "Item": "Food Tin",
+      "Amount": "10",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "Item": "Metal Fragments",
+      "Amount": "15",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "Item": "Metal Pipe",
+      "Amount": "12",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "Item": "Ribbed Tube",
+      "Amount": "8",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Bar1",
+      "Item": "Vodka",
+      "Amount": "10",
+      "_pageName": "Bar"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "Item": "Concrete Powder",
+      "Amount": "3",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "Item": "Construction Drone",
+      "Amount": "3",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "Item": "Construction Foam",
+      "Amount": "3",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "Item": "Credits",
+      "Amount": "2000000",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "Item": "Sentient Drill",
+      "Amount": "3",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "The Cognition Cradle1",
+      "Item": "Ventilation Regulator",
+      "Amount": "2",
+      "_pageName": "Cognition Cradle"
+    },
+    {
+      "RecipeId": "TKB-01461",
+      "Item": "Destroyed TKB-0146",
+      "Amount": "1",
+      "_pageName": "TKB-0146"
+    },
+    {
+      "RecipeId": "TKB-01461",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "2",
+      "_pageName": "TKB-0146"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Construction Drone",
+      "Amount": "3",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Construction Foam",
+      "Amount": "5",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Credits",
+      "Amount": "5000000",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Military Codebreaker",
+      "Amount": "3",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Multi-frequency Broadcaster",
+      "Amount": "3",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Organoid Networking Board",
+      "Amount": "2",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Transmission Tower1",
+      "Item": "Wetware Processor",
+      "Amount": "2",
+      "_pageName": "Transmission Tower"
+    },
+    {
+      "RecipeId": "Turret Base1",
+      "Item": "Heavy Joint Assembly",
+      "Amount": "4",
+      "_pageName": "Railgun"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "Item": "Credits",
+      "Amount": "1000000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "Item": "OLED",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "Item": "Quantum Hard Drive",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "Item": "Relay",
+      "Amount": "10",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "Item": "Solar Battery",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Mega1",
+      "Item": "UMEGA Media Player",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "Item": "Battery Charger",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "Item": "Credits",
+      "Amount": "75000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "Item": "LCD",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "Item": "Printed Circuit Board",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "Item": "Rechargeable Battery",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "TV Screens Small1",
+      "Item": "Wires",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "USAS-121",
+      "Item": "Destroyed USAS-12",
+      "Amount": "1",
+      "_pageName": "USAS-12"
+    },
+    {
+      "RecipeId": "USAS-121",
+      "Item": "Eurasian IFF Chip LVL3",
+      "Amount": "2",
+      "_pageName": "USAS-12"
+    },
+    {
+      "RecipeId": "USP1",
+      "Item": "Destroyed USP Pistol",
+      "Amount": "1",
+      "_pageName": "USP"
+    },
+    {
+      "RecipeId": "USP1",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "USP"
+    },
+    {
+      "RecipeId": "VEPR-121",
+      "Item": "Destroyed VEPR-12",
+      "Amount": "1",
+      "_pageName": "VEPR-12"
+    },
+    {
+      "RecipeId": "VEPR-121",
+      "Item": "Eurasian IFF Chip LVL3",
+      "Amount": "2",
+      "_pageName": "VEPR-12"
+    },
+    {
+      "RecipeId": "Viper1",
+      "Item": "Destroyed Viper Pistol",
+      "Amount": "1",
+      "_pageName": "Viper"
+    },
+    {
+      "RecipeId": "Viper1",
+      "Item": "Europan IFF Chip LVL2",
+      "Amount": "1",
+      "_pageName": "Viper"
+    },
+    {
+      "RecipeId": "VKS Vykhlop1",
+      "Item": "Destroyed VKS VYKHLOP",
+      "Amount": "1",
+      "_pageName": "VKS Vykhlop"
+    },
+    {
+      "RecipeId": "VKS Vykhlop1",
+      "Item": "Euruskan IFF Chip LVL1",
+      "Amount": "2",
+      "_pageName": "VKS Vykhlop"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "Item": "Credits",
+      "Amount": "50000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "Item": "Eurasian Drone Cortex",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "Item": "Europan Drone Flight Controller",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "Item": "Liquid Cooling Unit",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "Item": "Machine Parts",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V11",
+      "Item": "Screwdriver",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "Item": "Brawler Spinal Joint",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "Item": "Credits",
+      "Amount": "250000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "Item": "Organoid Memory Board",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "Item": "Organoid Outlet",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "Item": "Organoid Plug",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V21",
+      "Item": "Processor Board",
+      "Amount": "5",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "Item": "Credits",
+      "Amount": "750000",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "Item": "EOD Armor Plate",
+      "Amount": "6",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "Item": "Multi-frequency Broadcaster",
+      "Amount": "3",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "Item": "Orga Codex",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "Item": "Organoid Networking Board",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Bots V31",
+      "Item": "Precision Tool Set",
+      "Amount": "1",
+      "_pageName": "Innards"
+    },
+    {
+      "RecipeId": "Water Canteen1",
+      "Item": "Blood Packs",
+      "Amount": "1",
+      "_pageName": "Water Canteen"
+    },
+    {
+      "RecipeId": "WLT MPL1",
+      "Item": "Destroyed Walther MPL",
+      "Amount": "1",
+      "_pageName": "WLT MPL"
+    },
+    {
+      "RecipeId": "WLT MPL1",
+      "Item": "Eurasian IFF Chip LVL1",
+      "Amount": "1",
+      "_pageName": "WLT MPL"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "Item": "Credits",
+      "Amount": "75000",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "Item": "Metal Fragments",
+      "Amount": "6",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "Item": "Old Tool Set",
+      "Amount": "1",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "Item": "Printing Resin",
+      "Amount": "6",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "Item": "Scavenger's Tool Kit",
+      "Amount": "1",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "Workshop1",
+      "Item": "Sewing Kit",
+      "Amount": "1",
+      "_pageName": "Workshop"
+    },
+    {
+      "RecipeId": "XM251",
+      "Item": "Destroyed XM25",
+      "Amount": "1",
+      "_pageName": "XM25"
+    },
+    {
+      "RecipeId": "XM251",
+      "Item": "Eurasian IFF Chip LVL3",
+      "Amount": "3",
+      "_pageName": "XM25"
+    }
+  ]
+}

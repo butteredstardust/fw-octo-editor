@@ -1,0 +1,7432 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-07-18T21:28:11.969Z",
+  "sourceUrl": "https://theforeverwinter.wiki.gg/api.php",
+  "cargoTable": "Items",
+  "items": [
+    {
+      "name": ".308 Ammo",
+      "page": ".308 Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 308.png",
+      "internalTag": "Inventory.Item.Item.Ammo.308",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": ".357 Magnum Ammo",
+      "page": ".357 Magnum Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 357.png",
+      "internalTag": "Inventory.Item.Item.Ammo.357",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": ".45 ACP Ammo",
+      "page": ".45 ACP Ammo",
+      "imageFile": "ItemPortrait_Demo_Ammo_45acp.png",
+      "internalTag": "Inventory.Item.Item.Ammo.45acp",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": ".50 BMG",
+      "page": ".50 BMG",
+      "imageFile": "ItemPortrait Demo Ammo 50cal.png",
+      "internalTag": "Inventory.Item.Item.Ammo.50cal",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": ".50 PST Ammo",
+      "page": ".50 PST Ammo",
+      "imageFile": "T_ItemPortrait_HRF05CRAFTING_CFT09.png",
+      "internalTag": "Inventory.Item.Item.Ammo.50PST",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "\"Beef\" Flavor Packet",
+      "page": "\"Beef\" Flavor Packet",
+      "imageFile": "T JunkEcon 105 Soidum.png",
+      "internalTag": "Inventory.Item.RareLoot_110_Soidum",
+      "categories": [
+        "Provisions"
+      ]
+    },
+    {
+      "name": "12-Gauge Buckshot",
+      "page": "12-Gauge Buckshot",
+      "imageFile": "ItemPortrait Demo Ammo 12x76.png",
+      "internalTag": "Inventory.Item.Item.Ammo.12g",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "12.7x55mm Subsonic Ammo",
+      "page": "12.7x55mm Subsonic Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 127x55.png",
+      "internalTag": "Inventory.Item.Item.Ammo.127",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "20mm Turret",
+      "page": "20mm Turret",
+      "imageFile": "Item20mmTurret.png",
+      "internalTag": "Inventory.Dangly.RIG_EQUIPMENT_20mmTurret",
+      "categories": [
+        "Equipment",
+        "Large items"
+      ]
+    },
+    {
+      "name": "20x105mm Anti-Tank",
+      "page": "20x105mm Anti-Tank",
+      "imageFile": "ItemPortrait Demo Ammo 20mm.png",
+      "internalTag": "Inventory.Item.Item.Ammo.20mm",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "36M AntiTank",
+      "page": "36M AntiTank",
+      "imageFile": "T HRF02.png",
+      "internalTag": "Inventory.Weapon.HRF02",
+      "categories": [
+        "Weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "40mm Grenade",
+      "page": "40mm Grenade",
+      "imageFile": "ItemPortrait Demo Ammo 40mm.png",
+      "internalTag": "Inventory.Item.Item.Ammo.40mmHE",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "47 TYP",
+      "page": "47 TYP",
+      "imageFile": "T RFL10.png",
+      "internalTag": "Inventory.Weapon.RFL10",
+      "categories": [
+        "Weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "5.45x39mm Ammo",
+      "page": "5.45x39mm Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 545x39.png",
+      "internalTag": "Inventory.Item.Item.Ammo.545",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "5.45x39mm Ammo Surplus",
+      "page": "5.45x39mm Ammo Surplus",
+      "imageFile": "ItemPortrait Demo Ammo 545x39 SURPLUS.png",
+      "internalTag": "Inventory.Item.Item.Ammo.545.Junk",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "5.45x39mm Cryo Ammo",
+      "page": "5.45x39mm Cryo Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 545x39 CRYO.png",
+      "internalTag": "Inventory.Item.Item.Ammo.545.Cryo",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "5.56x45mm Ammo",
+      "page": "5.56x45mm Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 556x45.png",
+      "internalTag": "Inventory.Item.Item.Ammo.556",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "5.7x28mm Ammo",
+      "page": "5.7x28mm Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 57x28.png",
+      "internalTag": "Inventory.Item.Item.Ammo.57x28",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "7.62x39mm Ammo",
+      "page": "7.62x39mm Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 545x39 762.png",
+      "internalTag": "Inventory.Item.Item.Ammo.762",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "7.62x54mmR Ammo",
+      "page": "7.62x54mmR Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 545x39 762x45R.png",
+      "internalTag": "Inventory.Item.Item.Ammo.54R",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "87 Target",
+      "page": "87 Target",
+      "imageFile": "T PST03.png",
+      "internalTag": "Inventory.Weapon.PST03",
+      "categories": [
+        "Pistols"
+      ]
+    },
+    {
+      "name": "9x19mm Ammo",
+      "page": "9x19mm Ammo",
+      "imageFile": "ItemPortrait Demo Ammo 9x19.png",
+      "internalTag": "Inventory.Item.Item.Ammo.919",
+      "categories": [
+        "Ammo"
+      ]
+    },
+    {
+      "name": "AA-12 Handguard",
+      "page": "AA-12 Handguard",
+      "imageFile": "T_WPN_SHG05_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_SHG05_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "AA12",
+      "page": "AA12",
+      "imageFile": "T SHG05.png",
+      "internalTag": "Inventory.Weapon.SHG05",
+      "categories": [
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "AA12 Shotgun Magazine A",
+      "page": "AA12 Shotgun Magazine A",
+      "imageFile": "T_WPN_SHG05_MAG_12G_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG05_MAG_12G_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "AA12 Shotgun Magazine B",
+      "page": "AA12 Shotgun Magazine B",
+      "imageFile": "T_WPN_SHG05_MAG_12G_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG05_MAG_12G_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Absinthe",
+      "page": "Absinthe",
+      "imageFile": "T Item Alcool11.png",
+      "internalTag": "Inventory.Item.Bar_Absinthe",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "ACG 2x",
+      "page": "ACG 2x",
+      "imageFile": "T_PICSCP8.png",
+      "internalTag": "Inventory.Item.PICSCP8",
+      "categories": [
+        "Weapon attachments",
+        "Scope"
+      ]
+    },
+    {
+      "name": "Adrenaline Stim",
+      "page": "Adrenaline Stim",
+      "imageFile": "T_item_med_morphine2.png",
+      "internalTag": "Inventory.Item.Stim",
+      "categories": [
+        "Consumables",
+        "Medical"
+      ]
+    },
+    {
+      "name": "Advanced First Aid Kit",
+      "page": "Advanced First Aid Kit",
+      "imageFile": "T item med FirstAidKit.png",
+      "internalTag": "Inventory.Item.FirstAid_Large",
+      "categories": [
+        "Consumables",
+        "Medical"
+      ]
+    },
+    {
+      "name": "Advanced Joint",
+      "page": "Advanced Joint",
+      "imageFile": "T_Item_AdvancedJoint.png",
+      "internalTag": "Inventory.Item.Quest_AdvancedJoint",
+      "categories": [
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Advanced Navigation Device",
+      "page": "Advanced Navigation Device",
+      "imageFile": "T Portrait JunkEcon 55 MilitaryComputer.png",
+      "internalTag": "Inventory.Item.RareLoot_20_MilitaryComputer",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Advanced Pliers",
+      "page": "Advanced Pliers",
+      "imageFile": "T_AdvancedPliers.png",
+      "internalTag": "Inventory.Item.RareLoot_45_AdvancedPliers",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Aimp H2 Optic",
+      "page": "Aimp H2 Optic",
+      "imageFile": "T_PICOPT3.png",
+      "internalTag": "Inventory.Item.PICOPT3",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Aimp Micro Optic",
+      "page": "Aimp Micro Optic",
+      "imageFile": "T_PICOPT14.png",
+      "internalTag": "Inventory.Item.PICOPT14",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "AK",
+      "page": "AK",
+      "imageFile": "T RFL01.png",
+      "internalTag": "Inventory.Weapon.RFL01",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "AK Barrel B",
+      "page": "AK Barrel B",
+      "imageFile": "T_WPN_RFL01_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "AK Barrel C",
+      "page": "AK Barrel C",
+      "imageFile": "T_WPN_RFL01_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "Analog Headset",
+      "page": "Analog Headset",
+      "imageFile": "T_Headphones.png",
+      "internalTag": "Inventory.Item.DecoLoot_02_Headset",
+      "categories": [
+        "Civil goods",
+        "Shelf decorations"
+      ]
+    },
+    {
+      "name": "Anti-Vertex Bolt Cutters",
+      "page": "Anti-Vertex Bolt Cutters",
+      "imageFile": "T_JunkEcon_88_PrecisionBoltCutters.png",
+      "internalTag": "Inventory.Item.RareLoot_38_PrecisionBoltCutters",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "APC9 Pro",
+      "page": "APC9 Pro",
+      "imageFile": "T SMG05.png",
+      "internalTag": "Inventory.Weapon.SMG05",
+      "categories": [
+        "Weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "APC9 Pro Barrel A",
+      "page": "APC9 Pro Barrel A",
+      "imageFile": "T_WPN_SMG05_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG05_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "APC9 Pro Barrel B",
+      "page": "APC9 Pro Barrel B",
+      "imageFile": "T_WPN_SMG05_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG05_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "APC9 Pro Stock A",
+      "page": "APC9 Pro Stock A",
+      "imageFile": "T_WPN_SMG05_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG05_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Armorer's Wrench",
+      "page": "Armorer's Wrench",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT02.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_MaintenanceTool",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "Assorted Medicine",
+      "page": "Assorted Medicine",
+      "imageFile": "T_MiscMedication.png",
+      "internalTag": "Inventory.Item.RareLoot_88_MiscMedication",
+      "categories": [
+        "Medical",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "AT-43 Breech Assembly",
+      "page": "AT-43 Breech Assembly",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT04.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_BreechAssembly",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "AT-43 Feed Mechanism",
+      "page": "AT-43 Feed Mechanism",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT07.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_FeedMechanism",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "AT-43 MASS",
+      "page": "AT-43 MASS",
+      "imageFile": "T HRF05.png",
+      "internalTag": "Inventory.Weapon.HRF05",
+      "categories": [
+        "Weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "AT-43 Muzzle Break",
+      "page": "AT-43 Muzzle Break",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT06.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_MuzzleAssembly",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "AT-43 Spring System",
+      "page": "AT-43 Spring System",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT08.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_SpringSystem",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "AT-43 Trigger Assembly",
+      "page": "AT-43 Trigger Assembly",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT05.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_TriggerAssembly",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "Ball Bearings",
+      "page": "Ball Bearings",
+      "imageFile": "T_Portrait_GRN_ingredient_Ballbearings.png",
+      "internalTag": "Inventory.Item.BallBearings",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Bandages",
+      "page": "Bandages",
+      "imageFile": "T_Bandages.png",
+      "internalTag": "Inventory.Item.RareLoot_89_Bandages",
+      "categories": [
+        "Medical",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Banner of the Red Baron",
+      "page": "Banner of the Red Baron",
+      "imageFile": "T Item Quest RedBaronBanner.png",
+      "internalTag": "Inventory.Item.Quest_EM_Baron_Banner",
+      "categories": [
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Bar Supplies",
+      "page": "Bar Supplies",
+      "imageFile": "T Item Quest BartenderKit.png",
+      "internalTag": "Inventory.Item.Bartender_BarSupplies",
+      "categories": [
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Basic Pliers",
+      "page": "Basic Pliers",
+      "imageFile": "T_Pliers.png",
+      "internalTag": "Inventory.Item.RareLoot_44_BasicPliers",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Battery",
+      "page": "Battery",
+      "imageFile": "T_Battery.png",
+      "internalTag": "Inventory.Item.RareLoot_134_Battery",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Battery Charger",
+      "page": "Battery Charger",
+      "imageFile": "T_JunkEcon_92_RechargeableBatteryCharger.png",
+      "internalTag": "Inventory.Item.RareLoot_138_RechargeableBatteryCharger",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Battle Plans",
+      "page": "Battle Plans",
+      "imageFile": "T Item Quest EuruskansPlan.png",
+      "internalTag": "Inventory.Item.Quest_Battle_Plans",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Beer",
+      "page": "Beer",
+      "imageFile": "T Item Alcool09.png",
+      "internalTag": "Inventory.Item.Bar_Beer",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Blood Packs",
+      "page": "Blood Packs",
+      "imageFile": "T_Bloodpacs.png",
+      "internalTag": "Inventory.Item.RareLoot_83_BloodPacs",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Boinco Candy Bar",
+      "page": "Boinco Candy Bar",
+      "imageFile": "T_Item_JunkFood01.png",
+      "internalTag": "Inventory.Item.JunkFood01",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Bolt Cutters",
+      "page": "Bolt Cutters",
+      "imageFile": "T_Boltcutters.png",
+      "internalTag": "Inventory.Item.RareLoot_37_BoltCutters",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Bolts",
+      "page": "Bolts",
+      "imageFile": "T_Bolts.png",
+      "internalTag": "Inventory.Item.RareLoot_33_Bolts",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Brandy",
+      "page": "Brandy",
+      "imageFile": "T Item Alcool02.png",
+      "internalTag": "Inventory.Item.Alcohol02",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Brawler Insignia",
+      "page": "Brawler Insignia",
+      "imageFile": "T Item Quest BrawlersInsignias.png",
+      "internalTag": "Inventory.Item.Quest_Brawler_Insignia",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Brawler Spinal Joint",
+      "page": "Brawler Spinal Joint",
+      "imageFile": "T_Item_ExoComponent.png",
+      "internalTag": "Inventory.Item.Quest_SpineComponent",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Bug Spray",
+      "page": "Bug Spray",
+      "imageFile": "T_Portrait_JunkEcon_109_BugSpray.png",
+      "internalTag": "Inventory.Item.RareLoot_113_BugSpray",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Bulkhead Lights",
+      "page": "Bulkhead Lights",
+      "imageFile": "T AdvancedLightBulbs.png",
+      "internalTag": "Inventory.Item.RareLoot_62_AdvancedLightBulbs",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "C96",
+      "page": "C96",
+      "imageFile": "T PST04.png",
+      "internalTag": "Inventory.Weapon.PST04",
+      "categories": [
+        "Pistols"
+      ]
+    },
+    {
+      "name": "C96 Pistol Receiver A",
+      "page": "C96 Pistol Receiver A",
+      "imageFile": "T_WPN_PST04_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_PST04_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "C96 Pistol Receiver B",
+      "page": "C96 Pistol Receiver B",
+      "imageFile": "T_WPN_PST04_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_PST04_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "Camera",
+      "page": "Camera",
+      "imageFile": "T_Portrait_JunkEcon_134_Camera.png",
+      "internalTag": "Inventory.Item.RareLoot_120_Camera",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Camera Lens",
+      "page": "Camera Lens",
+      "imageFile": "T Camera Lens.png",
+      "internalTag": "Inventory.Item.RareLoot_99_CameraLens",
+      "categories": [
+        "Civil goods",
+        "Materials"
+      ]
+    },
+    {
+      "name": "Car Battery",
+      "page": "Car Battery",
+      "imageFile": "T_CarBattery.png",
+      "internalTag": "Inventory.Item.RareLoot_136_CarBattery",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Carbon Fiber",
+      "page": "Carbon Fiber",
+      "imageFile": "T_JunkEcon_127_CarbonFiber.png",
+      "internalTag": "Inventory.Item.RareLoot_116_CarbonFiber",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Carbon Fiber Tube",
+      "page": "Carbon Fiber Tube",
+      "imageFile": "T_Portrait_JunkEcon_40_CarbonFiberTubes.png",
+      "internalTag": "Inventory.Item.RareLoot_57_CarbonFiberTube",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Clamp",
+      "page": "Clamp",
+      "imageFile": "T ReleaseClamp.png",
+      "internalTag": "Inventory.Item.RareLoot_67_ReleaseClamp",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "CLAW",
+      "page": "CLAW",
+      "imageFile": "T SHG06.png",
+      "internalTag": "Inventory.Weapon.SHG06",
+      "categories": [
+        "Weapons",
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "Cleaner",
+      "page": "Cleaner",
+      "imageFile": "T_Cleaner.png",
+      "internalTag": "Inventory.Item.RareLoot_73_Cleaner",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Clear Tube",
+      "page": "Clear Tube",
+      "imageFile": "T_Portrait_JunkEcon_42_ClearTube.png",
+      "internalTag": "Inventory.Item.RareLoot_59_ClearTube",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Cluster Grenade",
+      "page": "Cluster Grenade",
+      "imageFile": "T SM GRN05.png",
+      "internalTag": "Inventory.Item.Item.Ammo.ClusterGrenade",
+      "categories": [
+        "Grenades"
+      ]
+    },
+    {
+      "name": "Codex",
+      "page": "Codex",
+      "imageFile": "Codex.png",
+      "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Comms Device",
+      "page": "Comms Device",
+      "imageFile": "T AshenMesa LootObject 01.png",
+      "internalTag": "Inventory.Item.Quest_CommsDevice",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Computer Fan",
+      "page": "Computer Fan",
+      "imageFile": "T Portrait JunkEcon 32 ComputerFan.png",
+      "internalTag": "Inventory.Item.RareLoot_17_ComputerFan",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Concrete Mixer",
+      "page": "Concrete Mixer",
+      "imageFile": "T_ConcreteMixer.png",
+      "internalTag": "Inventory.Item.RareLoot_77_ConcreteMixer",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Concrete Powder",
+      "page": "Concrete Powder",
+      "imageFile": "T_Concrete_Powder.png",
+      "internalTag": "Inventory.Item.RareLoot_76_ConcretePowder",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Construction Drone",
+      "page": "Construction Drone",
+      "imageFile": "T_Drone_Construction.png",
+      "internalTag": "Inventory.Item.Drone_Construction",
+      "categories": [
+        "Utility drones"
+      ]
+    },
+    {
+      "name": "Construction Foam",
+      "page": "Construction Foam",
+      "imageFile": "T_ConstructionFoam.png",
+      "internalTag": "Inventory.Item.RareLoot_75_ConstructionFoam",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Construction Glue",
+      "page": "Construction Glue",
+      "imageFile": "T_ConstructionGlue.png",
+      "internalTag": "Inventory.Item.RareLoot_8_ConstructionGlue",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Convoy Schedule",
+      "page": "Convoy Schedule",
+      "imageFile": "T_Item_Quest_EuruskansPlan.png",
+      "internalTag": "Inventory.Item.Quest_ConvoySchedule",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Cordura",
+      "page": "Cordura",
+      "imageFile": "T_JunkEcon_126_Cordura.png",
+      "internalTag": "Inventory.Item.RareLoot_115_Cordura",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Corpse Tank Control Panel",
+      "page": "Corpse Tank Control Panel",
+      "imageFile": "T_Item_Quest_BodyBossTankPart.png",
+      "internalTag": "Inventory.Item.Quest_Merkava_BodyBoss",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "CPU",
+      "page": "CPU",
+      "imageFile": "T Portrait JunkEcon 30 CPU.png",
+      "internalTag": "Inventory.Item.RareLoot_9_CPU",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Crowbar",
+      "page": "Crowbar",
+      "imageFile": "T_CrowBar.png",
+      "internalTag": "Inventory.Item.RareLoot_52_Crowbar",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Crucible",
+      "page": "Crucible",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT01.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_Crucible",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "Cybernetic Lungs",
+      "page": "Cybernetic Lungs",
+      "imageFile": "T_Item_Cyberlung.png",
+      "internalTag": "Inventory.Item.Quest_Cbyerlung",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Cyborg Immunosuppressant",
+      "page": "Cyborg Immunosuppressant",
+      "imageFile": "T_Portrait_JunkEcon_123_CyborgImmunosuppresant.png",
+      "internalTag": "Inventory.Item.RareLoot_91_CyborgImmunosuppressant",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Cyborg's Head",
+      "page": "Cyborg's Head",
+      "imageFile": "T_Item_Quest_CyborgParts.png",
+      "internalTag": "Inventory.Item.Cyborg_Loot_Eurasia",
+      "categories": [
+        "Quest items",
+        "Shelf decorations"
+      ]
+    },
+    {
+      "name": "Data Cache",
+      "page": "Data Cache",
+      "imageFile": "T Item Quest CacheBox.png",
+      "internalTag": "Inventory.Item.DataCache_Quest",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Decoy Grenade",
+      "page": "Decoy Grenade",
+      "imageFile": "T SM GRN10.png",
+      "internalTag": "Inventory.Item.Item.Ammo.NoiseMakerGrenade",
+      "categories": [
+        "Grenades"
+      ]
+    },
+    {
+      "name": "Deep Fried Coffee",
+      "page": "Deep Fried Coffee",
+      "imageFile": "T Portrait_JunkEcon_130_Coffee.png",
+      "internalTag": "Inventory.Item.RareLoot_118_Coffee",
+      "categories": [
+        "Provisions"
+      ]
+    },
+    {
+      "name": "Deployable Drill",
+      "page": "Deployable Drill",
+      "imageFile": "T DrillDevice.png",
+      "internalTag": "Inventory.Item.DrillDevice",
+      "categories": [
+        "Consumables",
+        "Military"
+      ]
+    },
+    {
+      "name": "Destroyed 36M AntiTank",
+      "page": "36M AntiTank",
+      "imageFile": "T HRF02.png",
+      "internalTag": "Inventory.Dangly.HRF02_REAL_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed 87 Target Pistol",
+      "page": "87 Target",
+      "imageFile": "T PST03.png",
+      "internalTag": "Inventory.Dangly.PST03_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed AA12",
+      "page": "AA12",
+      "imageFile": "T SHG05.png",
+      "internalTag": "Inventory.Dangly.SHG05_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "Destroyed AK",
+      "page": "AK",
+      "imageFile": "T RFL01.png",
+      "internalTag": "Inventory.Dangly.RFL01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed APC9 Pro",
+      "page": "APC9 Pro",
+      "imageFile": "T SMG05.png",
+      "internalTag": "Inventory.Dangly.SMG05_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed C96 Pistol",
+      "page": "C96",
+      "imageFile": "T PST04.png",
+      "internalTag": "Inventory.Dangly.PST04_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed G36",
+      "page": "G36",
+      "imageFile": "T RFL16.png",
+      "internalTag": "Inventory.Dangly.RFL16_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed Glock 19 Pistol",
+      "page": "G-L 19",
+      "imageFile": "T PST10.png",
+      "internalTag": "Inventory.Dangly.PST10_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed GM6",
+      "page": "GM6",
+      "imageFile": "T HRF04.png",
+      "internalTag": "Inventory.Dangly.HRF04_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed Grenade Launcher",
+      "page": "Grenade Launcher",
+      "imageFile": "T GRL01.png",
+      "internalTag": "Inventory.Dangly.GRL01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Grenade Launchers"
+      ]
+    },
+    {
+      "name": "Destroyed HMG",
+      "page": "Painless",
+      "imageFile": "T HMG01.png",
+      "internalTag": "Inventory.Dangly.HMG01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Heavy Machinegun"
+      ]
+    },
+    {
+      "name": "Destroyed Kriss Vector 45",
+      "page": "Kriss Vector 45",
+      "imageFile": "T SMG01.png",
+      "internalTag": "Inventory.Dangly.SMG01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed M16",
+      "page": "M16",
+      "imageFile": "T RFL23.png",
+      "internalTag": "Inventory.Dangly.RFL23_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed M4",
+      "page": "M4A1",
+      "imageFile": "T RFL12.png",
+      "internalTag": "Inventory.Dangly.RFL12_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed M60",
+      "page": "M60",
+      "imageFile": "T LMG03.png",
+      "internalTag": "Inventory.Dangly.LMG03_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "Destroyed M79 Pistol",
+      "page": "M79 Sawed-off",
+      "imageFile": "T_PST07.png",
+      "internalTag": "Inventory.Dangly.PST07_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols",
+        "Grenade Launchers"
+      ]
+    },
+    {
+      "name": "Destroyed MG34",
+      "page": "MG34",
+      "imageFile": "T LMG01.png",
+      "internalTag": "Inventory.Dangly.LMG01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "Destroyed NTW-20",
+      "page": "NTW-20",
+      "imageFile": "T HRF03.png",
+      "internalTag": "Inventory.Dangly.HRF03_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed P90",
+      "page": "P90",
+      "imageFile": "T SMG06.png",
+      "internalTag": "Inventory.Dangly.SMG06_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed PM-9",
+      "page": "PM-9",
+      "imageFile": "T SMG03.png",
+      "internalTag": "Inventory.Dangly.SMG03_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed PP-19 Vityaz",
+      "page": "PP-19 Vityaz",
+      "imageFile": "T SMG07.png",
+      "internalTag": "Inventory.Dangly.SMG07_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed PPSH-41",
+      "page": "PPSH-41",
+      "imageFile": "T SMG02.png",
+      "internalTag": "Inventory.Dangly.SMG02_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed R8 Pistol",
+      "page": "R8",
+      "imageFile": "T PST05.png",
+      "internalTag": "Inventory.Dangly.PST05_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed RPD",
+      "page": "RPD",
+      "imageFile": "T LMG04.png",
+      "internalTag": "Inventory.Dangly.LMG04_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "Destroyed RPK",
+      "page": "RPK",
+      "imageFile": "T RFL01B.png",
+      "internalTag": "Inventory.Dangly.RFL01B_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed RSASS",
+      "page": "R11 RSASS",
+      "imageFile": "T RFL19.png",
+      "internalTag": "Inventory.Dangly.RFL19_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed S12",
+      "page": "S12",
+      "imageFile": "T SHG01.png",
+      "internalTag": "Inventory.Dangly.SHG01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "Destroyed SA58",
+      "page": "SA58",
+      "imageFile": "T RFL15.png",
+      "internalTag": "Inventory.Dangly.RFL15_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed SAW",
+      "page": "SAW",
+      "imageFile": "T LMG02.png",
+      "internalTag": "Inventory.Dangly.LMG02_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "Destroyed SCAR",
+      "page": "SCAR",
+      "imageFile": "T HRF01.png",
+      "internalTag": "Inventory.Dangly.HRF01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed SOG Pistol",
+      "page": "SOG",
+      "imageFile": "T PST02.png",
+      "internalTag": "Inventory.Dangly.PST02_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed Spectre M4",
+      "page": "Spectre M4",
+      "imageFile": "T SMG08.png",
+      "internalTag": "Inventory.Dangly.SMG08_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed SVD",
+      "page": "SVD",
+      "imageFile": "T RFL20.png",
+      "internalTag": "Inventory.Dangly.RFL20_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed TKB-0146",
+      "page": "TKB-0146",
+      "imageFile": "T RFL30.png",
+      "internalTag": "Inventory.Dangly.RFL30_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed USAS-12",
+      "page": "USAS-12",
+      "imageFile": "T SHG03.png",
+      "internalTag": "Inventory.Dangly.SHG03_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "Destroyed USP Pistol",
+      "page": "USP",
+      "imageFile": "T PST01.png",
+      "internalTag": "Inventory.Dangly.PST01_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed Vepr-12",
+      "page": "VEPR-12",
+      "imageFile": "T SHG04.png",
+      "internalTag": "Inventory.Dangly.SHG04_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "Destroyed Viper Pistol",
+      "page": "Viper",
+      "imageFile": "T PST06.png",
+      "internalTag": "Inventory.Dangly.PST06_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Destroyed VKS Vykhlop",
+      "page": "VKS Vykhlop",
+      "imageFile": "T RFL29.png",
+      "internalTag": "Inventory.Dangly.RFL29_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Destroyed Walther MPL",
+      "page": "WLT MPL",
+      "imageFile": "T SMG04.png",
+      "internalTag": "Inventory.Dangly.SMG04_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Destroyed XM25",
+      "page": "XM25",
+      "imageFile": "T GRL02.png",
+      "internalTag": "Inventory.Dangly.GRL02_Broken",
+      "categories": [
+        "Destroyed weapons",
+        "Grenade Launchers"
+      ]
+    },
+    {
+      "name": "Diagnostic Scanner",
+      "page": "Diagnostic Scanner",
+      "imageFile": "T_Portrait_JunkEcon_114_MedicalScanner.png",
+      "internalTag": "Inventory.Item.RareLoot_82_MedicalScanner",
+      "categories": [
+        "Medical",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Diodegradable Multi-tool",
+      "page": "Diodegradable Multi-tool",
+      "imageFile": "T_JunkEcon_133_multitool.png",
+      "internalTag": "Inventory.Item.RareLoot_51_Multitool",
+      "categories": [
+        "Civil goods",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Dog Tags",
+      "page": "Dog Tags",
+      "imageFile": "T Item Quest BondOfBrothers.png",
+      "internalTag": "Inventory.Item.Quest_DogTags",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Dogboro Cigarettes",
+      "page": "Dogboro Cigarettes",
+      "imageFile": "T_Item_Cigarettes01.png",
+      "internalTag": "Inventory.Item.Tobacco01",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Dossier",
+      "page": "Dossier",
+      "imageFile": "T_Item_TopSecretplan05.png",
+      "internalTag": "Inventory.Item.Plans05",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Drywall",
+      "page": "Drywall",
+      "imageFile": "T_JunkEcon_141_Sheetrock.png",
+      "internalTag": "Inventory.Item.RareLoot_126_sheetrock",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Duct Tape",
+      "page": "Duct Tape",
+      "imageFile": "T_DuctTape.png",
+      "internalTag": "Inventory.Item.RareLoot_4_DuctTape",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "E-Nuggets",
+      "page": "E-Nuggets",
+      "imageFile": "ItemPortrait_GDC_Enuggets.png",
+      "internalTag": "Inventory.Item.ENuggets",
+      "categories": [
+        "Consumables",
+        "Provisions"
+      ]
+    },
+    {
+      "name": "E-TECH XP Optic",
+      "page": "E-TECH XP Optic",
+      "imageFile": "T_PICOPT1.png",
+      "internalTag": "Inventory.Item.PICOPT1",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "EDC Multi-tool",
+      "page": "EDC Multi-tool",
+      "imageFile": "T_JunkEcon_21_Multi_tool.png",
+      "internalTag": "Inventory.Item.RareLoot_55_Multitool",
+      "categories": [
+        "Civil goods",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Electric Motor",
+      "page": "Electric Motor",
+      "imageFile": "Electric Motor.png",
+      "internalTag": "Inventory.Item.RareLoot_31_ElectricMotor",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Encrypted Data Pad",
+      "page": "Encrypted Data Pad",
+      "imageFile": "T Item Quest TechSchematics.png",
+      "internalTag": "Inventory.Item.FrozenSwamp_LootObject_01",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Energy Bar",
+      "page": "Energy Bar",
+      "imageFile": "T Item JunkFood04.png",
+      "internalTag": "Inventory.Item.JunkFood04",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "EOD Armor Plate",
+      "page": "EOD Armor Plate",
+      "imageFile": "T_Item_Quest_ArmorShards.png",
+      "internalTag": "Inventory.Item.Quest_EM_Armor_Shards",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "EOD Suit Component",
+      "page": "EOD Suit Component",
+      "imageFile": "T_Item_Quest_EuropaHKParts.png",
+      "internalTag": "Inventory.Item.HK_Loot_Europa",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "ES Lamp",
+      "page": "ES Lamp",
+      "imageFile": "T ESLamp.png",
+      "internalTag": "Inventory.Item.RareLoot_65_ESLamp",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "ET EFX Optic",
+      "page": "ET EFX Optic",
+      "imageFile": "T_PICOPT2.png",
+      "internalTag": "Inventory.Item.PICOPT2",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "ET HWS EXP Optic",
+      "page": "ET HWS EXP Optic",
+      "imageFile": "T_PICOPT7.png",
+      "internalTag": "Inventory.Item.PICOPT7",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "ET XP2 Optic",
+      "page": "ET XP2 Optic",
+      "imageFile": "T_PICOPT16.png",
+      "internalTag": "Inventory.Item.PICOPT16",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Ethyl Alcohol",
+      "page": "Ethyl Alcohol",
+      "imageFile": "T Item Alcool14.png",
+      "internalTag": "Inventory.Item.Bar_EthylAlcohol",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Eurasian Brawler Components",
+      "page": "Eurasian Brawler Components",
+      "imageFile": "T_Item_Quest_BrawlerParts.png",
+      "internalTag": "Inventory.Item.Brawler_Loot_Eurasia",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Eurasian Drone Cortex",
+      "page": "Eurasian Drone Cortex",
+      "imageFile": "T_Item_Quest_EurasiaDroneParts.png",
+      "internalTag": "Inventory.Item.Drone_Debris_Loot_Eurasia",
+      "categories": [
+        "Quest items",
+        "Wall decorations"
+      ]
+    },
+    {
+      "name": "Eurasian IFF Chip LVL1",
+      "page": "Eurasian IFF Chip LVL1",
+      "imageFile": "T Portrait IFFCard Eurasia1.png",
+      "internalTag": "Inventory.Item.IFF_Eurasia_01",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Eurasian IFF Chip LVL2",
+      "page": "Eurasian IFF Chip LVL2",
+      "imageFile": "T Portrait IFFCard Eurasia2.png",
+      "internalTag": "Inventory.Item.IFF_Eurasia_02",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Eurasian IFF Chip LVL3",
+      "page": "Eurasian IFF Chip LVL3",
+      "imageFile": "T Portrait IFFCard Eurasia3.png",
+      "internalTag": "Inventory.Item.IFF_Eurasia_03",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Eurasian Supply Crate",
+      "page": "Eurasian Supply Crate",
+      "imageFile": "T Item Quest Crates.png",
+      "internalTag": "Inventory.Dangly.BP_Eurasian_LockBox_Large_Quest",
+      "categories": [
+        "Large items",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Europa MilTech Radio",
+      "page": "Europa MilTech Radio",
+      "imageFile": "ItemPortrait Demo QuestItemRadio.png",
+      "internalTag": "Inventory.Item.Radio",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Europan Drone Flight Controller",
+      "page": "Europan Drone Flight Controller",
+      "imageFile": "T_Item_Quest_EuropaDroneParts.png",
+      "internalTag": "Inventory.Item.Drone_Debris_Loot_Europa",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Europan IFF Chip LVL1",
+      "page": "Europan IFF Chip LVL1",
+      "imageFile": "T Portrait IFFCard Europa1.png",
+      "internalTag": "Inventory.Item.IFF_Europa_01",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Europan IFF Chip LVL2",
+      "page": "Europan IFF Chip LVL2",
+      "imageFile": "T Portrait IFFCard Europa2.png",
+      "internalTag": "Inventory.Item.IFF_Europa_02",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Europan IFF Chip LVL3",
+      "page": "Europan IFF Chip LVL3",
+      "imageFile": "T Portrait IFFCard Europa3.png",
+      "internalTag": "Inventory.Item.IFF_Europa_03",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Euruskan IFF Chip LVL1",
+      "page": "Euruskan IFF Chip LVL1",
+      "imageFile": "T Portrait IFFCard Euruska1.png",
+      "internalTag": "Inventory.Item.IFF_Euruskan_01",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Euruskan IFF Chip LVL2",
+      "page": "Euruskan IFF Chip LVL2",
+      "imageFile": "T Portrait IFFCard Euruska2.png",
+      "internalTag": "Inventory.Item.IFF_Euruskan_02",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Euruskan IFF Chip LVL3",
+      "page": "Euruskan IFF Chip LVL3",
+      "imageFile": "T Portrait IFFCard Euruska3.png",
+      "internalTag": "Inventory.Item.IFF_Euruskan_03",
+      "categories": [
+        "IFFs"
+      ]
+    },
+    {
+      "name": "Euruskan Plans",
+      "page": "Euruskan Plans",
+      "imageFile": "T_Item_Quest_EuruskansPlan.png",
+      "internalTag": "Inventory.Item.Validation_LootObject_01",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Exo Component",
+      "page": "Exo Component",
+      "imageFile": "T Item Quest ExoParts.png",
+      "internalTag": "Inventory.Item.ExoDebrisLoot",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Exo Hard Drive",
+      "page": "Exo Hard Drive",
+      "imageFile": "T_Item_TopSecretplan03.png",
+      "internalTag": "Inventory.Item.Quest_ExoHardDrive",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Exo Repair Kit",
+      "page": "Exo Repair Kit",
+      "imageFile": "T item repairtool04.png",
+      "internalTag": "Inventory.Item.Tools04",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Exo Stamina Equipment",
+      "page": "Exo Stamina Equipment",
+      "imageFile": "T_item_RIGEQUIPMENT_ExoLegs_v1.png",
+      "internalTag": "Inventory.Dangly.RIG_EQUIPMENT_ExoLegs",
+      "categories": [
+        "Equipment",
+        "Large items"
+      ]
+    },
+    {
+      "name": "Explosive Charge",
+      "page": "Explosive Charge",
+      "imageFile": "T PlasticExplosive.png",
+      "internalTag": "Inventory.Item.RareLoot_106_PlasticExplosive",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Explosives",
+      "page": "Explosives",
+      "imageFile": "T Explosives.png",
+      "internalTag": "Inventory.Dangly.BP_Loot_Explosives_C",
+      "categories": [
+        "Large items",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Family Photo",
+      "page": "Family Photo",
+      "imageFile": "T_Item_Quest_EuruskansPlan.png",
+      "internalTag": "Inventory.Item.Quest_FamilyPhoto",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Fast Travel Drone",
+      "page": "Fast Travel Drone",
+      "imageFile": "T_Drone_FastTravel.png",
+      "internalTag": "Inventory.Item.Drone_FastTravel",
+      "categories": [
+        "Utility drones"
+      ]
+    },
+    {
+      "name": "Fertilizer",
+      "page": "Fertilizer",
+      "imageFile": "T item ShitCow.png",
+      "internalTag": "Inventory.Item.Poo01",
+      "categories": [
+        "Consumables",
+        "Materials"
+      ]
+    },
+    {
+      "name": "Field Repair Kit",
+      "page": "Field Repair Kit",
+      "imageFile": "T item repairtool01.png",
+      "internalTag": "Inventory.Item.Tools01",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Fire Starter Kit",
+      "page": "Fire Starter Kit",
+      "imageFile": "T_Firestarter_Kit.png",
+      "internalTag": "Inventory.Item.RareLoot_104_FireStarterkit",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Fleece",
+      "page": "Fleece",
+      "imageFile": "T_JunkEcon_125_Fleece.png",
+      "internalTag": "Inventory.Item.RareLoot_114_Fleece",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Food Tin",
+      "page": "Food Tin",
+      "imageFile": "ItemPortrait_GDC_FoodTin.png",
+      "internalTag": "Inventory.Item.FoodTin",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Low value dog food"
+      ]
+    },
+    {
+      "name": "Foregrip A",
+      "page": "Foregrip A",
+      "imageFile": "T_PICFGR1.png",
+      "internalTag": "Inventory.Item.PICFGR1",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip B",
+      "page": "Foregrip B",
+      "imageFile": "T_PICFGR2.png",
+      "internalTag": "Inventory.Item.PICFGR2",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip C",
+      "page": "Foregrip C",
+      "imageFile": "T_PICFGR3.png",
+      "internalTag": "Inventory.Item.PICFGR3",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip D",
+      "page": "Foregrip D",
+      "imageFile": "T_PICFGR4.png",
+      "internalTag": "Inventory.Item.PICFGR4",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip E",
+      "page": "Foregrip E",
+      "imageFile": "T_PICFGR5.png",
+      "internalTag": "Inventory.Item.PICFGR5",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip F",
+      "page": "Foregrip F",
+      "imageFile": "T_PICFGR6.png",
+      "internalTag": "Inventory.Item.PICFGR6",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip G",
+      "page": "Foregrip G",
+      "imageFile": "T_PICFGR7.png",
+      "internalTag": "Inventory.Item.PICFGR7",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip H",
+      "page": "Foregrip H",
+      "imageFile": "T_PICFGR8.png",
+      "internalTag": "Inventory.Item.PICFGR8",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip I",
+      "page": "Foregrip I",
+      "imageFile": "T_PICFGR9.png",
+      "internalTag": "Inventory.Item.PICFGR9",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip J",
+      "page": "Foregrip J",
+      "imageFile": "T_PICFGR10.png",
+      "internalTag": "Inventory.Item.PICFGR10",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip K",
+      "page": "Foregrip K",
+      "imageFile": "T_PICFGR11.png",
+      "internalTag": "Inventory.Item.PICFGR11",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip L",
+      "page": "Foregrip L",
+      "imageFile": "T_PICFGR12.png",
+      "internalTag": "Inventory.Item.PICFGR12",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip M",
+      "page": "Foregrip M",
+      "imageFile": "T_PICFGR13.png",
+      "internalTag": "Inventory.Item.PICFGR13",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip N",
+      "page": "Foregrip N",
+      "imageFile": "T_PICFGR14.png",
+      "internalTag": "Inventory.Item.PICFGR14",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip O",
+      "page": "Foregrip O",
+      "imageFile": "T_PICFGR15.png",
+      "internalTag": "Inventory.Item.PICFGR15",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip P",
+      "page": "Foregrip P",
+      "imageFile": "T_PICFGR16.png",
+      "internalTag": "Inventory.Item.PICFGR16",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Foregrip Q",
+      "page": "Foregrip Q",
+      "imageFile": "T_PICFGR17.png",
+      "internalTag": "Inventory.Item.PICFGR17",
+      "categories": [
+        "Weapon attachments",
+        "Foregrip"
+      ]
+    },
+    {
+      "name": "Frag Grenade",
+      "page": "Frag Grenade",
+      "imageFile": "T SM GRN01.png",
+      "internalTag": "Inventory.Item.Item.Ammo.FragGrenade",
+      "categories": [
+        "Grenades"
+      ]
+    },
+    {
+      "name": "Frequency Tap",
+      "page": "Frequency Tap",
+      "imageFile": "T Item Quest Octogirl Tool.png",
+      "internalTag": "Inventory.Item.TransTower_Quest_Marker",
+      "categories": [
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Fuse",
+      "page": "Fuse",
+      "imageFile": "T_Portrait_GRN_ingredient_GrenadeFuse.png",
+      "internalTag": "Inventory.Item.Fuse",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "G-L 19",
+      "page": "G-L 19",
+      "imageFile": "T PST10.png",
+      "internalTag": "Inventory.Weapon.PST10",
+      "categories": [
+        "Pistols"
+      ]
+    },
+    {
+      "name": "G-L 19 Magazine A",
+      "page": "G-L 19 Magazine A",
+      "imageFile": "T_WPN_PST10_MAG_919_01.png",
+      "internalTag": "Inventory.Item.WPN_PST10_MAG_919_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "G-L 19 Magazine B",
+      "page": "G-L 19 Magazine B",
+      "imageFile": "T_WPN_PST10_MAG_919_02.png",
+      "internalTag": "Inventory.Item.WPN_PST10_MAG_919_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "G-L 19 Upper Assmbly A",
+      "page": "G-L 19 Upper Assmbly A",
+      "imageFile": "T_WPN_PST10_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_PST10_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G-L 19 Upper Assmbly B",
+      "page": "G-L 19 Upper Assmbly B",
+      "imageFile": "T_WPN_PST10_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_PST10_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G-L 19 Upper Assmbly C",
+      "page": "G-L 19 Upper Assmbly C",
+      "imageFile": "T_WPN_PST10_UPP_03.png",
+      "internalTag": "Inventory.Item.WPN_PST10_UPP_03",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G36",
+      "page": "G36",
+      "imageFile": "T RFL16.png",
+      "internalTag": "Inventory.Weapon.RFL16",
+      "categories": [
+        "Weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "G36 Barrel A",
+      "page": "G36 Barrel A",
+      "imageFile": "T_WPN_RFL16_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "G36 Barrel B",
+      "page": "G36 Barrel B",
+      "imageFile": "T_WPN_RFL16_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "G36 Barrel C",
+      "page": "G36 Barrel C",
+      "imageFile": "T_WPN_RFL16_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "G36 Handguard A",
+      "page": "G36 Handguard A",
+      "imageFile": "T_WPN_RFL16_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "G36 Handguard B",
+      "page": "G36 Handguard B",
+      "imageFile": "T_WPN_RFL16_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "G36 Handguard C",
+      "page": "G36 Handguard C",
+      "imageFile": "T_WPN_RFL16_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "G36 Handguard D",
+      "page": "G36 Handguard D",
+      "imageFile": "T_WPN_RFL16_HGD_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_HGD_04",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "G36 Handguard E",
+      "page": "G36 Handguard E",
+      "imageFile": "T_WPN_RFL16_HGD_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_HGD_05",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "G36 Magazine A",
+      "page": "G36 Magazine A",
+      "imageFile": "T_WPN_RFL16_MAG_556_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_MAG_556_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "G36 Magazine B",
+      "page": "G36 Magazine B",
+      "imageFile": "T_WPN_RFL16_MAG_556_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_MAG_556_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "G36 Receiver A",
+      "page": "G36 Receiver A",
+      "imageFile": "T_WPN_RFL16_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G36 Receiver B",
+      "page": "G36 Receiver B",
+      "imageFile": "T_WPN_RFL16_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G36 Receiver C",
+      "page": "G36 Receiver C",
+      "imageFile": "T_WPN_RFL16_UPP_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_UPP_03",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G36 Receiver D",
+      "page": "G36 Receiver D",
+      "imageFile": "T_WPN_RFL16_UPP_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_UPP_04",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "G36 Stock A",
+      "page": "G36 Stock A",
+      "imageFile": "T_WPN_RFL16_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "G36 Stock B",
+      "page": "G36 Stock B",
+      "imageFile": "T_WPN_RFL16_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL16_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "GDC Food QUEST / item",
+      "page": "GDC Food QUEST / item",
+      "imageFile": "ItemPortrait GDC Food QUEST.png",
+      "internalTag": null,
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Gin",
+      "page": "Gin",
+      "imageFile": "T Item Alcool04.png",
+      "internalTag": "Inventory.Item.Alcohol04",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Glue",
+      "page": "Glue",
+      "imageFile": "T_Glue.png",
+      "internalTag": "Inventory.Item.RareLoot_1_Glue",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Glue Gun",
+      "page": "Glue Gun",
+      "imageFile": "T_item_repairtool02.png",
+      "internalTag": "Inventory.Item.Tools02",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "GM6",
+      "page": "GM6",
+      "imageFile": "T HRF04.png",
+      "internalTag": "Inventory.Weapon.HRF04",
+      "categories": [
+        "Weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "God Sniper Equipment",
+      "page": "God Sniper Equipment",
+      "imageFile": "Item God Sniper Equipment.png",
+      "internalTag": "Inventory.Item.Quest_God_Sniper_Rifle",
+      "categories": [
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Goodies",
+      "page": "Goodies",
+      "imageFile": "T Goodies.png",
+      "internalTag": "Inventory.Item.RareLoot_124_Goodies",
+      "categories": [
+        "Provisions",
+        "Average value dog food"
+      ]
+    },
+    {
+      "name": "GP-5 Gas Mask",
+      "page": "GP-5 Gas Mask",
+      "imageFile": "T Gasmask.png",
+      "internalTag": "Inventory.Item.RareLoot_140_GasmaskFilter",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Grenade Launcher",
+      "page": "Grenade Launcher",
+      "imageFile": "T GRL01.png",
+      "internalTag": "Inventory.Weapon.GRL01",
+      "categories": [
+        "Grenade Launchers"
+      ]
+    },
+    {
+      "name": "Grindstone",
+      "page": "Grindstone",
+      "imageFile": "T ItemPortrait HRF05CRAFTING CFT03.png",
+      "internalTag": "Inventory.Item.HRF05_Manufacture_GrindStone",
+      "categories": [
+        "AT-43 components",
+        "Military"
+      ]
+    },
+    {
+      "name": "Gunpowder",
+      "page": "Gunpowder",
+      "imageFile": "T_Portrait_GRN_ingredient_Gunpowder.png",
+      "internalTag": "Inventory.Item.GunPoweder",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Gyroscopic Stabilizer",
+      "page": "Gyroscopic Stabilizer",
+      "imageFile": "T_Item_GyroscopicStabilizer.png",
+      "internalTag": "Inventory.Item.Quest_TargetingSoftwareChip",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "H-sun Optic",
+      "page": "H-sun Optic",
+      "imageFile": "T_PICOPT12.png",
+      "internalTag": "Inventory.Item.PICOPT12",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Hammer",
+      "page": "Hammer",
+      "imageFile": "T_Hammer.png",
+      "internalTag": "Inventory.Item.RareLoot_41_Hammer",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Hand Drill",
+      "page": "Hand Drill",
+      "imageFile": "T_Hand_Drill.png",
+      "internalTag": "Inventory.Item.RareLoot_40_HandDrill",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Happy Cookies",
+      "page": "Happy Cookies",
+      "imageFile": "T_Item_JunkFood05.png",
+      "internalTag": "Inventory.Item.JunkFood05",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Hard Drive",
+      "page": "Hard Drive",
+      "imageFile": "T HardDrive.png",
+      "internalTag": "Inventory.Item.RareLoot_12_HardDrive",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Hard Shell Laptop",
+      "page": "Hard Shell Laptop",
+      "imageFile": "T_Item_TopSecretplan09.png",
+      "internalTag": "Inventory.Item.Plans09",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Heavy Joint Assembly",
+      "page": "Heavy Joint Assembly",
+      "imageFile": "Support Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.02",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Heavy-Duty Battery",
+      "page": "Heavy-Duty Battery",
+      "imageFile": "T_item_repairtool11.png",
+      "internalTag": "Inventory.Item.Tools11",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Heavy-Duty Trauma Kit",
+      "page": "Heavy-Duty Trauma Kit",
+      "imageFile": "T_AdvancedMedicalTools.png",
+      "internalTag": "Inventory.Item.RareLoot_85_AdvancedMedicalTools",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Heirloom Seeds",
+      "page": "Heirloom Seeds",
+      "imageFile": "T_Portrait_JunkEcon_137_ApocSeeds.png",
+      "internalTag": "Inventory.Item.RareLoot_123_Apocalypseseeds",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "High Capacity Hard Drive",
+      "page": "High Capacity Hard Drive",
+      "imageFile": "T Portrait JunkEcon 26 HDD.png",
+      "internalTag": "Inventory.Item.RareLoot_14_HDD",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "High Durability Rail Component",
+      "page": "High Durability Rail Component",
+      "imageFile": "High_Durability_Rails_Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.07",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "High-Frequency Radio",
+      "page": "High-Frequency Radio",
+      "imageFile": "T AshenMesa LootObject 01.png",
+      "internalTag": "Inventory.Item.AshenMesa_LootObject_01",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "HIND Navigation Computer",
+      "page": "HIND Navigation Computer",
+      "imageFile": "T Item Quest NavComputer.png",
+      "internalTag": "Inventory.Item.Quest_HIND_Nav_Comp",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Hinoko Cigarettes",
+      "page": "Hinoko Cigarettes",
+      "imageFile": "T Item Cigarettes03.png",
+      "internalTag": "Inventory.Item.Tobacco03",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "HK CAWS Magazine B",
+      "page": "HK CAWS Magazine B",
+      "imageFile": "T_WPN_SHG06_MAG_12G_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG06_MAG_12G_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Hose",
+      "page": "Hose",
+      "imageFile": "T Hose.png",
+      "internalTag": "Inventory.Item.RareLoot_56_Hose",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "IED",
+      "page": "IED",
+      "imageFile": "ItemIED.png",
+      "internalTag": "Inventory.Item.IEDxplosive",
+      "categories": [
+        "Equipment",
+        "Large items"
+      ]
+    },
+    {
+      "name": "Industrial Black Light",
+      "page": "Industrial Black Light",
+      "imageFile": "T_Black_Light.png",
+      "internalTag": "Inventory.Item.RareLoot_66_Blacklight",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Industrial Chemicals",
+      "page": "Industrial Chemicals",
+      "imageFile": "T_Salt.png",
+      "internalTag": "Inventory.Item.RareLoot_111_Salt",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Industrial Sealant",
+      "page": "Industrial Sealant",
+      "imageFile": "T_Sealant_BuildingGlue.png",
+      "internalTag": "Inventory.Item.RareLoot_2_SealantBuildingGlue",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Intelligence Cassette",
+      "page": "Intelligence Cassette",
+      "imageFile": "T_Item_TopSecretplan01.png",
+      "internalTag": "Inventory.Item.Plans01",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Intelligence Disk",
+      "page": "Intelligence Disk",
+      "imageFile": "T Item TopSecretplan02.png",
+      "internalTag": "Inventory.Item.Plans02",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Intermediate Tool Set",
+      "page": "Intermediate Tool Set",
+      "imageFile": "T_MasterToolset.png",
+      "internalTag": "Inventory.Item.RareLoot_48_MastertoldSet",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Item Extraction Beacon",
+      "page": "Item Extraction Beacon",
+      "imageFile": "T Item Drone Beacon BossPartRetreive.png",
+      "internalTag": "Inventory.Item.AntiBossExtractSummon",
+      "categories": [
+        "Consumables"
+      ]
+    },
+    {
+      "name": "Jammer",
+      "page": "Jammer",
+      "imageFile": "T_Item_Quest_PortableTargeting.png",
+      "internalTag": "Inventory.Dangly.BP_QuestItem_Jammer",
+      "categories": [
+        "Large items",
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Jerrycan",
+      "page": "Jerrycan",
+      "imageFile": "T Item JerryCanYellow.png",
+      "internalTag": "Inventory.Dangly.BP_ActivityItem_Jerrycan",
+      "categories": [
+        "Large items"
+      ]
+    },
+    {
+      "name": "Jumper Cable Kit",
+      "page": "Jumper Cable Kit",
+      "imageFile": "T_item_repairtool03.png",
+      "internalTag": "Inventory.Item.Tools03",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Kala Gas Tube B",
+      "page": "Kala Gas Tube B",
+      "imageFile": "T_WPN_RFL01_GAS_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_GAS_02",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "Kala Gas Tube C",
+      "page": "Kala Gas Tube C",
+      "imageFile": "T_WPN_RFL01_GAS_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_GAS_03",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "Kala Gas Tube D",
+      "page": "Kala Gas Tube D",
+      "imageFile": "T_WPN_RFL01_GAS_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_GAS_04",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "Kala Gas Tube E",
+      "page": "Kala Gas Tube E",
+      "imageFile": "T_WPN_RFL01_GAS_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_GAS_05",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "Kala Grip A",
+      "page": "Kala Grip A",
+      "imageFile": "T_WPN_RFL01_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "Kala Grip A-1",
+      "page": "Kala Grip A-1",
+      "imageFile": "T_WPN_RFL01_PGR_01A.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_PGR_01A",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "Kala Grip A-2",
+      "page": "Kala Grip A-2",
+      "imageFile": "T_WPN_RFL01_PGR_01B.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_PGR_01B",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "Kala Grip B",
+      "page": "Kala Grip B",
+      "imageFile": "T_WPN_RFL01_PGR_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_PGR_02",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "Kala Grip C",
+      "page": "Kala Grip C",
+      "imageFile": "T_WPN_RFL01_PGR_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_PGR_03",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "Kala Grip D",
+      "page": "Kala Grip D",
+      "imageFile": "T_WPN_RFL01_PGR_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_PGR_04",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "Kala Handguard B",
+      "page": "Kala Handguard B",
+      "imageFile": "T_WPN_RFL01_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard B-1",
+      "page": "Kala Handguard B-1",
+      "imageFile": "T_WPN_RFL01_HGD_02A.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_02A",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard B-2",
+      "page": "Kala Handguard B-2",
+      "imageFile": "T_WPN_RFL01_HGD_02B.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_02B",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard C",
+      "page": "Kala Handguard C",
+      "imageFile": "T_WPN_RFL01_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard D",
+      "page": "Kala Handguard D",
+      "imageFile": "T_WPN_RFL01_HGD_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_04",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard E",
+      "page": "Kala Handguard E",
+      "imageFile": "T_WPN_RFL01_HGD_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_05",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard F",
+      "page": "Kala Handguard F",
+      "imageFile": "T_WPN_RFL01_HGD_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_06",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard G",
+      "page": "Kala Handguard G",
+      "imageFile": "T_WPN_RFL01_HGD_07.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_07",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard H",
+      "page": "Kala Handguard H",
+      "imageFile": "T_WPN_RFL12_HGD_10.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD_10",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard I",
+      "page": "Kala Handguard I",
+      "imageFile": "T_WPN_RFL01_HGD09.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD09",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Handguard J",
+      "page": "Kala Handguard J",
+      "imageFile": "T_WPN_RFL01_HGD11.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_HGD11",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kala Magazine A",
+      "page": "Kala Magazine A",
+      "imageFile": "T_WPN_RFL01_MAG_545_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine B",
+      "page": "Kala Magazine B",
+      "imageFile": "T_WPN_RFL01_MAG_545_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine C",
+      "page": "Kala Magazine C",
+      "imageFile": "T_WPN_RFL01_MAG_545_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_03",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine D",
+      "page": "Kala Magazine D",
+      "imageFile": "T_WPN_RFL01_MAG_545_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_04",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine E",
+      "page": "Kala Magazine E",
+      "imageFile": "T_WPN_RFL01_MAG_545_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_05",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine E-1",
+      "page": "Kala Magazine E-1",
+      "imageFile": "T_WPN_RFL01_MAG_545_05A.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_05A",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine F",
+      "page": "Kala Magazine F",
+      "imageFile": "T_WPN_RFL01_MAG_545_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_06",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine G",
+      "page": "Kala Magazine G",
+      "imageFile": "T_WPN_RFL01_MAG_545_07.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_07",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine H",
+      "page": "Kala Magazine H",
+      "imageFile": "T_WPN_RFL01_MAG_545_08.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_08",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Magazine I",
+      "page": "Kala Magazine I",
+      "imageFile": "T_SM_WPN_RFL01_MAG_545_10_2k.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_MAG_545_10",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Kala Stock A",
+      "page": "Kala Stock A",
+      "imageFile": "T_WPN_RFL01_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock B",
+      "page": "Kala Stock B",
+      "imageFile": "T_WPN_RFL01_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock B-1",
+      "page": "Kala Stock B-1",
+      "imageFile": "T_WPN_RFL01_STK_02A.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_02A",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock B-2",
+      "page": "Kala Stock B-2",
+      "imageFile": "T_WPN_RFL01_STK_02B.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_02B",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock C",
+      "page": "Kala Stock C",
+      "imageFile": "T_WPN_RFL01_STK_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_03",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock C-1",
+      "page": "Kala Stock C-1",
+      "imageFile": "T_WPN_RFL01_STK_03A.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_03A",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock C-2",
+      "page": "Kala Stock C-2",
+      "imageFile": "T_WPN_RFL01_STK_03B.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_03B",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock D",
+      "page": "Kala Stock D",
+      "imageFile": "T_WPN_RFL01_STK_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_04",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Stock E",
+      "page": "Kala Stock E",
+      "imageFile": "T_WPN_RFL01_STK_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_STK_05",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "Kala Upper Assembly A",
+      "page": "Kala Upper Assembly A",
+      "imageFile": "T_WPN_RFL01_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "Kala Upper Assembly B",
+      "page": "Kala Upper Assembly B",
+      "imageFile": "T_WPN_RFL01_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL01_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "Kriss Vector 45",
+      "page": "Kriss Vector 45",
+      "imageFile": "T SMG01.png",
+      "internalTag": "Inventory.Weapon.SMG01",
+      "categories": [
+        "Weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Kriss Vector Handguard A",
+      "page": "Kriss Vector Handguard A",
+      "imageFile": "T_WPN_SMG01_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG01_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Kriss Vector Handguard B",
+      "page": "Kriss Vector Handguard B",
+      "imageFile": "T_WPN_SMG01_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_SMG01_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Large Lockbox",
+      "page": "Large Lockbox",
+      "imageFile": "T_Quest_DropItem_generic_BoxGreyPlastic.png",
+      "internalTag": "Inventory.Dangly.BP_LockBox_Large_C",
+      "categories": [
+        "Large items"
+      ]
+    },
+    {
+      "name": "Laser Rangefinder",
+      "page": "Laser Rangefinder",
+      "imageFile": "T Item Quest PortableTargeting.png",
+      "internalTag": "Inventory.Item.EM_LootObject_01",
+      "categories": [
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "LCD",
+      "page": "LCD",
+      "imageFile": "T Portrait JunkEcon 64 LCD.png",
+      "internalTag": "Inventory.Item.RareLoot_24_LCD",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Leather Hole Punch",
+      "page": "Leather Hole Punch",
+      "imageFile": "T_JunkEcon_77_Punch.png",
+      "internalTag": "Inventory.Item.RareLoot_53_Punch",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Light Bulb",
+      "page": "Light Bulb",
+      "imageFile": "T Lightbulb.png",
+      "internalTag": "Inventory.Item.RareLoot_64_LightBulb",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Light Bulbs",
+      "page": "Light Bulbs",
+      "imageFile": "T Lightbulbs.png",
+      "internalTag": "Inventory.Item.RareLoot_61_LightBulbs",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Lighter",
+      "page": "Lighter",
+      "imageFile": "T Lighter.png",
+      "internalTag": "Inventory.Item.RareLoot_60_Lighter",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Liquid Coolant",
+      "page": "Liquid Coolant",
+      "imageFile": "T Portrait JunkEcon 49 LiquidCoolant.png",
+      "internalTag": "Inventory.Item.RareLoot_70_LiquidCooling",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Liquid Cooling Unit",
+      "page": "Liquid Cooling Unit",
+      "imageFile": "T_Portrait_JunkEcon_33_LiquidCoolingUnit.png",
+      "internalTag": "Inventory.Item.RareLoot_93_LiquidCoolingUnit",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "LMG-P",
+      "page": "LMG-P",
+      "imageFile": "T LMG06.png",
+      "internalTag": "Inventory.Weapon.LMG06",
+      "categories": [
+        "Weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "Logbook",
+      "page": "Logbook",
+      "imageFile": "T Item TopSecretplan05.png",
+      "internalTag": "Inventory.Item.Quest_Logbook",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "M16",
+      "page": "M16",
+      "imageFile": "T RFL23.png",
+      "internalTag": "Inventory.Weapon.RFL23",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "M16 Barrel A",
+      "page": "M16 Barrel A",
+      "imageFile": "T_WPN_RFL23_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M16 Gas Tube A",
+      "page": "M16 Gas Tube A",
+      "imageFile": "T_WPN_RFL23_GAS_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_GAS_01",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "M16 Gas Tube B",
+      "page": "M16 Gas Tube B",
+      "imageFile": "T_WPN_RFL23_GAS_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_GAS_02",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "M16 Handguard A",
+      "page": "M16 Handguard A",
+      "imageFile": "T_WPN_RFL23_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard B",
+      "page": "M16 Handguard B",
+      "imageFile": "T_WPN_RFL23_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard C",
+      "page": "M16 Handguard C",
+      "imageFile": "T_WPN_RFL23_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard D",
+      "page": "M16 Handguard D",
+      "imageFile": "T_WPN_RFL23_HGD_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_04",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard E",
+      "page": "M16 Handguard E",
+      "imageFile": "T_WPN_RFL23_HGD_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_05",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard F",
+      "page": "M16 Handguard F",
+      "imageFile": "T_WPN_RFL23_HGD_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_06",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard G",
+      "page": "M16 Handguard G",
+      "imageFile": "T_WPN_RFL23_HGD_07.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_07",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Handguard H",
+      "page": "M16 Handguard H",
+      "imageFile": "T_WPN_RFL23_HGD_08.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_HGD_08",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M16 Magazine A",
+      "page": "M16 Magazine A",
+      "imageFile": "T_WPN_RFL23_MAG_556_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_MAG_556_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M16 Magazine B",
+      "page": "M16 Magazine B",
+      "imageFile": "T_WPN_RFL23_MAG_556_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_MAG_556_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M16 Stock A",
+      "page": "M16 Stock A",
+      "imageFile": "T_WPN_RFL23_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M16 Stock B",
+      "page": "M16 Stock B",
+      "imageFile": "T_WPN_RFL23_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M16 Stock C",
+      "page": "M16 Stock C",
+      "imageFile": "T_WPN_RFL23_STK_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_STK_03",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M16 Upper Assmbly A",
+      "page": "M16 Upper Assmbly A",
+      "imageFile": "T_WPN_RFL23_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M16 Upper Assmbly B",
+      "page": "M16 Upper Assmbly B",
+      "imageFile": "T_WPN_RFL23_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M16 Upper Assmbly C",
+      "page": "M16 Upper Assmbly C",
+      "imageFile": "T_WPN_RFL23_UPP_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL23_UPP_03",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M4A1",
+      "page": "M4A1",
+      "imageFile": "T RFL12.png",
+      "internalTag": "Inventory.Weapon.RFL12",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "M4A1 Barrel",
+      "page": "M4A1 Barrel",
+      "imageFile": "T_WPN_RFL12_BRL_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_BRL_04",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M4A1 Barrel A",
+      "page": "M4A1 Barrel A",
+      "imageFile": "T_WPN_RFL12_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M4A1 Barrel B",
+      "page": "M4A1 Barrel B",
+      "imageFile": "T_WPN_RFL12_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M4A1 Barrel C",
+      "page": "M4A1 Barrel C",
+      "imageFile": "T_WPN_RFL12_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M4A1 Charging Handle A",
+      "page": "M4A1 Charging Handle A",
+      "imageFile": "T_WPN_RFL12_CHG_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_CHG_01",
+      "categories": [
+        "Weapon parts",
+        "Charging handle"
+      ]
+    },
+    {
+      "name": "M4A1 Charging Handle B",
+      "page": "M4A1 Charging Handle B",
+      "imageFile": "T_WPN_RFL12_CHG_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_CHG_02",
+      "categories": [
+        "Weapon parts",
+        "Charging handle"
+      ]
+    },
+    {
+      "name": "M4A1 Charging Handle C",
+      "page": "M4A1 Charging Handle C",
+      "imageFile": "T_WPN_RFL12_CHG_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_CHG_03",
+      "categories": [
+        "Weapon parts",
+        "Charging handle"
+      ]
+    },
+    {
+      "name": "M4A1 Gas Tube",
+      "page": "M4A1 Gas Tube",
+      "imageFile": "T_WPN_RFL12_GAS_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_GAS_04",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "M4A1 Gas Tube A",
+      "page": "M4A1 Gas Tube A",
+      "imageFile": "T_WPN_RFL12_GAS_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_GAS_01",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "M4A1 Gas Tube B",
+      "page": "M4A1 Gas Tube B",
+      "imageFile": "T_WPN_RFL12_GAS_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_GAS_02",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "M4A1 Gas Tube C",
+      "page": "M4A1 Gas Tube C",
+      "imageFile": "T_WPN_RFL12_GAS_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_GAS_03",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade B",
+      "page": "M4A1 Handguard Upgrade B",
+      "imageFile": "T_WPN_RFL12_HGD_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_05",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade C",
+      "page": "M4A1 Handguard Upgrade C",
+      "imageFile": "T_WPN_RFL12_HGD_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_06",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade D",
+      "page": "M4A1 Handguard Upgrade D",
+      "imageFile": "T_WPN_RFL12_HGD_07.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_07",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade E",
+      "page": "M4A1 Handguard Upgrade E",
+      "imageFile": "T_WPN_RFL12_HGD_08.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_08",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade F",
+      "page": "M4A1 Handguard Upgrade F",
+      "imageFile": "T_WPN_RFL12_HGD_09.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_09",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade G",
+      "page": "M4A1 Handguard Upgrade G",
+      "imageFile": "T_WPN_RFL12_HGD_10.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_10",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade H",
+      "page": "M4A1 Handguard Upgrade H",
+      "imageFile": "T_WPN_RFL12_HGD_11.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_11",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade I",
+      "page": "M4A1 Handguard Upgrade I",
+      "imageFile": "T_WPN_RFL12_HGD_12.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_12",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade J",
+      "page": "M4A1 Handguard Upgrade J",
+      "imageFile": "T_WPN_RFL12_HGD_13.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_13",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade K",
+      "page": "M4A1 Handguard Upgrade K",
+      "imageFile": "T_WPN_RFL12_HGD_14.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_14",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade L",
+      "page": "M4A1 Handguard Upgrade L",
+      "imageFile": "T_WPN_RFL12_HGD_15.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_15",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade M",
+      "page": "M4A1 Handguard Upgrade M",
+      "imageFile": "T_WPN_RFL12_HGD_16.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_16",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade N",
+      "page": "M4A1 Handguard Upgrade N",
+      "imageFile": "T_WPN_RFL12_HGD_17.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_17",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Handguard Upgrade O",
+      "page": "M4A1 Handguard Upgrade O",
+      "imageFile": "T_WPN_RFL12_HGD_18.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_18",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M4A1 Magazine",
+      "page": "M4A1 Magazine",
+      "imageFile": "T_WPN_RFL12_MAG_556_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_MAG_556_03",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M4A1 Magazine A",
+      "page": "M4A1 Magazine A",
+      "imageFile": "T_WPN_RFL12_MAG_556_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_MAG_556_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M4A1 Magazine B",
+      "page": "M4A1 Magazine B",
+      "imageFile": "T_WPN_RFL12_MAG_556_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_MAG_556_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M4A1 Pistol Grip A",
+      "page": "M4A1 Pistol Grip A",
+      "imageFile": "T_WPN_RFL12_PGR_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_PGR_04",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "M4A1 Pistol Grip B",
+      "page": "M4A1 Pistol Grip B",
+      "imageFile": "T_WPN_RFL12_PGR_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_PGR_05",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "M4A1 Pistol Grip C",
+      "page": "M4A1 Pistol Grip C",
+      "imageFile": "T_WPN_RFL12_PGR_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_PGR_06",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "M4A1 Receiver A",
+      "page": "M4A1 Receiver A",
+      "imageFile": "T_WPN_RFL12_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M4A1 Receiver B",
+      "page": "M4A1 Receiver B",
+      "imageFile": "T_WPN_RFL12_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M4A1 Receiver C",
+      "page": "M4A1 Receiver C",
+      "imageFile": "T_WPN_RFL12_UPP_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_UPP_03",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M4A1 Stock A",
+      "page": "M4A1 Stock A",
+      "imageFile": "T_WPN_RFL12_STK_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_04",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M4A1 Stock B",
+      "page": "M4A1 Stock B",
+      "imageFile": "T_WPN_RFL12_STK_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_05",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M4A1 Stock C",
+      "page": "M4A1 Stock C",
+      "imageFile": "T_WPN_RFL12_STK_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_06",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M4A1 Stock D",
+      "page": "M4A1 Stock D",
+      "imageFile": "T_WPN_RFL12_STK_07.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_07",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M4A1 Stock E",
+      "page": "M4A1 Stock E",
+      "imageFile": "T_WPN_RFL12_STK_08.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_08",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M4A1 Stock F",
+      "page": "M4A1 Stock F",
+      "imageFile": "T_WPN_RFL12_STK_09.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_09",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "M60",
+      "page": "M60",
+      "imageFile": "T LMG03.png",
+      "internalTag": "Inventory.Weapon.LMG03",
+      "categories": [
+        "Weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "M60 Handguard A",
+      "page": "M60 Handguard A",
+      "imageFile": "T_WPN_LMG03_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG03_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M60 Handguard B",
+      "page": "M60 Handguard B",
+      "imageFile": "T_WPN_LMG03_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_LMG03_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M79 Barrel A",
+      "page": "M79 Barrel A",
+      "imageFile": "T_WPN_PST07_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M79 Barrel B",
+      "page": "M79 Barrel B",
+      "imageFile": "T_WPN_PST07_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "M79 Front Sight A",
+      "page": "M79 Front Sight A",
+      "imageFile": "T_WPN_PST07_FMS_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_FMS_01",
+      "categories": [
+        "Weapon parts",
+        "Front sight"
+      ]
+    },
+    {
+      "name": "M79 Front Sight B",
+      "page": "M79 Front Sight B",
+      "imageFile": "T_WPN_PST07_FMS_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_FMS_02",
+      "categories": [
+        "Weapon parts",
+        "Front sight"
+      ]
+    },
+    {
+      "name": "M79 Grip A",
+      "page": "M79 Grip A",
+      "imageFile": "T_WPN_PST07_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "M79 Grip B",
+      "page": "M79 Grip B",
+      "imageFile": "T_WPN_PST07_PGR_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_PGR_02",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "M79 Handguard A",
+      "page": "M79 Handguard A",
+      "imageFile": "T_WPN_PST07_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M79 Handguard B",
+      "page": "M79 Handguard B",
+      "imageFile": "T_WPN_PST07_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "M79 Magazine A",
+      "page": "M79 Magazine A",
+      "imageFile": "T_WPN_PST07_MAG_40m_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_MAG_40m_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M79 Magazine B",
+      "page": "M79 Magazine B",
+      "imageFile": "T_WPN_PST07_MAG_40m_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_MAG_40m_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "M79 Rear Sight A",
+      "page": "M79 Rear Sight A",
+      "imageFile": "T_WPN_PST07_RLS_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_RLS_01",
+      "categories": [
+        "Weapon parts",
+        "Rear sight"
+      ]
+    },
+    {
+      "name": "M79 Rear Sight B",
+      "page": "M79 Rear Sight B",
+      "imageFile": "T_WPN_PST07_RLS_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_RLS_02",
+      "categories": [
+        "Weapon parts",
+        "Rear sight"
+      ]
+    },
+    {
+      "name": "M79 Receiver A",
+      "page": "M79 Receiver A",
+      "imageFile": "T_WPN_PST07_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M79 Receiver B",
+      "page": "M79 Receiver B",
+      "imageFile": "T_WPN_PST07_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "M79 Sawed-off",
+      "page": "M79 Sawed-off",
+      "imageFile": "T_PST07.png",
+      "internalTag": "Inventory.Weapon.PST07",
+      "categories": [
+        "Weapons",
+        "Pistols",
+        "Grenade Launchers"
+      ]
+    },
+    {
+      "name": "M79 Sight A",
+      "page": "M79 Sight A",
+      "imageFile": "T_WPN_PST07_RLS_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_RLS_01",
+      "categories": [
+        "Weapon parts",
+        "Rear sight"
+      ]
+    },
+    {
+      "name": "M79 Sight B",
+      "page": "M79 Sight B",
+      "imageFile": "T_WPN_PST07_RLS_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_RLS_02",
+      "categories": [
+        "Weapon parts",
+        "Rear sight"
+      ]
+    },
+    {
+      "name": "M79 Trigger A",
+      "page": "M79 Trigger A",
+      "imageFile": "T_WPN_PST07_TRG_01.png",
+      "internalTag": "Inventory.Item.WPN_PST07_TRG_01",
+      "categories": [
+        "Weapon parts",
+        "Trigger"
+      ]
+    },
+    {
+      "name": "M79 Trigger B",
+      "page": "M79 Trigger B",
+      "imageFile": "T_WPN_PST07_TRG_02.png",
+      "internalTag": "Inventory.Item.WPN_PST07_TRG_02",
+      "categories": [
+        "Weapon parts",
+        "Trigger"
+      ]
+    },
+    {
+      "name": "Machine Parts",
+      "page": "Machine Parts",
+      "imageFile": "T_MachineParts.png",
+      "internalTag": "Inventory.Item.RareLoot_74_MachineParts",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Manpack Radio",
+      "page": "Manpack Radio",
+      "imageFile": "T_Item_TopSecretplan07.png",
+      "internalTag": "Inventory.Item.Plans07",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Masking Tape",
+      "page": "Masking Tape",
+      "imageFile": "T_MaskingTape.png",
+      "internalTag": "Inventory.Item.RareLoot_6_MaskingTape",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Matches",
+      "page": "Matches",
+      "imageFile": "T_MAtches.png",
+      "internalTag": "Inventory.Item.RareLoot_102_Matches",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Mateo Model J",
+      "page": "Mateo Model J",
+      "imageFile": "T PST08.png",
+      "internalTag": "Inventory.Weapon.PST08",
+      "categories": [
+        "Weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Mead",
+      "page": "Mead",
+      "imageFile": "T Item Alcool13.png",
+      "internalTag": "Inventory.Item.Bar_Mead",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Measuring Tape",
+      "page": "Measuring Tape",
+      "imageFile": "T_MeasuringTape.png",
+      "internalTag": "Inventory.Item.RareLoot_3_MeasuringTape",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Mech Part",
+      "page": "Mech Part",
+      "imageFile": "T Item Quest T90Parts.png",
+      "internalTag": "Inventory.Dangly.BP_QuestItem_MechPart",
+      "categories": [
+        "Large items",
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Medical Alcohol",
+      "page": "Medical Alcohol",
+      "imageFile": "T_Alcohol.png",
+      "internalTag": "Inventory.Item.RareLoot_80_MedicalAlchohol",
+      "categories": [
+        "Medical",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Medical Supplies",
+      "page": "Medical Supplies",
+      "imageFile": "T_item_med_FirstAidKit.png",
+      "internalTag": "Inventory.Item.Quest_MedicalSupplies",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Medical Tools",
+      "page": "Medical Tools",
+      "imageFile": "T_MedicalTools.png",
+      "internalTag": "Inventory.Item.RareLoot_84_MedicalTools",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Memento",
+      "page": "Memento",
+      "imageFile": "T_Item_Memento.png",
+      "internalTag": "Inventory.Item.Quest_Memento",
+      "categories": [
+        "Civil goods",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Merkava Suspension Component",
+      "page": "Merkava Suspension Component",
+      "imageFile": "T_Item_Quest_MerkavaParts.png",
+      "internalTag": "Inventory.Item.Merkava_Debirs_Loot",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Metal Fragments",
+      "page": "Metal Fragments",
+      "imageFile": "T_Portrait_GRN_ingredient_MetalFragments.png",
+      "internalTag": "Inventory.Item.MetalFragments",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Metal Pipe",
+      "page": "Metal Pipe",
+      "imageFile": "T_Portrait_GRN_ingredient_MetalPipe.png",
+      "internalTag": "Inventory.Item.MetalPipe",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Metal Slats",
+      "page": "Metal Slats",
+      "imageFile": "T_JunkEcon_144_slats.png",
+      "internalTag": "Inventory.Item.RareLoot_129_slats",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Mezcal",
+      "page": "Mezcal",
+      "imageFile": "T Item Alcool07.png",
+      "internalTag": "Inventory.Item.Bar_Mezcal",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "MG34",
+      "page": "MG34",
+      "imageFile": "T LMG01.png",
+      "internalTag": "Inventory.Weapon.LMG01",
+      "categories": [
+        "Weapons",
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "Military Battery",
+      "page": "Military Battery",
+      "imageFile": "T_MilitaryBattery.png",
+      "internalTag": "Inventory.Item.RareLoot_139_MilitaryBattery",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Cables",
+      "page": "Military Cables",
+      "imageFile": "T_Portrait_JunkEcon_43_MilitaryCables.png",
+      "internalTag": "Inventory.Item.RareLoot_28_MilitaryCables",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Circuitry",
+      "page": "Military Circuitry",
+      "imageFile": "T_item_info03.png",
+      "internalTag": "Inventory.Item.RareComputerBits",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Codebreaker",
+      "page": "Military Codebreaker",
+      "imageFile": "Military Codebreaker.png",
+      "internalTag": "Inventory.Item.RareLoot_98_Militarycodebreaker",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Grade Lubricant",
+      "page": "Military Grade Lubricant",
+      "imageFile": "T WeaponLubricant.png",
+      "internalTag": "Inventory.Item.RareLoot_72_WeaponLubricant",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Hard Drive",
+      "page": "Military Hard Drive",
+      "imageFile": "T_Item_TopSecretplan03.png",
+      "internalTag": "Inventory.Item.Plans03",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Military PDA",
+      "page": "Military PDA",
+      "imageFile": "ItemPortrait_GDC_PDA.png",
+      "internalTag": "Inventory.Item.PDA",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Power Cell",
+      "page": "Military Power Cell",
+      "imageFile": "T_Portrait_JunkEcon_59_MilitaryComputerPowerCell.png",
+      "internalTag": "Inventory.Item.RareLoot_132_MCCMilitaryComputerPowerCell",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Military Tape",
+      "page": "Military Tape",
+      "imageFile": "T_JunkEcon_35_MilitaryTape.png",
+      "internalTag": "Inventory.Item.RareLoot_5_MilitaryTape",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Mini MD Drive",
+      "page": "Mini MD Drive",
+      "imageFile": "T Portrait JunkEcon 31 PortableHardDrive.png",
+      "internalTag": "Inventory.Item.RareLoot_10_PortableHardDrive",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Modem",
+      "page": "Modem",
+      "imageFile": "T SSD.png",
+      "internalTag": "Inventory.Item.RareLoot_13_SSD",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Motherboard",
+      "page": "Motherboard",
+      "imageFile": "T_MotherBoard.png",
+      "internalTag": "Inventory.Item.RareLoot_19_MotherBoard",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "MRE",
+      "page": "MRE",
+      "imageFile": "ItemPortrait_GDC_CerealBox_mre.png",
+      "internalTag": "Inventory.Item.CerealBox",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "High value dog food"
+      ]
+    },
+    {
+      "name": "Multi-frequency Broadcaster",
+      "page": "Multi-frequency Broadcaster",
+      "imageFile": "T_Portrait_GRN_ingredient_SignalScrambler.png",
+      "internalTag": "Inventory.Item.SignalScrambler",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Music Cassette",
+      "page": "Music Cassette",
+      "imageFile": "T_AudioCassette.png",
+      "internalTag": "Inventory.Item.DecoLoot_01_MusicCassette",
+      "categories": [
+        "Civil goods",
+        "Shelf decorations"
+      ]
+    },
+    {
+      "name": "Muzzle Device A",
+      "page": "Muzzle Device A",
+      "imageFile": "T_ATTMD1_2.png",
+      "internalTag": "Inventory.Item.ATTMD1_2",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device B",
+      "page": "Muzzle Device B",
+      "imageFile": "T_ATTMD2_1.png",
+      "internalTag": "Inventory.Item.ATTMD2_1",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device C",
+      "page": "Muzzle Device C",
+      "imageFile": "T_ATTMD3_1.png",
+      "internalTag": "Inventory.Item.ATTMD3_1",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device D",
+      "page": "Muzzle Device D",
+      "imageFile": "T_ATTMD3_10.png",
+      "internalTag": "Inventory.Item.ATTMD3_10",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device E",
+      "page": "Muzzle Device E",
+      "imageFile": "T_ATTMD3_11.png",
+      "internalTag": "Inventory.Item.ATTMD3_11",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device F",
+      "page": "Muzzle Device F",
+      "imageFile": "T_ATTMD3_12.png",
+      "internalTag": "Inventory.Item.ATTMD3_12",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device G",
+      "page": "Muzzle Device G",
+      "imageFile": "T_ATTMD3_3.png",
+      "internalTag": "Inventory.Item.ATTMD3_3",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device H",
+      "page": "Muzzle Device H",
+      "imageFile": "T_ATTMD3_4.png",
+      "internalTag": "Inventory.Item.ATTMD3_4",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device I",
+      "page": "Muzzle Device I",
+      "imageFile": "T_ATTMD3_5.png",
+      "internalTag": "Inventory.Item.ATTMD3_5",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device J",
+      "page": "Muzzle Device J",
+      "imageFile": "T_ATTMD3_6.png",
+      "internalTag": "Inventory.Item.ATTMD3_6",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device K",
+      "page": "Muzzle Device K",
+      "imageFile": "T_ATTMD3_7.png",
+      "internalTag": "Inventory.Item.ATTMD3_7",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device L",
+      "page": "Muzzle Device L",
+      "imageFile": "T_ATTMD4_1.png",
+      "internalTag": "Inventory.Item.ATTMD4_1",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device M",
+      "page": "Muzzle Device M",
+      "imageFile": "T_ATTMD4_2.png",
+      "internalTag": "Inventory.Item.ATTMD4_2",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device N",
+      "page": "Muzzle Device N",
+      "imageFile": "T_ATTMD4_4.png",
+      "internalTag": "Inventory.Item.ATTMD4_4",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device O",
+      "page": "Muzzle Device O",
+      "imageFile": "T_ATTMD4_5.png",
+      "internalTag": "Inventory.Item.ATTMD4_5",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device P",
+      "page": "Muzzle Device P",
+      "imageFile": "T_ATTMD5_1.png",
+      "internalTag": "Inventory.Item.ATTMD5_1",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Muzzle Device Q",
+      "page": "Muzzle Device Q",
+      "imageFile": "T_ATTMD5_2.png",
+      "internalTag": "Inventory.Item.ATTMD5_2",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Mystical Tech Totem",
+      "page": "Mystical Tech Totem",
+      "imageFile": "T Item Quest Totem.png",
+      "internalTag": "Inventory.Item.DecoLoot_07_MysticalTechTotem",
+      "categories": [
+        "Shelf decorations"
+      ]
+    },
+    {
+      "name": "Mystical Tech Totem (Large)",
+      "page": "Mystical Tech Totem (Large)",
+      "imageFile": "T Item Quest Totem.png",
+      "internalTag": "Inventory.Dangly.QUEST_Totem",
+      "categories": [
+        "Large items",
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Nails",
+      "page": "Nails",
+      "imageFile": "T_Nails.png",
+      "internalTag": "Inventory.Item.RareLoot_35_Nails",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Neuralink Disc Player",
+      "page": "Neuralink Disc Player",
+      "imageFile": "T Portrait JunkEcon 56_DVDPlayer.png",
+      "internalTag": "Inventory.Item.RareLoot_21_DVDplayer",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Neuro Uplink Board",
+      "page": "Neuro Uplink Board",
+      "imageFile": "T_Item_Quest_NeuroUplink.png",
+      "internalTag": "Inventory.Item.Quest_Neuro_Uplink",
+      "categories": [
+        "Materials",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "NSN Grip A",
+      "page": "NSN Grip A",
+      "imageFile": "T_WPN_RFL12_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "NSN Grip B",
+      "page": "NSN Grip B",
+      "imageFile": "T_WPN_RFL12_PGR_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_PGR_02",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "NSN Grip C",
+      "page": "NSN Grip C",
+      "imageFile": "T_WPN_RFL12_PGR_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_PGR_03",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "NSN Grip D",
+      "page": "NSN Grip D",
+      "imageFile": "T_WPN_RFL19_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL19_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "NSN Grip E",
+      "page": "NSN Grip E",
+      "imageFile": "T_WPN_SHG03_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "NSN Handguard A",
+      "page": "NSN Handguard A",
+      "imageFile": "T_WPN_RFL12_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "NSN Handguard B",
+      "page": "NSN Handguard B",
+      "imageFile": "T_WPN_RFL12_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "NSN Handguard C",
+      "page": "NSN Handguard C",
+      "imageFile": "T_WPN_RFL12_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "NSN Handguard D",
+      "page": "NSN Handguard D",
+      "imageFile": "T_WPN_RFL19_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL19_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "NSN Stock A",
+      "page": "NSN Stock A",
+      "imageFile": "T_WPN_RFL12_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "NSN Stock B",
+      "page": "NSN Stock B",
+      "imageFile": "T_WPN_RFL12_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "NSN Stock C",
+      "page": "NSN Stock C",
+      "imageFile": "T_WPN_RFL12_STK_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL12_STK_03",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "NSN Stock D",
+      "page": "NSN Stock D",
+      "imageFile": "T_WPN_RFL19_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL19_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "NTW-20",
+      "page": "NTW-20",
+      "imageFile": "T HRF03.png",
+      "internalTag": "Inventory.Weapon.HRF03",
+      "categories": [
+        "Weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "Nucky Gold Cigarettes",
+      "page": "Nucky Gold Cigarettes",
+      "imageFile": "T Item Cigarettes02.png",
+      "internalTag": "Inventory.Item.Tobacco02",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Nuts",
+      "page": "Nuts",
+      "imageFile": "T_Nuts.png",
+      "internalTag": "Inventory.Item.RareLoot_34_Nuts",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Occulomide Auto-Surgeon",
+      "page": "Occulomide Auto-Surgeon",
+      "imageFile": "T_JunkEcon_118_AIMedicalTools.png",
+      "internalTag": "Inventory.Item.RareLoot_86_Ai.Medicaltools",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Octogirl's Tool Set",
+      "page": "Octogirl's Tool Set",
+      "imageFile": "T Octogirl Tools QuestItem.png",
+      "internalTag": "Inventory.Item.Octogirl_Tools_QuestItem",
+      "categories": [
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Old Paint Can",
+      "page": "Old Paint Can",
+      "imageFile": "T PaintCan.png",
+      "internalTag": "Inventory.Item.CompCanister",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Old Tool Set",
+      "page": "Old Tool Set",
+      "imageFile": "T_NormalToolset.png",
+      "internalTag": "Inventory.Item.RareLoot_49_NormalToolset",
+      "categories": [
+        "Civil goods",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "OLED",
+      "page": "OLED",
+      "imageFile": "T Portrait JunkEcon 65 OLED.png",
+      "internalTag": "Inventory.Item.RareLoot_25_OLED",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Orgamech Nervous System",
+      "page": "Orgamech Nervous System",
+      "imageFile": "T_Item_ANS.png",
+      "internalTag": "Inventory.Item.Quest_ArtificialNervousSystem",
+      "categories": [
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Organoid Memory Board",
+      "page": "Organoid Memory Board",
+      "imageFile": "T Portrait JunkEcon 29 GPC.png",
+      "internalTag": "Inventory.Item.RareLoot_16_GPC",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Organoid Networking Board",
+      "page": "Organoid Networking Board",
+      "imageFile": "T_Portrait_JunkEcon_60_AdvancedNetworkBoard.png",
+      "internalTag": "Inventory.Item.RareLoot_97_AdvancedNetworkboard",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Organoid Outlet",
+      "page": "Organoid Outlet",
+      "imageFile": "T_Portrait_JunkEcon_74_OutletPort.png",
+      "internalTag": "Inventory.Item.RareLoot_29_OutletPort",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Organoid Plug",
+      "page": "Organoid Plug",
+      "imageFile": "T_Portrait_JunkEcon_75_PlugCord.png",
+      "internalTag": "Inventory.Item.RareLoot_78_Plugcord",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "P Arms 3P Optic",
+      "page": "P Arms 3P Optic",
+      "imageFile": "T_PICOPT6.png",
+      "internalTag": "Inventory.Item.PICOPT6",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "P90",
+      "page": "P90",
+      "imageFile": "T SMG06.png",
+      "internalTag": "Inventory.Weapon.SMG06",
+      "categories": [
+        "Weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Painless",
+      "page": "Painless",
+      "imageFile": "T HMG01.png",
+      "internalTag": "Inventory.Weapon.HMG01",
+      "categories": [
+        "Heavy Machinegun"
+      ]
+    },
+    {
+      "name": "Paper Scrap",
+      "page": "Paper Scrap",
+      "imageFile": "T_Octogirl_Tools_FrequencyCard.png",
+      "internalTag": "Inventory.Item.Octogirl_Tools_FrequencyCard",
+      "categories": [
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Personnel Data",
+      "page": "Personnel Data",
+      "imageFile": "T_Item_VIPTreatmentPrt1.png",
+      "internalTag": "Inventory.Item.Quest_PersonnelData",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Picture",
+      "page": "Picture",
+      "imageFile": "T Item TopSecretplan05.png",
+      "internalTag": "Inventory.Item.Quest_AM_Picture",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Pilot",
+      "page": "Pilot",
+      "imageFile": "T Item Quest BringHerIn.png",
+      "internalTag": "Inventory.Dangly.RigPilot",
+      "categories": [
+        "Large items",
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Pipe Wrench",
+      "page": "Pipe Wrench",
+      "imageFile": "T_Pipe_Wrench.png",
+      "internalTag": "Inventory.Item.RareLoot_43_Wrench",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "PM-9",
+      "page": "PM-9",
+      "imageFile": "T SMG03.png",
+      "internalTag": "Inventory.Weapon.SMG03",
+      "categories": [
+        "Weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "PM-9 Barrel A",
+      "page": "PM-9 Barrel A",
+      "imageFile": "T_WPN_SMG03_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "PM-9 Barrel B",
+      "page": "PM-9 Barrel B",
+      "imageFile": "T_WPN_SMG03_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "PM-9 Barrel C",
+      "page": "PM-9 Barrel C",
+      "imageFile": "T_WPN_SMG03_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "PM-9 Magazine A",
+      "page": "PM-9 Magazine A",
+      "imageFile": "T_WPN_SMG03_MAG_919_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_MAG_919_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "PM-9 Magazine B",
+      "page": "PM-9 Magazine B",
+      "imageFile": "T_WPN_SMG03_MAG_919_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_MAG_919_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "PM-9 Upper Assembly A",
+      "page": "PM-9 Upper Assembly A",
+      "imageFile": "T_WPN_SMG03_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "PM-9 Upper Assembly B",
+      "page": "PM-9 Upper Assembly B",
+      "imageFile": "T_WPN_SMG03_UPP_01_1.png",
+      "internalTag": "Inventory.Item.WPN_SMG03_UPP_01_1",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "Pneumatic Jump",
+      "page": "Pneumatic Jump",
+      "imageFile": "ItemPneumaticJump.png",
+      "internalTag": "Inventory.Dangly.RIG_EQUIPMENT_SuperJump",
+      "categories": [
+        "Equipment",
+        "Large items"
+      ]
+    },
+    {
+      "name": "PnP-2K",
+      "page": "PnP-2K",
+      "imageFile": "T SMG09.png",
+      "internalTag": "Inventory.Weapon.SMG09",
+      "categories": [
+        "Weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Portable Generator",
+      "page": "Portable Generator",
+      "imageFile": "T item repairtool05.png",
+      "internalTag": "Inventory.Item.Tools05",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Potato Chips",
+      "page": "Potato Chips",
+      "imageFile": "T_Item JunkFood02.png",
+      "internalTag": "Inventory.Item.JunkFood02",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Power Cell",
+      "page": "Power Cell",
+      "imageFile": "T JunkEcon 11 PowerCell.png",
+      "internalTag": "Inventory.Item.RareLoot_133_PowerCell",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Power Drill",
+      "page": "Power Drill",
+      "imageFile": "T_Drill.png",
+      "internalTag": "Inventory.Item.RareLoot_42_Drill",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Power Schematics",
+      "page": "Power Schematics",
+      "imageFile": "T Item Quest WaterMap.png",
+      "internalTag": "Inventory.Item.Quest_PowerSchematics",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Power Supply Unit",
+      "page": "Power Supply Unit",
+      "imageFile": "T PSU.png",
+      "internalTag": "Inventory.Item.RareLoot_23_PSU",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz",
+      "page": "PP-19 Vityaz",
+      "imageFile": "T SMG07.png",
+      "internalTag": "Inventory.Weapon.SMG07",
+      "categories": [
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Barrel A",
+      "page": "PP-19 Vityaz Barrel A",
+      "imageFile": "T_WPN_SMG07_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Barrel B",
+      "page": "PP-19 Vityaz Barrel B",
+      "imageFile": "T_WPN_SMG07_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Grip A",
+      "page": "PP-19 Vityaz Grip A",
+      "imageFile": "T_WPN_SMG07_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Grip B",
+      "page": "PP-19 Vityaz Grip B",
+      "imageFile": "T_WPN_SMG07_PGR_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_PGR_02",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Handguard A",
+      "page": "PP-19 Vityaz Handguard A",
+      "imageFile": "T_WPN_SMG07_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Handguard B",
+      "page": "PP-19 Vityaz Handguard B",
+      "imageFile": "T_WPN_SMG07_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Magazine A",
+      "page": "PP-19 Vityaz Magazine A",
+      "imageFile": "T_WPN_SMG07_MAG_919_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_MAG_919_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Magazine B",
+      "page": "PP-19 Vityaz Magazine B",
+      "imageFile": "T_WPN_SMG07_MAG_919_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_MAG_919_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Stock A",
+      "page": "PP-19 Vityaz Stock A",
+      "imageFile": "T_WPN_SMG07_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Stock B",
+      "page": "PP-19 Vityaz Stock B",
+      "imageFile": "T_WPN_SMG07_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Trigger A",
+      "page": "PP-19 Vityaz Trigger A",
+      "imageFile": "T_WPN_SMG07_TRG_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_TRG_01",
+      "categories": [
+        "Weapon parts",
+        "Trigger"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Trigger B",
+      "page": "PP-19 Vityaz Trigger B",
+      "imageFile": "T_WPN_SMG07_TRG_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_TRG_02",
+      "categories": [
+        "Weapon parts",
+        "Trigger"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Upper Assembly A",
+      "page": "PP-19 Vityaz Upper Assembly A",
+      "imageFile": "T_WPN_SMG07_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "PP-19 Vityaz Upper Assembly B",
+      "page": "PP-19 Vityaz Upper Assembly B",
+      "imageFile": "T_WPN_SMG07_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_SMG07_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "PPSH-41",
+      "page": "PPSH-41",
+      "imageFile": "T SMG02.png",
+      "internalTag": "Inventory.Weapon.SMG02",
+      "categories": [
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Precision Components",
+      "page": "Precision Components",
+      "imageFile": "T Item Quest PrecisionComponents.png",
+      "internalTag": "Inventory.Item.Quest_EM_Precision_Components",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Precision Tool Set",
+      "page": "Precision Tool Set",
+      "imageFile": "T item repairtool10.png",
+      "internalTag": "Inventory.Item.Tools10",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Preserved Cryo Coffee",
+      "page": "Preserved Cryo Coffee",
+      "imageFile": "T_Portrait_JunkEcon_131_CryoCoffee.png",
+      "internalTag": "Inventory.Item.RareLoot_119_CryoCoffeeSaved",
+      "categories": [
+        "Provisions"
+      ]
+    },
+    {
+      "name": "Pressure Gauge",
+      "page": "Pressure Gauge",
+      "imageFile": "T JunkEcon_38_PressureGauge.png",
+      "internalTag": "Inventory.Item.RareLoot_95_Pressuregauge",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Pretzels",
+      "page": "Pretzels",
+      "imageFile": "T_Item_JunkFood03.png",
+      "internalTag": "Inventory.Item.JunkFood03",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Printed Circuit Board",
+      "page": "Printed Circuit Board",
+      "imageFile": "T GPU Caps.png",
+      "internalTag": "Inventory.Item.RareLoot_11_GPUCaps",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Printing Resin",
+      "page": "Printing Resin",
+      "imageFile": "T Printingmaterial.png",
+      "internalTag": "Inventory.Item.RareLoot_130_3DPrintingmaterial",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Prized Alcohol",
+      "page": "Prized Alcohol",
+      "imageFile": "T Item Alcool06.png",
+      "internalTag": "Inventory.Item.Alcohol06_HighValue",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Quest items",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Processor Board",
+      "page": "Processor Board",
+      "imageFile": "T_ProcessorBoard.png",
+      "internalTag": "Inventory.Item.RareLoot_18_Processorboard",
+      "categories": [
+        "Materials",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Quantum Hard Drive",
+      "page": "Quantum Hard Drive",
+      "imageFile": "T_Portrait_JunkEcon_27_SolidState.png",
+      "internalTag": "Inventory.Item.RareLoot_92_SolidState",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "R11 RSASS",
+      "page": "R11 RSASS",
+      "imageFile": "T RFL19.png",
+      "internalTag": "Inventory.Weapon.RFL19",
+      "categories": [
+        "Weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "R8",
+      "page": "R8",
+      "imageFile": "T PST05.png",
+      "internalTag": "Inventory.Weapon.PST05",
+      "categories": [
+        "Pistols"
+      ]
+    },
+    {
+      "name": "Rail Gun Turret Ammo Supply",
+      "page": "Railgun",
+      "imageFile": "Rail Gun Turret Ammo Supply.png",
+      "internalTag": "Inventory.Dangly.CRW03TurretAmmo",
+      "categories": [
+        "Railgun Components"
+      ]
+    },
+    {
+      "name": "Rail Gun Turret Weapon",
+      "page": "Railgun",
+      "imageFile": "Rail Gun Turret Weapon.png",
+      "internalTag": "Inventory.Dangly.CRW03TurretBarrel",
+      "categories": [
+        "Railgun Components"
+      ]
+    },
+    {
+      "name": "Rail Mounted Flashlight A",
+      "page": "Rail Mounted Flashlight A",
+      "imageFile": "T_PICFLL1.png",
+      "internalTag": "Inventory.Item.PICFLL1",
+      "categories": [
+        "Weapon attachments",
+        "Picatinny attachment"
+      ]
+    },
+    {
+      "name": "Rail Mounted Flashlight B",
+      "page": "Rail Mounted Flashlight B",
+      "imageFile": "T_PICFLL2.png",
+      "internalTag": "Inventory.Item.PICFLL2",
+      "categories": [
+        "Weapon attachments",
+        "Picatinny attachment"
+      ]
+    },
+    {
+      "name": "Rail Mounted Flashlight C",
+      "page": "Rail Mounted Flashlight C",
+      "imageFile": "T_PICFLL3.png",
+      "internalTag": "Inventory.Item.PICFLL3",
+      "categories": [
+        "Weapon attachments",
+        "Picatinny attachment"
+      ]
+    },
+    {
+      "name": "Rail Mounted Laser Sight A",
+      "page": "Rail Mounted Laser Sight A",
+      "imageFile": "T_PICLAM1.png",
+      "internalTag": "Inventory.Item.PICLAM1",
+      "categories": [
+        "Weapon attachments",
+        "Picatinny attachment"
+      ]
+    },
+    {
+      "name": "Rail Mounted Laser Sight B",
+      "page": "Rail Mounted Laser Sight B",
+      "imageFile": "T_PICLAM2.png",
+      "internalTag": "Inventory.Item.PICLAM2",
+      "categories": [
+        "Weapon attachments",
+        "Picatinny attachment"
+      ]
+    },
+    {
+      "name": "Rail Mounted Laser Sight C",
+      "page": "Rail Mounted Laser Sight C",
+      "imageFile": "T_PICLAM3.png",
+      "internalTag": "Inventory.Item.PICLAM3",
+      "categories": [
+        "Weapon attachments",
+        "Picatinny attachment"
+      ]
+    },
+    {
+      "name": "Railgun Assembly Component",
+      "page": "Railgun Assembly Component",
+      "imageFile": "Fixed Weapon Control Assembly Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.08",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Railgun Body Component",
+      "page": "Railgun Body Component",
+      "imageFile": "Structural Framework Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.10",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Railgun Breech Component",
+      "page": "Railgun Breech Component",
+      "imageFile": "Breech_Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.13",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Railgun Cooling Component",
+      "page": "Railgun Cooling Component",
+      "imageFile": "Cooling Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.14",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Railgun Magazine",
+      "page": "Railgun Magazine",
+      "imageFile": "Ammo_Housing_Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.05",
+      "categories": [
+        "Railgun components",
+        "Military",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Railgun Power Bank",
+      "page": "Railgun Power Bank",
+      "imageFile": "Weapon Power-Bank Component.png",
+      "internalTag": "Inventory.Item.recipe.ingredient.fixedweapons.11",
+      "categories": [
+        "Railgun components",
+        "Military"
+      ]
+    },
+    {
+      "name": "Rare Metals",
+      "page": "Rare Metals",
+      "imageFile": "T RareMetals.png",
+      "internalTag": "Inventory.Item.RareMetals",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "Rat King's Wake",
+      "page": "Rat King's Wake",
+      "imageFile": "Rat King Residue.png",
+      "internalTag": "Inventory.Item.Quest_RatKingPart",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Ratchet",
+      "page": "Ratchet",
+      "imageFile": "T_Ratchet.png",
+      "internalTag": "Inventory.Item.RareLoot_50_Ratchet",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Rechargeable Battery",
+      "page": "Rechargeable Battery",
+      "imageFile": "T_RechargeableBattery.png",
+      "internalTag": "Inventory.Item.RareLoot_135_RechargeableBattery",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Recovery Drone",
+      "page": "Recovery Drone",
+      "imageFile": "T_Drone_Recovery.png",
+      "internalTag": "Inventory.Item.Drone_Recovery",
+      "categories": [
+        "Utility drones"
+      ]
+    },
+    {
+      "name": "Relay",
+      "page": "Relay",
+      "imageFile": "Relay.png",
+      "internalTag": "Inventory.Item.RareLoot_30_Relay",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Repair Dronelet",
+      "page": "Repair Dronelet",
+      "imageFile": "T_Portrait_JunkEcon_135_ArmouredRepairKit.png",
+      "internalTag": "Inventory.Item.RareLoot_121_ArmorRepairKit",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Ribbed Tube",
+      "page": "Ribbed Tube",
+      "imageFile": "T Portrait JunkEcon 41 RibbedTube.png",
+      "internalTag": "Inventory.Item.RareLoot_58_RibbedTube",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Rig Light",
+      "page": "Rig Light",
+      "imageFile": "ItemRigFlashlight.png",
+      "internalTag": "Inventory.Dangly.RIG_EQUIPMENT_RigLight",
+      "categories": [
+        "Equipment",
+        "Large items"
+      ]
+    },
+    {
+      "name": "Rootkit Device",
+      "page": "Rootkit Device",
+      "imageFile": "T item info01.png",
+      "internalTag": "Inventory.Item.Awareness_LootObject_01",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Rotary Hammer",
+      "page": "Rotary Hammer",
+      "imageFile": "T_PowerDrill.png",
+      "internalTag": "Inventory.Item.RareLoot_39_PowerDrill",
+      "categories": [
+        "Civil goods",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "RPD",
+      "page": "RPD",
+      "imageFile": "T LMG04.png",
+      "internalTag": "Inventory.Weapon.LMG04",
+      "categories": [
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "RPD Barrel A",
+      "page": "RPD Barrel A",
+      "imageFile": "T_WPN_LMG04_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG04_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "RPD Barrel B",
+      "page": "RPD Barrel B",
+      "imageFile": "T_WPN_LMG04_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG04_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "RPD Barrel C",
+      "page": "RPD Barrel C",
+      "imageFile": "T_WPN_LMG04_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG04_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "RPD Handguard A",
+      "page": "RPD Handguard A",
+      "imageFile": "T_WPN_LMG04_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG04_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "RPD Handguard B",
+      "page": "RPD Handguard B",
+      "imageFile": "T_WPN_LMG04_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_LMG04_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "RPK",
+      "page": "RPK",
+      "imageFile": "T RFL01B.png",
+      "internalTag": "Inventory.Weapon.RFL01B",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Rum",
+      "page": "Rum",
+      "imageFile": "T Item Alcool12.png",
+      "internalTag": "Inventory.Item.Bar_Rum",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "S12",
+      "page": "S12",
+      "imageFile": "T SHG01.png",
+      "internalTag": "Inventory.Weapon.SHG01",
+      "categories": [
+        "Weapons",
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "S12 Shotgun Barrel A",
+      "page": "S12 Shotgun Barrel A",
+      "imageFile": "T_WPN_SHG01_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG01_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "S12 Shotgun Barrel B",
+      "page": "S12 Shotgun Barrel B",
+      "imageFile": "T_WPN_SHG01_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG01_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "S12 Shotgun Barrel C",
+      "page": "S12 Shotgun Barrel C",
+      "imageFile": "T_WPN_SHG01_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_SHG01_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "S12 Shotgun Magazine A",
+      "page": "S12 Shotgun Magazine A",
+      "imageFile": "T_WPN_SHG01_MAG_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG01_MAG_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "S12 Shotgun Magazine B",
+      "page": "S12 Shotgun Magazine B",
+      "imageFile": "T_WPN_SHG01_MAG_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG01_MAG_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "S12 Shotgun Magazine C",
+      "page": "S12 Shotgun Magazine C",
+      "imageFile": "T_WPN_SHG01_MAG_03.png",
+      "internalTag": "Inventory.Item.WPN_SHG01_MAG_03",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SA58",
+      "page": "SA58",
+      "imageFile": "T RFL15.png",
+      "internalTag": "Inventory.Weapon.RFL15",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "SA58 Barrel A",
+      "page": "SA58 Barrel A",
+      "imageFile": "T_WPN_RFL15_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL15_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SA58 Barrel B",
+      "page": "SA58 Barrel B",
+      "imageFile": "T_WPN_RFL15_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL15_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SA58 Magazine A",
+      "page": "SA58 Magazine A",
+      "imageFile": "T_WPN_RFL15_MAG_308_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL15_MAG_308_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SA58 Magazine B",
+      "page": "SA58 Magazine B",
+      "imageFile": "T_WPN_RFL15_MAG_308_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL15_MAG_308_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SAW",
+      "page": "SAW",
+      "imageFile": "T LMG02.png",
+      "internalTag": "Inventory.Weapon.LMG02",
+      "categories": [
+        "Light Machinegun"
+      ]
+    },
+    {
+      "name": "SAW Barrel A",
+      "page": "SAW Barrel A",
+      "imageFile": "T_WPN_LMG02_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SAW Barrel B",
+      "page": "SAW Barrel B",
+      "imageFile": "T_WPN_LMG02_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SAW Gas Tube A",
+      "page": "SAW Gas Tube A",
+      "imageFile": "T_WPN_LMG02_GAS_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_GAS_01",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "SAW Gas Tube B",
+      "page": "SAW Gas Tube B",
+      "imageFile": "T_WPN_LMG02_GAS_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_GAS_02",
+      "categories": [
+        "Weapon parts",
+        "Gas Tube"
+      ]
+    },
+    {
+      "name": "SAW Grip A",
+      "page": "SAW Grip A",
+      "imageFile": "T_WPN_LMG02_PGR_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_PGR_01",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "SAW Grip B",
+      "page": "SAW Grip B",
+      "imageFile": "T_WPN_LMG02_PGR_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_PGR_02",
+      "categories": [
+        "Weapon parts",
+        "Grip"
+      ]
+    },
+    {
+      "name": "SAW Handguard A",
+      "page": "SAW Handguard A",
+      "imageFile": "T_WPN_LMG02_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SAW Handguard B",
+      "page": "SAW Handguard B",
+      "imageFile": "T_WPN_LMG02_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SAW Handguard C",
+      "page": "SAW Handguard C",
+      "imageFile": "T_WPN_LMG02_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SAW Handguard D",
+      "page": "SAW Handguard D",
+      "imageFile": "T_WPN_LMG02_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SAW Magazine A",
+      "page": "SAW Magazine A",
+      "imageFile": "T_WPN_LMG02_MAG_556_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_MAG_556_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SAW Magazine B",
+      "page": "SAW Magazine B",
+      "imageFile": "T_WPN_LMG02_MAG_556_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_MAG_556_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SAW Stock A",
+      "page": "SAW Stock A",
+      "imageFile": "T_WPN_LMG02_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "SAW Stock B",
+      "page": "SAW Stock B",
+      "imageFile": "T_WPN_LMG02_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_LMG02_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "SCAR",
+      "page": "SCAR",
+      "imageFile": "T HRF01.png",
+      "internalTag": "Inventory.Weapon.HRF01",
+      "categories": [
+        "Weapons",
+        "Heavy Rifles"
+      ]
+    },
+    {
+      "name": "SCAR Barrel A",
+      "page": "SCAR Barrel A",
+      "imageFile": "T_WPN_HRF01_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SCAR Barrel B",
+      "page": "SCAR Barrel B",
+      "imageFile": "T_WPN_HRF01_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SCAR Barrel C",
+      "page": "SCAR Barrel C",
+      "imageFile": "T_WPN_HRF01_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SCAR Barrel D",
+      "page": "SCAR Barrel D",
+      "imageFile": "T_WPN_HRF01_BRL_04.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_BRL_04",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SCAR Handgaurd E",
+      "page": "SCAR Handgaurd E",
+      "imageFile": "T_WPN_HRF01_HGD_05.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_HGD_05",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SCAR Handguard A",
+      "page": "SCAR Handguard A",
+      "imageFile": "T_WPN_HRF01_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SCAR Handguard B",
+      "page": "SCAR Handguard B",
+      "imageFile": "T_WPN_HRF01_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SCAR Handguard C",
+      "page": "SCAR Handguard C",
+      "imageFile": "T_WPN_HRF01_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SCAR Handguard D",
+      "page": "SCAR Handguard D",
+      "imageFile": "T_WPN_HRF01_HGD_04.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_HGD_04",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SCAR Handguard F",
+      "page": "SCAR Handguard F",
+      "imageFile": "T_WPN_HRF01_HGD_06.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_HGD_06",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "SCAR Magazine A",
+      "page": "SCAR Magazine A",
+      "imageFile": "T_WPN_HRF01_MAG_50_01.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_MAG_50_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SCAR Magazine B",
+      "page": "SCAR Magazine B",
+      "imageFile": "T_WPN_HRF01_MAG_50_02.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_MAG_50_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SCAR Magazine C",
+      "page": "SCAR Magazine C",
+      "imageFile": "T_WPN_HRF01_MAG_50_03.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_MAG_50_03",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "SCAR Magazine D",
+      "page": "SCAR Magazine D",
+      "imageFile": "T_WPN_HRF01_MAG_50_04.png",
+      "internalTag": "Inventory.Item.WPN_HRF01_MAG_50_04",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Scavenger's Go-Bag",
+      "page": "Scavenger's Go-Bag",
+      "imageFile": "T Scavbag.png",
+      "internalTag": "Inventory.Item.Shanti_LootObject_01",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Scavenger's Tool Kit",
+      "page": "Scavenger's Tool Kit",
+      "imageFile": "T_item_repairtool06.png",
+      "internalTag": "Inventory.Item.Tools06",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Scotch",
+      "page": "Scotch",
+      "imageFile": "T Item Alcool03.png",
+      "internalTag": "Inventory.Item.Alcohol03",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Screwdriver",
+      "page": "Screwdriver",
+      "imageFile": "T_ScrewDriver.png",
+      "internalTag": "Inventory.Item.RareLoot_36_ScrewDriver",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Screws",
+      "page": "Screws",
+      "imageFile": "T_Screws.png",
+      "internalTag": "Inventory.Item.RareLoot_32_Screws",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Sealed Mystery Box",
+      "page": "Sealed Mystery Box",
+      "imageFile": "T_Item_Gacha_HighValueRandom_West.png",
+      "internalTag": "Inventory.Dangly.Gacha_HighValueRandom_West<br>Inventory.Dangly.Gacha_RailGunComponents",
+      "categories": [
+        "Large items"
+      ]
+    },
+    {
+      "name": "Sentient Drill",
+      "page": "Sentient Drill",
+      "imageFile": "T_Portrait_JunkEcon_85_SentientDrill.png",
+      "internalTag": "Inventory.Item.RareLoot_47_SentientDrill",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Sewers Technical Plans",
+      "page": "Sewers Technical Plans",
+      "imageFile": "T_Item_TopSecretplan03.png",
+      "internalTag": "Inventory.Item.Quest_SewersPlans",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Sewing Kit",
+      "page": "Sewing Kit",
+      "imageFile": "T_JunkEcon_81_SewingKit.png",
+      "internalTag": "Inventory.Item.RareLoot_54_SewingKit",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Sfox QueenKiller Optic",
+      "page": "Sfox QueenKiller Optic",
+      "imageFile": "T_PICOPT9.png",
+      "internalTag": "Inventory.Item.PICOPT9",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Sheet Metal",
+      "page": "Sheet Metal",
+      "imageFile": "T_Sheetmetal.png",
+      "internalTag": "Inventory.Item.RareLoot_128_sheetmetal",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Signal Scrambler Grenade",
+      "page": "Signal Scrambler Grenade",
+      "imageFile": "T SM GRN02.png",
+      "internalTag": "Inventory.Item.Item.Ammo.FactionGrenade",
+      "categories": [
+        "Grenades"
+      ]
+    },
+    {
+      "name": "SIGS Cheers 2x",
+      "page": "SIGS Cheers 2x",
+      "imageFile": "T_PICSCP9.png",
+      "internalTag": "Inventory.Item.PICSCP9",
+      "categories": [
+        "Weapon attachments",
+        "Scope"
+      ]
+    },
+    {
+      "name": "Sledgehammer",
+      "page": "Sledgehammer",
+      "imageFile": "T_SledgeHammer.png",
+      "internalTag": "Inventory.Item.RareLoot_46_Sledgehammer",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Small First Aid Kit",
+      "page": "Small First Aid Kit",
+      "imageFile": "T item med morphine.png",
+      "internalTag": "Inventory.Item.FirstAid",
+      "categories": [
+        "Consumables",
+        "Medical"
+      ]
+    },
+    {
+      "name": "Smuggled Organs",
+      "page": "Smuggled Organs",
+      "imageFile": "T_Item_TopSecretplan08.png",
+      "internalTag": "Inventory.Item.Plans08",
+      "categories": [
+        "Medical",
+        "Maximum value dog food"
+      ]
+    },
+    {
+      "name": "Soap",
+      "page": "Soap",
+      "imageFile": "T_Soap.png",
+      "internalTag": "Inventory.Item.RareLoot_107_Soap",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "SOG",
+      "page": "SOG",
+      "imageFile": "T PST02.png",
+      "internalTag": "Inventory.Weapon.PST02",
+      "categories": [
+        "Weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "SOG Receiver A",
+      "page": "SOG Receiver A",
+      "imageFile": "T_WPN_PST02_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_PST02_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "SOG Receiver B",
+      "page": "SOG Receiver B",
+      "imageFile": "T_WPN_PST02_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_PST02_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "Solar Battery",
+      "page": "Solar Battery",
+      "imageFile": "T_Portrait_JunkEcon_91_SolarBattery.png",
+      "internalTag": "Inventory.Item.RareLoot_137_SolarBattery",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Spare Part",
+      "page": "Spare Part",
+      "imageFile": "T Item Quest ExoParts.png",
+      "internalTag": "Inventory.Dangly.BP_QuestItem_SparePart",
+      "categories": [
+        "Large items",
+        "Quest items",
+        "Quest exclusive"
+      ]
+    },
+    {
+      "name": "Spark Plug",
+      "page": "Spark Plug",
+      "imageFile": "Spark Plug.png",
+      "internalTag": "Inventory.Item.RareLoot_100_SparkPlug",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Special Units DetPack",
+      "page": "Special Units DetPack",
+      "imageFile": "T Item Explosive BossKiller.png",
+      "internalTag": "Inventory.Item.AntiBossC4",
+      "categories": [
+        "Consumables"
+      ]
+    },
+    {
+      "name": "Spectre M4",
+      "page": "Spectre M4",
+      "imageFile": "T SMG08.png",
+      "internalTag": "Inventory.Weapon.SMG08",
+      "categories": [
+        "Weapons",
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Spectre M4 Handguard",
+      "page": "Spectre M4 Handguard",
+      "imageFile": "T_WPN_SMG08_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_SMG08_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Spook Optic",
+      "page": "Spook Optic",
+      "imageFile": "T_PICOPT15.png",
+      "internalTag": "Inventory.Item.PICOPT15",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Standard First Aid Kit",
+      "page": "Standard First Aid Kit",
+      "imageFile": "ItemPortrait Demo FirstAid.png",
+      "internalTag": "Inventory.Item.FirstAid_Med",
+      "categories": [
+        "Consumables",
+        "Medical"
+      ]
+    },
+    {
+      "name": "Stein R Optic",
+      "page": "Stein R Optic",
+      "imageFile": "T_PICOPT13.png",
+      "internalTag": "Inventory.Item.PICOPT13",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Stereo Box",
+      "page": "Stereo Box",
+      "imageFile": "T_StereoBox.png",
+      "internalTag": "Inventory.Item.DecoLoot_03_Stereo",
+      "categories": [
+        "Civil goods",
+        "Shelf decorations"
+      ]
+    },
+    {
+      "name": "Stethoscope",
+      "page": "Stethoscope",
+      "imageFile": "T_Stethoscope.png",
+      "internalTag": "Inventory.Item.RareLoot_87_Stethoscope",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Super Glue",
+      "page": "Super Glue",
+      "imageFile": "T_SuperGlueSmall.png",
+      "internalTag": "Inventory.Item.RareLoot_7_SuperGlueSmall",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Suppressed Muzzle Device A",
+      "page": "Suppressed Muzzle Device A",
+      "imageFile": "T_ATTMD1_1.png",
+      "internalTag": "Inventory.Item.ATTMD1_1",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Suppressed Muzzle Device B",
+      "page": "Suppressed Muzzle Device B",
+      "imageFile": "T_ATTMD3_2.png",
+      "internalTag": "Inventory.Item.ATTMD3_2",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Suppressed Muzzle Device C",
+      "page": "Suppressed Muzzle Device C",
+      "imageFile": "T_ATTMD3_8.png",
+      "internalTag": "Inventory.Item.ATTMD3_8",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Suppressed Muzzle Device D",
+      "page": "Suppressed Muzzle Device D",
+      "imageFile": "T_ATTMD3_9.png",
+      "internalTag": "Inventory.Item.ATTMD3_9",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Suppressed Muzzle Device E",
+      "page": "Suppressed Muzzle Device E",
+      "imageFile": "T_ATTMD4_3.png",
+      "internalTag": "Inventory.Item.ATTMD4_3",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Suppressed Muzzle Device F",
+      "page": "Suppressed Muzzle Device F",
+      "imageFile": "T_ATTMD4_6.png",
+      "internalTag": "Inventory.Item.ATTMD4_6",
+      "categories": [
+        "Weapon attachments",
+        "Muzzle Device"
+      ]
+    },
+    {
+      "name": "Surplus Rifle",
+      "page": "Surplus Rifle",
+      "imageFile": "T RFL01A.png",
+      "internalTag": "Inventory.Weapon.RFL01A_Surplus",
+      "categories": [
+        "Rifles",
+        "Surplus weapons"
+      ]
+    },
+    {
+      "name": "Surplus Shotgun",
+      "page": "Surplus Shotgun",
+      "imageFile": "T SHG02.png",
+      "internalTag": "Inventory.Weapon.SHG02_Surplus",
+      "categories": [
+        "Shotguns",
+        "Surplus weapons"
+      ]
+    },
+    {
+      "name": "Survival Lighter",
+      "page": "Survival Lighter",
+      "imageFile": "T SurvivalLighter.png",
+      "internalTag": "Inventory.Item.RareLoot_68_SurvivalLighter",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Survival Seeds",
+      "page": "Survival Seeds",
+      "imageFile": "T_Portrait_JunkEcon_136_Seeds.png",
+      "internalTag": "Inventory.Item.RareLoot_122_SeedsHighvalue",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "SVD",
+      "page": "SVD",
+      "imageFile": "T RFL20.png",
+      "internalTag": "Inventory.Weapon.RFL20",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "SVD Barrel A",
+      "page": "SVD Barrel A",
+      "imageFile": "T_WPN_RFL20_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SVD Barrel B",
+      "page": "SVD Barrel B",
+      "imageFile": "T_WPN_RFL20_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SVD Barrel C",
+      "page": "SVD Barrel C",
+      "imageFile": "T_WPN_RFL20_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SVD Barrel D",
+      "page": "SVD Barrel D",
+      "imageFile": "T_WPN_RFL20_BRL_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_BRL_04",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "SVD Stock A",
+      "page": "SVD Stock A",
+      "imageFile": "T_WPN_RFL20_STK_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_STK_01",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "SVD Stock B",
+      "page": "SVD Stock B",
+      "imageFile": "T_WPN_RFL20_STK_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_STK_02",
+      "categories": [
+        "Weapon parts",
+        "Stock"
+      ]
+    },
+    {
+      "name": "SVD Upper Assmbly A",
+      "page": "SVD Upper Assmbly A",
+      "imageFile": "T_WPN_RFL20_UPP_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_UPP_01",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "SVD Upper Assmbly B",
+      "page": "SVD Upper Assmbly B",
+      "imageFile": "T_WPN_RFL20_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "SVD Upper Assmbly C",
+      "page": "SVD Upper Assmbly C",
+      "imageFile": "T_WPN_RFL20_UPP_03.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_UPP_03",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "SVD Upper Assmbly D",
+      "page": "SVD Upper Assmbly D",
+      "imageFile": "T_WPN_RFL20_UPP_04.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_UPP_04",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "SVD Upper Assmbly E",
+      "page": "SVD Upper Assmbly E",
+      "imageFile": "T_WPN_RFL20_UPP_05.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_UPP_05",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "SVD Upper Assmbly F",
+      "page": "SVD Upper Assmbly F",
+      "imageFile": "T_WPN_RFL20_UPP_06.png",
+      "internalTag": "Inventory.Item.WPN_RFL20_UPP_06",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "Syringe",
+      "page": "Syringe",
+      "imageFile": "T_Syringe.png",
+      "internalTag": "Inventory.Item.RareLoot_81_Syringe",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "T-90 Suspension Component",
+      "page": "T-90 Suspension Component",
+      "imageFile": "T_Item_Quest_T90Parts.png",
+      "internalTag": "Inventory.Item.T90_Debirs_Loot",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Tactical Camera",
+      "page": "Tactical Camera",
+      "imageFile": "T_item_RIGEQUIPMENT_TacCam_v1.png",
+      "internalTag": "Inventory.Dangly.RIG_EQUIPMENT_TacCam",
+      "categories": [
+        "Equipment",
+        "Large items"
+      ]
+    },
+    {
+      "name": "Target Pistol Magazine A",
+      "page": "Target Pistol Magazine A",
+      "imageFile": "T_WPN_PST03_MAG_919_01.png",
+      "internalTag": "Inventory.Item.WPN_PST03_MAG_919_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Target Pistol Magazine B",
+      "page": "Target Pistol Magazine B",
+      "imageFile": "T_WPN_PST03_MAG_919_02.png",
+      "internalTag": "Inventory.Item.WPN_PST03_MAG_919_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Targeting Computer",
+      "page": "Targeting Computer",
+      "imageFile": "T Item Quest TargetingComputer.png",
+      "internalTag": "Inventory.Item.Quest_AM_Targeting_Computer",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Teddy Bear",
+      "page": "Teddy Bear",
+      "imageFile": "T_Item_Quest_TeddyBearDoll.png",
+      "internalTag": "Inventory.Item.Quest_Teddy_Bear",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Telemetry Unit",
+      "page": "Telemetry Unit",
+      "imageFile": "T_Item_TopSecretplan06.png",
+      "internalTag": "Inventory.Item.Plans06",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Tequila",
+      "page": "Tequila",
+      "imageFile": "T Item Alcool08.png",
+      "internalTag": "Inventory.Item.Bar_Tequila",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Thermal Matches",
+      "page": "Thermal Matches",
+      "imageFile": "T_ThermalMatches.png",
+      "internalTag": "Inventory.Item.RareLoot_105_ThermalMatches",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Thermite",
+      "page": "Thermite",
+      "imageFile": "T_Thermite.png",
+      "internalTag": "Inventory.Item.RareLoot_101_Thermite",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Thermometer",
+      "page": "Thermometer",
+      "imageFile": "T_Thermometer.png",
+      "internalTag": "Inventory.Item.RareLoot_94_Thermometer",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Tissue Sample",
+      "page": "Tissue Sample",
+      "imageFile": "T_Item_TissueSample.png",
+      "internalTag": "Inventory.Item.Quest_TissueSample",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "TKB-0146",
+      "page": "TKB-0146",
+      "imageFile": "T RFL30.png",
+      "internalTag": "Inventory.Weapon.RFL30",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "TKB-0146 Handguard A",
+      "page": "TKB-0146 Handguard A",
+      "imageFile": "T_WPN_RFL30_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL30_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "TKB-0146 Handguard B",
+      "page": "TKB-0146 Handguard B",
+      "imageFile": "T_WPN_RFL30_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL30_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Toilet Paper",
+      "page": "Toilet Paper",
+      "imageFile": "T_ToiletPaper.png",
+      "internalTag": "Inventory.Item.RareLoot_108_ToiletPaper",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Toothpaste",
+      "page": "Toothpaste",
+      "imageFile": "T_toothpaste.png",
+      "internalTag": "Inventory.Item.RareLoot_109_Toothpaste",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Tourniquet",
+      "page": "Tourniquet",
+      "imageFile": "T_Tourniquet.png",
+      "internalTag": "Inventory.Item.RareLoot_90_Tourniquets",
+      "categories": [
+        "Medical"
+      ]
+    },
+    {
+      "name": "Toy Car",
+      "page": "Toy Car",
+      "imageFile": "T_Item_ChildrenToy02.png",
+      "internalTag": "Inventory.Item.Toy02",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Toy Dinosaur",
+      "page": "Toy Dinosaur",
+      "imageFile": "T_Item_ChildrenToy01.png",
+      "internalTag": "Inventory.Item.Toy01",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Toy Train",
+      "page": "Toy Train",
+      "imageFile": "T_Item_ChildrenToy03.png",
+      "internalTag": "Inventory.Item.Toy03",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Tri M Optic",
+      "page": "Tri M Optic",
+      "imageFile": "T_PICOPT17.png",
+      "internalTag": "Inventory.Item.PICOPT17",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "TrueAimer 4x",
+      "page": "TrueAimer 4x",
+      "imageFile": "T_PICSCP15.png",
+      "internalTag": "Inventory.Item.PICSCP15",
+      "categories": [
+        "Weapon attachments",
+        "Scope"
+      ]
+    },
+    {
+      "name": "Turret Base",
+      "page": "Railgun",
+      "imageFile": "Turret Base.png",
+      "internalTag": "Inventory.Dangly.CRWUniversalTurretBase",
+      "categories": [
+        "Railgun Components"
+      ]
+    },
+    {
+      "name": "Turret Component",
+      "page": "Turret Component",
+      "imageFile": "T Item Quest TurretParts.png",
+      "internalTag": "Inventory.Item.Turret_Debris_Loot",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "U-STIK+ USB Drive",
+      "page": "U-STIK+ USB Drive",
+      "imageFile": "T Portrait JunkEcon 28 USBStick.png",
+      "internalTag": "Inventory.Item.RareLoot_15_USBStick",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "UMEGA Media Player",
+      "page": "UMEGA Media Player",
+      "imageFile": "T Portrait JunkEcon 57 BluRayPlayer.png",
+      "internalTag": "Inventory.Item.RareLoot_22_Blu-RayPlayer",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Urea",
+      "page": "Urea",
+      "imageFile": "T Urea.png",
+      "internalTag": "Inventory.Item.RareLoot_112_Alkaline",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "USAS-12",
+      "page": "USAS-12",
+      "imageFile": "T SHG03.png",
+      "internalTag": "Inventory.Weapon.SHG03",
+      "categories": [
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Barrel A",
+      "page": "USAS-12 Shotgun Barrel A",
+      "imageFile": "T_WPN_SHG03_BRL_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_BRL_01",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Barrel B",
+      "page": "USAS-12 Shotgun Barrel B",
+      "imageFile": "T_WPN_SHG03_BRL_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_BRL_02",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Barrel C",
+      "page": "USAS-12 Shotgun Barrel C",
+      "imageFile": "T_WPN_SHG03_BRL_03.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_BRL_03",
+      "categories": [
+        "Weapon parts",
+        "Barrel"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Handguard B",
+      "page": "USAS-12 Shotgun Handguard B",
+      "imageFile": "T_WPN_SHG03_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Magazine A",
+      "page": "USAS-12 Shotgun Magazine A",
+      "imageFile": "T_WPN_SHG03_MAG_12G_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_MAG_12G_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Magazine B",
+      "page": "USAS-12 Shotgun Magazine B",
+      "imageFile": "T_WPN_SHG03_MAG_12G_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_MAG_12G_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "USAS-12 Shotgun Magazine C",
+      "page": "USAS-12 Shotgun Magazine C",
+      "imageFile": "T_WPN_SHG03_MAG_12G_03.png",
+      "internalTag": "Inventory.Item.WPN_SHG03_MAG_12G_03",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "USP",
+      "page": "USP",
+      "imageFile": "T PST01.png",
+      "internalTag": "Inventory.Weapon.PST01",
+      "categories": [
+        "Weapons",
+        "Pistols"
+      ]
+    },
+    {
+      "name": "UV Light Bulb",
+      "page": "UV Light Bulb",
+      "imageFile": "T UV Lightbulb.png",
+      "internalTag": "Inventory.Item.RareLoot_63_UVLightBulb",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Valve Adjustment Tool",
+      "page": "Valve Adjustment Tool",
+      "imageFile": "T_JunkEcon_90_ValveAdjustmentTool.png",
+      "internalTag": "Inventory.Item.RareLoot_131_ValveAdjustmentTool",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Ventilation Filter",
+      "page": "Ventilation Filter",
+      "imageFile": "T_VentilationFilter.png",
+      "internalTag": "Inventory.Item.RareLoot_71_VentilationFilter",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Ventilation Regulator",
+      "page": "Ventilation Regulator",
+      "imageFile": "Ventilation Regulator.png",
+      "internalTag": "Inventory.Item.RareLoot_96_VentilationRegulator",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "VEPR-12",
+      "page": "VEPR-12",
+      "imageFile": "T SHG04.png",
+      "internalTag": "Inventory.Weapon.SHG04",
+      "categories": [
+        "Shotguns"
+      ]
+    },
+    {
+      "name": "Vepr-12 Shotgun Handguard A",
+      "page": "Vepr-12 Shotgun Handguard A",
+      "imageFile": "T_WPN_SHG04_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG04_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Vepr-12 Shotgun Handguard B",
+      "page": "Vepr-12 Shotgun Handguard B",
+      "imageFile": "T_WPN_SHG04_HGD_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG04_HGD_02",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Vepr-12 Shotgun Handguard C",
+      "page": "Vepr-12 Shotgun Handguard C",
+      "imageFile": "T_WPN_SHG04_HGD_03.png",
+      "internalTag": "Inventory.Item.WPN_SHG04_HGD_03",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Vepr-12 Shotgun Magazine A",
+      "page": "Vepr-12 Shotgun Magazine A",
+      "imageFile": "T_WPN_SHG04_MAG_12G_01.png",
+      "internalTag": "Inventory.Item.WPN_SHG04_MAG_12G_01",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "Vepr-12 Shotgun Magazine B",
+      "page": "Vepr-12 Shotgun Magazine B",
+      "imageFile": "T_WPN_SHG04_MAG_12G_02.png",
+      "internalTag": "Inventory.Item.WPN_SHG04_MAG_12G_02",
+      "categories": [
+        "Weapon parts",
+        "Magazine"
+      ]
+    },
+    {
+      "name": "VH-Ambi 2",
+      "page": "VH-Ambi 2",
+      "imageFile": "T RFL02.png",
+      "internalTag": "Inventory.Weapon.RFL02",
+      "categories": [
+        "Weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "VHS2 Upper Assembly B",
+      "page": "VHS2 Upper Assembly B",
+      "imageFile": "T_WPN_RFL02_UPP_02.png",
+      "internalTag": "Inventory.Item.WPN_RFL02_UPP_02",
+      "categories": [
+        "Weapon parts",
+        "Upper assembly"
+      ]
+    },
+    {
+      "name": "VIK-32L",
+      "page": "VIK-32L",
+      "imageFile": "T RFL05.png",
+      "internalTag": "Inventory.Weapon.RFL05",
+      "categories": [
+        "Weapons",
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Viper",
+      "page": "Viper",
+      "imageFile": "T PST06.png",
+      "internalTag": "Inventory.Weapon.PST06",
+      "categories": [
+        "Pistols"
+      ]
+    },
+    {
+      "name": "VKS Front Sight",
+      "page": "VKS Front Sight",
+      "imageFile": "T_WPN_RFL29_FRS_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL29_FRS_01",
+      "categories": [
+        "Weapon parts",
+        "Front sight"
+      ]
+    },
+    {
+      "name": "VKS Handguard A",
+      "page": "VKS Handguard A",
+      "imageFile": "T_WPN_RFL29_HGD_01.png",
+      "internalTag": "Inventory.Item.WPN_RFL29_HGD_01",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "VKS Handguard B",
+      "page": "VKS Handguard B",
+      "imageFile": "T_WPN_RFL29_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_RFL29_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "VKS Vykhlop",
+      "page": "VKS Vykhlop",
+      "imageFile": "T RFL29.png",
+      "internalTag": "Inventory.Weapon.RFL29",
+      "categories": [
+        "Rifles"
+      ]
+    },
+    {
+      "name": "Vodka",
+      "page": "Vodka",
+      "imageFile": "T Item Alcool10.png",
+      "internalTag": "Inventory.Item.Bar_Vodka",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Vtex Optic",
+      "page": "Vtex Optic",
+      "imageFile": "T_PICOPT10.png",
+      "internalTag": "Inventory.Item.PICOPT10",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Vtex Raz Gen 2 Optic",
+      "page": "Vtex Raz Gen 2 Optic",
+      "imageFile": "T_PICOPT4.png",
+      "internalTag": "Inventory.Item.PICOPT4",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Vtex Spit 3x",
+      "page": "Vtex Spit 3x",
+      "imageFile": "T_PICSCP10.png",
+      "internalTag": "Inventory.Item.PICSCP10",
+      "categories": [
+        "Weapon attachments",
+        "Scope"
+      ]
+    },
+    {
+      "name": "Vtex Strike Optic",
+      "page": "Vtex Strike Optic",
+      "imageFile": "T_PICOPT11.png",
+      "internalTag": "Inventory.Item.PICOPT11",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Vtex V Optic",
+      "page": "Vtex V Optic",
+      "imageFile": "T_PICOPT8.png",
+      "internalTag": "Inventory.Item.PICOPT8",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Walther MPL Handguard",
+      "page": "Walther MPL Handguard",
+      "imageFile": "T_WPN_SMG04_HGD_01_1.png",
+      "internalTag": "Inventory.Item.WPN_SMG04_HGD_01_1",
+      "categories": [
+        "Weapon parts",
+        "Handguard"
+      ]
+    },
+    {
+      "name": "Water",
+      "page": "Water",
+      "imageFile": "ItemPortrait Demo Barrel.png",
+      "internalTag": "Inventory.Dangly.WATER_oneDaySupply",
+      "categories": [
+        "Large items",
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Water Canteen",
+      "page": "Water Canteen",
+      "imageFile": "ItemPortrait GDC Chocbar canteen.png",
+      "internalTag": "Inventory.Item.ChocBar",
+      "categories": [
+        "Consumables",
+        "Provisions",
+        "High value dog food"
+      ]
+    },
+    {
+      "name": "Water Map",
+      "page": "Water Map",
+      "imageFile": "T Item Quest WaterMap.png",
+      "internalTag": "Inventory.Item.Quest_Water_Map",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Water Thief Mask",
+      "page": "Water Thief Mask",
+      "imageFile": "T Item WaterThief Mask3.png",
+      "internalTag": "Inventory.Dangly.BP_ActivityItem_WaterThiefMask",
+      "categories": [
+        "Large items"
+      ]
+    },
+    {
+      "name": "Water Thief's Mask \"Bozo\"",
+      "page": "Water Thief's Mask \"Bozo\"",
+      "imageFile": "T_WaterMaskBozo.png",
+      "internalTag": "Inventory.Item.DecoLoot_06_WaterThiefMask03",
+      "categories": [
+        "Wall decorations"
+      ]
+    },
+    {
+      "name": "Water Thief's Mask \"Oni\"",
+      "page": "Water Thief's Mask \"Oni\"",
+      "imageFile": "T_WaterMaskOni.png",
+      "internalTag": "Inventory.Item.DecoLoot_04_WaterThiefMask01",
+      "categories": [
+        "Wall decorations"
+      ]
+    },
+    {
+      "name": "Water Thief's Mask \"Thirsty\"",
+      "page": "Water Thief's Mask \"Thirsty\"",
+      "imageFile": "T_WaterMaskThirsty.png",
+      "internalTag": "Inventory.Item.DecoLoot_05_WaterThiefMask02",
+      "categories": [
+        "Wall decorations"
+      ]
+    },
+    {
+      "name": "WD40",
+      "page": "WD40",
+      "imageFile": "T_Portrait_JunkEcon_13_WD40v2.png",
+      "internalTag": "Inventory.Item.RareLoot_69_WD40",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Weapon Parts",
+      "page": "Weapon Parts",
+      "imageFile": "T_WeaponParts.png",
+      "internalTag": "Inventory.Item.RareLoot_117_WeaponParts",
+      "categories": [
+        "Military"
+      ]
+    },
+    {
+      "name": "Weapon Schematics",
+      "page": "Weapon Schematics",
+      "imageFile": "T Item Quest WaterMap.png",
+      "internalTag": "Inventory.Item.Quest_WeaponSchematics",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Weapon Tech",
+      "page": "Weapon Tech",
+      "imageFile": "T Item Quest WeaponTech.png",
+      "internalTag": "Inventory.Item.Quest_SE_Weapon_Tech",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Wetware Processor",
+      "page": "Wetware Processor",
+      "imageFile": "T Portrait JunkEcon 76 AdvancedProcessor.png",
+      "internalTag": "Inventory.Item.RareLoot_26_AdvancedProcessor",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Wetware System",
+      "page": "Wetware System",
+      "imageFile": "T_Item_Wetware.png",
+      "internalTag": "Inventory.Item.Quest_WetwareSystem",
+      "categories": [
+        "Quest items"
+      ]
+    },
+    {
+      "name": "Whiskey",
+      "page": "Whiskey",
+      "imageFile": "T Item Alcool01.png",
+      "internalTag": "Inventory.Item.Alcohol01",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Wine",
+      "page": "Wine",
+      "imageFile": "T Item Alcool05.png",
+      "internalTag": "Inventory.Item.Alcohol05",
+      "categories": [
+        "Alcohol",
+        "Consumables",
+        "Provisions",
+        "Minimum value dog food"
+      ]
+    },
+    {
+      "name": "Wires",
+      "page": "Wires",
+      "imageFile": "T_Portrait_JunkEcon_25_Wires.png",
+      "internalTag": "Inventory.Item.RareLoot_27_Wires",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "WLT MPL",
+      "page": "WLT MPL",
+      "imageFile": "T SMG04.png",
+      "internalTag": "Inventory.Weapon.SMG04",
+      "categories": [
+        "Submachine Guns"
+      ]
+    },
+    {
+      "name": "Wooden Plank",
+      "page": "Wooden Plank",
+      "imageFile": "T 2x4s.png",
+      "internalTag": "Inventory.Item.RareLoot_125_2x4s",
+      "categories": [
+        "Materials"
+      ]
+    },
+    {
+      "name": "Wooden Planks",
+      "page": "Wooden Planks",
+      "imageFile": "T_WoodPlanks.png",
+      "internalTag": "Inventory.Item.RareLoot_127_woodplanks",
+      "categories": [
+        "Uncategorized items"
+      ]
+    },
+    {
+      "name": "XM25",
+      "page": "XM25",
+      "imageFile": "T GRL02.png",
+      "internalTag": "Inventory.Weapon.GRL02",
+      "categories": [
+        "Weapons",
+        "Grenade Launchers"
+      ]
+    },
+    {
+      "name": "Zeni-B P6 Optic",
+      "page": "Zeni-B P6 Optic",
+      "imageFile": "T_PICOPT5.png",
+      "internalTag": "Inventory.Item.PICOPT5",
+      "categories": [
+        "Weapon attachments",
+        "Optic"
+      ]
+    },
+    {
+      "name": "Zippo Lighter",
+      "page": "Zippo Lighter",
+      "imageFile": "T_ZippoRegular.png",
+      "internalTag": "Inventory.Item.RareLoot_103_Zippo",
+      "categories": [
+        "Civil goods"
+      ]
+    },
+    {
+      "name": "Zonophor Tablets",
+      "page": "Zonophor Tablets",
+      "imageFile": "T_Vitamins.png",
+      "internalTag": "Inventory.Item.RareLoot_79_Vitamins",
+      "categories": [
+        "Medical"
+      ]
+    }
+  ]
+}

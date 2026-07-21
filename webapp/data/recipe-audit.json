@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T22:42:52.554Z",
+  "counts": {
+    "workshop": 37,
+    "munitions": 23,
+    "upgrades": 36,
+    "components": 332,
+    "unsupportedComponents": 22,
+    "unsupportedProducts": 2
+  },
+  "unresolved": [
+    {
+      "recipeId": "Construction Drone1",
+      "role": "product",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Gunpowder1",
+      "role": "component",
+      "name": "Explosives",
+      "itemId": "BP_Loot_Explosives_C",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "IED1",
+      "role": "product",
+      "name": "IED",
+      "itemId": null,
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "unresolved",
+      "quantity": 1
+    },
+    {
+      "recipeId": "IED1",
+      "role": "component",
+      "name": "Explosives",
+      "itemId": "BP_Loot_Explosives_C",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Military Codebreaker1",
+      "role": "component",
+      "name": "Military Hard Drive",
+      "itemId": "Plans03",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "20x105mm Anti-Tank1",
+      "role": "component",
+      "name": "Explosives",
+      "itemId": "BP_Loot_Explosives_C",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Frag Grenade1",
+      "role": "component",
+      "name": "Explosives",
+      "itemId": "BP_Loot_Explosives_C",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "+28 days1",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 3
+    },
+    {
+      "recipeId": "Bar V21",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Bar V31",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 3
+    },
+    {
+      "recipeId": "Cognition Cradle Containment Chamber1",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 5
+    },
+    {
+      "recipeId": "Cognition Cradle Frame1",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 4
+    },
+    {
+      "recipeId": "Garage1",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 3
+    },
+    {
+      "recipeId": "Personal Quarters Upgrade v21",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Personal Quarters Upgrade v31",
+      "role": "component",
+      "name": "Toothy Codex",
+      "itemId": "Codex.Toothy",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Personal Quarters1",
+      "role": "component",
+      "name": "Explosives",
+      "itemId": "BP_Loot_Explosives_C",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 8
+    },
+    {
+      "recipeId": "Shooting Range Upgrade v21",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Shooting Range Upgrade v31",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 3
+    },
+    {
+      "recipeId": "Shooting Range Upgrade v31",
+      "role": "component",
+      "name": "Water Thief's Mask \"Bozo\"",
+      "itemId": "DecoLoot_06_WaterThiefMask03",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Shooting Range Upgrade v31",
+      "role": "component",
+      "name": "Water Thief's Mask \"Thirsty\"",
+      "itemId": "DecoLoot_05_WaterThiefMask02",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "Shrine1",
+      "role": "component",
+      "name": "Water Thief's Mask \"Oni\"",
+      "itemId": "DecoLoot_04_WaterThiefMask01",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    },
+    {
+      "recipeId": "The Cognition Cradle1",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 3
+    },
+    {
+      "recipeId": "Transmission Tower1",
+      "role": "component",
+      "name": "Construction Drone",
+      "itemId": "Drone_Construction",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 3
+    },
+    {
+      "recipeId": "Water Bots V31",
+      "role": "component",
+      "name": "Orga Codex",
+      "itemId": "Codex.Orga",
+      "inventoryMap": null,
+      "sourceMap": null,
+      "status": "unsupported",
+      "writable": false,
+      "resolution": "override",
+      "quantity": 1
+    }
+  ],
+  "duplicateOutputs": [
+    {
+      "station": "munitions",
+      "itemId": "Item.Ammo.545.Cryo",
+      "recipeIds": [
+        "5.45x39mm Cryo Ammo1",
+        "5.45x39mm Cryo Ammo2"
+      ]
+    }
+  ]
+}
