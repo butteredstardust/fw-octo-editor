@@ -16,8 +16,7 @@ const MAP_META = {
   StairwayGate: { name: 'Stairway Gate', blurb: "Gargantuan stairway flanked by crumbling skyscrapers, leads to the city's towering defensive wall." },
   ScorchedEnclave: { name: 'Scorched Enclave', blurb: 'Endless cracked earth bakes under a blistering sun. Ruined Europa bunkers dot the landscape.' },
   ScrapyardNexus: { name: 'Scrapyard Nexus', blurb: 'Treacherous expanse of Europan trenches, now overtaken by Euruska.' },
-  Innards: { name: 'Innards', blurb: 'Home base -- has additional Training and Liberate the Innards layouts.' },
-  ThunderDome: { name: 'Thunder Dome', blurb: "Matches Innards' own faction split exactly -- most likely one of its Training/Liberate layouts rather than a separate location." },
+  Innards: { name: 'Innards', blurb: 'Home base -- has additional Training and Liberate the Innards layouts. "Thunder Dome" is one of these Innards layouts, not a separate location.' },
   Shanti: { name: 'Babel', blurb: 'Best fit for the wiki’s "twisted network of walkways and rickety bridges...above the ruins of Lost Angels" -- a shantytown, hence the internal codename.' },
   // "There are four tunnels in total, labeled A to D... four variants per
   // tunnel." The wiki's own A1-D4 -> game-id table (also on this page) maps
@@ -42,13 +41,9 @@ function normalizeMapId(id) {
   const key = String(id).replace(/^L_/, '').replace(/_WP$/, '');
   const tunnel = /^Dungeon_Tunnel(\d+)/.exec(key);
   if (tunnel) return `Tunnel${tunnel[1]}`;
-  if (key === 'HUB_V6' || key === 'HUB_Intro') return 'Innards';
+  if (key === 'HUB_V6' || key === 'HUB_Intro' || key === 'ThunderDome') return 'Innards';
   if (key === 'Shanti_Rooftops') return 'Shanti';
   return key;
-}
-
-function mapMeta(id) {
-  return MAP_META[normalizeMapId(id)] || null;
 }
 
 // Prettify a map codename that has no MAP_META entry, rather than showing
@@ -209,10 +204,35 @@ function territoryBar(factionShares) {
   return `<div class="territory-bar" role="img" aria-label="Territory control: ${esc(FACTION_ORDER.filter(f => factionShares[f] != null).map(f => `${factionMeta(f).name} ${Math.round(factionShares[f] * 100)}%`).join(', '))}">${segments}</div>`;
 }
 
-function territoryCard(t) {
-  const meta = mapMeta(t.location);
-  const label = meta ? meta.name : mapFallbackLabel(t.location);
-  const ranked = Object.entries(t.factions).sort((a, b) => b[1] - a[1]);
+// Some raw locations normalize to the same canonical place (e.g. ThunderDome
+// -> Innards) -- average their per-faction shares rather than show duplicate
+// cards with the same label. (In the one observed case the splits were
+// already identical, so this averages to that same value; it's still the
+// correct general behavior if a future save has them diverge slightly.)
+function groupTerritory(territory) {
+  const groups = new Map();
+  for (const t of territory) {
+    const key = normalizeMapId(t.location);
+    const g = groups.get(key) || { key, ids: [], factionSums: {}, count: 0 };
+    g.ids.push(t.location);
+    g.count++;
+    for (const [f, pct] of Object.entries(t.factions)) g.factionSums[f] = (g.factionSums[f] || 0) + pct;
+    groups.set(key, g);
+  }
+  return [...groups.values()].map(g => ({
+    key: g.key,
+    ids: g.ids,
+    factions: Object.fromEntries(Object.entries(g.factionSums).map(([f, sum]) => [f, sum / g.count]))
+  }));
+}
+
+function territoryCard(g) {
+  const meta = MAP_META[g.key];
+  const label = meta ? meta.name : mapFallbackLabel(g.key);
+  const idLabel = g.ids.length > 1
+    ? technicalDetails(`${g.ids.length} sources: ${g.ids.join(', ')}`, `Show ${g.ids.length} internal location IDs`)
+    : technicalDetails(g.ids[0], 'Show internal location ID');
+  const ranked = Object.entries(g.factions).sort((a, b) => b[1] - a[1]);
   const [dominantFaction, dominantShare] = ranked[0] || [];
   const domMeta = dominantFaction ? factionMeta(dominantFaction) : null;
   const breakdown = ranked.map(([f, pct]) => {
@@ -223,10 +243,10 @@ function territoryCard(t) {
   return `<article class="territory-card"${cardStyle}>
     <header class="territory-card-head">
       <span class="territory-card-icon">${appIcon('target')}</span>
-      <h4>${esc(label)} ${technicalDetails(t.location, 'Show internal location ID')}</h4>
+      <h4>${esc(label)} ${idLabel}</h4>
     </header>
     ${meta && meta.blurb ? `<p class="territory-blurb">${esc(meta.blurb)}</p>` : ''}
-    ${territoryBar(t.factions)}
+    ${territoryBar(g.factions)}
     <div class="territory-breakdown">${breakdown}</div>
     ${domMeta ? `<p class="territory-predict">${factionDot(domMeta.color)}<b>${esc(domMeta.name)}</b> controls ${Math.round(dominantShare * 100)}% here -- expect the most, and best-equipped, ${esc(domMeta.name)} hostiles.</p>` : ''}
   </article>`;
@@ -238,7 +258,7 @@ function renderTerritory(territory) {
     <h3>Territory Control</h3>
     <p class="char-hint">Per-location faction control share (the game's own "Theater of War" system) -- higher control means both <b>more</b> hostiles and <b>better-equipped</b> ones for that faction. <a href="https://theforeverwinter.wiki.gg/wiki/Factions" target="_blank" rel="noopener noreferrer">theforeverwinter.wiki.gg/wiki/Factions</a></p>
     ${factionLegend()}
-    <div class="territory-grid">${territory.map(territoryCard).join('')}</div>
+    <div class="territory-grid">${groupTerritory(territory).map(territoryCard).join('')}</div>
   </div>`;
 }
 
