@@ -1,7 +1,8 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction } = FW;
+const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, WEAPON_META } = FW;
 function loadDashboard(...args) { return FW.loadDashboard(...args); }
+function describeItem(...args) { return FW.describeItem(...args); }
 
 const TRUST_PRESETS = {
   untrusted: -1000,
@@ -73,6 +74,35 @@ async function loadVendors() {
   }
 }
 
+// NPCVendorTypes rows are the 6 shop-type vendors, a separate/narrower table
+// from VENDOR_ROSTER's wiki-named NPCs (which internal row is "Kane" vs
+// "Luca" isn't derivable from the save, so this deliberately shows the raw
+// vendor name rather than guessing a mapping to the roster above).
+function prettyVendorName(name) {
+  return String(name).replace(/_V\d+$/, '').replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+function vendorItemLabel(itemId) {
+  const meta = WEAPON_META[itemId];
+  return meta ? meta.name : describeItem(itemId).wiki;
+}
+
+function renderVendorEconomy(economy) {
+  if (!economy || !Array.isArray(economy.vendors) || !economy.vendors.length) return '';
+  const rows = economy.vendors.map(v => {
+    const detail = v.lastReset ? `Last restocked ${new Date(v.lastReset).toLocaleString()}` : 'Never restocked yet';
+    const items = v.consumedItems.length
+      ? v.consumedItems.map(c => `<span class="stat-chip">${esc(vendorItemLabel(c.itemId))}<b>&times;${c.quantity}</b></span>`).join('')
+      : '<span class="dash-empty">Nothing sold to this vendor yet</span>';
+    return `<div class="stats-row"><div class="stats-row-main"><div class="stats-row-name">${esc(prettyVendorName(v.name))}</div><div class="stats-row-detail">${esc(detail)}</div></div><div class="stats-chips">${items}</div></div>`;
+  }).join('');
+  const overdue = economy.nextResetEvent && new Date(economy.nextResetEvent) < new Date();
+  const eventNote = economy.nextResetEvent
+    ? `<p class="char-hint">The save's shared restock event (one timer covering multiple shops) last pointed to ${esc(new Date(economy.nextResetEvent).toLocaleString())}${overdue ? ' — already elapsed, so a restock is due next time you play' : ''}. There's no separate per-vendor countdown recorded in the save.</p>`
+    : '';
+  return `<div class="vendor-section-title">Vendor Stock</div>${eventNote}${rows}`;
+}
+
 function renderVendors(data) {
   const el = document.getElementById('vendorsList');
   const factions = data.factions || [];
@@ -116,6 +146,8 @@ function renderVendors(data) {
     </article>`;
   }
   html += '</div>';
+
+  html += renderVendorEconomy(data.economy);
 
   // ---- Faction Trust ----
   html += '<div class="vendor-section-title">Faction Trust</div>';
