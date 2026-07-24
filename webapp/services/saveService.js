@@ -7,6 +7,21 @@ const config = require('./configService');
 const HUB_UPGRADE_DATA = require('../data/hub-upgrades.json');
 const MANAGED_HUB_TAGS = HUB_UPGRADE_DATA.upgrades.map(entry => entry.tag);
 const QUEST_DATA = require('../data/quests.canonical.json');
+const PRESTIGE_SKILLS_DATA = require('../data/prestige-skills.canonical.json');
+// Extracted once from the 100% reference save via
+// scripts/extract-prestige-reference.js -- see that script's header comment.
+// Validated at load time so a corrupted/hand-edited canonical file fails
+// fast at boot rather than silently writing wrong grants into a real save.
+if (!Array.isArray(PRESTIGE_SKILLS_DATA.skills) || PRESTIGE_SKILLS_DATA.skills.length !== 28) {
+  throw new Error(`prestige-skills.canonical.json is malformed: expected 28 skills, got ${PRESTIGE_SKILLS_DATA.skills && PRESTIGE_SKILLS_DATA.skills.length}`);
+}
+const PRESTIGE_SKILLS = PRESTIGE_SKILLS_DATA.skills.map(skill => {
+  if (!/^PlayerSkill\.Prestige\.(Health|SpeedBuff)\.\d{2}$/.test(skill.name) || !Number.isInteger(skill.threshold)) {
+    throw new Error(`prestige-skills.canonical.json has a malformed entry: ${JSON.stringify(skill)}`);
+  }
+  return skill;
+});
+const WEAPON_XP_REFERENCE = require('../data/weapon-xp-reference.canonical.json').weaponXp;
 
 // Best-effort friendly quest data (see scripts/generate-quest-data.js and
 // data/quest-map-overrides.json). Most save quest tags have no automatic
@@ -37,7 +52,7 @@ const SAVE_FILES = [
 function toNumber(value, label) {
   const n = Number(value);
   if (!Number.isFinite(n)) {
-    throw new Error(`Invalid ${label || 'number'}: ${JSON.stringify(value)}`);
+    throw Object.assign(new Error(`Invalid ${label || 'number'}: expected a finite number, got ${JSON.stringify(value)}`), { status: 400 });
   }
   return n;
 }
@@ -61,13 +76,13 @@ function requireChangedRows(raw, expected, label) {
 // break the shell command we pipe in.
 function sqlStr(value, label) {
   if (typeof value !== 'string') {
-    throw new Error(`Invalid ${label || 'string'}: expected text`);
+    throw Object.assign(new Error(`Invalid ${label || 'string'}: expected text, got ${typeof value}`), { status: 400 });
   }
   if (value.includes('\0')) {
-    throw new Error(`Invalid ${label || 'string'}: contains NUL`);
+    throw Object.assign(new Error(`Invalid ${label || 'string'}: contains a NUL character, which is not allowed`), { status: 400 });
   }
   if (value.includes('\n') || value.includes('\r')) {
-    throw new Error(`Invalid ${label || 'string'}: contains newline`);
+    throw Object.assign(new Error(`Invalid ${label || 'string'}: contains a newline character, which is not allowed`), { status: 400 });
   }
   return value.replace(/'/g, "''");
 }
@@ -155,22 +170,11 @@ async function setPrestige(key, characterId, targetLevel) {
   const dbPath = getSavePaths()[0];
   const lvl = toInteger(targetLevel, 'targetLevel', { min: 0, max: 50 });
   const cid = toInteger(characterId, 'characterId', { min: 1 });
-  const referencePath = path.resolve(__dirname, '..', '..', 'reference', 'YOUR_HASHCODE_HERE.dat');
-  if (!fs.existsSync(referencePath)) throw Object.assign(new Error('Prestige reference save is unavailable'), { status: 503 });
-  const referenceRows = await runShell(referencePath, key, [
-    `SELECT SkillName, State FROM CharacterSkills WHERE CharacterTypeID = ${cid} AND SkillName LIKE 'PlayerSkill.Prestige.%' ORDER BY SkillName`
-  ]);
-  if (referenceRows.length !== 28) throw Object.assign(new Error(`Prestige reference has ${referenceRows.length} rows; expected 28`), { status: 503 });
-  const grants = referenceRows.map(row => {
-    const [rawName, rawState] = row.split('|');
-    const name = sqlStr(rawName, 'skillName');
-    if (Number.parseInt(rawState, 10) !== 1) throw Object.assign(new Error(`Unexpected prestige reference state for ${rawName}`), { status: 503 });
-    const health = /^PlayerSkill\.Prestige\.Health\.(\d{2})$/.exec(rawName);
-    const speed = /^PlayerSkill\.Prestige\.SpeedBuff\.(\d{2})$/.exec(rawName);
-    if (!health && !speed) throw Object.assign(new Error(`Unknown prestige reference row: ${rawName}`), { status: 503 });
-    const threshold = health ? Number(health[1]) : Number(speed[1]) * 6;
-    return { rawName, name, state: lvl >= threshold ? 1 : 0 };
-  });
+  const grants = PRESTIGE_SKILLS.map(skill => ({
+    rawName: skill.name,
+    name: sqlStr(skill.name, 'skillName'),
+    state: lvl >= skill.threshold ? 1 : 0
+  }));
 
   const beforeIntegrity = await runIntegrityCheck(dbPath, key);
   const beforeFk = await validateForeignKeys(dbPath, key);
@@ -285,32 +289,13 @@ async function listWeaponXp(key) {
 }
 
 // Reference 100% save weapon XP values, used as a per-weapon target baseline.
-// The reference lives in the project's reference/ folder (a 100% save export);
-// it is NOT tied to the active live save dir and is only read on demand, never
-// cached, so a key/reference change is picked up without a restart. Missing or
-// unreadable reference is treated as "no baseline available" (returns {}).
-async function getReferenceWeaponXp(key) {
-  const fs = require('fs');
-  const path = require('path');
-  const refPath = path.join(
-    __dirname, '..', '..', 'reference', 'YOUR_HASHCODE_HERE.dat'
-  );
-  if (!fs.existsSync(refPath)) return {};
-  try {
-    const results = await runShell(refPath, key, [
-      `SELECT ns.Name, sc.Value FROM ScopedCounterValues sc JOIN Names ns ON ns.NameID = sc.ScopeID WHERE ns.Name LIKE 'Scope.Weapon.%' ORDER BY ns.Name`
-    ]);
-    const ref = {};
-    for (const r of results) {
-      const [name, value] = r.split('|');
-      if (name && name.startsWith('Scope.Weapon.')) {
-        ref[name] = parseFloat(value);
-      }
-    }
-    return ref;
-  } catch {
-    return {};
-  }
+// Extracted once from the 100% reference save via
+// scripts/extract-weapon-xp-reference.js (see that script's header comment;
+// same fix as prestige-skills.canonical.json -- avoids a runtime dependency
+// on reference/*.dat, which is gitignored and never bundled into release
+// builds). key is accepted only for call-site/signature compatibility.
+async function getReferenceWeaponXp(_key) {
+  return { ...WEAPON_XP_REFERENCE };
 }
 
 async function setWeaponXp(key, weaponScope, xp) {
@@ -369,7 +354,13 @@ async function setWeaponXp(key, weaponScope, xp) {
 async function batchSetWeaponXp(key, items) {
   const dbPath = getSavePaths()[0];
   if(!Array.isArray(items)||items.length<1||items.length>250)throw Object.assign(new Error('items must contain 1 to 250 entries'),{status:400});
-  const normalized=items.map(it=>({scope:sqlStr(String(it.scope),'scope'),originalScope:String(it.scope),value:toInteger(it.xp,'xp',{min:0})}));
+  // Label each field with its position/scope so a single bad entry in a
+  // batch of up to 250 says exactly which one failed, instead of a bare
+  // "Invalid xp" that leaves the caller to guess which item was the problem.
+  const normalized=items.map((it,index)=>{
+    const context=`item ${index+1} of ${items.length}, scope ${JSON.stringify(it.scope)}`;
+    return {scope:sqlStr(String(it.scope),`scope (${context})`),originalScope:String(it.scope),value:toInteger(it.xp,`xp (${context})`,{min:0})};
+  });
   if(new Set(normalized.map(it=>it.scope)).size!==normalized.length)throw Object.assign(new Error('Duplicate weapon scopes are not allowed'),{status:400});
   const scopeRows=await runShell(dbPath,key,[`SELECT Name,NameID FROM Names WHERE Name IN (${normalized.map(it=>`'${it.scope}'`).join(',')})`]);
   const ids=new Map(scopeRows.map(row=>{const [name,id]=row.split('|');return [name,id];}));

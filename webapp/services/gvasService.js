@@ -208,10 +208,18 @@ function extractItems(json) {
 // Normalize to unique names with summed quantities. The game can store the same
 // RowName under multiple entries; the UI wants one row per item. When an item
 // exists in more than one source map we keep the most specific label (Base
-// Weapons / Damaged Weapons win over the generic Items bucket).
+// Weapons / Damaged Weapons win over the generic Items bucket) for display,
+// but this is a lossy merge -- e.g. a real 100%-progress save was found with
+// WPN_RFL01_MAG_545_08 holding qty 2 in Items_0 AND qty 5 in Weapons_0
+// simultaneously, which this collapses into one "qty 7, Base Weapons" row.
+// updateInventoryItem() refuses to blind-write such collisions (see its
+// sourceMap handling below); this just makes the collision visible in logs
+// instead of silently producing a merged total that can't be safely edited
+// as a single value.
 function normalizeItems(entries) {
   const RANK = { 'Base Weapons': 2, 'Damaged Weapons': 1, 'Items': 0 };
   const byName = new Map();
+  const sourceMapsByName = new Map();
   for (const e of entries) {
     if (e.quantity == null) continue;
     const cur = byName.get(e.name) || { name: e.name, quantity: 0, sourceMap: e.sourceMap };
@@ -220,6 +228,14 @@ function normalizeItems(entries) {
       cur.sourceMap = e.sourceMap;
     }
     byName.set(e.name, cur);
+    const seen = sourceMapsByName.get(e.name) || new Set();
+    seen.add(e.sourceMap);
+    sourceMapsByName.set(e.name, seen);
+  }
+  for (const [name, seen] of sourceMapsByName) {
+    if (seen.size > 1) {
+      console.warn(`[gvasService] inventory ID collision: "${name}" appears in multiple maps (${[...seen].join(', ')}); displayed quantity is a merged sum and cannot be set as a single value -- use a sourceMap-specific update`);
+    }
   }
   return [...byName.values()].map(i => ({
     name: i.name,
@@ -499,6 +515,29 @@ function findMapsForItem(props, itemName) {
   return found;
 }
 
+// Decide which map(s) an update should target: the caller's sourceMap hint if
+// given, else auto-detect by scanning every inventory map for the matching
+// RowName. A name found in more than one map with no explicit sourceMap is
+// ambiguous -- updateInventoryItem writes the same target quantity into every
+// entry it touches, so silently accepting all matches would multiply the real
+// total instead of setting it (confirmed against a real save: an entry named
+// WPN_RFL01_MAG_545_08 existed in both Items_0 (qty 2) and Weapons_0 (qty 5)
+// at once; see the normalizeItems() comment). Refuse rather than guess.
+function resolveUpdateTargets(props, itemName, sourceMap) {
+  let targetProps;
+  if (sourceMap && SOURCE_MAP_TO_PROP[sourceMap] && Array.isArray(props[SOURCE_MAP_TO_PROP[sourceMap]])) {
+    targetProps = [SOURCE_MAP_TO_PROP[sourceMap]];
+  } else {
+    targetProps = findMapsForItem(props, itemName);
+  }
+  if (!targetProps.length) throw new Error(`Item ${itemName} not found in TempInventory`);
+  if (!sourceMap && targetProps.length > 1) {
+    const labels = targetProps.map(p => PROP_TO_SOURCE_MAP[p] || p);
+    throw Object.assign(new Error(`Item ${itemName} exists in multiple inventory maps (${labels.join(', ')}); specify sourceMap to update one of them instead of writing the same quantity into all of them`), { status: 409 });
+  }
+  return targetProps;
+}
+
 async function updateInventoryItem(key, itemName, quantity, sourceMap) {
   const getHashes = () => require('./saveService').getFileHashes();
   const dbPath = getSavePaths()[0];
@@ -511,15 +550,7 @@ async function updateInventoryItem(key, itemName, quantity, sourceMap) {
   const json = await requireByteIdenticalRoundTrip(blob);
   const props = json && json.root && json.root.properties;
 
-  // Decide which maps to edit: the caller's hint (if any) first, then auto-detect
-  // by scanning every inventory map for the matching RowName.
-  let targetProps = [];
-  if (sourceMap && SOURCE_MAP_TO_PROP[sourceMap] && Array.isArray(props[SOURCE_MAP_TO_PROP[sourceMap]])) {
-    targetProps = [SOURCE_MAP_TO_PROP[sourceMap]];
-  } else {
-    targetProps = findMapsForItem(props, itemName);
-  }
-  if (!targetProps.length) throw new Error(`Item ${itemName} not found in TempInventory`);
+  const targetProps = resolveUpdateTargets(props, itemName, sourceMap);
 
   // Edit the REAL json nodes in place (mutating extractItems() output is a
   // no-op because that function strips the nested value object). Match by
@@ -729,5 +760,9 @@ module.exports = {
   normalizeTopLevelProperty,
   getRigCatalog,
   applyRigOwnershipToProps,
-  applyHighQualitySetToProps
+  applyHighQualitySetToProps,
+  extractItems,
+  normalizeItems,
+  findMapsForItem,
+  resolveUpdateTargets
 };
