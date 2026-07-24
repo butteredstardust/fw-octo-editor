@@ -106,7 +106,18 @@ function itemPresentation(name, meta = {}) {
   else if (lower.includes('quest items') && tags.length === 1) { cat = 'Quest'; sub = 'Quest items'; }
   else if (meta.taxonomyGroup === 'Loot') { cat = 'Loot'; sub = tags[0] || 'Loot'; }
   const wiki = meta.wiki && meta.wiki !== name ? meta.wiki : cleanFallbackName(name);
-  return { wiki, cat, sub, slot, sourceMap, exactName: !!(meta.wiki && meta.wiki !== name) };
+  return { wiki, cat, sub, slot, sourceMap, exactName: !!(meta.wiki && meta.wiki !== name), buffs: meta.buffs || null, debuffs: meta.debuffs || null };
+}
+
+// Buffs/debuffs come straight from the wiki's Cargo item data (see
+// scripts/fetch-wiki-items.js) -- only ever shown when the wiki actually has
+// text for that item, never invented. Weapons/attachments/scopes have no
+// such field in Cargo, so this only ever renders for general items.
+function itemDescription(buffs, debuffs) {
+  if (!buffs && !debuffs) return '';
+  const buffLine = buffs ? `<div class="item-desc-buff">${esc(buffs)}</div>` : '';
+  const debuffLine = debuffs ? `<div class="item-desc-debuff">${esc(debuffs)}</div>` : '';
+  return `<div class="item-desc">${buffLine}${debuffLine}</div>`;
 }
 
 async function loadCatalog() {
@@ -269,6 +280,7 @@ function renderInventory() {
             </div>
             ${itemCategoryPills(r.d.cat, r.d.sub, r.sourceMap)}
             <div class="inv-tag">${technicalDetails(r.name)}${r.d.slot ? ` <span>${esc(r.d.slot)}</span>` : ''}</div>
+            ${itemDescription(r.d.buffs, r.d.debuffs)}
             ${r.validLayout ? '' : '<span class="inv-invalid-flag">Needs review</span>'}
             <div class="operation-inline" id="op-${enc}" aria-live="polite"></div>
           </div>
@@ -446,6 +458,7 @@ function renderAddCatalog() {
           <div class="add-name" title="${esc(r.id)}">${esc(r.wiki || cleanFallbackName(r.id))}${technicalDetails(r.id)}${hv}</div>
           ${itemCategoryPills(r.grp, r.sub || r.category, sourceMapForCatalog(r))}
           <div class="add-tag">${technicalDetails(r.id)}</div>
+          ${itemDescription(r.buffs, r.debuffs)}
           <div class="${haveCls}">${haveTxt}${owned ? ' · edit on Inventory page' : ''}</div>
           <div class="operation-inline" id="addop-${enc}" aria-live="polite"></div>
         </div>

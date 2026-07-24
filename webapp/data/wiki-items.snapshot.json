@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-07-18T21:28:11.969Z",
+  "fetchedAt": "2026-07-24T19:54:00.937Z",
   "sourceUrl": "https://theforeverwinter.wiki.gg/api.php",
   "cargoTable": "Items",
   "items": [
@@ -11,7 +11,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.308",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": ".357 Magnum Ammo",
@@ -20,7 +22,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.357",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": ".45 ACP Ammo",
@@ -29,7 +33,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.45acp",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": ".50 BMG",
@@ -38,7 +44,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.50cal",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": ".50 PST Ammo",
@@ -47,7 +55,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.50PST",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "\"Beef\" Flavor Packet",
@@ -56,7 +66,9 @@
       "internalTag": "Inventory.Item.RareLoot_110_Soidum",
       "categories": [
         "Provisions"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "12-Gauge Buckshot",
@@ -65,7 +77,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.12g",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "12.7x55mm Subsonic Ammo",
@@ -74,7 +88,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.127",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "20mm Turret",
@@ -84,7 +100,9 @@
       "categories": [
         "Equipment",
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "20x105mm Anti-Tank",
@@ -93,7 +111,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.20mm",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "36M AntiTank",
@@ -103,7 +123,9 @@
       "categories": [
         "Weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "40mm Grenade",
@@ -112,7 +134,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.40mmHE",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "47 TYP",
@@ -122,7 +146,9 @@
       "categories": [
         "Weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "5.45x39mm Ammo",
@@ -131,7 +157,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.545",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "5.45x39mm Ammo Surplus",
@@ -140,7 +168,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.545.Junk",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "5.45x39mm Cryo Ammo",
@@ -149,7 +179,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.545.Cryo",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "5.56x45mm Ammo",
@@ -158,7 +190,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.556",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "5.7x28mm Ammo",
@@ -167,7 +201,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.57x28",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "7.62x39mm Ammo",
@@ -176,7 +212,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.762",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "7.62x54mmR Ammo",
@@ -185,7 +223,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.54R",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "87 Target",
@@ -194,7 +234,9 @@
       "internalTag": "Inventory.Weapon.PST03",
       "categories": [
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "9x19mm Ammo",
@@ -203,7 +245,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.919",
       "categories": [
         "Ammo"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AA-12 Handguard",
@@ -213,7 +257,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AA12",
@@ -222,7 +268,9 @@
       "internalTag": "Inventory.Weapon.SHG05",
       "categories": [
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AA12 Shotgun Magazine A",
@@ -232,7 +280,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AA12 Shotgun Magazine B",
@@ -242,7 +292,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Absinthe",
@@ -254,7 +306,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "ACG 2x",
@@ -264,7 +318,9 @@
       "categories": [
         "Weapon attachments",
         "Scope"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Adrenaline Stim",
@@ -274,7 +330,9 @@
       "categories": [
         "Consumables",
         "Medical"
-      ]
+      ],
+      "buffs": "Stamina restored / drain reduced for 10s",
+      "debuffs": null
     },
     {
       "name": "Advanced First Aid Kit",
@@ -284,7 +342,9 @@
       "categories": [
         "Consumables",
         "Medical"
-      ]
+      ],
+      "buffs": "Heals 678 HP over 7 seconds.",
+      "debuffs": null
     },
     {
       "name": "Advanced Joint",
@@ -294,7 +354,9 @@
       "categories": [
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Advanced Navigation Device",
@@ -303,7 +365,9 @@
       "internalTag": "Inventory.Item.RareLoot_20_MilitaryComputer",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Advanced Pliers",
@@ -312,7 +376,9 @@
       "internalTag": "Inventory.Item.RareLoot_45_AdvancedPliers",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Aimp H2 Optic",
@@ -322,7 +388,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Aimp Micro Optic",
@@ -332,7 +400,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AK",
@@ -341,7 +411,9 @@
       "internalTag": "Inventory.Weapon.RFL01",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AK Barrel B",
@@ -351,7 +423,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AK Barrel C",
@@ -361,7 +435,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Analog Headset",
@@ -371,7 +447,9 @@
       "categories": [
         "Civil goods",
         "Shelf decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Anti-Vertex Bolt Cutters",
@@ -380,7 +458,9 @@
       "internalTag": "Inventory.Item.RareLoot_38_PrecisionBoltCutters",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "APC9 Pro",
@@ -390,7 +470,9 @@
       "categories": [
         "Weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "APC9 Pro Barrel A",
@@ -400,7 +482,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "APC9 Pro Barrel B",
@@ -410,7 +494,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "APC9 Pro Stock A",
@@ -420,7 +506,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Armorer's Wrench",
@@ -430,7 +518,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Assorted Medicine",
@@ -440,7 +530,9 @@
       "categories": [
         "Medical",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AT-43 Breech Assembly",
@@ -450,7 +542,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AT-43 Feed Mechanism",
@@ -460,7 +554,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AT-43 MASS",
@@ -470,7 +566,9 @@
       "categories": [
         "Weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AT-43 Muzzle Break",
@@ -480,7 +578,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AT-43 Spring System",
@@ -490,7 +590,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "AT-43 Trigger Assembly",
@@ -500,7 +602,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Ball Bearings",
@@ -509,7 +613,9 @@
       "internalTag": "Inventory.Item.BallBearings",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Bandages",
@@ -519,7 +625,9 @@
       "categories": [
         "Medical",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Banner of the Red Baron",
@@ -529,7 +637,9 @@
       "categories": [
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Bar Supplies",
@@ -539,7 +649,9 @@
       "categories": [
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Basic Pliers",
@@ -548,7 +660,9 @@
       "internalTag": "Inventory.Item.RareLoot_44_BasicPliers",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Battery",
@@ -557,7 +671,9 @@
       "internalTag": "Inventory.Item.RareLoot_134_Battery",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Battery Charger",
@@ -566,7 +682,9 @@
       "internalTag": "Inventory.Item.RareLoot_138_RechargeableBatteryCharger",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Battle Plans",
@@ -575,7 +693,9 @@
       "internalTag": "Inventory.Item.Quest_Battle_Plans",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Beer",
@@ -587,7 +707,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Blood Packs",
@@ -596,7 +718,9 @@
       "internalTag": "Inventory.Item.RareLoot_83_BloodPacs",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Boinco Candy Bar",
@@ -607,7 +731,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP for 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Bolt Cutters",
@@ -616,7 +742,9 @@
       "internalTag": "Inventory.Item.RareLoot_37_BoltCutters",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Bolts",
@@ -625,7 +753,9 @@
       "internalTag": "Inventory.Item.RareLoot_33_Bolts",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Brandy",
@@ -637,7 +767,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Brawler Insignia",
@@ -646,7 +778,9 @@
       "internalTag": "Inventory.Item.Quest_Brawler_Insignia",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Brawler Spinal Joint",
@@ -655,7 +789,9 @@
       "internalTag": "Inventory.Item.Quest_SpineComponent",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Bug Spray",
@@ -664,7 +800,9 @@
       "internalTag": "Inventory.Item.RareLoot_113_BugSpray",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Bulkhead Lights",
@@ -673,7 +811,9 @@
       "internalTag": "Inventory.Item.RareLoot_62_AdvancedLightBulbs",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "C96",
@@ -682,7 +822,9 @@
       "internalTag": "Inventory.Weapon.PST04",
       "categories": [
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "C96 Pistol Receiver A",
@@ -692,7 +834,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "C96 Pistol Receiver B",
@@ -702,7 +846,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Camera",
@@ -711,7 +857,9 @@
       "internalTag": "Inventory.Item.RareLoot_120_Camera",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Camera Lens",
@@ -721,7 +869,9 @@
       "categories": [
         "Civil goods",
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Car Battery",
@@ -730,7 +880,9 @@
       "internalTag": "Inventory.Item.RareLoot_136_CarBattery",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Carbon Fiber",
@@ -739,7 +891,9 @@
       "internalTag": "Inventory.Item.RareLoot_116_CarbonFiber",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Carbon Fiber Tube",
@@ -748,7 +902,9 @@
       "internalTag": "Inventory.Item.RareLoot_57_CarbonFiberTube",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Clamp",
@@ -757,7 +913,9 @@
       "internalTag": "Inventory.Item.RareLoot_67_ReleaseClamp",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "CLAW",
@@ -767,7 +925,9 @@
       "categories": [
         "Weapons",
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Cleaner",
@@ -776,7 +936,9 @@
       "internalTag": "Inventory.Item.RareLoot_73_Cleaner",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Clear Tube",
@@ -785,7 +947,9 @@
       "internalTag": "Inventory.Item.RareLoot_59_ClearTube",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Cluster Grenade",
@@ -794,7 +958,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.ClusterGrenade",
       "categories": [
         "Grenades"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Codex",
@@ -803,7 +969,9 @@
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Comms Device",
@@ -812,7 +980,9 @@
       "internalTag": "Inventory.Item.Quest_CommsDevice",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Computer Fan",
@@ -821,7 +991,9 @@
       "internalTag": "Inventory.Item.RareLoot_17_ComputerFan",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Concrete Mixer",
@@ -830,7 +1002,9 @@
       "internalTag": "Inventory.Item.RareLoot_77_ConcreteMixer",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Concrete Powder",
@@ -839,7 +1013,9 @@
       "internalTag": "Inventory.Item.RareLoot_76_ConcretePowder",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Construction Drone",
@@ -848,7 +1024,9 @@
       "internalTag": "Inventory.Item.Drone_Construction",
       "categories": [
         "Utility drones"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Construction Foam",
@@ -857,7 +1035,9 @@
       "internalTag": "Inventory.Item.RareLoot_75_ConstructionFoam",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Construction Glue",
@@ -866,7 +1046,9 @@
       "internalTag": "Inventory.Item.RareLoot_8_ConstructionGlue",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Convoy Schedule",
@@ -875,7 +1057,9 @@
       "internalTag": "Inventory.Item.Quest_ConvoySchedule",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Cordura",
@@ -884,7 +1068,9 @@
       "internalTag": "Inventory.Item.RareLoot_115_Cordura",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Corpse Tank Control Panel",
@@ -893,7 +1079,9 @@
       "internalTag": "Inventory.Item.Quest_Merkava_BodyBoss",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "CPU",
@@ -902,7 +1090,9 @@
       "internalTag": "Inventory.Item.RareLoot_9_CPU",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Crowbar",
@@ -911,7 +1101,9 @@
       "internalTag": "Inventory.Item.RareLoot_52_Crowbar",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Crucible",
@@ -921,7 +1113,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Cybernetic Lungs",
@@ -930,7 +1124,9 @@
       "internalTag": "Inventory.Item.Quest_Cbyerlung",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Cyborg Immunosuppressant",
@@ -939,7 +1135,9 @@
       "internalTag": "Inventory.Item.RareLoot_91_CyborgImmunosuppressant",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Cyborg's Head",
@@ -949,7 +1147,9 @@
       "categories": [
         "Quest items",
         "Shelf decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Data Cache",
@@ -958,7 +1158,9 @@
       "internalTag": "Inventory.Item.DataCache_Quest",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Decoy Grenade",
@@ -967,7 +1169,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.NoiseMakerGrenade",
       "categories": [
         "Grenades"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Deep Fried Coffee",
@@ -976,7 +1180,9 @@
       "internalTag": "Inventory.Item.RareLoot_118_Coffee",
       "categories": [
         "Provisions"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Deployable Drill",
@@ -986,7 +1192,9 @@
       "categories": [
         "Consumables",
         "Military"
-      ]
+      ],
+      "buffs": "Opens locked containers and doors",
+      "debuffs": null
     },
     {
       "name": "Destroyed 36M AntiTank",
@@ -996,7 +1204,9 @@
       "categories": [
         "Destroyed weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed 87 Target Pistol",
@@ -1006,7 +1216,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed AA12",
@@ -1016,7 +1228,9 @@
       "categories": [
         "Destroyed weapons",
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed AK",
@@ -1026,7 +1240,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed APC9 Pro",
@@ -1036,7 +1252,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed C96 Pistol",
@@ -1046,7 +1264,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed G36",
@@ -1056,7 +1276,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Glock 19 Pistol",
@@ -1066,7 +1288,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed GM6",
@@ -1076,7 +1300,9 @@
       "categories": [
         "Destroyed weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Grenade Launcher",
@@ -1086,7 +1312,9 @@
       "categories": [
         "Destroyed weapons",
         "Grenade Launchers"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed HMG",
@@ -1096,7 +1324,9 @@
       "categories": [
         "Destroyed weapons",
         "Heavy Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Kriss Vector 45",
@@ -1106,7 +1336,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed M16",
@@ -1116,7 +1348,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed M4",
@@ -1126,7 +1360,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed M60",
@@ -1136,7 +1372,9 @@
       "categories": [
         "Destroyed weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed M79 Pistol",
@@ -1147,7 +1385,9 @@
         "Destroyed weapons",
         "Pistols",
         "Grenade Launchers"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed MG34",
@@ -1157,7 +1397,9 @@
       "categories": [
         "Destroyed weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed NTW-20",
@@ -1167,7 +1409,9 @@
       "categories": [
         "Destroyed weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed P90",
@@ -1177,7 +1421,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed PM-9",
@@ -1187,7 +1433,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed PP-19 Vityaz",
@@ -1197,7 +1445,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed PPSH-41",
@@ -1207,7 +1457,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed R8 Pistol",
@@ -1217,7 +1469,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed RPD",
@@ -1227,7 +1481,9 @@
       "categories": [
         "Destroyed weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed RPK",
@@ -1237,7 +1493,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed RSASS",
@@ -1247,7 +1505,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed S12",
@@ -1257,7 +1517,9 @@
       "categories": [
         "Destroyed weapons",
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed SA58",
@@ -1267,7 +1529,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed SAW",
@@ -1277,7 +1541,9 @@
       "categories": [
         "Destroyed weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed SCAR",
@@ -1287,7 +1553,9 @@
       "categories": [
         "Destroyed weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed SOG Pistol",
@@ -1297,7 +1565,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Spectre M4",
@@ -1307,7 +1577,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed SVD",
@@ -1317,7 +1589,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed TKB-0146",
@@ -1327,7 +1601,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed USAS-12",
@@ -1337,7 +1613,9 @@
       "categories": [
         "Destroyed weapons",
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed USP Pistol",
@@ -1347,7 +1625,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Vepr-12",
@@ -1357,7 +1637,9 @@
       "categories": [
         "Destroyed weapons",
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Viper Pistol",
@@ -1367,7 +1649,9 @@
       "categories": [
         "Destroyed weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed VKS Vykhlop",
@@ -1377,7 +1661,9 @@
       "categories": [
         "Destroyed weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed Walther MPL",
@@ -1387,7 +1673,9 @@
       "categories": [
         "Destroyed weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Destroyed XM25",
@@ -1397,7 +1685,9 @@
       "categories": [
         "Destroyed weapons",
         "Grenade Launchers"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Diagnostic Scanner",
@@ -1407,7 +1697,9 @@
       "categories": [
         "Medical",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Diodegradable Multi-tool",
@@ -1417,7 +1709,9 @@
       "categories": [
         "Civil goods",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Dog Tags",
@@ -1426,7 +1720,9 @@
       "internalTag": "Inventory.Item.Quest_DogTags",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Dogboro Cigarettes",
@@ -1437,7 +1733,9 @@
         "Consumables",
         "Provisions",
         "Quest items"
-      ]
+      ],
+      "buffs": "Almost completely removes horizontal recoil * Drastically reduces vertical recoil",
+      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration"
     },
     {
       "name": "Dossier",
@@ -1446,7 +1744,9 @@
       "internalTag": "Inventory.Item.Plans05",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Drywall",
@@ -1455,7 +1755,9 @@
       "internalTag": "Inventory.Item.RareLoot_126_sheetrock",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Duct Tape",
@@ -1464,7 +1766,9 @@
       "internalTag": "Inventory.Item.RareLoot_4_DuctTape",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "E-Nuggets",
@@ -1474,7 +1778,9 @@
       "categories": [
         "Consumables",
         "Provisions"
-      ]
+      ],
+      "buffs": "Heals 80 HP over 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "E-TECH XP Optic",
@@ -1484,7 +1790,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "EDC Multi-tool",
@@ -1494,7 +1802,9 @@
       "categories": [
         "Civil goods",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Electric Motor",
@@ -1503,7 +1813,9 @@
       "internalTag": "Inventory.Item.RareLoot_31_ElectricMotor",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Encrypted Data Pad",
@@ -1512,7 +1824,9 @@
       "internalTag": "Inventory.Item.FrozenSwamp_LootObject_01",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Energy Bar",
@@ -1523,7 +1837,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP for 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "EOD Armor Plate",
@@ -1532,7 +1848,9 @@
       "internalTag": "Inventory.Item.Quest_EM_Armor_Shards",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "EOD Suit Component",
@@ -1541,7 +1859,9 @@
       "internalTag": "Inventory.Item.HK_Loot_Europa",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "ES Lamp",
@@ -1550,7 +1870,9 @@
       "internalTag": "Inventory.Item.RareLoot_65_ESLamp",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "ET EFX Optic",
@@ -1560,7 +1882,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "ET HWS EXP Optic",
@@ -1570,7 +1894,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "ET XP2 Optic",
@@ -1580,7 +1906,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Ethyl Alcohol",
@@ -1592,7 +1920,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Eurasian Brawler Components",
@@ -1601,7 +1931,9 @@
       "internalTag": "Inventory.Item.Brawler_Loot_Eurasia",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Eurasian Drone Cortex",
@@ -1611,7 +1943,9 @@
       "categories": [
         "Quest items",
         "Wall decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Eurasian IFF Chip LVL1",
@@ -1620,7 +1954,9 @@
       "internalTag": "Inventory.Item.IFF_Eurasia_01",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Eurasian IFF Chip LVL2",
@@ -1629,7 +1965,9 @@
       "internalTag": "Inventory.Item.IFF_Eurasia_02",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Eurasian IFF Chip LVL3",
@@ -1638,7 +1976,9 @@
       "internalTag": "Inventory.Item.IFF_Eurasia_03",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Eurasian Supply Crate",
@@ -1648,7 +1988,9 @@
       "categories": [
         "Large items",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Europa MilTech Radio",
@@ -1657,7 +1999,9 @@
       "internalTag": "Inventory.Item.Radio",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Europan Drone Flight Controller",
@@ -1666,7 +2010,9 @@
       "internalTag": "Inventory.Item.Drone_Debris_Loot_Europa",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Europan IFF Chip LVL1",
@@ -1675,7 +2021,9 @@
       "internalTag": "Inventory.Item.IFF_Europa_01",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Europan IFF Chip LVL2",
@@ -1684,7 +2032,9 @@
       "internalTag": "Inventory.Item.IFF_Europa_02",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Europan IFF Chip LVL3",
@@ -1693,7 +2043,9 @@
       "internalTag": "Inventory.Item.IFF_Europa_03",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Euruskan IFF Chip LVL1",
@@ -1702,7 +2054,9 @@
       "internalTag": "Inventory.Item.IFF_Euruskan_01",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Euruskan IFF Chip LVL2",
@@ -1711,7 +2065,9 @@
       "internalTag": "Inventory.Item.IFF_Euruskan_02",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Euruskan IFF Chip LVL3",
@@ -1720,7 +2076,9 @@
       "internalTag": "Inventory.Item.IFF_Euruskan_03",
       "categories": [
         "IFFs"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Euruskan Plans",
@@ -1729,7 +2087,9 @@
       "internalTag": "Inventory.Item.Validation_LootObject_01",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Exo Component",
@@ -1738,7 +2098,9 @@
       "internalTag": "Inventory.Item.ExoDebrisLoot",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Exo Hard Drive",
@@ -1747,7 +2109,9 @@
       "internalTag": "Inventory.Item.Quest_ExoHardDrive",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Exo Repair Kit",
@@ -1756,7 +2120,9 @@
       "internalTag": "Inventory.Item.Tools04",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Exo Stamina Equipment",
@@ -1766,7 +2132,9 @@
       "categories": [
         "Equipment",
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Explosive Charge",
@@ -1775,7 +2143,9 @@
       "internalTag": "Inventory.Item.RareLoot_106_PlasticExplosive",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Explosives",
@@ -1785,7 +2155,9 @@
       "categories": [
         "Large items",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Family Photo",
@@ -1794,7 +2166,9 @@
       "internalTag": "Inventory.Item.Quest_FamilyPhoto",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Fast Travel Drone",
@@ -1803,7 +2177,9 @@
       "internalTag": "Inventory.Item.Drone_FastTravel",
       "categories": [
         "Utility drones"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Fertilizer",
@@ -1813,7 +2189,9 @@
       "categories": [
         "Consumables",
         "Materials"
-      ]
+      ],
+      "buffs": "Heals 80 HP over 10 seconds.",
+      "debuffs": "You just ate feces."
     },
     {
       "name": "Field Repair Kit",
@@ -1822,7 +2200,9 @@
       "internalTag": "Inventory.Item.Tools01",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Fire Starter Kit",
@@ -1831,7 +2211,9 @@
       "internalTag": "Inventory.Item.RareLoot_104_FireStarterkit",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Fleece",
@@ -1840,7 +2222,9 @@
       "internalTag": "Inventory.Item.RareLoot_114_Fleece",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Food Tin",
@@ -1851,7 +2235,9 @@
         "Consumables",
         "Provisions",
         "Low value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP over 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Foregrip A",
@@ -1861,7 +2247,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip B",
@@ -1871,7 +2259,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip C",
@@ -1881,7 +2271,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip D",
@@ -1891,7 +2283,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip E",
@@ -1901,7 +2295,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip F",
@@ -1911,7 +2307,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip G",
@@ -1921,7 +2319,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip H",
@@ -1931,7 +2331,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip I",
@@ -1941,7 +2343,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip J",
@@ -1951,7 +2355,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip K",
@@ -1961,7 +2367,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip L",
@@ -1971,7 +2379,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip M",
@@ -1981,7 +2391,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip N",
@@ -1991,7 +2403,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip O",
@@ -2001,7 +2415,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip P",
@@ -2011,7 +2427,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Foregrip Q",
@@ -2021,7 +2439,9 @@
       "categories": [
         "Weapon attachments",
         "Foregrip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Frag Grenade",
@@ -2030,7 +2450,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.FragGrenade",
       "categories": [
         "Grenades"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Frequency Tap",
@@ -2040,7 +2462,9 @@
       "categories": [
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Fuse",
@@ -2049,7 +2473,9 @@
       "internalTag": "Inventory.Item.Fuse",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G-L 19",
@@ -2058,7 +2484,9 @@
       "internalTag": "Inventory.Weapon.PST10",
       "categories": [
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G-L 19 Magazine A",
@@ -2068,7 +2496,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G-L 19 Magazine B",
@@ -2078,7 +2508,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G-L 19 Upper Assmbly A",
@@ -2088,7 +2520,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G-L 19 Upper Assmbly B",
@@ -2098,7 +2532,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G-L 19 Upper Assmbly C",
@@ -2108,7 +2544,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36",
@@ -2118,7 +2556,9 @@
       "categories": [
         "Weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Barrel A",
@@ -2128,7 +2568,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Barrel B",
@@ -2138,7 +2580,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Barrel C",
@@ -2148,7 +2592,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Handguard A",
@@ -2158,7 +2604,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Handguard B",
@@ -2168,7 +2616,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Handguard C",
@@ -2178,7 +2628,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Handguard D",
@@ -2188,7 +2640,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Handguard E",
@@ -2198,7 +2652,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Magazine A",
@@ -2208,7 +2664,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Magazine B",
@@ -2218,7 +2676,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Receiver A",
@@ -2228,7 +2688,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Receiver B",
@@ -2238,7 +2700,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Receiver C",
@@ -2248,7 +2712,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Receiver D",
@@ -2258,7 +2724,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Stock A",
@@ -2268,7 +2736,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "G36 Stock B",
@@ -2278,7 +2748,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "GDC Food QUEST / item",
@@ -2287,7 +2759,9 @@
       "internalTag": null,
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Gin",
@@ -2299,7 +2773,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Glue",
@@ -2308,7 +2784,9 @@
       "internalTag": "Inventory.Item.RareLoot_1_Glue",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Glue Gun",
@@ -2317,7 +2795,9 @@
       "internalTag": "Inventory.Item.Tools02",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "GM6",
@@ -2327,7 +2807,9 @@
       "categories": [
         "Weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "God Sniper Equipment",
@@ -2337,7 +2819,9 @@
       "categories": [
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Goodies",
@@ -2347,7 +2831,9 @@
       "categories": [
         "Provisions",
         "Average value dog food"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "GP-5 Gas Mask",
@@ -2356,7 +2842,9 @@
       "internalTag": "Inventory.Item.RareLoot_140_GasmaskFilter",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Grenade Launcher",
@@ -2365,7 +2853,9 @@
       "internalTag": "Inventory.Weapon.GRL01",
       "categories": [
         "Grenade Launchers"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Grindstone",
@@ -2375,7 +2865,9 @@
       "categories": [
         "AT-43 components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Gunpowder",
@@ -2384,7 +2876,9 @@
       "internalTag": "Inventory.Item.GunPoweder",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Gyroscopic Stabilizer",
@@ -2393,7 +2887,9 @@
       "internalTag": "Inventory.Item.Quest_TargetingSoftwareChip",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "H-sun Optic",
@@ -2403,7 +2899,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Hammer",
@@ -2412,7 +2910,9 @@
       "internalTag": "Inventory.Item.RareLoot_41_Hammer",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Hand Drill",
@@ -2421,7 +2921,9 @@
       "internalTag": "Inventory.Item.RareLoot_40_HandDrill",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Happy Cookies",
@@ -2432,7 +2934,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP for 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Hard Drive",
@@ -2441,7 +2945,9 @@
       "internalTag": "Inventory.Item.RareLoot_12_HardDrive",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Hard Shell Laptop",
@@ -2450,7 +2956,9 @@
       "internalTag": "Inventory.Item.Plans09",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Heavy Joint Assembly",
@@ -2461,7 +2969,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Heavy-Duty Battery",
@@ -2470,7 +2980,9 @@
       "internalTag": "Inventory.Item.Tools11",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Heavy-Duty Trauma Kit",
@@ -2479,7 +2991,9 @@
       "internalTag": "Inventory.Item.RareLoot_85_AdvancedMedicalTools",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Heirloom Seeds",
@@ -2488,7 +3002,9 @@
       "internalTag": "Inventory.Item.RareLoot_123_Apocalypseseeds",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "High Capacity Hard Drive",
@@ -2497,7 +3013,9 @@
       "internalTag": "Inventory.Item.RareLoot_14_HDD",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "High Durability Rail Component",
@@ -2508,7 +3026,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "High-Frequency Radio",
@@ -2517,7 +3037,9 @@
       "internalTag": "Inventory.Item.AshenMesa_LootObject_01",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "HIND Navigation Computer",
@@ -2526,7 +3048,9 @@
       "internalTag": "Inventory.Item.Quest_HIND_Nav_Comp",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Hinoko Cigarettes",
@@ -2537,7 +3061,9 @@
         "Consumables",
         "Provisions",
         "Quest items"
-      ]
+      ],
+      "buffs": "Almost completely removes horizontal recoil * Drastically reduces vertical recoil",
+      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration"
     },
     {
       "name": "HK CAWS Magazine B",
@@ -2547,7 +3073,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Hose",
@@ -2556,7 +3084,9 @@
       "internalTag": "Inventory.Item.RareLoot_56_Hose",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "IED",
@@ -2566,7 +3096,9 @@
       "categories": [
         "Equipment",
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Industrial Black Light",
@@ -2575,7 +3107,9 @@
       "internalTag": "Inventory.Item.RareLoot_66_Blacklight",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Industrial Chemicals",
@@ -2584,7 +3118,9 @@
       "internalTag": "Inventory.Item.RareLoot_111_Salt",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Industrial Sealant",
@@ -2593,7 +3129,9 @@
       "internalTag": "Inventory.Item.RareLoot_2_SealantBuildingGlue",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Intelligence Cassette",
@@ -2602,7 +3140,9 @@
       "internalTag": "Inventory.Item.Plans01",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Intelligence Disk",
@@ -2611,7 +3151,9 @@
       "internalTag": "Inventory.Item.Plans02",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Intermediate Tool Set",
@@ -2620,7 +3162,9 @@
       "internalTag": "Inventory.Item.RareLoot_48_MastertoldSet",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Item Extraction Beacon",
@@ -2629,7 +3173,9 @@
       "internalTag": "Inventory.Item.AntiBossExtractSummon",
       "categories": [
         "Consumables"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Jammer",
@@ -2640,7 +3186,9 @@
         "Large items",
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Jerrycan",
@@ -2649,7 +3197,9 @@
       "internalTag": "Inventory.Dangly.BP_ActivityItem_Jerrycan",
       "categories": [
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Jumper Cable Kit",
@@ -2658,7 +3208,9 @@
       "internalTag": "Inventory.Item.Tools03",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Gas Tube B",
@@ -2668,7 +3220,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Gas Tube C",
@@ -2678,7 +3232,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Gas Tube D",
@@ -2688,7 +3244,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Gas Tube E",
@@ -2698,7 +3256,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Grip A",
@@ -2708,7 +3268,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Grip A-1",
@@ -2718,7 +3280,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Grip A-2",
@@ -2728,7 +3292,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Grip B",
@@ -2738,7 +3304,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Grip C",
@@ -2748,7 +3316,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Grip D",
@@ -2758,7 +3328,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard B",
@@ -2768,7 +3340,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard B-1",
@@ -2778,7 +3352,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard B-2",
@@ -2788,7 +3364,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard C",
@@ -2798,7 +3376,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard D",
@@ -2808,7 +3388,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard E",
@@ -2818,7 +3400,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard F",
@@ -2828,7 +3412,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard G",
@@ -2838,7 +3424,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard H",
@@ -2848,7 +3436,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard I",
@@ -2858,7 +3448,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Handguard J",
@@ -2868,7 +3460,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine A",
@@ -2878,7 +3472,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine B",
@@ -2888,7 +3484,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine C",
@@ -2898,7 +3496,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine D",
@@ -2908,7 +3508,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine E",
@@ -2918,7 +3520,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine E-1",
@@ -2928,7 +3532,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine F",
@@ -2938,7 +3544,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine G",
@@ -2948,7 +3556,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine H",
@@ -2958,7 +3568,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Magazine I",
@@ -2968,7 +3580,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock A",
@@ -2978,7 +3592,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock B",
@@ -2988,7 +3604,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock B-1",
@@ -2998,7 +3616,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock B-2",
@@ -3008,7 +3628,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock C",
@@ -3018,7 +3640,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock C-1",
@@ -3028,7 +3652,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock C-2",
@@ -3038,7 +3664,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock D",
@@ -3048,7 +3676,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Stock E",
@@ -3058,7 +3688,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Upper Assembly A",
@@ -3068,7 +3700,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kala Upper Assembly B",
@@ -3078,7 +3712,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kriss Vector 45",
@@ -3088,7 +3724,9 @@
       "categories": [
         "Weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kriss Vector Handguard A",
@@ -3098,7 +3736,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Kriss Vector Handguard B",
@@ -3108,7 +3748,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Large Lockbox",
@@ -3117,7 +3759,9 @@
       "internalTag": "Inventory.Dangly.BP_LockBox_Large_C",
       "categories": [
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Laser Rangefinder",
@@ -3127,7 +3771,9 @@
       "categories": [
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "LCD",
@@ -3136,7 +3782,9 @@
       "internalTag": "Inventory.Item.RareLoot_24_LCD",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Leather Hole Punch",
@@ -3145,7 +3793,9 @@
       "internalTag": "Inventory.Item.RareLoot_53_Punch",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Light Bulb",
@@ -3154,7 +3804,9 @@
       "internalTag": "Inventory.Item.RareLoot_64_LightBulb",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Light Bulbs",
@@ -3163,7 +3815,9 @@
       "internalTag": "Inventory.Item.RareLoot_61_LightBulbs",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Lighter",
@@ -3172,7 +3826,9 @@
       "internalTag": "Inventory.Item.RareLoot_60_Lighter",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Liquid Coolant",
@@ -3181,7 +3837,9 @@
       "internalTag": "Inventory.Item.RareLoot_70_LiquidCooling",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Liquid Cooling Unit",
@@ -3190,7 +3848,9 @@
       "internalTag": "Inventory.Item.RareLoot_93_LiquidCoolingUnit",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "LMG-P",
@@ -3200,7 +3860,9 @@
       "categories": [
         "Weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Logbook",
@@ -3209,7 +3871,9 @@
       "internalTag": "Inventory.Item.Quest_Logbook",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16",
@@ -3218,7 +3882,9 @@
       "internalTag": "Inventory.Weapon.RFL23",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Barrel A",
@@ -3228,7 +3894,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Gas Tube A",
@@ -3238,7 +3906,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Gas Tube B",
@@ -3248,7 +3918,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard A",
@@ -3258,7 +3930,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard B",
@@ -3268,7 +3942,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard C",
@@ -3278,7 +3954,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard D",
@@ -3288,7 +3966,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard E",
@@ -3298,7 +3978,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard F",
@@ -3308,7 +3990,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard G",
@@ -3318,7 +4002,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Handguard H",
@@ -3328,7 +4014,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Magazine A",
@@ -3338,7 +4026,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Magazine B",
@@ -3348,7 +4038,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Stock A",
@@ -3358,7 +4050,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Stock B",
@@ -3368,7 +4062,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Stock C",
@@ -3378,7 +4074,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Upper Assmbly A",
@@ -3388,7 +4086,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Upper Assmbly B",
@@ -3398,7 +4098,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M16 Upper Assmbly C",
@@ -3408,7 +4110,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1",
@@ -3417,7 +4121,9 @@
       "internalTag": "Inventory.Weapon.RFL12",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Barrel",
@@ -3427,7 +4133,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Barrel A",
@@ -3437,7 +4145,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Barrel B",
@@ -3447,7 +4157,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Barrel C",
@@ -3457,7 +4169,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Charging Handle A",
@@ -3467,7 +4181,9 @@
       "categories": [
         "Weapon parts",
         "Charging handle"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Charging Handle B",
@@ -3477,7 +4193,9 @@
       "categories": [
         "Weapon parts",
         "Charging handle"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Charging Handle C",
@@ -3487,7 +4205,9 @@
       "categories": [
         "Weapon parts",
         "Charging handle"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Gas Tube",
@@ -3497,7 +4217,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Gas Tube A",
@@ -3507,7 +4229,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Gas Tube B",
@@ -3517,7 +4241,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Gas Tube C",
@@ -3527,7 +4253,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade B",
@@ -3537,7 +4265,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade C",
@@ -3547,7 +4277,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade D",
@@ -3557,7 +4289,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade E",
@@ -3567,7 +4301,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade F",
@@ -3577,7 +4313,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade G",
@@ -3587,7 +4325,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade H",
@@ -3597,7 +4337,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade I",
@@ -3607,7 +4349,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade J",
@@ -3617,7 +4361,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade K",
@@ -3627,7 +4373,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade L",
@@ -3637,7 +4385,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade M",
@@ -3647,7 +4397,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade N",
@@ -3657,7 +4409,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Handguard Upgrade O",
@@ -3667,7 +4421,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Magazine",
@@ -3677,7 +4433,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Magazine A",
@@ -3687,7 +4445,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Magazine B",
@@ -3697,7 +4457,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Pistol Grip A",
@@ -3707,7 +4469,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Pistol Grip B",
@@ -3717,7 +4481,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Pistol Grip C",
@@ -3727,7 +4493,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Receiver A",
@@ -3737,7 +4505,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Receiver B",
@@ -3747,7 +4517,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Receiver C",
@@ -3757,7 +4529,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Stock A",
@@ -3767,7 +4541,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Stock B",
@@ -3777,7 +4553,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Stock C",
@@ -3787,7 +4565,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Stock D",
@@ -3797,7 +4577,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Stock E",
@@ -3807,7 +4589,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M4A1 Stock F",
@@ -3817,7 +4601,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M60",
@@ -3827,7 +4613,9 @@
       "categories": [
         "Weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M60 Handguard A",
@@ -3837,7 +4625,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M60 Handguard B",
@@ -3847,7 +4637,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Barrel A",
@@ -3857,7 +4649,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Barrel B",
@@ -3867,7 +4661,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Front Sight A",
@@ -3877,7 +4673,9 @@
       "categories": [
         "Weapon parts",
         "Front sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Front Sight B",
@@ -3887,7 +4685,9 @@
       "categories": [
         "Weapon parts",
         "Front sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Grip A",
@@ -3897,7 +4697,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Grip B",
@@ -3907,7 +4709,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Handguard A",
@@ -3917,7 +4721,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Handguard B",
@@ -3927,7 +4733,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Magazine A",
@@ -3937,7 +4745,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Magazine B",
@@ -3947,7 +4757,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Rear Sight A",
@@ -3957,7 +4769,9 @@
       "categories": [
         "Weapon parts",
         "Rear sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Rear Sight B",
@@ -3967,7 +4781,9 @@
       "categories": [
         "Weapon parts",
         "Rear sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Receiver A",
@@ -3977,7 +4793,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Receiver B",
@@ -3987,7 +4805,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Sawed-off",
@@ -3998,7 +4818,9 @@
         "Weapons",
         "Pistols",
         "Grenade Launchers"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Sight A",
@@ -4008,7 +4830,9 @@
       "categories": [
         "Weapon parts",
         "Rear sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Sight B",
@@ -4018,7 +4842,9 @@
       "categories": [
         "Weapon parts",
         "Rear sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Trigger A",
@@ -4028,7 +4854,9 @@
       "categories": [
         "Weapon parts",
         "Trigger"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "M79 Trigger B",
@@ -4038,7 +4866,9 @@
       "categories": [
         "Weapon parts",
         "Trigger"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Machine Parts",
@@ -4047,7 +4877,9 @@
       "internalTag": "Inventory.Item.RareLoot_74_MachineParts",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Manpack Radio",
@@ -4056,7 +4888,9 @@
       "internalTag": "Inventory.Item.Plans07",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Masking Tape",
@@ -4065,7 +4899,9 @@
       "internalTag": "Inventory.Item.RareLoot_6_MaskingTape",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Matches",
@@ -4074,7 +4910,9 @@
       "internalTag": "Inventory.Item.RareLoot_102_Matches",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mateo Model J",
@@ -4084,7 +4922,9 @@
       "categories": [
         "Weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mead",
@@ -4096,7 +4936,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Measuring Tape",
@@ -4105,7 +4947,9 @@
       "internalTag": "Inventory.Item.RareLoot_3_MeasuringTape",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mech Part",
@@ -4116,7 +4960,9 @@
         "Large items",
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Medical Alcohol",
@@ -4126,7 +4972,9 @@
       "categories": [
         "Medical",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Medical Supplies",
@@ -4135,7 +4983,9 @@
       "internalTag": "Inventory.Item.Quest_MedicalSupplies",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Medical Tools",
@@ -4144,7 +4994,9 @@
       "internalTag": "Inventory.Item.RareLoot_84_MedicalTools",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Memento",
@@ -4154,7 +5006,9 @@
       "categories": [
         "Civil goods",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Merkava Suspension Component",
@@ -4163,7 +5017,9 @@
       "internalTag": "Inventory.Item.Merkava_Debirs_Loot",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Metal Fragments",
@@ -4172,7 +5028,9 @@
       "internalTag": "Inventory.Item.MetalFragments",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Metal Pipe",
@@ -4181,7 +5039,9 @@
       "internalTag": "Inventory.Item.MetalPipe",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Metal Slats",
@@ -4190,7 +5050,9 @@
       "internalTag": "Inventory.Item.RareLoot_129_slats",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mezcal",
@@ -4202,7 +5064,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "MG34",
@@ -4212,7 +5076,9 @@
       "categories": [
         "Weapons",
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Battery",
@@ -4221,7 +5087,9 @@
       "internalTag": "Inventory.Item.RareLoot_139_MilitaryBattery",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Cables",
@@ -4230,7 +5098,9 @@
       "internalTag": "Inventory.Item.RareLoot_28_MilitaryCables",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Circuitry",
@@ -4239,7 +5109,9 @@
       "internalTag": "Inventory.Item.RareComputerBits",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Codebreaker",
@@ -4248,7 +5120,9 @@
       "internalTag": "Inventory.Item.RareLoot_98_Militarycodebreaker",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Grade Lubricant",
@@ -4257,7 +5131,9 @@
       "internalTag": "Inventory.Item.RareLoot_72_WeaponLubricant",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Hard Drive",
@@ -4266,7 +5142,9 @@
       "internalTag": "Inventory.Item.Plans03",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military PDA",
@@ -4275,7 +5153,9 @@
       "internalTag": "Inventory.Item.PDA",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Power Cell",
@@ -4284,7 +5164,9 @@
       "internalTag": "Inventory.Item.RareLoot_132_MCCMilitaryComputerPowerCell",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Military Tape",
@@ -4293,7 +5175,9 @@
       "internalTag": "Inventory.Item.RareLoot_5_MilitaryTape",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mini MD Drive",
@@ -4302,7 +5186,9 @@
       "internalTag": "Inventory.Item.RareLoot_10_PortableHardDrive",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Modem",
@@ -4311,7 +5197,9 @@
       "internalTag": "Inventory.Item.RareLoot_13_SSD",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Motherboard",
@@ -4320,7 +5208,9 @@
       "internalTag": "Inventory.Item.RareLoot_19_MotherBoard",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "MRE",
@@ -4331,7 +5221,9 @@
         "Consumables",
         "Provisions",
         "High value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP over 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Multi-frequency Broadcaster",
@@ -4340,7 +5232,9 @@
       "internalTag": "Inventory.Item.SignalScrambler",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Music Cassette",
@@ -4350,7 +5244,9 @@
       "categories": [
         "Civil goods",
         "Shelf decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device A",
@@ -4360,7 +5256,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device B",
@@ -4370,7 +5268,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device C",
@@ -4380,7 +5280,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device D",
@@ -4390,7 +5292,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device E",
@@ -4400,7 +5304,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device F",
@@ -4410,7 +5316,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device G",
@@ -4420,7 +5328,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device H",
@@ -4430,7 +5340,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device I",
@@ -4440,7 +5352,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device J",
@@ -4450,7 +5364,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device K",
@@ -4460,7 +5376,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device L",
@@ -4470,7 +5388,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device M",
@@ -4480,7 +5400,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device N",
@@ -4490,7 +5412,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device O",
@@ -4500,7 +5424,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device P",
@@ -4510,7 +5436,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Muzzle Device Q",
@@ -4520,7 +5448,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mystical Tech Totem",
@@ -4529,7 +5459,9 @@
       "internalTag": "Inventory.Item.DecoLoot_07_MysticalTechTotem",
       "categories": [
         "Shelf decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Mystical Tech Totem (Large)",
@@ -4540,7 +5472,9 @@
         "Large items",
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Nails",
@@ -4549,7 +5483,9 @@
       "internalTag": "Inventory.Item.RareLoot_35_Nails",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Neuralink Disc Player",
@@ -4558,7 +5494,9 @@
       "internalTag": "Inventory.Item.RareLoot_21_DVDplayer",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Neuro Uplink Board",
@@ -4569,7 +5507,9 @@
         "Materials",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Grip A",
@@ -4579,7 +5519,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Grip B",
@@ -4589,7 +5531,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Grip C",
@@ -4599,7 +5543,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Grip D",
@@ -4609,7 +5555,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Grip E",
@@ -4619,7 +5567,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Handguard A",
@@ -4629,7 +5579,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Handguard B",
@@ -4639,7 +5591,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Handguard C",
@@ -4649,7 +5603,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Handguard D",
@@ -4659,7 +5615,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Stock A",
@@ -4669,7 +5627,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Stock B",
@@ -4679,7 +5639,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Stock C",
@@ -4689,7 +5651,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NSN Stock D",
@@ -4699,7 +5663,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "NTW-20",
@@ -4709,7 +5675,9 @@
       "categories": [
         "Weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Nucky Gold Cigarettes",
@@ -4720,7 +5688,9 @@
         "Consumables",
         "Provisions",
         "Quest items"
-      ]
+      ],
+      "buffs": "Almost completely removes horizontal recoil * Drastically reduces vertical recoil",
+      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration"
     },
     {
       "name": "Nuts",
@@ -4729,7 +5699,9 @@
       "internalTag": "Inventory.Item.RareLoot_34_Nuts",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Occulomide Auto-Surgeon",
@@ -4738,7 +5710,9 @@
       "internalTag": "Inventory.Item.RareLoot_86_Ai.Medicaltools",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Octogirl's Tool Set",
@@ -4748,7 +5722,9 @@
       "categories": [
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Old Paint Can",
@@ -4757,7 +5733,9 @@
       "internalTag": "Inventory.Item.CompCanister",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Old Tool Set",
@@ -4767,7 +5745,9 @@
       "categories": [
         "Civil goods",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "OLED",
@@ -4776,7 +5756,9 @@
       "internalTag": "Inventory.Item.RareLoot_25_OLED",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Orgamech Nervous System",
@@ -4786,7 +5768,9 @@
       "categories": [
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Organoid Memory Board",
@@ -4795,7 +5779,9 @@
       "internalTag": "Inventory.Item.RareLoot_16_GPC",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Organoid Networking Board",
@@ -4804,7 +5790,9 @@
       "internalTag": "Inventory.Item.RareLoot_97_AdvancedNetworkboard",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Organoid Outlet",
@@ -4813,7 +5801,9 @@
       "internalTag": "Inventory.Item.RareLoot_29_OutletPort",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Organoid Plug",
@@ -4822,7 +5812,9 @@
       "internalTag": "Inventory.Item.RareLoot_78_Plugcord",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "P Arms 3P Optic",
@@ -4832,7 +5824,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "P90",
@@ -4842,7 +5836,9 @@
       "categories": [
         "Weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Painless",
@@ -4851,7 +5847,9 @@
       "internalTag": "Inventory.Weapon.HMG01",
       "categories": [
         "Heavy Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Paper Scrap",
@@ -4861,7 +5859,9 @@
       "categories": [
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Personnel Data",
@@ -4870,7 +5870,9 @@
       "internalTag": "Inventory.Item.Quest_PersonnelData",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Picture",
@@ -4879,7 +5881,9 @@
       "internalTag": "Inventory.Item.Quest_AM_Picture",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Pilot",
@@ -4890,7 +5894,9 @@
         "Large items",
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Pipe Wrench",
@@ -4899,7 +5905,9 @@
       "internalTag": "Inventory.Item.RareLoot_43_Wrench",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9",
@@ -4909,7 +5917,9 @@
       "categories": [
         "Weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Barrel A",
@@ -4919,7 +5929,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Barrel B",
@@ -4929,7 +5941,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Barrel C",
@@ -4939,7 +5953,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Magazine A",
@@ -4949,7 +5965,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Magazine B",
@@ -4959,7 +5977,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Upper Assembly A",
@@ -4969,7 +5989,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PM-9 Upper Assembly B",
@@ -4979,7 +6001,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Pneumatic Jump",
@@ -4989,7 +6013,9 @@
       "categories": [
         "Equipment",
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PnP-2K",
@@ -4999,7 +6025,9 @@
       "categories": [
         "Weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Portable Generator",
@@ -5008,7 +6036,9 @@
       "internalTag": "Inventory.Item.Tools05",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Potato Chips",
@@ -5019,7 +6049,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP for 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Power Cell",
@@ -5028,7 +6060,9 @@
       "internalTag": "Inventory.Item.RareLoot_133_PowerCell",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Power Drill",
@@ -5037,7 +6071,9 @@
       "internalTag": "Inventory.Item.RareLoot_42_Drill",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Power Schematics",
@@ -5046,7 +6082,9 @@
       "internalTag": "Inventory.Item.Quest_PowerSchematics",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Power Supply Unit",
@@ -5055,7 +6093,9 @@
       "internalTag": "Inventory.Item.RareLoot_23_PSU",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz",
@@ -5064,7 +6104,9 @@
       "internalTag": "Inventory.Weapon.SMG07",
       "categories": [
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Barrel A",
@@ -5074,7 +6116,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Barrel B",
@@ -5084,7 +6128,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Grip A",
@@ -5094,7 +6140,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Grip B",
@@ -5104,7 +6152,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Handguard A",
@@ -5114,7 +6164,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Handguard B",
@@ -5124,7 +6176,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Magazine A",
@@ -5134,7 +6188,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Magazine B",
@@ -5144,7 +6200,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Stock A",
@@ -5154,7 +6212,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Stock B",
@@ -5164,7 +6224,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Trigger A",
@@ -5174,7 +6236,9 @@
       "categories": [
         "Weapon parts",
         "Trigger"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Trigger B",
@@ -5184,7 +6248,9 @@
       "categories": [
         "Weapon parts",
         "Trigger"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Upper Assembly A",
@@ -5194,7 +6260,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PP-19 Vityaz Upper Assembly B",
@@ -5204,7 +6272,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "PPSH-41",
@@ -5213,7 +6283,9 @@
       "internalTag": "Inventory.Weapon.SMG02",
       "categories": [
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Precision Components",
@@ -5222,7 +6294,9 @@
       "internalTag": "Inventory.Item.Quest_EM_Precision_Components",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Precision Tool Set",
@@ -5231,7 +6305,9 @@
       "internalTag": "Inventory.Item.Tools10",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Preserved Cryo Coffee",
@@ -5240,7 +6316,9 @@
       "internalTag": "Inventory.Item.RareLoot_119_CryoCoffeeSaved",
       "categories": [
         "Provisions"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Pressure Gauge",
@@ -5249,7 +6327,9 @@
       "internalTag": "Inventory.Item.RareLoot_95_Pressuregauge",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Pretzels",
@@ -5260,7 +6340,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP for 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Printed Circuit Board",
@@ -5269,7 +6351,9 @@
       "internalTag": "Inventory.Item.RareLoot_11_GPUCaps",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Printing Resin",
@@ -5278,7 +6362,9 @@
       "internalTag": "Inventory.Item.RareLoot_130_3DPrintingmaterial",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Prized Alcohol",
@@ -5290,7 +6376,9 @@
         "Consumables",
         "Quest items",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Processor Board",
@@ -5300,7 +6388,9 @@
       "categories": [
         "Materials",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Quantum Hard Drive",
@@ -5309,7 +6399,9 @@
       "internalTag": "Inventory.Item.RareLoot_92_SolidState",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "R11 RSASS",
@@ -5319,7 +6411,9 @@
       "categories": [
         "Weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "R8",
@@ -5328,7 +6422,9 @@
       "internalTag": "Inventory.Weapon.PST05",
       "categories": [
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Gun Turret Ammo Supply",
@@ -5337,7 +6433,9 @@
       "internalTag": "Inventory.Dangly.CRW03TurretAmmo",
       "categories": [
         "Railgun Components"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Gun Turret Weapon",
@@ -5346,7 +6444,9 @@
       "internalTag": "Inventory.Dangly.CRW03TurretBarrel",
       "categories": [
         "Railgun Components"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Mounted Flashlight A",
@@ -5356,7 +6456,9 @@
       "categories": [
         "Weapon attachments",
         "Picatinny attachment"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Mounted Flashlight B",
@@ -5366,7 +6468,9 @@
       "categories": [
         "Weapon attachments",
         "Picatinny attachment"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Mounted Flashlight C",
@@ -5376,7 +6480,9 @@
       "categories": [
         "Weapon attachments",
         "Picatinny attachment"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Mounted Laser Sight A",
@@ -5386,7 +6492,9 @@
       "categories": [
         "Weapon attachments",
         "Picatinny attachment"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Mounted Laser Sight B",
@@ -5396,7 +6504,9 @@
       "categories": [
         "Weapon attachments",
         "Picatinny attachment"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rail Mounted Laser Sight C",
@@ -5406,7 +6516,9 @@
       "categories": [
         "Weapon attachments",
         "Picatinny attachment"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Railgun Assembly Component",
@@ -5417,7 +6529,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Railgun Body Component",
@@ -5428,7 +6542,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Railgun Breech Component",
@@ -5439,7 +6555,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Railgun Cooling Component",
@@ -5450,7 +6568,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Railgun Magazine",
@@ -5461,7 +6581,9 @@
         "Railgun components",
         "Military",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Railgun Power Bank",
@@ -5471,7 +6593,9 @@
       "categories": [
         "Railgun components",
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rare Metals",
@@ -5480,7 +6604,9 @@
       "internalTag": "Inventory.Item.RareMetals",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rat King's Wake",
@@ -5489,7 +6615,9 @@
       "internalTag": "Inventory.Item.Quest_RatKingPart",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Ratchet",
@@ -5498,7 +6626,9 @@
       "internalTag": "Inventory.Item.RareLoot_50_Ratchet",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rechargeable Battery",
@@ -5507,7 +6637,9 @@
       "internalTag": "Inventory.Item.RareLoot_135_RechargeableBattery",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Recovery Drone",
@@ -5516,7 +6648,9 @@
       "internalTag": "Inventory.Item.Drone_Recovery",
       "categories": [
         "Utility drones"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Relay",
@@ -5525,7 +6659,9 @@
       "internalTag": "Inventory.Item.RareLoot_30_Relay",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Repair Dronelet",
@@ -5534,7 +6670,9 @@
       "internalTag": "Inventory.Item.RareLoot_121_ArmorRepairKit",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Ribbed Tube",
@@ -5543,7 +6681,9 @@
       "internalTag": "Inventory.Item.RareLoot_58_RibbedTube",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rig Light",
@@ -5553,7 +6693,9 @@
       "categories": [
         "Equipment",
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rootkit Device",
@@ -5562,7 +6704,9 @@
       "internalTag": "Inventory.Item.Awareness_LootObject_01",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rotary Hammer",
@@ -5572,7 +6716,9 @@
       "categories": [
         "Civil goods",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPD",
@@ -5581,7 +6727,9 @@
       "internalTag": "Inventory.Weapon.LMG04",
       "categories": [
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPD Barrel A",
@@ -5591,7 +6739,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPD Barrel B",
@@ -5601,7 +6751,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPD Barrel C",
@@ -5611,7 +6763,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPD Handguard A",
@@ -5621,7 +6775,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPD Handguard B",
@@ -5631,7 +6787,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "RPK",
@@ -5640,7 +6798,9 @@
       "internalTag": "Inventory.Weapon.RFL01B",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Rum",
@@ -5652,7 +6812,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "S12",
@@ -5662,7 +6824,9 @@
       "categories": [
         "Weapons",
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "S12 Shotgun Barrel A",
@@ -5672,7 +6836,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "S12 Shotgun Barrel B",
@@ -5682,7 +6848,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "S12 Shotgun Barrel C",
@@ -5692,7 +6860,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "S12 Shotgun Magazine A",
@@ -5702,7 +6872,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "S12 Shotgun Magazine B",
@@ -5712,7 +6884,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "S12 Shotgun Magazine C",
@@ -5722,7 +6896,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SA58",
@@ -5731,7 +6907,9 @@
       "internalTag": "Inventory.Weapon.RFL15",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SA58 Barrel A",
@@ -5741,7 +6919,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SA58 Barrel B",
@@ -5751,7 +6931,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SA58 Magazine A",
@@ -5761,7 +6943,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SA58 Magazine B",
@@ -5771,7 +6955,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW",
@@ -5780,7 +6966,9 @@
       "internalTag": "Inventory.Weapon.LMG02",
       "categories": [
         "Light Machinegun"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Barrel A",
@@ -5790,7 +6978,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Barrel B",
@@ -5800,7 +6990,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Gas Tube A",
@@ -5810,7 +7002,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Gas Tube B",
@@ -5820,7 +7014,9 @@
       "categories": [
         "Weapon parts",
         "Gas Tube"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Grip A",
@@ -5830,7 +7026,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Grip B",
@@ -5840,7 +7038,9 @@
       "categories": [
         "Weapon parts",
         "Grip"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Handguard A",
@@ -5850,7 +7050,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Handguard B",
@@ -5860,7 +7062,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Handguard C",
@@ -5870,7 +7074,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Handguard D",
@@ -5880,7 +7086,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Magazine A",
@@ -5890,7 +7098,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Magazine B",
@@ -5900,7 +7110,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Stock A",
@@ -5910,7 +7122,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SAW Stock B",
@@ -5920,7 +7134,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR",
@@ -5930,7 +7146,9 @@
       "categories": [
         "Weapons",
         "Heavy Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Barrel A",
@@ -5940,7 +7158,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Barrel B",
@@ -5950,7 +7170,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Barrel C",
@@ -5960,7 +7182,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Barrel D",
@@ -5970,7 +7194,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Handgaurd E",
@@ -5980,7 +7206,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Handguard A",
@@ -5990,7 +7218,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Handguard B",
@@ -6000,7 +7230,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Handguard C",
@@ -6010,7 +7242,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Handguard D",
@@ -6020,7 +7254,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Handguard F",
@@ -6030,7 +7266,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Magazine A",
@@ -6040,7 +7278,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Magazine B",
@@ -6050,7 +7290,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Magazine C",
@@ -6060,7 +7302,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SCAR Magazine D",
@@ -6070,7 +7314,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Scavenger's Go-Bag",
@@ -6079,7 +7325,9 @@
       "internalTag": "Inventory.Item.Shanti_LootObject_01",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Scavenger's Tool Kit",
@@ -6088,7 +7336,9 @@
       "internalTag": "Inventory.Item.Tools06",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Scotch",
@@ -6100,7 +7350,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Screwdriver",
@@ -6109,7 +7361,9 @@
       "internalTag": "Inventory.Item.RareLoot_36_ScrewDriver",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Screws",
@@ -6118,7 +7372,9 @@
       "internalTag": "Inventory.Item.RareLoot_32_Screws",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sealed Mystery Box",
@@ -6127,7 +7383,9 @@
       "internalTag": "Inventory.Dangly.Gacha_HighValueRandom_West<br>Inventory.Dangly.Gacha_RailGunComponents",
       "categories": [
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sentient Drill",
@@ -6136,7 +7394,9 @@
       "internalTag": "Inventory.Item.RareLoot_47_SentientDrill",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sewers Technical Plans",
@@ -6145,7 +7405,9 @@
       "internalTag": "Inventory.Item.Quest_SewersPlans",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sewing Kit",
@@ -6154,7 +7416,9 @@
       "internalTag": "Inventory.Item.RareLoot_54_SewingKit",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sfox QueenKiller Optic",
@@ -6164,7 +7428,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sheet Metal",
@@ -6173,7 +7439,9 @@
       "internalTag": "Inventory.Item.RareLoot_128_sheetmetal",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Signal Scrambler Grenade",
@@ -6182,7 +7450,9 @@
       "internalTag": "Inventory.Item.Item.Ammo.FactionGrenade",
       "categories": [
         "Grenades"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SIGS Cheers 2x",
@@ -6192,7 +7462,9 @@
       "categories": [
         "Weapon attachments",
         "Scope"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Sledgehammer",
@@ -6201,7 +7473,9 @@
       "internalTag": "Inventory.Item.RareLoot_46_Sledgehammer",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Small First Aid Kit",
@@ -6211,7 +7485,9 @@
       "categories": [
         "Consumables",
         "Medical"
-      ]
+      ],
+      "buffs": "Heals 157 HP over 7 seconds.",
+      "debuffs": null
     },
     {
       "name": "Smuggled Organs",
@@ -6221,7 +7497,9 @@
       "categories": [
         "Medical",
         "Maximum value dog food"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Soap",
@@ -6230,7 +7508,9 @@
       "internalTag": "Inventory.Item.RareLoot_107_Soap",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SOG",
@@ -6240,7 +7520,9 @@
       "categories": [
         "Weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SOG Receiver A",
@@ -6250,7 +7532,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SOG Receiver B",
@@ -6260,7 +7544,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Solar Battery",
@@ -6269,7 +7555,9 @@
       "internalTag": "Inventory.Item.RareLoot_137_SolarBattery",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Spare Part",
@@ -6280,7 +7568,9 @@
         "Large items",
         "Quest items",
         "Quest exclusive"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Spark Plug",
@@ -6289,7 +7579,9 @@
       "internalTag": "Inventory.Item.RareLoot_100_SparkPlug",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Special Units DetPack",
@@ -6298,7 +7590,9 @@
       "internalTag": "Inventory.Item.AntiBossC4",
       "categories": [
         "Consumables"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Spectre M4",
@@ -6308,7 +7602,9 @@
       "categories": [
         "Weapons",
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Spectre M4 Handguard",
@@ -6318,7 +7614,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Spook Optic",
@@ -6328,7 +7626,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Standard First Aid Kit",
@@ -6338,7 +7638,9 @@
       "categories": [
         "Consumables",
         "Medical"
-      ]
+      ],
+      "buffs": "Heals 253 HP over 7 seconds.",
+      "debuffs": null
     },
     {
       "name": "Stein R Optic",
@@ -6348,7 +7650,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Stereo Box",
@@ -6358,7 +7662,9 @@
       "categories": [
         "Civil goods",
         "Shelf decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Stethoscope",
@@ -6367,7 +7673,9 @@
       "internalTag": "Inventory.Item.RareLoot_87_Stethoscope",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Super Glue",
@@ -6376,7 +7684,9 @@
       "internalTag": "Inventory.Item.RareLoot_7_SuperGlueSmall",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Suppressed Muzzle Device A",
@@ -6386,7 +7696,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Suppressed Muzzle Device B",
@@ -6396,7 +7708,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Suppressed Muzzle Device C",
@@ -6406,7 +7720,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Suppressed Muzzle Device D",
@@ -6416,7 +7732,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Suppressed Muzzle Device E",
@@ -6426,7 +7744,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Suppressed Muzzle Device F",
@@ -6436,7 +7756,9 @@
       "categories": [
         "Weapon attachments",
         "Muzzle Device"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Surplus Rifle",
@@ -6446,7 +7768,9 @@
       "categories": [
         "Rifles",
         "Surplus weapons"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Surplus Shotgun",
@@ -6456,7 +7780,9 @@
       "categories": [
         "Shotguns",
         "Surplus weapons"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Survival Lighter",
@@ -6465,7 +7791,9 @@
       "internalTag": "Inventory.Item.RareLoot_68_SurvivalLighter",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Survival Seeds",
@@ -6474,7 +7802,9 @@
       "internalTag": "Inventory.Item.RareLoot_122_SeedsHighvalue",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD",
@@ -6483,7 +7813,9 @@
       "internalTag": "Inventory.Weapon.RFL20",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Barrel A",
@@ -6493,7 +7825,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Barrel B",
@@ -6503,7 +7837,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Barrel C",
@@ -6513,7 +7849,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Barrel D",
@@ -6523,7 +7861,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Stock A",
@@ -6533,7 +7873,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Stock B",
@@ -6543,7 +7885,9 @@
       "categories": [
         "Weapon parts",
         "Stock"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Upper Assmbly A",
@@ -6553,7 +7897,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Upper Assmbly B",
@@ -6563,7 +7909,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Upper Assmbly C",
@@ -6573,7 +7921,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Upper Assmbly D",
@@ -6583,7 +7933,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Upper Assmbly E",
@@ -6593,7 +7945,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "SVD Upper Assmbly F",
@@ -6603,7 +7957,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Syringe",
@@ -6612,7 +7968,9 @@
       "internalTag": "Inventory.Item.RareLoot_81_Syringe",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "T-90 Suspension Component",
@@ -6621,7 +7979,9 @@
       "internalTag": "Inventory.Item.T90_Debirs_Loot",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Tactical Camera",
@@ -6631,7 +7991,9 @@
       "categories": [
         "Equipment",
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Target Pistol Magazine A",
@@ -6641,7 +8003,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Target Pistol Magazine B",
@@ -6651,7 +8015,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Targeting Computer",
@@ -6660,7 +8026,9 @@
       "internalTag": "Inventory.Item.Quest_AM_Targeting_Computer",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Teddy Bear",
@@ -6669,7 +8037,9 @@
       "internalTag": "Inventory.Item.Quest_Teddy_Bear",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Telemetry Unit",
@@ -6678,7 +8048,9 @@
       "internalTag": "Inventory.Item.Plans06",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Tequila",
@@ -6690,7 +8062,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Thermal Matches",
@@ -6699,7 +8073,9 @@
       "internalTag": "Inventory.Item.RareLoot_105_ThermalMatches",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Thermite",
@@ -6708,7 +8084,9 @@
       "internalTag": "Inventory.Item.RareLoot_101_Thermite",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Thermometer",
@@ -6717,7 +8095,9 @@
       "internalTag": "Inventory.Item.RareLoot_94_Thermometer",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Tissue Sample",
@@ -6726,7 +8106,9 @@
       "internalTag": "Inventory.Item.Quest_TissueSample",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "TKB-0146",
@@ -6735,7 +8117,9 @@
       "internalTag": "Inventory.Weapon.RFL30",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "TKB-0146 Handguard A",
@@ -6745,7 +8129,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "TKB-0146 Handguard B",
@@ -6755,7 +8141,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Toilet Paper",
@@ -6764,7 +8152,9 @@
       "internalTag": "Inventory.Item.RareLoot_108_ToiletPaper",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Toothpaste",
@@ -6773,7 +8163,9 @@
       "internalTag": "Inventory.Item.RareLoot_109_Toothpaste",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Tourniquet",
@@ -6782,7 +8174,9 @@
       "internalTag": "Inventory.Item.RareLoot_90_Tourniquets",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Toy Car",
@@ -6791,7 +8185,9 @@
       "internalTag": "Inventory.Item.Toy02",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Toy Dinosaur",
@@ -6800,7 +8196,9 @@
       "internalTag": "Inventory.Item.Toy01",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Toy Train",
@@ -6809,7 +8207,9 @@
       "internalTag": "Inventory.Item.Toy03",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Tri M Optic",
@@ -6819,7 +8219,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "TrueAimer 4x",
@@ -6829,7 +8231,9 @@
       "categories": [
         "Weapon attachments",
         "Scope"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Turret Base",
@@ -6838,7 +8242,9 @@
       "internalTag": "Inventory.Dangly.CRWUniversalTurretBase",
       "categories": [
         "Railgun Components"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Turret Component",
@@ -6847,7 +8253,9 @@
       "internalTag": "Inventory.Item.Turret_Debris_Loot",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "U-STIK+ USB Drive",
@@ -6856,7 +8264,9 @@
       "internalTag": "Inventory.Item.RareLoot_15_USBStick",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "UMEGA Media Player",
@@ -6865,7 +8275,9 @@
       "internalTag": "Inventory.Item.RareLoot_22_Blu-RayPlayer",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Urea",
@@ -6874,7 +8286,9 @@
       "internalTag": "Inventory.Item.RareLoot_112_Alkaline",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12",
@@ -6883,7 +8297,9 @@
       "internalTag": "Inventory.Weapon.SHG03",
       "categories": [
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Barrel A",
@@ -6893,7 +8309,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Barrel B",
@@ -6903,7 +8321,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Barrel C",
@@ -6913,7 +8333,9 @@
       "categories": [
         "Weapon parts",
         "Barrel"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Handguard B",
@@ -6923,7 +8345,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Magazine A",
@@ -6933,7 +8357,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Magazine B",
@@ -6943,7 +8369,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USAS-12 Shotgun Magazine C",
@@ -6953,7 +8381,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "USP",
@@ -6963,7 +8393,9 @@
       "categories": [
         "Weapons",
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "UV Light Bulb",
@@ -6972,7 +8404,9 @@
       "internalTag": "Inventory.Item.RareLoot_63_UVLightBulb",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Valve Adjustment Tool",
@@ -6981,7 +8415,9 @@
       "internalTag": "Inventory.Item.RareLoot_131_ValveAdjustmentTool",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Ventilation Filter",
@@ -6990,7 +8426,9 @@
       "internalTag": "Inventory.Item.RareLoot_71_VentilationFilter",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Ventilation Regulator",
@@ -6999,7 +8437,9 @@
       "internalTag": "Inventory.Item.RareLoot_96_VentilationRegulator",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VEPR-12",
@@ -7008,7 +8448,9 @@
       "internalTag": "Inventory.Weapon.SHG04",
       "categories": [
         "Shotguns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vepr-12 Shotgun Handguard A",
@@ -7018,7 +8460,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vepr-12 Shotgun Handguard B",
@@ -7028,7 +8472,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vepr-12 Shotgun Handguard C",
@@ -7038,7 +8484,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vepr-12 Shotgun Magazine A",
@@ -7048,7 +8496,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vepr-12 Shotgun Magazine B",
@@ -7058,7 +8508,9 @@
       "categories": [
         "Weapon parts",
         "Magazine"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VH-Ambi 2",
@@ -7068,7 +8520,9 @@
       "categories": [
         "Weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VHS2 Upper Assembly B",
@@ -7078,7 +8532,9 @@
       "categories": [
         "Weapon parts",
         "Upper assembly"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VIK-32L",
@@ -7088,7 +8544,9 @@
       "categories": [
         "Weapons",
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Viper",
@@ -7097,7 +8555,9 @@
       "internalTag": "Inventory.Weapon.PST06",
       "categories": [
         "Pistols"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VKS Front Sight",
@@ -7107,7 +8567,9 @@
       "categories": [
         "Weapon parts",
         "Front sight"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VKS Handguard A",
@@ -7117,7 +8579,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VKS Handguard B",
@@ -7127,7 +8591,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "VKS Vykhlop",
@@ -7136,7 +8602,9 @@
       "internalTag": "Inventory.Weapon.RFL29",
       "categories": [
         "Rifles"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vodka",
@@ -7148,7 +8616,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Vtex Optic",
@@ -7158,7 +8628,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vtex Raz Gen 2 Optic",
@@ -7168,7 +8640,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vtex Spit 3x",
@@ -7178,7 +8652,9 @@
       "categories": [
         "Weapon attachments",
         "Scope"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vtex Strike Optic",
@@ -7188,7 +8664,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Vtex V Optic",
@@ -7198,7 +8676,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Walther MPL Handguard",
@@ -7208,7 +8688,9 @@
       "categories": [
         "Weapon parts",
         "Handguard"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Water",
@@ -7218,7 +8700,9 @@
       "categories": [
         "Large items",
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Water Canteen",
@@ -7229,7 +8713,9 @@
         "Consumables",
         "Provisions",
         "High value dog food"
-      ]
+      ],
+      "buffs": "Heals 80 HP over 10 seconds.",
+      "debuffs": null
     },
     {
       "name": "Water Map",
@@ -7238,7 +8724,9 @@
       "internalTag": "Inventory.Item.Quest_Water_Map",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Water Thief Mask",
@@ -7247,7 +8735,9 @@
       "internalTag": "Inventory.Dangly.BP_ActivityItem_WaterThiefMask",
       "categories": [
         "Large items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Water Thief's Mask \"Bozo\"",
@@ -7256,7 +8746,9 @@
       "internalTag": "Inventory.Item.DecoLoot_06_WaterThiefMask03",
       "categories": [
         "Wall decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Water Thief's Mask \"Oni\"",
@@ -7265,7 +8757,9 @@
       "internalTag": "Inventory.Item.DecoLoot_04_WaterThiefMask01",
       "categories": [
         "Wall decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Water Thief's Mask \"Thirsty\"",
@@ -7274,7 +8768,9 @@
       "internalTag": "Inventory.Item.DecoLoot_05_WaterThiefMask02",
       "categories": [
         "Wall decorations"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "WD40",
@@ -7283,7 +8779,9 @@
       "internalTag": "Inventory.Item.RareLoot_69_WD40",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Weapon Parts",
@@ -7292,7 +8790,9 @@
       "internalTag": "Inventory.Item.RareLoot_117_WeaponParts",
       "categories": [
         "Military"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Weapon Schematics",
@@ -7301,7 +8801,9 @@
       "internalTag": "Inventory.Item.Quest_WeaponSchematics",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Weapon Tech",
@@ -7310,7 +8812,9 @@
       "internalTag": "Inventory.Item.Quest_SE_Weapon_Tech",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Wetware Processor",
@@ -7319,7 +8823,9 @@
       "internalTag": "Inventory.Item.RareLoot_26_AdvancedProcessor",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Wetware System",
@@ -7328,7 +8834,9 @@
       "internalTag": "Inventory.Item.Quest_WetwareSystem",
       "categories": [
         "Quest items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Whiskey",
@@ -7340,7 +8848,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Wine",
@@ -7352,7 +8862,9 @@
         "Consumables",
         "Provisions",
         "Minimum value dog food"
-      ]
+      ],
+      "buffs": "Heals 78 HP for 10 seconds.",
+      "debuffs": "Swaying aim & vision."
     },
     {
       "name": "Wires",
@@ -7361,7 +8873,9 @@
       "internalTag": "Inventory.Item.RareLoot_27_Wires",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "WLT MPL",
@@ -7370,7 +8884,9 @@
       "internalTag": "Inventory.Weapon.SMG04",
       "categories": [
         "Submachine Guns"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Wooden Plank",
@@ -7379,7 +8895,9 @@
       "internalTag": "Inventory.Item.RareLoot_125_2x4s",
       "categories": [
         "Materials"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Wooden Planks",
@@ -7388,7 +8906,9 @@
       "internalTag": "Inventory.Item.RareLoot_127_woodplanks",
       "categories": [
         "Uncategorized items"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "XM25",
@@ -7398,7 +8918,9 @@
       "categories": [
         "Weapons",
         "Grenade Launchers"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Zeni-B P6 Optic",
@@ -7408,7 +8930,9 @@
       "categories": [
         "Weapon attachments",
         "Optic"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Zippo Lighter",
@@ -7417,7 +8941,9 @@
       "internalTag": "Inventory.Item.RareLoot_103_Zippo",
       "categories": [
         "Civil goods"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     },
     {
       "name": "Zonophor Tablets",
@@ -7426,7 +8952,9 @@
       "internalTag": "Inventory.Item.RareLoot_79_Vitamins",
       "categories": [
         "Medical"
-      ]
+      ],
+      "buffs": null,
+      "debuffs": null
     }
   ]
 }

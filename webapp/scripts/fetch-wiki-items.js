@@ -23,11 +23,24 @@ function getJson(url) {
 async function main() {
   const items = [];
   for (let offset = 0; ; offset += 500) {
-    const params = new URLSearchParams({ action: 'cargoquery', format: 'json', tables: 'Items', fields: 'Name,_pageName,Image,InternalTag,Category__full', limit: '500', offset: String(offset) });
+    const params = new URLSearchParams({ action: 'cargoquery', format: 'json', tables: 'Items', fields: 'Name,_pageName,Image,InternalTag,Category__full,Buffs,Debuffs', limit: '500', offset: String(offset) });
     const payload = await getJson(`${endpoint}?${params}`);
     const batch = (payload.cargoquery || []).map(row => {
       const value = row.title || {};
-      return { name: value.Name || null, page: value._pageName || null, imageFile: value.Image || null, internalTag: value.InternalTag || null, categories: (value['Category  full'] || '').split(',').map(part => part.trim()).filter(Boolean) };
+      // Buffs/Debuffs are Cargo "Wikitext" fields. In practice (sampled the
+      // full live table) they're plain sentences or simple "*line\n*line"
+      // bullet lists -- no [[links]], {{templates}}, or '''bold''' seen
+      // anywhere. "None"/"None."/"" are the wiki's own way of saying a field
+      // doesn't apply; normalized to null. Bulleted multi-line values are
+      // joined with " * " so they stay a single readable line on an item card.
+      const clean = text => {
+        const raw = String(text || '').trim();
+        if (!raw) return null;
+        const lines = raw.split('\n').map(line => line.replace(/^\*\s*/, '').trim()).filter(Boolean);
+        const joined = lines.join(' * ');
+        return joined && !/^none\.?$/i.test(joined) ? joined : null;
+      };
+      return { name: value.Name || null, page: value._pageName || null, imageFile: value.Image || null, internalTag: value.InternalTag || null, categories: (value['Category  full'] || '').split(',').map(part => part.trim()).filter(Boolean), buffs: clean(value.Buffs), debuffs: clean(value.Debuffs) };
     });
     items.push(...batch);
     if (batch.length < 500) break;
