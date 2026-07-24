@@ -153,7 +153,7 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 ### Vendors
 | Method | Route | Purpose |
 |---|---|---|
-| GET | `/api/vendors` | Faction scores + trader unlocks |
+| GET | `/api/vendors` | Faction scores + trader unlocks + read-only vendor stock economy (`NPCVendorTypes`/`NPCVendorConsumedItems`) |
 | PUT | `/api/vendors/faction/:scope` | Set faction score |
 | PUT | `/api/vendors/trader/:key` | Set trader unlock |
 

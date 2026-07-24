@@ -5,7 +5,7 @@ const { getSchema, getPrimarySavePath } = require('../services/saveService');
 const fs = require('fs');
 const { listCharacters, updateCharacterLevel, setPrestige, listCharacterDetails, setCharacterXp, setCharacterSkills } = require('../services/saveService');
 const { listHubUpgrades, setHubUpgrades } = require('../services/saveService');
-const { listWeaponXp, setWeaponXp, batchSetWeaponXp, getReferenceWeaponXp, listFactionScores, setFactionScore, listTraderUnlocks, setTraderUnlock, getDashboardData, getCurrencies, setCurrency } = require('../services/saveService');
+const { listWeaponXp, setWeaponXp, batchSetWeaponXp, getReferenceWeaponXp, listFactionScores, setFactionScore, listTraderUnlocks, setTraderUnlock, getDashboardData, getCurrencies, setCurrency, getVendorEconomy } = require('../services/saveService');
 const { listInventoryItems: listInventoryItemsGvas, updateInventoryItem: updateInventoryItemGvas, addInventoryItem: addInventoryItemGvas } = require('../services/gvasService');
 const { checkInventoryRoundTrip, listRigs, addRigOwnership, addHighQualityContainerSet, getVaultInventory } = require('../services/gvasService');
 const { createBackup, listBackups, restoreBackup, deleteBackup, getLatestBackupHashes } = require('../services/backupService');
@@ -261,7 +261,8 @@ router.get('/vendors', async (req, res) => {
   try {
     const factions = await listFactionScores(resolveKey(req));
     const traders = await listTraderUnlocks(resolveKey(req));
-    res.json({ factions, traders });
+    const economy = await getVendorEconomy(resolveKey(req));
+    res.json({ factions, traders, economy });
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
   }
