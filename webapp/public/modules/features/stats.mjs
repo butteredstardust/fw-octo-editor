@@ -19,15 +19,29 @@ const MAP_META = {
   Innards: { name: 'Innards', blurb: 'Home base -- has additional Training and Liberate the Innards layouts.' },
   ThunderDome: { name: 'Thunder Dome', blurb: "Matches Innards' own faction split exactly -- most likely one of its Training/Liberate layouts rather than a separate location." },
   Shanti: { name: 'Babel', blurb: 'Best fit for the wiki’s "twisted network of walkways and rickety bridges...above the ruins of Lost Angels" -- a shantytown, hence the internal codename.' },
-  Tunnels: { name: 'Tunnels', blurb: 'Ever-changing underground passages and pipe networks connecting all maps.' },
+  // "There are four tunnels in total, labeled A to D... four variants per
+  // tunnel." The wiki's own A1-D4 -> game-id table (also on this page) maps
+  // group 1->A, 2->B, 3->C, 4->D (e.g. "A1 = 1 1", "B1 = 2 4", "D4 = 4 3" --
+  // first digit is always the tunnel group). Group 0 doesn't appear in that
+  // table at all; the wiki gives no name for it, so it's labeled honestly as
+  // unmapped rather than guessed into one of A-D.
+  Tunnel1: { name: 'Tunnel A', blurb: "One of the four tunnel networks (A-D), each with 4 daily-rotating variants. Free fast travel, no water/credits/drone required." },
+  Tunnel2: { name: 'Tunnel B', blurb: "One of the four tunnel networks (A-D), each with 4 daily-rotating variants. Free fast travel, no water/credits/drone required." },
+  Tunnel3: { name: 'Tunnel C', blurb: "One of the four tunnel networks (A-D), each with 4 daily-rotating variants. Free fast travel, no water/credits/drone required." },
+  Tunnel4: { name: 'Tunnel D', blurb: "One of the four tunnel networks (A-D), each with 4 daily-rotating variants. Free fast travel, no water/credits/drone required." },
+  Tunnel0: { name: 'Tunnel (Group 0)', blurb: "Not covered by the wiki's A-D tunnel-variant table -- group number 0 has no wiki-confirmed letter, unlike groups 1-4 (which map to A-D)." },
   AI_Awareness_Map: { name: 'AI Awareness Map', blurb: 'Not documented on the wiki -- most likely an internal test/QA map.', internal: true },
   AI_Validation_Map: { name: 'AI Validation Map', blurb: 'Not documented on the wiki -- most likely an internal test/QA map.', internal: true }
 };
 
 // Normalizes both naming conventions the save uses down to MAP_META's keys.
+// Tunnel sub-variants (Dungeon_Tunnel2_03, etc.) group by their tunnel number
+// (-> TunnelN) rather than collapsing every group into one "Tunnels" bucket,
+// so distinct networks (A/B/C/D) stay distinguishable in the UI.
 function normalizeMapId(id) {
   const key = String(id).replace(/^L_/, '').replace(/_WP$/, '');
-  if (key.startsWith('Dungeon_Tunnel')) return 'Tunnels';
+  const tunnel = /^Dungeon_Tunnel(\d+)/.exec(key);
+  if (tunnel) return `Tunnel${tunnel[1]}`;
   if (key === 'HUB_V6' || key === 'HUB_Intro') return 'Innards';
   if (key === 'Shanti_Rooftops') return 'Shanti';
   return key;
