@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "extractedAt": "2026-07-24T17:50:16.443Z",
+  "sourceFile": "YOUR_HASHCODE_HERE.dat",
+  "verifiedAcrossCharacters": 6,
+  "count": 28,
+  "skills": [
+    {
+      "name": "PlayerSkill.Prestige.Health.02",
+      "kind": "health",
+      "threshold": 2
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.03",
+      "kind": "health",
+      "threshold": 3
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.04",
+      "kind": "health",
+      "threshold": 4
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.05",
+      "kind": "health",
+      "threshold": 5
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.06",
+      "kind": "health",
+      "threshold": 6
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.07",
+      "kind": "health",
+      "threshold": 7
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.08",
+      "kind": "health",
+      "threshold": 8
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.09",
+      "kind": "health",
+      "threshold": 9
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.10",
+      "kind": "health",
+      "threshold": 10
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.11",
+      "kind": "health",
+      "threshold": 11
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.12",
+      "kind": "health",
+      "threshold": 12
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.13",
+      "kind": "health",
+      "threshold": 13
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.14",
+      "kind": "health",
+      "threshold": 14
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.15",
+      "kind": "health",
+      "threshold": 15
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.16",
+      "kind": "health",
+      "threshold": 16
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.17",
+      "kind": "health",
+      "threshold": 17
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.18",
+      "kind": "health",
+      "threshold": 18
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.19",
+      "kind": "health",
+      "threshold": 19
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.20",
+      "kind": "health",
+      "threshold": 20
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.21",
+      "kind": "health",
+      "threshold": 21
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.22",
+      "kind": "health",
+      "threshold": 22
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.23",
+      "kind": "health",
+      "threshold": 23
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.24",
+      "kind": "health",
+      "threshold": 24
+    },
+    {
+      "name": "PlayerSkill.Prestige.Health.25",
+      "kind": "health",
+      "threshold": 25
+    },
+    {
+      "name": "PlayerSkill.Prestige.SpeedBuff.01",
+      "kind": "speed",
+      "threshold": 6
+    },
+    {
+      "name": "PlayerSkill.Prestige.SpeedBuff.02",
+      "kind": "speed",
+      "threshold": 12
+    },
+    {
+      "name": "PlayerSkill.Prestige.SpeedBuff.03",
+      "kind": "speed",
+      "threshold": 18
+    },
+    {
+      "name": "PlayerSkill.Prestige.SpeedBuff.04",
+      "kind": "speed",
+      "threshold": 24
+    }
+  ]
+}

@@ -18,6 +18,8 @@
     "items:fetch-wiki": "node scripts/fetch-wiki-items.js",
     "items:extract-reference": "node scripts/extract-reference-items.js",
     "items:audit": "node -e \"console.log(require('./data/item-map-audit.json').counts)\"",
+    "prestige:extract-reference": "node scripts/extract-prestige-reference.js",
+    "weapon-xp:extract-reference": "node scripts/extract-weapon-xp-reference.js",
     "recipes:fetch-wiki": "node scripts/fetch-wiki-recipes.js",
     "recipes:generate": "node scripts/generate-recipe-data.js",
     "recipes:audit": "node scripts/print-recipe-audit.js",
