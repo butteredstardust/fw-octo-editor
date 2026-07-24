@@ -6,6 +6,7 @@ import './modules/features/characters.mjs';
 import './modules/features/vendors-repair.mjs';
 import './modules/features/settings-planners.mjs';
 import './modules/features/hub.mjs';
+import './modules/features/stats.mjs';
 import './modules/system.mjs';
 import { FW } from './modules/runtime.mjs';
 

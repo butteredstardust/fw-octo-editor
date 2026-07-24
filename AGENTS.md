@@ -97,6 +97,7 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 | Presets | `#presets` | Saved weapon/rig configurations with EXR preview correlation |
 | Weapon XP | `#weapon-xp` | Per-weapon XP, reference baselines, batch set |
 | Vendors | `#vendors` | Faction scores + trader unlocks |
+| Stats | `#stats` | Read-only lifetime combat/progression stats: kills/deaths/damage by faction, per-character combat, per-map entry/extract/death, Tug-of-War territory control |
 | Hub Upgrades | `#hub-upgrades` | Innards terminals/welfare with prerequisite chains |
 | Workshop | `#workshop` | Batch component planner (37 products) |
 | Munitions | `#munitions` | Batch component planner (23 ammo/grenade products) |
@@ -145,6 +146,7 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 | POST | `/api/weapon-builds/add-missing-owned` | Add BIS parts for all owned weapons |
 | POST | `/api/weapon-builds/:weaponId/add-missing` | Add missing BIS parts for one weapon |
 | POST | `/api/weapon-builds/:weaponId/parts/:partId/add` | Add specific BIS part |
+| GET | `/api/stats` | Read-only lifetime combat/progression stats |
 
 ### Vendors
 | Method | Route | Purpose |
