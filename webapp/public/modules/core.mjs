@@ -60,7 +60,8 @@ const ACTION_ICON_PATHS = {
   collect: '<path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>',
   eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
   folder: '<path d="M3 6h6l2 3h10v10H3z"/>',
-  play: '<path d="M6 4l14 8-14 8z"/>'
+  play: '<path d="M6 4l14 8-14 8z"/>',
+  star: '<path d="M12 3 14.1 9.1 20.6 9.2 15.4 13.1 17.3 19.3 12 15.6 6.7 19.3 8.6 13.1 3.4 9.2 9.9 9.1Z"/>'
 };
 function actionIcon(name, className = '') {
   const path = ACTION_ICON_PATHS[name] || ACTION_ICON_PATHS.check;

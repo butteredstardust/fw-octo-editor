@@ -2,6 +2,72 @@ import { FW, expose } from '../runtime.mjs';
 
 const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, actionIcon, receiptHtml, receiptSummary } = FW;
 
+// "Worth keeping" items per https://theforeverwinter.wiki.gg/wiki/Guides/Items_to_keep,
+// keyed by WIKI display name (matched against describeItem(id).wiki -- the
+// same resolution the rest of this page already uses for friendly names --
+// not the save's internal RowName, which doesn't reliably correspond 1:1).
+// Reason is the wiki's own section for that item: upgrade material (used
+// across the Innards' crafting tree), story quest item (one-time, but its
+// quest may not be done yet), repeatable quest item (recurring quests can
+// ask for it again), or a standalone useful/crafting note.
+const HIGH_VALUE_REASON = {
+  upgrade: 'Innards upgrade material',
+  story: 'Story quest item (one-time quest, may not be done yet)',
+  quest: 'Repeatable quest item (recurring quests can ask for it again)',
+  useful: 'Notable use per the wiki'
+};
+const HIGH_VALUE_ITEMS = Object.fromEntries([
+  // Innards upgrade materials (every item used by at least one upgrade recipe).
+  ...['Ball Bearings','Basic Pliers','Battery Charger','Bolts','Brawler Spinal Joint','Bulkhead Lights',
+    'Camera Lens','Carbon Fiber','Carbon Fiber Tube','Clamp','Cleaner','Clear Tube','Concrete Mixer',
+    'Concrete Powder','Construction Drone','Construction Foam','Diagnostic Scanner','Drywall','Electric Motor',
+    'EOD Armor Plate','ES Lamp','Eurasian Drone Cortex','Eurasian IFF Chip LVL1','Europan Drone Flight Controller',
+    'Europan IFF Chip LVL1','Euruskan IFF Chip LVL1','Explosives','Field Repair Kit','Fleece','Food Tin','Fuse',
+    'Glue','Goodies','Gunpowder','Gyroscopic Stabilizer','Hand Drill','Hard Shell Laptop','Heavy-Duty Battery',
+    'Heavy-Duty Trauma Kit','Heirloom Seeds','Industrial Sealant','Intelligence Cassette','Intermediate Tool Set',
+    'LCD','Leather Hole Punch','Light Bulb','Liquid Cooling Unit','Machine Parts','Masking Tape','Measuring Tape',
+    'Medical Tools','Metal Fragments','Metal Pipe','Metal Slats','Military Battery','Military Circuitry',
+    'Military Codebreaker','Military Grade Lubricant','Military Power Cell','Mini MD Drive','Mother Courage Codex',
+    'Motherboard','MRE','Multi-frequency Broadcaster','Nails','Neuralink Disc Player','Nuts','Old Tool Set','OLED',
+    'Orga Codex','Organoid Memory Board','Organoid Networking Board','Organoid Outlet','Organoid Plug',
+    'Portable Generator','Precision Tool Set','Preserved Cryo Coffee','Pressure Gauge','Printed Circuit Board',
+    'Printing Resin','Processor Board','Quantum Hard Drive','Rat King Codex',"Rat King's Wake",'Ratchet',
+    'Rechargeable Battery','Relay','Ribbed Tube','Rootkit Device','Rotary Hammer','Rum',"Scavenger's Tool Kit",
+    'Screwdriver','Sentient Drill','Sewing Kit','Sheet Metal','Shield Officer Codex','Sledgehammer',
+    'Smuggled Organs','Solar Battery','Telemetry Unit','Tequila','Toilet Paper','Toothy Codex','Turret Component',
+    'UMEGA Media Player','UV Light Bulb','Valve Adjustment Tool','Ventilation Regulator','Vodka',
+    'Water Thief\'s Mask "Bozo"','Water Thief\'s Mask "Oni"','Water Thief\'s Mask "Thirsty"','WD40',
+    'Weapon Parts','Wetware Processor','Wires','Wooden Plank','Zonophor Tablets'
+  ].map(name => [name, 'upgrade']),
+  // Non-replayable story quest items.
+  ...['Adrenaline Stim','Advanced Joint','Assorted Medicine','Bar Supplies','Cybernetic Lungs',
+    'Cyborg Immunosuppressant','Diodegradable Multi-tool','Dogboro Cigarettes','EDC Multi-tool',
+    'Explosive Charge','Frequency Tap','Hinoko Cigarettes','Medical Alcohol','Military Cables',
+    'Nucky Gold Cigarettes',"Octogirl's Tool Set",'Orgamech Nervous System','Paper Scrap','Power Cell',
+    'Power Schematics','Recovery Drone','Super Glue','Wetware System'
+  ].map(name => [name, 'story']),
+  // Replayable random quest items.
+  ...['Banner of the Red Baron','Battle Plans','Brawler Insignia','Comms Device','Convoy Schedule',
+    'Corpse Tank Control Panel',"Cyborg's Head",'Data Cache','Dog Tags','EOD Suit Component',
+    'Eurasian Brawler Components','Eurasian Supply Crate','Euruskan Plans','Exo Component','Exo Hard Drive',
+    'God Sniper Equipment','Heavy Joint Assembly','High Durability Rail Component','HIND Navigation Computer',
+    'Jammer','Laser Rangefinder','Logbook','Mech Part','Medical Supplies','Memento',
+    'Merkava Suspension Component','Mystical Tech Totem (Large)','Neuro Uplink Board','Personnel Data','Picture',
+    'Pilot','Precision Components','Prized Alcohol','Railgun Assembly Component','Railgun Body Component',
+    'Railgun Breech Component','Railgun Cooling Component','Railgun Magazine','Sewers Technical Plans',
+    'Spare Part','T-90 Suspension Component','Targeting Computer','Teddy Bear','Tissue Sample','Water Map',
+    'Weapon Schematics','Weapon Tech'
+  ].map(name => [name, 'quest']),
+  // Other notable uses called out by the wiki.
+  ...['Thermite','Pneumatic Jump'].map(name => [name, 'useful'])
+]);
+
+function highValueBadge(wikiName) {
+  const reasonKey = HIGH_VALUE_ITEMS[wikiName];
+  if (!reasonKey) return '';
+  return `<span class="hv-badge" title="Worth keeping: ${esc(HIGH_VALUE_REASON[reasonKey])}">${actionIcon('star')}Keep</span>`;
+}
+
 let _inventory = [];
 let _catalog = {};
 let _invSubByCat = {};
@@ -193,12 +259,12 @@ function renderInventory() {
       html += '<div class="inv-grid">';
       for (const r of list) {
         const enc = encodeURIComponent(r.name);
-        const tagExtra = (r.d.sub && r.d.sub !== '—' ? ' · ' + r.d.sub : '') + (r.d.slot ? ' · ' + r.d.slot : '');
-        html += `<div class="inv-item ${r.validLayout ? '' : 'invalid'}">
+        const hv = r.d.exactName ? highValueBadge(r.d.wiki) : '';
+        html += `<div class="inv-item ${r.validLayout ? '' : 'invalid'} ${hv ? 'high-value' : ''}">
           ${itemTypeIcon(r.d.cat, r.d.sub)}
           <div class="inv-item-main">
             <div class="inv-name-row">
-              <span class="inv-name" title="${esc(r.name)}">${esc(r.d.wiki)}</span>${technicalDetails(r.name)}
+              <span class="inv-name" title="${esc(r.name)}">${esc(r.d.wiki)}</span>${technicalDetails(r.name)}${hv}
               <span class="inv-qty" title="Current quantity">${r.quantity.toLocaleString()}</span>
             </div>
             ${itemCategoryPills(r.d.cat, r.d.sub, r.sourceMap)}
@@ -373,10 +439,11 @@ function renderAddCatalog() {
       const owned = r.have > 0;
       const haveCls = owned ? 'add-have' : 'add-have zero';
       const haveTxt = owned ? `Have ${r.have.toLocaleString()}` : 'Not owned';
-      html += `<div class="add-item ${owned ? 'owned' : ''}">
+      const hv = r.wiki ? highValueBadge(r.wiki) : '';
+      html += `<div class="add-item ${owned ? 'owned' : ''} ${hv ? 'high-value' : ''}">
         ${itemTypeIcon(r.grp, r.sub || r.category)}
         <div class="add-main">
-          <div class="add-name" title="${esc(r.id)}">${esc(r.wiki || cleanFallbackName(r.id))}${technicalDetails(r.id)}</div>
+          <div class="add-name" title="${esc(r.id)}">${esc(r.wiki || cleanFallbackName(r.id))}${technicalDetails(r.id)}${hv}</div>
           ${itemCategoryPills(r.grp, r.sub || r.category, sourceMapForCatalog(r))}
           <div class="add-tag">${technicalDetails(r.id)}</div>
           <div class="${haveCls}">${haveTxt}${owned ? ' · edit on Inventory page' : ''}</div>

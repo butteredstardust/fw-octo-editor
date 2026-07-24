@@ -58,6 +58,11 @@ body {
 .inv-tag,.add-tag { display:none; }
 .inv-item,.add-item { transition:border-color .18s,background .18s,transform .18s; }
 .inv-item:hover,.add-item:hover { border-color:var(--divider-soft); background:var(--surface-hover); }
+/* "Worth keeping" per https://theforeverwinter.wiki.gg/wiki/Guides/Items_to_keep */
+.inv-item.high-value,.add-item.high-value { border-color:var(--amber); box-shadow:inset 3px 0 0 var(--amber); }
+.hv-badge { display:inline-flex; align-items:center; gap:.2rem; flex:0 0 auto; padding:.1rem .45rem; border-radius:999px; background:var(--warn-bg); border:1px solid var(--warn-border); color:var(--amber-soft); font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; white-space:nowrap; }
+.hv-badge .action-icon { width:9px; height:9px; flex-basis:9px; margin-right:0; }
+.hv-badge .action-icon svg { fill:currentColor; stroke:none; }
 .operation-inline { min-height:1.35rem; margin-top:.4rem; color:var(--text-2); font-size:.77rem; }
 .operation-inline.pending { color:var(--amber-soft); }
 .operation-inline.success { color:var(--green); }
