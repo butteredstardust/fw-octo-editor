@@ -316,20 +316,47 @@ async function addResource(id) {
   }
 }
 
+// The Vault (home stash) is a separate GVAS blob from TempInventory/Currencies
+// -- items and credits stashed here never show up in the Inventory pages or
+// the Resources card above, so it gets its own read-only summary. See
+// getVaultInventory() in gvasService.js.
+function renderDashVault(vault) {
+  const el = document.getElementById('dashVault');
+  if (!vault) { setRenderedHtml(el, '<div class="empty-state"><strong>Could not load vault</strong></div>'); return; }
+  const items = vault.items || [];
+  const amount = (vault.currency && vault.currency.amount) || 0;
+  const itemChips = items.length
+    ? items.map(item => {
+        const meta = WEAPON_META[item.name];
+        const label = meta ? meta.name : describeItem(item.name).wiki;
+        return `<span class="stat-chip" title="${esc(item.tag || item.name)}">${esc(label)}<b>&times;${item.quantity}</b></span>`;
+      }).join('')
+    : '<span class="dash-empty">No items in the vault</span>';
+  setRenderedHtml(el, `
+    <div class="dash-stats">
+      <div><span class="k">Vault Credits</span><span class="v">${amount.toLocaleString()}</span></div>
+      <div><span class="k">Vault Items</span><span class="v">${items.length}</span></div>
+    </div>
+    <div class="stats-chips">${itemChips}</div>
+  `);
+}
+
 async function loadDashboard() {
   showLoading(document.getElementById('dashCharacter'), 1, 'Loading character');
   showLoading(document.getElementById('dashQuests'), 3, 'Loading quests');
   showLoading(document.getElementById('dashInventory'), 1, 'Loading inventory');
   showLoading(document.getElementById('dashFactionTrust'), 3, 'Loading faction trust');
   showLoading(document.getElementById('dashResources'), 5, 'Loading resources');
+  showLoading(document.getElementById('dashVault'), 2, 'Loading vault');
   try {
     await loadCatalog();
     // Game/writes status pills are refreshSafetyStatus()'s responsibility
     // (system.mjs) -- it's the single source of truth, called on its own
     // poll interval, so this doesn't duplicate that fetch.
-    const [dash, vendors] = await Promise.all([
+    const [dash, vendors, vault] = await Promise.all([
       api('/dashboard').catch(() => null),
-      api('/vendors').catch(() => null)
+      api('/vendors').catch(() => null),
+      api('/vault').catch(() => null)
     ]);
     if (dash) {
       renderDashCharacter(dash.character, dash.loadout);
@@ -344,6 +371,7 @@ async function loadDashboard() {
       setRenderedHtml(document.getElementById('dashResources'), failMsg);
     }
     renderDashFactionTrust(vendors && vendors.factions);
+    renderDashVault(vault);
   } catch (err) {
     const failMsg = `<div class="empty-state"><strong>Error</strong><br>${esc(err.message)}</div>`;
     setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
@@ -351,6 +379,7 @@ async function loadDashboard() {
     setRenderedHtml(document.getElementById('dashInventory'), failMsg);
     setRenderedHtml(document.getElementById('dashFactionTrust'), failMsg);
     setRenderedHtml(document.getElementById('dashResources'), failMsg);
+    setRenderedHtml(document.getElementById('dashVault'), failMsg);
   }
 }
 
