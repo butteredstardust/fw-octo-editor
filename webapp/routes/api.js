@@ -11,7 +11,7 @@ const { checkInventoryRoundTrip, listRigs, addRigOwnership, addHighQualityContai
 const { createBackup, listBackups, restoreBackup, deleteBackup, getLatestBackupHashes } = require('../services/backupService');
 const { isGameRunning } = require('../utils/processCheck');
 const { runIntegrityCheck, validateForeignKeys } = require('../utils/validation');
-const { getRepairStatus, collectRepair, setQuestReady } = require('../services/saveService');
+const { getRepairStatus, collectRepair, setQuestReady, getPlayerStats } = require('../services/saveService');
 const mutationService = require('../services/mutationService');
 const { checkCompatibility } = require('../services/compatibilityService');
 const { getGameVersion, VERIFIED_GAME_VERSION } = require('../services/gameVersionService');
@@ -519,6 +519,17 @@ router.put('/currencies/:rowName', async (req, res) => {
 router.get('/dashboard', async (req, res) => {
   try {
     const data = await getDashboardData(resolveKey(req));
+    res.json(data);
+  } catch (err) {
+    res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
+  }
+});
+
+// Read-only lifetime/combat/progression stats (see getPlayerStats() in
+// saveService.js for the full field breakdown).
+router.get('/stats', async (req, res) => {
+  try {
+    const data = await getPlayerStats(resolveKey(req));
     res.json(data);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });

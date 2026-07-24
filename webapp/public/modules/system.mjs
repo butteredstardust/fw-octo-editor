@@ -10,6 +10,7 @@ const loadWeaponXp = feature('loadWeaponXp');
 const loadInventory = feature('loadInventory');
 const loadRepair = feature('loadRepair');
 const loadVendors = feature('loadVendors');
+const loadStats = feature('loadStats');
 const loadAddCatalog = feature('loadAddCatalog');
 const loadRigs = feature('loadRigs');
 const loadSettings = feature('loadSettings');
@@ -105,6 +106,7 @@ function showPage(pageName) {
   if (pageName === 'weapon-builds') loadWeaponBuilds();
   if (pageName === 'presets') loadPresets();
   if (pageName === 'vendors') loadVendors();
+  if (pageName === 'stats') loadStats();
   if (pageName === 'repair') loadRepair();
   if (pageName === 'add-items') loadAddCatalog();
   if (pageName === 'rigs') loadRigs();
