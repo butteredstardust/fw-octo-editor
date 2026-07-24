@@ -84,7 +84,26 @@
       "Bash(powershell -NoProfile -Command \"Stop-Process -Id 25132 -Force\")",
       "Bash(rm -f /tmp/fw-cookies.txt)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 26384 -Force\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 3168 -Force\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 27792 -Force\")",
+      "Bash(grep -n \"GET | \\\\`/api/vendors\\\\`\" AGENTS.md)",
+      "Bash(GVAS_UESAVE_BIN='C:\\\\nonexistent\\\\uesave.exe' node -e ' *)",
+      "WebFetch(domain:theforeverwinter.wiki.gg)",
+      "Skill(dataviz)",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 27768 -Force\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 19260 -Force\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 9676 -Force\")",
+      "Bash(git stash *)",
+      "mcp__plugin_playwright_playwright__browser_find",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_type",
+      "Bash(powershell -NoProfile -Command 'Get-Process node -ErrorAction SilentlyContinue | Where-Object {$_.Path -like '\\\\''*node.exe'\\\\''} | Select-Object Id,Path')",
+      "Bash(powershell -NoProfile -Command \"Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 26476 -Force\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 24036 -Force\")"
     ]
   }
 }
