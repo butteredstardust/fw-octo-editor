@@ -61,16 +61,6 @@ function rawContribution(part, category) {
   }
   return Number(score.toFixed(4));
 }
-function baseStatsWeighted(stats, category) {
-  const s = stats || {};
-  const w = (CATEGORY_WEIGHTS[categoryGroup(category)] || CATEGORY_WEIGHTS.standard);
-  let score = (s.accuracy||0)*w.accuracy + (s.stability||0)*w.stability - (s.recoilWrist||0)*w.recoil - (s.recoilArm||0)*w.recoil + (s.damage||0)*w.damage + (s.rof||0)*w.rof + (s.adsSpeed||0)*w.adsSpeed + (s.reloadSpeed||0)*w.reloadSpeed + (s.magazine||0)*w.magazine;
-  if (s.fov != null) {
-    const target = close(category) ? 70 : precision(category) ? 30 : 50;
-    score += 25 - Math.min(25, Math.abs(s.fov - target) * .5);
-  }
-  return Number(score.toFixed(4));
-}
 function selectBuild(weapon) {
   const compatible=weapon.parts.filter(part=>part.itemId&&CORE_SLOTS.has(part.slot));
   const ranked=(items)=>[...items].sort((a,b)=>rawContribution(b,weapon.category)-rawContribution(a,weapon.category)||a.name.localeCompare(b.name));
