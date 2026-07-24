@@ -16,13 +16,17 @@
     .char-stats .k { color: var(--text-2); }
     .char-stats .v { color: var(--text); font-weight: 800; font-size: 1rem; font-variant-numeric: tabular-nums; margin-left: .35rem; }
     .char-stats .v small { color: var(--green); font-weight: 400; }
-    .char-capped { color: var(--amber-warn); font-size: 0.72rem; cursor: help; }
+    .char-capped { background: var(--chip-bg); color: var(--text-2); border: 1px solid var(--chip-border); border-radius: 8px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.05rem 0.4rem; cursor: help; }
     .char-xp-row { display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: 0.5rem; }
+    .char-xp-over { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--amber-warn); background: var(--warn-bg); border-radius: 8px; padding: 0.05rem 0.4rem; margin-left: 0.3rem; cursor: help; }
     .char-xp-bar { height: 6px; background: var(--gunmetal-dark); border-radius: 4px; overflow: hidden; min-width: 80px; }
     @media (max-width: 430px) { .char-xp-bar { min-width: 40px; } }
     .char-xp-fill { display: block; height: 100%; background: linear-gradient(90deg,var(--green-border),var(--green)); }
+    .char-xp-bar.over .char-xp-fill { background: linear-gradient(90deg,var(--warn-border),var(--amber-warn)); }
     .char-skills { font-size: 0.74rem; color: #BBBFC6; line-height: 1.4; }
-    .char-skills .k { color: var(--text-2); }
+    .char-skills .k { color: var(--text-2); display: block; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.68rem; }
+    .char-skill-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .char-skill-tag { background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 10px; padding: 0.12rem 0.5rem; font-size: 0.68rem; color: var(--text-2); white-space: nowrap; }
     .char-control { display: flex; flex-direction: column; gap: 0.6rem; margin-top: auto; border-top: 1px solid var(--gunmetal-dark); padding-top: 0.6rem; }
     .char-control-group { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .char-control-label { font-size: 0.78rem; color: var(--text-2); white-space: nowrap; }
@@ -51,6 +55,7 @@
     .skill-tracks { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
     .skill-track { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 8px; padding: 0.75rem; }
     .skill-track-title { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .skill-track-sub { font-weight: 400; font-size: 0.68rem; color: var(--text-2); margin-left: 0.3rem; }
     .skill-nodes { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .skill-node {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -63,6 +68,12 @@
     .skill-node.locked { opacity: 0.4; cursor: not-allowed; }
     .skill-node .nlabel { font-size: 0.6rem; }
     .skill-node-connector { color: var(--skill-node-border); align-self: center; font-size: 0.8rem; }
+    /* Variant nodes are independent per-weapon toggles (not a locked sequence),
+       so they get a wider, row-shaped, teal-accented style distinct from the
+       square sequential tier nodes above. */
+    .skill-node.variant { width: auto; min-width: 64px; height: 30px; flex-direction: row; padding: 0 0.6rem; border-radius: 15px; font-size: 0.68rem; }
+    .skill-node.variant.on { background: var(--skill-gate-on-bg); border-color: var(--teal-soft); color: #fff; }
+    .skill-node.prestige { width: auto; min-width: 34px; padding: 0 0.4rem; }
     .vendor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
     .vendor-card { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
     .vendor-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
@@ -74,6 +85,14 @@
     .vendor-tier.untrusted { background: var(--red-bg); color: var(--red); }
     .vendor-tier.neutral { background: var(--warn-bg); color: var(--amber-warn); }
     .vendor-tier.trusted { background: var(--green-bg); color: var(--green); }
+    /* Trust-preset buttons colored to match their target tier, so the three
+       options are distinguishable by color as well as label. */
+    .tier-preset.untrusted { background: var(--red-bg); color: var(--red); border-color: var(--red-border); }
+    .tier-preset.untrusted:hover { background: var(--red-bg-hover); }
+    .tier-preset.neutral { background: var(--warn-bg); color: var(--amber-warn); border-color: var(--warn-border); }
+    .tier-preset.neutral:hover { background: var(--warn-bg-hover); }
+    .tier-preset.trusted { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
+    .tier-preset.trusted:hover { background: #1D4A34; }
     .vendor-score { display: flex; align-items: center; gap: 0.5rem; }
     .vendor-score input[type=number] { width: 130px; background: var(--surface-2); color: var(--text); border: 1px solid var(--gunmetal); border-radius: 5px; padding: 0.35rem 0.5rem; }
     .vendor-presets { display: flex; gap: 0.4rem; flex-wrap: wrap; }

@@ -78,9 +78,11 @@ and associated scripts) is licensed under the **MIT License**. See
 - <https://github.com/microsoft/playwright>
 - Used only for browser-based tests; not part of the distributed runtime.
 
-## Trademarks
+## Disclaimer
 
-"Forever Winter" and related names, logos, and assets are trademarks or
-copyrights of their respective owners. All such material is used here for
-informational and interoperability purposes only and remains the property of
-its owners.
+This tool is **unofficial**, **not affiliated with or endorsed by Fun Dog
+Studios**, and is intended for **single-player use only**. It is provided for
+personal save-backup and editing convenience; the authors make no warranty about
+compatibility with future game updates, and users are responsible for complying
+with the game's End User License Agreement and any applicable third-party
+platform terms.

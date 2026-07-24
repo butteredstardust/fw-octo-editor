@@ -1,0 +1,6346 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-07-22T17:56:07.450Z",
+  "sourceUrl": "https://theforeverwinter.wiki.gg/api.php",
+  "attribution": "The Forever Winter Wiki contributors, CC BY-SA",
+  "quests": [
+    {
+      "_pageName": "A Cost Will Be Paid Pt. 1",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Find the [[Water Thief Research Comms]] code on [[Frozen Swamp]]\n# Bring 5 [[Rotary Hammer]]s and 3 [[Orga Codex]] to Lordoss",
+      "Related": "Rotary Hammer,Orga Codex",
+      "RelatedAmount": "5",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "A Cost Will Be Paid Pt. 2",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "2",
+      "TaskType": "Collect",
+      "Objectives": "# Bring [[Power Schematics]] to Octogirl",
+      "Related": "Power Schematics",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "A Cost Will Be Paid Pt. 3",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Obtain 1 [[Industrial Sealant]]\n# Obtain 1 [[Military Cables]]\n# Obtain 1 [[Electric Motor]]\n# Obtain 1 [[Carbon Fiber Tube]]\n# Obtain 1 [[Clamp]]\n# Obtain 1 [[Printing Resin]]",
+      "Related": "Industrial Sealant,Military Cables,Electric Motor,Carbon Fiber Tube,Clamp,Printing Resin",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "A Cost Will Be Paid Pt. 4",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "5",
+      "TaskType": "Collect",
+      "Objectives": "# Recover the head of a [[Mother Courage]] unit",
+      "Related": "Eurasian Mother Courage",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "A Light in the Dark",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Bring [[Cigs|Cigarettes]] to our Wounded Soldier in [[Elephant Mausoleum]].",
+      "Related": "Dogboro Cigarettes",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Ashen Mesa|Ashen Mesa]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Targeting Computer]] from an Anti-Air system  in Ashen Mesa",
+      "Related": "Targeting Computer",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Achilles' Heel",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "4",
+      "TaskType": "Collect",
+      "Objectives": "# Obtain a [[Recovery Drone]]\n# Obtain two [[Power Cell]]s\n# Obtain five [[Explosive Charge]]s\n# Obtain three [[Super Glue]]",
+      "Related": "Recovery Drone,Power Cell,Super Glue,Explosive Charge",
+      "RelatedAmount": "5",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Aerial Scavenge",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3 [[Eurasian Drone Cortex|Eurasian Drone components]].",
+      "Related": "Eurasian Drone Cortex",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Against One's Camp",
+      "Faction": "[[Western Embassy]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the [[Water Thief Sniper]]",
+      "Related": "Water Thief Sniper",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "All Tooled Up",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Tunnels]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "16",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Tunnel A with a [[Pneumatic Jump]] equipped",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Alpha Threat",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate [[Eurasian Pack Leader|Eurasian Cyborg Pack Leaders]] in Underground Cemetery",
+      "Related": "Eurasian Pack Leader",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Altitude Adjustment",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Destroy the Fuel Tank in Downtown",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Armor Harvest",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3 [[Armor Shard]]s from [[Europan Heavy Shotgunner|Heavy Shotgunners]].",
+      "Related": "EOD Armor Plate",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Armored Treasure",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3 [[Exo Component]]s",
+      "Related": "Exo Component",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Avenge the Fallen",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy 10x [[Eurasian_Brawler|Eurasian Brawlers]] or [[Eurasian_Heavy_Brawler|Eurasian Heavy Brawlers]].",
+      "Related": "Eurasian Brawler,Heavy Brawler",
+      "RelatedAmount": "10",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Backbones for the Backbone",
+      "Faction": "[[Lordoss]]",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "13",
+      "TaskType": "Collect",
+      "Objectives": "# Find [[Spine Component|modular spine components]] for Lordoss",
+      "Related": "Brawler Spinal Joint",
+      "RelatedAmount": "10",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Big Rig",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "15",
+      "TaskType": "Collect",
+      "Objectives": "# Extract from Ashen Mesa with a modified rig\n# Extract with over 50,000CR of loot",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Bin Pigs",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "5.2",
+      "TaskType": "Other",
+      "Objectives": "# Loot 3 [[Container]]s\n# Sell 50,000CR worth of loot",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Blue Gold",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "5.1",
+      "TaskType": "Collect, Other",
+      "Objectives": "# Visit the water tank\n# Obtain and deliver one barrel of [[Water]]",
+      "Related": "Water",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Look for the Soldier",
+      "Related": "Dog Tags",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Breath of Fresh Smoke",
+      "Faction": "[[Lordoss]]",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "12",
+      "TaskType": "Collect",
+      "Objectives": "# Find [[Cybernetic Lungs]] for Lordoss",
+      "Related": "Cybernetic Lungs",
+      "RelatedAmount": "6",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Bring Her In",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Save, Collect and extract with [[Pilot|Exo pilot]]",
+      "Related": "Pilot",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "6",
+      "TaskType": "Collect",
+      "Objectives": "# Collect 20 [[Sheet Metal]]\n# Collect 40 [[Screws]]\n# Collect 40 [[Bolts]]\n# Collect 40 [[Nuts]]\n# Collect 40 [[Clamp]]s",
+      "Related": "",
+      "RelatedAmount": "40",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Build Mother Courage's Upper Torso",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "7",
+      "TaskType": "Other",
+      "Objectives": "# Blow up a [[Mother Courage]]\n# Use a [[Item Extraction Beacon|drone]] to retrieve upper torso",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.1",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "6",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate [[Europa]]ns in [[Scorched Enclave]] before Extracting",
+      "Related": "Europa",
+      "RelatedAmount": "15",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.2",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "7",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate [[Euruska]]ns in [[Scrapyard Nexus]] before Extracting",
+      "Related": "Euruska",
+      "RelatedAmount": "10",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.3",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "8",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate [[Eurasia]]ns in [[Frozen Swamp]] before Extracting",
+      "Related": "Eurasia",
+      "RelatedAmount": "15",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Burst Transmission",
+      "Faction": "[[Europa]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10.2",
+      "TaskType": "Other",
+      "Objectives": "# Hack the [[Radar Walker]]s on Scorched Enclave",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Burying Secrets",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Logbook]] from [[Underground Cemetery]]",
+      "Related": "Logbook",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Cathode Hearth",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "13.1",
+      "TaskType": "Collect",
+      "Objectives": "# Build the television screens Innards upgrade",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Clear Skies",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Acquire a [[Jammer]] from the Derailed Train in the [[frozen Swamp]], then Plant it near the Drone Hives.",
+      "Related": "Jammer",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the Sniper",
+      "Related": "Euruskan Sniper AntiTank",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Collect HK Components",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "9",
+      "TaskType": "Collect",
+      "Objectives": "# Collect 6 [[Mnemonic Index]]es from [[Eurasian Assault Officer HK]]s",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Collect Sand-Diver HK Components",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Trophy Room",
+      "QuestlineStep": "8",
+      "TaskType": "Collect",
+      "Objectives": "# Collect 4 [[Cortical Array]]s from [[Sand-Diver HK]]\n# Collect 2 [[Memory Interface]]s from [[Sand-Diver HK]]\n# Collect 4 [[Interface Core]]s from [[Sand-Diver HK]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Communication Breakdown",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Sabotage the First Europan Antenna\n# Sabotage the Second Europan Antenna\n# Sabotage the Third Europan Antenna",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Connecting the Dots",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Scrapyard Nexus]], [[Scorched Enclave]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Activate Control Panel in Scrapyard Nexus\n# Get Secret Locked Box",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Cracked Open",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Find [[Exo Hard Drive]]s",
+      "Related": "Exo Hard Drive",
+      "RelatedAmount": "2",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Cull the Herd",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy 15 Eurasian Armed Forces",
+      "Related": "Eurasia",
+      "RelatedAmount": "15",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Cybernetic Heist",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3 [[Brawler Components]]",
+      "Related": "Eurasian Brawler Components",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Data Heist",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Hack the Servers and Extract from Mech Trenches",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Data Waves",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Transmit data from the Europa FOB control room",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Dead Men Walking",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "10",
+      "TaskType": "Other",
+      "Objectives": "# Extract from [[Elephant Mausoleum]] in a Full Party Without Getting Incapacitated",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Defeat the Uplinks",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3x [[Neuro Uplinks]].",
+      "Related": "Neuro Uplink Board",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve [[Battle Plans]] in [[Scrapyard Nexus]]",
+      "Related": "Battle Plans",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.1",
+      "Faction": "[[Europa]] ([[Doctor Morrow]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Doctor Morrow",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Deliver 20 [[Diagnostic Scanner]]s to the dropbox in Elephant Mausoleum medical trenches",
+      "Related": "Diagnostic Scanner",
+      "RelatedAmount": "20",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Faction": "[[Europa]] ([[Doctor Morrow]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Doctor Morrow",
+      "QuestlineStep": "2",
+      "TaskType": "Collect",
+      "Objectives": "# Deliver 10 [[Assorted Medicine]] to the dropbox in Elephant Mausoleum medical trenches",
+      "Related": "Assorted Medicine",
+      "RelatedAmount": "10",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Faction": "[[Europa]] ([[Doctor Morrow]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Doctor Morrow",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Deliver 30 [[Medical Alcohol]] to the dropbox in Elephant Mausoleum medical trenches",
+      "Related": "Medical Alcohol",
+      "RelatedAmount": "30",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.4",
+      "Faction": "[[Europa]] ([[Doctor Morrow]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Doctor Morrow",
+      "QuestlineStep": "4",
+      "TaskType": "Collect",
+      "Objectives": "# Deliver 10 [[Dogboro Cigarettes]] to the dropbox in Elephant Mausoleum medical trenches\n# Deliver 10 [[Hinoko Cigarettes]] to the dropbox in Elephant Mausoleum medical trenches\n# Deliver 10 [[Nucky Gold Cigarettes]] to the dropbox in Elephant Mausoleum medical trenches",
+      "Related": "Dogboro Cigarettes,Hinoko Cigarettes,Nucky Gold Cigarettes",
+      "RelatedAmount": "10",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.1",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Bring a Barrel of [[Water]] from [[Stairway Gate]]",
+      "Related": "Water",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.2",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "4",
+      "TaskType": "Collect",
+      "Objectives": "# Bring a Barrel of [[Water]] from [[Ashen Mesa]]",
+      "Related": "Water",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.3",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "5",
+      "TaskType": "Collect",
+      "Objectives": "# Bring a Barrel of [[Water]] from [[Underground Cemetery]]",
+      "Related": "Water",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.1",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "11",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Rail Component]] in the Hangar of [[Elephant Mausoleum]]",
+      "Related": "High Durability Rail Component",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.2",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "12",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the Breech Component in [[Scrapyard Nexus]]",
+      "Related": "Breech Component (dud)",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.3",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "13",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Breech Component]] in [[Ashen Mesa]]",
+      "Related": "Railgun Breech Component",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.4",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "14",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the Wardens in the Tower of [[Frozen Swamp]]",
+      "Related": "Europan Warden",
+      "RelatedAmount": "4",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.5",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "15",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Cooling System Component]] in [[Mech Trenches]]",
+      "Related": "Railgun Cooling Component",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.6",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "16",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Control System Component]] in [[Frozen Swamp]]",
+      "Related": "Railgun Assembly Component",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.7",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "17",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Deployable Leg Component]]s in [[Stairway Gate|Stairway]]",
+      "Related": "Heavy Joint Assembly",
+      "RelatedAmount": "4",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.8",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "18",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Structural Framework Component]]",
+      "Related": "Railgun Body Component",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.9",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "19",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Ammo Housing Component|Ammo Component]]",
+      "Related": "Railgun Magazine",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Elephant Mausoleum Sortie",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Elephant Mausoleum.",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Enclave Strike",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy 3x Assaulters in Scorched Enclave",
+      "Related": "Eurasian Assaulter",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Errand of Mercy",
+      "Faction": "[[Europa|Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect a [[Teddy Bear]]",
+      "Related": "Teddy Bear",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Extract from the Innards",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Innard]]s",
+      "Questline": "Water death",
+      "QuestlineStep": "2",
+      "TaskType": "Survive",
+      "Objectives": "# Extract",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Eye on the Sky",
+      "Faction": "[[Europa]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10.3",
+      "TaskType": "Other",
+      "Objectives": "# Activate the radar tower on Scorched Enclave",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Fetch Bar Supplies",
+      "Faction": "[[Scavengers]] ([[Bartender]])",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Fetch [[Bar Supplies]]",
+      "Related": "Bar Supplies",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Flames of Disruption",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Sabotage the Mech in the Hangar in Mech Trenches",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Food Chain Interrupted",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Deliver a [[Spare Part]] to the Grinder in Mech Trenches",
+      "Related": "Spare Part",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Help Civilians Escape from Underground Cemetery",
+      "Related": "Civilian",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Fresh Start",
+      "Faction": "[[Lordoss]]",
+      "Location": "[[Innards]]",
+      "Questline": "Lordoss",
+      "QuestlineStep": "11",
+      "TaskType": "Other",
+      "Objectives": "# Remove the bayonet from Lordoss",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Garage Days Pt. 1",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "Any",
+      "Questline": "Garage Days",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Get [[Old Tool Set]]\n# Get [[Diodegradable Multi-tool]]\n# Get [[Rotary Hammer]]\n# Get [[EDC Multi-tool]]",
+      "Related": "Old Tool Set,Diodegradable Multi-tool,Rotary Hammer,EDC Multi-tool",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Garage Days Pt. 2",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Garage Days",
+      "QuestlineStep": "2",
+      "TaskType": "Other",
+      "Objectives": "# Scout 1st Elephant Mausoleum Motorpool location\n# Scout 2nd Elephant Mausoleum Motorpool location",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Garage Days Pt. 3",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Garage Days",
+      "QuestlineStep": "3",
+      "TaskType": "Other",
+      "Objectives": "# Divert natural gas to Bunco in Frozen Swamp",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Ghosts of the Enclave",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "9",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from [[Scorched Enclave]] Unnoticed",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Giant's Senses",
+      "Faction": "[[Lordoss]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Lordoss",
+      "QuestlineStep": "17",
+      "TaskType": "Collect",
+      "Objectives": "# Find an [[Artificial Nervous System]] for Lordoss",
+      "Related": "Orgamech Nervous System",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Go Home, Conscript",
+      "Faction": "[[Eurasia]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "9.2",
+      "TaskType": "Collect, Kill",
+      "Objectives": "# Eliminate 12 [[Europan_Soldier#Europan_Conscript|Europan Conscripts]]\n# Deliver 6 [[Europan IFF Chip LVL1|Europan level 1 IFF chips]]",
+      "Related": "Europan IFF Chip LVL1,Europan Conscript",
+      "RelatedAmount": "6",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Goose Chase",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Find the radio equipment and transmit the false intel.",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Gun Nutty",
+      "Faction": "[[Europa]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10.5",
+      "TaskType": "Kill",
+      "Objectives": "# Defeat 10 [[Eurasia]]n units on Ashen Mesa with a modified weapon",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Guts and All",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Innards]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "2",
+      "TaskType": "Other",
+      "Objectives": "# Visit the Quest Terminal\n# Visit the Region Terminal\n# Visit the Character Terminal\n# Visit the Loadout Terminal\n# Visit the Ready Room",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 5 [[Cyborg Components]]",
+      "Related": "Cyborg's Head",
+      "RelatedAmount": "5",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Harvest Upgraded Mechanicals",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve [[Merkava_Equipment|Merkava Components]] x3",
+      "Related": "Merkava Suspension Component",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Hidden Water Pt 1",
+      "Faction": "[[Europa|Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Hidden Water",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Water Map|Map for Water]] in Ashen Mesa.",
+      "Related": "Water Map",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Hidden Water Pt 2",
+      "Faction": "[[Europa|Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Hidden Water",
+      "QuestlineStep": "2",
+      "TaskType": "Collect",
+      "Objectives": "# Collect (1) [[Water]] in Elephant Mausoleum",
+      "Related": "Water",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Hind Nav Comp",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Ashen Mesa|Ashen Mesa]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect a [[HIND Nav Computer|Nav Computer]] from a HIND in Ashen Mesa",
+      "Related": "HIND Navigation Computer",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Hostile Expungement",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy Europan Armed Forces",
+      "Related": "Europa",
+      "RelatedAmount": "15",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Hunt the Hunters",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 2 [[Europan_HK_Suit_Fragment|Hunter Killer Components]]",
+      "Related": "EOD Suit Component",
+      "RelatedAmount": "2",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Icon at Stake",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Find the [[Mystical Tech Totem (Large)|Totem]] and Extract from Scrapyard Nexus",
+      "Related": "Mystical Tech Totem (Large)",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Immobile Death",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve x3 [[Turret Debris|Turret Components]]",
+      "Related": "Turret Component",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Help the Scav Escape",
+      "Related": "Civilian",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "In the Crosshairs",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve [[Europan Portable Targeting System|Targeting System]]s from Elephant Mausoleum",
+      "Related": "Laser Rangefinder",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect 3 [[Elite Brawlers Insignia]]s",
+      "Related": "Brawler Insignia",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Investigate Ashen Mesa",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from [[Ashen Mesa]].",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Kane's Favored",
+      "Faction": "[[Eurasia]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "9.1",
+      "TaskType": "Other",
+      "Objectives": "# Earn 'trusted' reputation with Eurasia",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Rat King's Wake|Rat King Residue]]",
+      "Related": "Rat King's Wake",
+      "RelatedAmount": "25",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Kursk's Children",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve [[T-90_Equipment|T-90 Components]].",
+      "Related": "T-90 Suspension Component",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Labyrinth",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Tunnels]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "4",
+      "TaskType": "Survive",
+      "Objectives": "# Survive and extract from tunnel A",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Liberate the Innards",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Innard]]s",
+      "Questline": "Water death",
+      "QuestlineStep": "1",
+      "TaskType": "Other",
+      "Objectives": "# Eliminate all Water Thieves.",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Lost Angels' Lowdown",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Downtown Lost Angels",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Lost Cache",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Find a [[Data Cache]] in Elephant Mausoleum.",
+      "Related": "Data Cache",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Lost Signals",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Comms Device|Communication Devices]] from Underground Cemetery",
+      "Related": "Comms Device",
+      "RelatedAmount": "5",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Manufactured Heist",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Find the [[Weapon Schematics]] in the Frozen Swamp",
+      "Related": "Weapon Schematics",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Faction": "[[Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Plant the First Camera\n# Plant the Second Camera\n# Plant the Third Camera",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the [[Europan Pilot|Mech Pilot]]",
+      "Related": "Europan Pilot",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Mechanical Momentum",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Deliver [[Mech Part|Mech Components]] to the Hangar in Mech Trenches",
+      "Related": "Mech Part",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Med Bay Access",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Hack the Locked Gate in the Medical Trenches of Elephant Mausoleum",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Memento Pt 1",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Memento",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Bring the [[Picture]] from [[Ashen Mesa]].",
+      "Related": "Picture",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Memento Pt 2",
+      "Faction": "[[Europa|Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Memento",
+      "QuestlineStep": "2",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Weapon Tech]] in [[Scorched Enclave]]",
+      "Related": "Weapon Tech",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Memento Pt 3",
+      "Faction": "[[Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Memento",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Precision Components]] from [[Elephant Mausoleum]].",
+      "Related": "Precision Components",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy 10x [[Cyborg|Cyborgs]]",
+      "Related": "Cyborg Runner",
+      "RelatedAmount": "10",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Nervous Upgrade",
+      "Faction": "[[Lordoss]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Lordoss",
+      "QuestlineStep": "14",
+      "TaskType": "Collect",
+      "Objectives": "# Find a Current-Generation [[Wetware System]] for Lordoss",
+      "Related": "Wetware System",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Oiled Joints",
+      "Faction": "[[Lordoss]]",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "15",
+      "TaskType": "Collect",
+      "Objectives": "# Find 8 [[Advanced Joint]]s for Lordoss",
+      "Related": "Advanced Joint",
+      "RelatedAmount": "8",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Payback",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Find & Neutralize Goldbrick",
+      "Related": "Goldbrick",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Plug Pull",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Unplug the Life Support Systems in Mech Trenches",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Preparations",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Innards]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "3",
+      "TaskType": "Other",
+      "Objectives": "# Purchase \"[[Small First Aid Kit]]\" from [[Heisenburg]]\n# Purchase \"[[5.45x39mm Ammo Surplus]]\" from [[Bunco]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Psycho on the Loose",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the Europan EOD Officer",
+      "Related": "Sadistic Europan EOD",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Pyro Revealed",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# [[Europan Pyro|Pyro]] has been seen in [[Scorched Enclave]]. Search and Destroy.",
+      "Related": "Europan Pyro",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Red Baron's Legacy",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Banner of the Red Baron|Banner]] from the [[Europan Red Baron Exo|Red Baron]] in [[Elephant Mausoleum]]",
+      "Related": "Banner of the Red Baron",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Risky Cargo",
+      "Faction": "[[Scavengers]] (technically Europan quest, but given by Scavengers)",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 2 [[Explosives]].",
+      "Related": "Explosives",
+      "RelatedAmount": "2",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Roll Deep",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "13",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Ashen Mesa with a [[Recruit Skirmisher|Skirmisher Recruit]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Run the Mesa",
+      "Faction": "[[Europa]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10.1",
+      "TaskType": "Survive",
+      "Objectives": "# Survive and extract from [[Ashen Mesa]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Rust In Peace",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy the Europan Exo in Underground Cemetery",
+      "Related": "Europan Exo",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 1",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Scav Scrap",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Steal the [[Convoy Schedule|train schedule]] from Frozen Swamp",
+      "Related": "Convoy Schedule",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 2",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Scav Scrap",
+      "QuestlineStep": "2",
+      "TaskType": "Other",
+      "Objectives": "# Tag the cargo for the scavs",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Scav's Prescription",
+      "Faction": "[[Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Medical Supplies]]",
+      "Related": "Medical Supplies",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect Samples of Combat Stimulants",
+      "Related": "Combat Stimulant",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Scorched Enclave Recon",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from [[Scorched Enclave]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Seek and Destroy",
+      "Faction": "[[Europa]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "8",
+      "TaskType": "Other, Kill",
+      "Objectives": "# Mark any [[Eurasia]]n unit on Scorched Enclave\n# Eliminate 6 Eurasian units on Scorched Enclave",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Shadow Sweep",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate 3 [[Europan_GRINN#Assassin|Assassins]] in Scrapyard Nexus.",
+      "Related": "Europan Assassin",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Shantytown Recon",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Babel",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Sharp Memory",
+      "Faction": "[[Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve the lost [[Memento]]",
+      "Related": "Memento",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Shifting Tide",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Shifting Tide",
+      "QuestlineStep": "1",
+      "TaskType": "Other",
+      "Objectives": "# Help the [[Water_Thief#Named_Water_Thieves|Water Thief]] Escape in [[Scorched Enclave]]",
+      "Related": "Civilian",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.2",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "Shifting Tide",
+      "QuestlineStep": "2",
+      "TaskType": "Other",
+      "Objectives": "# Hack the Laptop in the Water Thieves Camp",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.3",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "Shifting Tide",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Find the [[Sewers Technical Plans|Sewer Plans]] in Downtown",
+      "Related": "Sewers Technical Plans",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.4",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "Shifting Tide",
+      "QuestlineStep": "4",
+      "TaskType": "Other",
+      "Objectives": "# Pull the Control Lever in the Underground",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.5",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Downtown Lost Angels]]",
+      "Questline": "Shifting Tide",
+      "QuestlineStep": "5",
+      "TaskType": "Other",
+      "Objectives": "# Access Riptide's Sewer Den in Downtown and Extract",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Sick Harvest",
+      "Faction": "[[Western Embassy]] (technically Euruskan quest, but given by Europa)",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Tissue Sample]]s",
+      "Related": "Tissue Sample",
+      "RelatedAmount": "5",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Silencing the Whispering Ghost",
+      "Faction": "[[Western Embassy]]",
+      "Location": "[[Babel]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the Sniper",
+      "Related": "Euruskan Sniper AntiTank",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Sniper Sweep",
+      "Faction": "[[Western Embassy]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[God Sniper Equipment|custom equipment]] carried by the [[Eurasian God Sniper]] in Ashen Mesa",
+      "Related": "God Sniper Equipment",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Stashed Away",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Innards]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "7",
+      "TaskType": "Other",
+      "Objectives": "# Find the Secret Storage Vault",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Steel on High",
+      "Faction": "[[Eurasia]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "9",
+      "TaskType": "Collect, Kill",
+      "Objectives": "# Eliminate 6 [[Europan Drone]]s\n# Deliver 3 [[Europan Drone Flight Controller|Europan drone components]]",
+      "Related": "Europan Drone Flight Controller,Europan Drone",
+      "RelatedAmount": "3",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Summon The Pain pt. 2",
+      "Faction": "[[Europa|Western Embassy]] (technically Scavenger quest, but given by Europa)",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "Summon The Pain",
+      "QuestlineStep": "2",
+      "TaskType": "Collect",
+      "Objectives": "# Collect the [[Eurasian Supply Crate|Crates]]",
+      "Related": "Eurasian Supply Crate",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Summon The Pain pt.1",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "Summon The Pain",
+      "QuestlineStep": "1",
+      "TaskType": "Kill",
+      "Objectives": "# Destroy 20 Eurasian units.",
+      "Related": "Eurasia",
+      "RelatedAmount": "20",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Surface Tension",
+      "Faction": "[[Eurasia]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "11",
+      "TaskType": "Collect, Other",
+      "Objectives": "# Access the locked bunker on Scorched Enclave\n# Deliver 3 barrels of [[Water]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Swamp Probing Mission",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from the Frozen Swamp",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Target Awareness",
+      "Faction": "[[Lordoss]]",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "16",
+      "TaskType": "Collect",
+      "Objectives": "# Find a [[Targeting Software Chip]] for Lordoss",
+      "Related": "Gyroscopic Stabilizer",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Target Locked",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the [[Euruskan Commander]] in [[Scorched Enclave]]",
+      "Related": "Euruskan Commander",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Tech Theft Prevention",
+      "Faction": "[[Europa|Western Embassy]]",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Plant Explosives on the Mech in [[Scrapyard Nexus]]",
+      "Related": "Explosives",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Terror On Display",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Scorched Enclave]], [[Ashen Mesa]], [[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect one [[Corpse Tank Control Panel]]",
+      "Related": "Corpse Tank Control Panel",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "That Guy",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "17",
+      "TaskType": "Other",
+      "Objectives": "# Provoke [[Hunter Killers]] on Ashen Mesa and extract",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "The Hobo King",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "12",
+      "TaskType": "Other",
+      "Objectives": "# Reach [[Prestige]] level 5 with your active scav",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "The People's Icon",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Scrapyard Nexus]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Find the [[Mystical Tech Totem (Large)|Totem]] and extract from Scrapyard Nexus.",
+      "Related": "Mystical Tech Totem (Large)",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Prized Alcohol]].",
+      "Related": "Prized Alcohol",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Thirsty Work",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Scorched Enclave]] / [[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "6",
+      "TaskType": "Other",
+      "Objectives": "# Fast travel to [[Scorched Enclave]] or [[Ashen Mesa]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "This Will Burn",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Scorched Enclave]] / [[Ashen Mesa]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "5",
+      "TaskType": "Survive",
+      "Objectives": "# Travel to Scorched Enclave or Ashen Mesa via tunnel A",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 1",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Basic Cigs]]: 3",
+      "Related": "Dogboro Cigarettes",
+      "RelatedAmount": "3",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 10",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "10",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Basic Cigs]]: 20",
+      "Related": "Dogboro Cigarettes",
+      "RelatedAmount": "20",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 2",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "2",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Import Cigs]]: 2",
+      "Related": "Hinoko Cigarettes",
+      "RelatedAmount": "2",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 3",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Premium Cigs]]: 1",
+      "Related": "Nucky Gold Cigarettes",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 4",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "4",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Basic Cigs]]: 8",
+      "Related": "Dogboro Cigarettes",
+      "RelatedAmount": "8",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 5",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "5",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Import Cigs]]: 5",
+      "Related": "Hinoko Cigarettes",
+      "RelatedAmount": "5",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 6",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "6",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Premium Cigs]]: 3",
+      "Related": "Nucky Gold Cigarettes",
+      "RelatedAmount": "3",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 7",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "7",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Basic Cigs]]: 15",
+      "Related": "Dogboro Cigarettes",
+      "RelatedAmount": "15",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 8",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "8",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Import Cigs]]: 8",
+      "Related": "Hinoko Cigarettes",
+      "RelatedAmount": "8",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 9",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "Lordoss",
+      "QuestlineStep": "9",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Premium Cigs]]: 5",
+      "Related": "Nucky Gold Cigarettes",
+      "RelatedAmount": "5",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 01",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Basic Cigs]]: 9",
+      "Related": "Dogboro Cigarettes",
+      "RelatedAmount": "9",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 02",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Import Cigs]]: 6",
+      "Related": "Hinoko Cigarettes",
+      "RelatedAmount": "6",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 03",
+      "Faction": "[[Euruska]] ([[Lordoss]])",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Bring me this many packs of [[Premium Cigs]]: 3",
+      "Related": "Nucky Gold Cigarettes",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Tormentor's Trail",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Ashen_Mesa|Ashen Mesa]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Stop the [[Europan Tormentor|Tormentor]] in [[Ashen Mesa]].",
+      "Related": "Europan Tormentor",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Toyetic Action",
+      "Faction": "[[Scavengers]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "14",
+      "TaskType": "Collect",
+      "Objectives": "# Deliver 1 [[Toy Dinosaur]]\n# Deliver 1 [[Toy Car]]\n# Deliver 1 [[Toy Train]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Training",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Innards]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "1",
+      "TaskType": "Other",
+      "Objectives": "# Deliver water supply\n# Destroy at least 5 enemies in training (optional)\n# Extract from training alive",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.1",
+      "Faction": "[[Scavengers]] ([[Velko]])",
+      "Location": "[[Elephant Mausoleum]], [[Frozen Swamp]], [[Babel]]",
+      "Questline": "Transmission Tower",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Place 3 [[Frequency Tap]]s near [[Radar Walker]]s in Elephant Mausoleum\n# Place taps in Frozen Swamp\n# Place taps in Babel",
+      "Related": "Frequency Tap",
+      "RelatedAmount": "9",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.2",
+      "Faction": "[[Scavengers]] ([[Sura]])",
+      "Location": "[[Tunnels]]",
+      "Questline": "Transmission Tower",
+      "QuestlineStep": "2",
+      "TaskType": "Other",
+      "Objectives": "# Obtain a transmission code from Sura\n# Use the code at the transmission tower\n# Meet with Octogirl at Tunnel C checkpoint",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.3",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "Transmission Tower",
+      "QuestlineStep": "3",
+      "TaskType": "Collect",
+      "Objectives": "# Obtain the [[A scrap of paper|Eurasian Supply Comms frequency]]\n# Listen in on the Eurasian comms\n# Find [[Octogirl's tools]]",
+      "Related": "Paper Scrap,Octogirl's Tool Set",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.4",
+      "Faction": "[[Scavengers]] ([[Octogirl]])",
+      "Location": "Any",
+      "Questline": "Transmission Tower",
+      "QuestlineStep": "4",
+      "TaskType": "Collect",
+      "Objectives": "# Bring 10 [[Cyborg Immunosuppressant]]s and 1 [[Processor Board]] to Octogirl",
+      "Related": "Cyborg Immunosuppressant,Processor Board",
+      "RelatedAmount": "10",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Treasure in the Sky",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3x [[Europan Drone Debris|Europan Drone Components]]",
+      "Related": "Europan Drone Flight Controller",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.1",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "1",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from [[Elephant Mausoleum]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.2",
+      "Faction": "[[Scavengers]] ([[Bunco]])",
+      "Location": "[[Mech Trenches]]",
+      "Questline": "Railgun",
+      "QuestlineStep": "2",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from [[Mech Trenches]]",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Triggerman",
+      "Faction": "[[Europa]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10.4",
+      "TaskType": "Other",
+      "Objectives": "# Reach level 5 with any weapon",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "Any",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate 3 [[Europan EOD|Europan EOD Troopers]]",
+      "Related": "Europan EOD",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Tunnel Vision",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Underground Cemetery]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Underground Cemetery Undetected",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Under Phosphor Skies",
+      "Faction": "[[Europa]]",
+      "Location": "Any",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10.6",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate 12 Eurasian [[Cyborg Runner]]s\n# Eliminate 6 Eurasian [[Cyborg Scrambler]]s",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "Unravel Euruskan Mysteries",
+      "Faction": "[[Western Embassy]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Collect",
+      "Objectives": "# Retrieve 3 [[Euruskan Plans]].",
+      "Related": "Euruskan Plans",
+      "RelatedAmount": "3",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Up, Up, and Away",
+      "Faction": "[[Eurasia|Eastern Consulate]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Survive",
+      "Objectives": "# Extract from Stairway Gate",
+      "Related": "",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Violence of Action",
+      "Faction": "[[Eurasia]]",
+      "Location": "[[Scorched Enclave]]",
+      "Questline": "Tutorial",
+      "QuestlineStep": "10",
+      "TaskType": "Other",
+      "Objectives": "# Use an [[Adrenaline Stim]] on Scorched Enclave\n# Extract from Scorched Enclave in 90 seconds or less",
+      "Related": "Adrenaline Stim",
+      "RelatedAmount": "1",
+      "Replayable": "0"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "VIP Treatment",
+      "QuestlineStep": "1",
+      "TaskType": "Collect",
+      "Objectives": "# Collect [[Personnel Data]]",
+      "Related": "Personnel Data",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 2",
+      "Faction": "[[Euruska|СПЕЦНАЗ Commission]]",
+      "Location": "[[Stairway Gate]]",
+      "Questline": "VIP Treatment",
+      "QuestlineStep": "2",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the VIP",
+      "Related": "Europan VIP",
+      "RelatedAmount": "1",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Water Wars",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Frozen Swamp]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Kill",
+      "Objectives": "# Eliminate the [[Water Thief|Water Thieves]]",
+      "Related": "Water Thieves Clan",
+      "RelatedAmount": "15",
+      "Replayable": "1"
+    },
+    {
+      "_pageName": "Whispers Beneath the Thunder",
+      "Faction": "[[Scavengers]]",
+      "Location": "[[Elephant Mausoleum]]",
+      "Questline": "",
+      "QuestlineStep": "",
+      "TaskType": "Other",
+      "Objectives": "# Help [[Civilian]]s Escape in Elephant Mausoleum's Hangar",
+      "Related": "Civilian",
+      "RelatedAmount": "",
+      "Replayable": "1"
+    }
+  ],
+  "rewards": [
+    {
+      "_pageName": "A Light in the Dark",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "A Light in the Dark",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "A Light in the Dark",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "A Light in the Dark",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "A Light in the Dark",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "USAS-12",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "USAS-12 Shotgun Barrel B",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "USAS-12 Shotgun Barrel C",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "USAS-12 Shotgun Magazine B",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "USAS-12 Shotgun Magazine C",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "AA Tech Extraction",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Achilles' Heel",
+      "Item": "Item Extraction Beacon",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Achilles' Heel",
+      "Item": "Special Units DetPack",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Aerial Scavenge",
+      "Item": "40mm Grenade",
+      "Quantity": "6"
+    },
+    {
+      "_pageName": "Aerial Scavenge",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Aerial Scavenge",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Aerial Scavenge",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Aerial Scavenge",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Against One's Camp",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Against One's Camp",
+      "Item": "Electric Motor",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Against One's Camp",
+      "Item": "Europa Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Against One's Camp",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Against One's Camp",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "All Tooled Up",
+      "Item": "Assorted Medicine",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "All Tooled Up",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "All Tooled Up",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "All Tooled Up",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "All Tooled Up",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Alpha Threat",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Alpha Threat",
+      "Item": "Europa Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Alpha Threat",
+      "Item": "Rig Light",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Alpha Threat",
+      "Item": "XP",
+      "Quantity": "2500"
+    },
+    {
+      "_pageName": "Altitude Adjustment",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Altitude Adjustment",
+      "Item": "Europa Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Altitude Adjustment",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Altitude Adjustment",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Altitude Adjustment",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Armor Harvest",
+      "Item": "AA12",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Armor Harvest",
+      "Item": "AA12 Shotgun Magazine A",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Armor Harvest",
+      "Item": "AA12 Shotgun Magazine B",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Armor Harvest",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Armor Harvest",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Armored Treasure",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Armored Treasure",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "56666"
+    },
+    {
+      "_pageName": "Armored Treasure",
+      "Item": "Pneumatic Jump",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Armored Treasure",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Avenge the Fallen",
+      "Item": ".50 BMG",
+      "Quantity": "30"
+    },
+    {
+      "_pageName": "Avenge the Fallen",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Avenge the Fallen",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Avenge the Fallen",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Avenge the Fallen",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Backbones for the Backbone",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Backbones for the Backbone",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Big Rig",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Big Rig",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Big Rig",
+      "Item": "Sewing Kit",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Big Rig",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Big Rig",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Bin Pigs",
+      "Item": "BP TopLarge 3 C",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Bin Pigs",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Bin Pigs",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Bin Pigs",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Blue Gold",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Blue Gold",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Blue Gold",
+      "Item": "Water Canteen",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Blue Gold",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "9x19mm Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "APC9 Pro",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "Europa Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Bond of Brothers",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Breath of Fresh Smoke",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Breath of Fresh Smoke",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Bring Her In",
+      "Item": "Credits",
+      "Quantity": "66666"
+    },
+    {
+      "_pageName": "Bring Her In",
+      "Item": "Europa Faction Rating",
+      "Quantity": "90000"
+    },
+    {
+      "_pageName": "Bring Her In",
+      "Item": "Recruit Pilot",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Bring Her In",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Bring Her In",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Item": "AT-43 MASS",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Item": "Credits",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Item": "Rail Gun Turret Ammo Supply",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Item": "Rail Gun Turret Weapon",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Item": "Turret Base",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Build Mother Courage's Body Rack",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Build Mother Courage's Upper Torso",
+      "Item": "Credits",
+      "Quantity": "90000"
+    },
+    {
+      "_pageName": "Build Mother Courage's Upper Torso",
+      "Item": "Exo Stamina Equipment",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Build Mother Courage's Upper Torso",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Build Mother Courage's Upper Torso",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.1",
+      "Item": "12-Gauge Buckshot",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.1",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.2",
+      "Item": ".50 BMG",
+      "Quantity": "25"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.2",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.3",
+      "Item": "9x19mm Ammo",
+      "Quantity": "60"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Bunco's Bounties Pt.3",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Burst Transmission",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Burst Transmission",
+      "Item": "High-Frequency Radio",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Burst Transmission",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Burst Transmission",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Burst Transmission",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Burying Secrets",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Burying Secrets",
+      "Item": "IED",
+      "Quantity": "8"
+    },
+    {
+      "_pageName": "Burying Secrets",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Burying Secrets",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Burying Secrets",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Cathode Hearth",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Cathode Hearth",
+      "Item": "Mead",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Cathode Hearth",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Cathode Hearth",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cathode Hearth",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Clear Skies",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Clear Skies",
+      "Item": "Recovery Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Clear Skies",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Clear Skies",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Clear Skies",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Item": "7.62x39mm Ammo",
+      "Quantity": "150"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Item": "Europa Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Item": "RPK",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cleared to Ascend",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Collect HK Components",
+      "Item": "Credits",
+      "Quantity": "150000"
+    },
+    {
+      "_pageName": "Collect HK Components",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Collect HK Components",
+      "Item": "Water",
+      "Quantity": "25"
+    },
+    {
+      "_pageName": "Collect HK Components",
+      "Item": "XP",
+      "Quantity": "16000"
+    },
+    {
+      "_pageName": "Collect Sand-Diver HK Components",
+      "Item": "Credits",
+      "Quantity": "110000"
+    },
+    {
+      "_pageName": "Collect Sand-Diver HK Components",
+      "Item": "Pneumatic Jump",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Collect Sand-Diver HK Components",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Collect Sand-Diver HK Components",
+      "Item": "XP",
+      "Quantity": "13000"
+    },
+    {
+      "_pageName": "Communication Breakdown",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Communication Breakdown",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Communication Breakdown",
+      "Item": "Military Cables",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Communication Breakdown",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Communication Breakdown",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Connecting the Dots",
+      "Item": "CPU",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Connecting the Dots",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Connecting the Dots",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Connecting the Dots",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Connecting the Dots",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Cracked Open",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Cracked Open",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Cracked Open",
+      "Item": "Processor Board",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cracked Open",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cracked Open",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Cull the Herd",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Cull the Herd",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Cull the Herd",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cull the Herd",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Cybernetic Heist",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Cybernetic Heist",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Cybernetic Heist",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Cybernetic Heist",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Data Heist",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Data Heist",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Data Heist",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Data Heist",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Data Waves",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Data Waves",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Data Waves",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Data Waves",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Dead Men Walking",
+      "Item": "5.45x39mm Ammo Surplus",
+      "Quantity": "240"
+    },
+    {
+      "_pageName": "Dead Men Walking",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Dead Men Walking",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Defeat the Uplinks",
+      "Item": "Credits",
+      "Quantity": "16666"
+    },
+    {
+      "_pageName": "Defeat the Uplinks",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Defeat the Uplinks",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Item": ".45 ACP Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Item": "USP",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Discover the Truth",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.1",
+      "Item": "Advanced First Aid Kit",
+      "Quantity": "20"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.1",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "ACG 2x",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "M16",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "M60",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "SIGS Cheers 2x",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "TrueAimer 4x",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "Vtex Spit 3x",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.2",
+      "Item": "WLT MPL",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Recruit Scav Mule",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Left Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Left Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Left Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Right Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Right Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Right Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Bot Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Centre Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Centre Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Centre Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Left Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Left Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Left Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Right Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Right Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Right Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Left Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Left Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Left Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Right Large High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Right Medium High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Right Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.3",
+      "Item": "Rig Container Top Small High Quality",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Doctor Morrow Pt.4",
+      "Item": "AT-43 MASS",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.1",
+      "Item": "5.56x45mm Ammo",
+      "Quantity": "240"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.1",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.2",
+      "Item": "Standard First Aid Kit",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.2",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.3",
+      "Item": "5.45x39mm Ammo",
+      "Quantity": "120"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Down to the Last Drop Pt.3",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.1",
+      "Item": "High Durability Rail Component",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.1",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.1",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.2",
+      "Item": "Breech Component (dud)",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.2",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.2",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.3",
+      "Item": "Railgun Breech Component",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.3",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.3",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.4",
+      "Item": "Railgun Power Bank",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.4",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.4",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.4",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.5",
+      "Item": "Railgun Cooling Component",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.5",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.5",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.5",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.6",
+      "Item": "Railgun Assembly Component",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.6",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.6",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.6",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.7",
+      "Item": "Heavy Joint Assembly",
+      "Quantity": "4"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.7",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.7",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.7",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.8",
+      "Item": "Railgun Body Component",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.8",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.8",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.8",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.9",
+      "Item": "Railgun Magazine",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.9",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.9",
+      "Item": "Sealed Mystery Box",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Electro-Magnetic Railway Pt.9",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Elephant Mausoleum Sortie",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Elephant Mausoleum Sortie",
+      "Item": "Europa Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Elephant Mausoleum Sortie",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Elephant Mausoleum Sortie",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Enclave Strike",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Enclave Strike",
+      "Item": "Spectre M4",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Enclave Strike",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Enclave Strike",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Errand of Mercy",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Errand of Mercy",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Errand of Mercy",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Errand of Mercy",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Errand of Mercy",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Extract from the Innards",
+      "Item": "Recruit Support",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Extract from the Innards",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Eye on the Sky",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Eye on the Sky",
+      "Item": "Jerrycan",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Eye on the Sky",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Eye on the Sky",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Eye on the Sky",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Fetch Bar Supplies",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Fetch Bar Supplies",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Flames of Disruption",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Flames of Disruption",
+      "Item": "Electric Motor",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Flames of Disruption",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Flames of Disruption",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Flames of Disruption",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Food Chain Interrupted",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Food Chain Interrupted",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Food Chain Interrupted",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Food Chain Interrupted",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Food Chain Interrupted",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Item": "GM6",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Item": "Water",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Freed from Shadows",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Fresh Start",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Fresh Start",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Garage Days Pt. 1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Garage Days Pt. 1",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Garage Days Pt. 1",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Garage Days Pt. 2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28400"
+    },
+    {
+      "_pageName": "Garage Days Pt. 2",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Garage Days Pt. 2",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Garage Days Pt. 3",
+      "Item": "Credits",
+      "Quantity": "133333"
+    },
+    {
+      "_pageName": "Garage Days Pt. 3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "57000"
+    },
+    {
+      "_pageName": "Garage Days Pt. 3",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Garage Days Pt. 3",
+      "Item": "XP",
+      "Quantity": "40000"
+    },
+    {
+      "_pageName": "Ghosts of the Enclave",
+      "Item": "Advanced First Aid Kit",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Ghosts of the Enclave",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Ghosts of the Enclave",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Giant's Senses",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Go Home, Conscript",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Go Home, Conscript",
+      "Item": "Gunpowder",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Go Home, Conscript",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Go Home, Conscript",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Go Home, Conscript",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Goose Chase",
+      "Item": "Credits",
+      "Quantity": "26666"
+    },
+    {
+      "_pageName": "Goose Chase",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Goose Chase",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Goose Chase",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Gun Nutty",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Gun Nutty",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Gun Nutty",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Gun Nutty",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Guts and All",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Guts and All",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Guts and All",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Item": "9x19mm Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Item": "APC9 Pro",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Harvest Tech",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Harvest Upgraded Mechanicals",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Harvest Upgraded Mechanicals",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "56666"
+    },
+    {
+      "_pageName": "Harvest Upgraded Mechanicals",
+      "Item": "IED",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Harvest Upgraded Mechanicals",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Hidden Water Pt 1",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Hidden Water Pt 1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Hidden Water Pt 1",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Hidden Water Pt 1",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Hidden Water Pt 2",
+      "Item": "Credits",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Hidden Water Pt 2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Hidden Water Pt 2",
+      "Item": "Water",
+      "Quantity": "5"
+    },
+    {
+      "_pageName": "Hidden Water Pt 2",
+      "Item": "XP",
+      "Quantity": "3000"
+    },
+    {
+      "_pageName": "Hind Nav Comp",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Hind Nav Comp",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Hind Nav Comp",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Hind Nav Comp",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Hostile Expungement",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Hostile Expungement",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Hostile Expungement",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Hostile Expungement",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Hunt the Hunters",
+      "Item": "Credits",
+      "Quantity": "33333"
+    },
+    {
+      "_pageName": "Hunt the Hunters",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "56666"
+    },
+    {
+      "_pageName": "Hunt the Hunters",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Icon at Stake",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Icon at Stake",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Icon at Stake",
+      "Item": "Fast Travel Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Icon at Stake",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Icon at Stake",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Immobile Death",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Immobile Death",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Immobile Death",
+      "Item": "Tactical Camera",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Immobile Death",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Item": "Recruit Skirmisher",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Item": "Recruit Support",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "In Search of Vex",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "In the Crosshairs",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "In the Crosshairs",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "In the Crosshairs",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "SCAR",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "SCAR Magazine A",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "SCAR Magazine B",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "SCAR Magazine C",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "SCAR Magazine D",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Insignia Retrieval",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Investigate Ashen Mesa",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Investigate Ashen Mesa",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Investigate Ashen Mesa",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Investigate Ashen Mesa",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Kane's Favored",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Kane's Favored",
+      "Item": "Cyborg Immunosuppressant",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Kane's Favored",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Kane's Favored",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Kane's Favored",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Left Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Left Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Left Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Right Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Right Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Right Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Bot Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Centre Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Centre Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Centre Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Left Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Left Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Left Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Right Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Right Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Right Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Left Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Left Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Left Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Right Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Right Medium High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Right Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Rig Container Top Small High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "56666"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "King of Kings",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Kursk's Children",
+      "Item": "20mm Turret",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Kursk's Children",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Kursk's Children",
+      "Item": "Europa Faction Rating",
+      "Quantity": "56666"
+    },
+    {
+      "_pageName": "Kursk's Children",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Kursk's Children",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Labyrinth",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Labyrinth",
+      "Item": "Food Tin",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Labyrinth",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Labyrinth",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Lost Angels' Lowdown",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Lost Angels' Lowdown",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Lost Angels' Lowdown",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Lost Angels' Lowdown",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Lost Cache",
+      "Item": "Credits",
+      "Quantity": "16666"
+    },
+    {
+      "_pageName": "Lost Cache",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Lost Cache",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Lost Cache",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Lost Cache",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Lost Signals",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Lost Signals",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Lost Signals",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Lost Signals",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Manufactured Heist",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Manufactured Heist",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Manufactured Heist",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Manufactured Heist",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Manufactured Heist",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Item": "Construction Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Item": "Recruit Skirmisher",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Item": "Recruit Support",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Marked for Observation",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Item": "9x19mm Ammo",
+      "Quantity": "50"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Item": "Credits",
+      "Quantity": "66666"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Item": "PP-19 Vityaz",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Mech Wreck",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Mechanical Momentum",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Mechanical Momentum",
+      "Item": "Electric Motor",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Mechanical Momentum",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Mechanical Momentum",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Mechanical Momentum",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Med Bay Access",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Med Bay Access",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Med Bay Access",
+      "Item": "Military Cables",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Med Bay Access",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Med Bay Access",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Memento Pt 1",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Memento Pt 1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Memento Pt 1",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Memento Pt 1",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Memento Pt 2",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Memento Pt 2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Memento Pt 2",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Memento Pt 2",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Memento Pt 3",
+      "Item": "20x105mm Anti-Tank",
+      "Quantity": "10"
+    },
+    {
+      "_pageName": "Memento Pt 3",
+      "Item": "36M AntiTank",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Memento Pt 3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Memento Pt 3",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Memento Pt 3",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Item": ".45 ACP Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Item": "Credits",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Item": "USP",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Mercy Killing",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Nervous Upgrade",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Nervous Upgrade",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Oiled Joints",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Payback",
+      "Item": ".50 BMG",
+      "Quantity": "25"
+    },
+    {
+      "_pageName": "Payback",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Payback",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Payback",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Plug Pull",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Plug Pull",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Plug Pull",
+      "Item": "Heavy-Duty Trauma Kit",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Plug Pull",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Plug Pull",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Preparations",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Preparations",
+      "Item": "Rig Light",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Preparations",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Preparations",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Psycho on the Loose",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Psycho on the Loose",
+      "Item": "Organoid Outlet",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Psycho on the Loose",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Psycho on the Loose",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Psycho on the Loose",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Pyro Revealed",
+      "Item": "7.62x39mm Ammo",
+      "Quantity": "150"
+    },
+    {
+      "_pageName": "Pyro Revealed",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Pyro Revealed",
+      "Item": "RPK",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Pyro Revealed",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Red Baron's Legacy",
+      "Item": "Credits",
+      "Quantity": "66666"
+    },
+    {
+      "_pageName": "Red Baron's Legacy",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Red Baron's Legacy",
+      "Item": "Organoid Plug",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Red Baron's Legacy",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Red Baron's Legacy",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Risky Cargo",
+      "Item": "Credits",
+      "Quantity": "16666"
+    },
+    {
+      "_pageName": "Risky Cargo",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Risky Cargo",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Risky Cargo",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Roll Deep",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Roll Deep",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Roll Deep",
+      "Item": "Scavenger's Go-Bag",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Roll Deep",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Roll Deep",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Run the Mesa",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Run the Mesa",
+      "Item": "Goodies",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Run the Mesa",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Run the Mesa",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Run the Mesa",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Rust In Peace",
+      "Item": "20mm Turret",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Rust In Peace",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Rust In Peace",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Rust In Peace",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 1",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 1",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 1",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 2",
+      "Item": "40mm Grenade",
+      "Quantity": "24"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 2",
+      "Item": "Electric Motor",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 2",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Scav Scrap Pt. 2",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Scav's Prescription",
+      "Item": "Heavy-Duty Trauma Kit",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Scav's Prescription",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Scav's Prescription",
+      "Item": "Water",
+      "Quantity": "4"
+    },
+    {
+      "_pageName": "Scav's Prescription",
+      "Item": "XP",
+      "Quantity": "4000"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "9x19mm Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "APC9 Pro",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Science of Stimulants",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Scorched Enclave Recon",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Scorched Enclave Recon",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Scorched Enclave Recon",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Scorched Enclave Recon",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Seek and Destroy",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Seek and Destroy",
+      "Item": "Ethyl Alcohol",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Seek and Destroy",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Seek and Destroy",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Shadow Sweep",
+      "Item": "20mm Turret",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Shadow Sweep",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Shadow Sweep",
+      "Item": "Pneumatic Jump",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Shadow Sweep",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Shantytown Recon",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Shantytown Recon",
+      "Item": "Europa Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Shantytown Recon",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Shantytown Recon",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Sharp Memory",
+      "Item": "40mm Grenade",
+      "Quantity": "6"
+    },
+    {
+      "_pageName": "Sharp Memory",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Sharp Memory",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Sharp Memory",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Sharp Memory",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Shifting Tide",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Shifting Tide",
+      "Item": "Recruit Skirmisher",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Shifting Tide",
+      "Item": "Recruit Support",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Shifting Tide",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Shifting Tide",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.2",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.2",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.2",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.3",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.3",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.3",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.4",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.4",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.4",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.4",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.5",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.5",
+      "Item": "Recovery Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.5",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.5",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Shifting Tide Pt.5",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Sick Harvest",
+      "Item": "40mm Grenade",
+      "Quantity": "6"
+    },
+    {
+      "_pageName": "Sick Harvest",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Sick Harvest",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Sick Harvest",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Sick Harvest",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Silencing the Whispering Ghost",
+      "Item": "Europa Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Silencing the Whispering Ghost",
+      "Item": "Military Cables",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Silencing the Whispering Ghost",
+      "Item": "RPK",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Silencing the Whispering Ghost",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Silencing the Whispering Ghost",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Sniper Sweep",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Sniper Sweep",
+      "Item": "Europa Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Sniper Sweep",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Sniper Sweep",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Stashed Away",
+      "Item": "Beer",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Stashed Away",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Stashed Away",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Stashed Away",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Steel on High",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Steel on High",
+      "Item": "Hinoko Cigarettes",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Steel on High",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Steel on High",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Steel on High",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Summon The Pain pt. 2",
+      "Item": "Credits",
+      "Quantity": "30000"
+    },
+    {
+      "_pageName": "Summon The Pain pt. 2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Summon The Pain pt. 2",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Summon The Pain pt. 2",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Summon The Pain pt.1",
+      "Item": "Credits",
+      "Quantity": "7500"
+    },
+    {
+      "_pageName": "Summon The Pain pt.1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Summon The Pain pt.1",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Summon The Pain pt.1",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Surface Tension",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Surface Tension",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Surface Tension",
+      "Item": "Standard First Aid Kit",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Surface Tension",
+      "Item": "Water",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Surface Tension",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Swamp Probing Mission",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Swamp Probing Mission",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Swamp Probing Mission",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Swamp Probing Mission",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Target Awareness",
+      "Item": "XP",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Target Locked",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Target Locked",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Target Locked",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Target Locked",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Tech Theft Prevention",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Tech Theft Prevention",
+      "Item": "Electric Motor",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tech Theft Prevention",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Tech Theft Prevention",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tech Theft Prevention",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Terror On Display",
+      "Item": "Credits",
+      "Quantity": "66666"
+    },
+    {
+      "_pageName": "Terror On Display",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "56666"
+    },
+    {
+      "_pageName": "Terror On Display",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "That Guy",
+      "Item": "Blood Packs",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "That Guy",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "That Guy",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "That Guy",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "That Guy",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "The Hobo King",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "The Hobo King",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "The Hobo King",
+      "Item": "Standard Gunrunner Rig",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "The Hobo King",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "The Hobo King",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "The People's Icon",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "The People's Icon",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "The People's Icon",
+      "Item": "Fast Travel Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "The People's Icon",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "The People's Icon",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Item": "9x19mm Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Item": "APC9 Pro",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Item": "Credits",
+      "Quantity": "50000"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Thief in the Night",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Thirsty Work",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Thirsty Work",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Thirsty Work",
+      "Item": "Small First Aid Kit",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Thirsty Work",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "This Will Burn",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "This Will Burn",
+      "Item": "PP-19 Vityaz",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "This Will Burn",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "This Will Burn",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 1",
+      "Item": "Credits",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 1",
+      "Item": "Rig Container Top Large High Quality",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 1",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 10",
+      "Item": "Credits",
+      "Quantity": "30000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 10",
+      "Item": "Smuggled Organs",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 10",
+      "Item": "XP",
+      "Quantity": "2000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 2",
+      "Item": "Credits",
+      "Quantity": "12500"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 2",
+      "Item": "Gunpowder",
+      "Quantity": "6"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 2",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 3",
+      "Item": "Credits",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 3",
+      "Item": "Fast Travel Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 3",
+      "Item": "XP",
+      "Quantity": "750"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 4",
+      "Item": "Assorted Medicine",
+      "Quantity": "4"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 4",
+      "Item": "Credits",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 4",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 5",
+      "Item": "Credits",
+      "Quantity": "17500"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 5",
+      "Item": "Old Paint Can",
+      "Quantity": "5"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 5",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 6",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 6",
+      "Item": "Recovery Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 6",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 7",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 7",
+      "Item": "Urea",
+      "Quantity": "10"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 7",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 8",
+      "Item": "Credits",
+      "Quantity": "22500"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 8",
+      "Item": "Metal Fragments",
+      "Quantity": "12"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 8",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 9",
+      "Item": "Construction Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 9",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Tobacco Journey Pt 9",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 01",
+      "Item": "Credits",
+      "Quantity": "15000"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 01",
+      "Item": "Electric Motor",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 01",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 01",
+      "Item": "XP",
+      "Quantity": "2500"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 02",
+      "Item": "Blood Packs",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 02",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 02",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 02",
+      "Item": "XP",
+      "Quantity": "2500"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 03",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 03",
+      "Item": "Euruskan IFF Chip LVL3",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 03",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tobacco Journey Random 03",
+      "Item": "XP",
+      "Quantity": "2500"
+    },
+    {
+      "_pageName": "Tormentor's Trail",
+      "Item": "Credits",
+      "Quantity": "37500"
+    },
+    {
+      "_pageName": "Tormentor's Trail",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Tormentor's Trail",
+      "Item": "Water",
+      "Quantity": "5"
+    },
+    {
+      "_pageName": "Tormentor's Trail",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Toyetic Action",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Toyetic Action",
+      "Item": "Old Paint Can",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "Toyetic Action",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Toyetic Action",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Toyetic Action",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Training",
+      "Item": "Credits",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Training",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Training",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Training",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.1",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.2",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.3",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.3",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.4",
+      "Item": "Credits",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Transmission Tower Pt.4",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Treasure in the Sky",
+      "Item": "Credits",
+      "Quantity": "16666"
+    },
+    {
+      "_pageName": "Treasure in the Sky",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Treasure in the Sky",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.1",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.1",
+      "Item": "Small First Aid Kit",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.1",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.2",
+      "Item": "Deployable Drill",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.2",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Trial by Extraction Pt.2",
+      "Item": "XP",
+      "Quantity": "10000"
+    },
+    {
+      "_pageName": "Triggerman",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Triggerman",
+      "Item": "M16",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Triggerman",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Triggerman",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Triggerman",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "M16",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "M16 Magazine A",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "M16 Magazine B",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "M16 Upper Assmbly A",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "M16 Upper Assmbly B",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "M16 Upper Assmbly C",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Trooper Disillusion",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Tunnel Vision",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Tunnel Vision",
+      "Item": "Pneumatic Jump",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Tunnel Vision",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Tunnel Vision",
+      "Item": "Water",
+      "Quantity": "5"
+    },
+    {
+      "_pageName": "Tunnel Vision",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "Under Phosphor Skies",
+      "Item": "Boinco Candy Bar",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "Under Phosphor Skies",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Under Phosphor Skies",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "25000"
+    },
+    {
+      "_pageName": "Under Phosphor Skies",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Under Phosphor Skies",
+      "Item": "XP",
+      "Quantity": "1500"
+    },
+    {
+      "_pageName": "Unravel Euruskan Mysteries",
+      "Item": "9x19mm Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "Unravel Euruskan Mysteries",
+      "Item": "APC9 Pro",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Unravel Euruskan Mysteries",
+      "Item": "Europa Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Unravel Euruskan Mysteries",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Unravel Euruskan Mysteries",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Up, Up, and Away",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "Up, Up, and Away",
+      "Item": "Eurasia Faction Rating",
+      "Quantity": "14166"
+    },
+    {
+      "_pageName": "Up, Up, and Away",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Up, Up, and Away",
+      "Item": "XP",
+      "Quantity": "500"
+    },
+    {
+      "_pageName": "Violence of Action",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Violence of Action",
+      "Item": "Potato Chips",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Violence of Action",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "Violence of Action",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Violence of Action",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Item": "9x19mm Ammo",
+      "Quantity": "100"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Item": "APC9 Pro",
+      "Quantity": "3"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Item": "Credits",
+      "Quantity": "6666"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 1",
+      "Item": "XP",
+      "Quantity": "1000"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 2",
+      "Item": "Credits",
+      "Quantity": "20000"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 2",
+      "Item": "Euruska Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 2",
+      "Item": "Water",
+      "Quantity": "2"
+    },
+    {
+      "_pageName": "VIP Treatment Pt. 2",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Water Wars",
+      "Item": "Fast Travel Drone",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Water Wars",
+      "Item": "RPK",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Water Wars",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "28333"
+    },
+    {
+      "_pageName": "Water Wars",
+      "Item": "Water",
+      "Quantity": "5"
+    },
+    {
+      "_pageName": "Water Wars",
+      "Item": "XP",
+      "Quantity": "5000"
+    },
+    {
+      "_pageName": "Whispers Beneath the Thunder",
+      "Item": "Credits",
+      "Quantity": "13333"
+    },
+    {
+      "_pageName": "Whispers Beneath the Thunder",
+      "Item": "Power Cell",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Whispers Beneath the Thunder",
+      "Item": "Scavenger Faction Rating",
+      "Quantity": "42500"
+    },
+    {
+      "_pageName": "Whispers Beneath the Thunder",
+      "Item": "Water",
+      "Quantity": "1"
+    },
+    {
+      "_pageName": "Whispers Beneath the Thunder",
+      "Item": "XP",
+      "Quantity": "500"
+    }
+  ]
+}

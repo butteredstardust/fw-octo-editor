@@ -2,6 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
+// The Forever Winter version this save editor's schema, item/recipe/weapon-build
+// data, and mutation logic were built and verified against. This is a fixed
+// reference point, independent of whatever build happens to be installed on
+// the machine running the editor (see getGameVersion() below for that live,
+// dynamically-detected value).
+const VERIFIED_GAME_VERSION = '0.9.3.9.2';
+
 // Fully-qualified path to the game executable. Override with FW_GAME_EXE when
 // the game is installed somewhere unusual (e.g. a non-default Steam library).
 const EXE_OVERRIDE = process.env.FW_GAME_EXE || null;
@@ -182,4 +189,4 @@ async function getGameVersion() {
   return { detected: false, version: null, source: null, appId: null, path: exe || null };
 }
 
-module.exports = { getGameVersion };
+module.exports = { getGameVersion, VERIFIED_GAME_VERSION };

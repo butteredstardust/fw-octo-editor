@@ -16,9 +16,10 @@ body {
 .nav-group { margin-bottom:1rem; }
 .nav-group-title { margin:.25rem .65rem .38rem; color:var(--muted-text); font-size:.64rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
 .nav button { width:100%; display:flex; align-items:center; min-height:2.35rem; margin:.12rem 0; padding:.48rem .7rem; text-align:left; border-left:2px solid transparent; border-radius:3px; }
-.nav button::before { content:'›'; width:1.2rem; color:var(--muted-text); }
+.nav-icon { display:inline-flex; width:18px; height:18px; flex:0 0 18px; margin-right:.65rem; color:inherit; }
+.nav-icon svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .nav button.active { background:linear-gradient(90deg,rgba(217,107,39,.3),rgba(217,107,39,.07)); border-left-color:var(--amber-soft); color:#fff; }
-.nav button.active::before { color:var(--amber-soft); }
+.nav button.active .nav-icon { color:var(--amber-soft); }
 .content { width:100%; max-width:1480px; margin:0; padding:1.5rem clamp(1rem,3vw,2.5rem) 4rem; }
 .card { position:relative; overflow:hidden; background:linear-gradient(145deg,rgba(30,32,38,.96),rgba(20,22,27,.96)); border-color:#3a3e46; box-shadow:var(--shadow); }
 .card::before { content:''; position:absolute; inset:0 0 auto; height:2px; background:linear-gradient(90deg,var(--amber),transparent 42%); opacity:.75; border-radius:inherit; }
@@ -28,7 +29,9 @@ body {
    Add Items, and Rigs pages need a sticky filter bar (see .inv-filter-bar /
    .add-filter-bar / .rig-filter-bar below), so their card opts back into
    normal overflow instead of carrying the fix to every page. */
-#page-inventory .card, #page-add-items .card, #page-rigs .card, #page-weapon-xp .card, #page-crafting .card { overflow:visible; }
+#page-inventory .card, #page-add-items .card, #page-rigs .card, #page-weapon-xp .card, #page-crafting .card, #page-presets .card, #page-weapon-builds .card, #page-hub-upgrades .card { overflow:visible; }
+.hub-filter-bar{grid-template-columns:minmax(260px,2fr) minmax(160px,1fr);position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
+@media(max-width:1050px){.hub-filter-bar{position:static}}
 .recipe-filter-bar { grid-template-columns:minmax(260px,2fr) minmax(180px,1fr); position:sticky; top:7rem; z-index:8; box-shadow:0 8px 18px rgba(0,0,0,.22); backdrop-filter:blur(8px); }
 @media (max-width:1050px) { .recipe-filter-bar { position:static; } }
 .card h2 { font-size:clamp(1.08rem,2vw,1.35rem); letter-spacing:.015em; }
@@ -71,8 +74,8 @@ body {
 .empty-state { padding:2.5rem 1rem; text-align:center; border:1px dashed var(--gunmetal); border-radius:8px; color:var(--text-2); }
 @media (max-width:1050px) { .filter-bar { grid-template-columns:repeat(2,minmax(0,1fr)); } .inv-filter-bar,.add-filter-bar { position:static; } }
 @media (max-width:780px) {
-  .header { padding:.75rem 1rem; }
-  .header .status { display:none; }
+  .header { padding:.75rem 1rem; flex-wrap:wrap; row-gap:.5rem; }
+  .header-tools { flex-basis:100%; order:3; flex-wrap:wrap; }
   .nav-toggle { display:block; }
   .app-frame { display:block; }
   .nav { position:fixed; z-index:50; top:0; left:0; width:min(82vw,280px); height:100vh; padding-top:4.5rem; transform:translateX(-105%); transition:transform .2s ease; box-shadow:var(--shadow); }
@@ -128,14 +131,67 @@ body {
 .rig-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:auto;padding-top:.15rem}
 .rig-actions button{width:100%}
 .rig-card>.technical-details{position:absolute;right:.75rem;bottom:.75rem;transform:translateY(calc(100% + .25rem))}
-@media(max-width:1050px){.rig-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.rig-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.weapon-xp-controls{grid-template-columns:repeat(2,minmax(0,1fr));position:static}}
+@media(max-width:1050px){.rig-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.rig-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.weapon-xp-controls{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.weapon-build-toolbar{position:static}.preset-toolbar{position:static}}
 @media(max-width:780px){.rig-summary,.rig-capacity{grid-template-columns:1fr}.rig-grid{grid-template-columns:1fr}.rig-card{padding:.85rem}.rig-actions{grid-template-columns:1fr}.rig-kit-details li{grid-template-columns:minmax(0,1fr) auto}.rig-kit-details li .technical-details{grid-column:1/-1;margin-left:0}.rig-card>.technical-details{position:static;transform:none}}
 
-.weapon-build-toolbar{grid-template-columns:2fr 1fr 2fr}.weapon-build-summary{display:flex;justify-content:space-between;gap:1rem;margin:1.25rem 0;padding:1rem;border:1px solid var(--gunmetal)}.build-metrics{display:grid;text-align:right}.build-metrics strong{font-size:2rem;color:var(--amber-soft)}.weapon-build-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}.weapon-part-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.75rem}.weapon-part-card{display:flex;gap:.75rem;padding:.8rem;border:1px solid var(--gunmetal);background:var(--surface-2)}.weapon-part-card img,.weapon-part-card>.item-type-icon{width:56px;height:56px;object-fit:contain;flex:0 0 56px}.weapon-part-card h4{margin:.2rem 0}.weapon-part-card p{font-size:.78rem;color:var(--text-2);margin:.3rem 0}.weapon-part-card.is-owned{border-left:3px solid var(--green)}.weapon-part-card.is-missing{border-left:3px solid var(--amber)}.source-disclosure{margin-top:1rem;padding:1rem;background:rgba(255,255,255,.035);font-size:.8rem;color:var(--text-2)}
+.weapon-build-toolbar{grid-template-columns:2fr 1fr 2fr;position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}.weapon-build-summary{display:flex;justify-content:space-between;gap:1rem;margin:1.25rem 0;padding:1rem;border:1px solid var(--gunmetal)}.build-metrics{display:grid;text-align:right}.build-metrics strong{font-size:2rem;color:var(--amber-soft)}.weapon-build-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}.weapon-part-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.75rem}
+.weapon-part-card{display:flex;gap:.75rem;padding:.8rem;border:1px solid var(--gunmetal);background:var(--surface-2);transition:border-color .15s,box-shadow .15s}
+.weapon-part-card img,.weapon-part-card>.item-type-icon,.weapon-part-card>.app-icon{width:48px;height:48px;object-fit:contain;flex:0 0 48px;color:var(--teal-soft)}
+.weapon-part-card h4{margin:.15rem 0 .35rem}
+.weapon-part-card p{font-size:.78rem;color:var(--text-2);margin:.3rem 0}
+.weapon-part-card.is-owned{border-left:3px solid var(--green)}
+.weapon-part-card.is-owned:hover{box-shadow:0 0 0 1px rgba(95,211,138,.16)}
+.weapon-part-card.is-missing{border-left:3px solid var(--amber)}
+.weapon-part-card.is-missing:hover{box-shadow:0 0 0 1px rgba(217,107,39,.16)}
+.weapon-part-body{min-width:0;flex:1 1 auto;display:flex;flex-direction:column}
+.weapon-part-stats{display:flex;flex-wrap:wrap;gap:.3rem;margin:.35rem 0}
+.stat-chip{background:rgba(255,255,255,.03);border:1px solid var(--gunmetal);border-radius:6px;padding:.15rem .5rem;font-size:.7rem;color:var(--text-2);white-space:nowrap}
+.stat-chip b{color:var(--text);font-weight:700;margin-left:.3rem;font-variant-numeric:tabular-nums}
+.stat-chip.neutral{font-style:italic}
+.req-badge{display:inline-block;font-size:.68rem;padding:.15rem .5rem;border-radius:10px;margin:.3rem 0;white-space:nowrap}
+.req-badge.met{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.req-badge.unmet{background:var(--warn-bg);color:var(--amber-warn);border:1px solid var(--warn-border)}
+.source-disclosure{margin-top:1rem;padding:1rem;background:rgba(255,255,255,.035);font-size:.8rem;color:var(--text-2)}
 @media(max-width:700px){.weapon-build-toolbar{grid-template-columns:1fr}.weapon-build-summary{display:block}.build-metrics{text-align:left}.weapon-part-grid{grid-template-columns:1fr}.weapon-build-actions button{min-height:44px}}
 
-.weapon-build-command{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem;padding:1rem;border:1px solid var(--gunmetal);background:rgba(217,107,39,.08)}.weapon-build-command div{display:grid;gap:.2rem}.weapon-build-command span{color:var(--text-2);font-size:.8rem}.weapon-build-command button{min-height:44px}@media(max-width:700px){.weapon-build-command{align-items:stretch;flex-direction:column}}
+.weapon-build-command{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem;padding:.55rem .8rem;border:1px solid var(--gunmetal);border-radius:var(--radius-md);background:rgba(217,107,39,.06)}.weapon-build-command span{color:var(--text-2);font-size:.78rem}.weapon-build-command strong{color:var(--text)}.weapon-build-command button{white-space:nowrap}@media(max-width:700px){.weapon-build-command{align-items:stretch;flex-direction:column}}
 
-.preset-toolbar{grid-template-columns:minmax(260px,2fr) minmax(160px,1fr)}.preset-summary{margin:1rem 0;color:var(--text-2)}.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.85rem;margin-top:1rem}.preset-card{border:1px solid var(--gunmetal);background:var(--surface-2);padding:1rem}.preset-card.is-active{border-left:3px solid var(--green)}.preset-card header{display:flex;align-items:flex-start;gap:.7rem}.preset-card header>.item-type-icon{width:42px;height:42px;flex:0 0 42px}.preset-card h3,.preset-card header p{margin:.12rem 0}.preset-badges{margin-left:auto;display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end}.preset-badge{padding:.2rem .4rem;border:1px solid var(--gunmetal);font-size:.68rem;text-transform:uppercase}.preset-badge.active{color:var(--green);border-color:var(--green)}.preset-badge.score{color:var(--amber-soft);border-color:var(--amber);font-variant-numeric:tabular-nums}.preset-parts{display:grid;gap:.35rem;margin:.8rem 0}.preset-part{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:.5rem;padding:.4rem;border-top:1px solid var(--gunmetal);font-size:.76rem}.preset-part>span{color:var(--text-2)}.preset-part.placeholder{opacity:.55}.preset-card footer{display:grid;gap:.4rem;color:var(--text-2);font-size:.76rem}.preset-card footer ul{margin:.4rem 0;padding-left:1.25rem}@media(max-width:700px){.preset-toolbar{grid-template-columns:1fr}.preset-grid{grid-template-columns:1fr}.preset-card header{flex-wrap:wrap}.preset-badges{width:100%;margin-left:0;justify-content:flex-start}}
+.preset-toolbar{grid-template-columns:minmax(260px,2fr) minmax(160px,1fr);position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}.preset-summary{margin:1rem 0;color:var(--text-2)}.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:.85rem;margin-top:1rem}.preset-card{border:1px solid var(--gunmetal);background:var(--surface-2);padding:1rem}.preset-card.is-active{border-left:3px solid var(--green)}.preset-card header{display:flex;align-items:flex-start;gap:.7rem}.preset-card header>.item-type-icon{width:42px;height:42px;flex:0 0 42px}.preset-card h3,.preset-card header p{margin:.12rem 0}.preset-badges{margin-left:auto;display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end}.preset-badge{padding:.2rem .4rem;border:1px solid var(--gunmetal);font-size:.68rem;text-transform:uppercase}.preset-badge.active{color:var(--green);border-color:var(--green)}.preset-badge.score{color:var(--amber-soft);border-color:var(--amber);font-variant-numeric:tabular-nums}.preset-parts{display:grid;gap:.35rem;margin:.8rem 0}.preset-part{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:.5rem;padding:.4rem;border-top:1px solid var(--gunmetal);font-size:.76rem}.preset-part>span{color:var(--text-2)}.preset-part.placeholder{opacity:.55}.preset-card footer{display:grid;gap:.4rem;color:var(--text-2);font-size:.76rem}.preset-card footer ul{margin:.4rem 0;padding-left:1.25rem}@media(max-width:700px){.preset-toolbar{grid-template-columns:1fr}.preset-grid{grid-template-columns:1fr}.preset-card header{flex-wrap:wrap}.preset-badges{width:100%;margin-left:0;justify-content:flex-start}}
 
 .weapon-part-state{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:.55rem}.weapon-part-state .mini{min-width:64px;min-height:36px;padding:.35rem .7rem}
+
+/* "owned"/"missing" reused as bare status classes on part cards -- give them
+   real color (previously unstyled). */
+.weapon-part-card .owned{color:var(--green)}
+.weapon-part-card .missing{color:var(--amber-warn)}
+/* Build summary suppression note: "ready" (suppressed) is a genuine win;
+   "neutral" (no compatible suppressor) is just a fact about the weapon
+   category, not a problem -- so it stays muted rather than alarm-colored. */
+.build-metrics .ready{color:var(--green)}
+.build-metrics .neutral{color:var(--text-2)}
+
+.weapon-part-deps{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;margin:.35rem 0}
+.weapon-part-deps .k,.weapon-part-stats .k{font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-2);margin-right:.15rem}
+.dep-chip{background:var(--chip-bg);border:1px solid var(--chip-border);border-radius:10px;padding:.1rem .5rem;font-size:.68rem;color:var(--text-2);white-space:nowrap}
+
+/* Ranked-by-score list: lets builds be compared across a category instead of
+   stepping through the weapon dropdown one at a time. */
+.weapon-build-ranking{margin:0 0 1rem}
+.wbr-title{font-size:.8rem;color:var(--text-2);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.wbr-count{font-size:.66rem;color:var(--text-2);background:var(--chip-bg);border:1px solid var(--chip-border);border-radius:10px;padding:.05rem .5rem}
+.wbr-list{display:flex;flex-direction:column;gap:.2rem;max-height:280px;overflow-y:auto;border:1px solid var(--gunmetal);border-radius:8px;padding:.35rem;background:var(--surface-2);scrollbar-width:thin;scrollbar-color:var(--gunmetal) transparent}
+.wbr-list::-webkit-scrollbar{width:10px}
+.wbr-list::-webkit-scrollbar-track{background:transparent}
+.wbr-list::-webkit-scrollbar-thumb{background:var(--gunmetal);border-radius:var(--radius-pill);border:2px solid transparent;background-clip:padding-box}
+.wbr-list::-webkit-scrollbar-thumb:hover{background:var(--gunmetal-dark);background-clip:padding-box}
+.wbr-row{display:grid;grid-template-columns:2.2rem minmax(0,1fr) 4.2rem 5rem 6rem;align-items:center;gap:.5rem;padding:.4rem .5rem;border-radius:6px;border:1px solid transparent;background:none;color:var(--text);text-align:left;cursor:pointer;font-size:.78rem}
+.wbr-row:hover{background:var(--surface-hover)}
+.wbr-row.active{border-color:var(--amber);background:rgba(217,107,39,.1)}
+.wbr-rank{color:var(--text-2);font-variant-numeric:tabular-nums;font-size:.72rem}
+.wbr-name{display:flex;flex-direction:column;gap:.1rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wbr-cat{font-size:.64rem;color:var(--text-2)}
+.wbr-score{font-weight:700;color:var(--amber-soft);font-variant-numeric:tabular-nums;text-align:right}
+.wbr-parts{font-size:.7rem;color:var(--text-2);text-align:right;white-space:nowrap}
+.wbr-suppressed{font-size:.62rem;text-transform:uppercase;letter-spacing:.03em;color:transparent;text-align:right;white-space:nowrap}
+.wbr-suppressed.yes{color:var(--teal-soft)}
+@media(max-width:700px){.wbr-row{grid-template-columns:1.6rem minmax(0,1fr) 3.4rem}.wbr-parts,.wbr-suppressed{display:none}}

@@ -64,7 +64,10 @@
     .header .status::before { content:""; width:.5rem; height:.5rem; border-radius:50%; background:currentColor; }
     .header .status[data-state="closed"] { color:var(--green); border-color:var(--green-border); background:var(--green-bg); }
     .header .status[data-state="running"] { color:var(--red); border-color:var(--red-border); background:var(--red-bg); }
+    .header .status[data-state="ready"] { color:var(--green); border-color:var(--green-border); background:var(--green-bg); }
+    .header .status[data-state="blocked"] { color:var(--red); border-color:var(--red-border); background:var(--red-bg); }
     .header .status[data-state="checking"] { color:var(--amber-soft); border-color:var(--warn-border); }
+    .safety-value.truncate { display:block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; cursor:help; }
     .info-button { flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; width:2.4rem; height:2.4rem; padding:0; border-radius:50%; border:1px solid var(--gunmetal); background:transparent; color:var(--text-2); cursor:pointer; }
     .info-button .info-icon { display:block; width:20px; height:20px; }
     .info-button:hover, .info-button:focus-visible { color:var(--text); border-color:var(--text-2); }
@@ -125,6 +128,18 @@
     @media (prefers-reduced-motion:reduce) { button.is-pending::after { animation-duration:1.2s; } }
     @keyframes btn-spin { to { transform:rotate(360deg); } }
     .icon-chip { display:grid; place-items:center; border:1px solid var(--chip-border); border-radius:7px; background:var(--chip-bg); color:var(--teal-soft); }
+    /* Action-verb icon shown inline on buttons (add/set/remove/unlock/etc.),
+       distinct from item-type-icon (noun icons for inventory categories). */
+    .action-icon { display:inline-flex; width:14px; height:14px; flex:0 0 14px; vertical-align:-2px; margin-right:.35rem; }
+    .action-icon svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    button.is-pending .action-icon { visibility:hidden; }
+    /* Icon-only buttons: square touch target, no label text visible (kept for
+       screen readers via .sr-only), tooltip supplied by the button's title attr. */
+    .icon-only { display:inline-grid; place-items:center; width:2rem; height:2rem; min-height:0; padding:0; flex:0 0 auto; }
+    .icon-only .action-icon { width:16px; height:16px; flex-basis:16px; margin-right:0; }
+    /* Shared small-caps category caption (weapon build summary, part slot,
+       preset headers) -- previously emitted with no rule at all. */
+    .eyebrow { display:inline-block; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--teal-soft); margin-bottom:0.15rem; }
     .char-card, .vendor-card, .hub-card, .weapon-card, .repair-card,
     .recipe-card, .trader-card, .preset-card, .weapon-part-card {
       background:var(--surface-2); border:1px solid var(--gunmetal); border-radius:var(--radius-lg);
@@ -140,7 +155,7 @@
     @media (max-width: 780px) { .two-col { grid-template-columns: 1fr; } }
     .page { display: none; }
     .page.active { display: block; }
-    .safety-bar { display:grid; grid-template-columns:repeat(6,minmax(120px,1fr)); gap:1px; background:var(--gunmetal); border-bottom:1px solid var(--gunmetal); }
+    .safety-bar { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:1px; background:var(--gunmetal); border-bottom:1px solid var(--gunmetal); }
     .safety-item { background:var(--surface-2); padding:.55rem .8rem; min-width:0; }
     .safety-label { display:block; color:var(--text-2); font-size:.65rem; text-transform:uppercase; letter-spacing:.05em; }
     .safety-value { display:block; margin-top:.1rem; font-size:.78rem; font-weight:600; overflow-wrap:anywhere; }

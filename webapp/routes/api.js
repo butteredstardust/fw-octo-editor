@@ -14,7 +14,8 @@ const { runIntegrityCheck, validateForeignKeys } = require('../utils/validation'
 const { getRepairStatus, collectRepair, setQuestReady } = require('../services/saveService');
 const mutationService = require('../services/mutationService');
 const { checkCompatibility } = require('../services/compatibilityService');
-const { getGameVersion } = require('../services/gameVersionService');
+const { getGameVersion, VERIFIED_GAME_VERSION } = require('../services/gameVersionService');
+const { version: APP_VERSION } = require('../package.json');
 const weaponBuildService = require('../services/weaponBuildService');
 const presetService = require('../services/presetService');
 
@@ -103,7 +104,9 @@ router.get('/status', async (req, res) => {
       mutation,
       compatibility,
       writeReady: !gameRunning && !mutation.active && compatibility.compatible,
-      blockingReasons: [gameRunning ? 'game-running' : null, mutation.active ? 'mutation-active' : null, ...compatibility.reasons].filter(Boolean)
+      blockingReasons: [gameRunning ? 'game-running' : null, mutation.active ? 'mutation-active' : null, ...compatibility.reasons].filter(Boolean),
+      appVersion: APP_VERSION,
+      verifiedGameVersion: VERIFIED_GAME_VERSION
     });
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
@@ -234,6 +237,7 @@ router.get('/weapon-builds', async (req,res)=>{try{res.json(await weaponBuildSer
 router.post('/weapon-builds/add-missing-owned',async(req,res)=>{try{const result=await runMutation(req,'weapon-build-add-missing-owned',()=>weaponBuildService.addMissingForOwnedWeapons(resolveKey(req)));res.json(result);}catch(err){res.status(err.status||500).json({error:err.message,operationId:err.operationId||null,backupId:err.backupId||null,rollbackStatus:err.rollbackStatus||null});}});
 router.post('/weapon-builds/:weaponId/parts/:partId/add',async(req,res)=>{try{const result=await runMutation(req,'weapon-build-add-part',()=>weaponBuildService.addBuildPart(resolveKey(req),req.params.weaponId,req.params.partId));res.json(result);}catch(err){res.status(err.status||500).json({error:err.message,operationId:err.operationId||null,backupId:err.backupId||null,rollbackStatus:err.rollbackStatus||null});}});
 router.post('/weapon-builds/:weaponId/add-missing',async(req,res)=>{try{const result=await runMutation(req,'weapon-build-add-missing',()=>weaponBuildService.addMissing(resolveKey(req),req.params.weaponId));res.json(result);}catch(err){res.status(err.status||500).json({error:err.message,operationId:err.operationId||null,backupId:err.backupId||null,rollbackStatus:err.rollbackStatus||null});}});
+router.post('/weapon-builds/:weaponId/add-missing-with-weapon',async(req,res)=>{try{const result=await runMutation(req,'weapon-build-add-missing-with-weapon',()=>weaponBuildService.addMissingWithWeapon(resolveKey(req),req.params.weaponId));res.json(result);}catch(err){res.status(err.status||500).json({error:err.message,operationId:err.operationId||null,backupId:err.backupId||null,rollbackStatus:err.rollbackStatus||null});}});
 
 router.get('/weapon-xp', async (req, res) => {
   try {

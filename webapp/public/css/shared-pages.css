@@ -15,7 +15,7 @@
     .dash-badge.inprog { background: var(--teal-bg); color: var(--teal-soft); }
     .dash-badge.notstart { background: var(--gunmetal-dark); color: var(--text-2); }
     .dash-quest-list { display: flex; flex-direction: column; gap: 0.25rem; }
-    .dash-quest-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.35rem 0.5rem; background: var(--surface-2); border: 1px solid var(--gunmetal-dark); border-radius: 6px; font-size: 0.82rem; }
+    .dash-quest-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; padding: 0.35rem 0.5rem; background: var(--surface-2); border: 1px solid var(--gunmetal-dark); border-radius: 6px; font-size: 0.82rem; }
     .dash-quest-row.ready { border-left: 3px solid var(--amber-warn); }
     .dash-quest-row.inprog { border-left: 3px solid var(--teal); }
     .dash-quest-row.notstart { border-left: 3px solid var(--gunmetal); }
@@ -27,6 +27,14 @@
     .dash-quest-sub { color: var(--text-2); font-size: 0.72rem; margin-left: 0.5rem; }
     .dash-quest-btn { margin-left: auto; font-size: 0.68rem; padding: 0.18rem 0.5rem; background: var(--warn-bg); color: var(--amber-warn); border: 1px solid var(--warn-border); border-radius: 8px; cursor: pointer; white-space: nowrap; }
     .dash-quest-btn:hover { background: var(--warn-bg-hover); }
+    .dash-quest-disclosure { flex-basis: 100%; order: 5; }
+    .dash-quest-disclosure summary { cursor: pointer; font-size: 0.68rem; color: var(--teal-soft); list-style: none; }
+    .dash-quest-disclosure summary::-webkit-details-marker { display: none; }
+    .dash-quest-meta { font-size: 0.7rem; color: var(--text-2); margin: 0.35rem 0 0.15rem; }
+    .dash-quest-objectives { margin: 0.15rem 0; padding-left: 1.1rem; font-size: 0.72rem; color: var(--text-tooltip); }
+    .dash-quest-objectives li { margin: 0.15rem 0; }
+    .dash-quest-rewards { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.35rem; }
+    .dash-quest-reward { background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 10px; padding: 0.1rem 0.5rem; font-size: 0.68rem; color: var(--text-2); }
     .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; }
     .page-head { margin-bottom:var(--space-3); } .page-head h2 { font-size:1.45rem; margin-bottom:.25rem; } .page-head p { color:var(--text-2); max-width:70ch; }
     #page-dashboard { max-width:var(--content-wide); margin:auto; } .cloud-caution { padding:.65rem 1rem; font-size:.82rem; } .overview-card { padding:1rem; } .overview-card > h2 { margin-bottom:.65rem; }

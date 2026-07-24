@@ -2,7 +2,7 @@ import { FW, expose } from '../runtime.mjs';
 import { RECIPE_DATA } from '../recipe-data.mjs';
 import { recipePlannerTotals } from '../recipe-planner.mjs';
 
-const { api, esc, appIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml } = FW;
+const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml } = FW;
 
 // Recipes only come from two stations, so a station-level icon (rather than a
 // guess per product name) is the reliable signal available at render time.
@@ -42,7 +42,7 @@ function toggleDbKeyVisibility() {
   const btn = document.getElementById('toggleDbKeyVisibilityButton');
   const showing = input.type === 'text';
   input.type = showing ? 'password' : 'text';
-  btn.textContent = showing ? 'Show' : 'Hide';
+  btn.innerHTML = `${actionIcon('eye')}${showing ? 'Show' : 'Hide'}`;
   btn.setAttribute('aria-pressed', showing ? 'false' : 'true');
 }
 
@@ -178,8 +178,8 @@ function renderRecipeCard({ recipe, requested, crafts, components }) {
     <span class="settings-msg" id="craftop-${encId}" aria-live="polite"></span>
     <div class="recipe-card-actions">
       <label>Qty <input type="number" class="recipe-qty-input" data-recipe="${encId}" id="craftqty-${encId}" value="${requested}" min="1" max="2147483647" step="1"></label>
-      <button class="mini" data-action="craft-add-missing" data-recipe="${encId}" ${missingCount ? '' : 'disabled'}>Add Missing</button>
-      <button class="btn-ghost" data-action="craft-add-all" data-recipe="${encId}">Add all</button>
+      <button class="mini" data-action="craft-add-missing" data-recipe="${encId}" ${missingCount ? '' : 'disabled'}>${actionIcon('add')}Add Missing</button>
+      <button class="btn-ghost" data-action="craft-add-all" data-recipe="${encId}">${actionIcon('add')}Add all</button>
     </div>
     <p class="recipe-crafts-note">${requested} needed · ${crafts} craft${crafts === 1 ? '' : 's'} · ${recipe.product.quantity} per craft</p>
   </article>`;

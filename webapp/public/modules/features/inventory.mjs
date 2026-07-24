@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, receiptHtml, receiptSummary } = FW;
+const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, actionIcon, receiptHtml, receiptSummary } = FW;
 
 let _inventory = [];
 let _catalog = {};
@@ -211,7 +211,7 @@ function renderInventory() {
                 <input type="number" id="qty-${enc}" value="${r.quantity}" min="0" max="2147483647" step="1">
               </label>
               <input type="hidden" id="src-${enc}" value="${esc(r.sourceMap || 'Items')}">
-              <button class="set" data-action="update-item" data-name="${enc}" aria-label="Set new quantity for ${esc(r.d.wiki)}">Set</button>
+              <button class="set icon-only" data-action="update-item" data-name="${enc}" title="Set new quantity for ${esc(r.d.wiki)}">${actionIcon('check')}<span class="sr-only">Set</span></button>
             <button class="mini" data-action="set-quantity" data-name="${enc}" data-value="0" title="Set quantity to 0">0</button>
             <button class="mini" data-action="set-quantity" data-name="${enc}" data-value="9999" title="Set quantity to 9999 (caps display)">Max</button>
           </div>
@@ -386,7 +386,7 @@ function renderAddCatalog() {
           <label class="add-qty" title="Quantity to add">Qty
             <input type="number" id="addqty-${enc}" value="1" min="1" max="2147483647" step="1" ${owned ? 'disabled' : ''}>
           </label>
-          <button class="add1" data-action="add-item" data-id="${enc}" ${owned ? 'disabled' : ''}>${owned ? 'Cannot Add Owned Item' : 'Add Item'}</button>
+          <button class="add1" data-action="add-item" data-id="${enc}" ${owned ? 'disabled' : ''}>${owned ? actionIcon('check') + 'Cannot Add Owned Item' : actionIcon('add') + 'Add Item'}</button>
         </div>
       </div>`;
     }
@@ -556,8 +556,8 @@ function renderRigs() {
       <details class="rig-kit-details"><summary>HQ set · ${rig.highQualityContainers.length} container${rig.highQualityContainers.length === 1 ? '' : 's'}</summary><ul>${moduleList}</ul></details>
       <div class="operation-inline" id="rigop-${enc}" aria-live="polite"></div>
       <div class="rig-actions">
-        <button class="btn-primary" data-action="add-rig" data-id="${enc}" type="button" ${rig.owned ? 'disabled' : ''}>${rig.owned ? 'Rig owned' : 'Add rig'}</button>
-        <button class="btn-ghost" data-action="add-rig-kit" data-id="${enc}" type="button">Add HQ set</button>
+        <button class="btn-primary" data-action="add-rig" data-id="${enc}" type="button" ${rig.owned ? 'disabled' : ''}>${rig.owned ? actionIcon('check') + 'Rig owned' : actionIcon('add') + 'Add rig'}</button>
+        <button class="btn-ghost" data-action="add-rig-kit" data-id="${enc}" type="button">${actionIcon('add')}Add HQ set</button>
       </div>
     </article>`;
   }).join('');

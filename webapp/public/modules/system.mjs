@@ -1,10 +1,11 @@
 import { FW, expose } from './runtime.mjs';
 
-const { api, esc, debounce, showToast, showNotice, setOperationFeedback, operationFeedbackFor } = FW;
+const { api, esc, actionIcon, debounce, showToast, showNotice, setOperationFeedback, operationFeedbackFor } = FW;
 const feature = name => (...args) => FW[name](...args);
 const loadDashboard = feature('loadDashboard');
 const loadCharacters = feature('loadCharacters');
 const loadHubUpgrades = feature('loadHubUpgrades');
+const filterHubUpgrades = feature('filterHubUpgrades');
 const loadWeaponXp = feature('loadWeaponXp');
 const loadInventory = feature('loadInventory');
 const loadRepair = feature('loadRepair');
@@ -59,7 +60,8 @@ const toggleSection = feature('toggleSection');
 const toggleHubUpgrade = feature('toggleHubUpgrade');
 const addUpgradeMaterials = feature('addUpgradeMaterials');
 const addWeaponBuildPart = feature('addWeaponBuildPart');
-const addMissingWeaponBuild = feature('addMissingWeaponBuild');
+const addMissingWeaponBuildBundle = feature('addMissingWeaponBuildBundle');
+const selectWeaponBuild = feature('selectWeaponBuild');
 const setWeaponXp = feature('setWeaponXp');
 const toggleAllInvSections = feature('toggleAllInvSections');
 const toggleInvSection = feature('toggleInvSection');
@@ -145,9 +147,11 @@ bind('presetType','change',()=>{sessionStorage.setItem('presetType',document.get
 bind('weaponBuildSearch','input',debounce(renderWeaponBuildSelector,120));
 bind('weaponBuildAddOwned','click',addMissingForOwnedWeapons);
 bind('weaponBuildCategory','change',renderWeaponBuildSelector);
-bind('weaponBuildSelect','change',()=>{sessionStorage.setItem('weaponBuildId',document.getElementById('weaponBuildSelect').value);renderWeaponBuild();});
+bind('weaponBuildSelect','change',()=>selectWeaponBuild(document.getElementById('weaponBuildSelect').value));
 bind('weaponFilter', 'change', renderWeaponXp);
 bind('weaponXpSearch', 'input', debounce(renderWeaponXp, 120));
+bind('hubStatusFilter', 'change', filterHubUpgrades);
+bind('hubSearch', 'input', debounce(filterHubUpgrades, 120));
 bind('setWeaponReferenceButton', 'click', setAllToReference);
 bind('inventorySearch', 'input', debounce(() => { resetInvExpansion(); renderInventory(); }, 120));
 bind('inventoryFilter', 'change', onInvCategoryChange);
@@ -258,7 +262,8 @@ const actionHandlers = new Map([
   ['toggle-upgrade', control => toggleHubUpgrade(control.dataset.tag, control.dataset.enabled === 'true')],
   ['add-upgrade-materials', control => addUpgradeMaterials(control.dataset.tag, control)],
   ['weapon-build-add-part', control => addWeaponBuildPart(control.dataset.weaponId, control.dataset.partId, control)],
-  ['weapon-build-add', control => addMissingWeaponBuild(control.dataset.id, control)],
+  ['weapon-build-add-bundle', control => addMissingWeaponBuildBundle(control.dataset.id, control)],
+  ['select-weapon-build', control => selectWeaponBuild(control.dataset.id)],
   ['set-weapon-xp', control => setWeaponXp(control.dataset.weapon, control.dataset.value === undefined ? undefined : Number(control.dataset.value))],
   ['toggle-all-inventory', control => toggleAllInvSections(control.dataset.open === 'true')],
   ['toggle-inventory-section', control => toggleInvSection(control.dataset.category)],
@@ -356,20 +361,33 @@ async function refreshSafetyStatus() {
   try {
     const status = await api('/status');
     const running = Array.isArray(status.gameRunning) ? status.gameRunning.length > 0 : !!status.gameRunning;
-    setSafetyValue('safetyGame', running ? 'Running — close game' : 'Closed', running ? 'bad' : 'good');
     setSafetyValue('safetyCompatibility', status.compatibility && status.compatibility.compatible ? 'Compatible' : 'Writes blocked', status.compatibility && status.compatibility.compatible ? 'good' : 'bad');
-    setSafetyValue('safetyWrites', status.writeReady ? 'Enabled' : `Disabled${status.blockingReasons && status.blockingReasons.length ? `: ${status.blockingReasons.join(', ')}` : ''}`, status.writeReady ? 'good' : 'bad');
     const backupId = status.mutation && status.mutation.sessionBackupId;
     setSafetyValue('safetyBackup', backupId || 'Pending first write', backupId ? 'good' : 'warn');
     setSafetyValue('safetySave', status.activeSaveDir || 'Unknown', '');
+    document.getElementById('safetySave').title = status.activeSaveDir || '';
+    setSafetyValue('safetyGameVersion', status.verifiedGameVersion || 'Unknown', '');
+    setSafetyValue('safetyAppVersion', status.appVersion ? `v${status.appVersion}` : 'Unknown', '');
+
     const gameStatus = document.getElementById('gameStatus');
     gameStatus.textContent = running ? 'Game running — writes disabled' : 'Game closed';
     gameStatus.dataset.state = running ? 'running' : 'closed';
+
+    const writesStatus = document.getElementById('writesStatus');
+    writesStatus.textContent = status.writeReady ? 'Writes ready' : 'Writes blocked';
+    writesStatus.dataset.state = status.writeReady ? 'ready' : 'blocked';
+    writesStatus.title = status.writeReady
+      ? 'Safe to make edits.'
+      : `Blocked: ${status.blockingReasons && status.blockingReasons.length ? status.blockingReasons.join(', ') : 'unknown reason'}`;
   } catch (error) {
-    for (const id of ['safetyGame', 'safetyCompatibility', 'safetyWrites', 'safetyBackup', 'safetySave']) setSafetyValue(id, 'Status unavailable', 'bad');
+    for (const id of ['safetyCompatibility', 'safetyBackup', 'safetySave', 'safetyGameVersion', 'safetyAppVersion']) setSafetyValue(id, 'Status unavailable', 'bad');
     const gameStatus = document.getElementById('gameStatus');
     gameStatus.textContent = 'Safety status unavailable';
     gameStatus.dataset.state = 'checking';
+    const writesStatus = document.getElementById('writesStatus');
+    writesStatus.textContent = 'Status unavailable';
+    writesStatus.dataset.state = 'checking';
+    writesStatus.title = '';
   }
 }
 
@@ -422,8 +440,8 @@ async function loadBackups() {
           </div>
           <div class="backup-meta">Label: ${esc(backup.label || 'legacy/unknown')} · App: ${esc(backup.appVersion || 'unknown')} · Manifest: ${backup.manifestValid ? 'verified format' : 'missing or invalid'}${active ? ' · Active session backup' : ''}</div>
           <div class="backup-actions">
-            <button type="button" data-backup-action="restore" data-backup-id="${id}" ${backup.manifestValid && status.writeReady ? '' : 'disabled'}>Restore primary</button>
-            <button type="button" class="danger-btn" data-backup-action="delete" data-backup-id="${id}" ${active ? 'disabled' : ''}>Delete permanently</button>
+            <button type="button" data-backup-action="restore" data-backup-id="${id}" ${backup.manifestValid && status.writeReady ? '' : 'disabled'}>${actionIcon('refresh')}Restore primary</button>
+            <button type="button" class="danger-btn" data-backup-action="delete" data-backup-id="${id}" ${active ? 'disabled' : ''}>${actionIcon('trash')}Delete permanently</button>
           </div>
         </article>`;
       }).join('');
