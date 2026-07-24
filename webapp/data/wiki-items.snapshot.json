@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-07-24T19:54:00.937Z",
+  "fetchedAt": "2026-07-24T20:08:43.719Z",
   "sourceUrl": "https://theforeverwinter.wiki.gg/api.php",
   "cargoTable": "Items",
   "items": [
@@ -13,7 +13,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammo for the MG34, SA58, M60, and R11."
     },
     {
       "name": ".357 Magnum Ammo",
@@ -24,7 +25,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammunition for the R8 and the Mateo Model J."
     },
     {
       "name": ".45 ACP Ammo",
@@ -35,7 +37,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammunition for the Europan USP and SOG."
     },
     {
       "name": ".50 BMG",
@@ -46,7 +49,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan-issue ammunition for the SCAR, GM6, NTW-20, & Heavy Machinegun."
     },
     {
       "name": ".50 PST Ammo",
@@ -57,7 +61,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Precision sabot ammo for the AT-43 MASS"
     },
     {
       "name": "\"Beef\" Flavor Packet",
@@ -68,7 +73,8 @@
         "Provisions"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Now with more sodium."
     },
     {
       "name": "12-Gauge Buckshot",
@@ -79,7 +85,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Buckshot shells compatible with all shotgun weaponry."
     },
     {
       "name": "12.7x55mm Subsonic Ammo",
@@ -90,7 +97,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Euruskan-issue ammunition for the VKS Vykhlop."
     },
     {
       "name": "20mm Turret",
@@ -102,7 +110,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Deploy a 20mm Turret, Single use, unrecoverable."
     },
     {
       "name": "20x105mm Anti-Tank",
@@ -113,7 +122,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammo for the 36M Anti-Tank."
     },
     {
       "name": "36M AntiTank",
@@ -125,7 +135,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Massive (HRF). Uses 20mm."
     },
     {
       "name": "40mm Grenade",
@@ -136,7 +147,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Explosive ammo for grenade launchers."
     },
     {
       "name": "47 TYP",
@@ -148,7 +160,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Common rifle. Uses 7.62mm."
     },
     {
       "name": "5.45x39mm Ammo",
@@ -159,7 +172,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Euruskan-issue ammunition for the AK, TKB-0146, and surplus rifle."
     },
     {
       "name": "5.45x39mm Ammo Surplus",
@@ -170,7 +184,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Low quality ammo for the AK, TKB-0146, and surplus rifle (but free)"
     },
     {
       "name": "5.45x39mm Cryo Ammo",
@@ -181,7 +196,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Cryogenic ammo for the AK, TKB-0146, and surplus rifle: stuns enemies briefly Cryo rounds only function for 45 seconds after you first put them in your gun. Applies 4 seconds of stun per bullet to a maximum of 4 minutes."
     },
     {
       "name": "5.56x45mm Ammo",
@@ -192,7 +208,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammo for the M4, SAW, M16, G36, VH-Ambi 2, and VIK-32L."
     },
     {
       "name": "5.7x28mm Ammo",
@@ -203,7 +220,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammunition for the P90."
     },
     {
       "name": "7.62x39mm Ammo",
@@ -214,7 +232,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammo for the 47 TYP, RPK, and RPD."
     },
     {
       "name": "7.62x54mmR Ammo",
@@ -225,7 +244,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Euruskan-issue ammunition for the SVD and LMG-P."
     },
     {
       "name": "87 Target",
@@ -236,7 +256,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "High tech pistol. Uses 919"
     },
     {
       "name": "9x19mm Ammo",
@@ -247,7 +268,8 @@
         "Ammo"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ammunition for the PPSH-41, Viper, C96, PnP-2K, PM-9, APC9 Pro, PP-19, and 87 Target."
     },
     {
       "name": "AA-12 Handguard",
@@ -259,7 +281,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "AA12",
@@ -270,7 +293,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic Shotgun. Uses 12-gauge."
     },
     {
       "name": "AA12 Shotgun Magazine A",
@@ -282,7 +306,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "AA12 Shotgun Magazine B",
@@ -294,7 +319,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "Absinthe",
@@ -308,7 +334,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "ACG 2x",
@@ -320,7 +347,8 @@
         "Scope"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "2x Scope (works on multiple weapons).thumb"
     },
     {
       "name": "Adrenaline Stim",
@@ -332,7 +360,8 @@
         "Medical"
       ],
       "buffs": "Stamina restored / drain reduced for 10s",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stamina restored / drain reduced for 10s. Effectively gives infinite stamina for its duration."
     },
     {
       "name": "Advanced First Aid Kit",
@@ -344,7 +373,8 @@
         "Medical"
       ],
       "buffs": "Heals 678 HP over 7 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Heals a large amount of health over time (678 HP)."
     },
     {
       "name": "Advanced Joint",
@@ -356,7 +386,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An advanced joint and attaching synthetic musculature."
     },
     {
       "name": "Advanced Navigation Device",
@@ -367,7 +398,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sophisticated positioning device used by Europan field commanders."
     },
     {
       "name": "Advanced Pliers",
@@ -378,7 +410,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A premium set of pliers in excellent condition."
     },
     {
       "name": "Aimp H2 Optic",
@@ -390,7 +423,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Aimp Micro Optic",
@@ -402,7 +436,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "AK",
@@ -413,7 +448,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Common rifle. Uses 5.45mm."
     },
     {
       "name": "AK Barrel B",
@@ -425,7 +461,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "AK Barrel Upgrade"
     },
     {
       "name": "AK Barrel C",
@@ -437,7 +474,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "AK Barrel Upgrade"
     },
     {
       "name": "Analog Headset",
@@ -449,7 +487,8 @@
         "Shelf decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old analog headset."
     },
     {
       "name": "Anti-Vertex Bolt Cutters",
@@ -460,7 +499,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Heavy-duty bolt cutter with a durable boron-carbide jaw. Manufactured by Zaikatsu."
     },
     {
       "name": "APC9 Pro",
@@ -472,7 +512,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919."
     },
     {
       "name": "APC9 Pro Barrel A",
@@ -484,7 +525,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "APC9 Pro Barrel B",
@@ -496,7 +538,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "APC9 Pro Stock A",
@@ -508,7 +551,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "Armorer's Wrench",
@@ -520,7 +564,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS."
     },
     {
       "name": "Assorted Medicine",
@@ -532,7 +577,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pile of assorted medical items. Could be refined into something useful."
     },
     {
       "name": "AT-43 Breech Assembly",
@@ -544,7 +590,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS. Used to contain pressure inside the barrel when firing."
     },
     {
       "name": "AT-43 Feed Mechanism",
@@ -556,7 +603,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS."
     },
     {
       "name": "AT-43 MASS",
@@ -568,7 +616,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A frontline anti-materiel rifle capable of disabling heavy mechs like the Railgun, allowing solo scavs to obtain Codexes. Due to it being classed under Heavy Rifles neither Scav Girl or Shaman can use this weapon."
     },
     {
       "name": "AT-43 Muzzle Break",
@@ -580,7 +629,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS."
     },
     {
       "name": "AT-43 Spring System",
@@ -592,7 +642,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS."
     },
     {
       "name": "AT-43 Trigger Assembly",
@@ -604,7 +655,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS."
     },
     {
       "name": "Ball Bearings",
@@ -615,7 +667,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handful of ball bearings."
     },
     {
       "name": "Bandages",
@@ -627,7 +680,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "To keep the blood inside."
     },
     {
       "name": "Banner of the Red Baron",
@@ -639,7 +693,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "The banner of a fearsome foe."
     },
     {
       "name": "Bar Supplies",
@@ -651,7 +706,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Supplies for the Bartender"
     },
     {
       "name": "Basic Pliers",
@@ -662,7 +718,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A basic hand tool used for gripping, cutting, and bending various materials."
     },
     {
       "name": "Battery",
@@ -673,7 +730,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pair of ordinary civilian grade batteries."
     },
     {
       "name": "Battery Charger",
@@ -684,7 +742,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Charging station manufactured by Euronrgy."
     },
     {
       "name": "Battle Plans",
@@ -695,7 +754,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Battle Plans"
     },
     {
       "name": "Beer",
@@ -709,7 +769,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Blood Packs",
@@ -720,7 +781,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pair of medical grade blood packs. Occasionally offered as tithe to the Machine Liturgists or skimmed for the precious hydration locked within by Water Thieves."
     },
     {
       "name": "Boinco Candy Bar",
@@ -733,7 +795,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 80 HP for 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Cheap synthetic chocolate from the Eurostates. Can be eaten to restore health."
     },
     {
       "name": "Bolt Cutters",
@@ -744,7 +807,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A set of old bolt-cutters. The scav's master key."
     },
     {
       "name": "Bolts",
@@ -755,7 +819,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A handful of bolts. Useful for fastening things together."
     },
     {
       "name": "Brandy",
@@ -769,7 +834,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Brawler Insignia",
@@ -780,7 +846,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Brawler Insignia"
     },
     {
       "name": "Brawler Spinal Joint",
@@ -791,7 +858,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A modular spine component."
     },
     {
       "name": "Bug Spray",
@@ -802,7 +870,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Insect repellant. Ineffective on imitation pests and nanodrones."
     },
     {
       "name": "Bulkhead Lights",
@@ -813,7 +882,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Heavy-duty lights used in industrial or military settings."
     },
     {
       "name": "C96",
@@ -824,7 +894,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Machine pistol. Uses 919"
     },
     {
       "name": "C96 Pistol Receiver A",
@@ -836,7 +907,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade."
     },
     {
       "name": "C96 Pistol Receiver B",
@@ -848,7 +920,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade."
     },
     {
       "name": "Camera",
@@ -859,7 +932,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Make the moment last forever."
     },
     {
       "name": "Camera Lens",
@@ -871,7 +945,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Optical tool that beholds what you point it at."
     },
     {
       "name": "Car Battery",
@@ -882,7 +957,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Civilian grade power source from a vehicle."
     },
     {
       "name": "Carbon Fiber",
@@ -893,7 +969,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Strong and lightweight. High quality material for crafting."
     },
     {
       "name": "Carbon Fiber Tube",
@@ -904,7 +981,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Strong and light carbon fiber tubes. Useful for advanced crafting."
     },
     {
       "name": "Clamp",
@@ -915,7 +993,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Useful for holding your crafting projects in place."
     },
     {
       "name": "CLAW",
@@ -927,7 +1006,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic shotgun. Uses 12-gauge"
     },
     {
       "name": "Cleaner",
@@ -938,7 +1018,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary household cleaning supplies."
     },
     {
       "name": "Clear Tube",
@@ -949,7 +1030,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Valuable medical grade tubing."
     },
     {
       "name": "Cluster Grenade",
@@ -960,7 +1042,8 @@
         "Grenades"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Thrown Cluster Grenades"
     },
     {
       "name": "Codex",
@@ -971,7 +1054,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info."
     },
     {
       "name": "Comms Device",
@@ -982,7 +1066,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Euruskan Comms Device."
     },
     {
       "name": "Computer Fan",
@@ -993,7 +1078,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Cooling device from an ordinary computer."
     },
     {
       "name": "Concrete Mixer",
@@ -1004,7 +1090,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Large, blade-fitted drum that combines various materials to create concrete."
     },
     {
       "name": "Concrete Powder",
@@ -1015,7 +1102,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sacks of cement, sand, and gravel. Used for creating concrete."
     },
     {
       "name": "Construction Drone",
@@ -1026,7 +1114,8 @@
         "Utility drones"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use drone that aids in heavy duty construction projects."
     },
     {
       "name": "Construction Foam",
@@ -1037,7 +1126,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Euruskan biofoam that works in concert with neuralink devices to produce a desired foam. Among scavs, it is an item of myth."
     },
     {
       "name": "Construction Glue",
@@ -1048,7 +1138,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Heavy-duty adhesive used for construction."
     },
     {
       "name": "Convoy Schedule",
@@ -1059,7 +1150,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Schedules with attached cargo manifests for the convoys moving through Frozen Swamp."
     },
     {
       "name": "Cordura",
@@ -1070,7 +1162,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Durable nylon fabric. Used in the creation of high-performance garments."
     },
     {
       "name": "Corpse Tank Control Panel",
@@ -1081,7 +1174,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Control Panel from the Corpse Tank. Requires a Drill to extract!"
     },
     {
       "name": "CPU",
@@ -1092,7 +1186,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Inorganic computer brain."
     },
     {
       "name": "Crowbar",
@@ -1103,7 +1198,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Durable metal tool used to pry, lift, and break."
     },
     {
       "name": "Crucible",
@@ -1115,7 +1211,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of the powerful AT-43 MASS."
     },
     {
       "name": "Cybernetic Lungs",
@@ -1126,7 +1223,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "The synthetic respiratory organs of a Eurasian cyborg. Manufactured by Zaikatsu."
     },
     {
       "name": "Cyborg Immunosuppressant",
@@ -1137,7 +1235,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Used to suppress the body's rejection of cybernetic components. Commonly rewarded to Eurasian military units in exchange for completion of strategic objectives."
     },
     {
       "name": "Cyborg's Head",
@@ -1149,7 +1248,8 @@
         "Shelf decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A severed head seized from a Eurasian Cyborg. Manufactured by Zaikatsu."
     },
     {
       "name": "Data Cache",
@@ -1160,7 +1260,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Valuable Data Cache tucked away for safe keeping."
     },
     {
       "name": "Decoy Grenade",
@@ -1171,7 +1272,8 @@
         "Grenades"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Thrown Decoy Grenades"
     },
     {
       "name": "Deep Fried Coffee",
@@ -1182,7 +1284,8 @@
         "Provisions"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Schnitzel-flavored coffee grounds."
     },
     {
       "name": "Deployable Drill",
@@ -1194,7 +1297,8 @@
         "Military"
       ],
       "buffs": "Opens locked containers and doors",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use drill used by scavs to breach hardened containers and obstacles."
     },
     {
       "name": "Destroyed 36M AntiTank",
@@ -1206,7 +1310,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Massive (HRF). Uses 20mm."
     },
     {
       "name": "Destroyed 87 Target Pistol",
@@ -1218,7 +1323,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "High tech pistol. Uses 919"
     },
     {
       "name": "Destroyed AA12",
@@ -1230,7 +1336,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic Shotgun. Uses 12-gauge."
     },
     {
       "name": "Destroyed AK",
@@ -1242,7 +1349,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Common rifle. Uses 5.45mm."
     },
     {
       "name": "Destroyed APC9 Pro",
@@ -1254,7 +1362,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919."
     },
     {
       "name": "Destroyed C96 Pistol",
@@ -1266,7 +1375,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Machine pistol. Uses 919"
     },
     {
       "name": "Destroyed G36",
@@ -1278,7 +1388,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan Rifle. Uses 5.56mm"
     },
     {
       "name": "Destroyed Glock 19 Pistol",
@@ -1290,7 +1401,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pistol. Uses 919"
     },
     {
       "name": "Destroyed GM6",
@@ -1302,7 +1414,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Kenetic (HRF), Uses .50 Cal. Can One Shot Headshot most Foot Soldiers, including Hunter Killers. Can also be used against Exo Skeletons and Tanks, but need a lot of Sucessfull Hits. Pros and Cons compared to other Bolt Action HRF: + Can Equip Any Regular Scope + Highest Base Accuracy, can be improved with mods to be over 89, making it possible to land guaranteed headshots at LvL 1 Weapon experience - Difficult to get, only possible from Quest Rewards"
     },
     {
       "name": "Destroyed Grenade Launcher",
@@ -1314,7 +1427,8 @@
         "Grenade Launchers"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grenade Launcher. Uses 40mm HE A semi-automatic Grenade Launcher with a magazine capacity of 6 rounds. Uses 40mm HE. It has nearly unrivaled damage; it is capable of defeating the majority of infantry units, including Europan Hunter Killers in a single direct hit. The Grenade Launcher's damage is partially misleading. The Grenade Launcher deals 1,000 damage on direct impact with its 40mm projectile, however deals an additional 10,000 splash damage. This (presumably) allows the Grenade Launcher to deal up to 11,000 Damage assuming optimal conditions."
     },
     {
       "name": "Destroyed HMG",
@@ -1326,7 +1440,8 @@
         "Heavy Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A massive (HMG) that uses Nitro express1. With no sights or lasers usable, over-the-shoulder mode can help a lot with aiming (default left alt key on PC). 1 Nitro express cannot be bought or otherwise obtained in raid. This caps the number of shots the painless can make in a raid."
     },
     {
       "name": "Destroyed Kriss Vector 45",
@@ -1338,7 +1453,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses .45ACP The initial barrel is integrally suppressed."
     },
     {
       "name": "Destroyed M16",
@@ -1350,7 +1466,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Infantry rifle. Uses 5.56mm."
     },
     {
       "name": "Destroyed M4",
@@ -1362,7 +1479,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan rifle. Uses 5.56mm"
     },
     {
       "name": "Destroyed M60",
@@ -1374,7 +1492,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light Machinegun. Uses .308"
     },
     {
       "name": "Destroyed M79 Pistol",
@@ -1387,7 +1506,8 @@
         "Grenade Launchers"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M79 In pistol form. Single shot 40mm HE."
     },
     {
       "name": "Destroyed MG34",
@@ -1399,7 +1519,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light machinegun. Uses .308"
     },
     {
       "name": "Destroyed NTW-20",
@@ -1411,7 +1532,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Massive (HRF). Uses .50 Cal. Can One Shot Headshot most Foot Soldiers, including Hunter Killers. Can also be used against Exo Skeletons and Tanks, but need a lot of Sucessfull Hits. Pros and Cons compared to other Bolt Action HRF: + Can be found in almost any Raid, drops from certain Europan Sniper Squads - Has pre installed Sniper Scope, cannot change the Reticle"
     },
     {
       "name": "Destroyed P90",
@@ -1423,7 +1545,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 5.7x28"
     },
     {
       "name": "Destroyed PM-9",
@@ -1435,7 +1558,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "Destroyed PP-19 Vityaz",
@@ -1447,7 +1571,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "Destroyed PPSH-41",
@@ -1459,7 +1584,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "Destroyed R8 Pistol",
@@ -1471,7 +1597,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Revolver. Uses 357 Magnum"
     },
     {
       "name": "Destroyed RPD",
@@ -1483,7 +1610,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light machinegun. Uses 7.62mm."
     },
     {
       "name": "Destroyed RPK",
@@ -1495,7 +1623,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle variant. Uses 7.62mm. Best Budget Allround Rifle due to its good base Dmg and low Price."
     },
     {
       "name": "Destroyed RSASS",
@@ -1507,7 +1636,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Marksman rifle. Uses .308"
     },
     {
       "name": "Destroyed S12",
@@ -1519,7 +1649,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Semiauto Shotgun. Uses 12-gauge"
     },
     {
       "name": "Destroyed SA58",
@@ -1531,7 +1662,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan Rifle. Uses .308"
     },
     {
       "name": "Destroyed SAW",
@@ -1543,7 +1675,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light machinegun. Uses 5.56mm."
     },
     {
       "name": "Destroyed SCAR",
@@ -1555,7 +1688,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "(HRF). Uses .50 Cal"
     },
     {
       "name": "Destroyed SOG Pistol",
@@ -1567,7 +1701,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military Pistol. Uses .45ACP"
     },
     {
       "name": "Destroyed Spectre M4",
@@ -1579,7 +1714,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses .45ACP"
     },
     {
       "name": "Destroyed SVD",
@@ -1591,7 +1727,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "The SVD is a weapon in the rifles category. It has a magazine of 10, uses 54R ammunition and deals 300 damage. It can be bought from Aramaki."
     },
     {
       "name": "Destroyed TKB-0146",
@@ -1603,7 +1740,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle that uses 5.45mm"
     },
     {
       "name": "Destroyed USAS-12",
@@ -1615,7 +1753,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic Shotgun. Uses 12-gauge."
     },
     {
       "name": "Destroyed USP Pistol",
@@ -1627,7 +1766,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Trusty Pistol. Uses .45ACP"
     },
     {
       "name": "Destroyed Vepr-12",
@@ -1639,7 +1779,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic shotgun. Uses 12-gauge"
     },
     {
       "name": "Destroyed Viper Pistol",
@@ -1651,7 +1792,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Baba Yaga. Uses 919"
     },
     {
       "name": "Destroyed VKS Vykhlop",
@@ -1663,7 +1805,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle that uses 12.7 Subsonic"
     },
     {
       "name": "Destroyed Walther MPL",
@@ -1675,7 +1818,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine Gun. Uses 9x19"
     },
     {
       "name": "Destroyed XM25",
@@ -1687,7 +1831,8 @@
         "Grenade Launchers"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grenade Launcher. Uses 40mm HE"
     },
     {
       "name": "Diagnostic Scanner",
@@ -1699,7 +1844,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Diagnostic scanner capable of rapidly evaluating the medical status of patients. Manufactured by the Hypax Group."
     },
     {
       "name": "Diodegradable Multi-tool",
@@ -1711,7 +1857,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A low quality, disposable multi-tool."
     },
     {
       "name": "Dog Tags",
@@ -1722,7 +1869,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Dog tags of a fallen soldier."
     },
     {
       "name": "Dogboro Cigarettes",
@@ -1735,7 +1883,8 @@
         "Quest items"
       ],
       "buffs": "Almost completely removes horizontal recoil * Drastically reduces vertical recoil",
-      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration"
+      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration",
+      "description": "Basic cigarettes. Boosts accuracy for a time, but hazardous to health."
     },
     {
       "name": "Dossier",
@@ -1746,7 +1895,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Small booklet containing notes on troop movements, strategic objectives, garrisons, and more."
     },
     {
       "name": "Drywall",
@@ -1757,7 +1907,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Building material typically used for the interiors of structures."
     },
     {
       "name": "Duct Tape",
@@ -1768,7 +1919,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An item with legendary utility."
     },
     {
       "name": "E-Nuggets",
@@ -1780,7 +1932,8 @@
         "Provisions"
       ],
       "buffs": "Heals 80 HP over 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "The one and only. Now temporarily legal in even more Eurostates!"
     },
     {
       "name": "E-TECH XP Optic",
@@ -1792,7 +1945,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "EDC Multi-tool",
@@ -1804,7 +1958,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Premium multi-tool featuring a high-frequency blade and micro-laser. Nanofabricated in Earth's low orbit."
     },
     {
       "name": "Electric Motor",
@@ -1815,7 +1970,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old device that generates mechanical energy. Useful for crafting."
     },
     {
       "name": "Encrypted Data Pad",
@@ -1826,7 +1982,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Secure data-companion loaded with valuable secrets."
     },
     {
       "name": "Energy Bar",
@@ -1839,7 +1996,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 80 HP for 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan nutritional substrate coated in a proprietary flavored compound. Can be eaten to restore health."
     },
     {
       "name": "EOD Armor Plate",
@@ -1850,7 +2008,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A shard of armor from a heavy shotgunner."
     },
     {
       "name": "EOD Suit Component",
@@ -1861,7 +2020,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Fragments of a Europan Hunter-Killer suit."
     },
     {
       "name": "ES Lamp",
@@ -1872,7 +2032,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An efficient lamp."
     },
     {
       "name": "ET EFX Optic",
@@ -1884,7 +2045,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "ET HWS EXP Optic",
@@ -1896,7 +2058,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "ET XP2 Optic",
@@ -1908,7 +2071,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Ethyl Alcohol",
@@ -1922,7 +2086,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Eurasian Brawler Components",
@@ -1933,7 +2098,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Parts stripped from the armor of a Eurasian Brawler."
     },
     {
       "name": "Eurasian Drone Cortex",
@@ -1945,7 +2111,8 @@
         "Wall decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of a Eurasian combat drone."
     },
     {
       "name": "Eurasian IFF Chip LVL1",
@@ -1956,7 +2123,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Eurasian identification chip. Allows scavs to attune their biometric signature to low grade weapons."
     },
     {
       "name": "Eurasian IFF Chip LVL2",
@@ -1967,7 +2135,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Eurasian identification chip. Allows scavs to attune their biometric signature to mid grade weapons."
     },
     {
       "name": "Eurasian IFF Chip LVL3",
@@ -1978,7 +2147,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Eurasian identification chip. Allows scavs to attune their biometric signature to high grade weapons."
     },
     {
       "name": "Eurasian Supply Crate",
@@ -1990,7 +2160,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Valuable Eurasian"
     },
     {
       "name": "Europa MilTech Radio",
@@ -2001,7 +2172,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A radio that can be found in the world; it lacks an indicator when nearby. It's visually similar to a Manpack Radio though lacking the handset."
     },
     {
       "name": "Europan Drone Flight Controller",
@@ -2012,7 +2184,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of a Europan combat drone."
     },
     {
       "name": "Europan IFF Chip LVL1",
@@ -2023,7 +2196,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SIngle-use Europan identification chip. Allows scavs to attune their biometric signature to low grade weapons."
     },
     {
       "name": "Europan IFF Chip LVL2",
@@ -2034,7 +2208,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Europan identification chip. Allows scavs to attune their biometric signature to mid grade weapons."
     },
     {
       "name": "Europan IFF Chip LVL3",
@@ -2045,7 +2220,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Europan identification chip. Allows scavs to attune their biometric signature to high grade weapons."
     },
     {
       "name": "Euruskan IFF Chip LVL1",
@@ -2056,7 +2232,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Euruskan identification chip. Allows scavs to attune their biometric signature to low grade weapons."
     },
     {
       "name": "Euruskan IFF Chip LVL2",
@@ -2067,7 +2244,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Euruskan identification chip. Allows scavs to attune their biometric signature to mid grade weapons."
     },
     {
       "name": "Euruskan IFF Chip LVL3",
@@ -2078,7 +2256,8 @@
         "IFFs"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use Euruskan identification chip. ALlows scavs to attune their biometric signature to high grade weapons."
     },
     {
       "name": "Euruskan Plans",
@@ -2089,7 +2268,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military intelligence."
     },
     {
       "name": "Exo Component",
@@ -2100,7 +2280,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rare components from an Exo."
     },
     {
       "name": "Exo Hard Drive",
@@ -2111,7 +2292,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A hard drive found on the wreck of a Europan Exo."
     },
     {
       "name": "Exo Repair Kit",
@@ -2122,7 +2304,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "High tech repair kit used to repair and maintain Exo units in the field."
     },
     {
       "name": "Exo Stamina Equipment",
@@ -2134,7 +2317,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Reduces cost of stamina activities, such as sprinting, jumping, or vaulting. Does not affect stamina recover period or jump height. Provides a visual effect: 4 mechanical legs assist the player when running."
     },
     {
       "name": "Explosive Charge",
@@ -2145,7 +2329,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Plastic explosives used by miltary units."
     },
     {
       "name": "Explosives",
@@ -2157,7 +2342,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A commodity used to create explosions."
     },
     {
       "name": "Family Photo",
@@ -2168,7 +2354,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Framed Photo of a Family"
     },
     {
       "name": "Fast Travel Drone",
@@ -2179,7 +2366,8 @@
         "Utility drones"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use drone used to travel great distances."
     },
     {
       "name": "Fertilizer",
@@ -2191,7 +2379,8 @@
         "Materials"
       ],
       "buffs": "Heals 80 HP over 10 seconds.",
-      "debuffs": "You just ate feces."
+      "debuffs": "You just ate feces.",
+      "description": "Pile of feces likely originating from a cow-balloon. Desperate scavs may dare to consume it."
     },
     {
       "name": "Field Repair Kit",
@@ -2202,7 +2391,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military tool set carried by engineers and vehicle crews."
     },
     {
       "name": "Fire Starter Kit",
@@ -2213,7 +2403,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Simple set of tools for starting fires. Valuable among scavs."
     },
     {
       "name": "Fleece",
@@ -2224,7 +2415,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Versatile synthetic fabric. Useful for crafting."
     },
     {
       "name": "Food Tin",
@@ -2237,7 +2429,8 @@
         "Low value dog food"
       ],
       "buffs": "Heals 80 HP over 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Mystery meat. Can be consumed for a small health boost."
     },
     {
       "name": "Foregrip A",
@@ -2249,7 +2442,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip B",
@@ -2261,7 +2455,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip C",
@@ -2273,7 +2468,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip D",
@@ -2285,7 +2481,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip E",
@@ -2297,7 +2494,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip F",
@@ -2309,7 +2507,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip G",
@@ -2321,7 +2520,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip H",
@@ -2333,7 +2533,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip I",
@@ -2345,7 +2546,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip J",
@@ -2357,7 +2559,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip K",
@@ -2369,7 +2572,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Forgrip Upgrade (works on multiple weapons)"
     },
     {
       "name": "Foregrip L",
@@ -2381,7 +2585,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Forgrip Upgrade"
     },
     {
       "name": "Foregrip M",
@@ -2393,7 +2598,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Forgrip Upgrade"
     },
     {
       "name": "Foregrip N",
@@ -2405,7 +2611,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Forgrip Upgrade"
     },
     {
       "name": "Foregrip O",
@@ -2417,7 +2624,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Forgrip Upgrade"
     },
     {
       "name": "Foregrip P",
@@ -2429,7 +2637,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Forgrip Upgrade"
     },
     {
       "name": "Foregrip Q",
@@ -2441,7 +2650,8 @@
         "Foregrip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Forgrip Upgrade"
     },
     {
       "name": "Frag Grenade",
@@ -2452,7 +2662,8 @@
         "Grenades"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Thrown Hand Grenades"
     },
     {
       "name": "Frequency Tap",
@@ -2464,7 +2675,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Device capable of locating and hijacking radio signals."
     },
     {
       "name": "Fuse",
@@ -2475,7 +2687,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A fuse for a grenade."
     },
     {
       "name": "G-L 19",
@@ -2486,7 +2699,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pistol. Uses 919"
     },
     {
       "name": "G-L 19 Magazine A",
@@ -2498,7 +2712,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "G-L 19 Magazine B",
@@ -2510,7 +2725,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "G-L 19 Upper Assmbly A",
@@ -2522,7 +2738,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G-L 19 Upper Assmbly B",
@@ -2534,7 +2751,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G-L 19 Upper Assmbly C",
@@ -2546,7 +2764,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G36",
@@ -2558,7 +2777,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan Rifle. Uses 5.56mm"
     },
     {
       "name": "G36 Barrel A",
@@ -2570,7 +2790,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "G36 Barrel B",
@@ -2582,7 +2803,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "G36 Barrel C",
@@ -2594,7 +2816,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "G36 Handguard A",
@@ -2606,7 +2829,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "G36 Handguard B",
@@ -2618,7 +2842,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "G36 Handguard C",
@@ -2630,7 +2855,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "G36 Handguard D",
@@ -2642,7 +2868,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "G36 Handguard E",
@@ -2654,7 +2881,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "G36 Magazine A",
@@ -2666,7 +2894,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "G36 Magazine B",
@@ -2678,7 +2907,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "G36 Receiver A",
@@ -2690,7 +2920,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G36 Receiver B",
@@ -2702,7 +2933,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G36 Receiver C",
@@ -2714,7 +2946,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G36 Receiver D",
@@ -2726,7 +2959,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "G36 Stock A",
@@ -2738,7 +2972,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "G36 Stock B",
@@ -2750,7 +2985,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "GDC Food QUEST / item",
@@ -2761,7 +2997,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "N/A It appears to be a stack of MRE Bags. When observing it outside the inventory it is simply denoted as \"item\".Pinging the item will display \"item\" in yellow text as with any other item.It has a single spawning location where it is guaranteed to spawn. Extracting with it will yield 0 exp.The portrait of this item is denoted as \"ItemPortrait GDC Food QUEST.png\" so it is possible that it will be a quest item in the future.It is visible on the TacCam.Nothing else is known about this item."
     },
     {
       "name": "Gin",
@@ -2775,7 +3012,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Glue",
@@ -2786,7 +3024,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Common adhesive."
     },
     {
       "name": "Glue Gun",
@@ -2797,7 +3036,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Applies glue. Useful for crafting."
     },
     {
       "name": "GM6",
@@ -2809,7 +3049,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Kenetic (HRF), Uses .50 Cal. Can One Shot Headshot most Foot Soldiers, including Hunter Killers. Can also be used against Exo Skeletons and Tanks, but need a lot of Sucessfull Hits. Pros and Cons compared to other Bolt Action HRF: + Can Equip Any Regular Scope + Highest Base Accuracy, can be improved with mods to be over 89, making it possible to land guaranteed headshots at LvL 1 Weapon experience - Difficult to get, only possible from Quest Rewards"
     },
     {
       "name": "God Sniper Equipment",
@@ -2821,7 +3062,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "God Sniper Equipment"
     },
     {
       "name": "Goodies",
@@ -2833,7 +3075,8 @@
         "Average value dog food"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pouch of dried meats, nuts, and other small edible miscellany resistant to spoilage. Popular with scavs and conscripts alike."
     },
     {
       "name": "GP-5 Gas Mask",
@@ -2844,7 +3087,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Old military gas mask and symbol of Euruskan heritage."
     },
     {
       "name": "Grenade Launcher",
@@ -2855,7 +3099,8 @@
         "Grenade Launchers"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grenade Launcher. Uses 40mm HE A semi-automatic Grenade Launcher with a magazine capacity of 6 rounds. Uses 40mm HE. It has nearly unrivaled damage; it is capable of defeating the majority of infantry units, including Europan Hunter Killers in a single direct hit. The Grenade Launcher's damage is partially misleading. The Grenade Launcher deals 1,000 damage on direct impact with its 40mm projectile, however deals an additional 10,000 splash damage. This (presumably) allows the Grenade Launcher to deal up to 11,000 Damage assuming optimal conditions."
     },
     {
       "name": "Grindstone",
@@ -2867,7 +3112,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An important tool in the creation and maintenance of weaponry."
     },
     {
       "name": "Gunpowder",
@@ -2878,7 +3124,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A jar of gunpowder."
     },
     {
       "name": "Gyroscopic Stabilizer",
@@ -2889,7 +3136,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Targeting module ripped from a Eurasian Chopper."
     },
     {
       "name": "H-sun Optic",
@@ -2901,7 +3149,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Hammer",
@@ -2912,7 +3161,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An ordinary hammer. A common and indispensable tool."
     },
     {
       "name": "Hand Drill",
@@ -2923,7 +3173,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old drill operated using a hand crack. Better than nothing."
     },
     {
       "name": "Happy Cookies",
@@ -2936,7 +3187,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 80 HP for 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Eurasian caloric medium resembling cookies. Can be eaten to restore health."
     },
     {
       "name": "Hard Drive",
@@ -2947,7 +3199,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Civilian grade hard drive of Europan origin."
     },
     {
       "name": "Hard Shell Laptop",
@@ -2958,7 +3211,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Robust military laptop built to withstand extreme battlefield conditions. Sought after for the valuable intelligence stored on its drives."
     },
     {
       "name": "Heavy Joint Assembly",
@@ -2971,7 +3225,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Support Leg - used for manufacturing"
     },
     {
       "name": "Heavy-Duty Battery",
@@ -2982,7 +3237,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Good for trading!"
     },
     {
       "name": "Heavy-Duty Trauma Kit",
@@ -2993,7 +3249,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Fully loaded medical kit. A scav's field hospital."
     },
     {
       "name": "Heirloom Seeds",
@@ -3004,7 +3261,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Seeds of ancient cultivars, unspoiled by genetic degradation or manipulation. Exceedingly valuable."
     },
     {
       "name": "High Capacity Hard Drive",
@@ -3015,7 +3273,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "660 terabyte hard drive with neura-link capabilities and onboard AI. Manufactured by XAVAX."
     },
     {
       "name": "High Durability Rail Component",
@@ -3028,7 +3287,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Omni-rail component used in the development of railgun weaponry."
     },
     {
       "name": "High-Frequency Radio",
@@ -3039,7 +3299,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Valuable radio technology."
     },
     {
       "name": "HIND Navigation Computer",
@@ -3050,7 +3311,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Navigational computer from a HIND helicopter."
     },
     {
       "name": "Hinoko Cigarettes",
@@ -3063,7 +3325,8 @@
         "Quest items"
       ],
       "buffs": "Almost completely removes horizontal recoil * Drastically reduces vertical recoil",
-      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration"
+      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration",
+      "description": "Imported cigarettes. Boosts accuracy for a time, but hazardous to health."
     },
     {
       "name": "HK CAWS Magazine B",
@@ -3075,7 +3338,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "Hose",
@@ -3086,7 +3350,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary rubber hose."
     },
     {
       "name": "IED",
@@ -3098,7 +3363,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An IED, Improvised Explosive Device. These makeshift, proximity triggered explosives are the bread and butter of every militia, insurgency, and resistance group."
     },
     {
       "name": "Industrial Black Light",
@@ -3109,7 +3375,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Large and powerful black light used in industrial settings."
     },
     {
       "name": "Industrial Chemicals",
@@ -3120,7 +3387,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Canister of nondescript chemical substances. Handle with care."
     },
     {
       "name": "Industrial Sealant",
@@ -3131,7 +3399,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Used for creating structural seals."
     },
     {
       "name": "Intelligence Cassette",
@@ -3142,7 +3411,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magnetic tape containing military intelligence. Analog recording formats afford a limited measure of security."
     },
     {
       "name": "Intelligence Disk",
@@ -3153,7 +3423,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magnetic storage medium containing military intelligence. Obsolete recording formats afford a limited measure of security."
     },
     {
       "name": "Intermediate Tool Set",
@@ -3164,7 +3435,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Civilian grade tool set loaded with useful implements and materials."
     },
     {
       "name": "Item Extraction Beacon",
@@ -3175,7 +3447,8 @@
         "Consumables"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Use near specific parts of a destroyed LARGE foe to summon a Drone to carry it back to the innards."
     },
     {
       "name": "Jammer",
@@ -3188,7 +3461,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old low-range jammer."
     },
     {
       "name": "Jerrycan",
@@ -3199,7 +3473,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Full jerrycan of gasoline"
     },
     {
       "name": "Jumper Cable Kit",
@@ -3210,7 +3485,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Wires used to transfer power between batteries."
     },
     {
       "name": "Kala Gas Tube B",
@@ -3222,7 +3498,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Gas Tube Upgrade for AK or RPK"
     },
     {
       "name": "Kala Gas Tube C",
@@ -3234,7 +3511,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Gas Tube Upgrade for AK or RPK"
     },
     {
       "name": "Kala Gas Tube D",
@@ -3246,7 +3524,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Gas Tube Upgrade for AK or RPK"
     },
     {
       "name": "Kala Gas Tube E",
@@ -3258,7 +3537,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Gas Tube Upgrade for AK or RPK"
     },
     {
       "name": "Kala Grip A",
@@ -3270,7 +3550,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade for AK or RPK"
     },
     {
       "name": "Kala Grip A-1",
@@ -3282,7 +3563,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade for AK or RPK"
     },
     {
       "name": "Kala Grip A-2",
@@ -3294,7 +3576,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade for AK or RPK"
     },
     {
       "name": "Kala Grip B",
@@ -3306,7 +3589,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade for AK or RPK"
     },
     {
       "name": "Kala Grip C",
@@ -3318,7 +3602,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade for AK or RPK"
     },
     {
       "name": "Kala Grip D",
@@ -3330,7 +3615,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard B",
@@ -3342,7 +3628,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard B-1",
@@ -3354,7 +3641,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard B-2",
@@ -3366,7 +3654,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard C",
@@ -3378,7 +3667,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard D",
@@ -3390,7 +3680,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard E",
@@ -3402,7 +3693,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard F",
@@ -3414,7 +3706,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard G",
@@ -3426,7 +3719,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard H",
@@ -3438,7 +3732,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard I",
@@ -3450,7 +3745,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Handguard J",
@@ -3462,7 +3758,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine A",
@@ -3474,7 +3771,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine B",
@@ -3486,7 +3784,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine C",
@@ -3498,7 +3797,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine D",
@@ -3510,7 +3810,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine E",
@@ -3522,7 +3823,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine E-1",
@@ -3534,7 +3836,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine F",
@@ -3546,7 +3849,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine G",
@@ -3558,7 +3862,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine H",
@@ -3570,7 +3875,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Magazine I",
@@ -3582,7 +3888,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock A",
@@ -3594,7 +3901,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock B",
@@ -3606,7 +3914,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock B-1",
@@ -3618,7 +3927,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock B-2",
@@ -3630,7 +3940,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock C",
@@ -3642,7 +3953,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock C-1",
@@ -3654,7 +3966,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock C-2",
@@ -3666,7 +3979,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock D",
@@ -3678,7 +3992,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Stock E",
@@ -3690,7 +4005,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Stock Upgrade for AK or RPK"
     },
     {
       "name": "Kala Upper Assembly A",
@@ -3702,7 +4018,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Upper Assembly Upgrade for AK or RPK"
     },
     {
       "name": "Kala Upper Assembly B",
@@ -3714,7 +4031,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Upper Assembly Upgrade for AK or RPK"
     },
     {
       "name": "Kriss Vector 45",
@@ -3726,7 +4044,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses .45ACP The initial barrel is integrally suppressed."
     },
     {
       "name": "Kriss Vector Handguard A",
@@ -3738,7 +4057,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "Kriss Vector Handguard B",
@@ -3750,7 +4070,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "Large Lockbox",
@@ -3761,7 +4082,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sealed tight and cannot be opened. Valuable to merchants."
     },
     {
       "name": "Laser Rangefinder",
@@ -3773,7 +4095,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan portable targeting system."
     },
     {
       "name": "LCD",
@@ -3784,7 +4107,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Computer screen. Manufactured by Hypax Group."
     },
     {
       "name": "Leather Hole Punch",
@@ -3795,7 +4119,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Old tool used for creating precise holes in leather objects."
     },
     {
       "name": "Light Bulb",
@@ -3806,7 +4131,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary light bulb."
     },
     {
       "name": "Light Bulbs",
@@ -3817,7 +4143,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary light bulbs."
     },
     {
       "name": "Lighter",
@@ -3828,7 +4155,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An unremarkable lighter with some fuel left."
     },
     {
       "name": "Liquid Coolant",
@@ -3839,7 +4167,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Product used in a liquid cooling system."
     },
     {
       "name": "Liquid Cooling Unit",
@@ -3850,7 +4179,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Removes heat from electrical components."
     },
     {
       "name": "LMG-P",
@@ -3862,7 +4192,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light Machinegun. Uses 54R"
     },
     {
       "name": "Logbook",
@@ -3873,7 +4204,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "The logbook of a Scav scout."
     },
     {
       "name": "M16",
@@ -3884,7 +4216,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Infantry rifle. Uses 5.56mm."
     },
     {
       "name": "M16 Barrel A",
@@ -3896,7 +4229,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "M16 Gas Tube A",
@@ -3908,7 +4242,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Gas Tube Upgrade"
     },
     {
       "name": "M16 Gas Tube B",
@@ -3920,7 +4255,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Gas Tube Upgrade"
     },
     {
       "name": "M16 Handguard A",
@@ -3932,7 +4268,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard B",
@@ -3944,7 +4281,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard C",
@@ -3956,7 +4294,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard D",
@@ -3968,7 +4307,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard E",
@@ -3980,7 +4320,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard F",
@@ -3992,7 +4333,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard G",
@@ -4004,7 +4346,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Handguard H",
@@ -4016,7 +4359,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M16 Magazine A",
@@ -4028,7 +4372,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "M16 Magazine B",
@@ -4040,7 +4385,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "M16 Stock A",
@@ -4052,7 +4398,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M16 Stock B",
@@ -4064,7 +4411,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M16 Stock C",
@@ -4076,7 +4424,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M16 Upper Assmbly A",
@@ -4088,7 +4437,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "M16 Upper Assmbly B",
@@ -4100,7 +4450,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "M16 Upper Assmbly C",
@@ -4112,7 +4463,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "M4A1",
@@ -4123,7 +4475,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan rifle. Uses 5.56mm"
     },
     {
       "name": "M4A1 Barrel",
@@ -4135,7 +4488,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "M4A1 Barrel A",
@@ -4147,7 +4501,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Barrel Upgrade"
     },
     {
       "name": "M4A1 Barrel B",
@@ -4159,7 +4514,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Barrel Upgrade"
     },
     {
       "name": "M4A1 Barrel C",
@@ -4171,7 +4527,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Barrel Upgrade"
     },
     {
       "name": "M4A1 Charging Handle A",
@@ -4183,7 +4540,8 @@
         "Charging handle"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Charging Handle Upgrade"
     },
     {
       "name": "M4A1 Charging Handle B",
@@ -4195,7 +4553,8 @@
         "Charging handle"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Charging Handle Upgrade"
     },
     {
       "name": "M4A1 Charging Handle C",
@@ -4207,7 +4566,8 @@
         "Charging handle"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Charging Handle Upgrade"
     },
     {
       "name": "M4A1 Gas Tube",
@@ -4219,7 +4579,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Gas Tube Upgrade"
     },
     {
       "name": "M4A1 Gas Tube A",
@@ -4231,7 +4592,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Gas Tube Upgrade"
     },
     {
       "name": "M4A1 Gas Tube B",
@@ -4243,7 +4605,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Gas Tube Upgrade"
     },
     {
       "name": "M4A1 Gas Tube C",
@@ -4255,7 +4618,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Gas Tube Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade B",
@@ -4267,7 +4631,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade C",
@@ -4279,7 +4644,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade D",
@@ -4291,7 +4657,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade E",
@@ -4303,7 +4670,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade F",
@@ -4315,7 +4683,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade G",
@@ -4327,7 +4696,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade H",
@@ -4339,7 +4709,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade I",
@@ -4351,7 +4722,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade J",
@@ -4363,7 +4735,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade K",
@@ -4375,7 +4748,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade L",
@@ -4387,7 +4761,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade M",
@@ -4399,7 +4774,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade N",
@@ -4411,7 +4787,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Handguard Upgrade O",
@@ -4423,7 +4800,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "M4A1 Magazine",
@@ -4435,7 +4813,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Magazine Upgrade"
     },
     {
       "name": "M4A1 Magazine A",
@@ -4447,7 +4826,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Magazine Upgrade"
     },
     {
       "name": "M4A1 Magazine B",
@@ -4459,7 +4839,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Magazine Upgrade"
     },
     {
       "name": "M4A1 Pistol Grip A",
@@ -4471,7 +4852,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M4A1 Pistol Grip B",
@@ -4483,7 +4865,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M4A1 Pistol Grip C",
@@ -4495,7 +4878,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M4A1 Receiver A",
@@ -4507,7 +4891,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Reciever Upgrade"
     },
     {
       "name": "M4A1 Receiver B",
@@ -4519,7 +4904,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Reciever Upgrade"
     },
     {
       "name": "M4A1 Receiver C",
@@ -4531,7 +4917,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M4A1 Reciever Upgrade"
     },
     {
       "name": "M4A1 Stock A",
@@ -4543,7 +4930,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M4A1 Stock B",
@@ -4555,7 +4943,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M4A1 Stock C",
@@ -4567,7 +4956,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M4A1 Stock D",
@@ -4579,7 +4969,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M4A1 Stock E",
@@ -4591,7 +4982,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M4A1 Stock F",
@@ -4603,7 +4995,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "M60",
@@ -4615,7 +5008,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light Machinegun. Uses .308"
     },
     {
       "name": "M60 Handguard A",
@@ -4627,7 +5021,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A handguard for the M60"
     },
     {
       "name": "M60 Handguard B",
@@ -4639,7 +5034,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A handguard for the M60"
     },
     {
       "name": "M79 Barrel A",
@@ -4651,7 +5047,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "M79 Barrel B",
@@ -4663,7 +5060,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "M79 Front Sight A",
@@ -4675,7 +5073,8 @@
         "Front sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sight"
     },
     {
       "name": "M79 Front Sight B",
@@ -4687,7 +5086,8 @@
         "Front sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sight"
     },
     {
       "name": "M79 Grip A",
@@ -4699,7 +5099,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M79 Grip B",
@@ -4711,7 +5112,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M79 Handguard A",
@@ -4723,7 +5125,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M79 Handguard B",
@@ -4735,7 +5138,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "M79 Magazine A",
@@ -4747,7 +5151,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "M79 Magazine B",
@@ -4759,7 +5164,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "M79 Rear Sight A",
@@ -4771,7 +5177,8 @@
         "Rear sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sight"
     },
     {
       "name": "M79 Rear Sight B",
@@ -4783,7 +5190,8 @@
         "Rear sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sight"
     },
     {
       "name": "M79 Receiver A",
@@ -4795,7 +5203,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "M79 Receiver B",
@@ -4807,7 +5216,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "M79 Sawed-off",
@@ -4820,7 +5230,8 @@
         "Grenade Launchers"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "M79 In pistol form. Single shot 40mm HE."
     },
     {
       "name": "M79 Sight A",
@@ -4832,7 +5243,8 @@
         "Rear sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sight"
     },
     {
       "name": "M79 Sight B",
@@ -4844,7 +5256,8 @@
         "Rear sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sight"
     },
     {
       "name": "M79 Trigger A",
@@ -4856,7 +5269,8 @@
         "Trigger"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Trigger"
     },
     {
       "name": "M79 Trigger B",
@@ -4868,7 +5282,8 @@
         "Trigger"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Trigger"
     },
     {
       "name": "Machine Parts",
@@ -4879,7 +5294,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Various bits of ancient machinery."
     },
     {
       "name": "Manpack Radio",
@@ -4890,7 +5306,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Portable communication system used by troops in the field."
     },
     {
       "name": "Masking Tape",
@@ -4901,7 +5318,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Also known as painter's tape."
     },
     {
       "name": "Matches",
@@ -4912,7 +5330,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary matches. Some scavs deal in matches as a form of currency."
     },
     {
       "name": "Mateo Model J",
@@ -4924,7 +5343,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Pistol. Uses 357 Magnum Has high damage and headshot modifier, able to kill Cyborgs and Heavy Brawlers with a single headshot. Long reload time."
     },
     {
       "name": "Mead",
@@ -4938,7 +5358,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Measuring Tape",
@@ -4949,7 +5370,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Lengthy flexible ruler for measuring."
     },
     {
       "name": "Mech Part",
@@ -4962,7 +5384,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Mechanical part of a Europan medium mech"
     },
     {
       "name": "Medical Alcohol",
@@ -4974,7 +5397,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Small vial of medical grade alcohol. Do not ingest."
     },
     {
       "name": "Medical Supplies",
@@ -4985,7 +5409,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Medical Supplies"
     },
     {
       "name": "Medical Tools",
@@ -4996,7 +5421,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Small bundle of medical tools, including scalpels, scissors, and staples."
     },
     {
       "name": "Memento",
@@ -5008,7 +5434,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Memento"
     },
     {
       "name": "Merkava Suspension Component",
@@ -5019,7 +5446,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Parts of a Merkava tank's suspension systems."
     },
     {
       "name": "Metal Fragments",
@@ -5030,7 +5458,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handful of metal bits"
     },
     {
       "name": "Metal Pipe",
@@ -5041,7 +5470,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A length of metal."
     },
     {
       "name": "Metal Slats",
@@ -5052,7 +5482,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Narrow and flat building material."
     },
     {
       "name": "Mezcal",
@@ -5066,7 +5497,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "MG34",
@@ -5078,7 +5510,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light machinegun. Uses .308"
     },
     {
       "name": "Military Battery",
@@ -5089,7 +5522,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military grade battery used to power Exos and smaller mech platforms."
     },
     {
       "name": "Military Cables",
@@ -5100,7 +5534,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Durable military grade cables."
     },
     {
       "name": "Military Circuitry",
@@ -5111,7 +5546,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Electronic circuitry and components used in military equipment."
     },
     {
       "name": "Military Codebreaker",
@@ -5122,7 +5558,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military-grade device capable of performing complex cryptanalytical attacks on enemy computing systems."
     },
     {
       "name": "Military Grade Lubricant",
@@ -5133,7 +5570,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Used in the maintenance of weapons."
     },
     {
       "name": "Military Hard Drive",
@@ -5144,7 +5582,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military grade hard drive. May contain valuable intelligence."
     },
     {
       "name": "Military PDA",
@@ -5155,7 +5594,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Durable military grade digital assistant carried by field officers."
     },
     {
       "name": "Military Power Cell",
@@ -5166,7 +5606,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Powerful military grade power cell of Europan origin."
     },
     {
       "name": "Military Tape",
@@ -5177,7 +5618,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "When it absolutely must hold."
     },
     {
       "name": "Mini MD Drive",
@@ -5188,7 +5630,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Micro hard drive. Manufactured by XAVAX."
     },
     {
       "name": "Modem",
@@ -5199,7 +5642,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Aged apparatus for connecting to something once called the internet."
     },
     {
       "name": "Motherboard",
@@ -5210,7 +5654,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary computer motherboard."
     },
     {
       "name": "MRE",
@@ -5223,7 +5668,8 @@
         "High value dog food"
       ],
       "buffs": "Heals 80 HP over 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military field rations. Can be consumed for a small health boost."
     },
     {
       "name": "Multi-frequency Broadcaster",
@@ -5234,7 +5680,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old, yet powerful signal broadcaster."
     },
     {
       "name": "Music Cassette",
@@ -5246,7 +5693,8 @@
         "Shelf decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Mixtape of an unknown soul."
     },
     {
       "name": "Muzzle Device A",
@@ -5258,7 +5706,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device B",
@@ -5270,7 +5719,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device C",
@@ -5282,7 +5732,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device D",
@@ -5294,7 +5745,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device E",
@@ -5306,7 +5758,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device F",
@@ -5318,7 +5771,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device G",
@@ -5330,7 +5784,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device H",
@@ -5342,7 +5797,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device I",
@@ -5354,7 +5810,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device J",
@@ -5366,7 +5823,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device K",
@@ -5378,7 +5836,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device L",
@@ -5390,7 +5849,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device M",
@@ -5402,7 +5862,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device N",
@@ -5414,7 +5875,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device O",
@@ -5426,7 +5888,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device P",
@@ -5438,7 +5901,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Muzzle Device Q",
@@ -5450,7 +5914,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Mystical Tech Totem",
@@ -5461,7 +5926,8 @@
         "Shelf decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sacred object. Does not aggro enemies and is not a quest target, unlike the large counterpart."
     },
     {
       "name": "Mystical Tech Totem (Large)",
@@ -5474,7 +5940,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A sacred object that reveals your location to all enemies when seized. DANGER! Carrying this item reveals your exact location to all enemies on the map!"
     },
     {
       "name": "Nails",
@@ -5485,7 +5952,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A handful of ordinary nails. Useful for crafting."
     },
     {
       "name": "Neuralink Disc Player",
@@ -5496,7 +5964,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Play what's on your mind. Now with multi-user ultraband capability."
     },
     {
       "name": "Neuro Uplink Board",
@@ -5509,7 +5978,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Neuro Uplinks"
     },
     {
       "name": "NSN Grip A",
@@ -5521,7 +5991,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade"
     },
     {
       "name": "NSN Grip B",
@@ -5533,7 +6004,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade"
     },
     {
       "name": "NSN Grip C",
@@ -5545,7 +6017,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade"
     },
     {
       "name": "NSN Grip D",
@@ -5557,7 +6030,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade"
     },
     {
       "name": "NSN Grip E",
@@ -5569,7 +6043,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grip Upgrade"
     },
     {
       "name": "NSN Handguard A",
@@ -5581,7 +6056,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "NSN Handguard B",
@@ -5593,7 +6069,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "NSN Handguard C",
@@ -5605,7 +6082,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "NSN Handguard D",
@@ -5617,7 +6095,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "NSN Stock A",
@@ -5629,7 +6108,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "NSN Stock B",
@@ -5641,7 +6121,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "NSN Stock C",
@@ -5653,7 +6134,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "NSN Stock D",
@@ -5665,7 +6147,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "NTW-20",
@@ -5677,7 +6160,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Massive (HRF). Uses .50 Cal. Can One Shot Headshot most Foot Soldiers, including Hunter Killers. Can also be used against Exo Skeletons and Tanks, but need a lot of Sucessfull Hits. Pros and Cons compared to other Bolt Action HRF: + Can be found in almost any Raid, drops from certain Europan Sniper Squads - Has pre installed Sniper Scope, cannot change the Reticle"
     },
     {
       "name": "Nucky Gold Cigarettes",
@@ -5690,7 +6174,8 @@
         "Quest items"
       ],
       "buffs": "Almost completely removes horizontal recoil * Drastically reduces vertical recoil",
-      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration"
+      "debuffs": "94 Damage over 10 seconds * Prevents healing for the duration",
+      "description": "Premium cigarettes. Boosts accuracy for a time, but hazardous to health."
     },
     {
       "name": "Nuts",
@@ -5701,7 +6186,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A handful of nuts. Useful for fastening things together."
     },
     {
       "name": "Occulomide Auto-Surgeon",
@@ -5712,7 +6198,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Man-portable surgical platform that autonomously executes procedures from a suite of onboard precepts. Used by elite front-liners who cannot leave the fight."
     },
     {
       "name": "Octogirl's Tool Set",
@@ -5724,7 +6211,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Tools for Octogirl"
     },
     {
       "name": "Old Paint Can",
@@ -5735,7 +6223,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Empty metal can."
     },
     {
       "name": "Old Tool Set",
@@ -5747,7 +6236,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ancient toolset from before the war. Resourceful hands can still find a use for them."
     },
     {
       "name": "OLED",
@@ -5758,7 +6248,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Flexible OLED screen. Manufactured by Hypax Group."
     },
     {
       "name": "Orgamech Nervous System",
@@ -5770,7 +6261,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An artificial nervous system component acquired from an Orgamech."
     },
     {
       "name": "Organoid Memory Board",
@@ -5781,7 +6273,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Wetware device that always remembers."
     },
     {
       "name": "Organoid Networking Board",
@@ -5792,7 +6285,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Powerful cerebral networking board manufactured from bovine nervous tissue. Facilitates the integration of the body with inorganic machina."
     },
     {
       "name": "Organoid Outlet",
@@ -5803,7 +6297,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Biomechanical outlet of Euruskan origin. Used to interface with wetware devices."
     },
     {
       "name": "Organoid Plug",
@@ -5814,7 +6309,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Tri-pin wetware plug of Euruskan origin."
     },
     {
       "name": "P Arms 3P Optic",
@@ -5826,7 +6322,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "P90",
@@ -5838,7 +6335,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 5.7x28"
     },
     {
       "name": "Painless",
@@ -5849,7 +6347,8 @@
         "Heavy Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A massive (HMG) that uses Nitro express1. With no sights or lasers usable, over-the-shoulder mode can help a lot with aiming (default left alt key on PC). 1 Nitro express cannot be bought or otherwise obtained in raid. This caps the number of shots the painless can make in a raid."
     },
     {
       "name": "Paper Scrap",
@@ -5861,7 +6360,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Has the code 124-033-601 written on it This item does not show in your Stash tab, but can be seen in Vendors tab. It stops dropping if you have one - that is enough to progress the quest."
     },
     {
       "name": "Personnel Data",
@@ -5872,7 +6372,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Schedules, shifts and names of personnel currently stationed in the area."
     },
     {
       "name": "Picture",
@@ -5883,7 +6384,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A picture of a couple."
     },
     {
       "name": "Pilot",
@@ -5896,7 +6398,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Injured Pilot."
     },
     {
       "name": "Pipe Wrench",
@@ -5907,7 +6410,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A large and hefty pipe wrench. A useful plumbing tool."
     },
     {
       "name": "PM-9",
@@ -5919,7 +6423,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "PM-9 Barrel A",
@@ -5931,7 +6436,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "PM-9 Barrel B",
@@ -5943,7 +6449,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "PM-9 Barrel C",
@@ -5955,7 +6462,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "PM-9 Magazine A",
@@ -5967,7 +6475,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "PM-9 Magazine B",
@@ -5979,7 +6488,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "PM-9 Upper Assembly A",
@@ -5991,7 +6501,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "PM-9 Upper Assembly B",
@@ -6003,7 +6514,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "Pneumatic Jump",
@@ -6015,7 +6527,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Allows the scav to jump 2-3 times higher. Unlimited uses, can help to get to high places and opens up more routes and hiding spots on every map. Currently the best way to survive against the Euruskan Grabber"
     },
     {
       "name": "PnP-2K",
@@ -6027,7 +6540,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "Portable Generator",
@@ -6038,7 +6552,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Man-portable generator unit. Priceless to vagabonds."
     },
     {
       "name": "Potato Chips",
@@ -6051,7 +6566,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 80 HP for 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Imitation potato chips smuggled in from Eurasia. Can be eaten to restore health."
     },
     {
       "name": "Power Cell",
@@ -6062,7 +6578,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Bulky source of power."
     },
     {
       "name": "Power Drill",
@@ -6073,7 +6590,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old electric drill."
     },
     {
       "name": "Power Schematics",
@@ -6084,7 +6602,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Detailed blueprints and schematics for complex power systems. Octogirl will probably be very interested in this."
     },
     {
       "name": "Power Supply Unit",
@@ -6095,7 +6614,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary civilian grade power supply unit. Often found in pre-war computers."
     },
     {
       "name": "PP-19 Vityaz",
@@ -6106,7 +6626,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "PP-19 Vityaz Barrel A",
@@ -6118,7 +6639,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "PP-19 Vityaz Barrel B",
@@ -6130,7 +6652,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "PP-19 Vityaz Grip A",
@@ -6142,7 +6665,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "PP-19 Vityaz Grip B",
@@ -6154,7 +6678,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "PP-19 Vityaz Handguard A",
@@ -6166,7 +6691,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "PP-19 Vityaz Handguard B",
@@ -6178,7 +6704,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "PP-19 Vityaz Magazine A",
@@ -6190,7 +6717,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "PP-19 Vityaz Magazine B",
@@ -6202,7 +6730,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "PP-19 Vityaz Stock A",
@@ -6214,7 +6743,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "PP-19 Vityaz Stock B",
@@ -6226,7 +6756,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "PP-19 Vityaz Trigger A",
@@ -6238,7 +6769,8 @@
         "Trigger"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Trigger Upgrade"
     },
     {
       "name": "PP-19 Vityaz Trigger B",
@@ -6250,7 +6782,8 @@
         "Trigger"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Trigger Upgrade"
     },
     {
       "name": "PP-19 Vityaz Upper Assembly A",
@@ -6262,7 +6795,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "PP-19 Vityaz Upper Assembly B",
@@ -6274,7 +6808,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "PPSH-41",
@@ -6285,7 +6820,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses 919"
     },
     {
       "name": "Precision Components",
@@ -6296,7 +6832,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Precision Components."
     },
     {
       "name": "Precision Tool Set",
@@ -6307,7 +6844,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Large box of high-grade tools."
     },
     {
       "name": "Preserved Cryo Coffee",
@@ -6318,7 +6856,8 @@
         "Provisions"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sealed container of Cryo Coffee. A rare and precious commodity. Its age is unknowable."
     },
     {
       "name": "Pressure Gauge",
@@ -6329,7 +6868,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Measures the pressure of fluids and gas."
     },
     {
       "name": "Pretzels",
@@ -6342,7 +6882,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 80 HP for 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Lattice-grown \"pretzels\" from the Eurostates. Can be eaten to restore health."
     },
     {
       "name": "Printed Circuit Board",
@@ -6353,7 +6894,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Versatile electrical component."
     },
     {
       "name": "Printing Resin",
@@ -6364,7 +6906,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Material used for 3D printing."
     },
     {
       "name": "Prized Alcohol",
@@ -6378,7 +6921,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Prized Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Processor Board",
@@ -6390,7 +6934,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary computer parts."
     },
     {
       "name": "Quantum Hard Drive",
@@ -6401,7 +6946,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "High-end quantum storage device manufactured by XAVAX. Has more qubits than a scav could use in a thousand lifetimes."
     },
     {
       "name": "R11 RSASS",
@@ -6413,7 +6959,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Marksman rifle. Uses .308"
     },
     {
       "name": "R8",
@@ -6424,7 +6971,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Revolver. Uses 357 Magnum"
     },
     {
       "name": "Rail Gun Turret Ammo Supply",
@@ -6435,7 +6983,8 @@
         "Railgun Components"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": null
     },
     {
       "name": "Rail Gun Turret Weapon",
@@ -6446,7 +6995,8 @@
         "Railgun Components"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": null
     },
     {
       "name": "Rail Mounted Flashlight A",
@@ -6458,7 +7008,8 @@
         "Picatinny attachment"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Attachment (works on multiple weapons)"
     },
     {
       "name": "Rail Mounted Flashlight B",
@@ -6470,7 +7021,8 @@
         "Picatinny attachment"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Attachment (works on multiple weapons)"
     },
     {
       "name": "Rail Mounted Flashlight C",
@@ -6482,7 +7034,8 @@
         "Picatinny attachment"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Attachment (works on multiple weapons)"
     },
     {
       "name": "Rail Mounted Laser Sight A",
@@ -6494,7 +7047,8 @@
         "Picatinny attachment"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Attachment (works on multiple weapons)"
     },
     {
       "name": "Rail Mounted Laser Sight B",
@@ -6506,7 +7060,8 @@
         "Picatinny attachment"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Attachment (works on multiple weapons)"
     },
     {
       "name": "Rail Mounted Laser Sight C",
@@ -6518,7 +7073,8 @@
         "Picatinny attachment"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Attachment (works on multiple weapons)."
     },
     {
       "name": "Railgun Assembly Component",
@@ -6531,7 +7087,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Control interface for fixed weaponry. Used in manufacturing."
     },
     {
       "name": "Railgun Body Component",
@@ -6544,7 +7101,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Fixed weapon Structural Framework - used for manufacturing"
     },
     {
       "name": "Railgun Breech Component",
@@ -6557,7 +7115,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Key component of a powerful rail gun. Tungsten darts are chambered via its mechanism."
     },
     {
       "name": "Railgun Cooling Component",
@@ -6570,7 +7129,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Component that disspates heat - used for manufacturing"
     },
     {
       "name": "Railgun Magazine",
@@ -6583,7 +7143,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Magazine of a powerful rail gun. Loaded with highly conductive tungsten projectiles as part of a completed weapons platform."
     },
     {
       "name": "Railgun Power Bank",
@@ -6595,7 +7156,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Fixed weapon power bank - used for manufacturing"
     },
     {
       "name": "Rare Metals",
@@ -6606,7 +7168,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Precious metals stripped from the remnants of a vehicle."
     },
     {
       "name": "Rat King's Wake",
@@ -6617,7 +7180,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Bless the thunder of His feet, for I walk the path of His righteous slaughter."
     },
     {
       "name": "Ratchet",
@@ -6628,7 +7192,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rotary tool useful for automotive and mechanical repairs."
     },
     {
       "name": "Rechargeable Battery",
@@ -6639,7 +7204,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Popular with scavs for their utility and longevity."
     },
     {
       "name": "Recovery Drone",
@@ -6650,7 +7216,8 @@
         "Utility drones"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Single-use drone used for rapid recovery of a scav's former belongings."
     },
     {
       "name": "Relay",
@@ -6661,7 +7228,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Electrically operated switch used for various devices."
     },
     {
       "name": "Repair Dronelet",
@@ -6672,7 +7240,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Crawler dronelet that executes autonomous repairs. Does not appear to be functional."
     },
     {
       "name": "Ribbed Tube",
@@ -6683,7 +7252,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Dirty ribbed tubing. Could be used for improvised crafts."
     },
     {
       "name": "Rig Light",
@@ -6695,7 +7265,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Flashlight mounted on your rig"
     },
     {
       "name": "Rootkit Device",
@@ -6706,7 +7277,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Valuable hacking tool."
     },
     {
       "name": "Rotary Hammer",
@@ -6718,7 +7290,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Powerful tool that uses a rotational hammering action to drill hard materials such as concrete."
     },
     {
       "name": "RPD",
@@ -6729,7 +7302,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light machinegun. Uses 7.62mm."
     },
     {
       "name": "RPD Barrel A",
@@ -6741,7 +7315,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade."
     },
     {
       "name": "RPD Barrel B",
@@ -6753,7 +7328,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade."
     },
     {
       "name": "RPD Barrel C",
@@ -6765,7 +7341,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade."
     },
     {
       "name": "RPD Handguard A",
@@ -6777,7 +7354,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "RPD Handguard Upgrade"
     },
     {
       "name": "RPD Handguard B",
@@ -6789,7 +7367,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "RPD Handguard Upgrade"
     },
     {
       "name": "RPK",
@@ -6800,7 +7379,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle variant. Uses 7.62mm. Best Budget Allround Rifle due to its good base Dmg and low Price."
     },
     {
       "name": "Rum",
@@ -6814,7 +7394,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "S12",
@@ -6826,7 +7407,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Semiauto Shotgun. Uses 12-gauge"
     },
     {
       "name": "S12 Shotgun Barrel A",
@@ -6838,7 +7420,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "S12 Shotgun Barrel Upgrade"
     },
     {
       "name": "S12 Shotgun Barrel B",
@@ -6850,7 +7433,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "S12 Shotgun Barrel Upgrade"
     },
     {
       "name": "S12 Shotgun Barrel C",
@@ -6862,7 +7446,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "S12 Shotgun Barrel Upgrade"
     },
     {
       "name": "S12 Shotgun Magazine A",
@@ -6874,7 +7459,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "S12 Shotgun Magazine Upgrade"
     },
     {
       "name": "S12 Shotgun Magazine B",
@@ -6886,7 +7472,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "S12 Shotgun Magazine Upgrade"
     },
     {
       "name": "S12 Shotgun Magazine C",
@@ -6898,7 +7485,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "S12 Shotgun Magazine Upgrade"
     },
     {
       "name": "SA58",
@@ -6909,7 +7497,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan Rifle. Uses .308"
     },
     {
       "name": "SA58 Barrel A",
@@ -6921,7 +7510,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SA58 Barrel Upgrade"
     },
     {
       "name": "SA58 Barrel B",
@@ -6933,7 +7523,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SA58 Barrel Upgrade"
     },
     {
       "name": "SA58 Magazine A",
@@ -6945,7 +7536,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SA58 Magazine Upgrade"
     },
     {
       "name": "SA58 Magazine B",
@@ -6957,7 +7549,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SA58 Magazine Upgrade"
     },
     {
       "name": "SAW",
@@ -6968,7 +7561,8 @@
         "Light Machinegun"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Light machinegun. Uses 5.56mm."
     },
     {
       "name": "SAW Barrel A",
@@ -6980,7 +7574,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "SAW Barrel B",
@@ -6992,7 +7587,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "SAW Gas Tube A",
@@ -7004,7 +7600,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Gas Tube Upgrade"
     },
     {
       "name": "SAW Gas Tube B",
@@ -7016,7 +7613,8 @@
         "Gas Tube"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Gas Tube Upgrade"
     },
     {
       "name": "SAW Grip A",
@@ -7028,7 +7626,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "SAW Grip B",
@@ -7040,7 +7639,8 @@
         "Grip"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "SAW Handguard A",
@@ -7052,7 +7652,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "SAW Handguard B",
@@ -7064,7 +7665,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "SAW Handguard C",
@@ -7076,7 +7678,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "SAW Handguard D",
@@ -7088,7 +7691,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Handguard Upgrade"
     },
     {
       "name": "SAW Magazine A",
@@ -7100,7 +7704,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "SAW Magazine B",
@@ -7112,7 +7717,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "SAW Stock A",
@@ -7124,7 +7730,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "SAW Stock B",
@@ -7136,7 +7743,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "SCAR",
@@ -7148,7 +7756,8 @@
         "Heavy Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "(HRF). Uses .50 Cal"
     },
     {
       "name": "SCAR Barrel A",
@@ -7160,7 +7769,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Barrel Upgrade."
     },
     {
       "name": "SCAR Barrel B",
@@ -7172,7 +7782,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Barrel Upgrade."
     },
     {
       "name": "SCAR Barrel C",
@@ -7184,7 +7795,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Barrel Upgrade."
     },
     {
       "name": "SCAR Barrel D",
@@ -7196,7 +7808,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Barrel Upgrade."
     },
     {
       "name": "SCAR Handgaurd E",
@@ -7208,7 +7821,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Handguard Upgrade."
     },
     {
       "name": "SCAR Handguard A",
@@ -7220,7 +7834,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Handguard Upgrade."
     },
     {
       "name": "SCAR Handguard B",
@@ -7232,7 +7847,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Handguard Upgrade."
     },
     {
       "name": "SCAR Handguard C",
@@ -7244,7 +7860,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Handguard Upgrade."
     },
     {
       "name": "SCAR Handguard D",
@@ -7256,7 +7873,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Handguard Upgrade."
     },
     {
       "name": "SCAR Handguard F",
@@ -7268,7 +7886,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Handguard Upgrade."
     },
     {
       "name": "SCAR Magazine A",
@@ -7280,7 +7899,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Magazine Upgrade."
     },
     {
       "name": "SCAR Magazine B",
@@ -7292,7 +7912,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Magazine Upgrade."
     },
     {
       "name": "SCAR Magazine C",
@@ -7304,7 +7925,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Magazine Upgrade."
     },
     {
       "name": "SCAR Magazine D",
@@ -7316,7 +7938,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "SCAR Magazine Upgrade."
     },
     {
       "name": "Scavenger's Go-Bag",
@@ -7327,7 +7950,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A scav's former belongings. Now yours."
     },
     {
       "name": "Scavenger's Tool Kit",
@@ -7338,7 +7962,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Set of improvised tools commonly used by scavs."
     },
     {
       "name": "Scotch",
@@ -7352,7 +7977,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Screwdriver",
@@ -7363,7 +7989,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A common tool for fastening screws."
     },
     {
       "name": "Screws",
@@ -7374,7 +8001,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A handful of screws. Useful for fastening things together."
     },
     {
       "name": "Sealed Mystery Box",
@@ -7385,7 +8013,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Open in the Innards to reveal its contents."
     },
     {
       "name": "Sentient Drill",
@@ -7396,7 +8025,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Fully autonomous drill, powered by a sophisticated organoid intelligence. Euruskan Machine Liturgy teaches that the suffering of the apparatus is holy."
     },
     {
       "name": "Sewers Technical Plans",
@@ -7407,7 +8037,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Schematics of the sewers system of the downtown area."
     },
     {
       "name": "Sewing Kit",
@@ -7418,7 +8049,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Ordinary sewing kit. Popular with scavs who must make the most of the few garments they have."
     },
     {
       "name": "Sfox QueenKiller Optic",
@@ -7430,7 +8062,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Sheet Metal",
@@ -7441,7 +8074,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rusty panel of corrugated metal."
     },
     {
       "name": "Signal Scrambler Grenade",
@@ -7452,7 +8086,8 @@
         "Grenades"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Thrown Signal Scrambler Grenade. Prevents foes from reporting your actions for a short time."
     },
     {
       "name": "SIGS Cheers 2x",
@@ -7464,7 +8099,8 @@
         "Scope"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "2x Scope (works on multiple weapons).thumb"
     },
     {
       "name": "Sledgehammer",
@@ -7475,7 +8111,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A large and heavy sledgehammer, useful for delivering massive blunt force."
     },
     {
       "name": "Small First Aid Kit",
@@ -7487,7 +8124,8 @@
         "Medical"
       ],
       "buffs": "Heals 157 HP over 7 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Heals a small amount of health over time (157 HP)."
     },
     {
       "name": "Smuggled Organs",
@@ -7499,7 +8137,8 @@
         "Maximum value dog food"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Organs packaged for exchange on the black market. Used to manufacture wetware, for ritual, or surrendered to pay the Euruskan blood-tithe."
     },
     {
       "name": "Soap",
@@ -7510,7 +8149,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A rare luxury among scavs."
     },
     {
       "name": "SOG",
@@ -7522,7 +8162,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Military Pistol. Uses .45ACP"
     },
     {
       "name": "SOG Receiver A",
@@ -7534,7 +8175,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade."
     },
     {
       "name": "SOG Receiver B",
@@ -7546,7 +8188,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade."
     },
     {
       "name": "Solar Battery",
@@ -7557,7 +8200,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Solar batteries see limited use in a smog-choked world. As a renewable source of power, they nonetheless remain valuable. Manufactured by XAVAX."
     },
     {
       "name": "Spare Part",
@@ -7570,7 +8214,8 @@
         "Quest exclusive"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Spare part for an industrial grinder"
     },
     {
       "name": "Spark Plug",
@@ -7581,7 +8226,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Crucial component of the ignition system of a vehicle."
     },
     {
       "name": "Special Units DetPack",
@@ -7592,7 +8238,8 @@
         "Consumables"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Can be planted on LARGE stunned foes to blow them up."
     },
     {
       "name": "Spectre M4",
@@ -7604,7 +8251,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine gun. Uses .45ACP"
     },
     {
       "name": "Spectre M4 Handguard",
@@ -7616,7 +8264,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "Spook Optic",
@@ -7628,7 +8277,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Standard First Aid Kit",
@@ -7640,7 +8290,8 @@
         "Medical"
       ],
       "buffs": "Heals 253 HP over 7 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Heals a moderate amount of health over time (253 HP)."
     },
     {
       "name": "Stein R Optic",
@@ -7652,7 +8303,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Stereo Box",
@@ -7664,7 +8316,8 @@
         "Shelf decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An old stereo box for playing music."
     },
     {
       "name": "Stethoscope",
@@ -7675,7 +8328,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Acoustic medical device used to listen to the internal sounds of the body."
     },
     {
       "name": "Super Glue",
@@ -7686,7 +8340,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Powerful adhesive useful for crafting."
     },
     {
       "name": "Suppressed Muzzle Device A",
@@ -7698,7 +8353,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Suppressed Muzzle Device B",
@@ -7710,7 +8366,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Suppressed Muzzle Device C",
@@ -7722,7 +8379,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Suppressed Muzzle Device D",
@@ -7734,7 +8392,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Suppressed Muzzle Device E",
@@ -7746,7 +8405,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Suppressed Muzzle Device F",
@@ -7758,7 +8418,8 @@
         "Muzzle Device"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Muzzle Device Attachment (works on multiple weapons)"
     },
     {
       "name": "Surplus Rifle",
@@ -7770,7 +8431,8 @@
         "Surplus weapons"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Surplus rifle. Uses 5.45mm. One of 2 default starting weapons in the game. Scavs best friend."
     },
     {
       "name": "Surplus Shotgun",
@@ -7782,7 +8444,8 @@
         "Surplus weapons"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Surplus shotgun. Uses 12-gauge. One of 2 starting weapons in the game. With unusually high damage, it can oneshot Cyborgs and even destroy a tank in 13 shots, provided you're shooting point blank and all pellets hit."
     },
     {
       "name": "Survival Lighter",
@@ -7793,7 +8456,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "High quality lighter."
     },
     {
       "name": "Survival Seeds",
@@ -7804,7 +8468,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A bag of hardy seeds issued by Eurostate authorities."
     },
     {
       "name": "SVD",
@@ -7815,7 +8480,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "The SVD is a weapon in the rifles category. It has a magazine of 10, uses 54R ammunition and deals 300 damage. It can be bought from Aramaki."
     },
     {
       "name": "SVD Barrel A",
@@ -7827,7 +8493,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "SVD Barrel B",
@@ -7839,7 +8506,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "SVD Barrel C",
@@ -7851,7 +8519,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "SVD Barrel D",
@@ -7863,7 +8532,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "SVD Stock A",
@@ -7875,7 +8545,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "SVD Stock B",
@@ -7887,7 +8558,8 @@
         "Stock"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Stock Upgrade"
     },
     {
       "name": "SVD Upper Assmbly A",
@@ -7899,7 +8571,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "SVD Upper Assmbly B",
@@ -7911,7 +8584,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "SVD Upper Assmbly C",
@@ -7923,7 +8597,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "SVD Upper Assmbly D",
@@ -7935,7 +8610,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "SVD Upper Assmbly E",
@@ -7947,7 +8623,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "SVD Upper Assmbly F",
@@ -7959,7 +8636,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "Syringe",
@@ -7970,7 +8648,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A large medical syringe in good condition."
     },
     {
       "name": "T-90 Suspension Component",
@@ -7981,7 +8660,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Parts of a T-90 tank's suspension systems."
     },
     {
       "name": "Tactical Camera",
@@ -7993,7 +8673,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Scan for foes, allies, and valuable items."
     },
     {
       "name": "Target Pistol Magazine A",
@@ -8005,7 +8686,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade."
     },
     {
       "name": "Target Pistol Magazine B",
@@ -8017,7 +8699,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade."
     },
     {
       "name": "Targeting Computer",
@@ -8028,7 +8711,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Targeting computer from an AA vehicle."
     },
     {
       "name": "Teddy Bear",
@@ -8039,7 +8723,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Toy of a dead child."
     },
     {
       "name": "Telemetry Unit",
@@ -8050,7 +8735,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Electronic module used to collect measurable data."
     },
     {
       "name": "Tequila",
@@ -8064,7 +8750,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Thermal Matches",
@@ -8075,7 +8762,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rugged, extra-long burning matches. Coveted by survivalists across the Eurostates."
     },
     {
       "name": "Thermite",
@@ -8086,7 +8774,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Chemical compound capable of producing an intense exothermic reaction."
     },
     {
       "name": "Thermometer",
@@ -8097,7 +8786,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Device that measures the body's temperature."
     },
     {
       "name": "Tissue Sample",
@@ -8108,7 +8798,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Tissue Sample. Only spawns when Sick Harvest is active."
     },
     {
       "name": "TKB-0146",
@@ -8119,7 +8810,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle that uses 5.45mm"
     },
     {
       "name": "TKB-0146 Handguard A",
@@ -8131,7 +8823,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "TKB-0146 Handguard B",
@@ -8143,7 +8836,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "Toilet Paper",
@@ -8154,7 +8848,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Strict water rationing has influenced a meteroic rise in value of anything that helps keep you clean."
     },
     {
       "name": "Toothpaste",
@@ -8165,7 +8860,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Toiletries are a popular barter item among scavs."
     },
     {
       "name": "Tourniquet",
@@ -8176,7 +8872,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Used for heavily restricting the flow of blood."
     },
     {
       "name": "Toy Car",
@@ -8187,7 +8884,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Children's toy. Items like these are uncommon and no longer see manufacture."
     },
     {
       "name": "Toy Dinosaur",
@@ -8198,7 +8896,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Plastic depiction of a fearsome creature. Collectors may be interested."
     },
     {
       "name": "Toy Train",
@@ -8209,7 +8908,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An industrious looking plastic train. Could be valuable."
     },
     {
       "name": "Tri M Optic",
@@ -8221,7 +8921,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "TrueAimer 4x",
@@ -8233,7 +8934,8 @@
         "Scope"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "4x Scope (works on multiple weapons).thumb"
     },
     {
       "name": "Turret Base",
@@ -8244,7 +8946,8 @@
         "Railgun Components"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": null
     },
     {
       "name": "Turret Component",
@@ -8255,7 +8958,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Parts scrapped from a destroyed turret."
     },
     {
       "name": "U-STIK+ USB Drive",
@@ -8266,7 +8970,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Anything could be on it."
     },
     {
       "name": "UMEGA Media Player",
@@ -8277,7 +8982,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "All-in-one media device."
     },
     {
       "name": "Urea",
@@ -8288,7 +8994,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Waste product used in the production of fertilizers."
     },
     {
       "name": "USAS-12",
@@ -8299,7 +9006,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic Shotgun. Uses 12-gauge."
     },
     {
       "name": "USAS-12 Shotgun Barrel A",
@@ -8311,7 +9019,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "USAS-12 Shotgun Barrel B",
@@ -8323,7 +9032,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "USAS-12 Shotgun Barrel C",
@@ -8335,7 +9045,8 @@
         "Barrel"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Barrel Upgrade"
     },
     {
       "name": "USAS-12 Shotgun Handguard B",
@@ -8347,7 +9058,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "USAS-12 Shotgun Magazine A",
@@ -8359,7 +9071,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "USAS-12 Shotgun Magazine B",
@@ -8371,7 +9084,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "USAS-12 Shotgun Magazine C",
@@ -8383,7 +9097,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "USP",
@@ -8395,7 +9110,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Trusty Pistol. Uses .45ACP"
     },
     {
       "name": "UV Light Bulb",
@@ -8406,7 +9122,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Bulb that produces ultraviolet lights."
     },
     {
       "name": "Valve Adjustment Tool",
@@ -8417,7 +9134,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automotive tool."
     },
     {
       "name": "Ventilation Filter",
@@ -8428,7 +9146,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Filters particulates from the air."
     },
     {
       "name": "Ventilation Regulator",
@@ -8439,7 +9158,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "High-tech device that maintains efficient and reliable airflow."
     },
     {
       "name": "VEPR-12",
@@ -8450,7 +9170,8 @@
         "Shotguns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Automatic shotgun. Uses 12-gauge"
     },
     {
       "name": "Vepr-12 Shotgun Handguard A",
@@ -8462,7 +9183,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "Vepr-12 Shotgun Handguard B",
@@ -8474,7 +9196,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "Vepr-12 Shotgun Handguard C",
@@ -8486,7 +9209,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Grip Upgrade"
     },
     {
       "name": "Vepr-12 Shotgun Magazine A",
@@ -8498,7 +9222,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "Vepr-12 Shotgun Magazine B",
@@ -8510,7 +9235,8 @@
         "Magazine"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Magazine Upgrade"
     },
     {
       "name": "VH-Ambi 2",
@@ -8522,7 +9248,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Europan Rifle. Uses 5.56mm"
     },
     {
       "name": "VHS2 Upper Assembly B",
@@ -8534,7 +9261,8 @@
         "Upper assembly"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Reciever Upgrade"
     },
     {
       "name": "VIK-32L",
@@ -8546,7 +9274,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle design now manufactured in Eurasian territories"
     },
     {
       "name": "Viper",
@@ -8557,7 +9286,8 @@
         "Pistols"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Baba Yaga. Uses 919"
     },
     {
       "name": "VKS Front Sight",
@@ -8569,7 +9299,8 @@
         "Front sight"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Front Sight"
     },
     {
       "name": "VKS Handguard A",
@@ -8581,7 +9312,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "VKS Handguard B",
@@ -8593,7 +9325,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "VKS Vykhlop",
@@ -8604,7 +9337,8 @@
         "Rifles"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rifle that uses 12.7 Subsonic"
     },
     {
       "name": "Vodka",
@@ -8618,7 +9352,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Vtex Optic",
@@ -8630,7 +9365,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Vtex Raz Gen 2 Optic",
@@ -8642,7 +9378,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Vtex Spit 3x",
@@ -8654,7 +9391,8 @@
         "Scope"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "3x Scope (works on multiple weapons).thumb"
     },
     {
       "name": "Vtex Strike Optic",
@@ -8666,7 +9404,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Vtex V Optic",
@@ -8678,7 +9417,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Walther MPL Handguard",
@@ -8690,7 +9430,8 @@
         "Handguard"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Handguard Upgrade"
     },
     {
       "name": "Water",
@@ -8702,7 +9443,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "One day of water."
     },
     {
       "name": "Water Canteen",
@@ -8715,7 +9457,8 @@
         "High value dog food"
       ],
       "buffs": "Heals 80 HP over 10 seconds.",
-      "debuffs": null
+      "debuffs": null,
+      "description": "Water is life. Can be consumed for a small health boost. This item does not affect the Innards water supply."
     },
     {
       "name": "Water Map",
@@ -8726,7 +9469,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "An encoded map of a water reserve's location."
     },
     {
       "name": "Water Thief Mask",
@@ -8737,7 +9481,8 @@
         "Large items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Plant this mask on a wounded soldier in Elephant Mausoleum to anger Europa"
     },
     {
       "name": "Water Thief's Mask \"Bozo\"",
@@ -8748,7 +9493,8 @@
         "Wall decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Mask formerly belonging to a water bandit."
     },
     {
       "name": "Water Thief's Mask \"Oni\"",
@@ -8759,7 +9505,8 @@
         "Wall decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Mask formerly belonging to a water bandit."
     },
     {
       "name": "Water Thief's Mask \"Thirsty\"",
@@ -8770,7 +9517,8 @@
         "Wall decorations"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Mask formerly belonging to a water bandit."
     },
     {
       "name": "WD40",
@@ -8781,7 +9529,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A versatile aerosol useful for maintenance."
     },
     {
       "name": "Weapon Parts",
@@ -8792,7 +9541,8 @@
         "Military"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Various parts stripped from weapons. Used for repairs."
     },
     {
       "name": "Weapon Schematics",
@@ -8803,7 +9553,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Detailed blueprints and schematics for weapon manufacturing."
     },
     {
       "name": "Weapon Tech",
@@ -8814,7 +9565,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Weapon Tech"
     },
     {
       "name": "Wetware Processor",
@@ -8825,7 +9577,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Bulky organoid computing system of Euruskan design. Its unique cellular architecture enables massive computational throughput and self-learning behaviors."
     },
     {
       "name": "Wetware System",
@@ -8836,7 +9589,8 @@
         "Quest items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "A current-generation wetware system."
     },
     {
       "name": "Whiskey",
@@ -8850,7 +9604,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Wine",
@@ -8864,7 +9619,8 @@
         "Minimum value dog food"
       ],
       "buffs": "Heals 78 HP for 10 seconds.",
-      "debuffs": "Swaying aim & vision."
+      "debuffs": "Swaying aim & vision.",
+      "description": "Alcohol. Restores health but reduces hand-eye coordination."
     },
     {
       "name": "Wires",
@@ -8875,7 +9631,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Bundle of assorted wires. Useful for crafting."
     },
     {
       "name": "WLT MPL",
@@ -8886,7 +9643,8 @@
         "Submachine Guns"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Submachine Gun. Uses 9x19"
     },
     {
       "name": "Wooden Plank",
@@ -8897,7 +9655,8 @@
         "Materials"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Versatile length of wood brimming with potential."
     },
     {
       "name": "Wooden Planks",
@@ -8908,7 +9667,8 @@
         "Uncategorized items"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Bundle of wooden planks."
     },
     {
       "name": "XM25",
@@ -8920,7 +9680,8 @@
         "Grenade Launchers"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Grenade Launcher. Uses 40mm HE"
     },
     {
       "name": "Zeni-B P6 Optic",
@@ -8932,7 +9693,8 @@
         "Optic"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Sighting Optic (works on multiple weapons).thumb"
     },
     {
       "name": "Zippo Lighter",
@@ -8943,7 +9705,8 @@
         "Civil goods"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Most scavs have one."
     },
     {
       "name": "Zonophor Tablets",
@@ -8954,7 +9717,8 @@
         "Medical"
       ],
       "buffs": null,
-      "debuffs": null
+      "debuffs": null,
+      "description": "Rare tablets used for treating nanosickness. Produced by Occulomide."
     }
   ]
 }

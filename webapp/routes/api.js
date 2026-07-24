@@ -498,6 +498,7 @@ router.get('/inventory/catalog', async (req, res) => {
       wikiUrl: meta.wikiUrl || null,
       matchConfidence: Number.isFinite(meta.matchConfidence) ? meta.matchConfidence : 0,
       reviewed: meta.reviewed === true,
+      description: meta.description || null,
       buffs: meta.buffs || null,
       debuffs: meta.debuffs || null,
       have: have[id] != null ? have[id] : 0

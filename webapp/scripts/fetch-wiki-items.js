@@ -20,6 +20,52 @@ function getJson(url) {
   });
 }
 
+// Most items have no Buffs/Debuffs (those Cargo fields only exist for
+// consumables with a mechanical effect) but nearly every item page has a
+// free-text "==Description==" section, e.g. Nuts: "A handful of nuts.
+// Useful for fastening things together." That section isn't in Cargo at
+// all -- it's page wikitext -- so it has to be fetched and parsed separately.
+function extractDescription(wikitext) {
+  if (!wikitext) return null;
+  const match = wikitext.match(/==\s*Description\s*==\s*\n([\s\S]*?)(?=\n==|$)/i);
+  if (!match) return null;
+  const text = match[1]
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/\{\{[^{}]*\}\}/g, '')
+    .replace(/\[\[[^\]|]*\|([^\]]*)\]\]/g, '$1')
+    .replace(/\[\[([^\]]*)\]\]/g, '$1')
+    .replace(/\[(?:https?:)?\/\/\S+\s+([^\]]*)\]/g, '$1')
+    .replace(/\[(?:https?:)?\/\/\S+\]/g, '')
+    .replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, '$1')
+    .replace(/'''''(.+?)'''''/g, '$1')
+    .replace(/'''(.+?)'''/g, '$1')
+    .replace(/''(.+?)''/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .split('\n').map(line => line.trim().replace(/^[*#]+\s*/, '')).filter(Boolean).join(' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  return text && !/^none\.?$/i.test(text) ? text : null;
+}
+
+async function fetchDescriptions(pageNames) {
+  const descByPage = new Map();
+  const unique = [...new Set(pageNames.filter(Boolean))];
+  const batchSize = 50;
+  for (let i = 0; i < unique.length; i += batchSize) {
+    const batch = unique.slice(i, i + batchSize);
+    const params = new URLSearchParams({
+      action: 'query', format: 'json', formatversion: '2', prop: 'revisions',
+      rvslots: 'main', rvprop: 'content', titles: batch.join('|')
+    });
+    const payload = await getJson(`${endpoint}?${params}`);
+    for (const page of payload.query?.pages || []) {
+      const content = page.revisions?.[0]?.slots?.main?.content;
+      descByPage.set(page.title, extractDescription(content));
+    }
+  }
+  return descByPage;
+}
+
 async function main() {
   const items = [];
   for (let offset = 0; ; offset += 500) {
@@ -45,9 +91,12 @@ async function main() {
     items.push(...batch);
     if (batch.length < 500) break;
   }
+  const descByPage = await fetchDescriptions(items.map(item => item.page));
+  for (const item of items) item.description = item.page ? (descByPage.get(item.page) ?? null) : null;
   const snapshot = { schemaVersion: 1, fetchedAt: new Date().toISOString(), sourceUrl: endpoint, cargoTable: 'Items', items };
   fs.writeFileSync(output, `${JSON.stringify(snapshot, null, 2)}\n`);
-  console.log(`Fetched ${items.length} structured wiki item records.`);
+  const withDescription = items.filter(item => item.description).length;
+  console.log(`Fetched ${items.length} structured wiki item records (${withDescription} with a Description section).`);
 }
 
 main().catch(error => { console.error(error.message); process.exitCode = 1; });

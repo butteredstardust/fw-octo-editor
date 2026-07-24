@@ -80,7 +80,7 @@ for (const row of rows) {
   canonical[id] = {
     id, displayName, inventoryMap: inferMap(id, row.TopLevelCategory, categories), internalTag: row.InternalTag || null,
     taxonomy: { group: row.TopLevelCategory || 'Loot', type: categories[0] || null, subtype: categories[1] || null, tags: categories },
-    wiki: { page: wikiPage, pageUrl: wikiPage ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiPage.replace(/ /g, '_'))}` : null, imageFile, imageUrl: imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(imageFile)}` : null, revisionId: null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
+    wiki: { page: wikiPage, pageUrl: wikiPage ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiPage.replace(/ /g, '_'))}` : null, imageFile, imageUrl: imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(imageFile)}` : null, revisionId: null, description: wikiItem?.description || null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
     match: { method: wikiItem ? 'wiki-cargo-internal-tag' : (matched ? 'legacy-exact-tag' : 'unmatched-reference-id'), confidence: wikiItem ? 1 : (matched ? 0.9 : 0), reviewed: false },
     sources: ['reference-save-2026-07-05', wikiItem ? 'wiki.gg-cargo-items' : (matched ? 'wiki.gg-legacy-export' : 'reference-save-only')]
   };
@@ -96,7 +96,7 @@ if (referenceSnapshot) {
       inventoryMap: referenceItem.sourceMap === 'Base Weapons' ? 'Weapons' : (referenceItem.sourceMap === 'Damaged Weapons' ? 'DamagedWeapons' : 'Items'),
       internalTag: wikiItem?.internalTag || null,
       taxonomy: { group: referenceItem.sourceMap === 'Base Weapons' ? 'Weapons' : (referenceItem.sourceMap === 'Damaged Weapons' ? 'Damaged Weapons' : 'Loot'), type: categories[0] || null, subtype: categories[1] || null, tags: categories },
-      wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
+      wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, description: wikiItem?.description || null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
       match: { method: wikiItem ? 'wiki-cargo-internal-tag' : 'unmatched-reference-id', confidence: wikiItem ? 1 : 0, reviewed: false },
       sources: ['reference-save-2026-07-05', wikiItem ? 'wiki.gg-cargo-items' : 'reference-save-only']
     };
@@ -109,7 +109,7 @@ const catalog = Object.fromEntries(Object.entries(sorted).map(([id, item]) => [i
   taxonomyGroup: item.taxonomy.group, taxonomyType: item.taxonomy.type, taxonomySubtype: item.taxonomy.subtype, taxonomyTags: item.taxonomy.tags,
   internalTag: item.internalTag, imageFile: item.wiki.imageFile, imageUrl: item.wiki.imageUrl, wikiPage: item.wiki.page,
   wikiUrl: item.wiki.pageUrl, matchConfidence: item.match.confidence, reviewed: item.match.reviewed,
-  buffs: item.wiki.buffs, debuffs: item.wiki.debuffs
+  description: item.wiki.description, buffs: item.wiki.buffs, debuffs: item.wiki.debuffs
 }]));
 const entries = Object.values(sorted);
 const audit = { schemaVersion: 1, generatedAt: new Date().toISOString(), source: 'public/items.csv', counts: {
@@ -117,7 +117,7 @@ const audit = { schemaVersion: 1, generatedAt: new Date().toISOString(), source:
   inferredNames: entries.filter(item => item.match.confidence > 0 && item.match.confidence < 0.9).length,
   unresolvedNames: entries.filter(item => item.match.confidence === 0).length, uncategorized: entries.filter(item => !item.taxonomy.type).length,
   withImages: entries.filter(item => item.wiki.imageFile || item.wiki.imageUrl).length, reviewed: entries.filter(item => item.match.reviewed).length,
-  withDescription: entries.filter(item => item.wiki.buffs || item.wiki.debuffs).length,
+  withDescription: entries.filter(item => item.wiki.description).length, withBuffOrDebuff: entries.filter(item => item.wiki.buffs || item.wiki.debuffs).length,
   excludedWikiRows: excluded.length, wikiSnapshotItems: (wikiSnapshot.items || []).length, referenceSnapshotItems: (referenceSnapshot?.items || []).length }, unresolvedIds: entries.filter(item => item.match.confidence === 0).map(item => item.id), uncategorizedIds: entries.filter(item => !item.taxonomy.type).map(item => item.id), excludedWikiRows: excluded };
 fs.writeFileSync(canonicalPath, `${JSON.stringify({ schemaVersion: 1, generatedAt: audit.generatedAt, items: sorted }, null, 2)}\n`);
 fs.writeFileSync(catalogPath, `${JSON.stringify(catalog)}\n`);
