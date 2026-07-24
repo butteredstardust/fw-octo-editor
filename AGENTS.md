@@ -50,6 +50,8 @@ Read this before editing the webapp or save files. The **webapp** is the only su
 - **Water** = `Currencies.RowName='WaterBarrels'`; **Credits** = `Currencies.RowName='TestCurrency'`.
 - Hub unlocks = `PlayerUpgrades.UpgradeTag` rows (`Permanent=0`). Include full prerequisite chains.
 - Inventory = GVAS blob `Name='TempInventory'` inside `BinaryData.Value`. `Items` MapProperty is a JSON array of `{key, value}` pairs. To add an item, `push` onto the array — assigning by key disappears on re-serialization.
+- `KnownItems` (separate `BinaryData` blob) = the game's "discovered weapon attachments / rig containers" list, not a general item log (ammo/meds/drones/codex are never in it). `ensureInventoryItems()` (gvasService.js) writes it in the same transaction as TempInventory whenever it adds a weapon part (sourceMap `'Items'`), so an added BIS part is also marked discovered; base weapons are intentionally excluded (never observed there in a real save).
+- `VaultInventory` (separate `BinaryData` blob) = the home stash, distinct from `TempInventory`/`Currencies` — items and Credits stored there are invisible to every other page. Read-only today (`getVaultInventory()`).
 - Drones are inventory items: `Drone_FastTravel`, `Drone_Construction`, `Drone_Recovery`.
 
 ---

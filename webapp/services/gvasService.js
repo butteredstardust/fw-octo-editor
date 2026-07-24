@@ -91,15 +91,33 @@ async function writeTempInventoryBlob(key, blobBuffer) {
   ]);
 }
 
-// Read + parse ANY named GVAS blob from BinaryData via uesave (e.g. PlayerLoadout).
-// Returns the full uesave JSON object (root.properties...). Throws if not found.
-async function readNamedBlobJson(key, blobName) {
+// Read the raw bytes of any named GVAS blob from BinaryData.
+async function readNamedBlob(key, blobName) {
   const dbPath = getSavePaths()[0];
   const results = await runShell(dbPath, key, [
     `SELECT hex(Value) FROM BinaryData WHERE Name = '${blobName}' LIMIT 1`
   ]);
   if (!results.length) throw new Error(`${blobName} not found in BinaryData`);
-  const blob = Buffer.from(results[0].trim(), 'hex');
+  return Buffer.from(results[0].trim(), 'hex');
+}
+
+// Write one or more named GVAS blobs back to BinaryData in a single
+// transaction, so a multi-blob edit (e.g. TempInventory + KnownItems)
+// commits atomically or not at all.
+async function writeNamedBlobs(key, blobsByName) {
+  const dbPath = getSavePaths()[0];
+  const statements = ['BEGIN IMMEDIATE'];
+  for (const [name, buffer] of Object.entries(blobsByName)) {
+    statements.push(`UPDATE BinaryData SET Value = X'${buffer.toString('hex')}' WHERE Name = '${name}'`);
+  }
+  statements.push('COMMIT');
+  await runShell(dbPath, key, statements);
+}
+
+// Read + parse ANY named GVAS blob from BinaryData via uesave (e.g. PlayerLoadout).
+// Returns the full uesave JSON object (root.properties...). Throws if not found.
+async function readNamedBlobJson(key, blobName) {
+  const blob = await readNamedBlob(key, blobName);
   return blobToJson(blob);
 }
 
@@ -758,10 +776,47 @@ async function ensureInventoryItems(key, requested) {
   const blob=await readTempInventoryBlob(key),json=await requireByteIdenticalRoundTrip(blob),props=json?.root?.properties;if(!props)throw Object.assign(new Error('Malformed TempInventory blob'),{status:422});
   const added=[],preserved=[];for(const item of unique.values()){if(findMapsForItem(props,item.itemId).length){preserved.push(item.itemId);continue;}const propKey=SOURCE_MAP_TO_PROP[item.sourceMap]||'Items_0';if(!Array.isArray(props[propKey]))throw Object.assign(new Error('Unsupported inventory map'),{status:422});props[propKey].push(buildEntry(item.sourceMap,item.itemId,1));added.push(item.itemId);}
   if(!added.length)throw Object.assign(new Error('All recommended parts are already owned'),{status:409});
-  const newBlob=await jsonToBlob(json);await writeTempInventoryBlob(key,newBlob);const installed=await readTempInventoryBlob(key);if(!installed.equals(newBlob))throw Object.assign(new Error('TempInventory blob installation verification failed'),{status:422});
+
+  // Weapon PARTS (sourceMap 'Items', the ItemDetailsData-backed bucket) are
+  // the only category ever observed as a KnownItems row in a real save --
+  // base weapons (Base Weapons/Damaged Weapons sourceMap) never appear
+  // there. Adding a part's ownership without also marking it "discovered"
+  // is exactly the kind of gap the "verify in-game" warning below used to
+  // hedge blindly against: KnownItems and ownership are ~1:1 for parts in
+  // a normal playthrough, so an owned-but-unknown part is untested
+  // territory for whether the game lets you select it. Register it here.
+  const newlyKnownIds = added.filter(id => unique.get(id).sourceMap === 'Items');
+  let knownJson = null, knownAdded = [];
+  if (newlyKnownIds.length) {
+    const knownBlob = await readNamedBlob(key, 'KnownItems');
+    knownJson = await requireByteIdenticalRoundTrip(knownBlob);
+    const knownRows = knownJson?.root?.properties?.KnownItems_0;
+    if (!Array.isArray(knownRows)) throw Object.assign(new Error('Malformed KnownItems blob'), { status: 422 });
+    const alreadyKnown = new Set(knownRows.map(entry => entry.RowName_0));
+    for (const id of newlyKnownIds) {
+      if (!alreadyKnown.has(id)) { knownRows.push({ DataTable_0: ITEM_DATA_TABLE, RowName_0: id }); knownAdded.push(id); }
+    }
+  }
+
+  const newBlob=await jsonToBlob(json);
+  const newKnownBlob = knownAdded.length ? await jsonToBlob(knownJson) : null;
+  const blobsToWrite = { TempInventory: newBlob };
+  if (newKnownBlob) blobsToWrite.KnownItems = newKnownBlob;
+  await writeNamedBlobs(key, blobsToWrite);
+
+  const installed=await readTempInventoryBlob(key);if(!installed.equals(newBlob))throw Object.assign(new Error('TempInventory blob installation verification failed'),{status:422});
   const verified=normalizeItems(extractItems(await blobToJson(installed)));for(const id of added)if(!verified.some(item=>item.name===id&&item.quantity>=1))throw Object.assign(new Error('Added part verification failed'),{status:422});
+
+  if (newKnownBlob) {
+    const installedKnown = await readNamedBlob(key, 'KnownItems');
+    if (!installedKnown.equals(newKnownBlob)) throw Object.assign(new Error('KnownItems blob installation verification failed'), { status: 422 });
+    const verifiedKnownRows = (await blobToJson(installedKnown))?.root?.properties?.KnownItems_0 || [];
+    const verifiedKnownIds = new Set(verifiedKnownRows.map(entry => entry.RowName_0));
+    for (const id of knownAdded) if (!verifiedKnownIds.has(id)) throw Object.assign(new Error(`KnownItems verification failed for ${id}`), { status: 422 });
+  }
+
   const afterIntegrity=await runIntegrityCheck(dbPath,key),afterFk=await validateForeignKeys(dbPath,key),afterHashes=await getHashes();
-  return{success:afterIntegrity.passed,experimental:true,added,preserved,changedRows:1,targetVerification:{added,preserved,minimumQuantity:1,byteRoundTrip:true,passed:true},beforeIntegrity,afterIntegrity,beforeFk,afterFk,beforeHashes,afterHashes,warnings:['Structured TempInventory writes remain experimental; verify the parts in-game.']};
+  return{success:afterIntegrity.passed,experimental:true,added,preserved,knownItemsAdded:knownAdded,changedRows:1,targetVerification:{added,preserved,knownItemsAdded:knownAdded,minimumQuantity:1,byteRoundTrip:true,passed:true},beforeIntegrity,afterIntegrity,beforeFk,afterFk,beforeHashes,afterHashes,warnings:['Structured TempInventory writes remain experimental; verify the parts in-game.']};
 }
 
 module.exports = {
