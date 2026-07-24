@@ -166,6 +166,7 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 | GET | `/api/rigs` | List rigs |
 | POST | `/api/rigs/:rigId/add` | Add rig ownership |
 | POST | `/api/rigs/:rigId/high-quality-set` | Add HQ container set |
+| GET | `/api/vault` | Vault (home stash) items + Credits -- a separate GVAS blob from TempInventory/Currencies; read-only |
 
 ### Currencies
 | Method | Route | Purpose |

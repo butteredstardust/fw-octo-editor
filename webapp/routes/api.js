@@ -7,7 +7,7 @@ const { listCharacters, updateCharacterLevel, setPrestige, listCharacterDetails,
 const { listHubUpgrades, setHubUpgrades } = require('../services/saveService');
 const { listWeaponXp, setWeaponXp, batchSetWeaponXp, getReferenceWeaponXp, listFactionScores, setFactionScore, listTraderUnlocks, setTraderUnlock, getDashboardData, getCurrencies, setCurrency } = require('../services/saveService');
 const { listInventoryItems: listInventoryItemsGvas, updateInventoryItem: updateInventoryItemGvas, addInventoryItem: addInventoryItemGvas } = require('../services/gvasService');
-const { checkInventoryRoundTrip, listRigs, addRigOwnership, addHighQualityContainerSet } = require('../services/gvasService');
+const { checkInventoryRoundTrip, listRigs, addRigOwnership, addHighQualityContainerSet, getVaultInventory } = require('../services/gvasService');
 const { createBackup, listBackups, restoreBackup, deleteBackup, getLatestBackupHashes } = require('../services/backupService');
 const { isGameRunning } = require('../utils/processCheck');
 const { runIntegrityCheck, validateForeignKeys } = require('../utils/validation');
@@ -371,6 +371,17 @@ router.get('/inventory', async (req, res) => {
   try {
     const items = await listInventoryItemsGvas(resolveKey(req));
     res.json(items);
+  } catch (err) {
+    res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
+  }
+});
+
+// The Vault (home stash) is a separate GVAS blob from TempInventory -- read
+// only, no write support yet (see getVaultInventory() in gvasService.js).
+router.get('/vault', async (req, res) => {
+  try {
+    const vault = await getVaultInventory(resolveKey(req));
+    res.json(vault);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
   }
