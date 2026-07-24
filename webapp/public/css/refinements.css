@@ -63,6 +63,13 @@ body {
 .hv-badge { display:inline-flex; align-items:center; gap:.2rem; flex:0 0 auto; padding:.1rem .45rem; border-radius:999px; background:var(--warn-bg); border:1px solid var(--warn-border); color:var(--amber-soft); font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; white-space:nowrap; }
 .hv-badge .action-icon { width:9px; height:9px; flex-basis:9px; margin-right:0; }
 .hv-badge .action-icon svg { fill:currentColor; stroke:none; }
+/* Wiki flavor/effect text (Cargo Buffs/Debuffs fields) -- only rendered when
+   the wiki actually has text for that item; see itemDescription() in inventory.mjs. */
+.item-desc { display:flex; flex-direction:column; gap:.1rem; margin-top:.3rem; font-size:.74rem; line-height:1.4; }
+.item-desc-buff { color:var(--green); }
+.item-desc-debuff { color:var(--red); }
+.item-desc-buff::before { content:'+ '; font-weight:700; }
+.item-desc-debuff::before { content:'\2212 '; font-weight:700; }
 .operation-inline { min-height:1.35rem; margin-top:.4rem; color:var(--text-2); font-size:.77rem; }
 .operation-inline.pending { color:var(--amber-soft); }
 .operation-inline.success { color:var(--green); }
