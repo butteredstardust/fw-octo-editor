@@ -7,6 +7,7 @@ const saveService = require('../../services/saveService');
 const gvasService = require('../../services/gvasService');
 const weaponBuildService = require('../../services/weaponBuildService');
 const backupService = require('../../services/backupService');
+const binaryParser = require('../../services/binaryParser');
 
 // B1/B2 + C1/C2/C3: drives the REAL services (saveService, gvasService,
 // weaponBuildService) against an isolated copy of the live save. The real
@@ -142,4 +143,30 @@ test('C5: addMissingWithWeapon does not register the base weapon in KnownItems',
 
   const afterKnown = await gvasService.readNamedBlobJson(ctx.key, 'KnownItems');
   assert.ok(!afterKnown.root.properties.KnownItems_0.some(e => e.RowName_0 === target.id), 'base weapon must not appear in KnownItems after the write');
+});
+
+// C6: the structural fallback parser (binaryParser.js, used only when uesave
+// is unavailable) must produce results identical to the real uesave-based
+// path on real save data -- not just on synthetic fixtures. Cross-validates
+// every entry across all three inventory maps against uesave's own JSON
+// output, the same way the parser's byte format was originally verified.
+test('C6: binaryParser fallback matches the real uesave-based inventory read exactly', async t => {
+  const ctx = await createE2EContext(t);
+  const blob = await gvasService.readTempInventoryBlob(ctx.key);
+  const { items, errors } = binaryParser.parseInventoryBlob(blob);
+  assert.equal(errors.length, 0, `expected zero structural parse errors, got: ${JSON.stringify(errors.slice(0, 5))}`);
+  assert.ok(items.length > 0);
+
+  const fallbackMerged = gvasService.normalizeItems(items);
+  const primary = await gvasService.listInventoryItems(ctx.key);
+
+  const primaryByName = new Map(primary.map(i => [i.name, i]));
+  const fallbackByName = new Map(fallbackMerged.map(i => [i.name, i]));
+  assert.equal(fallbackByName.size, primaryByName.size, 'fallback and primary must report the same number of unique items');
+  for (const [name, expected] of primaryByName) {
+    const actual = fallbackByName.get(name);
+    assert.ok(actual, `fallback is missing item ${name}`);
+    assert.equal(actual.quantity, expected.quantity, `quantity mismatch for ${name}`);
+    assert.equal(actual.sourceMap, expected.sourceMap, `sourceMap mismatch for ${name}`);
+  }
 });

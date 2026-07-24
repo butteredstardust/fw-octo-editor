@@ -4,8 +4,9 @@
 // The TempInventory blob is a GVAS v3 / UE5 file stored (encrypted) inside the
 // SQLite3MC .dat. After decryption via the DB key, we shell out to uesave.exe
 // (to-json / from-json) to parse and re-serialize the blob losslessly. This gives
-// us a correct, type-safe model of the inventory (and the other maps) instead of
-// the heuristic byte-scan in binaryParser.
+// us a correct, type-safe model of the inventory (and the other maps) instead
+// of the structural fallback parser in binaryParser.js (used only if uesave
+// is unavailable).
 //
 // Verified: uesave round-trips our blob byte-identically (SHA256 matches), and
 // quantity edits persist through to-json -> edit -> from-json.
@@ -272,17 +273,15 @@ async function listInventoryItems(key) {
     if (entries.length === 0) throw new Error('uesave returned no items');
     return normalizeItems(entries);
   } catch {
-    // Fallback to the heuristic parser so the app still works if uesave is absent.
-    // The legacy parser only sees Items_0, so base/damaged weapons are omitted.
+    // Fallback so the app still works if uesave is absent: a structural
+    // parser (not a heuristic) covering all three maps -- see
+    // binaryParser.js's header comment for how it's verified.
     const blob = await readTempInventoryBlob(key);
-    const hex = blob.toString('hex');
-    const items = binaryParser.parseAllItems(hex);
-    return items.map(item => ({
-      name: item.Item,
-      quantity: item.Quantity,
-      validLayout: item.PropertySize === 4 && item.GuidFlag === 0,
-      sourceMap: 'Items'
-    }));
+    const { items, errors } = binaryParser.parseInventoryBlob(blob);
+    if (errors.length) {
+      console.warn(`[gvasService] fallback inventory parser: ${errors.length} entr${errors.length === 1 ? 'y' : 'ies'} failed structural validation and were omitted`, errors.slice(0, 5));
+    }
+    return normalizeItems(items);
   }
 }
 

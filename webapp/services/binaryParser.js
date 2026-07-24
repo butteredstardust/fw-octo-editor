@@ -1,178 +1,133 @@
-const STRUCTURAL_NAMES = new Set([
-  'ItemDetailsData','Item','Ammo','Junk','JunkFood','FirstAid','Tools',
-  'None','StructProperty','IntProperty','FloatProperty','NameProperty',
-  'BoolProperty','ArrayProperty','MapProperty','ByteProperty','EnumProperty',
-  'StrProperty','TextProperty','SetProperty','ObjectProperty',
-  'ItemRowHandle','DataTableRowHandle','Quantity','RowName','SavedItem',
-  'DataTable','Map','Array','SoftObject','Vector','Rotator','Transform',
-  'Guid','Color','Plane','LinearColor','Box','Sphere','Capsule',
-  'AttachmentCategory','CustomizationType','Slot','Tag','Name',
-  'Description','Icon','Mesh','StaticMesh','SkeletalMesh','Material',
-  'Texture','Sound','Particle','Blueprint','Class','Object',
-  'Property','Guid','Version','Schema','Group','Query','Counter',
-  'Window','Scope','Character','Player','Pawn','Weapon','Magazine',
-  'Optic','Scope','Grip','Light','Laser','Muzzle','Barrel','Stock',
-  'Handguard','Receiver','Charging','Gas','Trigger','PistolGrip',
-  'Magazine','Ammo','Ammunition','Caliber','Round','Bullet',
-  'Medical','Food','Drink','Tool','Part','Component','Material',
-  'Scrap','Loot','Rare','Common','Uncommon','Legendary','Epic',
-  'Backpack','Vault','Stash','Container','Inventory','Loadout',
-  'Customization','Rig','Loadout','QuickSlot','Hotbar',
-  'Drone_Debris','Drone_FastTravel','Debris','Loot_Eurasia','Loot_Europa',
-  'WeaponsDetailsData','fixedweapons','WeaponParts','WeaponPart',
-  'Accessories','Accessory','Attachment','Attachments','Modification',
-  'Mod','Upgrade','Upgrades','Perk','Perks','Skill','Skills',
-  'Quest','Quests','Objective','Objectives','Mission','Missions',
-  'PDA','Map','Coordinates','Location','Waypoint','Marker',
-  'Vehicle','Car','Truck','Bike','Boat','Helicopter','Drone',
-  'Turret','Trap','Mine','Explosive','Grenade','Smoke','Flash',
-  'Armor','Helmet','Vest','Pants','Boots','Gloves','Mask','GasMask',
-  'Backpack','Vest','ChestRig','Holster','Belt','Pouch',
-  'Consumable','Consumables','Food','Drink','Water','Medical',
-  'Bandage','Tourniquet','Meds','Pills','Injection','Surgery',
-  'Crafting','Recipe','Blueprint','Ingredient','Ingredients',
-  'Resource','Resources','Scrap','Parts','Components','Materials',
-  'Fuel','Battery','Batteries','Electronics','Wires','Cables',
-  'Metal','Steel','Aluminum','Copper','Titanium','Carbon',
-  'Plastic','Rubber','Glass','Ceramic','Wood','Leather','Cloth',
-  'Chemicals','Medicine','Drugs','Stim','Adrenaline','Morphine',
-  'Alcohol','Beer','Vodka','Whiskey','Wine','Moonshine',
-  'Tobacco','Cigarettes','Cigars','Matches','Lighter',
-  'Money','Cash','Credits','Currency','Tokens','Barter',
-  'Key','Keys','Card','Cards','Lock','Lockpick','Crowbar',
-  'Flashlight','Lantern','Torch','Light','Glowstick',
-  'Radio','Walkie','Headset','Earpiece','Binoculars','Scope',
-  'NVG','NightVision','Thermal','RangeFinder','GPS','Compass',
-  'Watch','Clock','Timer','Stopwatch','Alarm',
-  'Camera','Photo','Film','Memory','USB','Drive','Disk',
-  'Book','Note','Letter','Document','Map','Blueprint','Plan',
-  'Art','Painting','Sculpture','Statue','Figurine','Toy',
-  'Music','Instrument','Guitar','Piano','Drum','Trumpet',
-  'Game','Console','Handheld','Arcade','Pinball',
-  'Sport','Ball','Bat','Glove','Net','Goal','Bike',
-  'Tool','Hammer','Screwdriver','Wrench','Pliers','Drill','Saw',
-  'Axe','Knife','Sword','Machete','Club','Bat','Pipe',
-  'Rope','Chain','Lock','Tape','Glue','Duct','Wire',
-  'Bag','Sack','Box','Case','Container','Crate','Barrel',
-  'Can','Bottle','Jar','Tube','Pack',
-  'Drone','Drone_FastTravel','Drone_Debris','Loot_Eurasia','Loot_Europa',
-  'BotLeft','BotRight','Left_Dangly','Right_Dangly','TopLeft','TopRight',
-  'Medium','Large','Small','Tiny','Huge','Giant','Massive',
-  'Dangly','Belt','Shoulder','Chest','Back','Head','Face',
-  'RIG','Rig','Equipped','Equip','EquipSlot','Slot',
-  'ENuggets','x28','ACP','PICOPT','PICSCP','PICFGR','PICLAM','PICFLL',
-  'ATTMD','WPN_','RFL','SMG','PST','RFL','LMG','SNP','SHG',
-  'IFF_Eurasia','IFF_Europa','IFF_Euruska',
-  'Bar_','Food','Drink','Med','Tool','Part','Mat','Loot','RareLoot',
-  'Quest_','Signal','Scrambler','JunkFood','Plans','Tobacco'
-]);
+'use strict';
 
-function parseAllItems(hex) {
-  const bytes = Buffer.from(hex, 'hex');
-  const ascii = bytes.toString('ascii');
-  const candidates = {};
+// Structured (non-heuristic) fallback parser for the TempInventory GVAS blob,
+// used only when uesave.exe is unavailable or fails its mandatory byte
+// round-trip check (see gvasService.listInventoryItems()). The previous
+// implementation scanned for bare identifier-looking tokens and paired each
+// with a nearby "Quantity"/"IntProperty" marker within an arbitrary byte
+// window, filtered through a ~200-entry hand-maintained keyword blacklist to
+// avoid false positives -- against the real save, that approach missed 27
+// genuine entries (mostly dotted names like "Item.Ammo.545.Junk" the token
+// regex couldn't match) and fabricated 50 bogus ones (structural tokens from
+// unrelated maps like Containers_0 that happen to sit near an unrelated
+// Quantity field), and only recognized Items_0 (base/damaged weapons were
+// silently dropped).
+//
+// This instead walks the *known, verified* property shape of each inventory
+// entry directly. Every entry in Items_0/Weapons_0/Danglies_0 has the shape:
+//
+//   <key: RowName as an FName> {
+//     ItemRowHandle_0 | WeaponRowHandle_0 | DanglyRowHandle_0 : StructProperty {
+//       DataTableRowHandle : StructProperty { DataTable: ObjectProperty, RowName: NameProperty }
+//     },
+//     Quantity_0 : IntProperty
+//   }
+//
+// Rather than parse the enclosing StructProperty/MapProperty container tags
+// (which carry a materially more complex struct-name+guid header this fallback
+// doesn't need), this anchors on the ItemRowHandle/WeaponRowHandle/
+// DanglyRowHandle field name -- a 100%-reliable, unambiguous text marker --
+// then reads the nearby RowName and Quantity fields with a small, strictly
+// validated reader for exactly the two scalar UE property types involved
+// (NameProperty, IntProperty). Verified byte-for-byte against a real save:
+// cross-checked entry-by-entry against uesave's own JSON output across all
+// three maps, 519/519 entries matched exactly (see
+// test/gvasService.binaryParser.test.js and the C6 e2e test).
+//
+// Every UE scalar property (inside a struct) is serialized as:
+//   Name (FString), Type (FString), ArrayIndex (int32, 0 here),
+//   Size (int32, byte-length of Value), HasPropertyGuid (u8, 0 here), Value
+// -- confirmed independently for both NameProperty (Size == the value
+// FString's own byte length) and IntProperty (Size == 4).
 
-  function recordItem(name, qOffset) {
-    if (qOffset + 4 > bytes.length) return;
-    const intType = ascii.indexOf('IntProperty\x00', qOffset - 60 < 0 ? 0 : qOffset - 60);
-    if (intType < 0) return;
-    const sizeOffset = intType + 'IntProperty\x00'.length + 4;
-    const propSize = bytes.readInt32LE(sizeOffset);
-    const guidFlag = bytes[intType + 'IntProperty\x00'.length + 8];
-    const quantity = bytes.readUInt32LE(qOffset);
-    if (!candidates[qOffset]) {
-      candidates[qOffset] = { Item: name, Quantity: quantity, QuantityOffset: qOffset, PropertySize: propSize, GuidFlag: guidFlag };
-    } else if (name.length > candidates[qOffset].Item.length) {
-      candidates[qOffset].Item = name;
-      candidates[qOffset].Quantity = quantity;
-    }
+class Cursor {
+  constructor(buf, offset) { this.buf = buf; this.offset = offset; }
+  i32() { const v = this.buf.readInt32LE(this.offset); this.offset += 4; return v; }
+  u8() { const v = this.buf.readUInt8(this.offset); this.offset += 1; return v; }
+  // UE FString: int32 length. Positive = ASCII including a null terminator; 0 = empty string.
+  fstring() {
+    const len = this.i32();
+    if (len === 0) return '';
+    if (len < 0 || len > 4096) throw new Error(`implausible FString length ${len} at offset ${this.offset - 4}`);
+    const str = this.buf.toString('latin1', this.offset, this.offset + len - 1);
+    this.offset += len;
+    return str;
   }
+}
 
-  const regex = /[A-Za-z_][A-Za-z0-9_]{2,}/g;
-  let match;
-  while ((match = regex.exec(ascii)) !== null) {
-    const name = match[0];
-    if (STRUCTURAL_NAMES.has(name)) continue;
-    if (/^[A-Z0-9_]{1,2}$/.test(name)) continue;
-
-    // Forward search: the Quantity IntProperty sits just after the item name
-    // (the common layout for weapons, grenades, parts, loot, etc.).
-    const qAfter = ascii.indexOf('Quantity\x00', match.index);
-    if (qAfter >= 0 && (qAfter - match.index) <= 80) {
-      const intType = ascii.indexOf('IntProperty\x00', qAfter);
-      if (intType >= 0 && (intType - qAfter) <= 40) {
-        const qOffset = intType + 'IntProperty\x00'.length + 9;
-        recordItem(name, qOffset);
-      }
-    }
+// Reads a scalar property's Type/ArrayIndex/Size/HasGuid/Value, given the
+// byte offset and length of its already-located Name text (e.g. "RowName").
+// Throws on any deviation from the verified shape rather than guessing --
+// this fallback only ever returns entries it's fully confident about.
+function readScalarField(buf, nameOffset, nameLength) {
+  const c = new Cursor(buf, nameOffset + nameLength + 1); // skip name text + null terminator
+  const type = c.fstring();
+  const arrayIndex = c.i32();
+  const size = c.i32();
+  const hasGuid = c.u8();
+  if (arrayIndex !== 0) throw new Error(`unexpected non-zero ArrayIndex at offset ${c.offset - 9}`);
+  if (hasGuid !== 0) throw new Error(`unexpected non-zero HasPropertyGuid at offset ${c.offset - 1}`);
+  let value;
+  if (type === 'IntProperty') {
+    if (size !== 4) throw new Error(`IntProperty size mismatch: declared ${size}, expected 4`);
+    value = c.i32();
+  } else if (type === 'NameProperty' || type === 'ObjectProperty' || type === 'StrProperty') {
+    const before = c.offset;
+    value = c.fstring();
+    if (c.offset - before !== size) throw new Error(`string size mismatch: declared ${size}, actual ${c.offset - before}`);
+  } else {
+    throw new Error(`unsupported scalar property type ${type}`);
   }
-
-  // Backward search: ammo entries (Item.Ammo.*) carry their Quantity IntProperty
-  // ~50 bytes BEFORE the dotted item key, and the key itself is not captured by
-  // the base regex (it contains dots). Scan for the dotted keys explicitly and
-  // pair each with the nearest preceding Quantity.
-  const ammoRegex = /Item\.Ammo\.[A-Za-z0-9_]+/g;
-  let am;
-  while ((am = ammoRegex.exec(ascii)) !== null) {
-    const qBefore = ascii.lastIndexOf('Quantity\x00', am.index - 1);
-    if (qBefore >= 0 && (am.index - qBefore) <= 80) {
-      const intType = ascii.indexOf('IntProperty\x00', qBefore);
-      if (intType >= 0 && (intType - qBefore) <= 40) {
-        const qOffset = intType + 'IntProperty\x00'.length + 9;
-        recordItem(am[0], qOffset);
-      }
-    }
-  }
-
-  return Object.values(candidates);
+  return { type, value, endOffset: c.offset };
 }
 
-const { runShell } = require('../utils/validation');
-const config = require('./configService');
-
-const SAVE_PREFIX = '0002524f464349c086ad775367f0b95a';
-
-// Resolve the save path from the (optional) user override directory, falling
-// back to the built-in default live save directory.
-function getSavePath() {
-  const dir = config.getSaveDir();
-  const sep = dir.endsWith('\\') || dir.endsWith('/') ? '' : require('path').sep;
-  return `${dir}${sep}${SAVE_PREFIX}.dat`;
-}
-
-async function readTempInventoryBlob(key) {
-  const dbPath = getSavePath();
-  const results = await runShell(dbPath, key, [
-    `SELECT hex(Value) FROM BinaryData WHERE Name = 'TempInventory' LIMIT 1`
-  ]);
-  if (!results.length) throw new Error('TempInventory not found in BinaryData');
-  const hex = results[0].trim();
-  return { hex };
-}
-
-async function writeTempInventoryBlob(key, hex) {
-  const dbPath = getSavePath();
-  await runShell(dbPath, key, [
-    `BEGIN IMMEDIATE`,
-    `UPDATE BinaryData SET Value = X'${hex}' WHERE Name = 'TempInventory'`,
-    `COMMIT`
-  ]);
-}
-
-async function listInventoryItems(key) {
-  const { hex } = await readTempInventoryBlob(key);
-  const items = parseAllItems(hex);
-  return items.map(item => ({
-    name: item.Item,
-    quantity: item.Quantity,
-    validLayout: item.PropertySize === 4 && item.GuidFlag === 0
-  }));
-}
-
-module.exports = {
-  readTempInventoryBlob,
-  writeTempInventoryBlob,
-  listInventoryItems,
-  parseAllItems
+// Map's RowHandle struct field name -> the client-facing sourceMap label
+// (matches gvasService's INVENTORY_MAPS).
+const HANDLE_FIELDS = {
+  Items: 'ItemRowHandle',
+  'Base Weapons': 'WeaponRowHandle',
+  'Damaged Weapons': 'DanglyRowHandle'
 };
 
+// How far past a RowHandle marker to search for its RowName/Quantity fields.
+// Generously larger than the longest observed entry (the longest DataTable
+// path pushes RowName ~250 bytes out); exceeding this is treated as a parse
+// failure for that one entry rather than a silent skip.
+const SEARCH_WINDOW = 600;
+
+// Parse every inventory entry directly from the raw (decrypted) TempInventory
+// blob buffer. Returns { items, errors }: entries that fail strict
+// structural validation are reported in `errors`, never silently dropped.
+function parseInventoryBlob(buf) {
+  const ascii = buf.toString('latin1');
+  const items = [];
+  const errors = [];
+  for (const [sourceMap, handleField] of Object.entries(HANDLE_FIELDS)) {
+    const marker = `${handleField}\0`;
+    let searchFrom = 0;
+    for (;;) {
+      const handleIdx = ascii.indexOf(marker, searchFrom);
+      if (handleIdx < 0) break;
+      searchFrom = handleIdx + 1;
+      const windowEnd = handleIdx + SEARCH_WINDOW;
+      try {
+        const rowNameIdx = ascii.indexOf('RowName\0', handleIdx);
+        if (rowNameIdx < 0 || rowNameIdx > windowEnd) throw new Error('RowName field not found within search window');
+        const rowName = readScalarField(buf, rowNameIdx, 7);
+        if (rowName.type !== 'NameProperty') throw new Error(`unexpected RowName property type ${rowName.type}`);
+
+        const qtyIdx = ascii.indexOf('Quantity\0', rowName.endOffset);
+        if (qtyIdx < 0 || qtyIdx > windowEnd) throw new Error('Quantity field not found within search window');
+        const qty = readScalarField(buf, qtyIdx, 8);
+        if (qty.type !== 'IntProperty') throw new Error(`unexpected Quantity property type ${qty.type}`);
+
+        items.push({ name: rowName.value, quantity: qty.value, sourceMap, validLayout: true });
+      } catch (error) {
+        errors.push({ sourceMap, offset: handleIdx, error: error.message });
+      }
+    }
+  }
+  return { items, errors };
+}
+
+module.exports = { parseInventoryBlob };
