@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast } = FW;
 
 const WEAPON_META = {
   'PST01': { name: 'USP', cat: 'Pistols' },
@@ -175,9 +175,53 @@ function requirementBadge(p){if(!p.requiredXp)return'';return `<span class="req-
 function partIcon(slot){return /optic|scope/i.test(slot)?appIcon('🎯','weapon-part-icon'):itemTypeIcon('attachment',slot);}
 const BUILD_SCORE_HINT = 'Category-aware balanced score from per-dimension percentile ranking of accuracy, stability, recoil control, damage, rate of fire, ADS/reload speed, magazine, and optic FOV (base + selected BIS parts), mapped to 0–100. Only meaningful for comparing weapons within the same category.';
 function renderWeaponBuild(){const id=document.getElementById('weaponBuildSelect').value,w=weaponBuildData?.weapons.find(x=>x.id===id),el=document.getElementById('weaponBuildContent');if(!w){setRenderedHtml(el,'<div class="empty-state"><strong>No matching supported weapon</strong><br>Try a different filter.</div>');return;}const b=w.build;setRenderedHtml(el,`<section class="weapon-build-summary"><div><span class="eyebrow">${esc(w.category)}</span><h3>${esc(w.name)} ${technicalDetails(w.id)}</h3><div class="weapon-part-stats"><span class="k">Base stats</span>${baseStatChips(w.stats)}</div></div><div class="build-metrics"><strong>${esc(b.score)}</strong><span title="${esc(BUILD_SCORE_HINT)}">balanced score</span><b class="${b.suppressed?'ready':'neutral'}">${esc(b.suppressionMessage)}</b>${w.weaponOwned?'':'<span class="req-badge unmet">Weapon not owned</span>'}<span class="req-badge ${b.missing?'unmet':'met'}">${b.owned} owned / ${b.missing} missing parts</span></div></section><div class="weapon-build-actions"><button type="button" data-action="weapon-build-add-bundle" data-id="${esc(w.id)}" ${(!w.weaponOwned||b.missing)?'':'disabled'} title="Adds the base weapon (if not already owned) plus every missing BIS part at quantity one. Already-owned items are left untouched.">${actionIcon('add')}Add weapon + missing parts</button></div><div class="weapon-part-grid">${b.parts.map(p=>`<article class="weapon-part-card ${p.missing?'is-missing':'is-owned'}">${partIcon(p.slot)}<div class="weapon-part-body"><span class="eyebrow">${esc(p.slot)}</span><h4>${esc(p.name)} ${technicalDetails(p.itemId)}</h4><div class="weapon-part-stats">${statChips(p.stats)}</div>${p.dependencies.length?`<div class="weapon-part-deps"><span class="k">Requires</span>${p.dependencies.map(d=>`<span class="dep-chip">${esc(d.name)}</span>`).join('')}</div>`:''}${requirementBadge(p)}<div class="weapon-part-state"><b class="${p.missing?'missing':'owned'}">${p.missing?'Missing':'Owned ×'+p.owned}</b>${p.missing?`<button type="button" class="mini icon-only" data-action="weapon-build-add-part" data-weapon-id="${esc(w.id)}" data-part-id="${esc(p.itemId)}" title="Add this part">${actionIcon('add')}<span class="sr-only">Add</span></button>`:''}</div></div></article>`).join('')}</div><aside class="source-disclosure"><strong>Equip manually in-game:</strong> open weapon customization, install the listed parts, then save a preset.</aside>`);}
-async function addWeaponBuildPart(weaponId,partId,button){const partName=button.closest('.weapon-part-card')?.querySelector('h4')?.textContent.trim()||'this BIS part';const ok=await confirmAction(`Add ${partName} at quantity one? Existing quantities are never increased. Structured inventory writes are experimental.`,'Add BIS part');if(!ok)return;button.disabled=true;try{const result=await api(`/weapon-builds/${encodeURIComponent(weaponId)}/parts/${encodeURIComponent(partId)}/add`,{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.part.name}. Backup ${result.backupId}.`;await loadWeaponBuilds();const next=document.querySelector(`[data-action="weapon-build-add-part"][data-part-id="${CSS.escape(partId)}"]`);(next||document.getElementById('weaponBuildSelect')).focus();}catch(error){document.getElementById('weaponBuildStatus').textContent=error.message;button.disabled=false;}}
-async function addMissingWeaponBuildBundle(id,button){const ok=await confirmAction('Add the base weapon (if not already owned) and every currently missing trusted part for this build at quantity one? This structured inventory write is experimental.','Add weapon + missing parts');if(!ok)return;button.disabled=true;try{const result=await api(`/weapon-builds/${encodeURIComponent(id)}/add-missing-with-weapon`,{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.added.length} item(s). Backup ${result.backupId}.`;await loadWeaponBuilds();}catch(error){document.getElementById('weaponBuildStatus').textContent=error.message;button.disabled=false;}}
-async function addMissingForOwnedWeapons(){const button=document.getElementById('weaponBuildAddOwned');const ok=await confirmAction('Add all missing trusted BIS parts at quantity one for every supported weapon currently owned? Existing quantities will not increase. This structured inventory write is experimental.','Add owned-weapon BIS parts');if(!ok)return;button.disabled=true;try{    const result=await api('/weapon-builds/add-missing-owned',{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.added.length} unique parts for ${result.weaponCount} owned weapons. Backup ${result.backupId}.`;await loadWeaponBuilds();}catch(error){document.getElementById('presetStatus').textContent=error.message;}finally{button.disabled=false;}}
+async function addWeaponBuildPart(weaponId,partId,button){
+  const partName=button.closest('.weapon-part-card')?.querySelector('h4')?.textContent.trim()||'this BIS part';
+  const ok=await confirmAction(`Add ${partName} at quantity one? Existing quantities are never increased. Structured inventory writes are experimental.`,'Add BIS part');
+  if(!ok)return;
+  button.disabled=true;
+  try{
+    const result=await api(`/weapon-builds/${encodeURIComponent(weaponId)}/parts/${encodeURIComponent(partId)}/add`,{method:'POST',body:'{}'});
+    setOperationFeedback('weaponBuildsOperationStatus',`Added ${result.part.name}.`,result,result.success?'success':'error');
+    await loadWeaponBuilds();
+    const next=document.querySelector(`[data-action="weapon-build-add-part"][data-part-id="${CSS.escape(partId)}"]`);
+    (next||document.getElementById('weaponBuildSelect')).focus();
+  }catch(error){
+    setOperationFeedback('weaponBuildsOperationStatus',error.message,error.payload,'error');
+    showToast(error.message,'error');
+    button.disabled=false;
+  }
+}
+async function addMissingWeaponBuildBundle(id,button){
+  const ok=await confirmAction('Add the base weapon (if not already owned) and every currently missing trusted part for this build at quantity one? This structured inventory write is experimental.','Add weapon + missing parts');
+  if(!ok)return;
+  button.disabled=true;
+  try{
+    const result=await api(`/weapon-builds/${encodeURIComponent(id)}/add-missing-with-weapon`,{method:'POST',body:'{}'});
+    setOperationFeedback('weaponBuildsOperationStatus',`Added ${result.added.length} item(s).`,result,result.success?'success':'error');
+    await loadWeaponBuilds();
+  }catch(error){
+    setOperationFeedback('weaponBuildsOperationStatus',error.message,error.payload,'error');
+    showToast(error.message,'error');
+    button.disabled=false;
+  }
+}
+async function addMissingForOwnedWeapons(){
+  const button=document.getElementById('weaponBuildAddOwned');
+  const ok=await confirmAction('Add all missing trusted BIS parts at quantity one for every supported weapon currently owned? Existing quantities will not increase. This structured inventory write is experimental.','Add owned-weapon BIS parts');
+  if(!ok)return;
+  button.disabled=true;
+  try{
+    const result=await api('/weapon-builds/add-missing-owned',{method:'POST',body:'{}'});
+    setOperationFeedback('weaponBuildsOperationStatus',`Added ${result.added.length} unique parts for ${result.weaponCount} owned weapons.`,result,result.success?'success':'error');
+    await loadWeaponBuilds();
+  }catch(error){
+    setOperationFeedback('weaponBuildsOperationStatus',error.message,error.payload,'error');
+    showToast(error.message,'error');
+  }finally{
+    button.disabled=false;
+  }
+}
 
 async function loadWeaponXp() {
   const el = document.getElementById('weaponXpList');

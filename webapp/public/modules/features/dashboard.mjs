@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META } = FW;
+const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
 function loadCatalog(...args) { return FW.loadCatalog(...args); }
 
@@ -273,21 +273,19 @@ async function setResource(id, kind) {
   msg.className = 'res-msg';
   msg.textContent = 'Saving…';
   try {
-    if (kind === 'currency') {
-      const r = await api('/currencies/' + encodeURIComponent(id), { method: 'PUT', body: JSON.stringify({ amount: qty }) });
-      if (!r.afterIntegrity || !r.afterIntegrity.passed) throw new Error('integrity check failed');
-    } else {
-      const r = await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
-      if (!r.afterIntegrity || !r.afterIntegrity.passed) throw new Error('integrity check failed');
-    }
+    const result = kind === 'currency'
+      ? await api('/currencies/' + encodeURIComponent(id), { method: 'PUT', body: JSON.stringify({ amount: qty }) })
+      : await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
+    if (!result.afterIntegrity || !result.afterIntegrity.passed) throw new Error('integrity check failed');
     msg.className = 'res-msg ok';
-    msg.textContent = `Set to ${qty.toLocaleString()}.`;
+    msg.innerHTML = `Set to ${qty.toLocaleString()}.${receiptHtml(result)}`;
     document.getElementById('resvalue-' + id).textContent = qty.toLocaleString();
     input.value = '';
     showToast(`${def ? def.label : id} set to ${qty.toLocaleString()}.`);
   } catch (err) {
     msg.className = 'res-msg err';
     msg.textContent = 'Error: ' + err.message;
+    showToast(`Could not set ${def ? def.label : id}: ${err.message}`, 'error');
   }
 }
 
@@ -300,22 +298,21 @@ async function addResource(id) {
   msg.className = 'res-msg';
   msg.textContent = 'Adding…';
   try {
-    const r = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
-    if (r.added === false) {
+    let result = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
+    if (result.added === false) {
       // Already present (or game re-added) — fall back to a quantity update.
-      const u = await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
-      if (!u.afterIntegrity || !u.afterIntegrity.passed) throw new Error('integrity check failed');
-    } else if (!r.afterIntegrity || !r.afterIntegrity.passed) {
-      throw new Error('integrity check failed');
+      result = await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
     }
+    if (!result.afterIntegrity || !result.afterIntegrity.passed) throw new Error('integrity check failed');
     msg.className = 'res-msg ok';
-    msg.textContent = `Added ${qty.toLocaleString()}.`;
+    msg.innerHTML = `Added ${qty.toLocaleString()}.${receiptHtml(result)}`;
     document.getElementById('resvalue-' + id).textContent = qty.toLocaleString();
     input.value = '';
     showToast(`Added ${qty.toLocaleString()} ${def ? def.label : id}.`);
   } catch (err) {
     msg.className = 'res-msg err';
     msg.textContent = 'Error: ' + err.message;
+    showToast(`Could not add ${def ? def.label : id}: ${err.message}`, 'error');
   }
 }
 

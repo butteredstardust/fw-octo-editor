@@ -31,7 +31,6 @@ async function loadSettings() {
     statusEl.innerHTML =
       `<div>Active save directory: <span class="active-dir">${esc(active)}</span></div>` +
       `<div>DB key source: ${s.hasCustomKey ? 'your custom key' : 'bundled application resource'} (stored encrypted, never as plain text).</div>`;
-    document.getElementById('settingsMsg').textContent = '';
   } catch (e) {
     statusEl.textContent = 'Error loading settings: ' + e.message;
   }
@@ -58,6 +57,7 @@ async function clearDbKey() {
   } catch (e) {
     msg.className = 'settings-msg err';
     msg.textContent = 'Error: ' + e.message;
+    showToast(`Could not switch key: ${e.message}`, 'error');
   }
 }
 
@@ -117,6 +117,7 @@ async function saveSettings() {
   } catch (e) {
     msg.className = 'settings-msg err';
     msg.textContent = 'Error: ' + e.message;
+    showToast(`Could not save settings: ${e.message}`, 'error');
   }
 }
 
