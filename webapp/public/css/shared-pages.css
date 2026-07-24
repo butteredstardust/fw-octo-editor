@@ -97,3 +97,29 @@
     .stats-row-name { font-weight: 600; font-size: 0.82rem; }
     .stats-row-detail { color: var(--text-2); font-size: 0.72rem; margin-top: 0.15rem; }
     .stats-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .map-internal-tag { display:inline-block; margin-top:.2rem; padding:.1rem .5rem; border-radius:999px; background:var(--warn-bg); color:var(--amber-warn); font-size:.66rem; text-transform:uppercase; letter-spacing:.04em; }
+
+    /* Territory Control -- faction identity (dot + label, never color alone) */
+    .faction-dot { display:inline-block; width:.6rem; height:.6rem; border-radius:50%; margin-right:.4rem; flex:0 0 auto; box-shadow:0 0 0 2px rgba(0,0,0,.25); }
+    .faction-tag { display:inline-flex; align-items:center; font-size:.74rem; color:var(--text-2); }
+    .faction-legend { display:flex; flex-wrap:wrap; gap:.35rem .9rem; margin:.7rem 0 1.1rem; padding:.55rem .75rem; border:1px solid var(--gunmetal-dark); border-radius:8px; background:var(--surface-2); }
+
+    .territory-section { padding:1.1rem 1.2rem; margin:0 -0.2rem 1.6rem; border:1px solid var(--gunmetal-dark); border-radius:10px; background:linear-gradient(180deg, var(--surface-2), var(--surface)); }
+    .territory-section h3 { font-size:1.05rem; letter-spacing:.01em; }
+    .territory-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:.75rem; margin-top:.8rem; }
+    .territory-card { position:relative; padding:.85rem .9rem .8rem 1.05rem; border-radius:9px; background:var(--surface); border:1px solid var(--gunmetal-dark); border-left:3px solid var(--dominant-color, var(--gunmetal)); }
+    .territory-card-head { display:flex; align-items:center; gap:.4rem; margin-bottom:.3rem; }
+    .territory-card-icon { width:16px; height:16px; flex:0 0 auto; color:var(--text-2); }
+    .territory-card-icon svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2; }
+    .territory-card h4 { margin:0; font-size:.9rem; display:flex; align-items:center; gap:.3rem; }
+    .territory-blurb { margin:0 0 .55rem; color:var(--text-2); font-size:.72rem; font-style:italic; line-height:1.4; }
+
+    /* Stacked control bar: 2px surface gaps between segments (dataviz mark spec),
+       rounded outer ends only, no borders around segments. */
+    .territory-bar { display:flex; gap:2px; height:18px; border-radius:9px; overflow:hidden; background:var(--surface-2); }
+    .territory-seg { display:block; height:100%; min-width:3px; }
+    .territory-breakdown { display:flex; flex-wrap:wrap; gap:.3rem .8rem; margin-top:.5rem; font-size:.72rem; color:var(--text); }
+    .territory-share b { margin-left:.2rem; font-variant-numeric:tabular-nums; }
+    .territory-predict { display:flex; align-items:flex-start; gap:.3rem; margin:.6rem 0 0; padding:.45rem .6rem; border-radius:6px; background:var(--dominant-wash, rgba(255,255,255,.04)); font-size:.72rem; color:var(--text-2); line-height:1.4; }
+    .territory-predict b { color:var(--text); }
+    .territory-predict .faction-dot { margin-top:.15rem; }
