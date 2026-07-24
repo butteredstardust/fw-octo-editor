@@ -253,6 +253,7 @@ function normalizeItems(entries) {
   }
   for (const [name, seen] of sourceMapsByName) {
     if (seen.size > 1) {
+      // eslint-disable-next-line no-console -- surfaces a real data anomaly to whoever is running the server; no logger in this app
       console.warn(`[gvasService] inventory ID collision: "${name}" appears in multiple maps (${[...seen].join(', ')}); displayed quantity is a merged sum and cannot be set as a single value -- use a sourceMap-specific update`);
     }
   }
@@ -279,6 +280,7 @@ async function listInventoryItems(key) {
     const blob = await readTempInventoryBlob(key);
     const { items, errors } = binaryParser.parseInventoryBlob(blob);
     if (errors.length) {
+      // eslint-disable-next-line no-console -- surfaces a real data anomaly to whoever is running the server; no logger in this app
       console.warn(`[gvasService] fallback inventory parser: ${errors.length} entr${errors.length === 1 ? 'y' : 'ies'} failed structural validation and were omitted`, errors.slice(0, 5));
     }
     return normalizeItems(items);
