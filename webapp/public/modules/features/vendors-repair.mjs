@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, WEAPON_META } = FW;
+const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, technicalDetails, WEAPON_META } = FW;
 function loadDashboard(...args) { return FW.loadDashboard(...args); }
 function describeItem(...args) { return FW.describeItem(...args); }
 
@@ -160,8 +160,7 @@ function renderVendors(data) {
         <div class="vendor-head-main">
           <span class="vendor-icon">${appIcon('shield')}</span>
           <div>
-            <div class="vendor-name">${esc(f.faction)}</div>
-            <div class="vendor-flag">${esc(f.scope)}</div>
+            <div class="vendor-name">${esc(f.faction)} ${technicalDetails(f.scope, 'Show internal faction scope ID')}</div>
           </div>
         </div>
         <span class="vendor-tier ${tier}">${TRUST_TIER_LABEL[tier]}</span>
