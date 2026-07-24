@@ -124,7 +124,7 @@
         <h2>Weapon Builds</h2>
           <p class="page-intro">Deterministic balanced endgame recommendations from structured wiki stats and compatibility data.</p>
           <div class="weapon-build-command"><span><strong>Owned weapon loadout kit</strong></span><button id="weaponBuildAddOwned" type="button" title="Add missing BIS parts for every weapon you already own."><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add Parts</button></div>
-          <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildStatus" class="sr-status" role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
+          <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
     </div>
 
     <div class="page" id="page-weapon-xp">
@@ -182,6 +182,7 @@
           <div class="filter-checks"><label><input type="checkbox" id="inventoryInvalidOnly"> Needs review</label><button class="mini" id="clearInventoryFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="invFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="inventoryOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="inventoryList">Loading...</div>
       </div>
     </div>
@@ -220,6 +221,7 @@
           <div class="filter-checks"><button class="mini" id="clearAddFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="addFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="addItemsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="addCatalogList">Loading...</div>
       </div>
     </div>
@@ -244,6 +246,7 @@
           <div class="filter-checks"><button class="mini" id="clearRigFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="rigFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="rigsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="rigList" class="rig-grid" aria-busy="false">Loading…</div>
       </div>
     </div>
@@ -284,6 +287,7 @@
           </label>
         </div>
         <div id="craftingFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
+        <div id="craftingOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="craftingGrid" class="recipe-grid" aria-busy="false">Loading…</div>
       </div>
     </div>
@@ -398,6 +402,7 @@
       <div class="card">
         <h2>Settings</h2>
         <p class="char-hint">The save-location override is optional. It is saved locally and persists across restarts. Database keys are always stored encrypted, never as plain text.</p>
+        <div id="settingsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="settingsStatus" class="settings-status"></div>
 
         <h3>Save Location</h3>
