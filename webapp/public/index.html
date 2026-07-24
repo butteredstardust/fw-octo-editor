@@ -12,10 +12,11 @@
   <header class="header">
     <div class="brand-lockup">
       <img class="brand-mark" src="favicon.ico?v=20260719-ui-2" alt="Forever Winter Save Editor" width="32" height="32">
-      <h1><span class="header-kicker">Local save utility</span>Forever Winter Save Editor</h1>
+      <h1><span class="header-kicker">Forged in the bio-slums, upgraded with hope. Stay alive out there.</span>Forever Winter Save Editor</h1>
     </div>
     <div class="header-tools">
       <div class="status status-pill" id="gameStatus" role="status" data-state="checking">Checking game status...</div>
+      <div class="status status-pill" id="writesStatus" role="status" data-state="checking">Checking writes...</div>
       <button class="info-button" id="infoButton" type="button" aria-label="Acknowledgements and attributions" aria-haspopup="dialog" title="Acknowledgements">
         <svg class="info-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -24,25 +25,25 @@
         </svg>
       </button>
     </div>
-    <button class="nav-toggle" id="navToggle" type="button" aria-controls="primaryNav" aria-expanded="false">Menu</button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-controls="primaryNav" aria-expanded="false"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Menu</button>
   </header>
   <section class="safety-bar" aria-label="Save editing safety status">
-    <div class="safety-item"><span class="safety-label">Game</span><span class="safety-value warn" id="safetyGame">Checking…</span></div>
     <div class="safety-item"><span class="safety-label">Compatibility</span><span class="safety-value warn" id="safetyCompatibility">Checking…</span></div>
-    <div class="safety-item"><span class="safety-label">Writes</span><span class="safety-value warn" id="safetyWrites">Checking…</span></div>
     <div class="safety-item"><span class="safety-label">Session backup</span><span class="safety-value warn" id="safetyBackup">Not created</span></div>
-    <div class="safety-item"><span class="safety-label">Active save</span><span class="safety-value" id="safetySave">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Active save</span><span class="safety-value truncate" id="safetySave">Checking…</span></div>
     <div class="safety-item"><span class="safety-label">Last verified edit</span><span class="safety-value" id="safetyLastEdit">None this session</span></div>
+    <div class="safety-item"><span class="safety-label">Game version</span><span class="safety-value" id="safetyGameVersion" title="The Forever Winter version this editor's save schema and data were built and verified against.">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Editor version</span><span class="safety-value" id="safetyAppVersion">Checking…</span></div>
   </section>
-  <div id="connectionBanner" class="connection-banner" role="alert" hidden>The local editor server is unavailable. Read requests can be retried, but do not repeat an interrupted save until status is refreshed. <button type="button" id="retryConnectionButton">Retry status</button></div>
+  <div id="connectionBanner" class="connection-banner" role="alert" hidden>The local editor server is unavailable. Read requests can be retried, but do not repeat an interrupted save until status is refreshed. <button type="button" id="retryConnectionButton"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Retry status</button></div>
   <div id="mutationStatus" class="mutation-status" role="status" aria-live="polite" aria-atomic="true" hidden><span class="mutation-spinner" aria-hidden="true"></span><strong id="mutationStatusLabel">Saving and verifying</strong><span id="mutationElapsed">0s</span></div>
   <div class="app-frame">
   <nav class="nav" id="primaryNav" aria-label="Primary">
-    <div class="nav-group"><div class="nav-group-title">Overview</div><button data-page="dashboard" class="active">Overview</button></div>
-    <div class="nav-group"><div class="nav-group-title">Progression</div><button data-page="characters">Characters</button><button data-page="weapon-builds">Weapon Builds</button><button data-page="presets">Presets</button><button data-page="weapon-xp">Weapon XP</button><button data-page="vendors">Vendors</button></div>
-    <div class="nav-group"><div class="nav-group-title">Innards</div><button data-page="hub-upgrades">Upgrades</button><button data-page="crafting">Crafting</button><button data-page="repair">Repair Bench</button></div>
-    <div class="nav-group"><div class="nav-group-title">Inventory</div><button data-page="inventory">Manage</button><button data-page="add-items">Add Items</button><button data-page="rigs">Rigs</button></div>
-    <div class="nav-group"><div class="nav-group-title">System</div><button data-page="backups">Backups</button><button data-page="diagnostics">Diagnostics</button><button data-page="settings">Settings</button></div>
+    <div class="nav-group"><div class="nav-group-title">Overview</div><button data-page="dashboard" class="active"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg></span>Overview</button></div>
+    <div class="nav-group"><div class="nav-group-title">Progression</div><button data-page="characters"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>Characters</button><button data-page="weapon-builds"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></span>Weapon Builds</button><button data-page="presets"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span>Presets</button><button data-page="weapon-xp"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20V10m6 10V4m6 16v-7m6 7V13"/></svg></span>Weapon XP</button><button data-page="vendors"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8 6 3h12l2 5M4 8v12h16V8M4 8h16M9 20v-6h6v6"/></svg></span>Vendors</button></div>
+    <div class="nav-group"><div class="nav-group-title">Innards</div><button data-page="hub-upgrades"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></span>Upgrades</button><button data-page="crafting"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 3h6v5l5 10a2 2 0 0 1-2 3H6a2 2 0 0 1-2-3l5-10z"/><path d="M8 14h8"/></svg></span>Crafting</button><button data-page="repair"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 5a5 5 0 0 0-6 6L3 16l5 5 5-5a5 5 0 0 0 6-6l-3 3-4-4z"/></svg></span>Repair Bench</button></div>
+    <div class="nav-group"><div class="nav-group-title">Inventory</div><button data-page="inventory"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 9 12 4l9 5v9l-9 5-9-5z"/><path d="M3 9l9 5 9-5M12 14v9"/></svg></span>Manage</button><button data-page="add-items"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span>Add Items</button><button data-page="rigs"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 8V6a5 5 0 0 1 10 0v2M5 8h14v13H5zM8 12h8M3 11h2m14 0h2"/></svg></span>Rigs</button></div>
+    <div class="nav-group"><div class="nav-group-title">System</div><button data-page="backups"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/></svg></span>Backups</button><button data-page="diagnostics"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span>Diagnostics</button><button data-page="settings"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.5M12 18.5V21M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M3 12h2.5M18.5 12H21M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></span>Settings</button></div>
   </nav>
   <button class="nav-backdrop" id="navBackdrop" type="button" aria-label="Close navigation" tabindex="-1" hidden></button>
   <main class="content" id="main-content" tabindex="-1">
@@ -61,7 +62,7 @@
           <div id="dashResources">Loading...</div>
         </section>
         <section class="card overview-card" aria-labelledby="overviewTrustTitle">
-          <div class="overview-trust-head"><h2 id="overviewTrustTitle">Faction Trust</h2><button class="btn-ghost" data-action="show-page" data-page-target="vendors" type="button">Manage Vendors</button></div>
+          <div class="overview-trust-head"><h2 id="overviewTrustTitle">Faction Trust</h2><button class="btn-ghost" data-action="show-page" data-page-target="vendors" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Manage Vendors</button></div>
           <div id="dashFactionTrust">Loading...</div>
         </section>
         <section class="card overview-card">
@@ -92,9 +93,21 @@
         <p class="hub-hint">
           <strong>Terminals</strong> are functional buildings; <strong>Welfare</strong> are comfort items. Each card shows the <strong>water cost</strong> and any <strong>prerequisite</strong> — an Unlock button stays greyed out until its prerequisite is unlocked. <span class="hub-legend"><span class="hub-pill unlocked">Unlocked</span> built &nbsp; <span class="hub-pill available">Available</span> can be unlocked &nbsp; <span class="hub-pill locked">Locked</span> needs prerequisite &nbsp; <span class="hub-pill unlocked">Permanent</span> DLC gift, fixed.</span>
         </p>
+        <div class="filter-bar hub-filter-bar" role="search">
+          <label class="filter-search">Search upgrades<input type="search" id="hubSearch" placeholder="Upgrade name, group, or description…" autocomplete="off"></label>
+          <label>Status
+            <select id="hubStatusFilter">
+              <option value="">All statuses</option>
+              <option value="unlocked">Unlocked</option>
+              <option value="available">Available</option>
+              <option value="locked">Locked</option>
+            </select>
+          </label>
+        </div>
+        <div id="hubFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="hubOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="hubUpgradesList">Loading...</div>
-        <p style="margin-top:1rem"><button id="reloadHubButton" type="button" hidden>Reload from Save</button></p>
+        <p style="margin-top:1rem"><button id="reloadHubButton" type="button" hidden><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Reload from Save</button></p>
       </div>
     </div>
 
@@ -110,8 +123,8 @@
       <div class="card">
         <h2>Weapon Builds</h2>
           <p class="page-intro">Deterministic balanced endgame recommendations from structured wiki stats and compatibility data.</p>
-          <div class="weapon-build-command"><div><strong>Owned weapon loadout kit</strong><span>Add missing best in slot parts for every supported weapon currently in your inventory.</span></div><button id="weaponBuildAddOwned" type="button">Add parts</button></div>
-          <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildStatus" class="sr-status" role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
+          <div class="weapon-build-command"><span><strong>Owned weapon loadout kit</strong></span><button id="weaponBuildAddOwned" type="button" title="Add missing BIS parts for every weapon you already own."><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add Parts</button></div>
+          <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildStatus" class="sr-status" role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
     </div>
 
     <div class="page" id="page-weapon-xp">
@@ -125,7 +138,7 @@
               <option value="">All categories</option>
             </select>
           </label>
-          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button">Set visible to 100,000 XP</button></div>
+          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Set visible to 100,000 XP</button></div>
         </div>
         <div id="weaponXpFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="weaponXpOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
@@ -166,7 +179,7 @@
               <option value="gte100">≥ 100</option>
             </select>
           </label>
-          <div class="filter-checks"><label><input type="checkbox" id="inventoryInvalidOnly"> Needs review</label><button class="mini" id="clearInventoryFiltersButton" type="button">Clear filters</button></div>
+          <div class="filter-checks"><label><input type="checkbox" id="inventoryInvalidOnly"> Needs review</label><button class="mini" id="clearInventoryFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="invFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="inventoryList">Loading...</div>
@@ -204,7 +217,7 @@
               <option value="owned">Owned</option>
             </select>
           </label>
-          <div class="filter-checks"><button class="mini" id="clearAddFiltersButton" type="button">Clear filters</button></div>
+          <div class="filter-checks"><button class="mini" id="clearAddFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="addFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="addCatalogList">Loading...</div>
@@ -228,7 +241,7 @@
           <label>Weight class:
             <select id="rigClass"><option value="">All classes</option></select>
           </label>
-          <div class="filter-checks"><button class="mini" id="clearRigFiltersButton" type="button">Clear filters</button></div>
+          <div class="filter-checks"><button class="mini" id="clearRigFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="rigFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="rigList" class="rig-grid" aria-busy="false">Loading…</div>
@@ -279,7 +292,7 @@
         <h2>Diagnostics</h2>
         <p class="char-hint">Read-only readiness checks. Running diagnostics decrypts and byte-round-trips TempInventory in a temporary directory but does not write the database.</p>
         <div class="diagnostic-controls">
-          <button id="runDiagnosticsButton" type="button">Run diagnostics</button>
+          <button id="runDiagnosticsButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 4l14 8-14 8z"/></svg></span>Run diagnostics</button>
           <span id="diagnosticsStatus" class="settings-msg" role="status" aria-live="polite"></span>
         </div>
         <div id="diagnosticsSummary" class="diagnostic-summary" aria-busy="false"></div>
@@ -295,8 +308,8 @@
           <label>Backup label
             <input id="backupLabel" maxlength="48" value="manual" autocomplete="off">
           </label>
-          <button id="createBackupButton" type="button">Create verified backup</button>
-          <button id="refreshBackupsButton" class="btn-ghost" type="button">Refresh</button>
+          <button id="createBackupButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/></svg></span>Create verified backup</button>
+          <button id="refreshBackupsButton" class="btn-ghost" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Refresh</button>
         </div>
         <div id="backupStatus" class="settings-msg" role="status" aria-live="polite"></div>
         <div id="backupReceipt" aria-live="polite"></div>
@@ -314,8 +327,8 @@
         </label>
         <div id="backupDialogError" class="settings-msg err" role="alert"></div>
         <menu>
-          <button value="cancel" class="btn-ghost">Cancel</button>
-          <button id="backupDialogConfirm" value="default" type="button">Continue</button>
+          <button value="cancel" class="btn-ghost"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
+          <button id="backupDialogConfirm" value="default" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 13l4 4L19 7"/></svg></span>Continue</button>
         </menu>
       </form>
     </dialog>
@@ -325,7 +338,7 @@
         <h2 id="appDialogTitle">Confirm operation</h2>
         <p id="appDialogMessage"></p>
         <menu>
-          <button id="appDialogCancel" value="cancel" class="btn-ghost">Cancel</button>
+          <button id="appDialogCancel" value="cancel" class="btn-ghost"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
           <button id="appDialogAccept" value="default" type="button">Continue</button>
         </menu>
       </form>
@@ -340,7 +353,7 @@
         <div class="ack-body" id="ackDialogBody">
           <figure class="ack-card">
             <img class="ack-banner" src="mc_loop_res1.gif" alt="Forever Winter animation loop" width="480" height="270">
-            <figcaption class="ack-card-caption"><em><strong>Made with &lt;3 By tuxg33k 2026. Thanks to the developers and community of the Forever Winter</strong></em></figcaption>
+            <figcaption class="ack-card-caption"><em><strong>System operational. Gratitude to the developers, the community, and all Scavengers keeping us alive. Good hunting, comrade.</strong></em></figcaption>
           </figure>
           <p>This project bundles data and third-party software. We are grateful to the respective authors and communities.</p>
 
@@ -371,9 +384,12 @@
 
           <h3>Trademarks</h3>
           <p>"Forever Winter" and related names, logos, and assets are trademarks or copyrights of their respective owners. All such material is used here for informational and interoperability purposes only and remains the property of its owners.</p>
+
+          <h3>Disclaimer</h3>
+          <p>This tool is <strong>unofficial</strong>, <strong>not affiliated with or endorsed by Fun Dog Studios</strong>, and is intended for <strong>single-player use only</strong>. It is provided for personal save-backup and editing convenience; the authors make no warranty about compatibility with future game updates, and users are responsible for complying with the game's End User License Agreement and any applicable third-party platform terms.</p>
         </div>
         <menu>
-          <button id="ackAcceptButton" value="default" type="button" class="btn-primary">Close</button>
+          <button id="ackAcceptButton" value="default" type="button" class="btn-primary"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Close</button>
         </menu>
       </form>
     </dialog>
@@ -390,25 +406,25 @@
           <label>Save directory
             <input type="text" id="settingsSaveDir" placeholder="C:\Path\To\SaveGames">
           </label>
-          <button id="pickSaveDirButton" type="button">Browse…</button>
-          <button class="btn-ghost" id="clearSaveDirButton" type="button">Use default</button>
+          <button id="pickSaveDirButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 6h6l2 3h10v10H3z"/></svg></span>Browse…</button>
+          <button class="btn-ghost" id="clearSaveDirButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Use default</button>
         </div>
 
         <h3 class="settings-section-heading">Database Key</h3>
-        <p class="char-hint" id="settingsKeySourceHint">Loaded from the bundled application resource, stored encrypted at rest (not plain text). If your save file needs a different key (e.g. a different game build or region), enter it below — it is verified against your live save and stored encrypted, never as plain text.</p>
+        <p class="char-hint" id="settingsKeySourceHint"> If your save file needs a different key (e.g. a different game build or region), enter it below — it is verified against your live save and stored encrypted, never as plain text.</p>
         <div class="settings-row">
           <label>Database key
             <span class="settings-key-input-wrap">
               <input type="password" id="settingsDbKey" placeholder="32-character key" maxlength="32" autocomplete="off" spellcheck="false">
-              <button class="btn-ghost" id="toggleDbKeyVisibilityButton" type="button" aria-pressed="false">Show</button>
+              <button class="btn-ghost" id="toggleDbKeyVisibilityButton" type="button" aria-pressed="false"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span>Show</button>
             </span>
           </label>
-          <button class="btn-ghost" id="clearDbKeyButton" type="button">Use default key</button>
+          <button class="btn-ghost" id="clearDbKeyButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Use default key</button>
         </div>
         <p class="char-hint" id="settingsDbKeyHint"></p>
 
         <div class="settings-actions">
-          <button class="btn-primary" id="saveSettingsButton" type="button">Save Settings</button>
+          <button class="btn-primary" id="saveSettingsButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/></svg></span>Save Settings</button>
           <span id="settingsMsg" class="settings-msg"></span>
         </div>
       </div>

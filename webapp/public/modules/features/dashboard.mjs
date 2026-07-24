@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, technicalDetails, appIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META } = FW;
+const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
 function loadCatalog(...args) { return FW.loadCatalog(...args); }
 
@@ -76,6 +76,18 @@ function renderDashCharacter(character, loadout) {
     </div>`);
 }
 
+// Best-effort wiki-sourced quest detail (faction/location/objectives/rewards),
+// resolved server-side in saveService.js's questFriendlyData(). Most save
+// quest tags don't have a reviewed mapping yet, so q.wiki is null more often
+// than not -- that's expected, not a bug (see data/quest-map-overrides.json).
+function questWikiDisclosure(wiki) {
+  if (!wiki) return '';
+  const meta = [wiki.faction, wiki.location, wiki.taskType].filter(Boolean).map(esc).join(' · ');
+  const objectives = wiki.objectives.length ? `<ul class="dash-quest-objectives">${wiki.objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : '';
+  const rewards = wiki.rewards.length ? `<div class="dash-quest-rewards">${wiki.rewards.map(r => `<span class="dash-quest-reward">${esc(r.item)}${r.quantity ? ` ×${r.quantity.toLocaleString()}` : ''}</span>`).join('')}</div>` : '';
+  return `<details class="dash-quest-disclosure"><summary title="Wiki-sourced quest details">Details</summary>${meta ? `<div class="dash-quest-meta">${meta}</div>` : ''}${objectives}${rewards}</details>`;
+}
+
 function renderDashQuests(quests) {
   const el = document.getElementById('dashQuests');
   if (!quests || !quests.length) {
@@ -102,7 +114,6 @@ function renderDashQuests(quests) {
     const order = { ready: 0, in_progress: 1, not_started: 2 };
     const sorted = [...active].sort((a, b) => order[a.state] - order[b.state]);
     for (const q of sorted.slice(0, 5)) {
-      const label = q.name.replace(/^Quest\./, '').replace(/\./g, ' ');
       const cls = q.state === 'ready' ? 'ready' : q.state === 'in_progress' ? 'inprog' : 'notstart';
       const statusTxt = q.state === 'ready' ? 'Ready to Turn In' : q.state === 'in_progress' ? 'In Progress' : 'Not Started';
       let detail = '';
@@ -118,14 +129,14 @@ function renderDashQuests(quests) {
       }
       // Only in-progress quests can be marked ready (experimental).
       const action = q.state === 'in_progress'
-        ? `<button class="dash-quest-btn" data-action="quest-ready" data-id="${esc(q.id)}">Mark Ready to Turn In</button>`
+        ? `<button class="dash-quest-btn" data-action="quest-ready" data-id="${esc(q.id)}">${actionIcon('check')}Mark Ready to Turn In</button>`
         : '';
-      html += `<div class="dash-quest-row ${cls}"><span class="dash-quest-status">${statusTxt}</span><span class="dash-quest-name">${esc(label)}${detail}</span>${action}</div>`;
+      html += `<div class="dash-quest-row ${cls}"><span class="dash-quest-status">${statusTxt}</span><span class="dash-quest-name">${esc(q.name)}${technicalDetails(q.tag, 'Show internal quest tag')}${detail}</span>${questWikiDisclosure(q.wiki)}${action}</div>`;
     }
     html += '</div>';
     if (sorted.length > 5) {
       html += `<details class="dash-quest-more"><summary>Show all ${sorted.length} actionable quests</summary><div class="dash-quest-list">`;
-      for (const q of sorted.slice(5)) html += `<div class="dash-quest-row ${q.state === 'ready' ? 'ready' : 'inprog'}"><span class="dash-quest-status">${q.state === 'ready' ? 'Ready to Turn In' : 'In Progress'}</span><span class="dash-quest-name">${esc(q.name.replace(/^Quest\./, '').replace(/\./g, ' '))}</span></div>`;
+      for (const q of sorted.slice(5)) html += `<div class="dash-quest-row ${q.state === 'ready' ? 'ready' : 'inprog'}"><span class="dash-quest-status">${q.state === 'ready' ? 'Ready to Turn In' : 'In Progress'}</span><span class="dash-quest-name">${esc(q.name)}</span>${questWikiDisclosure(q.wiki)}</div>`;
       html += '</div></details>';
     }
   } else {
@@ -141,7 +152,7 @@ function renderDashInventory(inventory) {
     return;
   }
   const total = inventory.reduce((a, i) => a + i.quantity, 0);
-  setRenderedHtml(el, `<div class="inventory-shortcuts"><div class="inventory-metric"><strong>${inventory.length.toLocaleString()}</strong> item types · ${total.toLocaleString()} total units</div><button class="shortcut" data-action="show-page" data-page-target="inventory">Manage Inventory</button><button class="shortcut" data-action="show-page" data-page-target="add-items">Add Items</button></div>`);
+  setRenderedHtml(el, `<div class="inventory-shortcuts"><div class="inventory-metric"><strong>${inventory.length.toLocaleString()}</strong> item types · ${total.toLocaleString()} total units</div><button class="shortcut" data-action="show-page" data-page-target="inventory">${actionIcon('arrowRight')}Manage Inventory</button><button class="shortcut" data-action="show-page" data-page-target="add-items">${actionIcon('arrowRight')}Add Items</button></div>`);
 }
 
 // Kept local to this module: ES modules do not share vendor-page helpers.
@@ -239,8 +250,8 @@ function renderDashResources(dash) {
       <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
       <div class="res-controls">
         <input type="number" class="res-input" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1">
-        ${def.kind === 'currency' || owned ? `<button class="res-set" data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" aria-label="Set ${esc(def.label)} quantity">Set</button>` : ''}
-        ${def.kind === 'inventory' && !owned ? `<button class="res-add" data-action="add-resource" data-id="${esc(def.id)}" aria-label="Add ${esc(def.label)}">Add</button>` : ''}
+        ${def.kind === 'currency' || owned ? `<button class="res-set icon-only" data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(def.label)} quantity">${actionIcon('check')}<span class="sr-only">Set</span></button>` : ''}
+        ${def.kind === 'inventory' && !owned ? `<button class="res-add icon-only" data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(def.label)}">${actionIcon('add')}<span class="sr-only">Add</span></button>` : ''}
       </div>
       <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
     </div>`;
@@ -316,11 +327,9 @@ async function loadDashboard() {
   showLoading(document.getElementById('dashResources'), 5, 'Loading resources');
   try {
     await loadCatalog();
-    const status = await api('/status');
-    document.getElementById('gameStatus').textContent = status.gameRunning
-      ? `Game Running: ${status.gameRunning.join(', ')}`
-      : 'Game Not Running';
-
+    // Game/writes status pills are refreshSafetyStatus()'s responsibility
+    // (system.mjs) -- it's the single source of truth, called on its own
+    // poll interval, so this doesn't duplicate that fetch.
     const [dash, vendors] = await Promise.all([
       api('/dashboard').catch(() => null),
       api('/vendors').catch(() => null)

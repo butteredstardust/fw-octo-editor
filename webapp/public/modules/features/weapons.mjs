@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml } = FW;
 
 const WEAPON_META = {
   'PST01': { name: 'USP', cat: 'Pistols' },
@@ -12,6 +12,7 @@ const WEAPON_META = {
   'PST07': { name: 'M79 Sawed-off', cat: 'Pistols / Grenade Launchers' },
   'PST08': { name: 'Mateo Model J', cat: 'Pistols' },
   'PST10': { name: 'G-L 19', cat: 'Pistols' },
+  'RFL01': { name: 'AK', cat: 'Rifles' },
   'RFL01.AKFamily': { name: 'AK', cat: 'Rifles' },
   'RFL01A': { name: 'AK (variant)', cat: 'Rifles' },
   'RFL01A_Surplus': { name: 'Surplus Rifle', cat: 'Rifles / Surplus' },
@@ -61,6 +62,23 @@ const WEAPON_META = {
   'GunHead.SMG05': { name: 'Gunhead SMG', cat: 'Gunhead' }
 };
 
+// Stat deltas come straight from wiki-derived floating point math (e.g.
+// 0.03065625, 11.111111111111) and are unreadable rendered raw. Round to a
+// sane display precision; whole numbers (damage, magazine) pass through.
+function formatNum(v) {
+  if (typeof v !== 'number' || !isFinite(v)) return v;
+  return Math.round(v * 1000) / 1000;
+}
+
+// Human-friendly labels for the raw stat keys in weapon-builds.canonical.json
+// (accuracy, adsSpeed, damage, fov, magazine, recoilArm, recoilWrist,
+// reloadSpeed, rof, stability, stabilizationLength, stabilizationSpeed).
+const STAT_LABELS = {
+  accuracy: 'Accuracy', adsSpeed: 'ADS Speed', damage: 'Damage', fov: 'FOV', magazine: 'Magazine',
+  recoilArm: 'Recoil (Arm)', recoilWrist: 'Recoil (Wrist)', reloadSpeed: 'Reload Speed', rof: 'Rate of Fire',
+  stability: 'Stability', stabilizationLength: 'Stabilization (Length)', stabilizationSpeed: 'Stabilization (Speed)'
+};
+
 function weaponLabel(scope) {
   const suffix = scope.replace(/^Scope\.Weapon\./, '');
   const meta = WEAPON_META[suffix];
@@ -90,11 +108,75 @@ function renderPresets(){if(!presetData)return;const q=document.getElementById('
 
 let weaponBuildData=null;
 async function loadWeaponBuilds(){showLoading(document.getElementById('weaponBuildContent'),4,'Loading weapon builds');try{weaponBuildData=await api('/weapon-builds');const category=document.getElementById('weaponBuildCategory');category.innerHTML='<option value="">All categories</option>'+weaponBuildData.categories.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('');category.value=sessionStorage.getItem('weaponBuildCategory')||'';renderWeaponBuildSelector();}catch(error){setRenderedHtml(document.getElementById('weaponBuildContent'),`<div class="empty-state"><strong>Error</strong><br>${esc(error.message)}</div>`);}}
-function renderWeaponBuildSelector(){if(!weaponBuildData)return;const q=document.getElementById('weaponBuildSearch').value.toLowerCase(),category=document.getElementById('weaponBuildCategory').value;sessionStorage.setItem('weaponBuildCategory',category);const rows=weaponBuildData.weapons.filter(w=>(!category||w.category===category)&&(!q||`${w.name} ${w.id}`.toLowerCase().includes(q)));const select=document.getElementById('weaponBuildSelect'),wanted=sessionStorage.getItem('weaponBuildId');select.innerHTML=rows.map(w=>`<option value="${esc(w.id)}">${esc(w.name)}</option>`).join('');if(rows.some(w=>w.id===wanted))select.value=wanted;sessionStorage.setItem('weaponBuildId',select.value||'');renderWeaponBuild();}
-function statText(stats){return Object.entries(stats).filter(([,v])=>v).map(([k,v])=>`${esc(k)} ${v>0?'+':''}${esc(v)}`).join(' · ')||'Compatibility / core assembly';}
-function renderWeaponBuild(){const id=document.getElementById('weaponBuildSelect').value,w=weaponBuildData?.weapons.find(x=>x.id===id),el=document.getElementById('weaponBuildContent');if(!w){setRenderedHtml(el,'<div class="empty-state"><strong>No matching supported weapon</strong><br>Try a different filter.</div>');return;}const b=w.build;setRenderedHtml(el,`<section class="weapon-build-summary"><div><span class="eyebrow">${esc(w.category)}</span><h3>${esc(w.name)} ${technicalDetails(w.id)}</h3><p>Base: damage ${esc(w.stats.damage)} · ROF ${esc(w.stats.rof)} · accuracy ${esc(w.stats.accuracy)} · magazine ${esc(w.stats.magazine)}</p></div><div class="build-metrics"><strong>${esc(b.score)}</strong><span>balanced score</span><b class="${b.suppressed?'owned':'missing'}">${esc(b.suppressionMessage)}</b><span>${b.owned} owned / ${b.missing} missing</span></div></section><div class="weapon-build-actions"><button type="button" data-action="weapon-build-add" data-id="${esc(w.id)}" ${b.missing?'':'disabled'}>Add missing parts</button></div><div class="weapon-part-grid">${b.parts.map(p=>`<article class="weapon-part-card ${p.missing?'is-missing':'is-owned'}">${itemTypeIcon(`Weapon attachment ${p.slot}`)}<div><span class="eyebrow">${esc(p.slot)}</span><h4>${esc(p.name)} ${technicalDetails(p.itemId)}</h4><p>${statText(p.stats)}</p>${p.dependencies.length?`<p>Requires: ${p.dependencies.map(d=>esc(d.name)).join(', ')}</p>`:''}<p>Level ${p.level} · ${p.requiredXp.toLocaleString()} XP <span class="${p.requirementMet?'owned':'missing'}">${p.requirementMet?'met':'not met'}</span></p><div class="weapon-part-state"><b class="${p.missing?'missing':'owned'}">${p.missing?'Missing':'Owned ×'+p.owned}</b>${p.missing?`<button type="button" class="mini" data-action="weapon-build-add-part" data-weapon-id="${esc(w.id)}" data-part-id="${esc(p.itemId)}">Add</button>`:''}</div></div></article>`).join('')}</div><aside class="source-disclosure"><strong>Equip manually in-game:</strong> open weapon customization, install the listed parts, then save a preset.</aside>`);}
+
+// Weapons matching the current search + category filters (same rows feed
+// both the <select> and the ranked list below it, so they always agree).
+function filteredBuildWeapons() {
+  if (!weaponBuildData) return [];
+  const q = document.getElementById('weaponBuildSearch').value.toLowerCase();
+  const category = document.getElementById('weaponBuildCategory').value;
+  return weaponBuildData.weapons.filter(w => (!category || w.category === category) && (!q || `${w.name} ${w.id}`.toLowerCase().includes(q)));
+}
+
+function renderWeaponBuildSelector() {
+  if (!weaponBuildData) return;
+  sessionStorage.setItem('weaponBuildCategory', document.getElementById('weaponBuildCategory').value);
+  const rows = filteredBuildWeapons();
+  const select = document.getElementById('weaponBuildSelect'), wanted = sessionStorage.getItem('weaponBuildId');
+  select.innerHTML = rows.map(w => `<option value="${esc(w.id)}">${esc(w.name)}</option>`).join('');
+  if (rows.some(w => w.id === wanted)) select.value = wanted;
+  sessionStorage.setItem('weaponBuildId', select.value || '');
+  renderWeaponBuildRanking(rows);
+  renderWeaponBuild();
+}
+
+// Jump to a weapon from the ranked list without disturbing the current filters.
+function selectWeaponBuild(id) {
+  const select = document.getElementById('weaponBuildSelect');
+  if (![...select.options].some(o => o.value === id)) return;
+  select.value = id;
+  sessionStorage.setItem('weaponBuildId', id);
+  renderWeaponBuild();
+  renderWeaponBuildRanking(filteredBuildWeapons());
+}
+
+// Ranked-by-score list of every weapon matching the current filters, so
+// builds can be compared at a glance instead of stepping through the
+// dropdown one weapon at a time. Uses build data already returned by
+// /weapon-builds -- no extra requests.
+function renderWeaponBuildRanking(rows) {
+  const el = document.getElementById('weaponBuildRanking');
+  if (!el) return;
+  if (!rows.length) { el.innerHTML = ''; return; }
+  const selectedId = document.getElementById('weaponBuildSelect').value;
+  const ranked = rows.slice().sort((a, b) => b.build.score - a.build.score);
+  el.innerHTML = `<div class="wbr-title">Ranked by balanced score <span class="wbr-count">${ranked.length} match${ranked.length === 1 ? '' : 'es'}</span></div>
+    <div class="wbr-list">${ranked.map((w, i) => `
+      <button type="button" class="wbr-row${w.id === selectedId ? ' active' : ''}" data-action="select-weapon-build" data-id="${esc(w.id)}">
+        <span class="wbr-rank">#${i + 1}</span>
+        <span class="wbr-name">${esc(w.name)}<span class="wbr-cat">${esc(w.category)}</span></span>
+        <span class="wbr-score">${esc(w.build.score)}</span>
+        <span class="wbr-parts">${w.build.owned}/${w.build.owned + w.build.missing} parts</span>
+        <span class="wbr-suppressed ${w.build.suppressed ? 'yes' : ''}" title="${w.build.suppressed ? 'Has a compatible suppressor' : 'No compatible suppressor'}">${w.build.suppressed ? 'Suppressed' : ''}</span>
+      </button>`).join('')}</div>`;
+}
+
+function statChips(stats){const entries=Object.entries(stats).filter(([,v])=>v);if(!entries.length)return'<span class="stat-chip neutral">Compatibility / core assembly</span>';return entries.map(([k,v])=>`<span class="stat-chip">${esc(STAT_LABELS[k]||k)}<b>${v>0?'+':''}${esc(formatNum(v))}</b></span>`).join('');}
+// Base weapon stats are absolute magnitudes (damage 20000, magazine 4), not
+// deltas like part stats, so no +/- sign prefix.
+function baseStatChips(stats){return['damage','rof','accuracy','magazine'].filter(k=>stats[k]!=null).map(k=>`<span class="stat-chip">${esc(STAT_LABELS[k]||k)}<b>${esc(formatNum(stats[k]))}</b></span>`).join('');}
+// Parts without a real weapon-level gate (requiredXp 0) render no badge --
+// most parts have no gate, so this keeps the handful of real ones visible.
+function requirementBadge(p){if(!p.requiredXp)return'';return `<span class="req-badge ${p.requirementMet?'met':'unmet'}">Lvl ${p.level} &middot; ${p.requiredXp.toLocaleString()} XP &middot; ${p.requirementMet?'met':'not met'}</span>`;}
+// "Weapon attachment X" used to include the literal word "weapon", which hit
+// itemTypeIcon's weapon-silhouette branch before the attachment branch could
+// match -- every part rendered the full-gun icon regardless of slot. Optics
+// get the dedicated target icon since it's a strong, already-drawn match.
+function partIcon(slot){return /optic|scope/i.test(slot)?appIcon('🎯','weapon-part-icon'):itemTypeIcon('attachment',slot);}
+const BUILD_SCORE_HINT = 'Category-aware balanced score from per-dimension percentile ranking of accuracy, stability, recoil control, damage, rate of fire, ADS/reload speed, magazine, and optic FOV (base + selected BIS parts), mapped to 0–100. Only meaningful for comparing weapons within the same category.';
+function renderWeaponBuild(){const id=document.getElementById('weaponBuildSelect').value,w=weaponBuildData?.weapons.find(x=>x.id===id),el=document.getElementById('weaponBuildContent');if(!w){setRenderedHtml(el,'<div class="empty-state"><strong>No matching supported weapon</strong><br>Try a different filter.</div>');return;}const b=w.build;setRenderedHtml(el,`<section class="weapon-build-summary"><div><span class="eyebrow">${esc(w.category)}</span><h3>${esc(w.name)} ${technicalDetails(w.id)}</h3><div class="weapon-part-stats"><span class="k">Base stats</span>${baseStatChips(w.stats)}</div></div><div class="build-metrics"><strong>${esc(b.score)}</strong><span title="${esc(BUILD_SCORE_HINT)}">balanced score</span><b class="${b.suppressed?'ready':'neutral'}">${esc(b.suppressionMessage)}</b>${w.weaponOwned?'':'<span class="req-badge unmet">Weapon not owned</span>'}<span class="req-badge ${b.missing?'unmet':'met'}">${b.owned} owned / ${b.missing} missing parts</span></div></section><div class="weapon-build-actions"><button type="button" data-action="weapon-build-add-bundle" data-id="${esc(w.id)}" ${(!w.weaponOwned||b.missing)?'':'disabled'} title="Adds the base weapon (if not already owned) plus every missing BIS part at quantity one. Already-owned items are left untouched.">${actionIcon('add')}Add weapon + missing parts</button></div><div class="weapon-part-grid">${b.parts.map(p=>`<article class="weapon-part-card ${p.missing?'is-missing':'is-owned'}">${partIcon(p.slot)}<div class="weapon-part-body"><span class="eyebrow">${esc(p.slot)}</span><h4>${esc(p.name)} ${technicalDetails(p.itemId)}</h4><div class="weapon-part-stats">${statChips(p.stats)}</div>${p.dependencies.length?`<div class="weapon-part-deps"><span class="k">Requires</span>${p.dependencies.map(d=>`<span class="dep-chip">${esc(d.name)}</span>`).join('')}</div>`:''}${requirementBadge(p)}<div class="weapon-part-state"><b class="${p.missing?'missing':'owned'}">${p.missing?'Missing':'Owned ×'+p.owned}</b>${p.missing?`<button type="button" class="mini icon-only" data-action="weapon-build-add-part" data-weapon-id="${esc(w.id)}" data-part-id="${esc(p.itemId)}" title="Add this part">${actionIcon('add')}<span class="sr-only">Add</span></button>`:''}</div></div></article>`).join('')}</div><aside class="source-disclosure"><strong>Equip manually in-game:</strong> open weapon customization, install the listed parts, then save a preset.</aside>`);}
 async function addWeaponBuildPart(weaponId,partId,button){const partName=button.closest('.weapon-part-card')?.querySelector('h4')?.textContent.trim()||'this BIS part';const ok=await confirmAction(`Add ${partName} at quantity one? Existing quantities are never increased. Structured inventory writes are experimental.`,'Add BIS part');if(!ok)return;button.disabled=true;try{const result=await api(`/weapon-builds/${encodeURIComponent(weaponId)}/parts/${encodeURIComponent(partId)}/add`,{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.part.name}. Backup ${result.backupId}.`;await loadWeaponBuilds();const next=document.querySelector(`[data-action="weapon-build-add-part"][data-part-id="${CSS.escape(partId)}"]`);(next||document.getElementById('weaponBuildSelect')).focus();}catch(error){document.getElementById('weaponBuildStatus').textContent=error.message;button.disabled=false;}}
-async function addMissingWeaponBuild(id,button){const ok=await confirmAction('Add every currently missing trusted part for this build at quantity one? This structured inventory write is experimental.','Add missing weapon parts');if(!ok)return;button.disabled=true;try{const result=await api(`/weapon-builds/${encodeURIComponent(id)}/add-missing`,{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.added.length} missing parts. Backup ${result.backupId}.`;await loadWeaponBuilds();}catch(error){document.getElementById('weaponBuildStatus').textContent=error.message;button.disabled=false;}}
+async function addMissingWeaponBuildBundle(id,button){const ok=await confirmAction('Add the base weapon (if not already owned) and every currently missing trusted part for this build at quantity one? This structured inventory write is experimental.','Add weapon + missing parts');if(!ok)return;button.disabled=true;try{const result=await api(`/weapon-builds/${encodeURIComponent(id)}/add-missing-with-weapon`,{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.added.length} item(s). Backup ${result.backupId}.`;await loadWeaponBuilds();}catch(error){document.getElementById('weaponBuildStatus').textContent=error.message;button.disabled=false;}}
 async function addMissingForOwnedWeapons(){const button=document.getElementById('weaponBuildAddOwned');const ok=await confirmAction('Add all missing trusted BIS parts at quantity one for every supported weapon currently owned? Existing quantities will not increase. This structured inventory write is experimental.','Add owned-weapon BIS parts');if(!ok)return;button.disabled=true;try{    const result=await api('/weapon-builds/add-missing-owned',{method:'POST',body:'{}'});document.getElementById('weaponBuildStatus').textContent=`Added ${result.added.length} unique parts for ${result.weaponCount} owned weapons. Backup ${result.backupId}.`;await loadWeaponBuilds();}catch(error){document.getElementById('presetStatus').textContent=error.message;}finally{button.disabled=false;}}
 
 async function loadWeaponXp() {
@@ -169,8 +251,8 @@ function renderWeaponXp() {
           : `<div class="weapon-delta">${delta.toLocaleString()} XP to reference</div>`}
         <div class="weapon-actions">
           <input type="number" id="xp-${encodeURIComponent(w.weapon)}" value="${currentXp}" min="0" step="1" aria-label="XP for ${esc(w.meta.name)}">
-          <button class="set" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}">Set XP</button>
-          <button class="ref" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000">Set 100,000</button>
+          <button class="set icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}<span class="sr-only">Set XP</span></button>
+          <button class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000 (reference value)">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
         </div>
       </div>`;
     }
@@ -213,5 +295,5 @@ async function setAllToReference() {
   }
 }
 
-expose({ WEAPON_META, loadPresets, renderPresets, loadWeaponBuilds, renderWeaponBuildSelector, renderWeaponBuild, addWeaponBuildPart, addMissingWeaponBuild, addMissingForOwnedWeapons, loadWeaponXp, renderWeaponXp, setWeaponXp, setAllToReference });
+expose({ WEAPON_META, loadPresets, renderPresets, loadWeaponBuilds, renderWeaponBuildSelector, renderWeaponBuild, renderWeaponBuildRanking, selectWeaponBuild, addWeaponBuildPart, addMissingWeaponBuildBundle, addMissingForOwnedWeapons, loadWeaponXp, renderWeaponXp, setWeaponXp, setAllToReference });
 

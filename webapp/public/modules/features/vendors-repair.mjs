@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction } = FW;
+const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction } = FW;
 function loadDashboard(...args) { return FW.loadDashboard(...args); }
 
 const TRUST_PRESETS = {
@@ -117,8 +117,8 @@ function renderVendors(data) {
   }
   html += '</div>';
 
-  // ---- Faction Trust (FactionScore) ----
-  html += '<div class="vendor-section-title">Faction Trust (FactionScore)</div>';
+  // ---- Faction Trust ----
+  html += '<div class="vendor-section-title">Faction Trust</div>';
   html += '<div class="vendor-grid">';
   for (const f of factions) {
     const tier = trustTier(f.score);
@@ -137,12 +137,12 @@ function renderVendors(data) {
       ${trustTrack(f.score)}
       <div class="vendor-score">
         <input type="number" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1">
-        <button class="vendor-set" data-action="set-faction" data-scope="${enc}">Set Score</button>
+        <button class="vendor-set icon-only" data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set Score</span></button>
       </div>
       <div class="vendor-presets">
-        <button class="mini" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
-        <button class="mini" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.neutral}">Neutral</button>
-        <button class="mini" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.trusted}">Trusted</button>
+        <button class="mini tier-preset untrusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
+        <button class="mini tier-preset neutral" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.neutral}">Neutral</button>
+        <button class="mini tier-preset trusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.trusted}">Trusted</button>
       </div>
     </div>`;
   }
@@ -151,13 +151,13 @@ function renderVendors(data) {
   // ---- Trader unlock toggles (Kane/Luca) ----
   const traderRows = traders.filter(t => !t.key.startsWith('Questgiver.') && t.key.startsWith('Trader.'));
   if (traderRows.length) {
-    html += '<div class="vendor-section-title">Trader Unlock (save flags)</div>';
+    html += '<div class="vendor-section-title">Trader Unlock</div>';
     html += '<div class="trader-grid">';
     for (const t of traderRows) {
       const label = t.key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '');
       html += `<div class="trader-card trader-card-toggle">
         <span class="trader-name-wrap"><span class="trader-icon">${appIcon(VENDOR_ICON[label])}</span><span class="tname">${esc(label)}</span></span>
-        <button class="trader-toggle ${t.unlocked ? 'on' : ''}" data-action="toggle-trader" data-key="${encodeURIComponent(t.key)}" aria-pressed="${t.unlocked ? 'true' : 'false'}">${t.unlocked ? 'Unlocked' : 'Locked'}</button>
+        <button class="trader-toggle ${t.unlocked ? 'on' : ''}" data-action="toggle-trader" data-key="${encodeURIComponent(t.key)}" aria-pressed="${t.unlocked ? 'true' : 'false'}">${t.unlocked ? actionIcon('unlock') + 'Unlocked' : actionIcon('lock') + 'Locked'}</button>
       </div>`;
     }
     html += '</div>';
@@ -354,10 +354,14 @@ function renderRepairStatus(data) {
   const cards = repairCards.map(card => card.html).join('');
   const ownedIffs = data.iffs.filter(f => f.quantity > 0).length;
 
-  const canCollect = data.repair != null;
-  const collectLabel = (data.repair && data.repair.ready) ? 'Collect Repair' : 'Complete Repair Now';
+  // Once the repair is ready, this app has nothing left to do -- it can only
+  // fast-forward the TimedEvents timer, never perform the actual in-game
+  // collection. So "Collect Repair" is disabled at that point rather than
+  // implying a click here finishes the job.
+  const canCollect = data.repair != null && !data.repair.ready;
+  const collectLabel = (data.repair && data.repair.ready) ? 'Collect Repair' : 'Set Complete';
   const collectNote = (data.repair && data.repair.ready)
-    ? 'The repair is finished — collect it to free the bench for the next job.'
+    ? 'The repair is finished — collect it in-game to free the bench for the next job. This tool can only fast-forward the timer, not perform the in-game collection.'
     : (data.repair ? 'Fast-forwards the in-progress timer so the item is ready to collect.' : '');
 
   el.innerHTML = `
@@ -371,7 +375,7 @@ function renderRepairStatus(data) {
         <h3>Active Repair Job</h3>
         ${repairPanel}
         <div class="repair-actions">
-          <button class="danger" ${canCollect ? '' : 'disabled'} data-action="collect-repair">${collectLabel}</button>
+          <button class="danger" ${canCollect ? '' : 'disabled'} data-action="collect-repair">${actionIcon('collect')}${collectLabel}</button>
         </div>
         ${collectNote ? `<p class="char-hint" style="margin-top:.6rem">${collectNote}</p>` : ''}
       </section>
@@ -434,7 +438,7 @@ async function collectRepair() {
 // EXPERIMENTAL: tell the game a quest's conditions are met (Quests.Status = 2).
 // The game then shows the turn-in prompt; you still open the game to hand it in.
 async function markQuestReady(questId) {
-  if (!await confirmAction('Experimental: mark this quest ready to turn in? This sets Quests.Status=2 so the game shows the turn-in. You must still open the game to complete it. In-game acceptance is unconfirmed — make a backup first.')) return;
+  if (!await confirmAction('Mark this quest ready to turn in? You must still open the game to turn it in and receive the reward.')) return;
   try {
     const result = await api(`/quests/${questId}/ready`, { method: 'POST' });
     if (!result.success) {

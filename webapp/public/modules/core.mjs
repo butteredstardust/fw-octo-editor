@@ -42,6 +42,31 @@ function itemTypeIcon(category, subtype = '') {
   return `<span class="item-type-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${path}</svg></span>`;
 }
 
+// Small action-glyph set for buttons (distinct from itemTypeIcon/appIcon,
+// which represent nouns like item categories or characters). These represent
+// verbs -- add, confirm, remove, unlock, etc. -- and are always decorative;
+// the button's visible label or aria-label/sr-only text carries the meaning.
+const ACTION_ICON_PATHS = {
+  add: '<path d="M12 5v14M5 12h14"/>',
+  check: '<path d="M5 13l4 4L19 7"/>',
+  trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6m4-6v6"/>',
+  unlock: '<rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/>',
+  lock: '<rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  save: '<path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/>',
+  refresh: '<path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/>',
+  arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  arrowLeft: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  collect: '<path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>',
+  eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
+  folder: '<path d="M3 6h6l2 3h10v10H3z"/>',
+  play: '<path d="M6 4l14 8-14 8z"/>'
+};
+function actionIcon(name, className = '') {
+  const path = ACTION_ICON_PATHS[name] || ACTION_ICON_PATHS.check;
+  return `<span class="action-icon ${esc(className)}" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${path}</svg></span>`;
+}
+
 const APP_ICON_ALIASES = {
   '🤖': 'robot', '🥁': 'shaman', '😶': 'mask', '🎒': 'pack', '👧': 'runner', '👴': 'medic', '🔹': 'generic',
   '🔫': 'ammo', '🛠️': 'workshop', '🔧': 'repair', '⚡': 'power', '💧': 'water', '🎯': 'target', '🧠': 'cradle',
@@ -172,7 +197,7 @@ const CHARACTER_META = {
     name: 'Gunhead', icon: '🤖', role: 'Heavy weapons platform',
     blurb: 'A cyborg chassis, not a normal scav. Highest health in the game and learns every weapon class to v5, but cannot perform melee executions and has no sprint speed skill.',
     health: 1500, walk: 2.85, sprint: 3.54,
-    skills: ['PST Expert v5', 'RFL Expert v5', 'SMG Expert v5', 'SHG Expert v5', 'GRL Expert v5', 'HRF Expert v5', 'LMG Expert v5', 'HMG Expert v5', 'Gunhead Variants (APC9 / AA12)']
+    skills: ['PST Expert v5', 'RFL Expert v5', 'SMG Expert v5', 'SHG Expert v5', 'GRL Expert v5', 'HRF Expert v5', 'LMG Expert v5', 'HMG Expert v5', 'Weapon Variants (AK, RPD, AA12)']
   },
   'Pawn.Player.Shaman': {
     name: 'Shaman', icon: '🥁', role: 'CQC / shotgunner',
@@ -387,7 +412,7 @@ const HUB_CATEGORY_LABELS = {
   special: 'Special'
 };
 
-const MUTATION_ACTIONS = new Set(['quest-ready','set-resource','add-resource','set-level','apply-prestige','set-character-xp','set-detail-level','detail-prestige','set-detail-xp','apply-skills','bulk-hub','toggle-upgrade','add-upgrade-materials','weapon-build-add-part','weapon-build-add','set-weapon-xp','update-item','set-quantity','add-item','add-rig','add-rig-kit','set-faction','toggle-trader','collect-repair','craft-add-missing','craft-add-all']);
+const MUTATION_ACTIONS = new Set(['quest-ready','set-resource','add-resource','set-level','apply-prestige','set-character-xp','set-detail-level','detail-prestige','set-detail-xp','apply-skills','bulk-hub','toggle-upgrade','add-upgrade-materials','weapon-build-add-part','weapon-build-add-bundle','set-weapon-xp','update-item','set-quantity','add-item','add-rig','add-rig-kit','set-faction','toggle-trader','collect-repair','craft-add-missing','craft-add-all']);
 const DIRECT_MUTATION_IDS = new Set(['setWeaponReferenceButton','weaponBuildAddOwned','saveSettingsButton','clearDbKeyButton','createBackupButton']);
 let mutationClock = null;
 let mutationStartedAt = 0;
@@ -439,7 +464,9 @@ function openAppDialog({ title, message, confirm = false, danger = false }) {
   const cancel = document.getElementById('appDialogCancel');
   const accept = document.getElementById('appDialogAccept');
   cancel.hidden = !confirm;
-  accept.textContent = confirm ? 'Continue' : 'Close';
+  const acceptLabel = confirm ? 'Continue' : 'Close';
+  const acceptIcon = !confirm ? 'close' : (danger ? 'trash' : 'check');
+  accept.innerHTML = `${actionIcon(acceptIcon)}${esc(acceptLabel)}`;
   accept.className = danger ? 'danger-btn' : '';
   dialog.returnValue = '';
   dialog.showModal();
@@ -452,7 +479,7 @@ function showNotice(message, title = 'Operation result') {
   return openAppDialog({ title, message });
 }
 
-function confirmAction(message, title = 'Confirm save operation', danger = true) {
+  function confirmAction(message, title = 'Are you sure?', danger = true) {
   return openAppDialog({ title, message, confirm: true, danger });
 }
 
@@ -474,6 +501,7 @@ expose({
   technicalDetails,
   itemTypeIcon,
   appIcon,
+  actionIcon,
   itemCategoryPills,
   showToast,
   receiptHtml,

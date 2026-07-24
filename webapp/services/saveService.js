@@ -6,6 +6,19 @@ const gvasService = require('./gvasService');
 const config = require('./configService');
 const HUB_UPGRADE_DATA = require('../data/hub-upgrades.json');
 const MANAGED_HUB_TAGS = HUB_UPGRADE_DATA.upgrades.map(entry => entry.tag);
+const QUEST_DATA = require('../data/quests.canonical.json');
+
+// Best-effort friendly quest data (see scripts/generate-quest-data.js and
+// data/quest-map-overrides.json). Most save quest tags have no automatic
+// correlation to a wiki page, so only the hand-reviewed subset in tagMap
+// resolves to real wiki data; everything else falls back to a prettified
+// version of the raw tag so the UI never shows nothing.
+function questFriendlyData(tag) {
+  const page = QUEST_DATA.tagMap[tag];
+  const wiki = page ? QUEST_DATA.quests[page] : null;
+  if (wiki) return { name: wiki.name, wiki };
+  return { name: tag.replace(/^Quest\./, '').replace(/\./g, ' '), wiki: null };
+}
 
 const SAVE_PREFIX = '0002524f464349c086ad775367f0b95a';
 
@@ -727,7 +740,9 @@ async function getQuests(key) {
     if (s === 3) state = 'complete';
     else if (s === 2) state = 'ready';        // conditions met, awaiting turn-in
     else if (s === 1) state = 'in_progress';
-    return { id, name: name.trim(), status: s, state, steps, progress };
+    const tag = name.trim();
+    const friendly = questFriendlyData(tag);
+    return { id, tag, name: friendly.name, wiki: friendly.wiki, status: s, state, steps, progress };
   });
 }
 

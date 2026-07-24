@@ -1,0 +1,6452 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-22T18:04:08.636Z",
+  "source": {
+    "url": "https://theforeverwinter.wiki.gg/api.php",
+    "fetchedAt": "2026-07-22T17:56:07.450Z",
+    "attribution": "The Forever Winter Wiki contributors, CC BY-SA"
+  },
+  "quests": {
+    "A Cost Will Be Paid Pt. 1": {
+      "name": "A Cost Will Be Paid Pt. 1",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Find the Water Thief Research Comms code on Frozen Swamp",
+        "Bring 5 Rotary Hammers and 3 Orga Codex to Lordoss"
+      ],
+      "related": [
+        "Rotary Hammer",
+        "Orga Codex"
+      ],
+      "replayable": false,
+      "rewards": []
+    },
+    "A Cost Will Be Paid Pt. 2": {
+      "name": "A Cost Will Be Paid Pt. 2",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "2",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring Power Schematics to Octogirl"
+      ],
+      "related": [
+        "Power Schematics"
+      ],
+      "replayable": false,
+      "rewards": []
+    },
+    "A Cost Will Be Paid Pt. 3": {
+      "name": "A Cost Will Be Paid Pt. 3",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Obtain 1 Industrial Sealant",
+        "Obtain 1 Military Cables",
+        "Obtain 1 Electric Motor",
+        "Obtain 1 Carbon Fiber Tube",
+        "Obtain 1 Clamp",
+        "Obtain 1 Printing Resin"
+      ],
+      "related": [
+        "Industrial Sealant",
+        "Military Cables",
+        "Electric Motor",
+        "Carbon Fiber Tube",
+        "Clamp",
+        "Printing Resin"
+      ],
+      "replayable": false,
+      "rewards": []
+    },
+    "A Cost Will Be Paid Pt. 4": {
+      "name": "A Cost Will Be Paid Pt. 4",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "5",
+      "taskType": "Collect",
+      "objectives": [
+        "Recover the head of a Mother Courage unit"
+      ],
+      "related": [
+        "Eurasian Mother Courage"
+      ],
+      "replayable": false,
+      "rewards": []
+    },
+    "A Light in the Dark": {
+      "name": "A Light in the Dark",
+      "faction": "Western Embassy",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Bring Cigarettes to our Wounded Soldier in Elephant Mausoleum."
+      ],
+      "related": [
+        "Dogboro Cigarettes"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "AA Tech Extraction": {
+      "name": "AA Tech Extraction",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Ashen Mesa",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Targeting Computer from an Anti-Air system  in Ashen Mesa"
+      ],
+      "related": [
+        "Targeting Computer"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "USAS-12",
+          "quantity": 1
+        },
+        {
+          "item": "USAS-12 Shotgun Barrel B",
+          "quantity": 1
+        },
+        {
+          "item": "USAS-12 Shotgun Barrel C",
+          "quantity": 1
+        },
+        {
+          "item": "USAS-12 Shotgun Magazine B",
+          "quantity": 1
+        },
+        {
+          "item": "USAS-12 Shotgun Magazine C",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Achilles' Heel": {
+      "name": "Achilles' Heel",
+      "faction": "Scavengers (Bunco)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "4",
+      "taskType": "Collect",
+      "objectives": [
+        "Obtain a Recovery Drone",
+        "Obtain two Power Cells",
+        "Obtain five Explosive Charges",
+        "Obtain three Super Glue"
+      ],
+      "related": [
+        "Recovery Drone",
+        "Power Cell",
+        "Super Glue",
+        "Explosive Charge"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Item Extraction Beacon",
+          "quantity": 1
+        },
+        {
+          "item": "Special Units DetPack",
+          "quantity": 3
+        }
+      ]
+    },
+    "Aerial Scavenge": {
+      "name": "Aerial Scavenge",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3 Eurasian Drone components."
+      ],
+      "related": [
+        "Eurasian Drone Cortex"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 6
+        },
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Against One's Camp": {
+      "name": "Against One's Camp",
+      "faction": "Western Embassy",
+      "location": "Frozen Swamp",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Water Thief Sniper"
+      ],
+      "related": [
+        "Water Thief Sniper"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "Electric Motor",
+          "quantity": 1
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "All Tooled Up": {
+      "name": "All Tooled Up",
+      "faction": "Scavengers",
+      "location": "Tunnels",
+      "questline": "Tutorial",
+      "questlineStep": "16",
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Tunnel A with a Pneumatic Jump equipped"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Assorted Medicine",
+          "quantity": 3
+        },
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Alpha Threat": {
+      "name": "Alpha Threat",
+      "faction": "Western Embassy",
+      "location": "Underground Cemetery",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate Eurasian Cyborg Pack Leaders in Underground Cemetery"
+      ],
+      "related": [
+        "Eurasian Pack Leader"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Rig Light",
+          "quantity": 3
+        },
+        {
+          "item": "XP",
+          "quantity": 2500
+        }
+      ]
+    },
+    "Altitude Adjustment": {
+      "name": "Altitude Adjustment",
+      "faction": "Western Embassy",
+      "location": "Downtown Lost Angels",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Destroy the Fuel Tank in Downtown"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Armor Harvest": {
+      "name": "Armor Harvest",
+      "faction": "Eastern Consulate",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3 Armor Shards from Heavy Shotgunners."
+      ],
+      "related": [
+        "EOD Armor Plate"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "AA12",
+          "quantity": 1
+        },
+        {
+          "item": "AA12 Shotgun Magazine A",
+          "quantity": 1
+        },
+        {
+          "item": "AA12 Shotgun Magazine B",
+          "quantity": 1
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Armored Treasure": {
+      "name": "Armored Treasure",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3 Exo Components"
+      ],
+      "related": [
+        "Exo Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 56666
+        },
+        {
+          "item": "Pneumatic Jump",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Avenge the Fallen": {
+      "name": "Avenge the Fallen",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy 10x Eurasian Brawlers or Eurasian Heavy Brawlers."
+      ],
+      "related": [
+        "Eurasian Brawler",
+        "Heavy Brawler"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": ".50 BMG",
+          "quantity": 30
+        },
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Backbones for the Backbone": {
+      "name": "Backbones for the Backbone",
+      "faction": "Lordoss",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "13",
+      "taskType": "Collect",
+      "objectives": [
+        "Find modular spine components for Lordoss"
+      ],
+      "related": [
+        "Brawler Spinal Joint"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Big Rig": {
+      "name": "Big Rig",
+      "faction": "Scavengers",
+      "location": "Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "15",
+      "taskType": "Collect",
+      "objectives": [
+        "Extract from Ashen Mesa with a modified rig",
+        "Extract with over 50,000CR of loot"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Sewing Kit",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Bin Pigs": {
+      "name": "Bin Pigs",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "5.2",
+      "taskType": "Other",
+      "objectives": [
+        "Loot 3 Containers",
+        "Sell 50,000CR worth of loot"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "BP TopLarge 3 C",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Blue Gold": {
+      "name": "Blue Gold",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "5.1",
+      "taskType": "Collect, Other",
+      "objectives": [
+        "Visit the water tank",
+        "Obtain and deliver one barrel of Water"
+      ],
+      "related": [
+        "Water"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "Water Canteen",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Bond of Brothers": {
+      "name": "Bond of Brothers",
+      "faction": "Western Embassy",
+      "location": "Stairway Gate",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Look for the Soldier"
+      ],
+      "related": [
+        "Dog Tags"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "APC9 Pro",
+          "quantity": 3
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Breath of Fresh Smoke": {
+      "name": "Breath of Fresh Smoke",
+      "faction": "Lordoss",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "12",
+      "taskType": "Collect",
+      "objectives": [
+        "Find Cybernetic Lungs for Lordoss"
+      ],
+      "related": [
+        "Cybernetic Lungs"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Bring Her In": {
+      "name": "Bring Her In",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Save, Collect and extract with Exo pilot"
+      ],
+      "related": [
+        "Pilot"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 66666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 90000
+        },
+        {
+          "item": "Recruit Pilot",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Build Mother Courage's Body Rack": {
+      "name": "Build Mother Courage's Body Rack",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "6",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect 20 Sheet Metal",
+        "Collect 40 Screws",
+        "Collect 40 Bolts",
+        "Collect 40 Nuts",
+        "Collect 40 Clamps"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "AT-43 MASS",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 15000
+        },
+        {
+          "item": "Rail Gun Turret Ammo Supply",
+          "quantity": 1
+        },
+        {
+          "item": "Rail Gun Turret Weapon",
+          "quantity": 1
+        },
+        {
+          "item": "Turret Base",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Build Mother Courage's Upper Torso": {
+      "name": "Build Mother Courage's Upper Torso",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "7",
+      "taskType": "Other",
+      "objectives": [
+        "Blow up a Mother Courage",
+        "Use a drone to retrieve upper torso"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 90000
+        },
+        {
+          "item": "Exo Stamina Equipment",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Bunco's Bounties Pt.1": {
+      "name": "Bunco's Bounties Pt.1",
+      "faction": "Scavengers (Bunco)",
+      "location": "Scorched Enclave",
+      "questline": "Railgun",
+      "questlineStep": "6",
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate Europans in Scorched Enclave before Extracting"
+      ],
+      "related": [
+        "Europa"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "12-Gauge Buckshot",
+          "quantity": 24
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Bunco's Bounties Pt.2": {
+      "name": "Bunco's Bounties Pt.2",
+      "faction": "Scavengers (Bunco)",
+      "location": "Scrapyard Nexus",
+      "questline": "Railgun",
+      "questlineStep": "7",
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate Euruskans in Scrapyard Nexus before Extracting"
+      ],
+      "related": [
+        "Euruska"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": ".50 BMG",
+          "quantity": 25
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Bunco's Bounties Pt.3": {
+      "name": "Bunco's Bounties Pt.3",
+      "faction": "Scavengers (Bunco)",
+      "location": "Frozen Swamp",
+      "questline": "Railgun",
+      "questlineStep": "8",
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate Eurasians in Frozen Swamp before Extracting"
+      ],
+      "related": [
+        "Eurasia"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 60
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Burst Transmission": {
+      "name": "Burst Transmission",
+      "faction": "Europa",
+      "location": "Scorched Enclave",
+      "questline": "Tutorial",
+      "questlineStep": "10.2",
+      "taskType": "Other",
+      "objectives": [
+        "Hack the Radar Walkers on Scorched Enclave"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "High-Frequency Radio",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Burying Secrets": {
+      "name": "Burying Secrets",
+      "faction": "Scavengers",
+      "location": "Underground Cemetery",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Logbook from Underground Cemetery"
+      ],
+      "related": [
+        "Logbook"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "IED",
+          "quantity": 8
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Cathode Hearth": {
+      "name": "Cathode Hearth",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "13.1",
+      "taskType": "Collect",
+      "objectives": [
+        "Build the television screens Innards upgrade"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Mead",
+          "quantity": 2
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Clear Skies": {
+      "name": "Clear Skies",
+      "faction": "Scavengers",
+      "location": "Frozen Swamp",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Acquire a Jammer from the Derailed Train in the frozen Swamp, then Plant it near the Drone Hives."
+      ],
+      "related": [
+        "Jammer"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "Recovery Drone",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Cleared to Ascend": {
+      "name": "Cleared to Ascend",
+      "faction": "Western Embassy",
+      "location": "Stairway Gate",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Sniper"
+      ],
+      "related": [
+        "Euruskan Sniper AntiTank"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "7.62x39mm Ammo",
+          "quantity": 150
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "RPK",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Collect HK Components": {
+      "name": "Collect HK Components",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "9",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect 6 Mnemonic Indexes from Eurasian Assault Officer HKs"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 150000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "Water",
+          "quantity": 25
+        },
+        {
+          "item": "XP",
+          "quantity": 16000
+        }
+      ]
+    },
+    "Collect Sand-Diver HK Components": {
+      "name": "Collect Sand-Diver HK Components",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Trophy Room",
+      "questlineStep": "8",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect 4 Cortical Arrays from Sand-Diver HK",
+        "Collect 2 Memory Interfaces from Sand-Diver HK",
+        "Collect 4 Interface Cores from Sand-Diver HK"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 110000
+        },
+        {
+          "item": "Pneumatic Jump",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 13000
+        }
+      ]
+    },
+    "Communication Breakdown": {
+      "name": "Communication Breakdown",
+      "faction": "Eastern Consulate",
+      "location": "Downtown Lost Angels",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Sabotage the First Europan Antenna",
+        "Sabotage the Second Europan Antenna",
+        "Sabotage the Third Europan Antenna"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Military Cables",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Connecting the Dots": {
+      "name": "Connecting the Dots",
+      "faction": "Scavengers",
+      "location": "Scrapyard Nexus, Scorched Enclave",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Activate Control Panel in Scrapyard Nexus",
+        "Get Secret Locked Box"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "CPU",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Cracked Open": {
+      "name": "Cracked Open",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Downtown Lost Angels",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Find Exo Hard Drives"
+      ],
+      "related": [
+        "Exo Hard Drive"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Processor Board",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Cull the Herd": {
+      "name": "Cull the Herd",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy 15 Eurasian Armed Forces"
+      ],
+      "related": [
+        "Eurasia"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Cybernetic Heist": {
+      "name": "Cybernetic Heist",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3 Brawler Components"
+      ],
+      "related": [
+        "Eurasian Brawler Components"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Data Heist": {
+      "name": "Data Heist",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Mech Trenches",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Hack the Servers and Extract from Mech Trenches"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Data Waves": {
+      "name": "Data Waves",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Frozen Swamp",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Transmit data from the Europa FOB control room"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Dead Men Walking": {
+      "name": "Dead Men Walking",
+      "faction": "Scavengers (Bunco)",
+      "location": "Elephant Mausoleum",
+      "questline": "Railgun",
+      "questlineStep": "10",
+      "taskType": "Other",
+      "objectives": [
+        "Extract from Elephant Mausoleum in a Full Party Without Getting Incapacitated"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "5.45x39mm Ammo Surplus",
+          "quantity": 240
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Defeat the Uplinks": {
+      "name": "Defeat the Uplinks",
+      "faction": "Eastern Consulate",
+      "location": "Ashen Mesa",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3x Neuro Uplinks."
+      ],
+      "related": [
+        "Neuro Uplink Board"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 16666
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Discover the Truth": {
+      "name": "Discover the Truth",
+      "faction": "Scavengers",
+      "location": "Scrapyard Nexus",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve Battle Plans in Scrapyard Nexus"
+      ],
+      "related": [
+        "Battle Plans"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": ".45 ACP Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "USP",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Doctor Morrow Pt.1": {
+      "name": "Doctor Morrow Pt.1",
+      "faction": "Europa (Doctor Morrow)",
+      "location": "Elephant Mausoleum",
+      "questline": "Doctor Morrow",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Deliver 20 Diagnostic Scanners to the dropbox in Elephant Mausoleum medical trenches"
+      ],
+      "related": [
+        "Diagnostic Scanner"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Advanced First Aid Kit",
+          "quantity": 20
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Doctor Morrow Pt.2": {
+      "name": "Doctor Morrow Pt.2",
+      "faction": "Europa (Doctor Morrow)",
+      "location": "Elephant Mausoleum",
+      "questline": "Doctor Morrow",
+      "questlineStep": "2",
+      "taskType": "Collect",
+      "objectives": [
+        "Deliver 10 Assorted Medicine to the dropbox in Elephant Mausoleum medical trenches"
+      ],
+      "related": [
+        "Assorted Medicine"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "ACG 2x",
+          "quantity": 2
+        },
+        {
+          "item": "M16",
+          "quantity": 1
+        },
+        {
+          "item": "M60",
+          "quantity": 1
+        },
+        {
+          "item": "SIGS Cheers 2x",
+          "quantity": 2
+        },
+        {
+          "item": "TrueAimer 4x",
+          "quantity": 2
+        },
+        {
+          "item": "Vtex Spit 3x",
+          "quantity": 2
+        },
+        {
+          "item": "WLT MPL",
+          "quantity": 1
+        }
+      ]
+    },
+    "Doctor Morrow Pt.3": {
+      "name": "Doctor Morrow Pt.3",
+      "faction": "Europa (Doctor Morrow)",
+      "location": "Elephant Mausoleum",
+      "questline": "Doctor Morrow",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Deliver 30 Medical Alcohol to the dropbox in Elephant Mausoleum medical trenches"
+      ],
+      "related": [
+        "Medical Alcohol"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Recruit Scav Mule",
+          "quantity": 2
+        },
+        {
+          "item": "Rig Container Bot Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Left Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Left Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Left Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Right Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Right Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Right Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Bot Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Centre Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Centre Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Centre Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Left Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Left Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Left Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Right Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Right Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Right Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Left Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Left Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Left Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Right Large High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Right Medium High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Right Small High Quality",
+          "quantity": 3
+        },
+        {
+          "item": "Rig Container Top Small High Quality",
+          "quantity": 3
+        }
+      ]
+    },
+    "Doctor Morrow Pt.4": {
+      "name": "Doctor Morrow Pt.4",
+      "faction": "Europa (Doctor Morrow)",
+      "location": "Elephant Mausoleum",
+      "questline": "Doctor Morrow",
+      "questlineStep": "4",
+      "taskType": "Collect",
+      "objectives": [
+        "Deliver 10 Dogboro Cigarettes to the dropbox in Elephant Mausoleum medical trenches",
+        "Deliver 10 Hinoko Cigarettes to the dropbox in Elephant Mausoleum medical trenches",
+        "Deliver 10 Nucky Gold Cigarettes to the dropbox in Elephant Mausoleum medical trenches"
+      ],
+      "related": [
+        "Dogboro Cigarettes",
+        "Hinoko Cigarettes",
+        "Nucky Gold Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "AT-43 MASS",
+          "quantity": 1
+        }
+      ]
+    },
+    "Down to the Last Drop Pt.1": {
+      "name": "Down to the Last Drop Pt.1",
+      "faction": "Scavengers (Bunco)",
+      "location": "Stairway Gate",
+      "questline": "Railgun",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring a Barrel of Water from Stairway Gate"
+      ],
+      "related": [
+        "Water"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "5.56x45mm Ammo",
+          "quantity": 240
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Down to the Last Drop Pt.2": {
+      "name": "Down to the Last Drop Pt.2",
+      "faction": "Scavengers (Bunco)",
+      "location": "Ashen Mesa",
+      "questline": "Railgun",
+      "questlineStep": "4",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring a Barrel of Water from Ashen Mesa"
+      ],
+      "related": [
+        "Water"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Standard First Aid Kit",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Down to the Last Drop Pt.3": {
+      "name": "Down to the Last Drop Pt.3",
+      "faction": "Scavengers (Bunco)",
+      "location": "Underground Cemetery",
+      "questline": "Railgun",
+      "questlineStep": "5",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring a Barrel of Water from Underground Cemetery"
+      ],
+      "related": [
+        "Water"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "5.45x39mm Ammo",
+          "quantity": 120
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.1": {
+      "name": "Electro-Magnetic Railway Pt.1",
+      "faction": "Scavengers (Bunco)",
+      "location": "Elephant Mausoleum",
+      "questline": "Railgun",
+      "questlineStep": "11",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Rail Component in the Hangar of Elephant Mausoleum"
+      ],
+      "related": [
+        "High Durability Rail Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "High Durability Rail Component",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.2": {
+      "name": "Electro-Magnetic Railway Pt.2",
+      "faction": "Scavengers (Bunco)",
+      "location": "Scrapyard Nexus",
+      "questline": "Railgun",
+      "questlineStep": "12",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Breech Component in Scrapyard Nexus"
+      ],
+      "related": [
+        "Breech Component (dud)"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Breech Component (dud)",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.3": {
+      "name": "Electro-Magnetic Railway Pt.3",
+      "faction": "Scavengers (Bunco)",
+      "location": "Ashen Mesa",
+      "questline": "Railgun",
+      "questlineStep": "13",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Breech Component in Ashen Mesa"
+      ],
+      "related": [
+        "Railgun Breech Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Railgun Breech Component",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.4": {
+      "name": "Electro-Magnetic Railway Pt.4",
+      "faction": "Scavengers (Bunco)",
+      "location": "Frozen Swamp",
+      "questline": "Railgun",
+      "questlineStep": "14",
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Wardens in the Tower of Frozen Swamp"
+      ],
+      "related": [
+        "Europan Warden"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Railgun Power Bank",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.5": {
+      "name": "Electro-Magnetic Railway Pt.5",
+      "faction": "Scavengers (Bunco)",
+      "location": "Mech Trenches",
+      "questline": "Railgun",
+      "questlineStep": "15",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Cooling System Component in Mech Trenches"
+      ],
+      "related": [
+        "Railgun Cooling Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Railgun Cooling Component",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.6": {
+      "name": "Electro-Magnetic Railway Pt.6",
+      "faction": "Scavengers (Bunco)",
+      "location": "Frozen Swamp",
+      "questline": "Railgun",
+      "questlineStep": "16",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Control System Component in Frozen Swamp"
+      ],
+      "related": [
+        "Railgun Assembly Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Railgun Assembly Component",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.7": {
+      "name": "Electro-Magnetic Railway Pt.7",
+      "faction": "Scavengers (Bunco)",
+      "location": "Stairway Gate",
+      "questline": "Railgun",
+      "questlineStep": "17",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Deployable Leg Components in Stairway"
+      ],
+      "related": [
+        "Heavy Joint Assembly"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Heavy Joint Assembly",
+          "quantity": 4
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.8": {
+      "name": "Electro-Magnetic Railway Pt.8",
+      "faction": "Scavengers (Bunco)",
+      "location": "Scorched Enclave",
+      "questline": "Railgun",
+      "questlineStep": "18",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Structural Framework Component"
+      ],
+      "related": [
+        "Railgun Body Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Railgun Body Component",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Electro-Magnetic Railway Pt.9": {
+      "name": "Electro-Magnetic Railway Pt.9",
+      "faction": "Scavengers (Bunco)",
+      "location": "Ashen Mesa",
+      "questline": "Railgun",
+      "questlineStep": "19",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Ammo Component"
+      ],
+      "related": [
+        "Railgun Magazine"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Railgun Magazine",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Sealed Mystery Box",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Elephant Mausoleum Sortie": {
+      "name": "Elephant Mausoleum Sortie",
+      "faction": "Western Embassy",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Elephant Mausoleum."
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Enclave Strike": {
+      "name": "Enclave Strike",
+      "faction": "Western Embassy",
+      "location": "Scorched Enclave",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy 3x Assaulters in Scorched Enclave"
+      ],
+      "related": [
+        "Eurasian Assaulter"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Spectre M4",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Errand of Mercy": {
+      "name": "Errand of Mercy",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Scrapyard Nexus",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect a Teddy Bear"
+      ],
+      "related": [
+        "Teddy Bear"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Extract from the Innards": {
+      "name": "Extract from the Innards",
+      "faction": "Scavengers",
+      "location": "Innards",
+      "questline": "Water death",
+      "questlineStep": "2",
+      "taskType": "Survive",
+      "objectives": [
+        "Extract"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Recruit Support",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Eye on the Sky": {
+      "name": "Eye on the Sky",
+      "faction": "Europa",
+      "location": "Scorched Enclave",
+      "questline": "Tutorial",
+      "questlineStep": "10.3",
+      "taskType": "Other",
+      "objectives": [
+        "Activate the radar tower on Scorched Enclave"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Jerrycan",
+          "quantity": 2
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Fetch Bar Supplies": {
+      "name": "Fetch Bar Supplies",
+      "faction": "Scavengers (Bartender)",
+      "location": "Downtown Lost Angels",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Fetch Bar Supplies"
+      ],
+      "related": [
+        "Bar Supplies"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        }
+      ]
+    },
+    "Flames of Disruption": {
+      "name": "Flames of Disruption",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Mech Trenches",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Sabotage the Mech in the Hangar in Mech Trenches"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Electric Motor",
+          "quantity": 1
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Food Chain Interrupted": {
+      "name": "Food Chain Interrupted",
+      "faction": "Western Embassy",
+      "location": "Mech Trenches",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Deliver a Spare Part to the Grinder in Mech Trenches"
+      ],
+      "related": [
+        "Spare Part"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Freed from Shadows": {
+      "name": "Freed from Shadows",
+      "faction": "Scavengers",
+      "location": "Underground Cemetery",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Help Civilians Escape from Underground Cemetery"
+      ],
+      "related": [
+        "Civilian"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "GM6",
+          "quantity": 1
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 3
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Fresh Start": {
+      "name": "Fresh Start",
+      "faction": "Lordoss",
+      "location": "Innards",
+      "questline": "Lordoss",
+      "questlineStep": "11",
+      "taskType": "Other",
+      "objectives": [
+        "Remove the bayonet from Lordoss"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Garage Days Pt. 1": {
+      "name": "Garage Days Pt. 1",
+      "faction": "Scavengers (Bunco)",
+      "location": "Any",
+      "questline": "Garage Days",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Get Old Tool Set",
+        "Get Diodegradable Multi-tool",
+        "Get Rotary Hammer",
+        "Get EDC Multi-tool"
+      ],
+      "related": [
+        "Old Tool Set",
+        "Diodegradable Multi-tool",
+        "Rotary Hammer",
+        "EDC Multi-tool"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Garage Days Pt. 2": {
+      "name": "Garage Days Pt. 2",
+      "faction": "Scavengers (Bunco)",
+      "location": "Elephant Mausoleum",
+      "questline": "Garage Days",
+      "questlineStep": "2",
+      "taskType": "Other",
+      "objectives": [
+        "Scout 1st Elephant Mausoleum Motorpool location",
+        "Scout 2nd Elephant Mausoleum Motorpool location"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28400
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Garage Days Pt. 3": {
+      "name": "Garage Days Pt. 3",
+      "faction": "Scavengers (Bunco)",
+      "location": "Frozen Swamp",
+      "questline": "Garage Days",
+      "questlineStep": "3",
+      "taskType": "Other",
+      "objectives": [
+        "Divert natural gas to Bunco in Frozen Swamp"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 133333
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 57000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 40000
+        }
+      ]
+    },
+    "Ghosts of the Enclave": {
+      "name": "Ghosts of the Enclave",
+      "faction": "Scavengers (Bunco)",
+      "location": "Scorched Enclave",
+      "questline": "Railgun",
+      "questlineStep": "9",
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Scorched Enclave Unnoticed"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Advanced First Aid Kit",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Giant's Senses": {
+      "name": "Giant's Senses",
+      "faction": "Lordoss",
+      "location": "Elephant Mausoleum",
+      "questline": "Lordoss",
+      "questlineStep": "17",
+      "taskType": "Collect",
+      "objectives": [
+        "Find an Artificial Nervous System for Lordoss"
+      ],
+      "related": [
+        "Orgamech Nervous System"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Go Home, Conscript": {
+      "name": "Go Home, Conscript",
+      "faction": "Eurasia",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "9.2",
+      "taskType": "Collect, Kill",
+      "objectives": [
+        "Eliminate 12 Europan Conscripts",
+        "Deliver 6 Europan level 1 IFF chips"
+      ],
+      "related": [
+        "Europan IFF Chip LVL1",
+        "Europan Conscript"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Gunpowder",
+          "quantity": 3
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Goose Chase": {
+      "name": "Goose Chase",
+      "faction": "Western Embassy",
+      "location": "Stairway Gate",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Find the radio equipment and transmit the false intel."
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 26666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Gun Nutty": {
+      "name": "Gun Nutty",
+      "faction": "Europa",
+      "location": "Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "10.5",
+      "taskType": "Kill",
+      "objectives": [
+        "Defeat 10 Eurasian units on Ashen Mesa with a modified weapon"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Guts and All": {
+      "name": "Guts and All",
+      "faction": "Scavengers",
+      "location": "Innards",
+      "questline": "Tutorial",
+      "questlineStep": "2",
+      "taskType": "Other",
+      "objectives": [
+        "Visit the Quest Terminal",
+        "Visit the Region Terminal",
+        "Visit the Character Terminal",
+        "Visit the Loadout Terminal",
+        "Visit the Ready Room"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Harvest Tech": {
+      "name": "Harvest Tech",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 5 Cyborg Components"
+      ],
+      "related": [
+        "Cyborg's Head"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "APC9 Pro",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Harvest Upgraded Mechanicals": {
+      "name": "Harvest Upgraded Mechanicals",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve Merkava Components x3"
+      ],
+      "related": [
+        "Merkava Suspension Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 56666
+        },
+        {
+          "item": "IED",
+          "quantity": 3
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Hidden Water Pt 1": {
+      "name": "Hidden Water Pt 1",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Ashen Mesa",
+      "questline": "Hidden Water",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Map for Water in Ashen Mesa."
+      ],
+      "related": [
+        "Water Map"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Hidden Water Pt 2": {
+      "name": "Hidden Water Pt 2",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Elephant Mausoleum",
+      "questline": "Hidden Water",
+      "questlineStep": "2",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect (1) Water in Elephant Mausoleum"
+      ],
+      "related": [
+        "Water"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 10000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 5
+        },
+        {
+          "item": "XP",
+          "quantity": 3000
+        }
+      ]
+    },
+    "Hind Nav Comp": {
+      "name": "Hind Nav Comp",
+      "faction": "Western Embassy",
+      "location": "Ashen Mesa",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect a Nav Computer from a HIND in Ashen Mesa"
+      ],
+      "related": [
+        "HIND Navigation Computer"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Hostile Expungement": {
+      "name": "Hostile Expungement",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy Europan Armed Forces"
+      ],
+      "related": [
+        "Europa"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Hunt the Hunters": {
+      "name": "Hunt the Hunters",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 2 Hunter Killer Components"
+      ],
+      "related": [
+        "EOD Suit Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 33333
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 56666
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Icon at Stake": {
+      "name": "Icon at Stake",
+      "faction": "Western Embassy",
+      "location": "Scrapyard Nexus",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Find the Totem and Extract from Scrapyard Nexus"
+      ],
+      "related": [
+        "Mystical Tech Totem (Large)"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Fast Travel Drone",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Immobile Death": {
+      "name": "Immobile Death",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve x3 Turret Components"
+      ],
+      "related": [
+        "Turret Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Tactical Camera",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "In Search of Vex": {
+      "name": "In Search of Vex",
+      "faction": "Scavengers",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Help the Scav Escape"
+      ],
+      "related": [
+        "Civilian"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Recruit Skirmisher",
+          "quantity": 2
+        },
+        {
+          "item": "Recruit Support",
+          "quantity": 2
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "In the Crosshairs": {
+      "name": "In the Crosshairs",
+      "faction": "Eastern Consulate",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve Targeting Systems from Elephant Mausoleum"
+      ],
+      "related": [
+        "Laser Rangefinder"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Insignia Retrieval": {
+      "name": "Insignia Retrieval",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect 3 Elite Brawlers Insignias"
+      ],
+      "related": [
+        "Brawler Insignia"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "SCAR",
+          "quantity": 1
+        },
+        {
+          "item": "SCAR Magazine A",
+          "quantity": 1
+        },
+        {
+          "item": "SCAR Magazine B",
+          "quantity": 1
+        },
+        {
+          "item": "SCAR Magazine C",
+          "quantity": 1
+        },
+        {
+          "item": "SCAR Magazine D",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Investigate Ashen Mesa": {
+      "name": "Investigate Ashen Mesa",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Ashen Mesa",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Ashen Mesa."
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Kane's Favored": {
+      "name": "Kane's Favored",
+      "faction": "Eurasia",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "9.1",
+      "taskType": "Other",
+      "objectives": [
+        "Earn 'trusted' reputation with Eurasia"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Cyborg Immunosuppressant",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "King of Kings": {
+      "name": "King of Kings",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Rat King Residue"
+      ],
+      "related": [
+        "Rat King's Wake"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Rig Container Bot Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Left Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Left Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Left Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Right Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Right Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Right Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Bot Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Centre Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Centre Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Centre Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Left Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Left Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Left Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Right Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Right Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Right Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Left Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Left Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Left Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Right Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Right Medium High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Right Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Rig Container Top Small High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 56666
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Kursk's Children": {
+      "name": "Kursk's Children",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve T-90 Components."
+      ],
+      "related": [
+        "T-90 Suspension Component"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "20mm Turret",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 56666
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Labyrinth": {
+      "name": "Labyrinth",
+      "faction": "Scavengers",
+      "location": "Tunnels",
+      "questline": "Tutorial",
+      "questlineStep": "4",
+      "taskType": "Survive",
+      "objectives": [
+        "Survive and extract from tunnel A"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Food Tin",
+          "quantity": 2
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Liberate the Innards": {
+      "name": "Liberate the Innards",
+      "faction": "Scavengers",
+      "location": "Innards",
+      "questline": "Water death",
+      "questlineStep": "1",
+      "taskType": "Other",
+      "objectives": [
+        "Eliminate all Water Thieves."
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": []
+    },
+    "Lost Angels' Lowdown": {
+      "name": "Lost Angels' Lowdown",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Downtown Lost Angels",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Downtown Lost Angels"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Lost Cache": {
+      "name": "Lost Cache",
+      "faction": "Western Embassy",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Find a Data Cache in Elephant Mausoleum."
+      ],
+      "related": [
+        "Data Cache"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 16666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Lost Signals": {
+      "name": "Lost Signals",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Underground Cemetery",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Communication Devices from Underground Cemetery"
+      ],
+      "related": [
+        "Comms Device"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Manufactured Heist": {
+      "name": "Manufactured Heist",
+      "faction": "Eastern Consulate",
+      "location": "Frozen Swamp",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Find the Weapon Schematics in the Frozen Swamp"
+      ],
+      "related": [
+        "Weapon Schematics"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Marked for Observation": {
+      "name": "Marked for Observation",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Plant the First Camera",
+        "Plant the Second Camera",
+        "Plant the Third Camera"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Construction Drone",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Recruit Skirmisher",
+          "quantity": 2
+        },
+        {
+          "item": "Recruit Support",
+          "quantity": 2
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Mech Wreck": {
+      "name": "Mech Wreck",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Mech Pilot"
+      ],
+      "related": [
+        "Europan Pilot"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 50
+        },
+        {
+          "item": "Credits",
+          "quantity": 66666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "PP-19 Vityaz",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Mechanical Momentum": {
+      "name": "Mechanical Momentum",
+      "faction": "Western Embassy",
+      "location": "Mech Trenches",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Deliver Mech Components to the Hangar in Mech Trenches"
+      ],
+      "related": [
+        "Mech Part"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Electric Motor",
+          "quantity": 1
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Med Bay Access": {
+      "name": "Med Bay Access",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Hack the Locked Gate in the Medical Trenches of Elephant Mausoleum"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Military Cables",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Memento Pt 1": {
+      "name": "Memento Pt 1",
+      "faction": "Scavengers",
+      "location": "Ashen Mesa",
+      "questline": "Memento",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring the Picture from Ashen Mesa."
+      ],
+      "related": [
+        "Picture"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Memento Pt 2": {
+      "name": "Memento Pt 2",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Scorched Enclave",
+      "questline": "Memento",
+      "questlineStep": "2",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Weapon Tech in Scorched Enclave"
+      ],
+      "related": [
+        "Weapon Tech"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Memento Pt 3": {
+      "name": "Memento Pt 3",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Elephant Mausoleum",
+      "questline": "Memento",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Precision Components from Elephant Mausoleum."
+      ],
+      "related": [
+        "Precision Components"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "20x105mm Anti-Tank",
+          "quantity": 10
+        },
+        {
+          "item": "36M AntiTank",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Mercy Killing": {
+      "name": "Mercy Killing",
+      "faction": "Western Embassy",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy 10x Cyborgs"
+      ],
+      "related": [
+        "Cyborg Runner"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": ".45 ACP Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "Credits",
+          "quantity": 5000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "USP",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Nervous Upgrade": {
+      "name": "Nervous Upgrade",
+      "faction": "Lordoss",
+      "location": "Elephant Mausoleum",
+      "questline": "Lordoss",
+      "questlineStep": "14",
+      "taskType": "Collect",
+      "objectives": [
+        "Find a Current-Generation Wetware System for Lordoss"
+      ],
+      "related": [
+        "Wetware System"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Oiled Joints": {
+      "name": "Oiled Joints",
+      "faction": "Lordoss",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "15",
+      "taskType": "Collect",
+      "objectives": [
+        "Find 8 Advanced Joints for Lordoss"
+      ],
+      "related": [
+        "Advanced Joint"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Payback": {
+      "name": "Payback",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Find & Neutralize Goldbrick"
+      ],
+      "related": [
+        "Goldbrick"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": ".50 BMG",
+          "quantity": 25
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Plug Pull": {
+      "name": "Plug Pull",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Mech Trenches",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Unplug the Life Support Systems in Mech Trenches"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Heavy-Duty Trauma Kit",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Preparations": {
+      "name": "Preparations",
+      "faction": "Scavengers",
+      "location": "Innards",
+      "questline": "Tutorial",
+      "questlineStep": "3",
+      "taskType": "Other",
+      "objectives": [
+        "Purchase \"Small First Aid Kit\" from Heisenburg",
+        "Purchase \"5.45x39mm Ammo Surplus\" from Bunco"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Rig Light",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Psycho on the Loose": {
+      "name": "Psycho on the Loose",
+      "faction": "Scavengers",
+      "location": "Downtown Lost Angels",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Europan EOD Officer"
+      ],
+      "related": [
+        "Sadistic Europan EOD"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Organoid Outlet",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Pyro Revealed": {
+      "name": "Pyro Revealed",
+      "faction": "Eastern Consulate",
+      "location": "Scorched Enclave",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Pyro has been seen in Scorched Enclave. Search and Destroy."
+      ],
+      "related": [
+        "Europan Pyro"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "7.62x39mm Ammo",
+          "quantity": 150
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "RPK",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Red Baron's Legacy": {
+      "name": "Red Baron's Legacy",
+      "faction": "Eastern Consulate",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Banner from the Red Baron in Elephant Mausoleum"
+      ],
+      "related": [
+        "Banner of the Red Baron"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 66666
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Organoid Plug",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Risky Cargo": {
+      "name": "Risky Cargo",
+      "faction": "Scavengers (technically Europan quest, but given by Scavengers)",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 2 Explosives."
+      ],
+      "related": [
+        "Explosives"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 16666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Roll Deep": {
+      "name": "Roll Deep",
+      "faction": "Scavengers",
+      "location": "Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "13",
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Ashen Mesa with a Skirmisher Recruit"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Scavenger's Go-Bag",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Run the Mesa": {
+      "name": "Run the Mesa",
+      "faction": "Europa",
+      "location": "Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "10.1",
+      "taskType": "Survive",
+      "objectives": [
+        "Survive and extract from Ashen Mesa"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Goodies",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Rust In Peace": {
+      "name": "Rust In Peace",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Underground Cemetery",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy the Europan Exo in Underground Cemetery"
+      ],
+      "related": [
+        "Europan Exo"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "20mm Turret",
+          "quantity": 3
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Scav Scrap Pt. 1": {
+      "name": "Scav Scrap Pt. 1",
+      "faction": "Scavengers",
+      "location": "Frozen Swamp",
+      "questline": "Scav Scrap",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Steal the train schedule from Frozen Swamp"
+      ],
+      "related": [
+        "Convoy Schedule"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Scav Scrap Pt. 2": {
+      "name": "Scav Scrap Pt. 2",
+      "faction": "Scavengers",
+      "location": "Frozen Swamp",
+      "questline": "Scav Scrap",
+      "questlineStep": "2",
+      "taskType": "Other",
+      "objectives": [
+        "Tag the cargo for the scavs"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 24
+        },
+        {
+          "item": "Electric Motor",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Scav's Prescription": {
+      "name": "Scav's Prescription",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Medical Supplies"
+      ],
+      "related": [
+        "Medical Supplies"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Heavy-Duty Trauma Kit",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 4
+        },
+        {
+          "item": "XP",
+          "quantity": 4000
+        }
+      ]
+    },
+    "Science of Stimulants": {
+      "name": "Science of Stimulants",
+      "faction": "Western Embassy",
+      "location": "Stairway Gate",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Samples of Combat Stimulants"
+      ],
+      "related": [
+        "Combat Stimulant"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "APC9 Pro",
+          "quantity": 3
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Scorched Enclave Recon": {
+      "name": "Scorched Enclave Recon",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Scorched Enclave",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Scorched Enclave"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Seek and Destroy": {
+      "name": "Seek and Destroy",
+      "faction": "Europa",
+      "location": "Scorched Enclave",
+      "questline": "Tutorial",
+      "questlineStep": "8",
+      "taskType": "Other, Kill",
+      "objectives": [
+        "Mark any Eurasian unit on Scorched Enclave",
+        "Eliminate 6 Eurasian units on Scorched Enclave"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Ethyl Alcohol",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Shadow Sweep": {
+      "name": "Shadow Sweep",
+      "faction": "Eastern Consulate",
+      "location": "Scrapyard Nexus",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate 3 Assassins in Scrapyard Nexus."
+      ],
+      "related": [
+        "Europan Assassin"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "20mm Turret",
+          "quantity": 2
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Pneumatic Jump",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Shantytown Recon": {
+      "name": "Shantytown Recon",
+      "faction": "Western Embassy",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Babel"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Sharp Memory": {
+      "name": "Sharp Memory",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve the lost Memento"
+      ],
+      "related": [
+        "Memento"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 6
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Shifting Tide": {
+      "name": "Shifting Tide",
+      "faction": "Scavengers",
+      "location": "Scorched Enclave",
+      "questline": "Shifting Tide",
+      "questlineStep": "1",
+      "taskType": "Other",
+      "objectives": [
+        "Help the Water Thief Escape in Scorched Enclave"
+      ],
+      "related": [
+        "Civilian"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Recruit Skirmisher",
+          "quantity": 2
+        },
+        {
+          "item": "Recruit Support",
+          "quantity": 2
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Shifting Tide Pt.2": {
+      "name": "Shifting Tide Pt.2",
+      "faction": "Scavengers",
+      "location": "Frozen Swamp",
+      "questline": "Shifting Tide",
+      "questlineStep": "2",
+      "taskType": "Other",
+      "objectives": [
+        "Hack the Laptop in the Water Thieves Camp"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Shifting Tide Pt.3": {
+      "name": "Shifting Tide Pt.3",
+      "faction": "Scavengers",
+      "location": "Downtown Lost Angels",
+      "questline": "Shifting Tide",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Find the Sewer Plans in Downtown"
+      ],
+      "related": [
+        "Sewers Technical Plans"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Shifting Tide Pt.4": {
+      "name": "Shifting Tide Pt.4",
+      "faction": "Scavengers",
+      "location": "Underground Cemetery",
+      "questline": "Shifting Tide",
+      "questlineStep": "4",
+      "taskType": "Other",
+      "objectives": [
+        "Pull the Control Lever in the Underground"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Shifting Tide Pt.5": {
+      "name": "Shifting Tide Pt.5",
+      "faction": "Scavengers",
+      "location": "Downtown Lost Angels",
+      "questline": "Shifting Tide",
+      "questlineStep": "5",
+      "taskType": "Other",
+      "objectives": [
+        "Access Riptide's Sewer Den in Downtown and Extract"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Recovery Drone",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Sick Harvest": {
+      "name": "Sick Harvest",
+      "faction": "Western Embassy (technically Euruskan quest, but given by Europa)",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Tissue Samples"
+      ],
+      "related": [
+        "Tissue Sample"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "40mm Grenade",
+          "quantity": 6
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Silencing the Whispering Ghost": {
+      "name": "Silencing the Whispering Ghost",
+      "faction": "Western Embassy",
+      "location": "Babel",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Sniper"
+      ],
+      "related": [
+        "Euruskan Sniper AntiTank"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Military Cables",
+          "quantity": 1
+        },
+        {
+          "item": "RPK",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Sniper Sweep": {
+      "name": "Sniper Sweep",
+      "faction": "Western Embassy",
+      "location": "Ashen Mesa",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the custom equipment carried by the Eurasian God Sniper in Ashen Mesa"
+      ],
+      "related": [
+        "God Sniper Equipment"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Stashed Away": {
+      "name": "Stashed Away",
+      "faction": "Scavengers",
+      "location": "Innards",
+      "questline": "Tutorial",
+      "questlineStep": "7",
+      "taskType": "Other",
+      "objectives": [
+        "Find the Secret Storage Vault"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Beer",
+          "quantity": 2
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Steel on High": {
+      "name": "Steel on High",
+      "faction": "Eurasia",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "9",
+      "taskType": "Collect, Kill",
+      "objectives": [
+        "Eliminate 6 Europan Drones",
+        "Deliver 3 Europan drone components"
+      ],
+      "related": [
+        "Europan Drone Flight Controller",
+        "Europan Drone"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Hinoko Cigarettes",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Summon The Pain pt. 2": {
+      "name": "Summon The Pain pt. 2",
+      "faction": "Western Embassy (technically Scavenger quest, but given by Europa)",
+      "location": "Scrapyard Nexus",
+      "questline": "Summon The Pain",
+      "questlineStep": "2",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect the Crates"
+      ],
+      "related": [
+        "Eurasian Supply Crate"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 30000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Summon The Pain pt.1": {
+      "name": "Summon The Pain pt.1",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": "Summon The Pain",
+      "questlineStep": "1",
+      "taskType": "Kill",
+      "objectives": [
+        "Destroy 20 Eurasian units."
+      ],
+      "related": [
+        "Eurasia"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 7500
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Surface Tension": {
+      "name": "Surface Tension",
+      "faction": "Eurasia",
+      "location": "Scorched Enclave",
+      "questline": "Tutorial",
+      "questlineStep": "11",
+      "taskType": "Collect, Other",
+      "objectives": [
+        "Access the locked bunker on Scorched Enclave",
+        "Deliver 3 barrels of Water"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Standard First Aid Kit",
+          "quantity": 2
+        },
+        {
+          "item": "Water",
+          "quantity": 3
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Swamp Probing Mission": {
+      "name": "Swamp Probing Mission",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Frozen Swamp",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from the Frozen Swamp"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Target Awareness": {
+      "name": "Target Awareness",
+      "faction": "Lordoss",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "16",
+      "taskType": "Collect",
+      "objectives": [
+        "Find a Targeting Software Chip for Lordoss"
+      ],
+      "related": [
+        "Gyroscopic Stabilizer"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "XP",
+          "quantity": 20000
+        }
+      ]
+    },
+    "Target Locked": {
+      "name": "Target Locked",
+      "faction": "Western Embassy",
+      "location": "Scorched Enclave",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Euruskan Commander in Scorched Enclave"
+      ],
+      "related": [
+        "Euruskan Commander"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Tech Theft Prevention": {
+      "name": "Tech Theft Prevention",
+      "faction": "Western Embassy",
+      "location": "Scrapyard Nexus",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Plant Explosives on the Mech in Scrapyard Nexus"
+      ],
+      "related": [
+        "Explosives"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Electric Motor",
+          "quantity": 1
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Terror On Display": {
+      "name": "Terror On Display",
+      "faction": "Scavengers",
+      "location": "Scorched Enclave, Ashen Mesa, Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect one Corpse Tank Control Panel"
+      ],
+      "related": [
+        "Corpse Tank Control Panel"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 66666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 56666
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "That Guy": {
+      "name": "That Guy",
+      "faction": "Scavengers",
+      "location": "Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "17",
+      "taskType": "Other",
+      "objectives": [
+        "Provoke Hunter Killers on Ashen Mesa and extract"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Blood Packs",
+          "quantity": 2
+        },
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "The Hobo King": {
+      "name": "The Hobo King",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "12",
+      "taskType": "Other",
+      "objectives": [
+        "Reach Prestige level 5 with your active scav"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Standard Gunrunner Rig",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "The People's Icon": {
+      "name": "The People's Icon",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Scrapyard Nexus",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Find the Totem and extract from Scrapyard Nexus."
+      ],
+      "related": [
+        "Mystical Tech Totem (Large)"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Fast Travel Drone",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Thief in the Night": {
+      "name": "Thief in the Night",
+      "faction": "Scavengers",
+      "location": "Mech Trenches",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Prized Alcohol."
+      ],
+      "related": [
+        "Prized Alcohol"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "APC9 Pro",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 50000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Thirsty Work": {
+      "name": "Thirsty Work",
+      "faction": "Scavengers",
+      "location": "Scorched Enclave / Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "6",
+      "taskType": "Other",
+      "objectives": [
+        "Fast travel to Scorched Enclave or Ashen Mesa"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "Small First Aid Kit",
+          "quantity": 3
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "This Will Burn": {
+      "name": "This Will Burn",
+      "faction": "Scavengers",
+      "location": "Scorched Enclave / Ashen Mesa",
+      "questline": "Tutorial",
+      "questlineStep": "5",
+      "taskType": "Survive",
+      "objectives": [
+        "Travel to Scorched Enclave or Ashen Mesa via tunnel A"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "PP-19 Vityaz",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Tobacco Journey Pt 1": {
+      "name": "Tobacco Journey Pt 1",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Basic Cigs: 3"
+      ],
+      "related": [
+        "Dogboro Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 10000
+        },
+        {
+          "item": "Rig Container Top Large High Quality",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Tobacco Journey Pt 10": {
+      "name": "Tobacco Journey Pt 10",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "10",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Basic Cigs: 20"
+      ],
+      "related": [
+        "Dogboro Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 30000
+        },
+        {
+          "item": "Smuggled Organs",
+          "quantity": 3
+        },
+        {
+          "item": "XP",
+          "quantity": 2000
+        }
+      ]
+    },
+    "Tobacco Journey Pt 2": {
+      "name": "Tobacco Journey Pt 2",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "2",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Import Cigs: 2"
+      ],
+      "related": [
+        "Hinoko Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 12500
+        },
+        {
+          "item": "Gunpowder",
+          "quantity": 6
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Tobacco Journey Pt 3": {
+      "name": "Tobacco Journey Pt 3",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Premium Cigs: 1"
+      ],
+      "related": [
+        "Nucky Gold Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 15000
+        },
+        {
+          "item": "Fast Travel Drone",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 750
+        }
+      ]
+    },
+    "Tobacco Journey Pt 4": {
+      "name": "Tobacco Journey Pt 4",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "4",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Basic Cigs: 8"
+      ],
+      "related": [
+        "Dogboro Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Assorted Medicine",
+          "quantity": 4
+        },
+        {
+          "item": "Credits",
+          "quantity": 15000
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Tobacco Journey Pt 5": {
+      "name": "Tobacco Journey Pt 5",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "5",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Import Cigs: 5"
+      ],
+      "related": [
+        "Hinoko Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 17500
+        },
+        {
+          "item": "Old Paint Can",
+          "quantity": 5
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Tobacco Journey Pt 6": {
+      "name": "Tobacco Journey Pt 6",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "6",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Premium Cigs: 3"
+      ],
+      "related": [
+        "Nucky Gold Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Recovery Drone",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Tobacco Journey Pt 7": {
+      "name": "Tobacco Journey Pt 7",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "7",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Basic Cigs: 15"
+      ],
+      "related": [
+        "Dogboro Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Urea",
+          "quantity": 10
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Tobacco Journey Pt 8": {
+      "name": "Tobacco Journey Pt 8",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "8",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Import Cigs: 8"
+      ],
+      "related": [
+        "Hinoko Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 22500
+        },
+        {
+          "item": "Metal Fragments",
+          "quantity": 12
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Tobacco Journey Pt 9": {
+      "name": "Tobacco Journey Pt 9",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": "Lordoss",
+      "questlineStep": "9",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Premium Cigs: 5"
+      ],
+      "related": [
+        "Nucky Gold Cigarettes"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Construction Drone",
+          "quantity": 1
+        },
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Tobacco Journey Random 01": {
+      "name": "Tobacco Journey Random 01",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Basic Cigs: 9"
+      ],
+      "related": [
+        "Dogboro Cigarettes"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 15000
+        },
+        {
+          "item": "Electric Motor",
+          "quantity": 2
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 2500
+        }
+      ]
+    },
+    "Tobacco Journey Random 02": {
+      "name": "Tobacco Journey Random 02",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Import Cigs: 6"
+      ],
+      "related": [
+        "Hinoko Cigarettes"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Blood Packs",
+          "quantity": 3
+        },
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 2500
+        }
+      ]
+    },
+    "Tobacco Journey Random 03": {
+      "name": "Tobacco Journey Random 03",
+      "faction": "Euruska (Lordoss)",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Bring me this many packs of Premium Cigs: 3"
+      ],
+      "related": [
+        "Nucky Gold Cigarettes"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "Euruskan IFF Chip LVL3",
+          "quantity": 1
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 2500
+        }
+      ]
+    },
+    "Tormentor's Trail": {
+      "name": "Tormentor's Trail",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Ashen Mesa",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Stop the Tormentor in Ashen Mesa."
+      ],
+      "related": [
+        "Europan Tormentor"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 37500
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 5
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Toyetic Action": {
+      "name": "Toyetic Action",
+      "faction": "Scavengers",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "14",
+      "taskType": "Collect",
+      "objectives": [
+        "Deliver 1 Toy Dinosaur",
+        "Deliver 1 Toy Car",
+        "Deliver 1 Toy Train"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Old Paint Can",
+          "quantity": 3
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Training": {
+      "name": "Training",
+      "faction": "Scavengers",
+      "location": "Innards",
+      "questline": "Tutorial",
+      "questlineStep": "1",
+      "taskType": "Other",
+      "objectives": [
+        "Deliver water supply",
+        "Destroy at least 5 enemies in training (optional)",
+        "Extract from training alive"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 10000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Transmission Tower Pt.1": {
+      "name": "Transmission Tower Pt.1",
+      "faction": "Scavengers (Velko)",
+      "location": "Elephant Mausoleum, Frozen Swamp, Babel",
+      "questline": "Transmission Tower",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Place 3 Frequency Taps near Radar Walkers in Elephant Mausoleum",
+        "Place taps in Frozen Swamp",
+        "Place taps in Babel"
+      ],
+      "related": [
+        "Frequency Tap"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        }
+      ]
+    },
+    "Transmission Tower Pt.2": {
+      "name": "Transmission Tower Pt.2",
+      "faction": "Scavengers (Sura)",
+      "location": "Tunnels",
+      "questline": "Transmission Tower",
+      "questlineStep": "2",
+      "taskType": "Other",
+      "objectives": [
+        "Obtain a transmission code from Sura",
+        "Use the code at the transmission tower",
+        "Meet with Octogirl at Tunnel C checkpoint"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        }
+      ]
+    },
+    "Transmission Tower Pt.3": {
+      "name": "Transmission Tower Pt.3",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Underground Cemetery",
+      "questline": "Transmission Tower",
+      "questlineStep": "3",
+      "taskType": "Collect",
+      "objectives": [
+        "Obtain the Eurasian Supply Comms frequency",
+        "Listen in on the Eurasian comms",
+        "Find Octogirl's tools"
+      ],
+      "related": [
+        "Paper Scrap",
+        "Octogirl's Tool Set"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        }
+      ]
+    },
+    "Transmission Tower Pt.4": {
+      "name": "Transmission Tower Pt.4",
+      "faction": "Scavengers (Octogirl)",
+      "location": "Any",
+      "questline": "Transmission Tower",
+      "questlineStep": "4",
+      "taskType": "Collect",
+      "objectives": [
+        "Bring 10 Cyborg Immunosuppressants and 1 Processor Board to Octogirl"
+      ],
+      "related": [
+        "Cyborg Immunosuppressant",
+        "Processor Board"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 25000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        }
+      ]
+    },
+    "Treasure in the Sky": {
+      "name": "Treasure in the Sky",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3x Europan Drone Components"
+      ],
+      "related": [
+        "Europan Drone Flight Controller"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 16666
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Trial by Extraction Pt.1": {
+      "name": "Trial by Extraction Pt.1",
+      "faction": "Scavengers (Bunco)",
+      "location": "Elephant Mausoleum",
+      "questline": "Railgun",
+      "questlineStep": "1",
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Elephant Mausoleum"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Small First Aid Kit",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Trial by Extraction Pt.2": {
+      "name": "Trial by Extraction Pt.2",
+      "faction": "Scavengers (Bunco)",
+      "location": "Mech Trenches",
+      "questline": "Railgun",
+      "questlineStep": "2",
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Mech Trenches"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Deployable Drill",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "XP",
+          "quantity": 10000
+        }
+      ]
+    },
+    "Triggerman": {
+      "name": "Triggerman",
+      "faction": "Europa",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "10.4",
+      "taskType": "Other",
+      "objectives": [
+        "Reach level 5 with any weapon"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "M16",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Trooper Disillusion": {
+      "name": "Trooper Disillusion",
+      "faction": "Eastern Consulate",
+      "location": "Any",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate 3 Europan EOD Troopers"
+      ],
+      "related": [
+        "Europan EOD"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "M16",
+          "quantity": 1
+        },
+        {
+          "item": "M16 Magazine A",
+          "quantity": 1
+        },
+        {
+          "item": "M16 Magazine B",
+          "quantity": 1
+        },
+        {
+          "item": "M16 Upper Assmbly A",
+          "quantity": 1
+        },
+        {
+          "item": "M16 Upper Assmbly B",
+          "quantity": 1
+        },
+        {
+          "item": "M16 Upper Assmbly C",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Tunnel Vision": {
+      "name": "Tunnel Vision",
+      "faction": "Scavengers",
+      "location": "Underground Cemetery",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Underground Cemetery Undetected"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Pneumatic Jump",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 5
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "Under Phosphor Skies": {
+      "name": "Under Phosphor Skies",
+      "faction": "Europa",
+      "location": "Any",
+      "questline": "Tutorial",
+      "questlineStep": "10.6",
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate 12 Eurasian Cyborg Runners",
+        "Eliminate 6 Eurasian Cyborg Scramblers"
+      ],
+      "related": [],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Boinco Candy Bar",
+          "quantity": 2
+        },
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 25000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1500
+        }
+      ]
+    },
+    "Unravel Euruskan Mysteries": {
+      "name": "Unravel Euruskan Mysteries",
+      "faction": "Western Embassy",
+      "location": "Scorched Enclave",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Collect",
+      "objectives": [
+        "Retrieve 3 Euruskan Plans."
+      ],
+      "related": [
+        "Euruskan Plans"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "APC9 Pro",
+          "quantity": 1
+        },
+        {
+          "item": "Europa Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Up, Up, and Away": {
+      "name": "Up, Up, and Away",
+      "faction": "Eastern Consulate",
+      "location": "Stairway Gate",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Survive",
+      "objectives": [
+        "Extract from Stairway Gate"
+      ],
+      "related": [],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Eurasia Faction Rating",
+          "quantity": 14166
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    },
+    "Violence of Action": {
+      "name": "Violence of Action",
+      "faction": "Eurasia",
+      "location": "Scorched Enclave",
+      "questline": "Tutorial",
+      "questlineStep": "10",
+      "taskType": "Other",
+      "objectives": [
+        "Use an Adrenaline Stim on Scorched Enclave",
+        "Extract from Scorched Enclave in 90 seconds or less"
+      ],
+      "related": [
+        "Adrenaline Stim"
+      ],
+      "replayable": false,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Potato Chips",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 20000
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "VIP Treatment Pt. 1": {
+      "name": "VIP Treatment Pt. 1",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Stairway Gate",
+      "questline": "VIP Treatment",
+      "questlineStep": "1",
+      "taskType": "Collect",
+      "objectives": [
+        "Collect Personnel Data"
+      ],
+      "related": [
+        "Personnel Data"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "9x19mm Ammo",
+          "quantity": 100
+        },
+        {
+          "item": "APC9 Pro",
+          "quantity": 3
+        },
+        {
+          "item": "Credits",
+          "quantity": 6666
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 1000
+        }
+      ]
+    },
+    "VIP Treatment Pt. 2": {
+      "name": "VIP Treatment Pt. 2",
+      "faction": "СПЕЦНАЗ Commission",
+      "location": "Stairway Gate",
+      "questline": "VIP Treatment",
+      "questlineStep": "2",
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the VIP"
+      ],
+      "related": [
+        "Europan VIP"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 20000
+        },
+        {
+          "item": "Euruska Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 2
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Water Wars": {
+      "name": "Water Wars",
+      "faction": "Scavengers",
+      "location": "Frozen Swamp",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Kill",
+      "objectives": [
+        "Eliminate the Water Thieves"
+      ],
+      "related": [
+        "Water Thieves Clan"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Fast Travel Drone",
+          "quantity": 1
+        },
+        {
+          "item": "RPK",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 28333
+        },
+        {
+          "item": "Water",
+          "quantity": 5
+        },
+        {
+          "item": "XP",
+          "quantity": 5000
+        }
+      ]
+    },
+    "Whispers Beneath the Thunder": {
+      "name": "Whispers Beneath the Thunder",
+      "faction": "Scavengers",
+      "location": "Elephant Mausoleum",
+      "questline": null,
+      "questlineStep": null,
+      "taskType": "Other",
+      "objectives": [
+        "Help Civilians Escape in Elephant Mausoleum's Hangar"
+      ],
+      "related": [
+        "Civilian"
+      ],
+      "replayable": true,
+      "rewards": [
+        {
+          "item": "Credits",
+          "quantity": 13333
+        },
+        {
+          "item": "Power Cell",
+          "quantity": 1
+        },
+        {
+          "item": "Scavenger Faction Rating",
+          "quantity": 42500
+        },
+        {
+          "item": "Water",
+          "quantity": 1
+        },
+        {
+          "item": "XP",
+          "quantity": 500
+        }
+      ]
+    }
+  },
+  "tagMap": {
+    "Quest.Blueprint.Stairs.TransmitIntel": "Goose Chase",
+    "Quest.Bunco.Garage.01": "Garage Days Pt. 1",
+    "Quest.Bunco.Garage.02": "Garage Days Pt. 2",
+    "Quest.Bunco.Garage.03": "Garage Days Pt. 3",
+    "Quest.Bunco.Initial.Extract.Elephant": "Trial by Extraction Pt.1",
+    "Quest.Bunco.Initial.Extract.Trenches": "Trial by Extraction Pt.2",
+    "Quest.Bunco.Initial.Extract4P.Elephant": "Dead Men Walking",
+    "Quest.Bunco.Initial.ExtractStealth.Scorched": "Ghosts of the Enclave",
+    "Quest.Bunco.Initial.Fetch.Ashen.Water": "Down to the Last Drop Pt.2",
+    "Quest.Bunco.Initial.Fetch.Stairway.Water": "Down to the Last Drop Pt.1",
+    "Quest.Bunco.Initial.Fetch.Underground.Water": "Down to the Last Drop Pt.3",
+    "Quest.Bunco.Initial.Kill.Frozen.Eurasia": "Bunco's Bounties Pt.3",
+    "Quest.Bunco.Initial.Kill.Scorched.Europa": "Bunco's Bounties Pt.1",
+    "Quest.Bunco.Initial.Kill.Scrapyard.Euruska": "Bunco's Bounties Pt.2",
+    "Quest.Fetch.Scrapyard.TeddyBear": "Errand of Mercy",
+    "Quest.Kill.Underground.PackLeaders": "Alpha Threat",
+    "Quest.SideQuest.Bartender.01": "Fetch Bar Supplies",
+    "Quest.SideQuest.Cigs.01": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.02": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.03": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.04": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.05": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.06": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.07": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.08": "A Light in the Dark",
+    "Quest.SideQuest.Cigs.09": "A Light in the Dark",
+    "Quest.Superweapon.Railgun.Fetch.Elephant.Rails": "Electro-Magnetic Railway Pt.1",
+    "Quest.Fetch.AnyLevel.RatKingParts": "King of Kings",
+    "Quest.FTUE.01.DeliverWater": "Training",
+    "Quest.FTUE.02.Kill": "Training",
+    "Quest.FTUE.03.Extract": "Training",
+    "Quest.Fetch.AnyLevel.EuropaDroneParts": "Treasure in the Sky",
+    "Quest.Fetch.AnyLevel.BrawlerParts": "Cybernetic Heist",
+    "Quest.Fetch.Awareness.TechSchematics": "Target Awareness"
+  }
+}

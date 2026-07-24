@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml } = FW;
 function addCanonicalComponents(...args) { return FW.addCanonicalComponents(...args); }
 
 let _hubInventory = {};
@@ -24,6 +24,15 @@ async function loadHubUpgrades() {
   }
 }
 
+// Current unlocked/available/locked status for a tag, independent of search --
+// used both for the status filter and to build the searchable rows below.
+function hubUpgradeStatus(tag, unlockedTags) {
+  const meta = HUB_UPGRADE_META[tag];
+  const unlocked = unlockedTags.has(tag);
+  const prereqMet = !meta.prereq || unlockedTags.has(meta.prereq);
+  return unlocked ? 'unlocked' : (prereqMet ? 'available' : 'locked');
+}
+
 function renderHubUpgrades(unlockedTags) {
   _hubUnlockedTags = unlockedTags;
   const el = document.getElementById('hubUpgradesList');
@@ -34,14 +43,29 @@ function renderHubUpgrades(unlockedTags) {
     byCat[cat].push(tag);
   }
 
+  const query = (document.getElementById('hubSearch')?.value || '').trim();
+  const statusFilter = document.getElementById('hubStatusFilter')?.value || '';
+  const searchRows = HUB_UPGRADE_TAGS.map(tag => ({ tag, meta: HUB_UPGRADE_META[tag] }));
+  const searched = query ? filterAndRank(searchRows, query, r => [r.meta.name, r.meta.group || '', r.meta.desc || '', r.tag]) : searchRows;
+  const matchingTags = new Set(searched.map(r => r.tag).filter(tag => !statusFilter || hubUpgradeStatus(tag, unlockedTags) === statusFilter));
+
+  const summaryEl = document.getElementById('hubFilterSummary');
+  if (summaryEl) {
+    const parts = [];
+    if (statusFilter) parts.push(statusFilter);
+    if (query) parts.push(`"${query}"`);
+    summaryEl.innerHTML = (query || statusFilter) ? filterSummaryHtml(matchingTags.size, parts) : '';
+  }
+
   let html = '<div class="hub-toolbar">' +
     '<span class="hub-bulk-actions" hidden>' +
-    '<button data-action="bulk-hub" data-enabled="true">Unlock All Known</button> ' +
-    '<button class="danger-btn" data-action="bulk-hub" data-enabled="false">Clear All</button>' +
+    `<button data-action="bulk-hub" data-enabled="true">${actionIcon('unlock')}Unlock All Known</button> ` +
+    `<button class="danger-btn" data-action="bulk-hub" data-enabled="false">${actionIcon('trash')}Clear All</button>` +
     '</span>' +
     '<span class="hub-count" id="hubCount"></span>' +
     '</div>';
 
+  let anyCategoryVisible = false;
   for (const cat of ['terminals', 'welfare', 'special']) {
     if (!byCat[cat].length) continue;
     const catId = `hubcat-${cat}`;
@@ -52,18 +76,20 @@ function renderHubUpgrades(unlockedTags) {
     }
     const catBuilt = Object.values(groups).reduce((n, tags) => n + tags.filter(t => unlockedTags.has(t)).length, 0);
     const catTotal = Object.values(groups).reduce((n, tags) => n + tags.length, 0);
-    html += `<div class="hub-section">
-      <button type="button" class="hub-cat collapsible" data-action="toggle-section" data-target="${catId}" aria-expanded="true"><span class="hub-chevron">▾</span>${HUB_CATEGORY_LABELS[cat]} <span class="hub-cat-count">${catBuilt} / ${catTotal}</span></button>
-      <div class="hub-section-body" id="${catId}">`;
+    let catBodyHtml = '';
+    let catHasVisible = false;
      for (const [group, tags] of Object.entries(groups)) {
+        const visibleTags = tags.filter(t => matchingTags.has(t));
+        if (!visibleTags.length) continue;
+        catHasVisible = true;
         const groupId = 'hubgrp-' + cat + '-' + group.replace(/[^a-z0-9]/gi, '');
         const groupBuilt = tags.filter(t => unlockedTags.has(t)).length;
         const groupTotal = tags.length;
         const progress = groupTotal > 1 ? `<span class="hub-group-progress ${groupBuilt === groupTotal ? 'complete' : ''}">${groupBuilt} / ${groupTotal} built</span>` : '';
-        html += `<div class="hub-group">
+        catBodyHtml += `<div class="hub-group">
           <button type="button" class="hub-group-title collapsible" data-action="toggle-section" data-target="${groupId}" aria-expanded="true"><span class="hub-chevron">▾</span>${esc(group)} ${progress}</button>
           <div class="hub-cards" id="${groupId}">`;
-        for (const tag of tags) {
+        for (const tag of visibleTags) {
           const meta = HUB_UPGRADE_META[tag] || { name: tag.split('.').pop(), icon: '🔹', desc: '', group: 'Other' };
           const unlocked = unlockedTags.has(tag);
           const permanent = !!meta.permanent;
@@ -83,17 +109,20 @@ function renderHubUpgrades(unlockedTags) {
           const creditsLine = (credits && credits > 0) ? `<div class="hub-req-line">${appIcon('credits')} ${credits.toLocaleString()} CR</div>` : '';
           const timeLine = time ? `<div class="hub-req-line">${appIcon('time')} Build time: ${esc(time)}</div>` : '';
           const reqBlock = reqs.length
-            ? `<details class="hub-reqs"><summary>Required materials (${reqs.length})</summary><ul>${reqRows}</ul>${addableMissing ? `<button type="button" class="btn-ghost" data-action="add-upgrade-materials" data-tag="${esc(tag)}">Add verified missing materials</button>` : ''}</details>`
+            ? `<details class="hub-reqs"><summary>Required materials (${reqs.length})</summary><ul>${reqRows}</ul>${addableMissing ? `<button type="button" class="btn-ghost" data-action="add-upgrade-materials" data-tag="${esc(tag)}">${actionIcon('add')}Add verified missing materials</button>` : ''}</details>`
             : '';
           const canUnlock = !unlocked && prereqMet && !permanent;
+          const blockingDependentTag = unlocked ? findDependentTags(tag).find(t => unlockedTags.has(t)) : null;
+          const blockingDependentName = blockingDependentTag ? (HUB_UPGRADE_META[blockingDependentTag]?.name || blockingDependentTag) : '';
+          const canRemove = unlocked && !blockingDependentTag && !permanent;
           const status = unlocked ? 'unlocked' : (prereqMet ? 'available' : 'locked');
           const statusLabel = unlocked ? 'Unlocked' : (prereqMet ? 'Available to unlock' : 'Locked — needs prerequisite');
           const btn = permanent
             ? `<button disabled class="hub-btn perm-btn" title="Permanent unlock — cannot be changed or removed">Permanent</button>`
             : unlocked
-              ? `<button class="hub-btn lock-btn" data-action="toggle-upgrade" data-tag="${esc(tag)}" data-enabled="false">Lock / Remove</button>`
-              : `<button class="hub-btn unlock-btn" ${canUnlock ? '' : 'disabled'} data-action="toggle-upgrade" data-tag="${esc(tag)}" data-enabled="true">Unlock</button>`;
-          html += `<div class="hub-card ${status} ${permanent ? 'perm' : ''}">
+              ? `<button class="hub-btn lock-btn" ${canRemove ? '' : 'disabled'} data-action="toggle-upgrade" data-tag="${esc(tag)}" data-enabled="false"${blockingDependentTag ? ` title="Remove ${esc(blockingDependentName)} first"` : ''}>${actionIcon('lock')}Remove</button>`
+              : `<button class="hub-btn unlock-btn" ${canUnlock ? '' : 'disabled'} data-action="toggle-upgrade" data-tag="${esc(tag)}" data-enabled="true">${actionIcon('unlock')}Unlock</button>`;
+          catBodyHtml += `<div class="hub-card ${status} ${permanent ? 'perm' : ''}">
             <div class="hub-card-head">
             <span class="hub-icon">${appIcon(meta.icon)}</span>
               <span class="hub-name">${esc(meta.name)}</span>
@@ -102,17 +131,38 @@ function renderHubUpgrades(unlockedTags) {
             ${water ? `<div class="hub-cost">${appIcon('water')} ${water} days water to unlock</div>` : ''}
             <div class="hub-desc">${esc(meta.desc || '')}</div>
             ${meta.prereq ? `<div class="hub-prereq ${prereqMet ? '' : 'unmet'}">Requires: ${esc(prereqName)}${prereqMet ? ' ✓' : ' ✗'}</div>` : ''}
+            ${blockingDependentTag ? `<div class="hub-prereq unmet">Blocks removal: ${esc(blockingDependentName)} is still unlocked</div>` : ''}
             ${creditsLine}${timeLine}${reqBlock}
             ${btn}
           </div>`;
         }
-        html += '</div></div>';
+        catBodyHtml += '</div></div>';
       }
-    html += '</div></div>';
+    if (!catHasVisible) continue;
+    anyCategoryVisible = true;
+    html += `<div class="hub-section">
+      <button type="button" class="hub-cat collapsible" data-action="toggle-section" data-target="${catId}" aria-expanded="true"><span class="hub-chevron">▾</span>${HUB_CATEGORY_LABELS[cat]} <span class="hub-cat-count">${catBuilt} / ${catTotal}</span></button>
+      <div class="hub-section-body" id="${catId}">${catBodyHtml}</div></div>`;
    }
+
+  if (!anyCategoryVisible) {
+    html += '<div class="empty-state"><strong>No upgrades match these filters</strong><br>Try a different search or status.</div>';
+  }
 
   setRenderedHtml(el, html);
   updateHubCount(unlockedTags);
+}
+
+function filterHubUpgrades() {
+  renderHubUpgrades(_hubUnlockedTags);
+}
+
+// Upgrades whose prereq is this tag -- i.e. what currently sits "on top of"
+// it in the chain. Mirrors canUnlock's forward-direction prereq check so
+// removal enforces the same linear ordering (can't remove v2 while v3, which
+// requires v2, is still unlocked).
+function findDependentTags(tag) {
+  return HUB_UPGRADE_TAGS.filter(t => HUB_UPGRADE_META[t] && HUB_UPGRADE_META[t].prereq === tag);
 }
 
 function toggleSection(id, control) {
@@ -190,7 +240,7 @@ async function addUpgradeMaterials(tag, button) {
   renderHubUpgrades(_hubUnlockedTags);
 }
 
-expose({ loadHubUpgrades, confirmBulkHub, toggleSection, toggleHubUpgrade, addUpgradeMaterials });
+expose({ loadHubUpgrades, confirmBulkHub, toggleSection, toggleHubUpgrade, addUpgradeMaterials, filterHubUpgrades });
 
 // Friendly weapon metadata: scope suffix (after 'Scope.Weapon.') -> {name, cat}.
 // Categories use the wiki's weapon classes. Gunhead-specific variants are

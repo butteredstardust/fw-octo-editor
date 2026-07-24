@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-22T18:04:08.636Z",
+  "counts": {
+    "wikiQuestsTotal": 188,
+    "mappedTags": 34,
+    "distinctWikiQuestsReferenced": 24
+  },
+  "note": "Save-file quest tags not present in tagMap render with a prettified fallback of the raw tag instead of wiki-sourced data (see saveService.js questFriendlyData())."
+}
