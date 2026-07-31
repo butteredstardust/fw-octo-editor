@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast, userMessage, errorDetailHtml } = FW;
 
 const WEAPON_META = {
   'PST01': { name: 'USP', cat: 'Pistols' },
@@ -102,12 +102,12 @@ function weaponTargetXp(weapon) {
 }
 
 let presetData=null;
-async function loadPresets(){showLoading(document.getElementById('presetContent'),6,'Loading presets');try{presetData=await api('/presets');document.getElementById('presetType').value=sessionStorage.getItem('presetType')||'weapons';renderPresets();}catch(error){setRenderedHtml(document.getElementById('presetContent'),`<div class="empty-state"><strong>Error</strong><br>${esc(error.message)}</div>`);}}
+async function loadPresets(){showLoading(document.getElementById('presetContent'),6,'Loading presets');try{presetData=await api('/presets');document.getElementById('presetType').value=sessionStorage.getItem('presetType')||'weapons';renderPresets();}catch(error){setRenderedHtml(document.getElementById('presetContent'),`<div class="empty-state"><strong>Could not load presets</strong><br>${errorDetailHtml(error,'Presets could not be read.')}</div>`);}}
 function presetToken(row){return JSON.stringify(row).toLowerCase();}
 function renderPresets(){if(!presetData)return;const q=document.getElementById('presetSearch').value.trim().toLowerCase(),type=document.getElementById('presetType').value,weaponRows=(type==='rigs'?[]:presetData.weapons).filter(row=>!q||presetToken(row).includes(q)).sort((a,b)=>(b.bisScore??-1)-(a.bisScore??-1)),rigRows=(type==='weapons'?[]:presetData.rigs).filter(row=>!q||presetToken(row).includes(q));const cards=[];for(const row of weaponRows)cards.push(`<article class="preset-card ${row.active?'is-active':''}"><header>${itemTypeIcon('weapon')}<div><span class="eyebrow">${esc(row.category)} · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.weaponId,'Show weapon technical ID')}</h3><p>${esc(row.weaponName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}${row.bisScore!=null?`<span class="preset-badge score">BIS ${esc(row.bisScore)}</span>`:''}</div></header><div class="preset-parts">${row.attachments.map(part=>`<div class="preset-part ${part.placeholder?'placeholder':''}"><span>${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')||'<p>No changed attachment overrides.</p>'}</div><footer>${row.bisSupported?`<span>${row.bisMatches} saved overrides match BIS</span><details><summary>${row.bisMissing.length} BIS parts not present in saved overrides</summary><ul>${row.bisMissing.map(part=>`<li>${esc(part.slot)}: ${esc(part.name)}</li>`).join('')}</ul></details>`:'<span>No supported BIS comparison.</span>'}</footer></article>`);for(const row of rigRows)cards.push(`<article class="preset-card"><header>${itemTypeIcon('rig equipment')}<div><span class="eyebrow">Rig preset · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.rigId,'Show rig technical ID')}</h3><p>${esc(row.rigName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}</div></header><div class="preset-parts">${[...row.containers.map(part=>({...part,kind:'Container'})),...row.frames.map(part=>({...part,kind:'Frame'}))].map(part=>`<div class="preset-part"><span>${esc(part.kind)} ${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')}</div></article>`);document.getElementById('presetStatus').textContent=`Showing ${cards.length} of ${presetData.summary.weaponPresets+presetData.summary.rigPresets} saved presets.`;setRenderedHtml(document.getElementById('presetContent'),`<div class="preset-summary"><strong>${presetData.summary.weaponPresets}</strong> weapon presets · <strong>${presetData.summary.rigPresets}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset||'none')}</strong></div><div class="preset-grid">${cards.join('')||'<div class="empty-state"><strong>No presets match these filters</strong><br>Try a different filter.</div>'}</div>`);}
 
 let weaponBuildData=null;
-async function loadWeaponBuilds(){showLoading(document.getElementById('weaponBuildContent'),4,'Loading weapon builds');try{weaponBuildData=await api('/weapon-builds');const category=document.getElementById('weaponBuildCategory');category.innerHTML='<option value="">All categories</option>'+weaponBuildData.categories.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('');category.value=sessionStorage.getItem('weaponBuildCategory')||'';updateOwnedWeaponBuildAction();renderWeaponBuildSelector();}catch(error){setRenderedHtml(document.getElementById('weaponBuildContent'),`<div class="empty-state"><strong>Error</strong><br>${esc(error.message)}</div>`);}}
+async function loadWeaponBuilds(){showLoading(document.getElementById('weaponBuildContent'),4,'Loading weapon builds');try{weaponBuildData=await api('/weapon-builds');const category=document.getElementById('weaponBuildCategory');category.innerHTML='<option value="">All categories</option>'+weaponBuildData.categories.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('');category.value=sessionStorage.getItem('weaponBuildCategory')||'';updateOwnedWeaponBuildAction();renderWeaponBuildSelector();}catch(error){setRenderedHtml(document.getElementById('weaponBuildContent'),`<div class="empty-state"><strong>Could not load weapon builds</strong><br>${errorDetailHtml(error,'Weapon builds could not be read.')}</div>`);}}
 
 function updateOwnedWeaponBuildAction() {
   const button = document.getElementById('weaponBuildAddOwned');
@@ -202,8 +202,8 @@ async function addWeaponBuildPart(weaponId,partId,button){
     const next=document.querySelector(`[data-action="weapon-build-add-part"][data-part-id="${CSS.escape(partId)}"]`);
     (next||document.getElementById('weaponBuildSelect')).focus();
   }catch(error){
-    setOperationFeedback('weaponBuildsOperationStatus',error.message,error.payload,'error');
-    showToast(error.message,'error');
+    setOperationFeedback('weaponBuildsOperationStatus',userMessage(error,'That part could not be added.'),error.payload,'error',error);
+    showToast(userMessage(error,'That part could not be added.'),'error');
     button.disabled=false;
   }
 }
@@ -216,8 +216,8 @@ async function addMissingWeaponBuildBundle(id,button){
     setOperationFeedback('weaponBuildsOperationStatus',`Added ${result.added.length} item(s).`,result,result.success?'success':'error');
     await loadWeaponBuilds();
   }catch(error){
-    setOperationFeedback('weaponBuildsOperationStatus',error.message,error.payload,'error');
-    showToast(error.message,'error');
+    setOperationFeedback('weaponBuildsOperationStatus',userMessage(error,'The weapon and its missing parts could not be added.'),error.payload,'error',error);
+    showToast(userMessage(error,'The weapon and its missing parts could not be added.'),'error');
     button.disabled=false;
   }
 }
@@ -232,8 +232,8 @@ async function addMissingForOwnedWeapons(){
     setOperationFeedback('weaponBuildsOperationStatus',`Added ${result.added.length} unique parts for ${result.weaponCount} owned weapons.`,result,result.success?'success':'error');
     await loadWeaponBuilds();
   }catch(error){
-    setOperationFeedback('weaponBuildsOperationStatus',error.message,error.payload,'error');
-    showToast(error.message,'error');
+    setOperationFeedback('weaponBuildsOperationStatus',userMessage(error,'Missing parts for owned weapons could not be added.'),error.payload,'error',error);
+    showToast(userMessage(error,'Missing parts for owned weapons could not be added.'),'error');
   }finally{
     button.disabled=false;
   }
@@ -258,7 +258,7 @@ async function loadWeaponXp() {
 
     renderWeaponXp();
   } catch (err) {
-    el.textContent = 'Error: ' + err.message;
+    el.innerHTML = `<div class="empty-state"><strong>Could not load weapon XP</strong><br>${errorDetailHtml(err, 'Weapon XP could not be read.')}</div>`;
   }
 }
 
@@ -350,7 +350,7 @@ async function setAllToReference() {
     loadWeaponXp();
     setOperationFeedback('weaponXpOperationStatus', `Batch complete: ${r.updated} updated, ${r.failed} failed.`, r, r.afterIntegrity.passed && !r.failed ? 'success' : 'error');
   } catch (e) {
-    setOperationFeedback('weaponXpOperationStatus', `Batch update failed: ${e.message}`, e.payload, 'error');
+    setOperationFeedback('weaponXpOperationStatus', userMessage(e, 'The batch weapon XP update failed.'), e.payload, 'error', e);
     loadWeaponXp();
   }
 }

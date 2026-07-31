@@ -1,6 +1,7 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, actionIcon, receiptHtml, receiptSummary } = FW;
+const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, actionIcon, receiptHtml, receiptSummary, userMessage, errorDetailHtml } = FW;
+function refreshSafetyStatus(...args) { return FW.refreshSafetyStatus?.(...args); }
 
 // "Worth keeping" items per https://theforeverwinter.wiki.gg/wiki/Guides/Items_to_keep,
 // keyed by WIKI display name (matched against describeItem(id).wiki -- the
@@ -127,12 +128,22 @@ function itemDescription(description, buffs, debuffs) {
   return `<div class="item-desc">${descLine}${buffLine}${debuffLine}</div>`;
 }
 
+// Tracks whether the last loadCatalog() attempt failed, so pages that depend
+// on it (Manage Inventory, Add Items) can tell the user their item names/
+// categories are degraded instead of silently rendering raw internal IDs.
+let _catalogLoadFailed = false;
+
 async function loadCatalog() {
   if (Object.keys(_catalog).length) return;
   try {
-    _catalog = await (await fetch('catalog.json')).json();
+    const response = await fetch('catalog.json');
+    if (!response.ok) throw new Error(`catalog.json request failed (HTTP ${response.status})`);
+    _catalog = await response.json();
+    _catalogLoadFailed = false;
   } catch (e) {
     _catalog = {};
+    _catalogLoadFailed = true;
+    showToast(userMessage(e, 'Could not load the item catalog. Item names and categories will be limited until this is fixed.'), 'error');
   }
 }
 
@@ -153,6 +164,15 @@ function describeItem(name) {
 
 function invSubTypes(cat) {
   return (_invSubByCat[cat] || []).slice();
+}
+
+// Shown at the top of Manage Inventory / Add Items whenever the wiki item
+// catalog failed to load, so degraded item names/categories/icons are never
+// silently presented as if everything loaded fine.
+function catalogWarningHtml() {
+  return _catalogLoadFailed
+    ? '<div class="empty-state catalog-warning" role="alert"><strong>Item catalog failed to load</strong><br>Item names, categories, and icons may show as raw internal IDs until this is fixed. Reload the page to try again.</div>'
+    : '';
 }
 
 async function loadInventory() {
@@ -178,7 +198,7 @@ async function loadInventory() {
     populateInvSubFilter();
     renderInventory();
   } catch (err) {
-    el.textContent = 'Error: ' + err.message;
+    el.innerHTML = `<div class="empty-state"><strong>Could not load inventory</strong><br>${errorDetailHtml(err, 'The inventory could not be read.')}</div>`;
   }
 }
 
@@ -244,7 +264,7 @@ function renderInventory() {
   if (invalidOnly) parts.push('invalid');
   document.getElementById('invFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
-  if (!rows.length) { el.innerHTML = '<div class="empty-state"><strong>No matching items</strong><br>Try fewer words or clear a filter.</div>'; return; }
+  if (!rows.length) { el.innerHTML = `${catalogWarningHtml()}<div class="empty-state"><strong>No matching items</strong><br>Try fewer words or clear a filter.</div>`; return; }
 
   const groups = {};
   for (const r of rows) (groups[r.d.cat] = groups[r.d.cat] || []).push(r);
@@ -260,7 +280,8 @@ function renderInventory() {
   }
 
   const totalUnits = rows.reduce((n, r) => n + (r.quantity || 0), 0);
-  let html = `<div class="inv-summary-line">${rows.length} item type(s) · ${totalUnits.toLocaleString()} total unit(s) shown · ` +
+  let html = catalogWarningHtml();
+  html += `<div class="inv-summary-line">${rows.length} item type(s) · ${totalUnits.toLocaleString()} total unit(s) shown · ` +
     `<button type="button" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="true">expand all</button> · ` +
     `<button type="button" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="false">collapse all</button></div>`;
   for (const cat of catsShown) {
@@ -369,7 +390,7 @@ async function loadAddCatalog() {
     populateAddSubFilter();
     renderAddCatalog();
   } catch (err) {
-    el.textContent = 'Error: ' + err.message;
+    el.innerHTML = `<div class="empty-state"><strong>Could not load the item catalog</strong><br>${errorDetailHtml(err, 'The item catalog could not be read.')}</div>`;
   }
 }
 
@@ -523,7 +544,7 @@ async function addItem(encId) {
   const result = await api('/inventory/add', {
     method: 'POST', body: JSON.stringify(body)
   }).catch(err => {
-    if (inline) { inline.className = 'operation-inline error'; inline.textContent = err.message; }
+    if (inline) { inline.className = 'operation-inline error'; inline.innerHTML = errorDetailHtml(err, 'This item could not be added.'); }
     showToast(`Could not add ${cat?.wiki || cleanFallbackName(id)}.`, 'error');
     return null;
   });
@@ -575,7 +596,7 @@ async function loadRigs() {
     classSelect.value = classes.includes(saved.weightClass) ? saved.weightClass : '';
     renderRigs();
   } catch (error) {
-    list.innerHTML = `<div class="empty-state"><strong>Rigs could not be read</strong><br>${esc(error.message)}</div>`;
+    list.innerHTML = `<div class="empty-state"><strong>Rigs could not be read</strong><br>${errorDetailHtml(error, 'The rig list could not be read.')}</div>`;
   } finally {
     list.setAttribute('aria-busy', 'false');
   }
@@ -680,7 +701,7 @@ async function addRig(encId) {
     refreshSafetyStatus();
   } catch (error) {
     inline.className = 'operation-inline error';
-    inline.textContent = error.message;
+    inline.innerHTML = errorDetailHtml(error, 'This rig could not be added.');
     showToast(`Could not add ${rig.name}.`, 'error');
   }
 }
@@ -708,7 +729,7 @@ async function addRigKit(encId) {
     refreshSafetyStatus();
   } catch (error) {
     inline.className = 'operation-inline error';
-    inline.textContent = error.message;
+    inline.innerHTML = errorDetailHtml(error, 'The HQ container set could not be added.');
     showToast(`Could not add the ${rig.name} HQ set.`, 'error');
   }
 }
@@ -746,7 +767,7 @@ async function updateItem(encName) {
     showToast(`${name} set to ${qty.toLocaleString()}.`);
     setTimeout(loadInventory, 700);
   } catch (err) {
-    if (inline) { inline.className = 'operation-inline error'; inline.textContent = 'Error: ' + err.message; }
+    if (inline) { inline.className = 'operation-inline error'; inline.innerHTML = errorDetailHtml(err, 'This quantity could not be saved.'); }
     showToast(`Could not update ${name}.`, 'error');
   } finally {
     if (button) setLocalBusy(button, false);

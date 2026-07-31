@@ -2,7 +2,7 @@ import { FW, expose } from '../runtime.mjs';
 import { RECIPE_DATA } from '../recipe-data.mjs';
 import { recipePlannerTotals } from '../recipe-planner.mjs';
 
-const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml } = FW;
+const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml, showLoading, userMessage, errorDetailHtml } = FW;
 
 // Recipes only come from two stations, so a station-level icon (rather than a
 // guess per product name) is the reliable signal available at render time.
@@ -16,10 +16,14 @@ async function loadSettings() {
   const defDirEl = document.getElementById('settingsDefaultDir');
   const dbKeyEl = document.getElementById('settingsDbKey');
   const dbKeyHintEl = document.getElementById('settingsDbKeyHint');
-  statusEl.textContent = 'Loading…';
+  showLoading(statusEl, 2, 'Loading settings');
   try {
     const s = await api('/settings');
-    defDirEl.textContent = s.defaultSaveDir;
+    // Both directories can come back empty when the save location has not been
+    // detected yet. Without a fallback the page renders "Defaults to ." and a
+    // bare "Active save directory:", which reads as a broken app rather than an
+    // undetected path.
+    defDirEl.textContent = s.defaultSaveDir || 'an automatically detected location';
     dirEl.value = s.saveDir || '';
     // Write-only field: never populate it with the current key, even though
     // we can't know it (the server never returns key material either way).
@@ -27,12 +31,12 @@ async function loadSettings() {
     dbKeyHintEl.textContent = s.hasCustomKey
       ? 'Using your custom key. Leave the field blank and click "Use default key" to switch back to the bundled key.'
       : 'Using the bundled application key. Enter a key above only if your save needs a different one.';
-    const active = s.activeSaveDir || s.defaultSaveDir;
-    statusEl.innerHTML =
+    const active = s.activeSaveDir || s.defaultSaveDir || 'not set — using the default location';
+    setRenderedHtml(statusEl,
       `<div>Active save directory: <span class="active-dir">${esc(active)}</span></div>` +
-      `<div>DB key source: ${s.hasCustomKey ? 'your custom key' : 'bundled application resource'} (stored encrypted, never as plain text).</div>`;
+      `<div>DB key source: ${s.hasCustomKey ? 'your custom key' : 'bundled application resource'} (stored encrypted, never as plain text).</div>`);
   } catch (e) {
-    statusEl.textContent = 'Error loading settings: ' + e.message;
+    setRenderedHtml(statusEl, `<div class="empty-state"><strong>Could not load settings</strong><br>${errorDetailHtml(e, 'Settings could not be read.')}</div>`);
   }
 }
 
@@ -56,8 +60,8 @@ async function clearDbKey() {
     await loadSettings();
   } catch (e) {
     msg.className = 'settings-msg err';
-    msg.textContent = 'Error: ' + e.message;
-    showToast(`Could not switch key: ${e.message}`, 'error');
+    msg.innerHTML = errorDetailHtml(e, 'Could not switch to the default key.');
+    showToast(`Could not switch key: ${userMessage(e, 'see the error for details')}`, 'error');
   }
 }
 
@@ -116,8 +120,8 @@ async function saveSettings() {
     return s;
   } catch (e) {
     msg.className = 'settings-msg err';
-    msg.textContent = 'Error: ' + e.message;
-    showToast(`Could not save settings: ${e.message}`, 'error');
+    msg.innerHTML = errorDetailHtml(e, 'Settings could not be saved.');
+    showToast(`Could not save settings: ${userMessage(e, 'see the error for details')}`, 'error');
   }
 }
 
@@ -204,7 +208,7 @@ function renderCraftingGrid() {
   if (stateFilter !== 'any') parts.push(stateFilter === 'ready' ? 'ready to craft' : 'missing components');
   document.getElementById('craftingFilterSummary').innerHTML = filterSummaryHtml(computed.length, parts);
 
-  if (!computed.length) { grid.innerHTML = '<div class="empty-state"><strong>No matching recipes</strong><br>Try another product or component name.</div>'; return; }
+  if (!computed.length) { setRenderedHtml(grid, '<div class="empty-state"><strong>No matching recipes</strong><br>Try another product or component name.</div>'); return; }
   setRenderedHtml(grid, computed.map(renderRecipeCard).join(''));
 }
 
@@ -234,18 +238,30 @@ async function addCanonicalComponents(components, inventory, mode, messageEl, bu
   if (!await confirmAction(`Experimental: add ${list.length} verified component type(s)? ${unsupported.length ? unsupported.length + ' unsupported requirement(s) will be skipped. ' : ''}Make a backup first.`, { title: 'Add crafting components', acceptLabel: 'Add Components', tone: 'warning', icon: 'add' })) return;
   buttons.forEach(button => { button.disabled = true; }); messageEl.className = 'settings-msg'; messageEl.setAttribute('aria-busy', 'true');
   let updated = 0, failed = 0;
+  // Per-item failures (both the initial add and its update fallback) are
+  // collected here rather than only console.error'd, so the summary line
+  // below can honestly report which components didn't make it in instead of
+  // just an aggregate "updated" count that looks like a clean success.
+  const failures = [];
   for (const component of list) {
     try {
       const response = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: component.itemId, quantity: component.addQuantity, sourceMap: component.sourceMap }) });
       if (response.added === false) await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: component.itemId, quantity: (inventory[component.itemId] || 0) + component.addQuantity, sourceMap: component.sourceMap }) });
       updated++;
-    } catch (error) { failed++; console.error('canonical component add failed', component.itemId, error.message); }
+    } catch (error) {
+      failed++;
+      failures.push({ name: component.name, error });
+      console.error('canonical component add failed', component.itemId, error.message);
+    }
     messageEl.textContent = `Updating ${updated + failed} of ${list.length}…`;
   }
   const items = await api('/inventory').catch(() => []); for (const item of items) inventory[item.name] = item.quantity;
   buttons.forEach(button => { button.disabled = false; }); messageEl.removeAttribute('aria-busy'); messageEl.className = failed ? 'settings-msg err' : 'settings-msg ok';
-  messageEl.textContent = `Verified ${updated} component type(s)${failed ? '; ' + failed + ' failed' : ''}${unsupported.length ? '; ' + unsupported.length + ' unsupported requirement(s) skipped' : ''}.`;
-  showToast(failed ? `${updated} updated; ${failed} failed.` : `${updated} component types added and verified.`, failed ? 'error' : 'success');
+  const failureDetail = failures.length
+    ? `<br>${failures.map(f => `${esc(f.name)}: ${errorDetailHtml(f.error, 'could not be added')}`).join('<br>')}`
+    : '';
+  messageEl.innerHTML = `Verified ${updated} component type(s)${failed ? '; ' + failed + ' failed' : ''}${unsupported.length ? '; ' + unsupported.length + ' unsupported requirement(s) skipped' : ''}.${failureDetail}`;
+  showToast(failed ? `${updated} updated; ${failed} failed. Some components could not be added -- see the crafting card for details.` : `${updated} component types added and verified.`, failed ? 'error' : 'success');
 }
 
 async function craftingAdd(encRecipeId, mode) {
@@ -262,12 +278,13 @@ async function craftingAddMissing(encRecipeId) { await craftingAdd(encRecipeId, 
 async function craftingAddAll(encRecipeId) { await craftingAdd(encRecipeId, 'all'); }
 async function loadCrafting() {
   const grid = document.getElementById('craftingGrid');
+  showLoading(grid, 6, 'Loading crafting recipes');
   try {
     const items = await api('/inventory');
     _craftingInventory = {};
     for (const item of items) _craftingInventory[item.name] = item.quantity;
   } catch (error) {
-    grid.innerHTML = `<div class="empty-state"><strong>Could not read inventory</strong><br>${esc(error.message)}</div>`;
+    setRenderedHtml(grid, `<div class="empty-state"><strong>Could not read inventory</strong><br>${errorDetailHtml(error, 'The inventory could not be read.')}</div>`);
     return;
   }
   renderCraftingGrid();

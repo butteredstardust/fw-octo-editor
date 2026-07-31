@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, technicalDetails, WEAPON_META } = FW;
+const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, technicalDetails, WEAPON_META, userMessage, errorDetailHtml } = FW;
 function loadDashboard(...args) { return FW.loadDashboard(...args); }
 function describeItem(...args) { return FW.describeItem(...args); }
 
@@ -70,7 +70,7 @@ async function loadVendors() {
     const data = await api('/vendors');
     renderVendors(data);
   } catch (err) {
-    el.textContent = 'Error: ' + err.message;
+    el.innerHTML = `<div class="empty-state"><strong>Could not load vendors</strong><br>${errorDetailHtml(err, 'Vendor data could not be read.')}</div>`;
   }
 }
 
@@ -451,7 +451,7 @@ async function loadRepair() {
     const data = await api('/repair');
     renderRepairStatus(data);
   } catch (err) {
-    el.textContent = 'Error: ' + err.message;
+    el.innerHTML = `<div class="empty-state"><strong>Could not load the repair bench</strong><br>${errorDetailHtml(err, 'Repair bench data could not be read.')}</div>`;
   }
 }
 
@@ -479,7 +479,7 @@ async function markQuestReady(questId) {
     setOperationFeedback('dashboardOperationStatus', `Quest ${questId} is marked ready. Open the game to turn it in.`, result, result.afterIntegrity.passed ? 'success' : 'error');
     loadDashboard();
   } catch (e) {
-    setOperationFeedback('dashboardOperationStatus', `Quest update failed: ${e.message}`, e.payload, 'error');
+    setOperationFeedback('dashboardOperationStatus', userMessage(e, 'The quest could not be marked ready.'), e.payload, 'error', e);
   }
 }
 

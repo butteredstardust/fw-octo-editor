@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META } = FW;
+const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META, errorDetailHtml } = FW;
 
 // Friendly names + blurbs sourced from https://theforeverwinter.wiki.gg/wiki/Maps.
 // Keyed by a canonical short id that both naming conventions the save uses
@@ -305,7 +305,7 @@ async function loadStats() {
     ].join('');
     setRenderedHtml(el, html || '<div class="empty-state"><strong>No stats found</strong></div>');
   } catch (error) {
-    setRenderedHtml(el, `<div class="empty-state"><strong>Error</strong><br>${esc(error.message)}</div>`);
+    setRenderedHtml(el, `<div class="empty-state"><strong>Could not load stats</strong><br>${errorDetailHtml(error, 'Stats could not be read.')}</div>`);
   }
 }
 

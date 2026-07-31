@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, errorDetailHtml } = FW;
 function addCanonicalComponents(...args) { return FW.addCanonicalComponents(...args); }
 
 let _hubInventory = {};
@@ -20,7 +20,7 @@ async function loadHubUpgrades() {
     );
     renderHubUpgrades(unlockedTags);
   } catch (err) {
-    setRenderedHtml(document.getElementById('hubUpgradesList'), `<div class="empty-state"><strong>Error</strong><br>${esc(err.message)}</div>`);
+    setRenderedHtml(document.getElementById('hubUpgradesList'), `<div class="empty-state"><strong>Could not load Innards upgrades</strong><br>${errorDetailHtml(err, 'Innards upgrades could not be read.')}</div>`);
   }
 }
 

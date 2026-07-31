@@ -209,3 +209,34 @@ body {
 .wbr-suppressed{font-size:.62rem;text-transform:uppercase;letter-spacing:.03em;color:transparent;text-align:right;white-space:nowrap}
 .wbr-suppressed.yes{color:var(--teal-soft)}
 @media(max-width:700px){.wbr-row{grid-template-columns:1.6rem minmax(0,1fr) 3.4rem}.wbr-parts,.wbr-suppressed{display:none}}
+
+/* Sidebar SYSTEM group (Backups/Diagnostics/Settings) was sitting below the
+   fold with no scroll cue at common laptop heights (e.g. 1366x768) -- the
+   nav already scrolls internally (see .nav in the base rule above), so
+   Backups, the most safety-critical page in the app, was effectively
+   undiscoverable on first load. Tighten density at short viewports and pair
+   it with an always-available fade+chevron affordance below (not gated to
+   this media query, since density tuning alone can't guarantee every
+   possible viewport/zoom/font-size combination fits). */
+@media (max-height:850px) {
+  .nav { padding:.6rem .75rem 1.4rem; }
+  .nav-group { margin-bottom:.4rem; }
+  .nav-group-title { margin:.1rem .65rem .2rem; font-size:.6rem; }
+  .nav button { min-height:1.9rem; margin:.03rem 0; padding:.32rem .65rem; font-size:.86rem; }
+  .nav-icon { width:15px; height:15px; flex:0 0 15px; margin-right:.5rem; }
+}
+.nav-scroll-hint { position:sticky; bottom:0; left:0; right:0; height:30px; margin-top:-30px; pointer-events:none; display:flex; align-items:flex-end; justify-content:center; padding-bottom:2px; background:linear-gradient(180deg,rgba(13,14,17,0),rgba(13,14,17,.94) 72%); opacity:0; transition:opacity .15s ease; }
+.nav-scroll-hint.visible { opacity:1; }
+.nav-scroll-hint svg { width:14px; height:14px; fill:none; stroke:var(--amber-soft); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; animation:nav-scroll-bounce 1.3s ease-in-out infinite; }
+@keyframes nav-scroll-bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(3px); } }
+@media (prefers-reduced-motion:reduce) { .nav-scroll-hint svg { animation:none; } }
+
+/* First-run preflight panel (see updatePreflightPanel() in system.mjs):
+   informational and dismissible, never a modal/focus trap. */
+.preflight-panel { margin:.75rem clamp(.75rem,2vw,2rem) 0; padding:.85rem 1rem; border:1px solid var(--red-border); border-left:4px solid var(--red); border-radius:8px; background:var(--red-bg); display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
+.preflight-panel[hidden] { display:none; }
+.preflight-body { flex:1 1 320px; min-width:0; }
+.preflight-body strong { display:block; margin-bottom:.35rem; color:var(--red); font-size:.92rem; }
+.preflight-body p { margin:.3rem 0; font-size:.82rem; line-height:1.45; color:var(--text-2); }
+.preflight-actions { display:flex; gap:.5rem; flex-wrap:wrap; align-items:flex-start; }
+@media (max-width:780px) { .preflight-panel { flex-direction:column; } .preflight-actions { width:100%; } .preflight-actions button { flex:1 1 auto; } }
