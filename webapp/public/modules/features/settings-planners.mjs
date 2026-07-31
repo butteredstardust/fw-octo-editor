@@ -231,7 +231,7 @@ async function addCanonicalComponents(components, inventory, mode, messageEl, bu
   const unsupported = components.filter(component => !component.writable || !component.itemId);
   const list = components.filter(component => component.writable && component.itemId).map(component => ({ ...component, addQuantity: mode === 'all' ? component.total : component.missing })).filter(component => component.addQuantity > 0);
   if (!list.length) { messageEl.className = unsupported.length ? 'settings-msg warn' : 'settings-msg ok'; messageEl.textContent = unsupported.length ? `Nothing safely writable to add; ${unsupported.length} requirement(s) remain informational.` : 'Nothing to add — verified requirements are already covered.'; return; }
-  if (!await confirmAction(`Experimental: add ${list.length} verified component type(s)? ${unsupported.length ? unsupported.length + ' unsupported requirement(s) will be skipped. ' : ''}Make a backup first.`)) return;
+  if (!await confirmAction(`Experimental: add ${list.length} verified component type(s)? ${unsupported.length ? unsupported.length + ' unsupported requirement(s) will be skipped. ' : ''}Make a backup first.`, { title: 'Add crafting components', acceptLabel: 'Add Components', tone: 'warning', icon: 'add' })) return;
   buttons.forEach(button => { button.disabled = true; }); messageEl.className = 'settings-msg'; messageEl.setAttribute('aria-busy', 'true');
   let updated = 0, failed = 0;
   for (const component of list) {

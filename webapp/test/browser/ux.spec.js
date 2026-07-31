@@ -30,6 +30,8 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/dashboard') body = options.dashboard || { character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 }, loadout: {}, quests: [], inventory: [], currencies: { WaterBarrels: 10, TestCurrency: 20 } };
     else if (pathname === '/api/vendors') body = { factions: [], traders: [] };
     else if (pathname === '/api/characters') body = options.characters || [];
+    else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
+    else if (pathname === '/api/weapon-builds') body = options.weaponBuilds || { categories: [], weapons: [] };
     else if (pathname === '/api/hub-upgrades') body = [];
     else if (pathname === '/api/inventory') body = [];
     else if (pathname === '/api/weapon-xp') body = options.weaponXp || [];
@@ -48,7 +50,7 @@ test('native modules and external styles boot without frontend errors', async ({
   page.on('requestfailed', request => failedAssets.push(request.url()));
   await mockApi(page);
   await page.goto(baseURL);
-  await expect(page.locator('[data-action="set-resource"]')).toHaveCount(5);
+  await expect(page.locator('[data-action="set-resource"]')).toHaveCount(2);
   expect(pageErrors).toEqual([]);
   expect(failedAssets).toEqual([]);
   expect(await page.locator('style').count()).toBe(0);
@@ -139,4 +141,68 @@ test('API-provided markup is rendered as inert text', async ({ page }) => {
   await expect(page.locator('#charactersList')).toContainText(payload);
   await expect(page.locator('[data-escape-probe]')).toHaveCount(0);
   expect(await page.evaluate(() => window.__escapeProbe)).toBeUndefined();
+});
+
+test('confirmation dialog uses action-specific tone and Cancel/Escape are no-ops with focus return', async ({ page }) => {
+  const weapon = { id: 'A', name: 'A', category: 'Rifle', weaponOwned: true, stats: {}, build: { missing: 1, owned: 0, score: 50, parts: [], suppressed: false, suppressionMessage: '' } };
+  const mutations = await mockApi(page, { weaponBuilds: { categories: ['Rifle'], weapons: [weapon] } });
+  await page.goto(baseURL);
+  await page.locator('[data-page="weapon-builds"]').click();
+  const trigger = page.locator('#weaponBuildAddOwned');
+  await trigger.click();
+  await expect(page.locator('#appDialog')).toBeVisible();
+  await expect(page.locator('#appDialogTitle')).toHaveText('Add BIS parts');
+  await expect(page.locator('#appDialogAccept')).toHaveText(/Add BIS Parts/);
+  await expect(page.locator('#appDialogAccept')).toHaveClass(/btn-warn/);
+  await expect(page.locator('#appDialogAccept .action-icon')).toHaveCount(1);
+  await page.locator('#appDialogCancel').click();
+  await expect(trigger).toBeFocused();
+  expect(mutations).toHaveLength(0);
+  await trigger.click();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#appDialog')).toBeHidden();
+  await expect(trigger).toBeFocused();
+  expect(mutations).toHaveLength(0);
+});
+
+test('Weapon Builds bulk action reports positive and zero missing states', async ({ page }) => {
+  const weapon = (id, missing) => ({ id, name: id, category: 'Rifle', weaponOwned: true, stats: {}, build: { missing, owned: 0, score: 50, parts: [], suppressed: false, suppressionMessage: '' } });
+  await mockApi(page, { weaponBuilds: { categories: ['Rifle'], weapons: [weapon('A', 2), weapon('B', 1)] } });
+  await page.goto(baseURL);
+  await page.locator('[data-page="weapon-builds"]').click();
+  await expect(page.locator('#weaponBuildOwnedSummary')).toContainText('3 missing parts across 2 owned weapons');
+  await expect(page.locator('#weaponBuildAddOwned')).toBeEnabled();
+
+  await page.unroute('**/api/**');
+  await mockApi(page, { weaponBuilds: { categories: ['Rifle'], weapons: [weapon('A', 0)] } });
+  await page.reload();
+  await page.locator('[data-page="weapon-builds"]').click();
+  await expect(page.locator('#weaponBuildOwnedSummary')).toContainText('Nothing missing');
+  await expect(page.locator('#weaponBuildAddOwned')).toBeDisabled();
+});
+
+test('Stats renders exact accessible comparisons, unknown entities, and narrow layouts safely', async ({ page }) => {
+  const probe = '<img data-stats-probe src=x onerror="window.__statsProbe=1">';
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, { stats: {
+    player: { kills: 12, deaths: 3, extractions: 9, downed: 1, attacks: 20, xp: 123456 },
+    damage: { Europa: { damage: 1000, kills: 5 }, [probe]: { damage: 250, kills: 2 } },
+    factions: { Europa: { attacks: 10, kills: 5 }, [probe]: { attacks: 4, kills: 2 } },
+    characters: { Gunhead: { kills: 8, extractions: 6, deaths: 2 }, [probe]: { kills: 1, extractions: 1, deaths: 0 } },
+    maps: [{ map: 'L_AshenMesa_WP', entry: 10, extract: 7, death: 4 }],
+    territory: [{ location: 'AshenMesa', factions: { Europa: .6, [probe]: .4 } }]
+  } });
+  await page.goto(baseURL);
+  await page.evaluate(() => document.querySelector('[data-page="stats"]').click());
+  await expect(page.locator('.stats-kpi')).toContainText(['12', '3', '4.00', '9']);
+  await expect(page.locator('[role="img"][aria-label="Damage: 1,000"]')).toHaveCount(1);
+  await expect(page.locator('.map-stats-card')).toContainText('70');
+  await expect(page.locator('.map-stats-card')).toContainText('40');
+  await expect(page.locator('[role="img"][aria-label="Extraction rate: 70%"]')).toHaveCount(1);
+  await expect(page.locator('[role="img"][aria-label="Death rate: 40%"]')).toHaveCount(1);
+  await expect(page.locator('#statsContent')).toContainText(probe);
+  await expect(page.locator('[data-stats-probe]')).toHaveCount(0);
+  expect(await page.evaluate(() => window.__statsProbe)).toBeUndefined();
+  const overflow = await page.locator('#page-stats').evaluate(el => el.scrollWidth - el.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
 });

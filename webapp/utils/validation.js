@@ -2,12 +2,20 @@ const { spawn } = require('child_process');
 
 const SQLITE_SHELL = process.env.FW_SQLITE_BIN || 'C:\\tmp\\fw-tools\\sqlite3mc\\bin\\sqlite3mc_shell_x64.exe';
 
+function sqliteStringLiteral(value, label = 'value') {
+  if (typeof value !== 'string' || /[\u0000-\u001f\u007f]/.test(value)) {
+    throw Object.assign(new Error(`${label} contains unsupported control characters`), { status: 400 });
+  }
+  return `'${value.replace(/'/g, "''")}'`;
+}
+
 function sanitizeOutput(text, key) {
   if (!text || !key) return text || '';
   return text.replace(new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), '***REDACTED***');
 }
 
 async function runShell(dbPath, key, commands) {
+  const keyLiteral = sqliteStringLiteral(key, 'Database key');
   return new Promise((resolve, reject) => {
     const child = spawn(SQLITE_SHELL, ['-batch', '-bail', dbPath], {
       stdio: ['pipe', 'pipe', 'pipe']
@@ -38,7 +46,7 @@ async function runShell(dbPath, key, commands) {
       resolve(lines);
     });
 
-    const sql = `PRAGMA key = '${key}';\nPRAGMA cipher_compatibility = 3;\n.timeout 5000\n${commands.join(';\n')};\n.quit\n`;
+    const sql = `PRAGMA key = ${keyLiteral};\nPRAGMA cipher_compatibility = 3;\n.timeout 5000\n${commands.join(';\n')};\n.quit\n`;
     child.stdin.write(sql);
     child.stdin.end();
   });
@@ -80,4 +88,4 @@ async function validateForeignKeys(dbPath, key) {
   }
 }
 
-module.exports = { runShell, runIntegrityCheck, validateForeignKeys, sanitizeOutput };
+module.exports = { runShell, runIntegrityCheck, validateForeignKeys, sanitizeOutput, sqliteStringLiteral };

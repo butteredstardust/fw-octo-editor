@@ -71,10 +71,24 @@ const FACTION_META = {
   ScavengerNPC: { name: 'Scavenger NPC', color: '#9085e9', blurb: "Scavenger-aligned NPC presence (e.g. the Innards' own defenders)." }
 };
 const FACTION_ORDER = ['Eurasia', 'Europa', 'Euruska', 'Cultist', 'Scavenger', 'WaterThief', 'ScavengerNPC'];
-const FACTION_FALLBACK_COLOR = '#e66767';
+const FACTION_FALLBACK_COLORS = ['#e66767', '#59a7a7', '#b47bd7', '#d39b43', '#6f9fd8', '#c9799d'];
+
+function stableFallbackColor(value) {
+  let hash = 2166136261;
+  for (const char of String(value)) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
+  return FACTION_FALLBACK_COLORS[(hash >>> 0) % FACTION_FALLBACK_COLORS.length];
+}
+
+function entityOrder(values) {
+  const keys = [...new Set(values)];
+  return [
+    ...FACTION_ORDER.filter(key => keys.includes(key)),
+    ...keys.filter(key => !FACTION_ORDER.includes(key)).sort((a, b) => a.localeCompare(b))
+  ];
+}
 
 function factionMeta(faction) {
-  return FACTION_META[faction] || { name: faction, color: FACTION_FALLBACK_COLOR, blurb: '' };
+  return FACTION_META[faction] || { name: faction, color: stableFallbackColor(faction), blurb: '' };
 }
 
 function factionDot(color) {
@@ -92,8 +106,8 @@ function factionTag(faction) {
   return `<span class="faction-tag">${factionDot(meta.color)}${esc(meta.name)}</span>`;
 }
 
-function factionLegend() {
-  return `<div class="faction-legend">${FACTION_ORDER.map(factionTag).join('')}</div>`;
+function factionLegend(factions) {
+  return `<div class="faction-legend" aria-label="Faction color legend">${entityOrder(factions).map(factionTag).join('')}</div>`;
 }
 
 function characterLabel(shortName) {
@@ -105,57 +119,70 @@ function fmt(n) {
   return n == null ? '—' : Math.round(n).toLocaleString();
 }
 
-function statsRow(name, detail, chips) {
-  return `<div class="stats-row"><div class="stats-row-main"><div class="stats-row-name">${name}</div>${detail ? `<div class="stats-row-detail">${detail}</div>` : ''}</div><div class="stats-chips">${chips}</div></div>`;
+function percent(numerator, denominator) {
+  return Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
+    ? Math.round((numerator / denominator) * 100) : null;
+}
+
+function ratio(numerator, denominator) {
+  return Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
+    ? (numerator / denominator).toFixed(2) : null;
+}
+
+function metricBar(label, value, max, color = 'var(--amber)', displayValue = fmt(value)) {
+  const safeValue = Number.isFinite(value) ? value : 0;
+  const width = max > 0 ? Math.max(0, Math.min(100, (safeValue / max) * 100)) : 0;
+  return `<div class="metric-bar" role="img" aria-label="${esc(label)}: ${esc(displayValue)}"><span class="metric-bar-label">${esc(label)} <b>${esc(displayValue)}</b></span><span class="metric-bar-track"><span style="width:${width.toFixed(2)}%;background:${esc(color)}"></span></span></div>`;
 }
 
 function renderPlayerSummary(player) {
-  const rows = [
-    ['Kills', player.kills], ['Deaths', player.deaths], ['Downed', player.downed],
-    ['Extractions', player.extractions], ['Attacks', player.attacks], ['Total XP', player.xp]
+  const kd = ratio(player.kills, player.deaths);
+  const runTotal = Number(player.extractions || 0) + Number(player.deaths || 0);
+  const extractionRate = percent(player.extractions, runTotal);
+  const cards = [
+    ['Kills', player.kills, 'Lifetime confirmed kills'], ['Deaths', player.deaths, 'Lifetime deaths'],
+    ['K/D', kd, kd == null ? 'Unavailable until at least one death is recorded' : 'Kills divided by deaths'],
+    ['Extractions', player.extractions, 'Lifetime successful extractions'],
+    ['Extraction rate', extractionRate == null ? null : `${extractionRate}%`, extractionRate == null ? 'Unavailable until an extraction or death is recorded' : 'Extractions divided by extractions plus deaths'],
+    ['Downed', player.downed, 'Lifetime downs'], ['Attacks', player.attacks, 'Lifetime attacks'], ['Total XP', player.xp, 'Lifetime XP']
   ];
-  return `<div class="stats-section"><h3>Lifetime Summary</h3><div class="dash-stats">${
-    rows.map(([k, v]) => `<div><span class="k">${esc(k)}</span><span class="v">${fmt(v)}</span></div>`).join('')
-  }</div></div>`;
+  return `<section class="stats-section"><h3>Lifetime Summary</h3><div class="stats-kpi-grid">${cards.map(([label, value, detail]) => `<article class="stats-kpi" aria-label="${esc(label)}: ${esc(value == null ? 'unavailable' : String(value))}"><span>${esc(label)}</span><strong>${esc(value == null ? '—' : typeof value === 'number' ? fmt(value) : value)}</strong><small>${esc(detail)}</small></article>`).join('')}</div></section>`;
+}
+
+function comparisonRows(entries, metric, label) {
+  const max = Math.max(0, ...entries.map(([, values]) => Number(values[metric]) || 0));
+  return `<div class="comparison-chart" aria-label="${esc(label)}">${entries.map(([faction, values]) => `<div class="comparison-row"><div class="comparison-name">${faction === 'All' ? 'All Factions' : factionTag(faction)}</div>${metricBar(label, values[metric], max, faction === 'All' ? 'var(--text-2)' : factionMeta(faction).color)}</div>`).join('')}</div>`;
 }
 
 function renderFactionDamage(damage) {
-  const order = ['All', ...FACTION_ORDER];
-  const keys = order.filter(k => damage[k]);
+  const keys = ['All', ...entityOrder(Object.keys(damage).filter(key => key !== 'All'))].filter(key => damage[key]);
   if (!keys.length) return '';
-  const rows = keys.map(faction => {
-    const d = damage[faction];
-    const name = faction === 'All' ? 'All Factions' : factionTag(faction);
-    const detail = faction === 'All' && d.moddedDamage != null
-      ? `Modded ${fmt(d.moddedDamage)} dmg / ${fmt(d.moddedKills)} kills &middot; Unmodded ${fmt(d.unmoddedDamage)} dmg / ${fmt(d.unmoddedKills)} kills`
-      : '';
-    return statsRow(name, detail, `<span class="stat-chip">Damage<b>${fmt(d.damage)}</b></span><span class="stat-chip">Kills<b>${fmt(d.kills)}</b></span>`);
-  }).join('');
-  return `<div class="stats-section"><h3>Damage by Faction</h3>${rows}</div>`;
+  const entries = keys.map(key => [key, damage[key]]);
+  const all = damage.All;
+  const detail = all && all.moddedDamage != null ? `<p class="stats-note">All factions: modded ${esc(fmt(all.moddedDamage))} damage / ${esc(fmt(all.moddedKills))} kills; unmodded ${esc(fmt(all.unmoddedDamage))} damage / ${esc(fmt(all.unmoddedKills))} kills.</p>` : '';
+  return `<section class="stats-section"><h3>Damage by Faction</h3><div class="comparison-pair"><div><h4>Damage</h4>${comparisonRows(entries, 'damage', 'Damage')}</div><div><h4>Kills</h4>${comparisonRows(entries, 'kills', 'Kills')}</div></div>${detail}</section>`;
 }
 
 function renderFactionCombat(factions) {
-  const present = FACTION_ORDER.filter(f => factions[f] && (factions[f].attacks != null || factions[f].kills != null));
+  const present = entityOrder(Object.keys(factions)).filter(f => factions[f] && (factions[f].attacks != null || factions[f].kills != null));
   if (!present.length) return '';
-  const html = present.map(f => statsRow(factionTag(f), '', `<span class="stat-chip">Attacks<b>${fmt(factions[f].attacks)}</b></span><span class="stat-chip">Kills<b>${fmt(factions[f].kills)}</b></span>`)).join('');
-  return `<div class="stats-section"><h3>Combat by Faction</h3><p class="char-hint">Separate counters from the game's own combat log -- not necessarily the same tally as the damage stats above.</p>${html}</div>`;
+  const entries = present.map(key => [key, factions[key]]);
+  return `<section class="stats-section"><h3>Combat by Faction</h3><p class="char-hint">Separate counters from the game's own combat log—not necessarily the same tally as the damage stats above.</p><div class="comparison-pair"><div><h4>Attacks</h4>${comparisonRows(entries, 'attacks', 'Attacks')}</div><div><h4>Kills</h4>${comparisonRows(entries, 'kills', 'Kills')}</div></div></section>`;
 }
 
 function renderCharacterCombat(characters) {
   const known = Object.keys(CHARACTER_META).map(tag => tag.replace('Pawn.Player.', ''));
-  const order = known.filter(name => characters[name] !== undefined);
+  const order = [...known.filter(name => characters[name] !== undefined), ...Object.keys(characters).filter(name => !known.includes(name)).sort((a, b) => a.localeCompare(b))];
   if (!order.length) return '';
-  const rows = order.map(name => {
+  const metrics = ['kills', 'extractions', 'deaths'];
+  const maxima = Object.fromEntries(metrics.map(metric => [metric, Math.max(0, ...order.map(name => Number(characters[name][metric]) || 0))]));
+  const cards = order.map(name => {
     const c = characters[name];
-    const played = c.kills != null || c.extractions != null || c.deaths != null;
-    const chips = played
-      ? `<span class="stat-chip">Kills<b>${fmt(c.kills ?? 0)}</b></span><span class="stat-chip">Extractions<b>${fmt(c.extractions ?? 0)}</b></span><span class="stat-chip">Deaths<b>${fmt(c.deaths ?? 0)}</b></span>`
-      : `<span class="stat-chip neutral">Not yet deployed</span>`;
-    return statsRow(esc(characterLabel(name)), '', chips);
+    const played = metrics.some(metric => c[metric] != null);
+    return `<article class="character-combat-card"><h4>${esc(characterLabel(name))}</h4>${played ? metrics.map(metric => metricBar(metric[0].toUpperCase() + metric.slice(1), c[metric] ?? 0, maxima[metric])).join('') : '<p class="stats-note">Not yet deployed</p>'}</article>`;
   }).join('');
-  return `<div class="stats-section"><h3>Combat by Character</h3>${rows}</div>`;
+  return `<section class="stats-section"><h3>Combat by Character</h3><div class="character-combat-grid">${cards}</div></section>`;
 }
-
 // The save records each procedural Tunnel variant (Dungeon_Tunnel0, _1_04,
 // etc.) as its own counter -- 13+ rows that would otherwise all render under
 // the identical "Tunnels" label with no way to tell them apart. The wiki
@@ -175,33 +202,33 @@ function groupMapStats(maps) {
 
 function renderMapStats(maps) {
   if (!maps.length) return '';
-  const rows = groupMapStats(maps).map(g => {
+  const cards = groupMapStats(maps).map(g => {
     const meta = MAP_META[g.key];
     const label = meta ? meta.name : mapFallbackLabel(g.key);
     const idList = g.ids.length > 1
-      ? `${esc(label)} ${technicalDetails(`${g.ids.length} variants: ${g.ids.join(', ')}`, `Show ${g.ids.length} internal variant IDs`)}`
-      : `${esc(label)} ${technicalDetails(g.ids[0], 'Show internal map ID')}`;
-    const rate = g.entry > 0 ? Math.round((g.extract / g.entry) * 100) : null;
-    const detail = meta && meta.internal ? '<span class="map-internal-tag">Internal / QA map</span>' : '';
-    return statsRow(idList, detail, `<span class="stat-chip">Entries<b>${fmt(g.entry)}</b></span><span class="stat-chip">Extracts<b>${fmt(g.extract)}</b></span><span class="stat-chip">Deaths<b>${fmt(g.death)}</b></span>${rate != null ? `<span class="stat-chip">Extract rate<b>${rate}%</b></span>` : ''}`);
+      ? technicalDetails(`${g.ids.length} variants: ${g.ids.join(', ')}`, `Show ${g.ids.length} internal variant IDs`)
+      : technicalDetails(g.ids[0], 'Show internal map ID');
+    const extractRate = percent(g.extract, g.entry);
+    const deathRate = percent(g.death, g.entry);
+    return `<article class="map-stats-card"><header><h4>${esc(label)} ${idList}</h4>${meta && meta.internal ? '<span class="map-internal-tag">Internal / QA map</span>' : ''}</header><p class="map-entry-count"><b>${esc(fmt(g.entry))}</b> entries</p><div class="map-rate-grid">${extractRate == null ? '<span class="stats-note">Extraction rate unavailable</span>' : metricBar('Extraction rate', extractRate, 100, 'var(--green)', `${extractRate}%`)}${deathRate == null ? '<span class="stats-note">Death rate unavailable</span>' : metricBar('Death rate', deathRate, 100, 'var(--red)', `${deathRate}%`)}</div><p class="stats-note">${esc(fmt(g.extract))} extracts · ${esc(fmt(g.death))} deaths. Rates use entries independently; outcomes may overlap or be incomplete.</p></article>`;
   }).join('');
-  return `<div class="stats-section"><h3>Map Statistics</h3>${rows}</div>`;
+  return `<section class="stats-section"><h3>Map Statistics</h3><div class="map-stats-grid">${cards}</div></section>`;
 }
-
 // The stacked control bar: always iterates FACTION_ORDER (never sorted by
 // value) so any subset of factions rendered adjacent is a subsequence of the
 // validated-adjacent color order, and identity never gets repainted when the
 // set of present factions differs per location (dataviz skill: "color
 // follows the entity, never its rank").
 function territoryBar(factionShares) {
-  const segments = FACTION_ORDER
+  const order = entityOrder(Object.keys(factionShares));
+  const segments = order
     .filter(f => factionShares[f] != null)
     .map(f => {
       const pct = factionShares[f];
       const meta = factionMeta(f);
       return `<span class="territory-seg" style="width:${(pct * 100).toFixed(2)}%;background:${meta.color}" title="${esc(meta.name)}: ${Math.round(pct * 100)}%"></span>`;
     }).join('');
-  return `<div class="territory-bar" role="img" aria-label="Territory control: ${esc(FACTION_ORDER.filter(f => factionShares[f] != null).map(f => `${factionMeta(f).name} ${Math.round(factionShares[f] * 100)}%`).join(', '))}">${segments}</div>`;
+  return `<div class="territory-bar" role="img" aria-label="Territory control: ${esc(order.filter(f => factionShares[f] != null).map(f => `${factionMeta(f).name} ${Math.round(factionShares[f] * 100)}%`).join(', '))}">${segments}</div>`;
 }
 
 // Some raw locations normalize to the same canonical place (e.g. ThunderDome
@@ -235,7 +262,8 @@ function territoryCard(g) {
   const ranked = Object.entries(g.factions).sort((a, b) => b[1] - a[1]);
   const [dominantFaction, dominantShare] = ranked[0] || [];
   const domMeta = dominantFaction ? factionMeta(dominantFaction) : null;
-  const breakdown = ranked.map(([f, pct]) => {
+  const breakdown = entityOrder(Object.keys(g.factions)).map(f => {
+    const pct = g.factions[f];
     const fMeta = factionMeta(f);
     return `<span class="territory-share">${factionDot(fMeta.color)}${esc(fMeta.name)} <b>${Math.round(pct * 100)}%</b></span>`;
   }).join('');
@@ -257,7 +285,7 @@ function renderTerritory(territory) {
   return `<div class="stats-section territory-section">
     <h3>Territory Control</h3>
     <p class="char-hint">Per-location faction control share (the game's own "Theater of War" system) -- higher control means both <b>more</b> hostiles and <b>better-equipped</b> ones for that faction. <a href="https://theforeverwinter.wiki.gg/wiki/Factions" target="_blank" rel="noopener noreferrer">theforeverwinter.wiki.gg/wiki/Factions</a></p>
-    ${factionLegend()}
+    ${factionLegend(territory.flatMap(row => Object.keys(row.factions || {})))}
     <div class="territory-grid">${groupTerritory(territory).map(territoryCard).join('')}</div>
   </div>`;
 }
@@ -268,12 +296,12 @@ async function loadStats() {
   try {
     const stats = await api('/stats');
     const html = [
-      renderTerritory(stats.territory),
-      renderPlayerSummary(stats.player),
-      renderFactionDamage(stats.damage),
-      renderFactionCombat(stats.factions),
-      renderCharacterCombat(stats.characters),
-      renderMapStats(stats.maps)
+      renderTerritory(stats.territory || []),
+      renderPlayerSummary(stats.player || {}),
+      renderFactionDamage(stats.damage || {}),
+      renderFactionCombat(stats.factions || {}),
+      renderCharacterCombat(stats.characters || {}),
+      renderMapStats(stats.maps || [])
     ].join('');
     setRenderedHtml(el, html || '<div class="empty-state"><strong>No stats found</strong></div>');
   } catch (error) {

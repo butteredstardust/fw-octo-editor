@@ -6,6 +6,9 @@ const gvasService = require('./gvasService');
 const config = require('./configService');
 const HUB_UPGRADE_DATA = require('../data/hub-upgrades.json');
 const MANAGED_HUB_TAGS = HUB_UPGRADE_DATA.upgrades.map(entry => entry.tag);
+const HUB_PREREQUISITES = new Map(require('../data/recipes.canonical.json').recipes.upgrades
+  .filter(entry => entry.upgradeTag && entry.prerequisiteTag)
+  .map(entry => [entry.upgradeTag, entry.prerequisiteTag]));
 const QUEST_DATA = require('../data/quests.canonical.json');
 const PRESTIGE_SKILLS_DATA = require('../data/prestige-skills.canonical.json');
 // Extracted once from the 100% reference save via
@@ -234,6 +237,22 @@ async function setHubUpgrades(key, tags) {
   const requested=[...new Set(tags.map(tag=>String(tag)))];
   const unknown=requested.filter(tag=>!MANAGED_HUB_TAGS.includes(tag));
   if(unknown.length)throw Object.assign(new Error(`Unknown managed upgrade tags: ${unknown.join(', ')}`),{status:400});
+  const requestedSet = new Set(requested);
+  const incomplete = requested.flatMap(tag => {
+    const missing = [];
+    let prerequisite = HUB_PREREQUISITES.get(tag);
+    const seen = new Set();
+    while (prerequisite && !seen.has(prerequisite)) {
+      seen.add(prerequisite);
+      if (!requestedSet.has(prerequisite)) missing.push(prerequisite);
+      prerequisite = HUB_PREREQUISITES.get(prerequisite);
+    }
+    return missing.map(required => ({ tag, required }));
+  });
+  if (incomplete.length) {
+    const detail = incomplete.map(item => `${item.tag} requires ${item.required}`).join('; ');
+    throw Object.assign(new Error(`Incomplete hub prerequisite chain: ${detail}`), { status: 422, incompletePrerequisites: incomplete });
+  }
   const safeTags = requested.map(t => sqlStr(t, 'upgradeTag'));
   const beforeIntegrity = await runIntegrityCheck(dbPath, key);
   const beforeFk = await validateForeignKeys(dbPath, key);

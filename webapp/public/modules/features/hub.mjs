@@ -178,7 +178,10 @@ async function confirmBulkHub(unlockAll) {
   const msg = unlockAll
     ? 'Unlock ALL known Innards upgrades? This overwrites the current set. (Experimental — verify in-game.)'
     : 'Remove ALL Innards upgrades? (Experimental — verify in-game.)';
-  if (await confirmAction(msg)) await setHubUpgrades(unlockAll ? HUB_UPGRADE_TAGS : []);
+  const options = unlockAll
+    ? { title: 'Unlock all upgrades', acceptLabel: 'Unlock All', tone: 'warning', icon: 'unlock' }
+    : { title: 'Remove all upgrades', acceptLabel: 'Remove All', tone: 'danger', icon: 'trash' };
+  if (await confirmAction(msg, options)) await setHubUpgrades(unlockAll ? HUB_UPGRADE_TAGS : []);
 }
 
 function updateHubCount(unlockedTags) {
@@ -203,7 +206,10 @@ async function setHubUpgrades(tags) {
 async function toggleHubUpgrade(tag, unlock) {
   const name = HUB_UPGRADE_META[tag]?.name || tag;
   const msg = unlock ? `Unlock ${name}?` : `Lock / remove ${name}? (Experimental — verify in-game.)`;
-  if (!await confirmAction(msg)) return;
+  const options = unlock
+    ? { title: 'Unlock upgrade', acceptLabel: 'Unlock Upgrade', tone: 'warning', icon: 'unlock' }
+    : { title: 'Remove upgrade', acceptLabel: 'Remove Upgrade', tone: 'danger', icon: 'trash' };
+  if (!await confirmAction(msg, options)) return;
   const upgrades = await api('/hub-upgrades');
   const tags = upgrades
     .map(u => u.upgradeTag)

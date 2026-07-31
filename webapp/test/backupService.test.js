@@ -4,7 +4,7 @@ const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
 const crypto = require('node:crypto');
-const { hashFile, SAVE_FILES, createBackup, listBackups, restoreBackup, deleteBackup } = require('../services/backupService');
+const { hashFile, SAVE_FILES, STALE_PARTIAL_AGE_MS, createBackup, listBackups, restoreBackup, deleteBackup } = require('../services/backupService');
 
 test('hashFile returns the expected uppercase SHA-256', async t => {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'fw-hash-'));
@@ -38,6 +38,29 @@ test('backup manifests verify hashes and sort by manifest timestamp', async t =>
   const listed = await listBackups({ backupRoot: backups });
   assert.deepEqual(listed.map(item => item.name), [second.id, first.id]);
   assert.ok(listed.every(item => item.manifestValid));
+});
+
+test('same-second backups have unique ids and partial directories are ignored', async t => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'fw-backup-collision-'));
+  t.after(() => fs.rm(root, { recursive: true, force: true }));
+  const live = path.join(root, 'live');
+  const backups = path.join(root, 'backups');
+  await makeLive(live, 'same');
+  const [first, second] = await Promise.all([
+    createBackup('collision', { liveSaveDir: live, backupRoot: backups, isGameRunning: async () => false }),
+    createBackup('collision', { liveSaveDir: live, backupRoot: backups, isGameRunning: async () => false })
+  ]);
+  assert.notEqual(first.id, second.id);
+  const stalePartial = path.join(backups, '.interrupted.partial');
+  const freshPartial = path.join(backups, '.active.partial');
+  await fs.mkdir(stalePartial);
+  await fs.mkdir(freshPartial);
+  const old = new Date(Date.now() - STALE_PARTIAL_AGE_MS - 1000);
+  await fs.utimes(stalePartial, old, old);
+  const listed = await listBackups({ backupRoot: backups });
+  assert.equal(listed.length, 2);
+  await assert.rejects(() => fs.stat(stalePartial), error => error.code === 'ENOENT');
+  assert.equal((await fs.stat(freshPartial)).isDirectory(), true);
 });
 
 test('restore requires exact confirmation and restores only the primary', async t => {

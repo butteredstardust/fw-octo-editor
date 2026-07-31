@@ -5,12 +5,10 @@ const config = require('./services/configService');
 const apiRoutes = require('./routes/api');
 const pagesRoutes = require('./routes/pages');
 const crypto = require('crypto');
-const { isGameRunning } = require('./utils/processCheck');
 
 const app = express();
 const PORT = 3000;
 const csrfToken = crypto.randomBytes(32).toString('base64url');
-let mutationActive = false;
 
 app.disable('x-powered-by');
 app.use((req, res, next) => {
@@ -29,9 +27,13 @@ app.use('/api', async (req,res,next) => {
   const origin = req.headers.origin;
   if (origin && !/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) return res.status(403).json({ error:'Cross-origin mutation rejected' });
   if (req.headers['x-csrf-token'] !== csrfToken) return res.status(403).json({ error:'Missing or invalid CSRF token' });
-  if (mutationActive) return res.status(409).json({ error:'Another save operation is active' });
-  if (await isGameRunning()) return res.status(409).json({ error:'The Forever Winter is running' });
-  mutationActive = true; res.once('finish',()=>{ mutationActive=false; }); res.once('close',()=>{ mutationActive=false; }); next();
+  next();
+});
+
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && Object.hasOwn(err, 'body')) return res.status(400).json({ error: 'Malformed JSON request body' });
+  if (err && err.type === 'entity.too.large') return res.status(413).json({ error: 'Request body is too large' });
+  next(err);
 });
 
 app.use('/api', apiRoutes);

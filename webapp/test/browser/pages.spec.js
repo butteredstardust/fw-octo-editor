@@ -29,7 +29,12 @@ async function mockApi(page) {
     else if (pathname === '/api/hub-upgrades') body = [];
     else if (pathname === '/api/weapon-xp') body = [];
     else if (pathname === '/api/repair') body = { repairs: [], iff: [], destroyed: [] };
-    else if (pathname === '/api/presets') body = [];
+    else if (pathname === '/api/presets') body = { weapons: [], rigs: [], summary: { weaponPresets: 0, rigPresets: 0, activeWeaponPreset: null } };
+    else if (pathname === '/api/weapon-builds') body = { categories: [], weapons: [] };
+    else if (pathname === '/api/weapon-xp/reference') body = {};
+    else if (pathname === '/api/stats') body = { player: { kills: 12, deaths: 3, extractions: 9, downed: 1, attacks: 20, xp: 500 }, damage: { Europa: { damage: 1000, kills: 5 }, UnknownFaction: { damage: 250, kills: 2 } }, factions: { Europa: { attacks: 10, kills: 5 }, UnknownFaction: { attacks: 4, kills: 2 } }, characters: { Gunhead: { kills: 8, extractions: 6, deaths: 2 }, UnknownCharacter: { kills: 1, extractions: 1, deaths: 0 } }, maps: [{ map: 'L_AshenMesa_WP', entry: 10, extract: 7, death: 4 }], territory: [{ location: 'AshenMesa', factions: { Europa: .6, UnknownFaction: .4 } }] };
+    else if (pathname === '/api/backups') body = [];
+    else if (pathname === '/api/settings') body = { activeSaveDir: 'fixture', defaultSaveDir: 'fixture', keySource: 'resource' };
     else if (pathname === '/api/diagnostics') body = { compatibility: { compatible: true }, inventoryRoundTrip: { byteIdentical: true }, writeReady: true };
     else if (pathname === '/api/status') body = { gameRunning: false, compatibility: { compatible: true }, writeReady: true, mutation: {}, activeSaveDir: 'fixture' };
     route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
@@ -37,7 +42,7 @@ async function mockApi(page) {
 }
 
 // D1: every SPA route boots without uncaught errors or failed asset requests.
-const PAGES = ['dashboard', 'characters', 'weapon-builds', 'presets', 'weapon-xp', 'vendors', 'hub-upgrades', 'crafting', 'repair', 'inventory', 'add-items', 'rigs', 'backups', 'diagnostics', 'settings'];
+const PAGES = ['dashboard', 'characters', 'weapon-builds', 'presets', 'weapon-xp', 'vendors', 'stats', 'hub-upgrades', 'crafting', 'repair', 'inventory', 'add-items', 'rigs', 'backups', 'diagnostics', 'settings'];
 
 for (const pageName of PAGES) {
   test(`page "${pageName}" navigates and boots cleanly`, async ({ page }) => {

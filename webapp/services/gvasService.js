@@ -686,10 +686,10 @@ function buildEntry(sourceMap, itemName, quantity) {
   };
 }
 
-// ADD: append a brand-new item row to the correct map (does not touch existing
-// rows). If the item already exists, this is a no-op and returns added=false so
-// the caller can decide whether to fall back to a quantity update instead.
-// Experimental: the game may ignore or rewrite newly-added rows on load.
+// ADD: append a canonical brand-new row, or increment one exact existing row in
+// its source map. Cross-map and duplicate-row ambiguity fails closed so merged
+// display totals are never written into a single map. Experimental: the game
+// may ignore or rewrite newly-added rows on load.
 async function addInventoryItem(key, itemName, quantity, sourceMap) {
   const getHashes = () => require('./saveService').getFileHashes();
   const dbPath = getSavePaths()[0];
@@ -703,12 +703,34 @@ async function addInventoryItem(key, itemName, quantity, sourceMap) {
   const props = json && json.root && json.root.properties;
   if (!props) throw new Error('Malformed TempInventory blob (no root.properties)');
 
+  const foundMaps = findMapsForItem(props, itemName);
+  if (foundMaps.length > 1 && !sourceMap) {
+    const labels = foundMaps.map(key => PROP_TO_SOURCE_MAP[key] || key);
+    throw Object.assign(new Error(`Item ${itemName} exists in multiple inventory maps (${labels.join(', ')}); specify sourceMap`), { status: 409 });
+  }
+
+  if (foundMaps.length === 0) {
+    const catalog = require('../public/catalog.json');
+    const canonical = catalog[itemName];
+    if (!canonical || typeof canonical.inventoryMap !== 'string') {
+      throw Object.assign(new Error(`Item ${itemName} is not a canonical catalog entry approved for addition`), { status: 422 });
+    }
+    const canonicalMap = canonical.inventoryMap === 'Weapons' ? 'Base Weapons'
+      : canonical.inventoryMap === 'DamagedWeapons' ? 'Damaged Weapons' : canonical.inventoryMap;
+    if (sourceMap && sourceMap !== canonicalMap) {
+      throw Object.assign(new Error(`Item ${itemName} must be added to canonical sourceMap ${canonicalMap}`), { status: 422 });
+    }
+    sourceMap = canonicalMap;
+  }
+
   // Resolve the target map: caller hint first, then auto-detect if the id is
   // already present somewhere, else default to Items_0.
   let propKey = (sourceMap && SOURCE_MAP_TO_PROP[sourceMap]) || null;
+  if (foundMaps.length && propKey && !foundMaps.includes(propKey)) {
+    throw Object.assign(new Error(`Item ${itemName} exists in ${foundMaps.map(key => PROP_TO_SOURCE_MAP[key] || key).join(', ')}, not ${sourceMap}`), { status: 409 });
+  }
   if (!propKey || !Array.isArray(props[propKey])) {
-    const found = findMapsForItem(props, itemName);
-    if (found.length) propKey = found[0];
+    if (foundMaps.length) propKey = foundMaps[0];
     else propKey = props['Items_0'] ? 'Items_0' : 'Items';
   }
   const map = props[propKey];
@@ -717,26 +739,21 @@ async function addInventoryItem(key, itemName, quantity, sourceMap) {
   // push; never assign by key.
   if (!Array.isArray(map)) throw new Error('Target map not found / unexpected shape in TempInventory');
 
-  // Reject if the item already exists (caller should use updateInventoryItem).
-  if (map.some(e => (e.key === itemName) || (extractEntryNameAndQty(e.value || {}).rowName === itemName))) {
-    return {
-      success: true,
-      added: false,
-      itemId: itemName,
-      quantity,
-      sourceMap: PROP_TO_SOURCE_MAP[propKey] || 'Items',
-      entriesMatched: 1,
-      message: 'Item already present; use quantity update instead.',
-      beforeIntegrity,
-      afterIntegrity: beforeIntegrity,
-      beforeFk,
-      afterFk: beforeFk,
-      beforeHashes,
-      afterHashes: beforeHashes
-    };
+  const existing = map.filter(e => (e.key === itemName) || (extractEntryNameAndQty(e.value || {}).rowName === itemName));
+  if (existing.length > 1) throw Object.assign(new Error(`Item ${itemName} has ambiguous duplicate rows in ${PROP_TO_SOURCE_MAP[propKey] || propKey}`), { status: 409 });
+  const added = existing.length === 0;
+  let finalQuantity = quantity;
+  if (added) {
+    map.push(buildEntry(PROP_TO_SOURCE_MAP[propKey] || 'Items', itemName, quantity));
+  } else {
+    const value = existing[0].value || {};
+    const current = extractEntryNameAndQty(value).qty;
+    if (!Number.isSafeInteger(current)) throw Object.assign(new Error(`Item ${itemName} has an invalid existing quantity`), { status: 422 });
+    finalQuantity = current + quantity;
+    if (!Number.isSafeInteger(finalQuantity) || finalQuantity > MAX_INVENTORY_QUANTITY) throw Object.assign(new Error(`quantity must not exceed ${MAX_INVENTORY_QUANTITY}`), { status: 400 });
+    if (Object.hasOwn(value, 'Quantity_0')) value.Quantity_0 = finalQuantity;
+    else value.Quantity = finalQuantity;
   }
-
-  map.push(buildEntry(PROP_TO_SOURCE_MAP[propKey] || 'Items', itemName, quantity));
 
   const newBlob = await jsonToBlob(json);
   await writeTempInventoryBlob(key, newBlob);
@@ -745,7 +762,7 @@ async function addInventoryItem(key, itemName, quantity, sourceMap) {
   const installedJson = await blobToJson(installedBlob);
   const installedMap = installedJson.root.properties[propKey] || [];
   const matches = installedMap.filter(entry => (extractEntryNameAndQty(entry.value || {}).rowName || entry.key) === itemName);
-  if (matches.length !== 1 || extractEntryNameAndQty(matches[0].value || {}).qty !== quantity) throw Object.assign(new Error('Added inventory item verification failed'), { status: 422 });
+  if (matches.length !== 1 || extractEntryNameAndQty(matches[0].value || {}).qty !== finalQuantity) throw Object.assign(new Error('Added inventory item verification failed'), { status: 422 });
 
   const afterIntegrity = await runIntegrityCheck(dbPath, key);
   const afterFk = await validateForeignKeys(dbPath, key);
@@ -753,13 +770,13 @@ async function addInventoryItem(key, itemName, quantity, sourceMap) {
 
   return {
     success: afterIntegrity.passed,
-    added: true,
+    added,
     itemId: itemName,
-    quantity,
+    quantity: finalQuantity,
     sourceMap: PROP_TO_SOURCE_MAP[propKey] || 'Items',
     entriesMatched: 1,
     changedRows: 1,
-    targetVerification: { itemId: itemName, quantity, entries: 1, map: PROP_TO_SOURCE_MAP[propKey] || 'Items', byteRoundTrip: true, passed: true },
+    targetVerification: { itemId: itemName, quantity: finalQuantity, incrementedBy: added ? 0 : quantity, entries: 1, map: PROP_TO_SOURCE_MAP[propKey] || 'Items', byteRoundTrip: true, passed: true },
     beforeIntegrity,
     afterIntegrity,
     beforeFk,

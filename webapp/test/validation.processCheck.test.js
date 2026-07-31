@@ -1,8 +1,8 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { sanitizeOutput } = require('../utils/validation');
-const { isGameRunning } = require('../utils/processCheck');
+const { sanitizeOutput, sqliteStringLiteral } = require('../utils/validation');
+const { getGameProcessState, isGameRunning } = require('../utils/processCheck');
 
 // The DB key is secret: it must never appear in shell stdout/stderr that could
 // be surfaced in logs or error messages. sanitizeOutput redacts it.
@@ -33,6 +33,11 @@ test('sanitizeOutput handles missing text gracefully', () => {
   assert.equal(sanitizeOutput(null, 'k'), '');
 });
 
+test('SQLite literals double quotes and reject control-character injection', () => {
+  assert.equal(sqliteStringLiteral("abc'; DROP TABLE Saves;--"), "'abc''; DROP TABLE Saves;--'");
+  assert.throws(() => sqliteStringLiteral('abc\n.quit'), error => error.status === 400);
+});
+
 // isGameRunning shells out to PowerShell to detect the live game process.
 test('isGameRunning returns false when no game process is present', async () => {
   const result = await isGameRunning();
@@ -52,4 +57,12 @@ test('isGameRunning returns an array of process names when the game is detected'
 test('isGameRunning treats a spawn error as not-running', async () => {
   const fakeExec = async () => { throw new Error('boom'); };
   assert.equal(await isGameRunning(fakeExec), false);
+});
+
+test('structured process state fails closed when process enumeration fails', async () => {
+  const state = await getGameProcessState(async () => { throw new Error('access denied'); });
+  assert.deepEqual(state.processes, []);
+  assert.equal(state.known, false);
+  assert.equal(state.running, null);
+  assert.match(state.error, /access denied/);
 });

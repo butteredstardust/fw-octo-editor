@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const config = require('../services/configService');
-const { getSchema, getPrimarySavePath } = require('../services/saveService');
+const { getSchema } = require('../services/saveService');
 const fs = require('fs');
+const path = require('path');
 const { listCharacters, updateCharacterLevel, setPrestige, listCharacterDetails, setCharacterXp, setCharacterSkills } = require('../services/saveService');
 const { listHubUpgrades, setHubUpgrades } = require('../services/saveService');
 const { listWeaponXp, setWeaponXp, batchSetWeaponXp, getReferenceWeaponXp, listFactionScores, setFactionScore, listTraderUnlocks, setTraderUnlock, getDashboardData, getCurrencies, setCurrency, getVendorEconomy } = require('../services/saveService');
 const { listInventoryItems: listInventoryItemsGvas, updateInventoryItem: updateInventoryItemGvas, addInventoryItem: addInventoryItemGvas } = require('../services/gvasService');
 const { checkInventoryRoundTrip, listRigs, addRigOwnership, addHighQualityContainerSet, getVaultInventory } = require('../services/gvasService');
 const { createBackup, listBackups, restoreBackup, deleteBackup, getLatestBackupHashes } = require('../services/backupService');
-const { isGameRunning } = require('../utils/processCheck');
+const { getGameProcessState } = require('../utils/processCheck');
 const { runIntegrityCheck, validateForeignKeys } = require('../utils/validation');
 const { getRepairStatus, collectRepair, setQuestReady, getPlayerStats } = require('../services/saveService');
 const mutationService = require('../services/mutationService');
@@ -18,6 +19,8 @@ const { getGameVersion, VERIFIED_GAME_VERSION } = require('../services/gameVersi
 const { version: APP_VERSION } = require('../package.json');
 const weaponBuildService = require('../services/weaponBuildService');
 const presetService = require('../services/presetService');
+const operationGate = require('../services/operationGate');
+const { SAVE_FILES } = require('../services/backupService');
 
 async function runMutation(req, label, callback) {
   return mutationService.mutate(resolveKey(req), label, callback);
@@ -57,54 +60,64 @@ router.get('/settings', async (req, res) => {
 // user out. The key value itself is never echoed back.
 router.post('/settings', async (req, res) => {
   try {
+    const resultPayload = await operationGate.runExclusive('settings', async () => {
     const body = req.body || {};
+    const hasSaveDir = Object.hasOwn(body, 'saveDir');
     const { saveDir } = body;
-    const cleanDir = (typeof saveDir === 'string' && saveDir.trim()) ? saveDir.trim() : null;
+    const cleanDir = !hasSaveDir ? undefined : ((typeof saveDir === 'string' && saveDir.trim()) ? saveDir.trim() : null);
 
     let dbKey;
     if (Object.hasOwn(body, 'dbKey')) {
       dbKey = (body.dbKey === null || body.dbKey === '') ? null : body.dbKey;
       if (dbKey !== null) {
         if (typeof dbKey !== 'string' || dbKey.length !== 32) {
-          return res.status(400).json({ error: 'Database key must be exactly 32 characters' });
+          throw Object.assign(new Error('Database key must be exactly 32 characters'), { status: 400 });
         }
-        const dbPath = getPrimarySavePath();
-        if (fs.existsSync(dbPath)) {
-          const integrity = await runIntegrityCheck(dbPath, dbKey);
-          if (!integrity.passed) return res.status(400).json({ error: 'Key does not open the save file' });
-        }
+        if (/\p{Cc}/u.test(dbKey)) throw Object.assign(new Error('Database key contains unsupported control characters'), { status: 400 });
       }
     }
 
+    const candidateKey = dbKey === undefined ? resolveKey(req) : (dbKey || req.app.locals.dbKey);
+    const candidateDir = cleanDir === undefined ? config.getSaveDir() : (cleanDir || config.getDefaultSaveDir());
+    const candidatePath = path.join(candidateDir, SAVE_FILES[0]);
+    if (!fs.existsSync(candidatePath)) {
+      throw Object.assign(new Error(`The proposed directory does not contain the expected primary save: ${SAVE_FILES[0]}`), { status: 422 });
+    }
+    const integrity = await runIntegrityCheck(candidatePath, candidateKey);
+    if (!integrity.passed) throw Object.assign(new Error('The proposed save directory and database key are not compatible'), { status: 422 });
     const result = config.setOverrides({ saveDir: cleanDir, dbKey });
-    res.json({
+    return {
       saveDir: result.saveDir,
       defaultSaveDir: config.getDefaultSaveDir(),
       hasCustomKey: result.hasCustomKey,
       keySource: result.hasCustomKey ? 'user-override' : 'bundled-resource',
       activeSaveDir: config.getSaveDir()
+    };
     });
+    res.json(resultPayload);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(err.status || 400).json({ error: err.message });
   }
 });
 
 router.get('/status', async (req, res) => {
   try {
-    const gameRunning = await isGameRunning();
+    const gameProcess = await getGameProcessState();
+    const gameRunning = gameProcess.known && gameProcess.running ? gameProcess.processes : false;
     const schema = await getSchema(resolveKey(req));
     const hashes = await getLatestBackupHashes();
     const mutation = mutationService.getState();
     const compatibility = await checkCompatibility(resolveKey(req));
     res.json({
       gameRunning,
+      gameProcess,
       schema,
       backupHashes: hashes,
       activeSaveDir: config.getSaveDir(),
       mutation,
       compatibility,
-      writeReady: !gameRunning && !mutation.active && compatibility.compatible,
-      blockingReasons: [gameRunning ? 'game-running' : null, mutation.active ? 'mutation-active' : null, ...compatibility.reasons].filter(Boolean),
+      writeReady: gameProcess.known && !gameProcess.running && !mutation.active && compatibility.compatible,
+      blockingReasons: [!gameProcess.known ? 'game-process-unknown' : null, gameProcess.running ? 'game-running' : null, mutation.active ? 'mutation-active' : null, ...compatibility.reasons].filter(Boolean),
       appVersion: APP_VERSION,
       verifiedGameVersion: VERIFIED_GAME_VERSION
     });
@@ -116,29 +129,30 @@ router.get('/status', async (req, res) => {
 router.get('/health', async (req, res) => {
   try {
     const compatibility = await checkCompatibility(resolveKey(req));
-    res.status(compatibility.compatible ? 200 : 503).json({ ok: compatibility.compatible, compatibility, mutation: mutationService.getState() });
-  } catch (err) { res.status(503).json({ ok:false, error:err.message }); }
+    res.status(compatibility.compatible ? 200 : 503).json({ appId: 'forever-winter-save-editor', appVersion: APP_VERSION, ok: compatibility.compatible, compatibility, mutation: mutationService.getState() });
+  } catch (err) { res.status(503).json({ appId: 'forever-winter-save-editor', appVersion: APP_VERSION, ok:false, error:err.message }); }
 });
 
 router.get('/diagnostics', async (req, res) => {
   try {
-    const [compatibility, gameRunning, inventoryRoundTrip, gameVersion] = await Promise.all([
+    const [compatibility, gameProcess, inventoryRoundTrip, gameVersion] = await Promise.all([
       checkCompatibility(resolveKey(req)),
-      isGameRunning(),
+      getGameProcessState(),
       checkInventoryRoundTrip(resolveKey(req)).catch(error => ({ compatible: false, byteIdentical: false, error: error.message })),
       getGameVersion()
     ]);
     const mutation = mutationService.getState();
-    const running = Array.isArray(gameRunning) ? gameRunning.length > 0 : !!gameRunning;
+    const gameRunning = gameProcess.known && gameProcess.running ? gameProcess.processes : false;
     res.json({
       checkedAt: new Date().toISOString(),
       gameRunning,
+      gameProcess,
       compatibility,
       gameVersion,
       inventoryRoundTrip,
       mutation,
       activeSaveDir: config.getSaveDir(),
-      writeReady: !running && !mutation.active && compatibility.compatible,
+      writeReady: gameProcess.known && !gameProcess.running && !mutation.active && compatibility.compatible,
       steamCloudWarning: 'Steam Cloud may overwrite edited saves; disable it for The Forever Winter before editing.'
     });
   } catch (err) {
@@ -317,7 +331,7 @@ router.post('/weapon-xp/batch', async (req, res) => {
 
 router.post('/backup', async (req, res) => {
   try {
-    const result = await createBackup();
+    const result = await operationGate.runExclusive('backup:create', () => createBackup());
     res.json(result);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
@@ -327,7 +341,7 @@ router.post('/backup', async (req, res) => {
 router.post('/backups', async (req, res) => {
   try {
     const label = req.body && req.body.label != null ? req.body.label : 'manual';
-    const result = await createBackup(label);
+    const result = await operationGate.runExclusive('backup:create', () => createBackup(label));
     res.status(201).json(result);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message });
@@ -346,12 +360,12 @@ router.get('/backups', async (req, res) => {
 router.post('/backups/:id/restore', async (req, res) => {
   try {
     const key = resolveKey(req);
-    const result = await restoreBackup(req.params.id, req.body && req.body.confirmation, {
+    const result = await operationGate.runExclusive('backup:restore', () => restoreBackup(req.params.id, req.body && req.body.confirmation, {
       validatePrimary: async dbPath => {
         const [integrity, foreignKeys] = await Promise.all([runIntegrityCheck(dbPath, key), validateForeignKeys(dbPath, key)]);
         if (!integrity.passed || foreignKeys.errors !== 0) throw Object.assign(new Error('Restored database failed integrity or foreign-key validation'), { status: 422, integrity, foreignKeys });
       }
-    });
+    }));
     res.json(result);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, backupId: req.params.id, rollbackStatus: err.rollbackStatus || null });
@@ -361,7 +375,7 @@ router.post('/backups/:id/restore', async (req, res) => {
 router.delete('/backups/:id', async (req, res) => {
   try {
     if (mutationService.getState().sessionBackupId === req.params.id) return res.status(409).json({ error: 'The active session backup cannot be deleted' });
-    const result = await deleteBackup(req.params.id, req.body && req.body.confirmation);
+    const result = await operationGate.runExclusive('backup:delete', () => deleteBackup(req.params.id, req.body && req.body.confirmation));
     res.json(result);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, backupId: req.params.id });
@@ -444,23 +458,7 @@ router.post('/inventory/add', async (req, res) => {
     if (!itemId || quantity == null) {
       return res.status(400).json({ error: 'itemId and quantity are required' });
     }
-    const result = await runMutation(req, 'inventory-add', async () => {
-      const addResult = await addInventoryItemGvas(resolveKey(req), itemId, quantity, sourceMap);
-      // addInventoryItem returns added:false (a no-op) when the item is already
-      // present. The frontend "add missing materials" flow relies on that to fall
-      // back to a quantity update, but a no-op would make the staged save
-      // identical to the live one and the mutation gate would reject it with a
-      // 422 ("no database change"). Perform the increment here, inside the same
-      // staged mutation, so the write is real and the caller's fallback is
-      // satisfied (the item's stack is increased by `quantity`).
-      if (addResult.added === false) {
-        const items = await listInventoryItemsGvas(resolveKey(req));
-        const current = items.find(item => item.name === itemId);
-        const currentQty = current ? current.quantity : 0;
-        return updateInventoryItemGvas(resolveKey(req), itemId, currentQty + quantity, sourceMap);
-      }
-      return addResult;
-    });
+    const result = await runMutation(req, 'inventory-add', () => addInventoryItemGvas(resolveKey(req), itemId, quantity, sourceMap));
     res.json(result);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
@@ -474,13 +472,11 @@ router.get('/inventory/catalog', async (req, res) => {
     const fs = require('fs');
     const path = require('path');
     const catalogPath = path.join(__dirname, '..', 'public', 'catalog.json');
-    let catalog = {};
-    try { catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8')); } catch {}
-    let have = {};
-    try {
-      const items = await listInventoryItemsGvas(resolveKey(req));
-      have = Object.fromEntries(items.map(i => [i.name, i.quantity]));
-    } catch {}
+    let catalog;
+    try { catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8')); }
+    catch (error) { throw Object.assign(new Error(`Inventory catalog could not be read: ${error.message}`), { status: 503 }); }
+    const items = await listInventoryItemsGvas(resolveKey(req));
+    const have = Object.fromEntries(items.map(i => [i.name, i.quantity]));
     const entries = Object.entries(catalog).map(([id, meta]) => ({
       id,
       wiki: meta.wiki || id,
@@ -580,4 +576,3 @@ router.post('/quests/:id/ready', async (req, res) => {
 });
 
 module.exports = router;
-

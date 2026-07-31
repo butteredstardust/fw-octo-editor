@@ -15,8 +15,8 @@ const DEFAULT_SAVE_DIR = path.join(process.env.LOCALAPPDATA || path.join(process
 const DEFAULT_KEY_FILE = process.env.FW_DB_KEY_FILE || path.resolve(__dirname, '..', '..', 'fwinter-db-key.txt');
 const DEFAULT_KEY_RESOURCE_FILE = process.env.FW_DB_KEY_RESOURCE || path.join(__dirname, '..', 'resources', 'dbkey.resource.json');
 // File name is intentionally not a .txt so it is not accidentally committed.
-const SETTINGS_FILE = path.join(__dirname, '..', 'config', 'settings.json');
-const INSTANCE_SECRET_FILE = path.join(__dirname, '..', 'config', '.instance-secret');
+const SETTINGS_FILE = process.env.FW_SETTINGS_FILE || path.join(__dirname, '..', 'config', 'settings.json');
+const INSTANCE_SECRET_FILE = process.env.FW_INSTANCE_SECRET_FILE || path.join(__dirname, '..', 'config', '.instance-secret');
 
 // In-memory overrides; loaded once at boot from SETTINGS_FILE.
 let overrides = { saveDir: null, dbKeyOverride: null };
@@ -60,15 +60,23 @@ function load() {
   return overrides;
 }
 
-function persist() {
+function persist(settings = overrides) {
   const dir = path.dirname(SETTINGS_FILE);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   // Never write plaintext key material; dbKeyOverride (if set) is already
   // AES-256-GCM ciphertext at this point.
-  fs.writeFileSync(SETTINGS_FILE, JSON.stringify({
-    saveDir: overrides.saveDir,
-    dbKeyOverride: overrides.dbKeyOverride
-  }, null, 2), { mode: 0o600 });
+  const tempPath = `${SETTINGS_FILE}.${process.pid}.${require('crypto').randomUUID()}.tmp`;
+  try {
+    fs.writeFileSync(tempPath, JSON.stringify({
+      saveDir: settings.saveDir,
+      dbKeyOverride: settings.dbKeyOverride
+    }, null, 2), { mode: 0o600 });
+    const fd = fs.openSync(tempPath, 'r+');
+    try { fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+    fs.renameSync(tempPath, SETTINGS_FILE);
+  } finally {
+    try { fs.rmSync(tempPath, { force: true }); } catch { /* best effort */ }
+  }
 }
 
 function getOverrides() {
@@ -106,7 +114,7 @@ function withSaveDir(saveDir, callback) {
 // Updates the save-directory override and/or the DB key override.
 // dbKey: undefined leaves the existing override untouched; null (or '')
 // clears it; a 32-character string encrypts and stores it (never plaintext).
-function setOverrides({ saveDir = null, dbKey } = {}) {
+function setOverrides({ saveDir, dbKey } = {}) {
   if (saveDir) {
     let stat;
     try {
@@ -118,20 +126,21 @@ function setOverrides({ saveDir = null, dbKey } = {}) {
     const hasDat = fs.readdirSync(saveDir).some(f => f.toLowerCase().endsWith('.dat'));
     if (!hasDat) throw new Error(`No .dat save files found in: ${saveDir}`);
   }
-  overrides.saveDir = saveDir || null;
+  const next = { saveDir: saveDir === undefined ? overrides.saveDir : (saveDir || null), dbKeyOverride: overrides.dbKeyOverride };
 
   if (dbKey !== undefined) {
     if (dbKey === null || dbKey === '') {
-      overrides.dbKeyOverride = null;
+      next.dbKeyOverride = null;
     } else {
-      if (typeof dbKey !== 'string' || dbKey.length !== 32) {
+      if (typeof dbKey !== 'string' || dbKey.length !== 32 || /[\u0000-\u001f\u007f]/.test(dbKey)) {
         throw new Error('Database key must be exactly 32 characters');
       }
-      overrides.dbKeyOverride = keyProtect.encryptWithSecret(dbKey, getOrCreateInstanceSecret());
+      next.dbKeyOverride = keyProtect.encryptWithSecret(dbKey, getOrCreateInstanceSecret());
     }
   }
 
-  persist();
+  persist(next);
+  overrides = next;
   return getOverrides();
 }
 

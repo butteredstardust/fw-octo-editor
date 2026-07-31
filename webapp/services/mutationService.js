@@ -7,6 +7,8 @@ const backupService = require('./backupService');
 const processCheck = require('../utils/processCheck');
 const validation = require('../utils/validation');
 const compatibilityService = require('./compatibilityService');
+const operationGate = require('./operationGate');
+const { atomicInstall } = require('../utils/atomicFile');
 
 function httpError(message, status = 409) {
   return Object.assign(new Error(message), { status });
@@ -27,21 +29,28 @@ function createMutationService(dependencies = {}) {
   const fs = dependencies.fs || nodeFs;
   const configService = dependencies.config || config;
   const backups = dependencies.backupService || backupService;
-  const isGameRunning = dependencies.isGameRunning || processCheck.isGameRunning;
+  const getGameProcessState = dependencies.getGameProcessState || (dependencies.isGameRunning
+    ? async () => { const value = await dependencies.isGameRunning(); return { known: true, running: !!value, processes: Array.isArray(value) ? value : [], error: null }; }
+    : processCheck.getGameProcessState);
   const checkCompatibility = dependencies.checkCompatibility || compatibilityService.checkCompatibility;
   const validateDatabase = dependencies.validateDatabase || defaultValidateDatabase;
   const tempRoot = dependencies.tempRoot || os.tmpdir();
   const randomUUID = dependencies.randomUUID || crypto.randomUUID;
+  const gate = dependencies.operationGate || operationGate;
+  const installFile = dependencies.atomicInstall || atomicInstall;
   let active = false;
   let sessionBackup = null;
 
   async function requireGameClosed() {
-    if (await isGameRunning()) throw httpError('The Forever Winter is running. Close it before editing.');
+    const state = await getGameProcessState();
+    if (!state.known) throw httpError(state.error || 'Unable to verify whether The Forever Winter is running');
+    if (state.running) throw httpError('The Forever Winter is running. Close it before editing.');
   }
 
   async function mutate(key, label, action) {
-    if (active) throw httpError('Another save mutation is active');
-    active = true;
+    return gate.runExclusive(`mutation:${label}`, async () => {
+      if (active) throw httpError('Another save mutation is active');
+      active = true;
     const operationId = randomUUID();
     const liveDir = configService.getSaveDir();
     const primaryName = backups.SAVE_FILES[0];
@@ -69,8 +78,13 @@ function createMutationService(dependencies = {}) {
 
       await requireGameClosed();
       if (await backups.hashFile(livePrimary) !== beforeHash) throw httpError('Live save changed during the staged operation');
-      await fs.copyFile(stagedPrimary, livePrimary);
-      installed = true;
+      try {
+        await installFile(stagedPrimary, livePrimary, stagedHash, { fs, randomUUID });
+        installed = true;
+      } catch (installError) {
+        installed = !!installError.atomicInstalled;
+        throw installError;
+      }
       if (await backups.hashFile(livePrimary) !== stagedHash) throw new Error('Installed save hash does not match staged save');
       const installedValidation = await validateDatabase(livePrimary, key);
       return {
@@ -93,7 +107,7 @@ function createMutationService(dependencies = {}) {
         rollbackStatus.attempted = true;
         try {
           const rollbackFile = path.join(tempDir, `${primaryName}.rollback`);
-          await fs.copyFile(rollbackFile, livePrimary);
+          await installFile(rollbackFile, livePrimary, await backups.hashFile(rollbackFile), { fs, randomUUID });
           rollbackStatus.succeeded = await backups.hashFile(livePrimary) === await backups.hashFile(rollbackFile);
         } catch (rollbackError) { rollbackStatus.error = rollbackError.message; }
       }
@@ -103,11 +117,15 @@ function createMutationService(dependencies = {}) {
       throw error;
     } finally {
       active = false;
-      if (tempDir) await fs.rm(tempDir, { recursive: true, force: true });
+      if (tempDir) {
+        try { await fs.rm(tempDir, { recursive: true, force: true }); }
+        catch { /* The live write is already verified; cleanup is best effort. */ }
+      }
     }
+    });
   }
 
-  function getState() { return { active, sessionBackupId: sessionBackup?.id || null }; }
+  function getState() { return { active: active || gate.getState().active, operation: gate.getState(), sessionBackupId: sessionBackup?.id || null }; }
   function resetForTests() { active = false; sessionBackup = null; }
   return { mutate, getState, resetForTests };
 }

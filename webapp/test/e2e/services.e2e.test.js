@@ -2,12 +2,31 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
+const fs = require('node:fs/promises');
+const path = require('node:path');
 const { createE2EContext } = require('./helpers/e2e-harness');
 const saveService = require('../../services/saveService');
 const gvasService = require('../../services/gvasService');
 const weaponBuildService = require('../../services/weaponBuildService');
 const backupService = require('../../services/backupService');
 const binaryParser = require('../../services/binaryParser');
+const { SAVE_FILES } = require('./helpers/e2e-harness');
+
+async function primaryHash(ctx) {
+  return crypto.createHash('sha256').update(await fs.readFile(path.join(ctx.saveDir, SAVE_FILES[0]))).digest('hex');
+}
+
+function exactInventoryQuantity(json, itemId, sourceMap) {
+  const propKey = sourceMap === 'Base Weapons' ? 'Weapons_0' : sourceMap === 'Damaged Weapons' ? 'Danglies_0' : 'Items_0';
+  const rows = json.root.properties[propKey] || [];
+  const matches = rows.filter(entry => {
+    const value = entry.value || {};
+    const handle = value.ItemRowHandle_0 || value.WeaponRowHandle_0 || value.DanglyRowHandle_0 || {};
+    return (handle.RowName_0 || entry.key) === itemId;
+  });
+  assert.equal(matches.length, 1, `expected one exact ${sourceMap} row for ${itemId}`);
+  return matches[0].value.Quantity_0;
+}
 
 // B1/B2 + C1/C2/C3: drives the REAL services (saveService, gvasService,
 // weaponBuildService) against an isolated copy of the live save. The real
@@ -169,4 +188,48 @@ test('C6: binaryParser fallback matches the real uesave-based inventory read exa
     assert.equal(actual.quantity, expected.quantity, `quantity mismatch for ${name}`);
     assert.equal(actual.sourceMap, expected.sourceMap, `sourceMap mismatch for ${name}`);
   }
+});
+
+test('C7: addInventoryItem increments only the requested source map for a cross-map collision', async t => {
+  const ctx = await createE2EContext(t);
+  const itemId = 'WPN_RFL01_MAG_545_08';
+  const delta = 3;
+  const beforeJson = await gvasService.readNamedBlobJson(ctx.key, 'TempInventory');
+  assert.deepEqual(gvasService.findMapsForItem(beforeJson.root.properties, itemId).sort(), ['Items_0', 'Weapons_0'], 'fixture must retain the known cross-map collision');
+  const beforeItems = exactInventoryQuantity(beforeJson, itemId, 'Items');
+  const beforeWeapons = exactInventoryQuantity(beforeJson, itemId, 'Base Weapons');
+
+  const receipt = await gvasService.addInventoryItem(ctx.key, itemId, delta, 'Items');
+  assert.equal(receipt.added, false);
+  assert.equal(receipt.changedRows, 1, 'one TempInventory row serialization/write is expected');
+  assert.equal(receipt.targetVerification.incrementedBy, delta);
+  assert.equal(receipt.targetVerification.map, 'Items');
+
+  const afterJson = await gvasService.readNamedBlobJson(ctx.key, 'TempInventory');
+  assert.equal(exactInventoryQuantity(afterJson, itemId, 'Items'), beforeItems + delta, 'requested Items row must increase by the delta');
+  assert.equal(exactInventoryQuantity(afterJson, itemId, 'Base Weapons'), beforeWeapons, 'Base Weapons row must remain byte-logically untouched');
+});
+
+test('C8: addInventoryItem rejects a noncanonical new id without changing the isolated primary', async t => {
+  const ctx = await createE2EContext(t);
+  const itemId = 'Definitely_Not_A_Canonical_Save_Item';
+  const beforeJson = await gvasService.readNamedBlobJson(ctx.key, 'TempInventory');
+  assert.deepEqual(gvasService.findMapsForItem(beforeJson.root.properties, itemId), []);
+  const beforeHash = await primaryHash(ctx);
+
+  await assert.rejects(
+    () => gvasService.addInventoryItem(ctx.key, itemId, 1, 'Items'),
+    error => error.status === 422 && /not a canonical catalog entry/i.test(error.message)
+  );
+  assert.equal(await primaryHash(ctx), beforeHash, 'rejected addition must leave the isolated primary byte-identical');
+});
+
+test('C9: setHubUpgrades rejects an incomplete prerequisite set without changing the isolated primary', async t => {
+  const ctx = await createE2EContext(t);
+  const beforeHash = await primaryHash(ctx);
+  await assert.rejects(
+    () => saveService.setHubUpgrades(ctx.key, ['Hub.Upgrade.Category.Water.V2']),
+    error => error.status === 422 && /incomplete hub prerequisite chain/i.test(error.message)
+  );
+  assert.equal(await primaryHash(ctx), beforeHash, 'rejected prerequisite set must leave the isolated primary byte-identical');
 });

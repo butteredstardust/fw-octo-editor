@@ -128,7 +128,7 @@
       <div class="card">
         <h2>Weapon Builds</h2>
           <p class="page-intro">Deterministic balanced endgame recommendations from structured wiki stats and compatibility data.</p>
-          <div class="weapon-build-command"><span><strong>Owned weapon loadout kit</strong></span><button id="weaponBuildAddOwned" type="button" title="Add missing BIS parts for every weapon you already own."><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add Parts</button></div>
+          <div class="weapon-build-command"><span id="weaponBuildOwnedSummary"><strong>Owned weapon loadout kit</strong><small>Load builds to check missing parts.</small></span><button id="weaponBuildAddOwned" type="button" title="Load builds to check missing parts." disabled><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add BIS Parts</button></div>
           <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
     </div>
 
@@ -355,7 +355,7 @@
         <h2 id="appDialogTitle">Confirm operation</h2>
         <p id="appDialogMessage"></p>
         <menu>
-          <button id="appDialogCancel" value="cancel" class="btn-ghost"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
+          <button id="appDialogCancel" value="cancel" class="btn-neutral"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
           <button id="appDialogAccept" value="default" type="button">Continue</button>
         </menu>
       </form>

@@ -212,7 +212,7 @@ async function toggleTrader(btn, encKey) {
   const key = decodeURIComponent(encKey);
   const currentlyOn = btn && btn.classList.contains('on');
   const unlocked = !(currentlyOn);
-  if (!await confirmAction(`${unlocked ? 'Unlock' : 'Lock'} trader "${key}"?`)) return;
+  if (!await confirmAction(`${unlocked ? 'Unlock' : 'Lock'} trader "${key}"?`, unlocked ? { title: 'Unlock trader', acceptLabel: 'Unlock Trader', icon: 'unlock' } : { title: 'Lock trader', acceptLabel: 'Lock Trader', tone: 'danger', icon: 'lock' })) return;
   const result = await api(`/vendors/trader/${encodeURIComponent(key)}`, {
     method: 'PUT',
     body: JSON.stringify({ unlocked })
@@ -456,7 +456,7 @@ async function loadRepair() {
 }
 
 async function collectRepair() {
-  if (!await confirmAction('Finish this repair now? This advances the Recipe.RepairWeapon timer to the current time so the item becomes ready to collect. It does not modify inventory or weapon data.')) return;
+  if (!await confirmAction('Finish this repair now? This advances the Recipe.RepairWeapon timer to the current time so the item becomes ready to collect. It does not modify inventory or weapon data.', { title: 'Finish repair', acceptLabel: 'Finish Repair', icon: 'collect' })) return;
   const result = await api('/repair/collect', { method: 'POST' });
   if (!result.success) {
     setOperationFeedback('repairOperationStatus', 'Repair collection failed verification.', result, 'error');
@@ -469,7 +469,7 @@ async function collectRepair() {
 // EXPERIMENTAL: tell the game a quest's conditions are met (Quests.Status = 2).
 // The game then shows the turn-in prompt; you still open the game to hand it in.
 async function markQuestReady(questId) {
-  if (!await confirmAction('Mark this quest ready to turn in? You must still open the game to turn it in and receive the reward.')) return;
+  if (!await confirmAction('Mark this quest ready to turn in? You must still open the game to turn it in and receive the reward.', { title: 'Experimental quest update', acceptLabel: 'Mark Ready', tone: 'warning', icon: 'check' })) return;
   try {
     const result = await api(`/quests/${questId}/ready`, { method: 'POST' });
     if (!result.success) {

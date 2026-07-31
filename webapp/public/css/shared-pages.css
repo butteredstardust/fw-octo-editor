@@ -62,7 +62,7 @@
     @media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; animation:none !important; } }
     /* Shared page anatomy and density */
     .page { width:100%; margin-inline:auto; }
-    #page-inventory, #page-add-items, #page-rigs, #page-hub-upgrades, #page-weapon-xp, #page-characters, #page-character, #page-vendors, #page-repair, #page-crafting, #page-backups, #page-weapon-builds, #page-presets { max-width:var(--content-wide); }
+    #page-inventory, #page-add-items, #page-rigs, #page-hub-upgrades, #page-weapon-xp, #page-characters, #page-character, #page-vendors, #page-repair, #page-crafting, #page-backups, #page-weapon-builds, #page-presets, #page-stats { max-width:var(--content-wide); }
     #page-settings, #page-diagnostics { max-width:var(--content-wide); }
     .page > .card { padding:1.15rem; }
     .page > .card > h2 { font-size:1.4rem; margin-bottom:.3rem; }
@@ -98,6 +98,33 @@
     .stats-row-detail { color: var(--text-2); font-size: 0.72rem; margin-top: 0.15rem; }
     .stats-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .map-internal-tag { display:inline-block; margin-top:.2rem; padding:.1rem .5rem; border-radius:999px; background:var(--warn-bg); color:var(--amber-warn); font-size:.66rem; text-transform:uppercase; letter-spacing:.04em; }
+
+    .stats-kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.65rem; }
+    .stats-kpi { min-width:0; padding:.8rem; border:1px solid var(--gunmetal-dark); border-radius:8px; background:var(--surface-2); }
+    .stats-kpi span { display:block; color:var(--text-2); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+    .stats-kpi strong { display:block; margin:.18rem 0; color:var(--text); font-size:1.35rem; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    .stats-kpi small, .stats-note { color:var(--text-2); font-size:.7rem; line-height:1.4; }
+    .comparison-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
+    .comparison-pair > div, .character-combat-card, .map-stats-card { min-width:0; padding:.75rem; border:1px solid var(--gunmetal-dark); border-radius:8px; background:rgba(0,0,0,.14); }
+    .comparison-pair h4, .character-combat-card h4, .map-stats-card h4 { margin:0 0 .55rem; font-size:.82rem; }
+    .comparison-chart { display:grid; gap:.55rem; }
+    .comparison-row { min-width:0; }
+    .comparison-name { min-width:0; margin-bottom:.2rem; color:var(--text-2); font-size:.72rem; overflow-wrap:anywhere; }
+    .metric-bar { min-width:0; }
+    .metric-bar-label { display:flex; justify-content:space-between; gap:.5rem; margin-bottom:.18rem; color:var(--text-2); font-size:.68rem; }
+    .metric-bar-label b { color:var(--text); font-variant-numeric:tabular-nums; }
+    .metric-bar-track { display:block; height:.48rem; overflow:hidden; border-radius:999px; background:var(--gunmetal-dark); }
+    .metric-bar-track > span { display:block; height:100%; min-width:0; border-radius:inherit; }
+    .character-combat-grid, .map-stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:.65rem; }
+    .character-combat-card { display:grid; gap:.55rem; }
+    .map-stats-card header { display:flex; align-items:flex-start; justify-content:space-between; gap:.5rem; }
+    .map-entry-count { margin:.2rem 0 .65rem; color:var(--text-2); font-size:.76rem; }
+    .map-entry-count b { color:var(--text); font-size:1.1rem; font-variant-numeric:tabular-nums; }
+    .map-rate-grid { display:grid; gap:.55rem; }
+    .map-stats-card > .stats-note { margin:.7rem 0 0; }
+    #statsContent { min-width:0; overflow-wrap:anywhere; }
+    @media(max-width:700px) { .comparison-pair { grid-template-columns:1fr; } .stats-kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .character-combat-grid, .map-stats-grid, .territory-grid { grid-template-columns:minmax(0,1fr); } .territory-section { padding:.85rem; margin-inline:0; } }
+    @media(max-width:420px) { .stats-kpi-grid { grid-template-columns:1fr; } }
 
     /* Territory Control -- faction identity (dot + label, never color alone) */
     .faction-dot { display:inline-block; width:.6rem; height:.6rem; border-radius:50%; margin-right:.4rem; flex:0 0 auto; box-shadow:0 0 0 2px rgba(0,0,0,.25); }
