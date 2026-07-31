@@ -1,6 +1,9 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, CHARACTER_META, prestigeBonus, PRESTIGE_XP_CAP, PRESTIGE_MAX_FOR_WARNING, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, WEAPON_META, errorDetailHtml } = FW;
+// confirmAction was missing from this destructure while both prestige paths
+// called it, so every "Apply prestige" click threw "confirmAction is not
+// defined" and surfaced as a failed-change banner instead of a confirmation.
+const { api, esc, appIcon, actionIcon, technicalDetails, CHARACTER_META, prestigeBonus, PRESTIGE_XP_CAP, PRESTIGE_MAX_FOR_WARNING, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, WEAPON_META, loadErrorHtml } = FW;
 function showPage(...args) { return FW.showPage(...args); }
 
 async function loadCharacters() {
@@ -9,7 +12,7 @@ async function loadCharacters() {
     const [chars, dash] = await Promise.all([api('/characters'), api('/dashboard')]);
     const activeTag = (dash.character && dash.character.tag) || null;
     const el = document.getElementById('charactersList');
-    let html = '<div class="char-hint">Each character has a <b>prestige level</b> (0&ndash;50). Prestige raises the XP cap and grants bonus health (and, from prestige 6, movement speed). Per the wiki, levels past <strong>25</strong> grant no further stats. Use <b>Set Prestige</b> to change the level, or <b>Apply Prestige</b> to also reset the character\'s skills to match that level.</div>';
+    let html = '<div class="char-hint">Each character has a <b>prestige level</b> (0&ndash;50). Prestige raises the XP cap and grants bonus health (and, from prestige 6, movement speed). Bonuses max out at level <strong>24</strong>; higher levels keep that value. Use <b>Set prestige</b> to change the level, or <b>Apply prestige</b> to also reset the character\'s skills to match that level.</div>';
     html += '<div class="char-cards">';
     for (const c of chars) {
       const meta = CHARACTER_META[c.name] || { name: c.name, icon: '🔹', role: '', blurb: '', health: '?', walk: '?', sprint: '?', skills: [] };
@@ -35,7 +38,7 @@ async function loadCharacters() {
           <div class="char-hp-breakdown">base ${meta.health}${bonus.health ? ` + <span class="pos">${bonus.health} prestige</span>` : ''}${bonus.speed ? ` &middot; <span class="pos">+${bonus.speed}% speed</span>` : ''}</div>
         </div>
         <div class="char-stats">
-          <div><span class="k">Prestige Lvl</span><span class="v">${lvl}${capped ? ' <span class="char-capped" title="Per the wiki, health &amp; speed bonuses stop increasing past prestige 25">max</span>' : ''}</span></div>
+          <div><span class="k">Prestige Lvl</span><span class="v">${lvl}${capped ? ' <span class="char-capped" title="Health and speed bonuses stop increasing past prestige level 24">max</span>' : ''}</span></div>
           <div><span class="k">Walk / Sprint</span><span class="v">${meta.walk} / ${meta.sprint} m/s</span></div>
           <div class="char-xp-row" style="grid-column: 1 / -1">
             <span class="k">XP</span>
@@ -58,7 +61,7 @@ async function loadCharacters() {
             <input type="number" id="xp-${esc(c.characterId)}" value="${esc(c.xp != null ? c.xp : 0)}" min="0" step="1" class="char-control-input">
             <div class="char-control-actions">
               <button class="set icon-only" data-action="set-character-xp" data-id="${esc(c.characterId)}" title="Set XP">${actionIcon('check')}<span class="sr-only">Set</span></button>
-              <button class="btn-ghost" data-action="show-character" data-id="${esc(c.characterId)}" title="Open Skill Editor">${actionIcon('arrowRight')}Skill Editor</button>
+              <button class="btn-ghost" data-action="show-character" data-id="${esc(c.characterId)}" title="Open skill editor">${actionIcon('arrowRight')}Skill editor</button>
             </div>
           </div>
         </div>
@@ -67,7 +70,7 @@ async function loadCharacters() {
     html += '</div>';
     setRenderedHtml(el, html);
   } catch (err) {
-    setRenderedHtml(document.getElementById('charactersList'), `<div class="empty-state"><strong>Could not load characters</strong><br>${errorDetailHtml(err, 'Characters could not be read.')}</div>`);
+    setRenderedHtml(document.getElementById('charactersList'), loadErrorHtml('characters', err));
   }
 }
 
@@ -83,7 +86,7 @@ async function setLevel(charId) {
 
 async function prestige(charId) {
   const level = readIntegerInput(document.getElementById(`level-${charId}`), 'Prestige level', { min: 0, max: 50 });
-  if (!await confirmAction(`Apply prestige level ${level}? This resets skills and sets the prestige level.`, { title: 'Apply prestige', acceptLabel: 'Apply Prestige', tone: 'danger', icon: 'refresh' })) return;
+  if (!await confirmAction(`Sets prestige to level ${level} and resets this character's skills to match it.`, { title: 'Apply prestige?', acceptLabel: 'Apply prestige', tone: 'danger', icon: 'refresh' })) return;
   const result = await api('/characters/prestige', {
     method: 'POST',
     body: JSON.stringify({ characterId: charId, targetLevel: level })
@@ -214,7 +217,7 @@ async function loadCharacterDetail(charId) {
     const details = await api(`/characters/${charId}/details`);
     renderCharacterDetail(c, details);
   } catch (err) {
-    el.innerHTML = `<div class="empty-state"><strong>Could not load character details</strong><br>${errorDetailHtml(err, 'Character details could not be read.')}</div>`;
+    el.innerHTML = loadErrorHtml('character details', err);
   }
 }
 
@@ -231,7 +234,7 @@ function renderCharacterDetail(c, details) {
   const detailXpCap = PRESTIGE_XP_CAP[lvl] != null ? PRESTIGE_XP_CAP[lvl] : null;
   const detailOverCap = detailXpCap != null && detailXp != null && detailXp > detailXpCap;
 
-  let html = `<button class="char-back btn-ghost" data-action="show-page" data-page-target="characters">${actionIcon('arrowLeft')}Back to Characters</button>`;
+  let html = `<button class="char-back btn-ghost" data-action="show-page" data-page-target="characters">${actionIcon('arrowLeft')}Back to characters</button>`;
   html += `<div class="char-detail-head">
     <span class="char-icon">${appIcon(meta.icon)}</span>
     <div>
@@ -241,20 +244,20 @@ function renderCharacterDetail(c, details) {
   </div>`;
   html += `<div class="char-blurb" style="margin-bottom:.75rem">${esc(meta.blurb)}</div>`;
   html += `<div class="char-detail-stats">
-    <span>Prestige Lvl: <b>${lvl}</b>${capped ? ' <span class="char-capped" title="Per the wiki, health &amp; speed bonuses stop increasing past prestige 25">max</span>' : ''}</span>
+    <span>Prestige Lvl: <b>${lvl}</b>${capped ? ' <span class="char-capped" title="Health and speed bonuses stop increasing past prestige level 24">max</span>' : ''}</span>
     <span>Total Health: <b>${totalHealth}</b>${bonus.health ? ` <small class="pos">(+${bonus.health})</small>` : ''}</span>
     <span>Speed Bonus: <b>${bonus.speed ? '+' + bonus.speed + '%' : '—'}</b></span>
     <span>XP: <b>${detailXp != null ? detailXp.toLocaleString() : 0}</b>${detailXpCap != null ? ` <small>/ ${detailXpCap.toLocaleString()} cap</small>` : ''}${detailOverCap ? ' <span class="char-xp-over" title="Exceeds this level\'s XP cap">over cap</span>' : ''}</span>
   </div>`;
   html += `<div class="char-detail-actions">
     <label>Prestige level <input type="number" class="char-level-input" id="d-level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1"></label>
-    <button class="btn-primary" data-action="set-detail-level" data-id="${esc(c.characterId)}">${actionIcon('check')}Set Prestige</button>
+    <button class="btn-primary" data-action="set-detail-level" data-id="${esc(c.characterId)}">${actionIcon('check')}Set prestige</button>
     <button class="danger-btn" data-action="detail-prestige" data-id="${esc(c.characterId)}" title="Sets the prestige level AND resets this character's skills to match it">${actionIcon('refresh')}Apply Prestige</button>
     <label>XP <input type="number" class="char-xp-input" id="d-xp-${esc(c.characterId)}" value="${esc(details.xp != null ? details.xp : c.xp)}" min="0" step="1"></label>
     <button class="set" data-action="set-detail-xp" data-id="${esc(c.characterId)}">${actionIcon('check')}Set XP</button>
   </div>`;
 
-  html += `<h3 class="char-section-heading">Skill Tracks</h3>`;
+  html += `<h3 class="char-section-heading">Skill tracks</h3>`;
   html += `<p class="char-hint" style="margin-bottom:1rem">Click a node to enable/disable a skill tier. Higher tiers are locked until the previous tier is enabled (skills must be learned in order). Weapon variant unlocks are independent toggles, not a sequence. Apply saves all changes.</p>`;
   html += '<div class="skill-tracks">';
   for (const g of tracks) {
@@ -287,7 +290,7 @@ function renderCharacterDetail(c, details) {
     const healthSkills = prestigeSkills.filter(s => s.name.includes('.Health.'));
     const speedSkills = prestigeSkills.filter(s => s.name.includes('.SpeedBuff.'));
     const speedLevels = speedTierUnlockLevels();
-    html += `<h3 class="char-section-heading spaced">Prestige Bonuses</h3>`;
+    html += `<h3 class="char-section-heading spaced">Prestige bonuses</h3>`;
     html += `<p class="char-hint" style="margin-bottom:1rem">These flags mirror the prestige level set above. They're normally kept in sync by Apply Prestige &mdash; edit them directly only if you know what you're doing.</p>`;
     html += '<div class="skill-tracks">';
     if (healthSkills.length) {
@@ -309,7 +312,7 @@ function renderCharacterDetail(c, details) {
     html += '</div>';
   }
 
-  html += `<div style="margin-top:1.25rem"><button class="hub-btn unlock-btn" data-action="apply-skills" data-id="${esc(c.characterId)}">${actionIcon('save')}Apply Skills</button></div>`;
+  html += `<div style="margin-top:1.25rem"><button class="hub-btn unlock-btn" data-action="apply-skills" data-id="${esc(c.characterId)}">${actionIcon('save')}Apply skills</button></div>`;
 
   setRenderedHtml(el, html);
   refreshSkillNodeLocks();
@@ -368,7 +371,7 @@ async function setDetailLevel(charId) {
 
 async function detailPrestige(charId) {
   const level = readIntegerInput(document.getElementById(`d-level-${charId}`), 'Prestige level', { min: 0, max: 50 });
-  if (!await confirmAction(`Apply prestige level ${level}? This resets skills and sets the prestige level.`, { title: 'Apply prestige', acceptLabel: 'Apply Prestige', tone: 'danger', icon: 'refresh' })) return;
+  if (!await confirmAction(`Sets prestige to level ${level} and resets this character's skills to match it.`, { title: 'Apply prestige?', acceptLabel: 'Apply prestige', tone: 'danger', icon: 'refresh' })) return;
   const result = await api('/characters/prestige', {
     method: 'POST', body: JSON.stringify({ characterId: charId, targetLevel: level })
   });

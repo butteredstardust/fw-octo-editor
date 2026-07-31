@@ -95,7 +95,11 @@ test('first-run preflight panel is markup-present, informational, and dismissibl
 test('preflight reason text is plain-language and named per specific blocker', () => {
   assert.match(systemJs, /'game-running': 'The Forever Winter is currently running\./);
   assert.match(systemJs, /'missing-sqlite3mc': 'The SQLite3MC database tool is missing\./);
-  assert.match(systemJs, /'missing-save-variants': 'One or more required save files were not found/);
+  assert.match(systemJs, /'missing-save-variants': 'Your save files were not found/);
+  // The Windows-only default tool path is qualified so it doesn't read as
+  // the only possible location on a non-Windows setup.
+  assert.match(systemJs, /On Windows it is expected at C:\\\\tmp\\\\fw-tools/);
+  assert.match(systemJs, /on another OS, or a custom install, set the FW_SQLITE_BIN/);
   assert.match(systemJs, /function preflightReasonText\(reason\)/);
 });
 

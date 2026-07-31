@@ -28,12 +28,12 @@ test('core.mjs exposes a shared error-to-plain-language mapper', () => {
   // tool, key/compatibility, save not found, permission denied, network,
   // mutation already in flight -- with a safe generic fallback.
   assert.match(coreJs, /must be closed/i);
-  assert.match(coreJs, /already in progress/i);
-  assert.match(coreJs, /could not be found\. Check the tool paths/i);
+  assert.match(coreJs, /already saving/i);
+  assert.match(coreJs, /could not be found\. Open Diagnostics/i);
   assert.match(coreJs, /database key could not open this save/i);
   assert.match(coreJs, /save could not be found/i);
   assert.match(coreJs, /Permission was denied/i);
-  assert.match(coreJs, /Lost the connection to the local server/i);
+  assert.match(coreJs, /Lost the connection to the editor/i);
   assert.match(coreJs, /Something went wrong completing that action\./);
 });
 
@@ -117,4 +117,49 @@ test('mutation receipts (operationId/backupId/integrity) still render via receip
 test('toast styling lives in the owned shared-pages.css and preserves the toast region live-region semantics', () => {
   assert.match(frontendCss, /\.toast-dismiss \{/);
   assert.match(frontendCss, /\.toast \{ display:flex/);
+});
+
+// ---- Copy-guard tests (style guide compliance) ----------------------------
+// These guard the Nexus-facing copy pass: banned gaming-slang/jargon terms,
+// sentence-case confirm accept labels, and the 30-word confirm-body budget.
+// See the copy style guide for the full rules; this only encodes the
+// mechanically-checkable subset.
+
+test('copy: "BIS" / "Best in slot" gaming slang never appears in rendered module text', () => {
+  // Internal API field names (bisScore, bisSupported, bisMatches, bisMissing)
+  // are allowed -- only the user-facing uppercase "BIS" token is banned.
+  const offenders = (featureJs.match(/BIS/g) || []);
+  assert.deepEqual(offenders, [], `found ${offenders.length} literal "BIS" occurrence(s) -- use "recommended parts" instead`);
+  assert.doesNotMatch(featureJs, /best.in.slot/i);
+});
+
+test('copy: "Trader" does not appear in user-facing vendor headings (internal Trader.* keys/classes excluded)', () => {
+  assert.doesNotMatch(featureJs, />Trader Unlock</);
+  assert.match(featureJs, />Vendor unlock</);
+  assert.match(featureJs, />Vendor stock</);
+});
+
+test('copy: confirmAction accept labels are sentence case, not Title Case', () => {
+  const labels = [...featureJs.matchAll(/acceptLabel:\s*'([^']+)'/g)].map(m => m[1]);
+  assert.ok(labels.length >= 10, 'expected to find confirmAction acceptLabel options across feature modules');
+  for (const label of labels) {
+    for (const word of label.split(' ').slice(1)) {
+      assert.ok(!/^[A-Z][a-z]+$/.test(word), `acceptLabel "${label}" looks like Title Case, not sentence case`);
+    }
+  }
+});
+
+test('copy: confirmAction bodies stay within the style guide\'s 30-word budget', () => {
+  const calls = [...featureJs.matchAll(/confirmAction\(\s*(`[^`]*`|'[^']*'|"[^"]*")/g)].map(m => m[1]);
+  assert.ok(calls.length >= 10, 'expected to find confirmAction call sites across feature modules');
+  for (const raw of calls) {
+    const text = raw.slice(1, -1).replace(/\$\{[^}]*\}/g, 'X');
+    const words = text.trim().split(/\s+/).filter(Boolean);
+    assert.ok(words.length <= 30, `confirmAction body exceeds 30 words (${words.length}): "${text}"`);
+  }
+});
+
+test('copy: confirmAction bodies drop the undefined "experimental" hedge', () => {
+  const calls = [...featureJs.matchAll(/confirmAction\(\s*(`[^`]*`|'[^']*'|"[^"]*")/g)].map(m => m[1]);
+  for (const raw of calls) assert.doesNotMatch(raw, /experimental/i);
 });

@@ -15,8 +15,8 @@
       <h1><span class="header-kicker">Forged in the bio-slums, upgraded with hope. Stay alive out there.</span>Forever Winter Save Editor</h1>
     </div>
     <div class="header-tools">
-      <div class="status status-pill" id="gameStatus" role="status" data-state="checking">Checking game status...</div>
-      <div class="status status-pill" id="writesStatus" role="status" data-state="checking">Checking writes...</div>
+      <div class="status status-pill" id="gameStatus" role="status" data-state="checking">Checking game status…</div>
+      <div class="status status-pill" id="writesStatus" role="status" data-state="checking">Checking writes…</div>
       <button class="info-button" id="infoButton" type="button" aria-label="Acknowledgements and attributions" aria-haspopup="dialog" title="Acknowledgements">
         <svg class="info-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -32,18 +32,18 @@
     <div class="safety-item"><span class="safety-label">Session backup</span><span class="safety-value warn" id="safetyBackup">Not created</span></div>
     <div class="safety-item"><span class="safety-label">Active save</span><span class="safety-value truncate" id="safetySave">Checking…</span></div>
     <div class="safety-item"><span class="safety-label">Last verified edit</span><span class="safety-value" id="safetyLastEdit">None this session</span></div>
-    <div class="safety-item"><span class="safety-label">Game version</span><span class="safety-value" id="safetyGameVersion" title="The Forever Winter version this editor's save schema and data were built and verified against.">Checking…</span></div>
+    <div class="safety-item"><span class="safety-label">Game version</span><span class="safety-value" id="safetyGameVersion" title="The Forever Winter version this editor was built and tested against.">Checking…</span></div>
     <div class="safety-item"><span class="safety-label">Editor version</span><span class="safety-value" id="safetyAppVersion">Checking…</span></div>
   </section>
-  <div id="connectionBanner" class="connection-banner" role="alert" hidden>The local editor server is unavailable. Read requests can be retried, but do not repeat an interrupted save until status is refreshed. <button type="button" id="retryConnectionButton"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Retry status</button></div>
+  <div id="connectionBanner" class="connection-banner" role="alert" hidden>Lost connection to the local server. Browsing still works, but don't retry an interrupted save until this clears. <button type="button" id="retryConnectionButton"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Retry status</button></div>
   <div id="preflightPanel" class="preflight-panel" role="region" aria-label="Setup check" hidden>
     <div class="preflight-body">
       <strong>Before you edit anything</strong>
       <div id="preflightMessage"></div>
     </div>
     <div class="preflight-actions">
-      <button type="button" data-action="show-page" data-page-target="diagnostics"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span>Open Diagnostics</button>
-      <button type="button" class="btn-ghost" data-action="show-page" data-page-target="settings"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.5M12 18.5V21M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M3 12h2.5M18.5 12H21M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></span>Open Settings</button>
+      <button type="button" data-action="show-page" data-page-target="diagnostics"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span>Open diagnostics</button>
+      <button type="button" class="btn-ghost" data-action="show-page" data-page-target="settings"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.5M12 18.5V21M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M3 12h2.5M18.5 12H21M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></span>Open settings</button>
       <button type="button" class="btn-ghost" id="preflightDismissButton"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Dismiss</button>
     </div>
   </div>
@@ -51,9 +51,9 @@
   <div class="app-frame">
   <nav class="nav" id="primaryNav" aria-label="Primary">
     <div class="nav-group"><div class="nav-group-title">Overview</div><button data-page="dashboard" class="active"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg></span>Overview</button></div>
-    <div class="nav-group"><div class="nav-group-title">Progression</div><button data-page="characters"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>Characters</button><button data-page="weapon-builds"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></span>Weapon Builds</button><button data-page="presets"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span>Presets</button><button data-page="weapon-xp"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20V10m6 10V4m6 16v-7m6 7V13"/></svg></span>Weapon XP</button><button data-page="vendors"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8 6 3h12l2 5M4 8v12h16V8M4 8h16M9 20v-6h6v6"/></svg></span>Vendors</button><button data-page="stats"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20h16M7 20v-6m5 6v-10m5 10v-4"/></svg></span>Stats</button></div>
+    <div class="nav-group"><div class="nav-group-title">Progression</div><button data-page="characters"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>Characters</button><button data-page="weapon-builds"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></span>Weapon builds</button><button data-page="presets"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span>Presets</button><button data-page="weapon-xp"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20V10m6 10V4m6 16v-7m6 7V13"/></svg></span>Weapon XP</button><button data-page="vendors"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 8 6 3h12l2 5M4 8v12h16V8M4 8h16M9 20v-6h6v6"/></svg></span>Vendors</button><button data-page="stats"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20h16M7 20v-6m5 6v-10m5 10v-4"/></svg></span>Stats</button></div>
     <div class="nav-group"><div class="nav-group-title">Innards</div><button data-page="hub-upgrades"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></span>Innards</button><button data-page="crafting"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 3h6v5l5 10a2 2 0 0 1-2 3H6a2 2 0 0 1-2-3l5-10z"/><path d="M8 14h8"/></svg></span>Crafting</button><button data-page="repair"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 5a5 5 0 0 0-6 6L3 16l5 5 5-5a5 5 0 0 0 6-6l-3 3-4-4z"/></svg></span>Repair Bench</button></div>
-    <div class="nav-group"><div class="nav-group-title">Inventory</div><button data-page="inventory"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 9 12 4l9 5v9l-9 5-9-5z"/><path d="M3 9l9 5 9-5M12 14v9"/></svg></span>Inventory</button><button data-page="add-items"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span>Add Items</button><button data-page="rigs"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 8V6a5 5 0 0 1 10 0v2M5 8h14v13H5zM8 12h8M3 11h2m14 0h2"/></svg></span>Rigs</button></div>
+    <div class="nav-group"><div class="nav-group-title">Inventory</div><button data-page="inventory"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 9 12 4l9 5v9l-9 5-9-5z"/><path d="M3 9l9 5 9-5M12 14v9"/></svg></span>Inventory</button><button data-page="add-items"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span>Add items</button><button data-page="rigs"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 8V6a5 5 0 0 1 10 0v2M5 8h14v13H5zM8 12h8M3 11h2m14 0h2"/></svg></span>Rigs</button></div>
     <div class="nav-group"><div class="nav-group-title">System</div><button data-page="backups"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/></svg></span>Backups</button><button data-page="diagnostics"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span>Diagnostics</button><button data-page="settings"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.5M12 18.5V21M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M3 12h2.5M18.5 12H21M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></span>Settings</button></div>
     <div class="nav-scroll-hint" id="navScrollHint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 9l6 6 6-6"/></svg></div>
   </nav>
@@ -63,28 +63,28 @@
         <div id="dashboardOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <p class="page-intro">Every change is backed up and verified before it's written to your save — see the safety status above for this session's details.</p>
         <div class="overview-pair">
-          <section class="card overview-card"><h2>Active Loadout</h2><div id="dashCharacter">Loading...</div></section>
-          <section class="card overview-card"><h2>Tracked Quests</h2><div id="dashQuests">Loading...</div></section>
+          <section class="card overview-card"><h2>Active loadout</h2><div id="dashCharacter">Loading…</div></section>
+          <section class="card overview-card"><h2>Tracked quests</h2><div id="dashQuests">Loading…</div></section>
         </div>
         <section class="card overview-card" aria-labelledby="resourcesTitle">
           <h2 id="resourcesTitle">Resources</h2>
           <p class="char-hint">
-            Review and adjust your water, credits, utility drones, and Codex items (the highest-value boss-drop loot — crafting and quest material, not a lore log).
+            Adjust your water, credits, utility drones, and Codex items — the rarest boss-drop loot, used for crafting and quest turn-ins.
           </p>
-          <div id="dashResources">Loading...</div>
+          <div id="dashResources">Loading…</div>
         </section>
         <section class="card overview-card" aria-labelledby="vaultTitle">
           <h2 id="vaultTitle">Vault</h2>
-          <p class="char-hint">A separate stash from your carried inventory and wallet — items and Credits stored here are not shown anywhere else in this app. Read-only for now.</p>
-          <div id="dashVault">Loading...</div>
+          <p class="char-hint">A separate stash from your inventory and wallet. Not shown elsewhere in this app. Read-only for now.</p>
+          <div id="dashVault">Loading…</div>
         </section>
         <section class="card overview-card" aria-labelledby="overviewTrustTitle">
-          <div class="overview-trust-head"><h2 id="overviewTrustTitle">Faction Trust</h2><button class="btn-ghost" data-action="show-page" data-page-target="vendors" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Manage Vendors</button></div>
-          <div id="dashFactionTrust">Loading...</div>
+          <div class="overview-trust-head"><h2 id="overviewTrustTitle">Faction trust</h2><button class="btn-ghost" data-action="show-page" data-page-target="vendors" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Manage vendors</button></div>
+          <div id="dashFactionTrust">Loading…</div>
         </section>
         <section class="card overview-card">
-          <h2>Inventory Summary</h2>
-          <div id="dashInventory">Loading...</div>
+          <h2>Inventory summary</h2>
+          <div id="dashInventory">Loading…</div>
         </section>
       </div>
 
@@ -92,7 +92,7 @@
       <div class="card">
         <h2>Characters</h2>
         <div id="charactersOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="charactersList">Loading...</div>
+        <div id="charactersList">Loading…</div>
       </div>
     </div>
 
@@ -100,7 +100,7 @@
       <div class="card">
         <h2 class="sr-only">Character details</h2>
         <div id="characterOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="characterDetail">Loading...</div>
+        <div id="characterDetail">Loading…</div>
       </div>
     </div>
 
@@ -108,7 +108,7 @@
       <div class="card">
         <h2>Innards</h2>
         <p class="hub-hint">
-          <strong>Terminals</strong> are functional buildings; <strong>Welfare</strong> are comfort items. Each card shows the <strong>water cost</strong> and any <strong>prerequisite</strong> — an Unlock button stays greyed out until its prerequisite is unlocked. <span class="hub-legend"><span class="hub-pill unlocked">Unlocked</span> built &nbsp; <span class="hub-pill available">Available</span> can be unlocked &nbsp; <span class="hub-pill locked">Locked</span> needs prerequisite &nbsp; <span class="hub-pill unlocked">Permanent</span> DLC gift, fixed.</span>
+          <strong>Terminals</strong> are functional buildings; <strong>Welfare</strong> are comfort items. Each card shows its water cost and prerequisite. <span class="hub-legend"><span class="hub-pill unlocked">Unlocked</span> built &nbsp; <span class="hub-pill available">Available</span> can be unlocked &nbsp; <span class="hub-pill locked">Locked</span> needs prerequisite &nbsp; <span class="hub-pill unlocked">Permanent</span> DLC gift, fixed.</span>
         </p>
         <div class="filter-bar hub-filter-bar" role="search">
           <label class="filter-search">Search upgrades<input type="search" id="hubSearch" placeholder="Upgrade name, group, or description…" autocomplete="off"></label>
@@ -123,71 +123,71 @@
         </div>
         <div id="hubFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="hubOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="hubUpgradesList">Loading...</div>
-        <p style="margin-top:1rem"><button id="reloadHubButton" type="button" hidden><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Reload from Save</button></p>
+        <div id="hubUpgradesList">Loading…</div>
+        <p style="margin-top:1rem"><button id="reloadHubButton" type="button" hidden><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Reload from save</button></p>
       </div>
     </div>
 
     <div class="page" id="page-presets">
         <div class="card">
-          <h2>Saved Presets</h2>
-          <p class="page-intro">Read-only weapon and rig configurations stored in the save, correlated with their local EXR preview files.</p>
-          <div class="filter-bar preset-toolbar" role="search"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Preset, weapon, attachment, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
+          <h2>Saved presets</h2>
+          <p class="page-intro">Read-only weapon and rig loadouts from your save, matched to their local preview images.</p>
+          <div class="filter-bar preset-toolbar" role="search"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Name, weapon, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
         </div>
       </div>
 
     <div class="page" id="page-weapon-builds">
       <div class="card">
-        <h2>Weapon Builds</h2>
-          <p class="page-intro">Deterministic balanced endgame recommendations from structured wiki stats and compatibility data.</p>
-          <div class="weapon-build-command"><span id="weaponBuildOwnedSummary"><strong>Owned weapon loadout kit</strong><small>Load builds to check missing parts.</small></span><button id="weaponBuildAddOwned" type="button" title="Load builds to check missing parts." disabled><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add BIS Parts</button></div>
+        <h2>Weapon builds</h2>
+          <p class="page-intro">Recommended weapon builds based on wiki stats and part compatibility.</p>
+          <div class="weapon-build-command"><span id="weaponBuildOwnedSummary"><strong>Owned weapon loadout kit</strong><small>Load builds to check missing parts.</small></span><button id="weaponBuildAddOwned" type="button" disabled><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add recommended parts</button></div>
           <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
     </div>
 
     <div class="page" id="page-weapon-xp">
       <div class="card">
         <h2>Weapon XP</h2>
-        <p class="char-hint">Each weapon earns XP by use, which unlocks better vendor parts and improves handling. The <strong>target</strong> shown for each weapon is its value from a 100% reference save — a sensible per-weapon goal (e.g. GRL02 ≈ 505k, PST02 = 100k). Weapons absent from the reference use a flat 100,000 fallback. Set any weapon's XP manually, or batch-set all visible weapons to 100,000 XP.</p>
+        <p class="char-hint">Weapons earn XP through use, unlocking better vendor parts. Each target is from a 100% reference save (e.g. PST02 = 186, GRL02 ≈ 505k).</p>
         <div class="filter-bar weapon-xp-controls">
           <label class="filter-search">Search weapons<input type="search" id="weaponXpSearch" placeholder="Weapon name or ID…" autocomplete="off"></label>
-          <label>Category:
+          <label>Category
             <select id="weaponFilter">
               <option value="">All categories</option>
             </select>
           </label>
-          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Set visible to 100,000 XP</button></div>
+          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Set visible weapons to 100,000 XP</button></div>
         </div>
         <div id="weaponXpFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="weaponXpOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="weaponXpList">Loading...</div>
+        <div id="weaponXpList">Loading…</div>
       </div>
     </div>
 
     <div class="page" id="page-inventory">
       <div class="card">
         <h2>Inventory</h2>
-        <p class="page-intro">Find items by their familiar name, category, or technical ID and change quantities in place. Avoid rows marked “Needs review.”</p>
+        <p class="page-intro">Find items by name, category, or technical ID and change quantities in place. Avoid rows marked “Needs review.”</p>
         <div class="filter-bar inv-filter-bar">
-          <label class="filter-search">Search items<input type="search" id="inventorySearch" placeholder="Name, category, source, or technical ID…" autocomplete="off"></label>
-          <label>Category:
+          <label class="filter-search">Search items<input type="search" id="inventorySearch" placeholder="Name, category, or technical ID…" autocomplete="off"></label>
+          <label>Category
             <select id="inventoryFilter">
               <option value="">All</option>
             </select>
           </label>
-          <label>Sub-type:
+          <label>Sub-type
             <select id="inventorySubFilter">
               <option value="">All</option>
             </select>
           </label>
-          <label>Source:
+          <label>Source
             <select id="inventorySource">
               <option value="">All sources</option>
-              <option value="Base Weapons">Base Weapons</option>
-              <option value="Damaged Weapons">Damaged Weapons</option>
-              <option value="Items">Items / Parts</option>
+              <option value="Base Weapons">Base weapons</option>
+              <option value="Damaged Weapons">Damaged weapons</option>
+              <option value="Items">Items / parts</option>
             </select>
           </label>
-          <label>State:
+          <label>State
             <select id="inventoryQty">
               <option value="any">Any quantity</option>
               <option value="gt0">Owned (&gt;0)</option>
@@ -200,35 +200,35 @@
         </div>
         <div id="invFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="inventoryOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="inventoryList">Loading...</div>
+        <div id="inventoryList">Loading…</div>
       </div>
     </div>
 
     <div class="page" id="page-add-items">
       <div class="card">
-        <h2>Inventory</h2>
+        <h2>Add items</h2>
         <p class="page-intro">Browse known game items and add ones that are missing. Items you already own can be adjusted from Inventory.</p>
         <div class="filter-bar add-filter-bar">
-          <label class="filter-search">Search items<input type="search" id="addSearch" placeholder="Name, category, source, or technical ID…" autocomplete="off"></label>
-          <label>Category:
+          <label class="filter-search">Search items<input type="search" id="addSearch" placeholder="Name, category, or technical ID…" autocomplete="off"></label>
+          <label>Category
             <select id="addFilter">
               <option value="">All</option>
             </select>
           </label>
-          <label>Sub-type:
+          <label>Sub-type
             <select id="addSubFilter">
               <option value="">All</option>
             </select>
           </label>
-          <label>Source:
+          <label>Source
             <select id="addSource">
               <option value="">All sources</option>
-              <option value="Base Weapons">Base Weapons</option>
-              <option value="Damaged Weapons">Damaged Weapons</option>
-              <option value="Items">Items / Parts</option>
+              <option value="Base Weapons">Base weapons</option>
+              <option value="Damaged Weapons">Damaged weapons</option>
+              <option value="Items">Items / parts</option>
             </select>
           </label>
-          <label>State:
+          <label>State
             <select id="addState">
               <option value="any">Any ownership</option>
               <option value="missing">Missing</option>
@@ -239,7 +239,7 @@
         </div>
         <div id="addFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="addItemsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="addCatalogList">Loading...</div>
+        <div id="addCatalogList">Loading…</div>
       </div>
     </div>
 
@@ -249,15 +249,15 @@
         <p class="page-intro">Review owned rigs, add a missing rig, or add another complete set of high-quality containers for its fixed layout.</p>
         <div id="rigSummary" class="rig-summary" aria-live="polite"></div>
         <div class="filter-bar rig-filter-bar">
-          <label class="filter-search">Search rigs<input type="search" id="rigSearch" placeholder="Rig name, class, character, or technical ID…" autocomplete="off"></label>
-          <label>Ownership:
+          <label class="filter-search">Search rigs<input type="search" id="rigSearch" placeholder="Name, class, or character…" autocomplete="off"></label>
+          <label>Ownership
             <select id="rigOwnership">
               <option value="all">All rigs</option>
               <option value="missing">Missing</option>
               <option value="owned">Owned</option>
             </select>
           </label>
-          <label>Weight class:
+          <label>Weight class
             <select id="rigClass"><option value="">All classes</option></select>
           </label>
           <div class="filter-checks"><button class="mini" id="clearRigFiltersButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
@@ -271,16 +271,16 @@
     <div class="page" id="page-vendors">
       <div class="card">
         <h2>Vendors</h2>
-        <p class="char-hint">Vendor trust is stored as a per-faction <b>FactionScore</b>. The wiki's trust tiers (Untrusted / Neutral / Trusted) are derived from this score by the game. Set a faction's score directly, or use the tier presets. Trader availability flags toggle whether a vendor appears in the Innards.</p>
+        <p class="char-hint">Set each faction's trust directly, or apply a trust tier. Availability flags control whether a vendor appears in the Innards.</p>
         <div id="vendorsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="vendorsList">Loading...</div>
+        <div id="vendorsList">Loading…</div>
       </div>
     </div>
 
     <div class="page" id="page-stats">
       <div class="card">
         <h2>Stats</h2>
-        <p class="page-intro">Read-only lifetime combat and progression statistics pulled directly from the save. Nothing on this page can be edited.</p>
+        <p class="page-intro">Read-only lifetime combat and progression statistics from your save — nothing here can be edited.</p>
         <div id="statsContent">Loading…</div>
       </div>
     </div>
@@ -288,9 +288,9 @@
     <div class="page" id="page-repair">
       <div class="card">
         <h2>Repair Bench</h2>
-        <p class="char-hint">The Repair Bench repairs one destroyed weapon at a time. A job runs on a timer (the in-game workbench shows a countdown); you cannot start another repair while one is running. To repair you need a <b>destroyed weapon item</b> and the matching faction <b>IFF chip</b> for that weapon's origin. When the timer reaches zero the item is <b>ready to collect</b> from the bench. This page reads the live repair timer and your on-hand IFF chips, and can complete/collect a finished repair so the bench is free again.</p>
+        <p class="char-hint">Repairs one destroyed weapon at a time, using a matching faction IFF chip. When the timer reaches zero, collect it here to free the bench.</p>
         <div id="repairOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
-        <div id="repairStatus">Loading...</div>
+        <div id="repairStatus">Loading…</div>
       </div>
     </div>
     <div class="page" id="page-crafting">
@@ -298,7 +298,7 @@
         <h2>Crafting</h2>
         <p class="page-intro">Browse Workshop components or Munitions. Each card shows what a recipe needs, what you already have, and whether you're ready to craft it now.</p>
         <div class="crafting-kind-tabs" role="tablist" aria-label="Crafting category">
-          <button type="button" class="crafting-tab active" id="craftingKindWorkshop" data-kind="workshop" role="tab" aria-selected="true">Workshop Components</button>
+          <button type="button" class="crafting-tab active" id="craftingKindWorkshop" data-kind="workshop" role="tab" aria-selected="true">Workshop components</button>
           <button type="button" class="crafting-tab" id="craftingKindMunitions" data-kind="munitions" role="tab" aria-selected="false">Munitions</button>
         </div>
         <div class="filter-bar recipe-filter-bar">
@@ -319,7 +319,7 @@
     <div class="page" id="page-diagnostics">
       <div class="card">
         <h2>Diagnostics</h2>
-        <p class="char-hint">Read-only readiness checks. Running diagnostics decrypts and byte-round-trips TempInventory in a temporary directory but does not write the database.</p>
+        <p class="char-hint">Checks whether this editor can safely read and edit your save. Diagnostics runs on a copy of your data — it never touches your live save.</p>
         <div class="diagnostic-controls">
           <button id="runDiagnosticsButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 4l14 8-14 8z"/></svg></span>Run diagnostics</button>
           <span id="diagnosticsStatus" class="settings-msg" role="status" aria-live="polite"></span>
@@ -332,7 +332,7 @@
     <div class="page" id="page-backups">
       <div class="card">
         <h2>Backups</h2>
-        <p class="char-hint">Every backup contains three independently verified save variants. Restore replaces only the primary save and creates a fresh safety backup first. Restore and delete require typing the exact confirmation shown.</p>
+        <p class="char-hint">Each backup saves all three save files. Restore replaces only your live save, backing it up first. Restore and delete need typed confirmation.</p>
         <div class="backup-toolbar">
           <label>Backup label
             <input id="backupLabel" maxlength="48" value="manual" autocomplete="off">
@@ -348,7 +348,7 @@
 
     <dialog id="backupConfirmDialog" aria-labelledby="backupDialogTitle" aria-describedby="backupDialogDescription">
       <form method="dialog" class="confirm-dialog">
-        <h2 id="backupDialogTitle">Confirm backup operation</h2>
+        <h2 id="backupDialogTitle">Confirm backup</h2>
         <p id="backupDialogDescription"></p>
         <p>Type <strong id="backupDialogPhrase" class="confirm-copy"></strong> to continue.</p>
         <label>Confirmation
@@ -364,7 +364,7 @@
 
     <dialog id="appDialog" aria-labelledby="appDialogTitle" aria-describedby="appDialogMessage">
       <form method="dialog" class="confirm-dialog">
-        <h2 id="appDialogTitle">Confirm operation</h2>
+        <h2 id="appDialogTitle">Confirm</h2>
         <p id="appDialogMessage"></p>
         <menu>
           <button id="appDialogCancel" value="cancel" class="btn-neutral"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
@@ -426,12 +426,12 @@
     <div class="page" id="page-settings">
       <div class="card">
         <h2>Settings</h2>
-        <p class="char-hint">The save-location override is optional. It is saved locally and persists across restarts. Database keys are always stored encrypted, never as plain text.</p>
+        <p class="char-hint">Optional overrides for where your save lives and what key unlocks it. Saved locally, key encrypted at rest.</p>
         <div id="settingsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <div id="settingsStatus" class="settings-status"></div>
 
-        <h3>Save Location</h3>
-        <p class="char-hint">The folder that contains your live <code>.dat</code> save files. Defaults to <code id="settingsDefaultDir"></code>. Enter a custom path only if your saves live elsewhere (e.g. a backed-up or test copy).</p>
+        <h3>Save location</h3>
+        <p class="char-hint">The folder with your live <code>.dat</code> save files. Defaults to <code id="settingsDefaultDir"></code> — set a custom path only if your saves live elsewhere.</p>
         <div class="settings-row">
           <label>Save directory
             <input type="text" id="settingsSaveDir" placeholder="C:\Path\To\SaveGames">
@@ -440,8 +440,8 @@
           <button class="btn-ghost" id="clearSaveDirButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Use default</button>
         </div>
 
-        <h3 class="settings-section-heading">Database Key</h3>
-        <p class="char-hint" id="settingsKeySourceHint"> If your save file needs a different key (e.g. a different game build or region), enter it below — it is verified against your live save and stored encrypted, never as plain text.</p>
+        <h3 class="settings-section-heading">Database key</h3>
+        <p class="char-hint" id="settingsKeySourceHint">Only needed if your save uses a different key (e.g. another build or region). Verified against your save, then stored encrypted.</p>
         <div class="settings-row">
           <label>Database key
             <span class="settings-key-input-wrap">
@@ -454,7 +454,7 @@
         <p class="char-hint" id="settingsDbKeyHint"></p>
 
         <div class="settings-actions">
-          <button class="btn-primary" id="saveSettingsButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/></svg></span>Save Settings</button>
+          <button class="btn-primary" id="saveSettingsButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4M8 14h8v6H8z"/></svg></span>Save settings</button>
           <span id="settingsMsg" class="settings-msg"></span>
         </div>
       </div>

@@ -153,7 +153,10 @@ function showToast(message, type = 'success') {
 
 function receiptHtml(result) {
   const summary = receiptSummary(result);
-  return summary ? `<details class="receipt"><summary>Verification details</summary><div>${esc(summary)}</div></details>` : '';
+  if (!summary) return '';
+  const passed = !(result && ((result.afterIntegrity && result.afterIntegrity.passed === false) || (result.afterFk && result.afterFk.passed === false)));
+  const label = passed ? 'Change verified' : 'Verification issue — details';
+  return `<details class="receipt"><summary>${esc(label)}</summary><div>${esc(summary)}</div></details>`;
 }
 
 // Plain-language sentences for the error categories a non-technical Nexus
@@ -161,14 +164,14 @@ function receiptHtml(result) {
 // tool/file paths) never reaches the user directly -- it's only ever tucked
 // into the existing technical-details disclosure via errorDetailHtml() below.
 const ERROR_MESSAGE_RULES = [
-  [/game.*(is running|must be closed)|close.*the game|process.*running/i, 'The Forever Winter needs to be closed before saving changes. Close the game and try again.'],
-  [/mutation.*(already|in progress|active)|wait for the current/i, 'Another save operation is already in progress. Wait for it to finish, then try again.'],
-  [/ENOENT|no such file|not found.*\.(exe|dll)|could not find.*(tool|binary|executable)|sqlite3mc|uesave/i, 'A required tool could not be found. Check the tool paths in Settings/your installation.'],
+  [/game.*(is running|must be closed)|close.*the game|process.*running/i, 'The Forever Winter is still running. Close the game completely, then try again.'],
+  [/mutation.*(already|in progress|active)|wait for the current/i, 'A change is already saving. Wait for it to finish, then try again.'],
+  [/ENOENT|no such file|not found.*\.(exe|dll)|could not find.*(tool|binary|executable)|sqlite3mc|uesave/i, 'A required tool could not be found. Open Diagnostics to see which one and how to fix it.'],
   [/cipher|decrypt|PRAGMA key|wrong key|key.*(invalid|incorrect)|compatibility/i, 'The database key could not open this save. Check the key in Settings.'],
-  [/save (directory|file).*(not found|missing)|no such (save|directory)|ENOTDIR/i, 'The save could not be found. Check the save directory in Settings.'],
-  [/EACCES|EPERM|permission denied|access is denied/i, 'Permission was denied while writing to the save. Make sure the game is closed and the file isn’t read-only.'],
-  [/ECONNREFUSED|ECONNRESET|NetworkError|Failed to fetch|fetch failed|network/i, 'Lost the connection to the local server. Reload the page and try again.'],
-  [/integrity check failed|foreign key/i, 'A verification check failed after the change, so it was not kept.']
+  [/save (directory|file).*(not found|missing)|no such (save|directory)|ENOTDIR/i, 'Your save could not be found. Check the save location in Settings.'],
+  [/EACCES|EPERM|permission denied|access is denied/i, 'Permission was denied while saving. Close the game and make sure the save file isn’t read-only.'],
+  [/ECONNREFUSED|ECONNRESET|NetworkError|Failed to fetch|fetch failed|network/i, 'Lost the connection to the editor. Reload the page and try again.'],
+  [/integrity check failed|foreign key/i, 'A check after saving found a problem, so the change was not kept.']
 ];
 
 // Maps an Error (or error-like object) to a plain-language sentence. Falls
@@ -189,6 +192,22 @@ function errorDetailHtml(error, fallback) {
   const raw = (error && (error.message || String(error))) || '';
   const friendly = userMessage(error, fallback);
   return raw ? `${esc(friendly)}${technicalDetails(raw, 'Show technical details')}` : esc(friendly);
+}
+
+// Standard "could not load X" empty-state block, used whenever a page's
+// initial fetch fails. Consolidates what were near-identical inline strings
+// spread across every feature module into one place, so the wording (and
+// the error's plain-language three-part shape) stays consistent everywhere.
+function loadErrorHtml(label, error) {
+  const sentenceCase = label.charAt(0).toUpperCase() + label.slice(1);
+  return `<div class="empty-state"><strong>Could not load ${esc(label)}</strong><br>${errorDetailHtml(error, sentenceCase + ' could not be read.')}</div>`;
+}
+
+// Standard "nothing matches the current search/filter" empty state, used by
+// every searchable list page instead of restating slightly different
+// "Try a different filter" wording per module.
+function noMatchesHtml(title, hint = 'Try a different search or filter.') {
+  return `<div class="empty-state"><strong>${esc(title)}</strong><br>${esc(hint)}</div>`;
 }
 
 function setOperationFeedback(target, message, result, state = 'success', error = null) {
@@ -531,12 +550,12 @@ function openAppDialog({ title, message, confirm = false, acceptLabel, tone = 'p
   return new Promise(resolve => { appDialogResolve = resolve; });
 }
 
-function showNotice(message, title = 'Operation result') {
+function showNotice(message, title = 'Result') {
   document.getElementById('appAnnouncements').textContent = message;
   return openAppDialog({ title, message });
 }
 
-function confirmAction(message, { title = 'Confirm action', acceptLabel = 'Confirm', tone = 'primary', icon = 'check' } = {}) {
+function confirmAction(message, { title = 'Confirm change', acceptLabel = 'Confirm', tone = 'primary', icon = 'check' } = {}) {
   return openAppDialog({ title, message, confirm: true, acceptLabel, tone, icon });
 }
 
@@ -567,6 +586,8 @@ expose({
   receiptHtml,
   userMessage,
   errorDetailHtml,
+  loadErrorHtml,
+  noMatchesHtml,
   setOperationFeedback,
   operationFeedbackFor,
   filterSummaryHtml,

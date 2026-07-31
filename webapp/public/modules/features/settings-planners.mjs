@@ -2,7 +2,7 @@ import { FW, expose } from '../runtime.mjs';
 import { RECIPE_DATA } from '../recipe-data.mjs';
 import { recipePlannerTotals } from '../recipe-planner.mjs';
 
-const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml, showLoading, userMessage, errorDetailHtml } = FW;
+const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml, showLoading, userMessage, errorDetailHtml, loadErrorHtml, noMatchesHtml } = FW;
 
 // Recipes only come from two stations, so a station-level icon (rather than a
 // guess per product name) is the reliable signal available at render time.
@@ -23,7 +23,11 @@ async function loadSettings() {
     // detected yet. Without a fallback the page renders "Defaults to ." and a
     // bare "Active save directory:", which reads as a broken app rather than an
     // undetected path.
+    // The element is a <code> because it normally holds a path; when it holds
+    // the prose fallback instead, drop the monospace treatment so the sentence
+    // doesn't read as if the words themselves were a filesystem path.
     defDirEl.textContent = s.defaultSaveDir || 'an automatically detected location';
+    defDirEl.classList.toggle('is-prose-fallback', !s.defaultSaveDir);
     dirEl.value = s.saveDir || '';
     // Write-only field: never populate it with the current key, even though
     // we can't know it (the server never returns key material either way).
@@ -36,7 +40,7 @@ async function loadSettings() {
       `<div>Active save directory: <span class="active-dir">${esc(active)}</span></div>` +
       `<div>DB key source: ${s.hasCustomKey ? 'your custom key' : 'bundled application resource'} (stored encrypted, never as plain text).</div>`);
   } catch (e) {
-    setRenderedHtml(statusEl, `<div class="empty-state"><strong>Could not load settings</strong><br>${errorDetailHtml(e, 'Settings could not be read.')}</div>`);
+    setRenderedHtml(statusEl, loadErrorHtml('settings', e));
   }
 }
 
@@ -208,7 +212,7 @@ function renderCraftingGrid() {
   if (stateFilter !== 'any') parts.push(stateFilter === 'ready' ? 'ready to craft' : 'missing components');
   document.getElementById('craftingFilterSummary').innerHTML = filterSummaryHtml(computed.length, parts);
 
-  if (!computed.length) { setRenderedHtml(grid, '<div class="empty-state"><strong>No matching recipes</strong><br>Try another product or component name.</div>'); return; }
+  if (!computed.length) { setRenderedHtml(grid, noMatchesHtml('No matching recipes', 'Try another product or component name.')); return; }
   setRenderedHtml(grid, computed.map(renderRecipeCard).join(''));
 }
 
@@ -235,7 +239,7 @@ async function addCanonicalComponents(components, inventory, mode, messageEl, bu
   const unsupported = components.filter(component => !component.writable || !component.itemId);
   const list = components.filter(component => component.writable && component.itemId).map(component => ({ ...component, addQuantity: mode === 'all' ? component.total : component.missing })).filter(component => component.addQuantity > 0);
   if (!list.length) { messageEl.className = unsupported.length ? 'settings-msg warn' : 'settings-msg ok'; messageEl.textContent = unsupported.length ? `Nothing safely writable to add; ${unsupported.length} requirement(s) remain informational.` : 'Nothing to add — verified requirements are already covered.'; return; }
-  if (!await confirmAction(`Experimental: add ${list.length} verified component type(s)? ${unsupported.length ? unsupported.length + ' unsupported requirement(s) will be skipped. ' : ''}Make a backup first.`, { title: 'Add crafting components', acceptLabel: 'Add Components', tone: 'warning', icon: 'add' })) return;
+  if (!await confirmAction(`Adds ${list.length} component type(s) to your inventory.${unsupported.length ? ` ${unsupported.length} unsupported requirement(s) will be skipped.` : ''}`, { title: 'Add components?', acceptLabel: 'Add components', icon: 'add' })) return;
   buttons.forEach(button => { button.disabled = true; }); messageEl.className = 'settings-msg'; messageEl.setAttribute('aria-busy', 'true');
   let updated = 0, failed = 0;
   // Per-item failures (both the initial add and its update fallback) are
@@ -284,7 +288,7 @@ async function loadCrafting() {
     _craftingInventory = {};
     for (const item of items) _craftingInventory[item.name] = item.quantity;
   } catch (error) {
-    setRenderedHtml(grid, `<div class="empty-state"><strong>Could not read inventory</strong><br>${errorDetailHtml(error, 'The inventory could not be read.')}</div>`);
+    setRenderedHtml(grid, loadErrorHtml('the inventory', error));
     return;
   }
   renderCraftingGrid();

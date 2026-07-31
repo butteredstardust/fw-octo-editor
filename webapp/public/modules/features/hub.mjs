@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, errorDetailHtml } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, loadErrorHtml, noMatchesHtml } = FW;
 function addCanonicalComponents(...args) { return FW.addCanonicalComponents(...args); }
 
 let _hubInventory = {};
@@ -20,7 +20,7 @@ async function loadHubUpgrades() {
     );
     renderHubUpgrades(unlockedTags);
   } catch (err) {
-    setRenderedHtml(document.getElementById('hubUpgradesList'), `<div class="empty-state"><strong>Could not load Innards upgrades</strong><br>${errorDetailHtml(err, 'Innards upgrades could not be read.')}</div>`);
+    setRenderedHtml(document.getElementById('hubUpgradesList'), loadErrorHtml('Innards upgrades', err));
   }
 }
 
@@ -59,8 +59,8 @@ function renderHubUpgrades(unlockedTags) {
 
   let html = '<div class="hub-toolbar">' +
     '<span class="hub-bulk-actions" hidden>' +
-    `<button data-action="bulk-hub" data-enabled="true">${actionIcon('unlock')}Unlock All Known</button> ` +
-    `<button class="danger-btn" data-action="bulk-hub" data-enabled="false">${actionIcon('trash')}Clear All</button>` +
+    `<button data-action="bulk-hub" data-enabled="true">${actionIcon('unlock')}Unlock all known</button> ` +
+    `<button class="danger-btn" data-action="bulk-hub" data-enabled="false">${actionIcon('trash')}Clear all</button>` +
     '</span>' +
     '<span class="hub-count" id="hubCount"></span>' +
     '</div>';
@@ -146,7 +146,7 @@ function renderHubUpgrades(unlockedTags) {
    }
 
   if (!anyCategoryVisible) {
-    html += '<div class="empty-state"><strong>No upgrades match these filters</strong><br>Try a different search or status.</div>';
+    html += noMatchesHtml('No upgrades match these filters', 'Try a different search or status.');
   }
 
   setRenderedHtml(el, html);
@@ -176,11 +176,11 @@ function toggleSection(id, control) {
 
 async function confirmBulkHub(unlockAll) {
   const msg = unlockAll
-    ? 'Unlock ALL known Innards upgrades? This overwrites the current set. (Experimental — verify in-game.)'
-    : 'Remove ALL Innards upgrades? (Experimental — verify in-game.)';
+    ? 'Unlocks every known Innards upgrade, replacing what you have now.'
+    : "Removes every Innards upgrade you've unlocked. Restore a backup to undo this.";
   const options = unlockAll
-    ? { title: 'Unlock all upgrades', acceptLabel: 'Unlock All', tone: 'warning', icon: 'unlock' }
-    : { title: 'Remove all upgrades', acceptLabel: 'Remove All', tone: 'danger', icon: 'trash' };
+    ? { title: 'Unlock all upgrades?', acceptLabel: 'Unlock all', tone: 'warning', icon: 'unlock' }
+    : { title: 'Remove all upgrades?', acceptLabel: 'Remove all', tone: 'danger', icon: 'trash' };
   if (await confirmAction(msg, options)) await setHubUpgrades(unlockAll ? HUB_UPGRADE_TAGS : []);
 }
 
@@ -205,10 +205,10 @@ async function setHubUpgrades(tags) {
 // Only includes managed upgrade tags (GIFT.* cosmetics are preserved but not sent).
 async function toggleHubUpgrade(tag, unlock) {
   const name = HUB_UPGRADE_META[tag]?.name || tag;
-  const msg = unlock ? `Unlock ${name}?` : `Lock / remove ${name}? (Experimental — verify in-game.)`;
+  const msg = unlock ? `Unlocks ${name}.` : `Removes ${name}. Restore a backup to undo this.`;
   const options = unlock
-    ? { title: 'Unlock upgrade', acceptLabel: 'Unlock Upgrade', tone: 'warning', icon: 'unlock' }
-    : { title: 'Remove upgrade', acceptLabel: 'Remove Upgrade', tone: 'danger', icon: 'trash' };
+    ? { title: 'Unlock upgrade?', acceptLabel: 'Unlock upgrade', tone: 'warning', icon: 'unlock' }
+    : { title: 'Remove upgrade?', acceptLabel: 'Remove upgrade', tone: 'danger', icon: 'trash' };
   if (!await confirmAction(msg, options)) return;
   const upgrades = await api('/hub-upgrades');
   const tags = upgrades

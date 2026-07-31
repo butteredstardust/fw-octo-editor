@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, actionIcon, receiptHtml, receiptSummary, userMessage, errorDetailHtml } = FW;
+const { api, esc, filterAndRank, cleanFallbackName, technicalDetails, itemTypeIcon, itemCategoryPills, filterSummaryHtml, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, setLocalBusy, showToast, confirmAction, appIcon, actionIcon, receiptHtml, receiptSummary, userMessage, errorDetailHtml, loadErrorHtml, noMatchesHtml } = FW;
 function refreshSafetyStatus(...args) { return FW.refreshSafetyStatus?.(...args); }
 
 // "Worth keeping" items per https://theforeverwinter.wiki.gg/wiki/Guides/Items_to_keep,
@@ -198,7 +198,7 @@ async function loadInventory() {
     populateInvSubFilter();
     renderInventory();
   } catch (err) {
-    el.innerHTML = `<div class="empty-state"><strong>Could not load inventory</strong><br>${errorDetailHtml(err, 'The inventory could not be read.')}</div>`;
+    el.innerHTML = loadErrorHtml('your inventory', err);
   }
 }
 
@@ -264,7 +264,7 @@ function renderInventory() {
   if (invalidOnly) parts.push('invalid');
   document.getElementById('invFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
-  if (!rows.length) { el.innerHTML = `${catalogWarningHtml()}<div class="empty-state"><strong>No matching items</strong><br>Try fewer words or clear a filter.</div>`; return; }
+  if (!rows.length) { el.innerHTML = catalogWarningHtml() + noMatchesHtml('No matching items', 'Try fewer words, or clear a filter.'); return; }
 
   const groups = {};
   for (const r of rows) (groups[r.d.cat] = groups[r.d.cat] || []).push(r);
@@ -390,7 +390,7 @@ async function loadAddCatalog() {
     populateAddSubFilter();
     renderAddCatalog();
   } catch (err) {
-    el.innerHTML = `<div class="empty-state"><strong>Could not load the item catalog</strong><br>${errorDetailHtml(err, 'The item catalog could not be read.')}</div>`;
+    el.innerHTML = loadErrorHtml('the item catalog', err);
   }
 }
 
@@ -450,7 +450,7 @@ function renderAddCatalog() {
   if (q) parts.push('“' + q + '”');
   document.getElementById('addFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
-  if (!rows.length) { el.innerHTML = '<div class="empty-state"><strong>No catalog matches</strong><br>Try another name or clear a filter.</div>'; return; }
+  if (!rows.length) { el.innerHTML = noMatchesHtml('No catalog matches', 'Try another name, or clear a filter.'); return; }
 
   const groups = {};
   for (const r of rows) (groups[r.grp] = groups[r.grp] || []).push(r);
@@ -550,7 +550,7 @@ async function addItem(encId) {
   });
   if (!result) return;
   if (!result.success && !result.added) {
-    if (inline) { inline.className = 'operation-inline error'; inline.textContent = 'Verification failed. No verified change was shown.'; }
+    if (inline) { inline.className = 'operation-inline error'; inline.textContent = 'Could not confirm this was added. Try again.'; }
   } else if (result.added === false) {
     if (inline) { inline.className = 'operation-inline'; inline.textContent = 'Already owned—adjust it from Inventory.'; }
   } else {
@@ -596,7 +596,7 @@ async function loadRigs() {
     classSelect.value = classes.includes(saved.weightClass) ? saved.weightClass : '';
     renderRigs();
   } catch (error) {
-    list.innerHTML = `<div class="empty-state"><strong>Rigs could not be read</strong><br>${errorDetailHtml(error, 'The rig list could not be read.')}</div>`;
+    list.innerHTML = loadErrorHtml('rigs', error);
   } finally {
     list.setAttribute('aria-busy', 'false');
   }
@@ -646,7 +646,7 @@ function renderRigs() {
   document.getElementById('rigFilterSummary').innerHTML = filterSummaryHtml(rigs.length, parts);
   const list = document.getElementById('rigList');
   if (!rigs.length) {
-    list.innerHTML = '<div class="empty-state"><strong>No rigs match</strong><br>Try another name or clear a filter.</div>';
+    list.innerHTML = noMatchesHtml('No rigs match', 'Try another name, or clear a filter.');
     return;
   }
   list.innerHTML = rigs.map(rig => {
@@ -683,7 +683,7 @@ async function addRig(encId) {
   const rigId = decodeURIComponent(encId);
   const rig = _rigData?.rigs.find(candidate => candidate.id === rigId);
   if (!rig || rig.owned) return;
-  const accepted = await confirmAction(`Add ownership of ${rig.name}? This will not equip it or change the active character's loadout.`, { title: 'Add missing rig', acceptLabel: 'Add Rig', icon: 'add' });
+  const accepted = await confirmAction(`Add ownership of ${rig.name}? This will not equip it or change the active character's loadout.`, { title: 'Add rig?', acceptLabel: 'Add rig', icon: 'add' });
   if (!accepted) return;
   const inline = document.getElementById(`rigop-${encId}`);
   inline.className = 'operation-inline pending';
@@ -711,7 +711,7 @@ async function addRigKit(encId) {
   const rig = _rigData?.rigs.find(candidate => candidate.id === rigId);
   if (!rig) return;
   const names = rig.highQualityContainerSet.map(module => friendlyContainerId(module.containerId)).join('; ');
-  const accepted = await confirmAction(`Add one complete HQ set for ${rig.name}? Each of these containers will increase by one: ${names}. Existing quantities will not be replaced.`, { title: 'Add high-quality container set', acceptLabel: 'Add Container Set', icon: 'add' });
+  const accepted = await confirmAction(`Add one complete HQ set for ${rig.name}? Each of these containers will increase by one: ${names}. Existing quantities will not be replaced.`, { title: 'Add container set?', acceptLabel: 'Add container set', icon: 'add' });
   if (!accepted) return;
   const inline = document.getElementById(`rigop-${encId}`);
   inline.className = 'operation-inline pending';

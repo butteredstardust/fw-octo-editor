@@ -47,7 +47,7 @@ export async function request(path, options = {}) {
       response = await fetch(`/api${path}`, { ...options, method, headers });
     } catch (cause) {
       hooks.onConnectionChange(false);
-      throw new ApiError(isMutation ? 'Connection lost while saving. The result is unknown; refresh editor status before retrying.' : 'The local editor server is unavailable.', { code: 'connection', uncertainMutation: isMutation, cause });
+      throw new ApiError(isMutation ? 'Connection lost while saving. Whether it saved is unknown -- reload the page to check before trying again.' : 'The local editor server is unavailable. Reload the page and try again.', { code: 'connection', uncertainMutation: isMutation, cause });
     }
     hooks.onConnectionChange(true);
     const contentType = response.headers.get('content-type') || '';
