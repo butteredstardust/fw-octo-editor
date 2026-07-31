@@ -36,6 +36,7 @@ async function harness(t, overrides = {}) {
     tempRoot,
     randomUUID: () => 'operation-id',
     isGameRunning: overrides.isGameRunning || (async () => false),
+    getGameProcessState: overrides.getGameProcessState,
     checkCompatibility: overrides.checkCompatibility || (async () => ({ compatible: true, reasons: [] })),
     validateDatabase: overrides.validateDatabase || (async () => valid())
   });
@@ -78,6 +79,21 @@ test('game start after staging aborts before installation', async t => {
   assert.equal(await hashFile(path.join(h.liveDir, SAVE_FILES[0])), before);
 });
 
+test('unknown process state blocks writes before staging', async t => {
+  const h = await harness(t, { getGameProcessState: async () => ({ known:false, running:null, processes:[], error:'process check denied' }) });
+  const before = await hashFile(path.join(h.liveDir, SAVE_FILES[0]));
+  await assert.rejects(() => h.service.mutate('key', 'unknown-process', () => h.mutateStage('bad')), error => error.status === 409 && /denied/.test(error.message));
+  assert.equal(await hashFile(path.join(h.liveDir, SAVE_FILES[0])), before);
+});
+
+test('temp cleanup failure cannot turn a verified install into an error', async t => {
+  const cleanupFailingFs = { ...fs, rm: async target => { if (String(target).includes('fw-editor-')) throw new Error('cleanup failed'); return fs.rm(target, { recursive:true, force:true }); } };
+  const h = await harness(t, { fs: cleanupFailingFs });
+  const result = await h.service.mutate('key', 'cleanup', () => h.mutateStage('installed'));
+  assert.equal(result.afterIntegrity.passed, true);
+  assert.equal(await fs.readFile(path.join(h.liveDir, SAVE_FILES[0]), 'utf8'), 'installed');
+});
+
 test('live hash race aborts without overwriting the external change', async t => {
   const h = await harness(t);
   await assert.rejects(() => h.service.mutate('key', 'hash-race', async () => {
@@ -114,7 +130,7 @@ test('failed install copy leaves the live primary untouched', async t => {
   const failingFs = {
     ...fs,
     copyFile: async (source, destination) => {
-      if (livePrimary && destination === livePrimary && source.includes('fw-editor-')) throw new Error('simulated install copy failure');
+      if (livePrimary && destination.startsWith(path.dirname(livePrimary)) && destination.endsWith('.installing') && source.includes('fw-editor-')) throw new Error('simulated install copy failure');
       return fs.copyFile(source, destination);
     }
   };

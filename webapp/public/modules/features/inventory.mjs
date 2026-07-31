@@ -662,7 +662,7 @@ async function addRig(encId) {
   const rigId = decodeURIComponent(encId);
   const rig = _rigData?.rigs.find(candidate => candidate.id === rigId);
   if (!rig || rig.owned) return;
-  const accepted = await confirmAction(`Add ownership of ${rig.name}? This will not equip it or change the active character's loadout.`, 'Add missing rig', false);
+  const accepted = await confirmAction(`Add ownership of ${rig.name}? This will not equip it or change the active character's loadout.`, { title: 'Add missing rig', acceptLabel: 'Add Rig', icon: 'add' });
   if (!accepted) return;
   const inline = document.getElementById(`rigop-${encId}`);
   inline.className = 'operation-inline pending';
@@ -690,7 +690,7 @@ async function addRigKit(encId) {
   const rig = _rigData?.rigs.find(candidate => candidate.id === rigId);
   if (!rig) return;
   const names = rig.highQualityContainerSet.map(module => friendlyContainerId(module.containerId)).join('; ');
-  const accepted = await confirmAction(`Add one complete HQ set for ${rig.name}? Each of these containers will increase by one: ${names}. Existing quantities will not be replaced.`, 'Add high-quality container set', false);
+  const accepted = await confirmAction(`Add one complete HQ set for ${rig.name}? Each of these containers will increase by one: ${names}. Existing quantities will not be replaced.`, { title: 'Add high-quality container set', acceptLabel: 'Add Container Set', icon: 'add' });
   if (!accepted) return;
   const inline = document.getElementById(`rigop-${encId}`);
   inline.className = 'operation-inline pending';

@@ -3,42 +3,35 @@
 #define MyAppName "Forever Winter Save Editor"
 #define MyAppVersion "0.10.0"
 #define MyAppPublisher "Forever Winter Save Editor"
-#define MyAppURL "https://github.com/Kilo-Org/kilocode"
 
 [Setup]
 AppId={{1F4A9C2E-7B3D-4E11-9C8A-2F6B5D0E91C4}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
+
+
 DefaultDirName={localappdata}\Programs\ForeverWinterSaveEditor
 DefaultGroupName=Forever Winter Save Editor
-; Per-user, no elevation required.
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
 OutputDir="C:\Users\Admin\Documents\Forever Winter\releases"
-OutputBaseFilename={#MyAppName}-{#MyAppVersion}
+OutputBaseFilename=fwinter-save-editor-{#MyAppVersion}
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
+LicenseFile="C:\Users\Admin\Documents\Forever Winter\releases\build\app\LICENSE"
+InfoBeforeFile="C:\Users\Admin\Documents\Forever Winter\releases\build\app\ACKNOWLEDGEMENTS.md"
 UninstallDisplayName={#MyAppName}
-UninstallDisplayIcon={app}\bin\node.exe
+UninstallDisplayIcon={app}\bin\app_icon.ico
 CreateAppDir=yes
-; The editor listens on loopback only and can overwrite the live game save.
-; User save backups live OUTSIDE this install dir and are intentionally NOT
-; removed on uninstall (see Files/Dirs below: nothing installs into the
-; SaveBackups path). This keeps the user's versioned backups safe.
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-; Application runtime (excludes dev/test/CI artifacts staged out above).
-Source: "build\app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-; NOTE: no entry installs into %LOCALAPPDATA%\ForeverWinter\Saved\SaveBackups,
-; so the user's versioned backups survive uninstall.
+Source: "C:\Users\Admin\Documents\Forever Winter\releases\build\app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\bin\launch.vbs"; WorkingDir: "{app}\bin"; IconFilename: "{app}\bin\app_icon.ico"
@@ -49,9 +42,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\bin\launch.vbs"; WorkingDir
 Name: "desktopicon"; Description: "Create a &desktop shortcut"; GroupDescription: "Additional icons:"
 
 [Run]
-; Launch hidden on finish (single-instance guard lives in launcher.js).
 Filename: "{app}\bin\launch.vbs"; Description: "Launch {#MyAppName}"; Flags: nowait postinstall runhidden shellexec
 
+[UninstallRun]
+Filename: "{app}\bin\node.exe"; Parameters: """{app}\bin\launcher.js"" --stop"; Flags: runhidden waituntilterminated; RunOnceId: "StopInstalledEditor"
+
 [UninstallDelete]
-; Only clean up the editor lockfile; leave all save/backup data intact.
 Type: files; Name: "{localappdata}\ForeverWinter\fwinter-editor.lock"

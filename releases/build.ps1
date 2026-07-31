@@ -1,103 +1,112 @@
+param(
+  [string]$ProjectRoot = (Split-Path -Parent $PSScriptRoot),
+  [string]$BuildRoot = (Join-Path $PSScriptRoot 'build'),
+  [string]$IsccPath = "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe",
+  [string]$NodeExe = (Get-Command node -ErrorAction Stop).Source,
+  [string]$NpmCmd = (Get-Command npm.cmd -ErrorAction Stop).Source,
+  [string]$SqliteBin = $(if ($env:FW_SQLITE_BIN) { $env:FW_SQLITE_BIN } else { 'C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe' }),
+  [string]$UesaveBin = $(if ($env:GVAS_UESAVE_BIN) { $env:GVAS_UESAVE_BIN } else { Join-Path $ProjectRoot 'tools\uesave-src\target\release\uesave.exe' }),
+  [string]$KeyFile = $(if ($env:FW_RELEASE_KEY_FILE) { $env:FW_RELEASE_KEY_FILE } else { Join-Path $ProjectRoot 'fwinter-db-key.txt' }),
+  [string]$Publisher = 'Forever Winter Save Editor',
+  [string]$PublisherUrl = '',
+  [string]$SupportUrl = '',
+  [switch]$SkipCompile
+)
+
 $ErrorActionPreference = 'Stop'
-$root = 'C:\Users\Admin\Documents\Forever Winter'
+$root = [IO.Path]::GetFullPath($ProjectRoot)
 $webapp = Join-Path $root 'webapp'
-$releases = Join-Path $root 'releases'
-$build = Join-Path $releases 'build'
+$releases = [IO.Path]::GetFullPath($PSScriptRoot)
+$build = [IO.Path]::GetFullPath($BuildRoot)
 $appDest = Join-Path $build 'app'
-$iscc = 'C:\Users\Admin\AppData\Local\Programs\Inno Setup 6\ISCC.exe'
-$nodeExe = 'C:\Program Files\nodejs\node.exe'
-$sqliteBin = 'C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe'
-$uesaveBin = 'C:\Users\Admin\Documents\Forever Winter\tools\uesave-src\target\release\uesave.exe'
-$keyFile = Join-Path $root 'fwinter-db-key.txt'
+if ($build -eq $root -or $build -eq $releases -or -not $build.StartsWith($releases, [StringComparison]::OrdinalIgnoreCase)) {
+  throw "BuildRoot must be a child of the releases directory: $releases"
+}
+foreach ($required in @($webapp,$NodeExe,$NpmCmd,$SqliteBin,$UesaveBin,$KeyFile,(Join-Path $root 'icons\app_icon.ico'))) {
+  if (-not (Test-Path -LiteralPath $required)) { throw "Required build input not found: $required" }
+}
 
-# --- 1. Stage webapp runtime files (exclude dev/test/CI artifacts) ---
-if (Test-Path $build) { Remove-Item $build -Recurse -Force }
+# Stage only runtime files. Save data, private config, references, tests, and
+# development scripts are deliberately absent from this allowlist.
+if (Test-Path -LiteralPath $build) { Remove-Item -LiteralPath $build -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $appDest | Out-Null
-
-$include = @('server.js','package.json','routes','services','utils','public','data','scripts','bin')
+$include = @('server.js','package.json','package-lock.json','LICENSE','routes','services','utils','public','data','bin')
 foreach ($item in $include) {
   $src = Join-Path $webapp $item
-  if (Test-Path $src) { Copy-Item -LiteralPath $src -Destination $appDest -Recurse -Force }
+  if (Test-Path -LiteralPath $src) { Copy-Item -LiteralPath $src -Destination $appDest -Recurse -Force }
 }
-# Remove any dev/test leftovers that may have been copied inside scripts/
-Get-ChildItem -LiteralPath $appDest -Directory -Recurse -Force | Where-Object {
-  $_.Name -in @('test','.temp','.github','node_modules','backups','config')
-} | ForEach-Object { Remove-Item $_.FullName -Recurse -Force -ErrorAction SilentlyContinue }
+Copy-Item -LiteralPath (Join-Path $root 'ACKNOWLEDGEMENTS.md') -Destination (Join-Path $appDest 'ACKNOWLEDGEMENTS.md') -Force
 
-# --- 2. Production-only dependencies (offline installer: bundle, do not npm at install time) ---
 Write-Host 'Installing production dependencies...'
 Push-Location $appDest
-try {
-  & 'C:\Program Files\nodejs\npm.cmd' install --omit=dev --no-audit --no-fund --loglevel=error 2>&1 | ForEach-Object { Write-Host $_ }
-} finally { Pop-Location }
+try { & $NpmCmd ci --omit=dev --no-audit --no-fund --loglevel=error 2>&1 | ForEach-Object { Write-Host $_ } }
+finally { Pop-Location }
 
-# --- 3. Bundle Node runtime ---
-Copy-Item -LiteralPath $nodeExe -Destination (Join-Path $appDest 'bin\node.exe') -Force
+# npm packages sometimes publish their own test fixtures and repository
+# metadata. They are not runtime dependencies and are removed before audit.
+$nodeModules = Join-Path $appDest 'node_modules'
+$nodeModulesPrefix = $nodeModules.TrimEnd([IO.Path]::DirectorySeparatorChar) + [IO.Path]::DirectorySeparatorChar
+Get-ChildItem -LiteralPath $nodeModules -Directory -Recurse -Force |
+  Where-Object { $_.Name -in @('test','tests','.github') } |
+  Sort-Object { $_.FullName.Length } -Descending |
+  ForEach-Object {
+    $target = [IO.Path]::GetFullPath($_.FullName)
+    if (-not $target.StartsWith($nodeModulesPrefix, [StringComparison]::OrdinalIgnoreCase) -or ($_.Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw "Unsafe package cleanup target: $target" }
+    Remove-Item -LiteralPath $target -Recurse -Force
+  }
 
-# --- 4. Bundle pinned native tools ---
+Copy-Item -LiteralPath $NodeExe -Destination (Join-Path $appDest 'bin\node.exe') -Force
 $toolsDir = Join-Path $appDest 'tools'
 New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
-Copy-Item -LiteralPath $sqliteBin -Destination (Join-Path $toolsDir 'sqlite3mc_shell_x64.exe') -Force
-Copy-Item -LiteralPath $uesaveBin -Destination (Join-Path $toolsDir 'uesave.exe') -Force
+Copy-Item -LiteralPath $SqliteBin -Destination (Join-Path $toolsDir 'sqlite3mc_shell_x64.exe') -Force
+Copy-Item -LiteralPath $UesaveBin -Destination (Join-Path $toolsDir 'uesave.exe') -Force
 
-# --- 5. Bundle DB key resource (encrypted at rest; the plaintext key file
-#        never leaves this build machine / is never staged into the release) ---
 $keyResourceDest = Join-Path $appDest 'resources\dbkey.resource.json'
-& $nodeExe (Join-Path $webapp 'scripts\build-key-resource.js') $keyFile $keyResourceDest
-if ($LASTEXITCODE -ne 0) { throw "Failed to build encrypted key resource" }
+& $NodeExe (Join-Path $webapp 'scripts\build-key-resource.js') $KeyFile $keyResourceDest
+if ($LASTEXITCODE -ne 0) { throw 'Failed to build encrypted key resource' }
+Copy-Item -LiteralPath (Join-Path $root 'icons\app_icon.ico') -Destination (Join-Path $appDest 'bin\app_icon.ico') -Force
 
-# --- 5b. Bundle the released app icon for the Start Menu / desktop shortcuts ---
-$iconSrc = Join-Path $root 'icons\app_icon.ico'
-Copy-Item -LiteralPath $iconSrc -Destination (Join-Path $appDest 'bin\app_icon.ico') -Force
+& (Join-Path $releases 'audit-package.ps1') -StageRoot $appDest -SourceRoot $root -PlaintextKeyFile $KeyFile
 
-# --- 6. Emit Inno Setup script ---
 $pkg = Get-Content (Join-Path $webapp 'package.json') -Raw | ConvertFrom-Json
 $version = $pkg.version
-$appId = '{1F4A9C2E-7B3D-4E11-9C8A-2F6B5D0E91C4}'
-$outName = "fwinter-save-editor-$version"
-
+$publisherUrlLines = if ($PublisherUrl) { "AppPublisherURL=$PublisherUrl" } else { '' }
+$supportUrlLines = if ($SupportUrl) { "AppSupportURL=$SupportUrl" } else { '' }
 $iss = @"
 ; Forever Winter Save Editor - offline per-user installer
 ; Generated by releases/build.ps1
 #define MyAppName "Forever Winter Save Editor"
 #define MyAppVersion "$version"
-#define MyAppPublisher "Forever Winter Save Editor"
-#define MyAppURL "https://github.com/Kilo-Org/kilocode"
+#define MyAppPublisher "$Publisher"
 
 [Setup]
 AppId={{1F4A9C2E-7B3D-4E11-9C8A-2F6B5D0E91C4}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
+$publisherUrlLines
+$supportUrlLines
 DefaultDirName={localappdata}\Programs\ForeverWinterSaveEditor
 DefaultGroupName=Forever Winter Save Editor
-; Per-user, no elevation required.
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
 OutputDir="$releases"
-OutputBaseFilename={#MyAppName}-{#MyAppVersion}
+OutputBaseFilename=fwinter-save-editor-{#MyAppVersion}
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
+LicenseFile="$appDest\LICENSE"
+InfoBeforeFile="$appDest\ACKNOWLEDGEMENTS.md"
 UninstallDisplayName={#MyAppName}
-UninstallDisplayIcon={app}\bin\node.exe
+UninstallDisplayIcon={app}\bin\app_icon.ico
 CreateAppDir=yes
-; The editor listens on loopback only and can overwrite the live game save.
-; User save backups live OUTSIDE this install dir and are intentionally NOT
-; removed on uninstall (see Files/Dirs below: nothing installs into the
-; SaveBackups path). This keeps the user's versioned backups safe.
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-; Application runtime (excludes dev/test/CI artifacts staged out above).
-Source: "build\app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-; NOTE: no entry installs into %LOCALAPPDATA%\ForeverWinter\Saved\SaveBackups,
-; so the user's versioned backups survive uninstall.
+Source: "$appDest\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\bin\launch.vbs"; WorkingDir: "{app}\bin"; IconFilename: "{app}\bin\app_icon.ico"
@@ -108,19 +117,21 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\bin\launch.vbs"; WorkingDir
 Name: "desktopicon"; Description: "Create a &desktop shortcut"; GroupDescription: "Additional icons:"
 
 [Run]
-; Launch hidden on finish (single-instance guard lives in launcher.js).
 Filename: "{app}\bin\launch.vbs"; Description: "Launch {#MyAppName}"; Flags: nowait postinstall runhidden shellexec
 
+[UninstallRun]
+Filename: "{app}\bin\node.exe"; Parameters: """{app}\bin\launcher.js"" --stop"; Flags: runhidden waituntilterminated; RunOnceId: "StopInstalledEditor"
+
 [UninstallDelete]
-; Only clean up the editor lockfile; leave all save/backup data intact.
 Type: files; Name: "{localappdata}\ForeverWinter\fwinter-editor.lock"
 "@
-
-Set-Content -LiteralPath (Join-Path $releases 'fwinter-editor.iss') -Value $iss -Encoding UTF8
+$issPath = Join-Path $releases 'fwinter-editor.iss'
+Set-Content -LiteralPath $issPath -Value $iss -Encoding UTF8
 Write-Host "Wrote fwinter-editor.iss (v$version)"
 
-# --- 7. Compile ---
-if (-not (Test-Path $iscc)) { throw "ISCC not found at $iscc" }
-Write-Host 'Compiling installer...'
-& $iscc (Join-Path $releases 'fwinter-editor.iss') 2>&1 | ForEach-Object { Write-Host $_ }
-Write-Host "DONE. Output: $releases\$outName.exe"
+if (-not $SkipCompile) {
+  if (-not (Test-Path -LiteralPath $IsccPath)) { throw "ISCC not found at $IsccPath" }
+  & $IsccPath $issPath 2>&1 | ForEach-Object { Write-Host $_ }
+  if ($LASTEXITCODE -ne 0) { throw "Inno Setup failed with exit code $LASTEXITCODE" }
+  Write-Host "DONE. Output: $releases\fwinter-save-editor-$version.exe"
+}

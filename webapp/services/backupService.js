@@ -1,8 +1,9 @@
 const fs = require('fs').promises;
 const path = require('path');
 const crypto = require('crypto');
-const { isGameRunning } = require('../utils/processCheck');
+const { getGameProcessState } = require('../utils/processCheck');
 const config = require('./configService');
+const { atomicInstall, flushFile } = require('../utils/atomicFile');
 
 const BACKUP_ROOT = process.env.FW_BACKUP_ROOT || require('path').join(process.env.LOCALAPPDATA || '', 'ForeverWinter', 'Saved', 'SaveBackups');
 const SAVE_FILES = [
@@ -12,6 +13,17 @@ const SAVE_FILES = [
 ];
 const SESSION_ID = crypto.randomUUID();
 const BACKUP_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
+const PARTIAL_SUFFIX = '.partial';
+const STALE_PARTIAL_AGE_MS = 60 * 60 * 1000;
+
+async function requireGameClosed(processCheck) {
+  const value = await processCheck();
+  const state = value && typeof value === 'object' && Object.hasOwn(value, 'known')
+    ? value
+    : { known: true, running: !!value, processes: Array.isArray(value) ? value : [], error: null };
+  if (!state.known) throw Object.assign(new Error(state.error || 'Unable to verify whether The Forever Winter is running'), { status: 409 });
+  if (state.running) throw Object.assign(new Error('Game is running. Please close The Forever Winter before continuing.'), { status: 409 });
+}
 
 // Back up the files in the active (possibly overridden) save directory.
 function getLiveSaveDir() {
@@ -25,11 +37,8 @@ async function getFileHash(filePath) {
 async function createBackup(label = 'manual', options = {}) {
   const backupRoot = options.backupRoot || BACKUP_ROOT;
   const liveSaveDir = options.liveSaveDir || getLiveSaveDir();
-  const processCheck = options.isGameRunning || isGameRunning;
-  const gameRunning = await processCheck();
-  if (gameRunning) {
-    throw Object.assign(new Error('Game is running. Please close The Forever Winter before creating a backup.'), { status: 409 });
-  }
+  const processCheck = options.getGameProcessState || options.isGameRunning || getGameProcessState;
+  await requireGameClosed(processCheck);
 
   const now = new Date();
   const timestamp = now.toISOString()
@@ -40,26 +49,40 @@ async function createBackup(label = 'manual', options = {}) {
     .substring(0, 14);
 
   if (!/^[A-Za-z0-9][A-Za-z0-9 _-]{0,47}$/.test(label)) throw Object.assign(new Error('Invalid backup label'), { status: 400 });
-  const backupDir = path.join(backupRoot, `before-${label.trim().replace(/ +/g, '-').toLowerCase()}-${timestamp}`);
+  const id = `before-${label.trim().replace(/ +/g, '-').toLowerCase()}-${timestamp}-${crypto.randomUUID()}`;
+  const backupDir = path.join(backupRoot, id);
+  const partialDir = path.join(backupRoot, `.${id}${PARTIAL_SUFFIX}`);
 
-  await fs.mkdir(backupDir, { recursive: true });
+  await fs.mkdir(backupRoot, { recursive: true });
+  await fs.mkdir(partialDir, { recursive: false });
 
   const hashes = {};
-  for (const file of SAVE_FILES) {
-    const src = path.join(liveSaveDir, file);
-    const dst = path.join(backupDir, file);
-    await fs.copyFile(src, dst);
-    const sourceHash = await getFileHash(src);
-    hashes[file] = await getFileHash(dst);
-    if (sourceHash !== hashes[file]) throw new Error(`Backup hash mismatch: ${file}`);
+  try {
+    for (const file of SAVE_FILES) {
+      const src = path.join(liveSaveDir, file);
+      const dst = path.join(partialDir, file);
+      await fs.copyFile(src, dst);
+      await flushFile(fs, dst);
+      const sourceHash = await getFileHash(src);
+      hashes[file] = await getFileHash(dst);
+      if (sourceHash !== hashes[file]) throw new Error(`Backup hash mismatch: ${file}`);
+    }
+    const manifest = { manifestVersion: 1, appVersion: require('../package.json').version, sessionId: SESSION_ID, createdAt: now.toISOString(), label: label.trim(), hashes };
+    const manifestPath = path.join(partialDir, 'MANIFEST.json');
+    await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), { flag: 'wx' });
+    await flushFile(fs, manifestPath);
+    const verifiedManifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
+    if (!SAVE_FILES.every(file => verifiedManifest.hashes[file] === hashes[file])) throw new Error('Backup manifest verification failed');
+    await fs.rename(partialDir, backupDir);
+  } catch (error) {
+    try { await fs.rm(partialDir, { recursive: true, force: true }); } catch { /* best effort */ }
+    throw error;
   }
-  const manifest = { manifestVersion: 1, appVersion: require('../package.json').version, sessionId: SESSION_ID, createdAt: now.toISOString(), label: label.trim(), hashes };
-  await fs.writeFile(path.join(backupDir, 'MANIFEST.json'), JSON.stringify(manifest, null, 2), { flag: 'wx' });
 
   return {
     success: true,
     backupDir,
-    id: path.basename(backupDir),
+    id,
     timestamp,
     hashes
   };
@@ -69,8 +92,16 @@ async function listBackups(options = {}) {
   const backupRoot = options.backupRoot || BACKUP_ROOT;
   try {
     const entries = await fs.readdir(backupRoot, { withFileTypes: true });
+    for (const entry of entries.filter(e => e.isDirectory() && e.name.startsWith('.') && e.name.endsWith(PARTIAL_SUFFIX))) {
+      try {
+        const partialPath = path.join(backupRoot, entry.name);
+        const stat = await fs.stat(partialPath);
+        if (Date.now() - stat.mtimeMs >= STALE_PARTIAL_AGE_MS) await fs.rm(partialPath, { recursive: true, force: true });
+      }
+      catch { /* Stale partial cleanup is best effort and never hides valid backups. */ }
+    }
     const dirs = entries
-      .filter(e => e.isDirectory())
+      .filter(e => e.isDirectory() && !e.name.startsWith('.') && !e.name.endsWith(PARTIAL_SUFFIX))
       .map(e => ({
         name: e.name,
         path: path.join(backupRoot, e.name),
@@ -97,7 +128,7 @@ async function restoreBackup(id, confirmation, options = {}) {
   if (confirmation !== `RESTORE ${id}`) throw Object.assign(new Error(`Confirmation must exactly match RESTORE ${id}`), { status: 400 });
   const backupRoot = options.backupRoot || BACKUP_ROOT;
   const liveSaveDir = options.liveSaveDir || getLiveSaveDir();
-  const processCheck = options.isGameRunning || isGameRunning;
+  const processCheck = options.getGameProcessState || options.isGameRunning || getGameProcessState;
   const backupDir = path.join(backupRoot, id);
   let manifest;
   try { manifest = JSON.parse(await fs.readFile(path.join(backupDir, 'MANIFEST.json'), 'utf8')); }
@@ -110,7 +141,7 @@ async function restoreBackup(id, confirmation, options = {}) {
     const actual = await getFileHash(path.join(backupDir, file));
     if (actual !== manifest.hashes[file]) throw Object.assign(new Error(`Backup hash mismatch: ${file}`), { status: 422 });
   }
-  if (await processCheck()) throw Object.assign(new Error('The Forever Winter is running'), { status: 409 });
+  await requireGameClosed(processCheck);
   const safetyBackup = await createBackup('before-restore', { backupRoot, liveSaveDir, isGameRunning: processCheck });
   const primary = SAVE_FILES[0];
   const livePrimary = path.join(liveSaveDir, primary);
@@ -123,17 +154,22 @@ async function restoreBackup(id, confirmation, options = {}) {
     await fs.copyFile(sourcePrimary, stagePath);
     if (await getFileHash(stagePath) !== sourceHash) throw new Error('Restore staging hash mismatch');
     if (options.validatePrimary) await options.validatePrimary(stagePath);
-    if (await processCheck()) throw Object.assign(new Error('The Forever Winter started during restore'), { status: 409 });
+    await requireGameClosed(processCheck);
     if (await getFileHash(livePrimary) !== beforeHash) throw Object.assign(new Error('Live primary changed during restore'), { status: 409 });
-    await fs.copyFile(stagePath, livePrimary);
-    installed = true;
+    try {
+      await atomicInstall(stagePath, livePrimary, sourceHash, { fs });
+      installed = true;
+    } catch (installError) {
+      installed = !!installError.atomicInstalled;
+      throw installError;
+    }
     if (await getFileHash(livePrimary) !== sourceHash) throw new Error('Installed restore hash mismatch');
     if (options.validatePrimary) await options.validatePrimary(livePrimary);
     return { success: true, backupId: id, safetyBackupId: safetyBackup.id, restoredFiles: [primary], beforeHash, afterHash: sourceHash, rollbackStatus: { attempted: false, succeeded: false } };
   } catch (error) {
     if (installed) {
       const rollbackSource = path.join(safetyBackup.backupDir, primary);
-      try { await fs.copyFile(rollbackSource, livePrimary); error.rollbackStatus = { attempted: true, succeeded: await getFileHash(livePrimary) === beforeHash }; }
+      try { await atomicInstall(rollbackSource, livePrimary, beforeHash, { fs }); error.rollbackStatus = { attempted: true, succeeded: await getFileHash(livePrimary) === beforeHash }; }
       catch (rollbackError) { error.rollbackStatus = { attempted: true, succeeded: false, error: rollbackError.message }; }
     }
     throw error;
@@ -178,6 +214,7 @@ async function getLatestBackupHashes() {
 
 module.exports = {
   SAVE_FILES,
+  STALE_PARTIAL_AGE_MS,
   hashFile: getFileHash,
   getFileHash,
   createBackup,

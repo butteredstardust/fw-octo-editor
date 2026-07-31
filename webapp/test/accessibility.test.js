@@ -177,7 +177,7 @@ test('overview rig build hides its internal row behind the shared technical disc
 });
 
 test('remaining pages share one consistent full-width tier', () => {
-  assert.match(frontendCss, /#page-inventory, #page-add-items, #page-rigs, #page-hub-upgrades, #page-weapon-xp, #page-characters, #page-character, #page-vendors, #page-repair, #page-crafting, #page-backups, #page-weapon-builds, #page-presets \{ max-width:var\(--content-wide\)/);
+  assert.match(frontendCss, /#page-inventory, #page-add-items, #page-rigs, #page-hub-upgrades, #page-weapon-xp, #page-characters, #page-character, #page-vendors, #page-repair, #page-crafting, #page-backups, #page-weapon-builds, #page-presets, #page-stats \{ max-width:var\(--content-wide\)/);
   assert.match(frontendCss, /#page-settings, #page-diagnostics \{ max-width:var\(--content-wide\)/);
 });
 

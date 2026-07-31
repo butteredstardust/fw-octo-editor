@@ -123,6 +123,11 @@
       border-radius:var(--radius-md); padding:.45rem .8rem; cursor:pointer; font-size:var(--fs-sm);
     }
     .danger-btn:hover, .repair-actions .danger:hover:not(:disabled) { background:var(--red-bg-hover); }
+    .btn-neutral {
+      background:var(--gunmetal-dark); color:var(--text-2); border:1px solid var(--gunmetal);
+      border-radius:var(--radius-sm); padding:.3rem .7rem; cursor:pointer; font-size:var(--fs-sm);
+    }
+    .btn-neutral:hover { background:var(--surface-hover); color:var(--text); }
     button.is-pending { position:relative; color:transparent !important; pointer-events:none; }
     button.is-pending::after { content:""; position:absolute; top:50%; left:50%; width:1em; height:1em; margin:-0.5em; border:2px solid rgba(255,255,255,.35); border-top-color:#fff; border-radius:50%; animation:btn-spin .6s linear infinite; }
     @media (prefers-reduced-motion:reduce) { button.is-pending::after { animation-duration:1.2s; } }

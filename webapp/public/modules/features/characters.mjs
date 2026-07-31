@@ -83,7 +83,7 @@ async function setLevel(charId) {
 
 async function prestige(charId) {
   const level = readIntegerInput(document.getElementById(`level-${charId}`), 'Prestige level', { min: 0, max: 50 });
-  if (!await confirmAction(`Apply prestige level ${level}? This resets skills and sets the prestige level.`)) return;
+  if (!await confirmAction(`Apply prestige level ${level}? This resets skills and sets the prestige level.`, { title: 'Apply prestige', acceptLabel: 'Apply Prestige', tone: 'danger', icon: 'refresh' })) return;
   const result = await api('/characters/prestige', {
     method: 'POST',
     body: JSON.stringify({ characterId: charId, targetLevel: level })
@@ -368,7 +368,7 @@ async function setDetailLevel(charId) {
 
 async function detailPrestige(charId) {
   const level = readIntegerInput(document.getElementById(`d-level-${charId}`), 'Prestige level', { min: 0, max: 50 });
-  if (!await confirmAction(`Apply prestige level ${level}? This resets skills and sets the prestige level.`)) return;
+  if (!await confirmAction(`Apply prestige level ${level}? This resets skills and sets the prestige level.`, { title: 'Apply prestige', acceptLabel: 'Apply Prestige', tone: 'danger', icon: 'refresh' })) return;
   const result = await api('/characters/prestige', {
     method: 'POST', body: JSON.stringify({ characterId: charId, targetLevel: level })
   });

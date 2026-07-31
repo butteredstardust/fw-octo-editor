@@ -457,7 +457,7 @@ async function api(path, options = {}) {
 
 let appDialogResolve = null;
 let appDialogReturnFocus = null;
-function openAppDialog({ title, message, confirm = false, danger = false }) {
+function openAppDialog({ title, message, confirm = false, acceptLabel, tone = 'primary', icon }) {
   const dialog = document.getElementById('appDialog');
   appDialogReturnFocus = document.activeElement;
   document.getElementById('appDialogTitle').textContent = title;
@@ -465,10 +465,10 @@ function openAppDialog({ title, message, confirm = false, danger = false }) {
   const cancel = document.getElementById('appDialogCancel');
   const accept = document.getElementById('appDialogAccept');
   cancel.hidden = !confirm;
-  const acceptLabel = confirm ? 'Continue' : 'Close';
-  const acceptIcon = !confirm ? 'close' : (danger ? 'trash' : 'check');
-  accept.innerHTML = `${actionIcon(acceptIcon)}${esc(acceptLabel)}`;
-  accept.className = danger ? 'danger-btn' : '';
+  const label = acceptLabel || (confirm ? 'Confirm' : 'Close');
+  const acceptIcon = icon || (confirm ? 'check' : 'close');
+  accept.innerHTML = `${actionIcon(acceptIcon)}${esc(label)}`;
+  accept.className = tone === 'danger' ? 'danger-btn' : tone === 'warning' ? 'btn-warn' : 'btn-primary';
   dialog.returnValue = '';
   dialog.showModal();
   accept.focus();
@@ -480,8 +480,8 @@ function showNotice(message, title = 'Operation result') {
   return openAppDialog({ title, message });
 }
 
-  function confirmAction(message, title = 'Are you sure?', danger = true) {
-  return openAppDialog({ title, message, confirm: true, danger });
+function confirmAction(message, { title = 'Confirm action', acceptLabel = 'Confirm', tone = 'primary', icon = 'check' } = {}) {
+  return openAppDialog({ title, message, confirm: true, acceptLabel, tone, icon });
 }
 
 document.getElementById('appDialogAccept').addEventListener('click', () => document.getElementById('appDialog').close('accept'));
@@ -489,7 +489,10 @@ document.getElementById('appDialog').addEventListener('close', event => {
   const accepted = event.target.returnValue === 'accept';
   if (appDialogResolve) appDialogResolve(accepted);
   appDialogResolve = null;
-  if (appDialogReturnFocus && appDialogReturnFocus.isConnected) appDialogReturnFocus.focus();
+  if (appDialogReturnFocus && appDialogReturnFocus.isConnected) {
+    const returnTarget = appDialogReturnFocus;
+    setTimeout(() => returnTarget.isConnected && returnTarget.focus(), 0);
+  }
 });
 
 expose({
