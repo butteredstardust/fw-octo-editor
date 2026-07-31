@@ -123,13 +123,32 @@ function itemCategoryPills(category, subtype, source) {
   return `<span class="item-taxonomy">${values.map((value, index) => `<span class="item-pill ${index ? 'secondary' : ''}">${esc(value)}</span>`).join('')}</span>`;
 }
 
+// Caps the visible toast stack so a burst of failures (e.g. a batch
+// operation that fails item-by-item) can't grow the region unbounded.
+const MAX_STACKED_TOASTS = 5;
+
 function showToast(message, type = 'success') {
   const region = document.getElementById('toastRegion');
   const toast = document.createElement('div');
   toast.className = `toast ${type === 'error' ? 'error' : ''}`;
-  toast.textContent = message;
+  const text = document.createElement('span');
+  text.className = 'toast-text';
+  text.textContent = message;
+  const dismiss = document.createElement('button');
+  dismiss.type = 'button';
+  dismiss.className = 'toast-dismiss';
+  dismiss.setAttribute('aria-label', 'Dismiss notification');
+  dismiss.textContent = '×';
+  dismiss.addEventListener('click', () => toast.remove());
+  toast.append(text, dismiss);
   region.appendChild(toast);
-  setTimeout(() => toast.remove(), 4200);
+  while (region.children.length > MAX_STACKED_TOASTS) region.firstElementChild.remove();
+  // Error toasts stay until the user dismisses them (or enough new toasts
+  // push them out) -- they're often the only record of what went wrong, and
+  // 4.2s isn't always enough time to read and act on it. Success toasts keep
+  // the short auto-expiry so routine confirmations don't pile up.
+  if (type !== 'error') setTimeout(() => toast.remove(), 4200);
+  return toast;
 }
 
 function receiptHtml(result) {
@@ -137,12 +156,49 @@ function receiptHtml(result) {
   return summary ? `<details class="receipt"><summary>Verification details</summary><div>${esc(summary)}</div></details>` : '';
 }
 
-function setOperationFeedback(target, message, result, state = 'success') {
+// Plain-language sentences for the error categories a non-technical Nexus
+// audience will actually hit. Raw backend text (SQL fragments, absolute
+// tool/file paths) never reaches the user directly -- it's only ever tucked
+// into the existing technical-details disclosure via errorDetailHtml() below.
+const ERROR_MESSAGE_RULES = [
+  [/game.*(is running|must be closed)|close.*the game|process.*running/i, 'The Forever Winter needs to be closed before saving changes. Close the game and try again.'],
+  [/mutation.*(already|in progress|active)|wait for the current/i, 'Another save operation is already in progress. Wait for it to finish, then try again.'],
+  [/ENOENT|no such file|not found.*\.(exe|dll)|could not find.*(tool|binary|executable)|sqlite3mc|uesave/i, 'A required tool could not be found. Check the tool paths in Settings/your installation.'],
+  [/cipher|decrypt|PRAGMA key|wrong key|key.*(invalid|incorrect)|compatibility/i, 'The database key could not open this save. Check the key in Settings.'],
+  [/save (directory|file).*(not found|missing)|no such (save|directory)|ENOTDIR/i, 'The save could not be found. Check the save directory in Settings.'],
+  [/EACCES|EPERM|permission denied|access is denied/i, 'Permission was denied while writing to the save. Make sure the game is closed and the file isn’t read-only.'],
+  [/ECONNREFUSED|ECONNRESET|NetworkError|Failed to fetch|fetch failed|network/i, 'Lost the connection to the local server. Reload the page and try again.'],
+  [/integrity check failed|foreign key/i, 'A verification check failed after the change, so it was not kept.']
+];
+
+// Maps an Error (or error-like object) to a plain-language sentence. Falls
+// back to `fallback` for anything unrecognized rather than ever showing the
+// raw technical string inline.
+function userMessage(error, fallback = 'Something went wrong completing that action.') {
+  const raw = (error && (error.message || String(error))) || '';
+  for (const [pattern, friendly] of ERROR_MESSAGE_RULES) {
+    if (pattern.test(raw)) return friendly;
+  }
+  return fallback;
+}
+
+// Friendly sentence for inline display, with the raw technical detail (if
+// any) tucked into the existing collapsed technical-details disclosure
+// rather than shown inline.
+function errorDetailHtml(error, fallback) {
+  const raw = (error && (error.message || String(error))) || '';
+  const friendly = userMessage(error, fallback);
+  return raw ? `${esc(friendly)}${technicalDetails(raw, 'Show technical details')}` : esc(friendly);
+}
+
+function setOperationFeedback(target, message, result, state = 'success', error = null) {
   const element = typeof target === 'string' ? document.getElementById(target) : target;
   if (!element) return false;
   element.className = `operation-banner ${state}`;
   element.setAttribute('role', state === 'error' ? 'alert' : 'status');
-  element.innerHTML = `<strong>${esc(message)}</strong>${receiptHtml(result)}`;
+  const rawDetail = error && (error.message || (typeof error === 'string' ? error : ''));
+  const detail = rawDetail && rawDetail !== message ? technicalDetails(rawDetail, 'Show technical details') : '';
+  element.innerHTML = `<strong>${esc(message)}</strong>${detail}${receiptHtml(result)}`;
   document.getElementById('appAnnouncements').textContent = message;
   return true;
 }
@@ -509,6 +565,8 @@ expose({
   itemCategoryPills,
   showToast,
   receiptHtml,
+  userMessage,
+  errorDetailHtml,
   setOperationFeedback,
   operationFeedbackFor,
   filterSummaryHtml,

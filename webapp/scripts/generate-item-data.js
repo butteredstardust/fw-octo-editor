@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.join(__dirname, '..');
-const sourcePath = path.join(root, 'public', 'items.csv');
+const sourcePath = path.join(root, 'data', 'items.csv');
 const overridesPath = path.join(root, 'data', 'item-overrides.json');
 const wikiSnapshotPath = path.join(root, 'data', 'wiki-items.snapshot.json');
 const referenceSnapshotPath = path.join(root, 'data', 'reference-items.snapshot.json');
@@ -112,7 +112,7 @@ const catalog = Object.fromEntries(Object.entries(sorted).map(([id, item]) => [i
   description: item.wiki.description, buffs: item.wiki.buffs, debuffs: item.wiki.debuffs
 }]));
 const entries = Object.values(sorted);
-const audit = { schemaVersion: 1, generatedAt: new Date().toISOString(), source: 'public/items.csv', counts: {
+const audit = { schemaVersion: 1, generatedAt: new Date().toISOString(), source: 'data/items.csv', counts: {
   canonical: entries.length, exactFriendlyNames: entries.filter(item => item.match.confidence >= 0.9).length,
   inferredNames: entries.filter(item => item.match.confidence > 0 && item.match.confidence < 0.9).length,
   unresolvedNames: entries.filter(item => item.match.confidence === 0).length, uncategorized: entries.filter(item => !item.taxonomy.type).length,

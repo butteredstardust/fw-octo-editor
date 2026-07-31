@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META } = FW;
+const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
 function loadCatalog(...args) { return FW.loadCatalog(...args); }
 
@@ -284,8 +284,8 @@ async function setResource(id, kind) {
     showToast(`${def ? def.label : id} set to ${qty.toLocaleString()}.`);
   } catch (err) {
     msg.className = 'res-msg err';
-    msg.textContent = 'Error: ' + err.message;
-    showToast(`Could not set ${def ? def.label : id}: ${err.message}`, 'error');
+    msg.innerHTML = errorDetailHtml(err, 'This value could not be saved.');
+    showToast(`Could not set ${def ? def.label : id}: ${userMessage(err, 'see the error for details')}`, 'error');
   }
 }
 
@@ -311,8 +311,8 @@ async function addResource(id) {
     showToast(`Added ${qty.toLocaleString()} ${def ? def.label : id}.`);
   } catch (err) {
     msg.className = 'res-msg err';
-    msg.textContent = 'Error: ' + err.message;
-    showToast(`Could not add ${def ? def.label : id}: ${err.message}`, 'error');
+    msg.innerHTML = errorDetailHtml(err, 'This item could not be added.');
+    showToast(`Could not add ${def ? def.label : id}: ${userMessage(err, 'see the error for details')}`, 'error');
   }
 }
 
@@ -373,7 +373,7 @@ async function loadDashboard() {
     renderDashFactionTrust(vendors && vendors.factions);
     renderDashVault(vault);
   } catch (err) {
-    const failMsg = `<div class="empty-state"><strong>Error</strong><br>${esc(err.message)}</div>`;
+    const failMsg = `<div class="empty-state"><strong>Could not load dashboard data</strong><br>${errorDetailHtml(err, 'The dashboard could not be read.')}</div>`;
     setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
     setRenderedHtml(document.getElementById('dashQuests'), failMsg);
     setRenderedHtml(document.getElementById('dashInventory'), failMsg);

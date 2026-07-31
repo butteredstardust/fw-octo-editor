@@ -39,12 +39,17 @@
       /* Radius scale */
       --radius-sm:4px; --radius-md:6px; --radius-lg:8px; --radius-pill:999px;
       /* Shared surface/status tokens (Phase 6 hex consolidation) */
-      --muted-text:#747b86; --divider-soft:#59606b; --surface-hover:#20232a;
+      --muted-text:#9097a2; /* lightened from #747b86 to clear 4.5:1 AA; worst real-world case is
+        .dash-att small (color:muted-text nested in a --teal-bg fill), was ~3.29:1, now ~4.77:1;
+        also clears --surface (~3.99:1 -> ~5.79:1) and --surface-2 (~4.20:1 -> ~6.09:1) */
+      --divider-soft:#59606b; --surface-hover:#20232a;
       --surface-deep:#090a0c; --text-tooltip:#c6cbd3;
       --green-deep-bg:#0F1A14; --red-deep-bg:#1A1010; --red-soft-border:#3A2A2A; --surface-owned:#14161B;
       --cost-bg:#2A1C10; --cost-border:#4A3018; --progress-bg:#202833;
       --pill-teal-bg:#223733; --pill-teal-text:#8ED2CB; --pill-teal-border:#315B56;
-      --skill-node-border:#444; --skill-on-bg:#1F5A38; --skill-gate-on-bg:#1C4A47;
+      --skill-node-border:#444;
+      --skill-on-bg:#175230; /* darkened from #1F5A38: --green on it was ~4.33:1, now ~4.89:1 */
+      --skill-gate-on-bg:#103e3b; /* darkened from #1C4A47: --teal-soft on it was ~3.95:1, now ~4.72:1 */
       --vendor-faction-text:#CCFFEE;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }

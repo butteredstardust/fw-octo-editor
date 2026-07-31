@@ -150,3 +150,15 @@
     .territory-predict { display:flex; align-items:flex-start; gap:.3rem; margin:.6rem 0 0; padding:.45rem .6rem; border-radius:6px; background:var(--dominant-wash, rgba(255,255,255,.04)); font-size:.72rem; color:var(--text-2); line-height:1.4; }
     .territory-predict b { color:var(--text); }
     .territory-predict .faction-dot { margin-top:.15rem; }
+
+    /* Toast dismiss control (base .toast/.toast-region/.toast.error live in
+       refinements.css; this only adds the internal layout + dismiss button
+       introduced alongside persistent error toasts). */
+    .toast { display:flex; align-items:flex-start; gap:.6rem; pointer-events:auto; }
+    .toast-text { flex:1 1 auto; min-width:0; overflow-wrap:anywhere; }
+    .toast-dismiss { flex:0 0 auto; width:1.6rem; height:1.6rem; min-height:0; line-height:1; padding:0; display:grid; place-items:center; background:transparent; border:1px solid var(--gunmetal); border-radius:50%; color:var(--text-2); font-size:1rem; cursor:pointer; }
+    .toast-dismiss:hover { color:var(--text); border-color:var(--text-2); }
+
+    /* Loading-state error blocks route through errorDetailHtml(): a plain
+       sentence plus the existing collapsed technical-details disclosure. */
+    .empty-state .technical-details { margin-left:.4rem; vertical-align:middle; }

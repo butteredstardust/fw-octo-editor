@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, CHARACTER_META, prestigeBonus, PRESTIGE_XP_CAP, PRESTIGE_MAX_FOR_WARNING, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, WEAPON_META } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, CHARACTER_META, prestigeBonus, PRESTIGE_XP_CAP, PRESTIGE_MAX_FOR_WARNING, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, WEAPON_META, errorDetailHtml } = FW;
 function showPage(...args) { return FW.showPage(...args); }
 
 async function loadCharacters() {
@@ -67,7 +67,7 @@ async function loadCharacters() {
     html += '</div>';
     setRenderedHtml(el, html);
   } catch (err) {
-    setRenderedHtml(document.getElementById('charactersList'), `<div class="empty-state"><strong>Error</strong><br>${esc(err.message)}</div>`);
+    setRenderedHtml(document.getElementById('charactersList'), `<div class="empty-state"><strong>Could not load characters</strong><br>${errorDetailHtml(err, 'Characters could not be read.')}</div>`);
   }
 }
 
@@ -214,7 +214,7 @@ async function loadCharacterDetail(charId) {
     const details = await api(`/characters/${charId}/details`);
     renderCharacterDetail(c, details);
   } catch (err) {
-    el.textContent = 'Error: ' + err.message;
+    el.innerHTML = `<div class="empty-state"><strong>Could not load character details</strong><br>${errorDetailHtml(err, 'Character details could not be read.')}</div>`;
   }
 }
 

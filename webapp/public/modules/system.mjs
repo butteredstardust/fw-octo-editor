@@ -1,6 +1,6 @@
 import { FW, expose } from './runtime.mjs';
 
-const { api, esc, actionIcon, debounce, showToast, showNotice, setOperationFeedback, operationFeedbackFor } = FW;
+const { api, esc, actionIcon, debounce, showToast, showNotice, showLoading, setOperationFeedback, operationFeedbackFor } = FW;
 const feature = name => (...args) => FW[name](...args);
 const loadDashboard = feature('loadDashboard');
 const loadCharacters = feature('loadCharacters');
@@ -77,6 +77,27 @@ const collectRepair = feature('collectRepair');
 
 const pageScrollMemory = new Map();
 let currentPageName = 'dashboard';
+
+// Normalizes the two shapes /api/status and /api/diagnostics both use for
+// "is the game running": either a list of matched processes, or a plain
+// boolean/falsy sentinel when process detection itself is unavailable.
+// Every call site must use this -- a raw truthiness check on an empty array
+// is always true (`![]` is false), which previously let the Backups page
+// claim writes were disabled while the header said otherwise.
+function isGameRunning(status) {
+  const value = status && status.gameRunning;
+  return Array.isArray(value) ? value.length > 0 : !!value;
+}
+
+// A single place to turn a possibly-missing/unparseable timestamp into
+// either a real localized string or a clear, non-alarming fallback --
+// `new Date(undefined).toLocaleString()` renders the literal text
+// "Invalid Date", which reads as a bug rather than "this hasn't run yet".
+function formatTimestamp(value, fallback = 'Not run yet') {
+  if (!value) return fallback;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? fallback : date.toLocaleString();
+}
 function closeMobileNav(returnFocus) {
   document.body.classList.remove('nav-open');
   document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
@@ -86,7 +107,22 @@ function closeMobileNav(returnFocus) {
   if (returnFocus) document.getElementById('navToggle').focus();
 }
 
-function showPage(pageName) {
+// The set of page names that are safe to restore from a URL hash: exactly
+// the pages reachable from the sidebar. Anything else (an unknown, stale,
+// or hand-edited hash, or the id-less "character" detail page which needs
+// runtime state it can't get from a hash alone) must never be trusted --
+// it's only ever used as a lookup key against this allow-list, never
+// interpolated into the DOM.
+function knownPageNames() {
+  return new Set([...document.querySelectorAll('.nav button[data-page]')].map(btn => btn.dataset.page));
+}
+
+function pageNameFromHash() {
+  const raw = decodeURIComponent((location.hash || '').replace(/^#/, ''));
+  return knownPageNames().has(raw) ? raw : null;
+}
+
+function showPage(pageName, { fromHistory = false } = {}) {
   const target = document.getElementById(`page-${pageName}`);
   if (!target) return;
   pageScrollMemory.set(currentPageName, window.scrollY);
@@ -114,10 +150,37 @@ function showPage(pageName) {
   if (pageName === 'crafting') loadCrafting();
   if (pageName === 'backups') loadBackups();
   if (pageName === 'diagnostics') runDiagnostics();
+  // fromHistory means this call originated from the browser (a hashchange
+  // or popstate event, or the initial-load restore below) -- the URL
+  // already reflects pageName, so pushing another entry would double up
+  // history and break Back. Only reflect in-app navigation (nav clicks,
+  // "show-page" actions) into a new history entry/hash.
+  if (!fromHistory && knownPageNames().has(pageName)) {
+    const hash = `#${pageName}`;
+    if (location.hash !== hash) history.pushState(null, '', hash);
+  }
 }
 
 document.querySelectorAll('.nav button').forEach(btn => {
   btn.addEventListener('click', () => showPage(btn.dataset.page));
+});
+
+// Restore whatever page a reload/deep link points at; fall back to the
+// default Overview (already the statically-rendered active page) for an
+// empty, unknown, or malformed hash rather than trying to guess.
+{
+  const initialPage = pageNameFromHash();
+  if (initialPage && initialPage !== currentPageName) showPage(initialPage, { fromHistory: true });
+  else if (location.hash && !initialPage) history.replaceState(null, '', location.pathname + location.search);
+}
+
+window.addEventListener('popstate', () => {
+  const name = pageNameFromHash() || 'dashboard';
+  if (name !== currentPageName) showPage(name, { fromHistory: true });
+});
+window.addEventListener('hashchange', () => {
+  const name = pageNameFromHash() || 'dashboard';
+  if (name !== currentPageName) showPage(name, { fromHistory: true });
 });
 
 document.getElementById('navToggle').addEventListener('click', event => {
@@ -196,7 +259,9 @@ async function runDiagnostics() {
   const summary = document.getElementById('diagnosticsSummary');
   const details = document.getElementById('diagnosticsDetails');
   button.disabled = true;
-  summary.setAttribute('aria-busy', 'true');
+  // showLoading sets aria-busy itself and renders the shared skeleton so the
+  // stale previous run's cards aren't left on screen while re-checking.
+  showLoading(summary, 4, 'Running diagnostics');
   status.textContent = 'Checking saves, tools, schema, and inventory round trip…';
   status.className = 'settings-msg';
   try {
@@ -205,31 +270,48 @@ async function runDiagnostics() {
     const files = compatibility.files || [];
     const tools = compatibility.tools || {};
     const inventory = data.inventoryRoundTrip || {};
-    const running = Array.isArray(data.gameRunning) ? data.gameRunning.length > 0 : !!data.gameRunning;
+    const running = isGameRunning(data);
     const reasons = compatibility.reasons || [];
     const gameVersion = data.gameVersion || {};
     const gvDetail = gameVersion.detected
       ? `Installed build ${esc(gameVersion.version)} (${esc(gameVersion.source === 'steam-buildid' ? 'Steam' : gameVersion.source === 'epic-manifest' ? 'Epic' : 'game binary')})${gameVersion.appId ? ` · app ${esc(gameVersion.appId)}` : ''}`
       : 'Installed game version could not be detected (set FW_GAME_EXE or FW_GAME_DIR if installed elsewhere).';
-    const cards = [
-      diagnosticCard('Game version', gameVersion.detected, gvDetail, !gameVersion.detected),
-      diagnosticCard('Three save variants', files.length === 3 && files.every(file => file.exists), files.length === 3 && files.every(file => file.exists) ? 'Primary and both known-good variants found.' : 'One or more required save variants are missing.'),
-      diagnosticCard('SQLite3MC', !!tools.sqlite3mc, tools.sqlite3mc ? 'Database shell is available.' : 'SQLite3MC executable is missing.'),
-      diagnosticCard('uesave', !!tools.uesave, tools.uesave ? 'Structured GVAS tool is available.' : 'uesave is missing; inventory writes are disabled.'),
-      diagnosticCard('Key and schema', !!compatibility.compatible, compatibility.compatible ? 'Database opened and required schema/rows were found.' : reasons.join(', ') || 'Compatibility failed.'),
-      diagnosticCard('Inventory round trip', !!inventory.byteIdentical, inventory.byteIdentical ? `${inventory.bytes} bytes, ${inventory.inventoryEntries} entries, byte-identical.` : inventory.error || 'Round trip failed.'),
-      diagnosticCard('Game process', !running, running ? 'Close The Forever Winter before any write.' : 'Game is closed.'),
-      diagnosticCard('Write readiness', !!data.writeReady, data.writeReady ? 'Safety gates currently allow writes.' : 'One or more safety gates block writes.'),
-      diagnosticCard('Session backup', !!(data.mutation && data.mutation.sessionBackupId), data.mutation && data.mutation.sessionBackupId ? data.mutation.sessionBackupId : 'Created automatically before the first write.', !(data.mutation && data.mutation.sessionBackupId)),
-      diagnosticCard('Steam Cloud', false, data.steamCloudWarning, true)
+    const filesOk = files.length === 3 && files.every(file => file.exists);
+    const sessionBackupId = data.mutation && data.mutation.sessionBackupId;
+    // Each check below carries its own pass/warning state so the "Blocking
+    // reasons" summary can be derived directly from the same checks the
+    // cards render -- previously the summary only echoed
+    // compatibility.reasons (a narrower list), so it could say "None" while
+    // individual cards below it read BLOCKED.
+    const checks = [
+      { label: 'Game version', passed: gameVersion.detected, detail: gvDetail, warning: !gameVersion.detected },
+      { label: 'Three save variants', passed: filesOk, detail: filesOk ? 'Primary and both known-good variants found.' : 'One or more required save variants are missing.' },
+      { label: 'SQLite3MC', passed: !!tools.sqlite3mc, detail: tools.sqlite3mc ? 'Database shell is available.' : 'SQLite3MC executable is missing.' },
+      { label: 'uesave', passed: !!tools.uesave, detail: tools.uesave ? 'Structured GVAS tool is available.' : 'uesave is missing; inventory writes are disabled.' },
+      { label: 'Key and schema', passed: !!compatibility.compatible, detail: compatibility.compatible ? 'Database opened and required schema/rows were found.' : (reasons.join(', ') || 'Compatibility failed.') },
+      { label: 'Inventory round trip', passed: !!inventory.byteIdentical, detail: inventory.byteIdentical ? `${inventory.bytes} bytes, ${inventory.inventoryEntries} entries, byte-identical.` : (inventory.error || 'Round trip failed.') },
+      { label: 'Game process', passed: !running, detail: running ? 'Close The Forever Winter before any write.' : 'Game is closed.' },
+      { label: 'Session backup', passed: !!sessionBackupId, detail: sessionBackupId || 'Created automatically before the first write.', warning: !sessionBackupId },
+      { label: 'Steam Cloud', passed: false, detail: data.steamCloudWarning, warning: true }
     ];
+    // "Write readiness" is the overall verdict, not an independent root
+    // cause, so it's rendered as its own card but excluded from the
+    // blocking-reasons rollup below (listing it there would just say
+    // "Write readiness" is blocking write readiness).
+    const writeReadyCheck = { label: 'Write readiness', passed: !!data.writeReady, detail: data.writeReady ? 'Safety gates currently allow writes.' : 'One or more safety gates block writes.' };
+    const cards = [checks[0], checks[1], checks[2], checks[3], checks[4], checks[5], checks[6], writeReadyCheck, checks[7], checks[8]]
+      .map(c => diagnosticCard(c.label, c.passed, c.detail, !!c.warning));
+    const blockedLabels = checks.filter(c => !c.passed && !c.warning).map(c => c.label);
+    const blockingReasonsText = blockedLabels.length
+      ? blockedLabels.join(', ')
+      : (data.writeReady ? 'None — all checks passed.' : 'None reported — rerun diagnostics.');
     summary.innerHTML = cards.join('');
     details.innerHTML = `<dl class="diagnostic-details">
-      <dt>Checked</dt><dd>${esc(new Date(data.checkedAt).toLocaleString())}</dd>
-      <dt>Active save directory</dt><dd>${esc(data.activeSaveDir)}</dd>
+      <dt>Checked</dt><dd>${esc(formatTimestamp(data.checkedAt))}</dd>
+      <dt>Active save directory</dt><dd>${esc(data.activeSaveDir || 'Not configured — using default location.')}</dd>
       <dt>Schema fingerprint</dt><dd><code>${esc(compatibility.schemaFingerprint || 'Unavailable')}</code></dd>
       <dt>Inventory maps</dt><dd>${esc((inventory.maps || []).join(', ') || 'Unavailable')}</dd>
-      <dt>Blocking reasons</dt><dd>${esc(reasons.join(', ') || 'None')}</dd>
+      <dt>Blocking reasons</dt><dd>${esc(blockingReasonsText)}</dd>
     </dl>`;
     status.textContent = data.writeReady ? 'Diagnostics complete: writes are ready.' : 'Diagnostics complete: review blocked checks.';
     status.className = `settings-msg ${data.writeReady ? 'ok' : 'err'}`;
@@ -362,14 +444,20 @@ function setSafetyValue(id, text, state) {
 async function refreshSafetyStatus() {
   try {
     const status = await api('/status');
-    const running = Array.isArray(status.gameRunning) ? status.gameRunning.length > 0 : !!status.gameRunning;
+    const running = isGameRunning(status);
     setSafetyValue('safetyCompatibility', status.compatibility && status.compatibility.compatible ? 'Compatible' : 'Writes blocked', status.compatibility && status.compatibility.compatible ? 'good' : 'bad');
     const backupId = status.mutation && status.mutation.sessionBackupId;
     setSafetyValue('safetyBackup', backupId || 'Pending first write', backupId ? 'good' : 'warn');
-    setSafetyValue('safetySave', status.activeSaveDir || 'Unknown', '');
+    setSafetyValue('safetySave', status.activeSaveDir || 'Not configured', '');
     document.getElementById('safetySave').title = status.activeSaveDir || '';
-    setSafetyValue('safetyGameVersion', status.verifiedGameVersion || 'Unknown', '');
+    // "Not detected" (rather than the more alarming-sounding "Unknown") is
+    // intentional here -- the game genuinely may not be running or
+    // installed somewhere this editor can find, and that's a normal,
+    // informative state, not a broken one. See the safety-item's title
+    // attribute in index.html for the fuller explanation shown on hover.
+    setSafetyValue('safetyGameVersion', status.verifiedGameVersion || 'Not detected', '');
     setSafetyValue('safetyAppVersion', status.appVersion ? `v${status.appVersion}` : 'Unknown', '');
+    updatePreflightPanel(status);
 
     const gameStatus = document.getElementById('gameStatus');
     gameStatus.textContent = running ? 'Game running — writes disabled' : 'Game closed';
@@ -425,6 +513,9 @@ function showBackupReceipt(title, result) {
 async function loadBackups() {
   const list = document.getElementById('backupList');
   setBackupBusy(true, 'Loading backups…');
+  // Match the skeleton affordance every other list page uses, rather than
+  // leaving the previous list on screen behind a one-line status message.
+  showLoading(list, 3, 'Loading backups');
   try {
     const [backups, status] = await Promise.all([api('/backups'), api('/status')]);
     const sessionId = status.mutation && status.mutation.sessionBackupId;
@@ -433,7 +524,7 @@ async function loadBackups() {
     } else {
       list.innerHTML = backups.map(backup => {
         const id = esc(backup.name);
-        const created = backup.created ? new Date(backup.created).toLocaleString() : 'Unknown time';
+        const created = formatTimestamp(backup.created, 'Unknown time');
         const active = backup.name === sessionId;
         return `<article class="backup-row ${backup.manifestValid ? '' : 'invalid'}">
           <div class="backup-head">
@@ -448,7 +539,7 @@ async function loadBackups() {
         </article>`;
       }).join('');
     }
-    setBackupBusy(false, status.gameRunning ? 'Writes are disabled while the game is running.' : `${backups.length} backup${backups.length === 1 ? '' : 's'} found.`);
+    setBackupBusy(false, isGameRunning(status) ? 'Writes are disabled while the game is running.' : `${backups.length} backup${backups.length === 1 ? '' : 's'} found.`);
   } catch (error) {
     list.textContent = '';
     setBackupBusy(false, `Error: ${error.message}`);
@@ -553,6 +644,74 @@ document.getElementById('ackAcceptButton').addEventListener('click', () => ackno
 // Allow clicking the backdrop (outside the dialog surface) to dismiss.
 acknowledgementsDialog.addEventListener('click', event => {
   if (event.target === acknowledgementsDialog) acknowledgementsDialog.close();
+});
+
+// ---- Nav scroll affordance ------------------------------------------------
+// At short viewport heights (e.g. 1366x768 laptops) the sidebar nav scrolls
+// internally and the whole SYSTEM group (Backups/Diagnostics/Settings) can
+// sit below the fold with no visual hint that there's more nav below --
+// Backups being the most safety-critical page in the app made this worth a
+// dedicated, always-available affordance (in addition to the tighter nav
+// density in refinements.css) rather than relying on density tuning alone.
+function updateNavScrollHint() {
+  const nav = document.getElementById('primaryNav');
+  const hint = document.getElementById('navScrollHint');
+  if (!nav || !hint) return;
+  const hasMoreBelow = nav.scrollHeight - nav.clientHeight - nav.scrollTop > 4;
+  hint.classList.toggle('visible', hasMoreBelow);
+}
+document.getElementById('primaryNav')?.addEventListener('scroll', updateNavScrollHint, { passive: true });
+window.addEventListener('resize', debounce(updateNavScrollHint, 100));
+updateNavScrollHint();
+
+// ---- First-run preflight panel --------------------------------------------
+// /api/status already computes everything needed to know whether the app is
+// actually usable (tools present, save found, key/schema compatible, game
+// closed), but previously that only surfaced when a user manually opened
+// Diagnostics -- otherwise the UI rendered fully and "healthy" and the first
+// sign of trouble was a cryptic error on the first edit attempt. This turns
+// the same status payload already fetched by refreshSafetyStatus() into a
+// plain-language, dismissible, non-blocking panel.
+const PREFLIGHT_REASON_TEXT = {
+  'game-process-unknown': 'This editor could not determine whether The Forever Winter is currently running. Close the game to be safe before making any edits, then reload this page.',
+  'game-running': 'The Forever Winter is currently running. Close the game completely before making any edits -- writes are disabled while it is open.',
+  'mutation-active': 'A save operation is already in progress. Wait for it to finish before trying again.',
+  'missing-save-variants': 'One or more required save files were not found in the configured save folder. Open Settings and point the editor at the folder containing your .dat save files.',
+  'missing-sqlite3mc': 'The SQLite3MC database tool is missing. By default it is expected at C:\\tmp\\fw-tools\\sqlite3mc\\bin\\sqlite3mc_shell_x64.exe (or the location set by the FW_SQLITE_BIN environment variable). Reinstall it there, or set that variable, then reload.',
+  'unknown-game-version': 'The installed game version could not be detected. Edits may still work, but have not been verified against your build -- proceed carefully and keep backups.',
+  'unverified-game-version': 'The installed game version does not match the version this editor was verified against. Edits may still work, but proceed carefully and keep backups.',
+  'key-or-database-incompatible': 'The database key does not match this save file, or the save could not be opened. Open Settings and check the database key.',
+  'missing-required-rows': 'This save file is missing data this editor expects to find. It may be from an incompatible game version.'
+};
+function preflightReasonText(reason) {
+  if (reason.startsWith('missing-required-tables:')) return `This save file is missing expected data tables (${reason.slice('missing-required-tables:'.length)}). It may be from an incompatible game version.`;
+  return PREFLIGHT_REASON_TEXT[reason] || `An unrecognized setup issue was reported: ${reason}.`;
+}
+function computePreflightIssues(status) {
+  const issues = (status.blockingReasons || []).map(preflightReasonText);
+  if (status.compatibility && status.compatibility.tools && status.compatibility.tools.uesave === false) {
+    issues.push('The uesave inventory tool is missing (expected at tools/uesave-src/target/release/uesave.exe, or the location set by the GVAS_UESAVE_BIN environment variable). Inventory edits will be disabled until it is restored.');
+  }
+  return issues;
+}
+let preflightDismissedSignature = null;
+let preflightCurrentSignature = null;
+function updatePreflightPanel(status) {
+  const panel = document.getElementById('preflightPanel');
+  if (!panel) return;
+  const issues = computePreflightIssues(status);
+  const signature = issues.join('|');
+  preflightCurrentSignature = signature;
+  if (!issues.length || signature === preflightDismissedSignature) { panel.hidden = true; return; }
+  if (panel.hidden || panel.dataset.signature !== signature) {
+    document.getElementById('preflightMessage').innerHTML = issues.map(text => `<p>${esc(text)}</p>`).join('');
+    panel.dataset.signature = signature;
+  }
+  panel.hidden = false;
+}
+document.getElementById('preflightDismissButton')?.addEventListener('click', () => {
+  preflightDismissedSignature = preflightCurrentSignature;
+  document.getElementById('preflightPanel').hidden = true;
 });
 
 expose({ showPage, closeMobileNav, runDiagnostics, refreshSafetyStatus, setSafetyValue, loadBackups, openAcknowledgements });
