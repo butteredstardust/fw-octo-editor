@@ -1,6 +1,9 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, readIntegerInput, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, technicalDetails, WEAPON_META, userMessage, errorDetailHtml } = FW;
+// validateInteger is used for the preset-supplied score path (the trust tier
+// buttons pass data-value); it was missing here, so every tier preset threw
+// "validateInteger is not defined" instead of setting the score.
+const { api, esc, appIcon, actionIcon, readIntegerInput, validateInteger, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, technicalDetails, WEAPON_META, userMessage, loadErrorHtml } = FW;
 function loadDashboard(...args) { return FW.loadDashboard(...args); }
 function describeItem(...args) { return FW.describeItem(...args); }
 
@@ -70,7 +73,7 @@ async function loadVendors() {
     const data = await api('/vendors');
     renderVendors(data);
   } catch (err) {
-    el.innerHTML = `<div class="empty-state"><strong>Could not load vendors</strong><br>${errorDetailHtml(err, 'Vendor data could not be read.')}</div>`;
+    el.innerHTML = loadErrorHtml('vendors', err);
   }
 }
 
@@ -100,7 +103,7 @@ function renderVendorEconomy(economy) {
   const eventNote = economy.nextResetEvent
     ? `<p class="char-hint">The save's shared restock event (one timer covering multiple shops) last pointed to ${esc(new Date(economy.nextResetEvent).toLocaleString())}${overdue ? ' — already elapsed, so a restock is due next time you play' : ''}. There's no separate per-vendor countdown recorded in the save.</p>`
     : '';
-  return `<div class="vendor-section-title">Vendor Stock</div>${eventNote}${rows}`;
+  return `<div class="vendor-section-title">Vendor stock</div>${eventNote}${rows}`;
 }
 
 function renderVendors(data) {
@@ -150,7 +153,7 @@ function renderVendors(data) {
   html += renderVendorEconomy(data.economy);
 
   // ---- Faction Trust ----
-  html += '<div class="vendor-section-title">Faction Trust</div>';
+  html += '<div class="vendor-section-title">Faction trust</div>';
   html += '<div class="vendor-grid">';
   for (const f of factions) {
     const tier = trustTier(f.score);
@@ -168,7 +171,7 @@ function renderVendors(data) {
       ${trustTrack(f.score)}
       <div class="vendor-score">
         <input type="number" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1">
-        <button class="vendor-set icon-only" data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set Score</span></button>
+        <button class="vendor-set icon-only" data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set score</span></button>
       </div>
       <div class="vendor-presets">
         <button class="mini tier-preset untrusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
@@ -182,7 +185,7 @@ function renderVendors(data) {
   // ---- Trader unlock toggles (Kane/Luca) ----
   const traderRows = traders.filter(t => !t.key.startsWith('Questgiver.') && t.key.startsWith('Trader.'));
   if (traderRows.length) {
-    html += '<div class="vendor-section-title">Trader Unlock</div>';
+    html += '<div class="vendor-section-title">Vendor unlock</div>';
     html += '<div class="trader-grid">';
     for (const t of traderRows) {
       const label = t.key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '');
@@ -210,9 +213,13 @@ async function setFactionScore(encScope, scoreValue) {
 
 async function toggleTrader(btn, encKey) {
   const key = decodeURIComponent(encKey);
+  const label = key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '');
   const currentlyOn = btn && btn.classList.contains('on');
   const unlocked = !(currentlyOn);
-  if (!await confirmAction(`${unlocked ? 'Unlock' : 'Lock'} trader "${key}"?`, unlocked ? { title: 'Unlock trader', acceptLabel: 'Unlock Trader', icon: 'unlock' } : { title: 'Lock trader', acceptLabel: 'Lock Trader', tone: 'danger', icon: 'lock' })) return;
+  const ok = unlocked
+    ? await confirmAction(`Unlock ${label}?`, { title: 'Unlock vendor?', acceptLabel: 'Unlock vendor', icon: 'unlock' })
+    : await confirmAction(`Lock ${label}? Their shop becomes unavailable until you unlock it again.`, { title: 'Lock vendor?', acceptLabel: 'Lock vendor', tone: 'danger', icon: 'lock' });
+  if (!ok) return;
   const result = await api(`/vendors/trader/${encodeURIComponent(key)}`, {
     method: 'PUT',
     body: JSON.stringify({ unlocked })
@@ -451,12 +458,12 @@ async function loadRepair() {
     const data = await api('/repair');
     renderRepairStatus(data);
   } catch (err) {
-    el.innerHTML = `<div class="empty-state"><strong>Could not load the repair bench</strong><br>${errorDetailHtml(err, 'Repair bench data could not be read.')}</div>`;
+    el.innerHTML = loadErrorHtml('the repair bench', err);
   }
 }
 
 async function collectRepair() {
-  if (!await confirmAction('Finish this repair now? This advances the Recipe.RepairWeapon timer to the current time so the item becomes ready to collect. It does not modify inventory or weapon data.', { title: 'Finish repair', acceptLabel: 'Finish Repair', icon: 'collect' })) return;
+  if (!await confirmAction('Skips ahead so the current repair is ready to collect now. This does not change your inventory or weapons.', { title: 'Finish repair?', acceptLabel: 'Finish repair', icon: 'collect' })) return;
   const result = await api('/repair/collect', { method: 'POST' });
   if (!result.success) {
     setOperationFeedback('repairOperationStatus', 'Repair collection failed verification.', result, 'error');
@@ -469,7 +476,7 @@ async function collectRepair() {
 // EXPERIMENTAL: tell the game a quest's conditions are met (Quests.Status = 2).
 // The game then shows the turn-in prompt; you still open the game to hand it in.
 async function markQuestReady(questId) {
-  if (!await confirmAction('Mark this quest ready to turn in? You must still open the game to turn it in and receive the reward.', { title: 'Experimental quest update', acceptLabel: 'Mark Ready', tone: 'warning', icon: 'check' })) return;
+  if (!await confirmAction('Marks this quest ready to turn in. You still need to open the game to turn it in and get the reward.', { title: 'Mark quest ready?', acceptLabel: 'Mark ready', tone: 'warning', icon: 'check' })) return;
   try {
     const result = await api(`/quests/${questId}/ready`, { method: 'POST' });
     if (!result.success) {

@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml } = FW;
+const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml, loadErrorHtml } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
 function loadCatalog(...args) { return FW.loadCatalog(...args); }
 
@@ -61,7 +61,7 @@ function renderDashCharacter(character, loadout) {
       <div class="char-hp-breakdown">base ${meta.health}${bonus.health ? ` + <span class="pos">${bonus.health} prestige</span>` : ''}${bonus.speed ? ` &middot; <span class="pos">+${bonus.speed}% speed</span>` : ''}</div>
     </div>
     <div class="dash-stats">
-      <div><span class="k">Prestige Level</span><span class="v">${lvl}${capped ? ' <span class="char-capped" title="Wiki: no further health/speed past 25">&#9888; capped</span>' : ''}</span></div>
+      <div><span class="k">Prestige Level</span><span class="v">${lvl}${capped ? ' <span class="char-capped" title="Health and speed bonuses stop increasing past prestige level 24">&#9888; capped</span>' : ''}</span></div>
       <div><span class="k">Walk / Sprint</span><span class="v">${meta.walk} / ${meta.sprint} m/s</span></div>
       <div class="char-xp-row" style="grid-column: 1 / -1">
         <span class="k">Character XP</span>
@@ -91,7 +91,7 @@ function questWikiDisclosure(wiki) {
 function renderDashQuests(quests) {
   const el = document.getElementById('dashQuests');
   if (!quests || !quests.length) {
-    setRenderedHtml(el, '<div class="empty-state"><strong>No quests found</strong><br>The save does not currently expose tracked quests.</div>');
+    setRenderedHtml(el, '<div class="empty-state"><strong>No quests found</strong><br>Your save has no tracked quests right now.</div>');
     return;
   }
   const complete = quests.filter(q => q.state === 'complete').length;
@@ -148,11 +148,11 @@ function renderDashQuests(quests) {
 function renderDashInventory(inventory) {
   const el = document.getElementById('dashInventory');
   if (!inventory || !inventory.length) {
-    setRenderedHtml(el, '<div class="empty-state"><strong>Inventory is empty</strong><br>Open Add Items to add a known item.</div>');
+    setRenderedHtml(el, '<div class="empty-state"><strong>Inventory is empty</strong><br>Open Add items to add one.</div>');
     return;
   }
   const total = inventory.reduce((a, i) => a + i.quantity, 0);
-  setRenderedHtml(el, `<div class="inventory-shortcuts"><div class="inventory-metric"><strong>${inventory.length.toLocaleString()}</strong> item types · ${total.toLocaleString()} total units</div><button class="shortcut" data-action="show-page" data-page-target="inventory">${actionIcon('arrowRight')}Manage Inventory</button><button class="shortcut" data-action="show-page" data-page-target="add-items">${actionIcon('arrowRight')}Add Items</button></div>`);
+  setRenderedHtml(el, `<div class="inventory-shortcuts"><div class="inventory-metric"><strong>${inventory.length.toLocaleString()}</strong> item types · ${total.toLocaleString()} total units</div><button class="shortcut" data-action="show-page" data-page-target="inventory">${actionIcon('arrowRight')}Manage inventory</button><button class="shortcut" data-action="show-page" data-page-target="add-items">${actionIcon('arrowRight')}Add items</button></div>`);
 }
 
 // Kept local to this module: ES modules do not share vendor-page helpers.
@@ -212,7 +212,7 @@ function renderDashFactionTrust(factions) {
 // and Kotleta Codex variants that aren't yet in the canonical catalog, so
 // they're intentionally omitted rather than guessed.
 const RESOURCE_DEFS = [
-  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Water Barrels' },
+  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Resource' },
   { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits' },
   { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel Drone', icon: '🚁', cat: 'Utility Drone' },
   { id: 'Drone_Construction', kind: 'inventory', label: 'Construction Drone', icon: '🔧', cat: 'Utility Drone' },
@@ -322,7 +322,7 @@ async function addResource(id) {
 // getVaultInventory() in gvasService.js.
 function renderDashVault(vault) {
   const el = document.getElementById('dashVault');
-  if (!vault) { setRenderedHtml(el, '<div class="empty-state"><strong>Could not load vault</strong></div>'); return; }
+  if (!vault) { setRenderedHtml(el, loadErrorHtml('the vault', null)); return; }
   const items = vault.items || [];
   const amount = (vault.currency && vault.currency.amount) || 0;
   const itemChips = items.length
@@ -364,7 +364,7 @@ async function loadDashboard() {
       renderDashInventory(dash.inventory);
       renderDashResources(dash);
     } else {
-      const failMsg = '<div class="empty-state"><strong>Could not load dashboard data</strong></div>';
+      const failMsg = loadErrorHtml('dashboard data', null);
       setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
       setRenderedHtml(document.getElementById('dashQuests'), failMsg);
       setRenderedHtml(document.getElementById('dashInventory'), failMsg);
@@ -373,7 +373,7 @@ async function loadDashboard() {
     renderDashFactionTrust(vendors && vendors.factions);
     renderDashVault(vault);
   } catch (err) {
-    const failMsg = `<div class="empty-state"><strong>Could not load dashboard data</strong><br>${errorDetailHtml(err, 'The dashboard could not be read.')}</div>`;
+    const failMsg = loadErrorHtml('dashboard data', err);
     setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
     setRenderedHtml(document.getElementById('dashQuests'), failMsg);
     setRenderedHtml(document.getElementById('dashInventory'), failMsg);

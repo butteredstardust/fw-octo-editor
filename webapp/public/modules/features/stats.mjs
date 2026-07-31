@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META, errorDetailHtml } = FW;
+const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META, loadErrorHtml } = FW;
 
 // Friendly names + blurbs sourced from https://theforeverwinter.wiki.gg/wiki/Maps.
 // Keyed by a canonical short id that both naming conventions the save uses
@@ -146,7 +146,7 @@ function renderPlayerSummary(player) {
     ['Extraction rate', extractionRate == null ? null : `${extractionRate}%`, extractionRate == null ? 'Unavailable until an extraction or death is recorded' : 'Extractions divided by extractions plus deaths'],
     ['Downed', player.downed, 'Lifetime downs'], ['Attacks', player.attacks, 'Lifetime attacks'], ['Total XP', player.xp, 'Lifetime XP']
   ];
-  return `<section class="stats-section"><h3>Lifetime Summary</h3><div class="stats-kpi-grid">${cards.map(([label, value, detail]) => `<article class="stats-kpi" aria-label="${esc(label)}: ${esc(value == null ? 'unavailable' : String(value))}"><span>${esc(label)}</span><strong>${esc(value == null ? '—' : typeof value === 'number' ? fmt(value) : value)}</strong><small>${esc(detail)}</small></article>`).join('')}</div></section>`;
+  return `<section class="stats-section"><h3>Lifetime summary</h3><div class="stats-kpi-grid">${cards.map(([label, value, detail]) => `<article class="stats-kpi" aria-label="${esc(label)}: ${esc(value == null ? 'unavailable' : String(value))}"><span>${esc(label)}</span><strong>${esc(value == null ? '—' : typeof value === 'number' ? fmt(value) : value)}</strong><small>${esc(detail)}</small></article>`).join('')}</div></section>`;
 }
 
 function comparisonRows(entries, metric, label) {
@@ -212,7 +212,7 @@ function renderMapStats(maps) {
     const deathRate = percent(g.death, g.entry);
     return `<article class="map-stats-card"><header><h4>${esc(label)} ${idList}</h4>${meta && meta.internal ? '<span class="map-internal-tag">Internal / QA map</span>' : ''}</header><p class="map-entry-count"><b>${esc(fmt(g.entry))}</b> entries</p><div class="map-rate-grid">${extractRate == null ? '<span class="stats-note">Extraction rate unavailable</span>' : metricBar('Extraction rate', extractRate, 100, 'var(--green)', `${extractRate}%`)}${deathRate == null ? '<span class="stats-note">Death rate unavailable</span>' : metricBar('Death rate', deathRate, 100, 'var(--red)', `${deathRate}%`)}</div><p class="stats-note">${esc(fmt(g.extract))} extracts · ${esc(fmt(g.death))} deaths. Rates use entries independently; outcomes may overlap or be incomplete.</p></article>`;
   }).join('');
-  return `<section class="stats-section"><h3>Map Statistics</h3><div class="map-stats-grid">${cards}</div></section>`;
+  return `<section class="stats-section"><h3>Map statistics</h3><div class="map-stats-grid">${cards}</div></section>`;
 }
 // The stacked control bar: always iterates FACTION_ORDER (never sorted by
 // value) so any subset of factions rendered adjacent is a subsequence of the
@@ -283,7 +283,7 @@ function territoryCard(g) {
 function renderTerritory(territory) {
   if (!territory.length) return '';
   return `<div class="stats-section territory-section">
-    <h3>Territory Control</h3>
+    <h3>Territory control</h3>
     <p class="char-hint">Per-location faction control share (the game's own "Theater of War" system) -- higher control means both <b>more</b> hostiles and <b>better-equipped</b> ones for that faction. <a href="https://theforeverwinter.wiki.gg/wiki/Factions" target="_blank" rel="noopener noreferrer">theforeverwinter.wiki.gg/wiki/Factions</a></p>
     ${factionLegend(territory.flatMap(row => Object.keys(row.factions || {})))}
     <div class="territory-grid">${groupTerritory(territory).map(territoryCard).join('')}</div>
@@ -305,7 +305,7 @@ async function loadStats() {
     ].join('');
     setRenderedHtml(el, html || '<div class="empty-state"><strong>No stats found</strong></div>');
   } catch (error) {
-    setRenderedHtml(el, `<div class="empty-state"><strong>Could not load stats</strong><br>${errorDetailHtml(error, 'Stats could not be read.')}</div>`);
+    setRenderedHtml(el, loadErrorHtml('stats', error));
   }
 }
 

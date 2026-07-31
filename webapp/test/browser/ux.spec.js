@@ -28,7 +28,7 @@ async function mockApi(page, options = {}) {
     if (pathname === '/api/session') body = { csrfToken: 'fixture-token' };
     else if (pathname === '/api/status') body = { gameRunning: [], compatibility: { compatible: true }, writeReady: true, mutation: {}, activeSaveDir: 'fixture', blockingReasons: [] };
     else if (pathname === '/api/dashboard') body = options.dashboard || { character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 }, loadout: {}, quests: [], inventory: [], currencies: { WaterBarrels: 10, TestCurrency: 20 } };
-    else if (pathname === '/api/vendors') body = { factions: [], traders: [] };
+    else if (pathname === '/api/vendors') body = options.vendors || { factions: [], traders: [] };
     else if (pathname === '/api/characters') body = options.characters || [];
     else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
     else if (pathname === '/api/weapon-builds') body = options.weaponBuilds || { categories: [], weapons: [] };
@@ -124,7 +124,7 @@ test('routine weapon mutations report inline with a verification receipt', async
   await page.locator('[id="xp-Scope.Weapon.RFL12"]').fill('250');
   await page.locator('[data-action="set-weapon-xp"]').first().click();
   await expect(page.locator('#weaponXpOperationStatus')).toContainText('Weapon XP set to 250');
-  await expect(page.locator('#weaponXpOperationStatus .receipt')).toContainText('Verification details');
+  await expect(page.locator('#weaponXpOperationStatus .receipt')).toContainText('Change verified');
   await expect(page.locator('#appDialog')).not.toBeVisible();
 });
 
@@ -151,9 +151,16 @@ test('confirmation dialog uses action-specific tone and Cancel/Escape are no-ops
   const trigger = page.locator('#weaponBuildAddOwned');
   await trigger.click();
   await expect(page.locator('#appDialog')).toBeVisible();
-  await expect(page.locator('#appDialogTitle')).toHaveText('Add BIS parts');
-  await expect(page.locator('#appDialogAccept')).toHaveText(/Add BIS Parts/);
-  await expect(page.locator('#appDialogAccept')).toHaveClass(/btn-warn/);
+  await expect(page.locator('#appDialogTitle')).toHaveText('Add recommended parts?');
+  await expect(page.locator('#appDialogAccept')).toHaveText(/Add recommended parts/);
+  // Adding parts goes through the same inventory-write path as any ordinary
+  // Add Item and is not destructive, so it deliberately carries the neutral
+  // primary tone. Reserving warn/danger for actions that actually destroy
+  // progress is what keeps those warnings meaningful -- the destructive case
+  // is asserted below so this stays a tone *contrast* test, not just a
+  // recording of whatever tone the code happens to use.
+  await expect(page.locator('#appDialogAccept')).toHaveClass(/btn-primary/);
+  await expect(page.locator('#appDialogAccept')).not.toHaveClass(/btn-warn|danger-btn/);
   await expect(page.locator('#appDialogAccept .action-icon')).toHaveCount(1);
   await page.locator('#appDialogCancel').click();
   await expect(trigger).toBeFocused();
@@ -162,6 +169,21 @@ test('confirmation dialog uses action-specific tone and Cancel/Escape are no-ops
   await page.keyboard.press('Escape');
   await expect(page.locator('#appDialog')).toBeHidden();
   await expect(trigger).toBeFocused();
+  expect(mutations).toHaveLength(0);
+});
+
+test('destructive actions keep the danger tone that routine adds gave up', async ({ page }) => {
+  const mutations = await mockApi(page, { characters: [{ characterId: 'fixture', name: 'Gunhead', level: 3, xp: 0 }] });
+  await page.goto(baseURL);
+  await page.locator('[data-page="characters"]').click();
+  await page.locator('[data-action="apply-prestige"]').first().click();
+  await expect(page.locator('#appDialog')).toBeVisible();
+  await expect(page.locator('#appDialogTitle')).toHaveText('Apply prestige?');
+  await expect(page.locator('#appDialogAccept')).toHaveClass(/danger-btn/);
+  // The body must state the actual consequence (a skill reset), not a vague
+  // "experimental" hedge of the kind that was removed from routine adds.
+  await expect(page.locator('#appDialogMessage')).toContainText('resets this character');
+  await page.locator('#appDialogCancel').click();
   expect(mutations).toHaveLength(0);
 });
 
@@ -205,4 +227,36 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   expect(await page.evaluate(() => window.__statsProbe)).toBeUndefined();
   const overflow = await page.locator('#page-stats').evaluate(el => el.scrollWidth - el.clientWidth);
   expect(overflow).toBeLessThanOrEqual(1);
+});
+
+// Both controls below pass their value via a data-value attribute, which routes
+// through validateInteger() rather than reading an input. That helper was never
+// destructured from FW in either module, so each button threw a ReferenceError
+// that the dispatcher swallowed into a generic failure banner -- the control
+// looked live but silently did nothing. These assert the mutation is issued.
+test('vendor trust tier presets issue the mutation they advertise', async ({ page }) => {
+  const mutations = await mockApi(page, {
+    vendors: { factions: [{ faction: 'Scavengers', scope: 'Scavengers', score: 0 }], traders: [] }
+  });
+  await page.goto(baseURL);
+  await page.locator('[data-page="vendors"]').click();
+  const preset = page.locator('[data-action="set-faction"][data-value]').first();
+  await expect(preset).toBeVisible();
+  await preset.click();
+  await expect.poll(() => mutations.length).toBe(1);
+  expect(mutations[0].pathname).toContain('/api/vendors');
+});
+
+test('per-weapon "set XP" preset button issues the mutation it advertises', async ({ page }) => {
+  const mutations = await mockApi(page, {
+    weaponXp: [{ weapon: 'Scope.Weapon.RFL12', xp: 100 }],
+    weaponReference: { 'Scope.Weapon.RFL12': 1000 }
+  });
+  await page.goto(baseURL);
+  await page.locator('[data-page="weapon-xp"]').click();
+  const preset = page.locator('[data-action="set-weapon-xp"][data-value]').first();
+  await expect(preset).toBeVisible();
+  await preset.click();
+  await expect.poll(() => mutations.length).toBe(1);
+  expect(mutations[0].body).toMatchObject({ xp: 100000 });
 });

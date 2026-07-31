@@ -1,6 +1,6 @@
 import { FW, expose } from './runtime.mjs';
 
-const { api, esc, actionIcon, debounce, showToast, showNotice, showLoading, setOperationFeedback, operationFeedbackFor } = FW;
+const { api, esc, actionIcon, debounce, showToast, showNotice, showLoading, setOperationFeedback, operationFeedbackFor, technicalDetails } = FW;
 const feature = name => (...args) => FW[name](...args);
 const loadDashboard = feature('loadDashboard');
 const loadCharacters = feature('loadCharacters');
@@ -379,7 +379,7 @@ document.addEventListener('click', async event => {
     if (error.code === 'validation') return;
     if (error.code === 'mutation-active' || (error.status === 409 && /operation|mutation/i.test(error.message))) showToast('Please wait for the current save operation to finish.', 'error');
     else if (error.uncertainMutation) showNotice(error.message, 'Save result unknown');
-    else if (!setOperationFeedback(operationFeedbackFor(control), error.message, error.payload, 'error')) showNotice(error.message, 'Operation failed');
+    else if (!setOperationFeedback(operationFeedbackFor(control), error.message, error.payload, 'error')) showNotice(error.message, 'Change failed');
   } finally {
     if (isPendingCapable) control.classList.remove('is-pending');
   }
@@ -500,14 +500,13 @@ function setBackupBusy(busy, message) {
 function showBackupReceipt(title, result) {
   const receipt = document.getElementById('backupReceipt');
   const details = [
-    title,
     result.backupId ? `Backup: ${result.backupId}` : null,
     result.safetyBackupId ? `Safety backup: ${result.safetyBackupId}` : null,
-    result.restoredFiles ? `Restored: ${result.restoredFiles.join(', ')}` : null,
-    result.afterHash ? `Installed SHA-256: ${result.afterHash}` : null
+    result.restoredFiles ? `Restored: ${result.restoredFiles.join(', ')}` : null
   ].filter(Boolean);
   receipt.className = 'backup-receipt';
-  receipt.textContent = details.join(' · ');
+  const disclosure = result.afterHash ? technicalDetails(`SHA-256: ${result.afterHash}`, 'Show technical details') : '';
+  receipt.innerHTML = `${esc(title)}${details.length ? ' · ' + esc(details.join(' · ')) : ''}${disclosure}`;
 }
 
 async function loadBackups() {
@@ -673,24 +672,24 @@ updateNavScrollHint();
 // the same status payload already fetched by refreshSafetyStatus() into a
 // plain-language, dismissible, non-blocking panel.
 const PREFLIGHT_REASON_TEXT = {
-  'game-process-unknown': 'This editor could not determine whether The Forever Winter is currently running. Close the game to be safe before making any edits, then reload this page.',
-  'game-running': 'The Forever Winter is currently running. Close the game completely before making any edits -- writes are disabled while it is open.',
-  'mutation-active': 'A save operation is already in progress. Wait for it to finish before trying again.',
-  'missing-save-variants': 'One or more required save files were not found in the configured save folder. Open Settings and point the editor at the folder containing your .dat save files.',
-  'missing-sqlite3mc': 'The SQLite3MC database tool is missing. By default it is expected at C:\\tmp\\fw-tools\\sqlite3mc\\bin\\sqlite3mc_shell_x64.exe (or the location set by the FW_SQLITE_BIN environment variable). Reinstall it there, or set that variable, then reload.',
-  'unknown-game-version': 'The installed game version could not be detected. Edits may still work, but have not been verified against your build -- proceed carefully and keep backups.',
-  'unverified-game-version': 'The installed game version does not match the version this editor was verified against. Edits may still work, but proceed carefully and keep backups.',
-  'key-or-database-incompatible': 'The database key does not match this save file, or the save could not be opened. Open Settings and check the database key.',
-  'missing-required-rows': 'This save file is missing data this editor expects to find. It may be from an incompatible game version.'
+  'game-process-unknown': 'This editor could not tell whether The Forever Winter is running. Close the game to be safe, then reload this page.',
+  'game-running': 'The Forever Winter is currently running. Close it completely -- changes are disabled while the game is open.',
+  'mutation-active': 'A change is already saving. Wait for it to finish, then try again.',
+  'missing-save-variants': 'Your save files were not found in the configured folder. Open Settings and point the editor at the folder with your .dat save files.',
+  'missing-sqlite3mc': 'The SQLite3MC database tool is missing. On Windows it is expected at C:\\tmp\\fw-tools\\sqlite3mc\\bin\\sqlite3mc_shell_x64.exe; on another OS, or a custom install, set the FW_SQLITE_BIN environment variable to its location, then reload.',
+  'unknown-game-version': 'The installed game version could not be detected. Changes may still work, but proceed carefully and keep backups.',
+  'unverified-game-version': 'The installed game version has not been verified against this editor. Changes may still work, but proceed carefully and keep backups.',
+  'key-or-database-incompatible': 'The database key does not match this save, or the save could not be opened. Open Settings and check the key.',
+  'missing-required-rows': 'This save is missing data the editor expects to find. It may be from an unsupported game version.'
 };
 function preflightReasonText(reason) {
-  if (reason.startsWith('missing-required-tables:')) return `This save file is missing expected data tables (${reason.slice('missing-required-tables:'.length)}). It may be from an incompatible game version.`;
+  if (reason.startsWith('missing-required-tables:')) return `This save is missing expected data (${reason.slice('missing-required-tables:'.length)}). It may be from an unsupported game version.`;
   return PREFLIGHT_REASON_TEXT[reason] || `An unrecognized setup issue was reported: ${reason}.`;
 }
 function computePreflightIssues(status) {
   const issues = (status.blockingReasons || []).map(preflightReasonText);
   if (status.compatibility && status.compatibility.tools && status.compatibility.tools.uesave === false) {
-    issues.push('The uesave inventory tool is missing (expected at tools/uesave-src/target/release/uesave.exe, or the location set by the GVAS_UESAVE_BIN environment variable). Inventory edits will be disabled until it is restored.');
+    issues.push('The uesave tool used for inventory edits is missing. It is expected at tools/uesave-src/target/release/uesave.exe, or the location set by the GVAS_UESAVE_BIN environment variable. Inventory edits are disabled until it is restored.');
   }
   return issues;
 }

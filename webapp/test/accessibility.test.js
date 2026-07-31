@@ -263,6 +263,56 @@ test('rig page exposes ownership filters, accessible cards, and explicit verifie
   assert.match(frontendJs, /sessionStorage\.setItem\(RIG_FILTER_KEY/);
 });
 
+test('static markup avoids banned jargon and app-invented gaming slang', () => {
+  // Copy style guide section 3/4a: these terms must never reach the player
+  // unprompted in index.html. "BIS" is confirmed not a game term (app-invented
+  // slang for "best in slot"); "Trader"/"FactionScore" are internal names the
+  // glossary requires translating to "Vendor"/"Faction trust" everywhere.
+  // Ids, classes, and data-* attributes are exempt (never shown to the player);
+  // strip attribute values that hold implementation names before checking.
+  const userFacing = html.replace(/\s(?:id|class|data-[a-z-]*)="[^"]*"/g, '');
+  assert.doesNotMatch(userFacing, /\bBIS\b/);
+  assert.doesNotMatch(userFacing, /\bTrader\b/);
+  assert.doesNotMatch(userFacing, /FactionScore/);
+  assert.doesNotMatch(userFacing, /\bmutation\b/i);
+  assert.doesNotMatch(userFacing, /\bschema\b/i);
+});
+
+test('every SPA page has a heading distinct from every other page (no duplicate announcements)', () => {
+  const pages = [...html.matchAll(/<div class="page(?: active)?" id="page-([^"]+)">([\s\S]*?)(?=<div class="page(?: active)?" id="page-|<\/main>)/g)];
+  const headings = pages.map(([, id, body]) => {
+    const match = body.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
+    return { id, text: match ? match[1].replace(/<[^>]+>/g, '').trim() : null };
+  }).filter(entry => entry.text);
+  const seen = new Map();
+  for (const { id, text } of headings) {
+    assert.ok(!seen.has(text), `duplicate <h2> text "${text}" on page-${id} (already used by page-${seen.get(text)})`);
+    seen.set(text, id);
+  }
+});
+
+test('filter/select labels use one consistent style: no trailing colon', () => {
+  // Style guide section 2/6: form labels get no trailing colon. Guards
+  // against regressions like "Category:" creeping back in next to
+  // colon-free siblings such as "Status".
+  const labelTexts = [...html.matchAll(/<label>([A-Za-z][A-Za-z /-]*)\s*\n/g)].map(m => m[1]);
+  for (const text of labelTexts) assert.ok(!text.endsWith(':'), `label "${text}" has a trailing colon`);
+});
+
+test('loading placeholders use a consistent ellipsis character, not three dots', () => {
+  assert.doesNotMatch(html, /\.\.\./);
+});
+
+test('the weapon XP intro cites the real reference-save value, not a stale example', () => {
+  // Regression guard for the PST02 = 100k factual error: the app's actual
+  // fallback is only used when a weapon is absent from the reference save,
+  // and PST02 IS present (186 XP), so the intro must not claim 100k for it.
+  const weaponXpRef = require('../data/weapon-xp-reference.canonical.json').weaponXp;
+  assert.equal(weaponXpRef['Scope.Weapon.PST02'], 186);
+  assert.doesNotMatch(html, /PST02\s*=\s*100k/);
+  assert.match(html, /PST02\s*=\s*186/);
+});
+
 test('overview surfaces read-only faction trust with a vendor shortcut', () => {
   const overview = html.match(/id="page-dashboard">([\s\S]*?)<div class="page" id="page-characters">/)[1];
   assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashFactionTrust"'));
@@ -272,3 +322,67 @@ test('overview surfaces read-only faction trust with a vendor shortcut', () => {
   assert.match(frontendJs, /api\('\/vendors'\)\.catch/);
 });
 
+
+test('buttons with both visible text and an aria-label satisfy WCAG 2.5.3 Label in Name', () => {
+  // A visible label that is not contained in the accessible name breaks
+  // voice control: the user says what they can see, and no element matches.
+  // This regressed once when a button's visible text was shortened to
+  // "Set filtered to 100k" while its aria-label stayed the long form.
+  const offenders = [];
+  for (const match of html.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g)) {
+    const attrs = match[1];
+    const ariaLabel = (attrs.match(/aria-label="([^"]*)"/) || [])[1];
+    if (!ariaLabel) continue;
+    // Strip nested markup (icons are aria-hidden) and sr-only spans, leaving
+    // the text a sighted user actually reads on the control.
+    const visible = match[2]
+      .replace(/<span class="sr-only">[\s\S]*?<\/span>/g, '')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!visible) continue;
+    const normalize = value => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    if (!normalize(ariaLabel).includes(normalize(visible))) {
+      offenders.push(`visible "${visible}" not contained in aria-label "${ariaLabel}"`);
+    }
+  }
+  assert.deepEqual(offenders, []);
+});
+
+test('every FW helper a module calls is actually destructured from FW', () => {
+  // Three shipped features were silently broken by this exact omission:
+  // characters.mjs called confirmAction (Apply prestige), and
+  // vendors-repair.mjs / weapons.mjs called validateInteger (the trust tier
+  // presets and the per-weapon "Set XP to 100,000" button). Each threw a
+  // ReferenceError that the central dispatcher swallowed into a generic
+  // failure banner, so the button simply appeared not to work.
+  const modulesRoot = path.join(publicRoot, 'modules');
+  const moduleFiles = [
+    ...fs.readdirSync(modulesRoot).filter(f => f.endsWith('.mjs')).map(f => path.join(modulesRoot, f)),
+    ...fs.readdirSync(path.join(modulesRoot, 'features')).map(f => path.join(modulesRoot, 'features', f))
+  ];
+  const coreSrc = fs.readFileSync(path.join(modulesRoot, 'core.mjs'), 'utf8');
+  const exposed = new Set();
+  for (const block of coreSrc.matchAll(/expose\(\{([\s\S]*?)\}\)/g)) {
+    for (const entry of block[1].split(',')) {
+      const name = entry.split(':')[0].trim();
+      if (/^[A-Za-z_$][\w$]*$/.test(name)) exposed.add(name);
+    }
+  }
+  const missing = [];
+  for (const file of moduleFiles) {
+    const src = fs.readFileSync(file, 'utf8');
+    const destructure = src.match(/const \{([^}]*)\} = FW;/);
+    const imported = new Set(destructure ? destructure[1].split(',').map(s => s.trim()) : []);
+    const localDefs = new Set([...src.matchAll(/(?:function|const|let|class)\s+([A-Za-z_$][\w$]*)/g)].map(m => m[1]));
+    // Strip comments so a helper merely *mentioned* in prose isn't counted.
+    const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+    for (const name of exposed) {
+      if (imported.has(name) || localDefs.has(name)) continue;
+      if (new RegExp('(?<![\\w$.\'"`])' + name + '\\s*\\(').test(code)) {
+        missing.push(`${path.basename(file)} calls ${name}() without destructuring it from FW`);
+      }
+    }
+  }
+  assert.deepEqual(missing, []);
+});

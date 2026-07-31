@@ -1,6 +1,9 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast, userMessage, errorDetailHtml } = FW;
+// validateInteger is used for the preset-supplied XP path (the per-weapon
+// "Set XP to 100,000" button passes data-value); it was missing here, so that
+// button threw "validateInteger is not defined" instead of setting XP.
+const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, validateInteger, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast, userMessage, loadErrorHtml, noMatchesHtml } = FW;
 
 const WEAPON_META = {
   'PST01': { name: 'USP', cat: 'Pistols' },
@@ -102,12 +105,12 @@ function weaponTargetXp(weapon) {
 }
 
 let presetData=null;
-async function loadPresets(){showLoading(document.getElementById('presetContent'),6,'Loading presets');try{presetData=await api('/presets');document.getElementById('presetType').value=sessionStorage.getItem('presetType')||'weapons';renderPresets();}catch(error){setRenderedHtml(document.getElementById('presetContent'),`<div class="empty-state"><strong>Could not load presets</strong><br>${errorDetailHtml(error,'Presets could not be read.')}</div>`);}}
+async function loadPresets(){showLoading(document.getElementById('presetContent'),6,'Loading presets');try{presetData=await api('/presets');document.getElementById('presetType').value=sessionStorage.getItem('presetType')||'weapons';renderPresets();}catch(error){setRenderedHtml(document.getElementById('presetContent'),loadErrorHtml('presets',error));}}
 function presetToken(row){return JSON.stringify(row).toLowerCase();}
-function renderPresets(){if(!presetData)return;const q=document.getElementById('presetSearch').value.trim().toLowerCase(),type=document.getElementById('presetType').value,weaponRows=(type==='rigs'?[]:presetData.weapons).filter(row=>!q||presetToken(row).includes(q)).sort((a,b)=>(b.bisScore??-1)-(a.bisScore??-1)),rigRows=(type==='weapons'?[]:presetData.rigs).filter(row=>!q||presetToken(row).includes(q));const cards=[];for(const row of weaponRows)cards.push(`<article class="preset-card ${row.active?'is-active':''}"><header>${itemTypeIcon('weapon')}<div><span class="eyebrow">${esc(row.category)} · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.weaponId,'Show weapon technical ID')}</h3><p>${esc(row.weaponName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}${row.bisScore!=null?`<span class="preset-badge score">BIS ${esc(row.bisScore)}</span>`:''}</div></header><div class="preset-parts">${row.attachments.map(part=>`<div class="preset-part ${part.placeholder?'placeholder':''}"><span>${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')||'<p>No changed attachment overrides.</p>'}</div><footer>${row.bisSupported?`<span>${row.bisMatches} saved overrides match BIS</span><details><summary>${row.bisMissing.length} BIS parts not present in saved overrides</summary><ul>${row.bisMissing.map(part=>`<li>${esc(part.slot)}: ${esc(part.name)}</li>`).join('')}</ul></details>`:'<span>No supported BIS comparison.</span>'}</footer></article>`);for(const row of rigRows)cards.push(`<article class="preset-card"><header>${itemTypeIcon('rig equipment')}<div><span class="eyebrow">Rig preset · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.rigId,'Show rig technical ID')}</h3><p>${esc(row.rigName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}</div></header><div class="preset-parts">${[...row.containers.map(part=>({...part,kind:'Container'})),...row.frames.map(part=>({...part,kind:'Frame'}))].map(part=>`<div class="preset-part"><span>${esc(part.kind)} ${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')}</div></article>`);document.getElementById('presetStatus').textContent=`Showing ${cards.length} of ${presetData.summary.weaponPresets+presetData.summary.rigPresets} saved presets.`;setRenderedHtml(document.getElementById('presetContent'),`<div class="preset-summary"><strong>${presetData.summary.weaponPresets}</strong> weapon presets · <strong>${presetData.summary.rigPresets}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset||'none')}</strong></div><div class="preset-grid">${cards.join('')||'<div class="empty-state"><strong>No presets match these filters</strong><br>Try a different filter.</div>'}</div>`);}
+function renderPresets(){if(!presetData)return;const q=document.getElementById('presetSearch').value.trim().toLowerCase(),type=document.getElementById('presetType').value,weaponRows=(type==='rigs'?[]:presetData.weapons).filter(row=>!q||presetToken(row).includes(q)).sort((a,b)=>(b.bisScore??-1)-(a.bisScore??-1)),rigRows=(type==='weapons'?[]:presetData.rigs).filter(row=>!q||presetToken(row).includes(q));const cards=[];for(const row of weaponRows)cards.push(`<article class="preset-card ${row.active?'is-active':''}"><header>${itemTypeIcon('weapon')}<div><span class="eyebrow">${esc(row.category)} · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.weaponId,'Show weapon technical ID')}</h3><p>${esc(row.weaponName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}${row.bisScore!=null?`<span class="preset-badge score">Match ${esc(row.bisScore)}</span>`:''}</div></header><div class="preset-parts">${row.attachments.map(part=>`<div class="preset-part ${part.placeholder?'placeholder':''}"><span>${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')||'<p>No changed attachment overrides.</p>'}</div><footer>${row.bisSupported?`<span>${row.bisMatches} saved overrides match the recommended build</span><details><summary>${row.bisMissing.length} recommended parts not present in saved overrides</summary><ul>${row.bisMissing.map(part=>`<li>${esc(part.slot)}: ${esc(part.name)}</li>`).join('')}</ul></details>`:'<span>No recommended-build comparison available.</span>'}</footer></article>`);for(const row of rigRows)cards.push(`<article class="preset-card"><header>${itemTypeIcon('rig equipment')}<div><span class="eyebrow">Rig preset · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.rigId,'Show rig technical ID')}</h3><p>${esc(row.rigName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}</div></header><div class="preset-parts">${[...row.containers.map(part=>({...part,kind:'Container'})),...row.frames.map(part=>({...part,kind:'Frame'}))].map(part=>`<div class="preset-part"><span>${esc(part.kind)} ${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')}</div></article>`);document.getElementById('presetStatus').textContent=`Showing ${cards.length} of ${presetData.summary.weaponPresets+presetData.summary.rigPresets} saved presets.`;setRenderedHtml(document.getElementById('presetContent'),`<div class="preset-summary"><strong>${presetData.summary.weaponPresets}</strong> weapon presets · <strong>${presetData.summary.rigPresets}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset||'none')}</strong></div><div class="preset-grid">${cards.join('')||noMatchesHtml('No presets match these filters')}</div>`);}
 
 let weaponBuildData=null;
-async function loadWeaponBuilds(){showLoading(document.getElementById('weaponBuildContent'),4,'Loading weapon builds');try{weaponBuildData=await api('/weapon-builds');const category=document.getElementById('weaponBuildCategory');category.innerHTML='<option value="">All categories</option>'+weaponBuildData.categories.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('');category.value=sessionStorage.getItem('weaponBuildCategory')||'';updateOwnedWeaponBuildAction();renderWeaponBuildSelector();}catch(error){setRenderedHtml(document.getElementById('weaponBuildContent'),`<div class="empty-state"><strong>Could not load weapon builds</strong><br>${errorDetailHtml(error,'Weapon builds could not be read.')}</div>`);}}
+async function loadWeaponBuilds(){showLoading(document.getElementById('weaponBuildContent'),4,'Loading weapon builds');try{weaponBuildData=await api('/weapon-builds');const category=document.getElementById('weaponBuildCategory');category.innerHTML='<option value="">All categories</option>'+weaponBuildData.categories.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('');category.value=sessionStorage.getItem('weaponBuildCategory')||'';updateOwnedWeaponBuildAction();renderWeaponBuildSelector();}catch(error){setRenderedHtml(document.getElementById('weaponBuildContent'),loadErrorHtml('weapon builds',error));}}
 
 function updateOwnedWeaponBuildAction() {
   const button = document.getElementById('weaponBuildAddOwned');
@@ -117,8 +120,8 @@ function updateOwnedWeaponBuildAction() {
   const partCount = affected.reduce((sum, weapon) => sum + weapon.build.missing, 0);
   button.disabled = partCount === 0;
   button.title = partCount
-    ? `Add ${partCount} missing BIS ${partCount === 1 ? 'part' : 'parts'} for ${affected.length} owned ${affected.length === 1 ? 'weapon' : 'weapons'}.`
-    : 'All supported owned weapons already have their BIS parts.';
+    ? `Add ${partCount} missing recommended ${partCount === 1 ? 'part' : 'parts'} for ${affected.length} owned ${affected.length === 1 ? 'weapon' : 'weapons'}.`
+    : 'All supported owned weapons already have their recommended parts.';
   summary.innerHTML = partCount
     ? `<strong>Owned weapon loadout kit</strong><small>${partCount} missing ${partCount === 1 ? 'part' : 'parts'} across ${affected.length} owned ${affected.length === 1 ? 'weapon' : 'weapons'}.</small>`
     : '<strong>Owned weapon loadout kit</strong><small>Nothing missing for supported owned weapons.</small>';
@@ -188,11 +191,11 @@ function requirementBadge(p){if(!p.requiredXp)return'';return `<span class="req-
 // match -- every part rendered the full-gun icon regardless of slot. Optics
 // get the dedicated target icon since it's a strong, already-drawn match.
 function partIcon(slot){return /optic|scope/i.test(slot)?appIcon('🎯','weapon-part-icon'):itemTypeIcon('attachment',slot);}
-const BUILD_SCORE_HINT = 'Category-aware balanced score (0-100) from per-dimension percentile ranking against other weapons in the same category: accuracy, stability, recoil control, damage, rate of fire, and magazine capacity (base + selected BIS parts), plus a suppression-capability bonus for classes where staying unsuppressed draws aggro (shotguns and grenade launchers are exempt -- going loud is expected for those). Weighted toward the traits community consensus rates highest: suppression, magazine/drum capacity, and one-shot damage. Only meaningful for comparing weapons within the same category.';
-function renderWeaponBuild(){const id=document.getElementById('weaponBuildSelect').value,w=weaponBuildData?.weapons.find(x=>x.id===id),el=document.getElementById('weaponBuildContent');if(!w){setRenderedHtml(el,'<div class="empty-state"><strong>No matching supported weapon</strong><br>Try a different filter.</div>');return;}const b=w.build;setRenderedHtml(el,`<section class="weapon-build-summary"><div><span class="eyebrow">${esc(w.category)}</span><h3>${esc(w.name)} ${technicalDetails(w.id)}</h3><div class="weapon-part-stats"><span class="k">Base stats</span>${baseStatChips(w.stats)}</div></div><div class="build-metrics"><strong>${esc(b.score)}</strong><span title="${esc(BUILD_SCORE_HINT)}">balanced score</span><b class="${b.suppressed?'ready':'neutral'}">${esc(b.suppressionMessage)}</b>${w.weaponOwned?'':'<span class="req-badge unmet">Weapon not owned</span>'}<span class="req-badge ${b.missing?'unmet':'met'}">${b.owned} owned / ${b.missing} missing parts</span></div></section><div class="weapon-build-actions"><button type="button" data-action="weapon-build-add-bundle" data-id="${esc(w.id)}" ${(!w.weaponOwned||b.missing)?'':'disabled'} title="Adds the base weapon (if not already owned) plus every missing BIS part at quantity one. Already-owned items are left untouched.">${actionIcon('add')}Add weapon + missing parts</button></div><div class="weapon-part-grid">${b.parts.map(p=>`<article class="weapon-part-card ${p.missing?'is-missing':'is-owned'}">${partIcon(p.slot)}<div class="weapon-part-body"><span class="eyebrow">${esc(p.slot)}</span><h4>${esc(p.name)} ${technicalDetails(p.itemId)}</h4><div class="weapon-part-stats">${statChips(p.stats)}</div>${p.dependencies.length?`<div class="weapon-part-deps"><span class="k">Requires</span>${p.dependencies.map(d=>`<span class="dep-chip">${esc(d.name)}</span>`).join('')}</div>`:''}${requirementBadge(p)}<div class="weapon-part-state"><b class="${p.missing?'missing':'owned'}">${p.missing?'Missing':'Owned ×'+p.owned}</b>${p.missing?`<button type="button" class="mini icon-only" data-action="weapon-build-add-part" data-weapon-id="${esc(w.id)}" data-part-id="${esc(p.itemId)}" title="Add this part">${actionIcon('add')}<span class="sr-only">Add</span></button>`:''}</div></div></article>`).join('')}</div><aside class="source-disclosure"><strong>Equip manually in-game:</strong> open weapon customization, install the listed parts, then save a preset.</aside>`);}
+const BUILD_SCORE_HINT = 'Category-aware balanced score (0-100) from per-dimension percentile ranking against other weapons in the same category: accuracy, stability, recoil control, damage, rate of fire, and magazine capacity (base + selected recommended parts), plus a suppression-capability bonus for classes where staying unsuppressed draws aggro (shotguns and grenade launchers are exempt -- going loud is expected for those). Weighted toward the traits community consensus rates highest: suppression, magazine/drum capacity, and one-shot damage. Only meaningful for comparing weapons within the same category.';
+function renderWeaponBuild(){const id=document.getElementById('weaponBuildSelect').value,w=weaponBuildData?.weapons.find(x=>x.id===id),el=document.getElementById('weaponBuildContent');if(!w){setRenderedHtml(el,noMatchesHtml('No matching supported weapon'));return;}const b=w.build;setRenderedHtml(el,`<section class="weapon-build-summary"><div><span class="eyebrow">${esc(w.category)}</span><h3>${esc(w.name)} ${technicalDetails(w.id)}</h3><div class="weapon-part-stats"><span class="k">Base stats</span>${baseStatChips(w.stats)}</div></div><div class="build-metrics"><strong>${esc(b.score)}</strong><span title="${esc(BUILD_SCORE_HINT)}">balanced score</span><b class="${b.suppressed?'ready':'neutral'}">${esc(b.suppressionMessage)}</b>${w.weaponOwned?'':'<span class="req-badge unmet">Weapon not owned</span>'}<span class="req-badge ${b.missing?'unmet':'met'}">${b.owned} owned / ${b.missing} missing parts</span></div></section><div class="weapon-build-actions"><button type="button" data-action="weapon-build-add-bundle" data-id="${esc(w.id)}" ${(!w.weaponOwned||b.missing)?'':'disabled'} title="Adds the base weapon (if not already owned) plus every missing recommended part at quantity one. Already-owned items are left untouched.">${actionIcon('add')}Add weapon + missing parts</button></div><div class="weapon-part-grid">${b.parts.map(p=>`<article class="weapon-part-card ${p.missing?'is-missing':'is-owned'}">${partIcon(p.slot)}<div class="weapon-part-body"><span class="eyebrow">${esc(p.slot)}</span><h4>${esc(p.name)} ${technicalDetails(p.itemId)}</h4><div class="weapon-part-stats">${statChips(p.stats)}</div>${p.dependencies.length?`<div class="weapon-part-deps"><span class="k">Requires</span>${p.dependencies.map(d=>`<span class="dep-chip">${esc(d.name)}</span>`).join('')}</div>`:''}${requirementBadge(p)}<div class="weapon-part-state"><b class="${p.missing?'missing':'owned'}">${p.missing?'Missing':'Owned ×'+p.owned}</b>${p.missing?`<button type="button" class="mini icon-only" data-action="weapon-build-add-part" data-weapon-id="${esc(w.id)}" data-part-id="${esc(p.itemId)}" title="Add this part">${actionIcon('add')}<span class="sr-only">Add</span></button>`:''}</div></div></article>`).join('')}</div><aside class="source-disclosure"><strong>Equip manually in-game:</strong> open weapon customization, install the listed parts, then save a preset.</aside>`);}
 async function addWeaponBuildPart(weaponId,partId,button){
-  const partName=button.closest('.weapon-part-card')?.querySelector('h4')?.textContent.trim()||'this BIS part';
-  const ok=await confirmAction(`Add ${partName} at quantity one? Existing quantities are never increased. Structured inventory writes are experimental.`,{title:'Add BIS part',acceptLabel:'Add Part',tone:'warning',icon:'add'});
+  const partName=button.closest('.weapon-part-card')?.querySelector('h4')?.textContent.trim()||'this recommended part';
+  const ok=await confirmAction(`Adds ${partName} at quantity one. Existing quantities are not increased.`,{title:'Add part?',acceptLabel:'Add part',icon:'add'});
   if(!ok)return;
   button.disabled=true;
   try{
@@ -208,7 +211,7 @@ async function addWeaponBuildPart(weaponId,partId,button){
   }
 }
 async function addMissingWeaponBuildBundle(id,button){
-  const ok=await confirmAction('Add the base weapon (if not already owned) and every currently missing trusted part for this build at quantity one? This structured inventory write is experimental.',{title:'Add weapon and BIS parts',acceptLabel:'Add Weapon + Parts',tone:'warning',icon:'add'});
+  const ok=await confirmAction('Adds the base weapon (if not already owned) and every missing recommended part at quantity one.',{title:'Add weapon and parts?',acceptLabel:'Add weapon and parts',icon:'add'});
   if(!ok)return;
   button.disabled=true;
   try{
@@ -224,7 +227,7 @@ async function addMissingWeaponBuildBundle(id,button){
 async function addMissingForOwnedWeapons(){
   const button=document.getElementById('weaponBuildAddOwned');
   if (button.disabled) return;
-  const ok=await confirmAction('Add all missing trusted BIS parts at quantity one for every supported weapon currently owned? Existing quantities will not increase. This structured inventory write is experimental.',{title:'Add BIS parts',acceptLabel:'Add BIS Parts',tone:'warning',icon:'add'});
+  const ok=await confirmAction('Adds every missing recommended part at quantity one for each supported weapon you own. Existing quantities are not increased.',{title:'Add recommended parts?',acceptLabel:'Add recommended parts',icon:'add'});
   if(!ok)return;
   button.disabled=true;
   try{
@@ -258,7 +261,7 @@ async function loadWeaponXp() {
 
     renderWeaponXp();
   } catch (err) {
-    el.innerHTML = `<div class="empty-state"><strong>Could not load weapon XP</strong><br>${errorDetailHtml(err, 'Weapon XP could not be read.')}</div>`;
+    el.innerHTML = loadErrorHtml('weapon XP', err);
   }
 }
 
@@ -279,7 +282,7 @@ function renderWeaponXp() {
   document.getElementById('weaponXpFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
   if (!rows.length) {
-    el.innerHTML = '<div class="empty-state"><strong>No weapons found</strong><br>Try a different filter.</div>';
+    el.innerHTML = noMatchesHtml('No weapons found');
     return;
   }
 
@@ -312,7 +315,7 @@ function renderWeaponXp() {
         <div class="weapon-actions">
           <input type="number" id="xp-${encodeURIComponent(w.weapon)}" value="${currentXp}" min="0" step="1" aria-label="XP for ${esc(w.meta.name)}">
           <button class="set icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}<span class="sr-only">Set XP</span></button>
-          <button class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000 (reference value)">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
+          <button class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
         </div>
       </div>`;
     }
@@ -340,7 +343,7 @@ async function setAllToReference() {
     .map(w => ({ scope: w.weapon, xp: 100000 }))
     .filter(it => { const cur = _weaponXp.find(x => x.weapon === it.scope); return cur && cur.xp !== it.xp; });
   if (!items.length) { setOperationFeedback('weaponXpOperationStatus', 'All matching weapons are already at 100,000 XP.', null, 'info'); return; }
-  if (!await confirmAction(`Set ${items.length} weapon(s) to 100,000 XP in one batch?`, { title: 'Set weapon XP', acceptLabel: 'Set Weapon XP', icon: 'check' })) return;
+  if (!await confirmAction(`Sets ${items.length} weapon${items.length === 1 ? '' : 's'} to 100,000 XP in one batch.`, { title: 'Set weapon XP?', acceptLabel: 'Set weapon XP', icon: 'check' })) return;
   setOperationFeedback('weaponXpOperationStatus', `Updating ${items.length} weapon XP values…`, null, 'info');
   try {
     const r = await api('/weapon-xp/batch', {

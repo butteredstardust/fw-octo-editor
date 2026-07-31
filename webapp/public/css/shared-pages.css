@@ -162,3 +162,7 @@
     /* Loading-state error blocks route through errorDetailHtml(): a plain
        sentence plus the existing collapsed technical-details disclosure. */
     .empty-state .technical-details { margin-left:.4rem; vertical-align:middle; }
+
+/* A <code> slot that is currently showing prose (a fallback sentence) rather
+   than a real path should not wear monospace/code styling. */
+.is-prose-fallback { font-family:inherit; font-size:inherit; background:none; padding:0; }
