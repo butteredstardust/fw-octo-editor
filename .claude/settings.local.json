@@ -103,7 +103,20 @@
       "Bash(powershell -NoProfile -Command 'Get-Process node -ErrorAction SilentlyContinue | Where-Object {$_.Path -like '\\\\''*node.exe'\\\\''} | Select-Object Id,Path')",
       "Bash(powershell -NoProfile -Command \"Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess\")",
       "Bash(powershell -NoProfile -Command \"Stop-Process -Id 26476 -Force\")",
-      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 24036 -Force\")"
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 24036 -Force\")",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Admin\\\\Documents\\\\Forever Winter\\\\webapp\" -Recurse | Where-Object { $_.Extension -eq '.js' -or $_.Name -eq 'server.js' } | Select-Object FullName, Length)",
+      "Bash(npx playwright *)",
+      "Bash(grep -rln \"items.csv\\\\|items\\\\\\\\\\\\\\\\.csv\" --include=\"*.js\" --include=\"*.mjs\" --include=\"*.json\" --include=\"*.md\" .)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m '@ *)",
+      "Bash(git commit *)",
+      "Bash(grep -B 3 -A 3 \"Trader\\\\\\\\.Kane\\\\|Trader\\\\\\\\.Luca\" vendors-repair.mjs)",
+      "Bash(grep -n \">Skill Editor<\\\\|>Apply Skills<\\\\|>Back to Characters<\\\\|Set$\\\\|>Set<\" public/modules/features/characters.mjs)",
+      "Bash(cp public/modules/features/weapons.mjs /tmp/w.bak)",
+      "Bash(sed -i 's/readIntegerInput, validateInteger, setOperationFeedback/readIntegerInput, setOperationFeedback/' public/modules/features/weapons.mjs)",
+      "Bash(cp /tmp/w.bak public/modules/features/weapons.mjs)",
+      "Bash(rm /tmp/w.bak)"
     ]
   }
 }
