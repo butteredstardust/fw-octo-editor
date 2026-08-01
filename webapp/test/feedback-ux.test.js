@@ -82,7 +82,8 @@ test('inventory mutations use shared inline feedback without duplicating receipt
     assert.doesNotMatch(text.split('\n')[2] || '', /receiptHtml|errorDetailHtml/, `${name} still imports legacy inline render helpers`);
   }
   const rigsJs = featureFiles.find(file => file.name === 'rigs.mjs').text;
-  assert.match(rigsJs, /id="rig-heading-\$\{enc\}" tabindex="-1"/);
+  assert.match(rigsJs, /titleId: `rig-heading-\$\{enc\}`/);
+  assert.match(rigsJs, /focusableTitle: true/);
   assert.match(rigsJs, /getElementById\(`rig-heading-\$\{encId\}`\)\?\.focus\(\{ preventScroll: true \}\)/);
   assert.match(rigsJs, /getElementById\(`rig-hq-\$\{encId\}`\)\?\.focus\(\{ preventScroll: true \}\)/);
 });

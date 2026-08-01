@@ -190,7 +190,7 @@ test('crafting recipes render as a searchable, filterable card grid with per-car
   assert.match(html, /id="craftingStateFilter"/);
   assert.match(html, /id="craftingGrid" class="recipe-grid"/);
   assert.doesNotMatch(html, /id="craftingProduct"/);
-  assert.match(frontendJs, /class="recipe-card \$\{ready \? 'is-ready' : ''\}"/);
+  assert.match(frontendJs, /cardClass: `recipe-card \$\{ready \? 'is-ready' : ''\}`/);
   assert.match(frontendJs, /data-action="craft-add-missing"/);
   assert.match(frontendJs, /data-action="craft-add-all"/);
 });

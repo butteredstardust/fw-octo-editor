@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { entityCard } from '../card-ui.mjs';
 import { RECIPE_DATA } from '../recipe-data.mjs';
 import { recipePlannerTotals } from '../recipe-planner.mjs';
 
@@ -172,26 +173,23 @@ function renderRecipeCard({ recipe, requested, crafts, components }) {
       <span class="recipe-comp-status">need ${component.total}${unsupported ? '' : ' · have ' + component.owned} · ${status}</span>
     </div>`;
   }).join('');
-  return `<article class="recipe-card ${ready ? 'is-ready' : ''}" data-recipe-card="${encId}">
-    <div class="recipe-card-head">
-      <div class="recipe-card-head-main">
-        <span class="recipe-icon">${appIcon(STATION_ICON[recipe.station])}</span>
-        <div>
-          <h3>${esc(recipe.product.name)}</h3>
-          <span class="recipe-meta">${esc(recipe.duration.label)} · ${esc(recipe.prerequisiteName)} ${technicalDetails(recipe.product.itemId || 'Wiki identity only', 'Show product technical ID')}</span>
-        </div>
-      </div>
-      ${badge}
-    </div>
-    <div class="recipe-components">${compRows}</div>
-    <span class="settings-msg" id="craftop-${encId}" aria-live="polite"></span>
-    <div class="recipe-card-actions">
+  return entityCard({
+    cardClass: `recipe-card ${ready ? 'is-ready' : ''}`,
+    data: { 'recipe-card': encId },
+    iconHtml: `<span class="recipe-icon">${appIcon(STATION_ICON[recipe.station])}</span>`,
+    title: recipe.product.name,
+    subtitle: `${recipe.duration.label} · ${recipe.prerequisiteName} `,
+    subtitleHtml: technicalDetails(recipe.product.itemId || 'Wiki identity only', 'Show product technical ID'),
+    statusHtml: badge,
+    bodyHtml: `<div class="recipe-components">${compRows}</div>
+      <span class="settings-msg" id="craftop-${encId}" aria-live="polite"></span>
+      <p class="recipe-crafts-note">${requested} needed · ${crafts} craft${crafts === 1 ? '' : 's'} · ${recipe.product.quantity} per craft</p>`,
+    footerHtml: `<div class="recipe-card-actions">
       <label>Qty <input type="number" class="recipe-qty-input" data-recipe="${encId}" id="craftqty-${encId}" value="${requested}" min="1" max="2147483647" step="1"></label>
       <button class="mini" data-action="craft-add-missing" data-recipe="${encId}" ${missingCount ? '' : 'disabled'}>${actionIcon('add')}Add Missing</button>
       <button class="btn-ghost" data-action="craft-add-all" data-recipe="${encId}">${actionIcon('add')}Add all</button>
-    </div>
-    <p class="recipe-crafts-note">${requested} needed · ${crafts} craft${crafts === 1 ? '' : 's'} · ${recipe.product.quantity} per craft</p>
-  </article>`;
+    </div>`
+  });
 }
 
 function renderCraftingGrid() {

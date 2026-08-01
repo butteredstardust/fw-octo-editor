@@ -1,4 +1,5 @@
 import { FW } from '../../runtime.mjs';
+import { entityCard } from '../../card-ui.mjs';
 
 const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, showLoading, technicalDetails, appIcon, actionIcon, setInlineFeedback, loadErrorHtml, showToast, confirmAction } = FW;
 function refreshSafetyStatus(...args) { return FW.refreshSafetyStatus?.(...args); }
@@ -92,22 +93,25 @@ export function renderRigs() {
   list.innerHTML = rigs.map(rig => {
     const enc = encodeURIComponent(rig.id);
     const moduleList = rig.highQualityContainerSet.map(module => `<li><span>${esc(friendlyContainerId(module.containerId))}</span><b>Owned ${module.quantity.toLocaleString()} → ${(module.quantity + 1).toLocaleString()}</b>${technicalDetails(module.containerId, 'Show container ID')}</li>`).join('');
-    return `<article class="rig-card ${rig.owned ? 'owned' : 'missing'}" data-rig-card="${enc}">
-      <div class="rig-card-head">
-        <span class="rig-icon" aria-hidden="true">${appIcon('pack')}</span>
-        <div><h3 id="rig-heading-${enc}" tabindex="-1">${esc(rig.name)}</h3><span class="rig-class">${esc(rig.weightClass)}</span></div>
-        <span class="rig-owned-badge ${rig.owned ? 'owned' : 'missing'}">${rig.owned ? 'Owned' : 'Missing'}</span>
-      </div>
-      <div class="rig-capacity"><span><small>Base capacity</small><b>${esc(rig.minCapacity.toLocaleString())} CU</b></span><span><small>HQ capacity</small><b>${esc(rig.maxCapacity.toLocaleString())} CU</b></span><span><small>Rig weight</small><b>${esc(rig.weight)} kg</b></span></div>
+    return entityCard({
+      cardClass: `rig-card ${rig.owned ? 'owned' : 'missing'}`,
+      data: { 'rig-card': enc },
+      iconHtml: `<span class="rig-icon" aria-hidden="true">${appIcon('pack')}</span>`,
+      title: rig.name,
+      titleId: `rig-heading-${enc}`,
+      focusableTitle: true,
+      subtitle: rig.weightClass,
+      statusHtml: `<span class="rig-owned-badge ${rig.owned ? 'owned' : 'missing'}">${rig.owned ? 'Owned' : 'Missing'}</span>`,
+      bodyHtml: `<div class="rig-capacity"><span><small>Base capacity</small><b>${esc(rig.minCapacity.toLocaleString())} CU</b></span><span><small>HQ capacity</small><b>${esc(rig.maxCapacity.toLocaleString())} CU</b></span><span><small>Rig weight</small><b>${esc(rig.weight)} kg</b></span></div>
       ${rigSlotPills(rig.slots)}
       <p class="rig-characters"><b>Compatible:</b> ${esc(rig.compatibleCharacters.join(', '))}</p>
       <details class="rig-kit-details"><summary>HQ set · ${rig.highQualityContainers.length} container${rig.highQualityContainers.length === 1 ? '' : 's'}</summary><ul>${moduleList}</ul></details>
-      <div class="operation-inline" id="rigop-${enc}" aria-live="polite"></div>
-      <div class="rig-actions">
+      <div class="operation-inline" id="rigop-${enc}" aria-live="polite"></div>`,
+      footerHtml: `<div class="rig-actions">
         <button id="rig-add-${enc}" class="btn-primary" data-action="add-rig" data-id="${enc}" type="button" ${rig.owned ? 'disabled' : ''}>${rig.owned ? actionIcon('check') + 'Rig owned' : actionIcon('add') + 'Add rig'}</button>
         <button id="rig-hq-${enc}" class="btn-ghost" data-action="add-rig-kit" data-id="${enc}" type="button">${actionIcon('add')}Add HQ set</button>
-      </div>
-    </article>`;
+      </div>`
+    });
   }).join('');
 }
 

@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { entityCard } from '../card-ui.mjs';
 
 // validateInteger is used for the preset-supplied XP path (the per-weapon
 // "Set XP to 100,000" button passes data-value); it was missing here, so that
@@ -107,7 +108,55 @@ function weaponTargetXp(weapon) {
 let presetData=null;
 async function loadPresets(){showLoading(document.getElementById('presetContent'),6,'Loading presets');try{presetData=await api('/presets');document.getElementById('presetType').value=sessionStorage.getItem('presetType')||'weapons';renderPresets();}catch(error){setRenderedHtml(document.getElementById('presetContent'),loadErrorHtml('presets',error));}}
 function presetToken(row){return JSON.stringify(row).toLowerCase();}
-function renderPresets(){if(!presetData)return;const q=document.getElementById('presetSearch').value.trim().toLowerCase(),type=document.getElementById('presetType').value,weaponRows=(type==='rigs'?[]:presetData.weapons).filter(row=>!q||presetToken(row).includes(q)).sort((a,b)=>(b.bisScore??-1)-(a.bisScore??-1)),rigRows=(type==='weapons'?[]:presetData.rigs).filter(row=>!q||presetToken(row).includes(q));const cards=[];for(const row of weaponRows)cards.push(`<article class="preset-card ${row.active?'is-active':''}"><header>${itemTypeIcon('weapon')}<div><span class="eyebrow">${esc(row.category)} · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.weaponId,'Show weapon technical ID')}</h3><p>${esc(row.weaponName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}${row.bisScore!=null?`<span class="preset-badge score">Match ${esc(row.bisScore)}</span>`:''}</div></header><div class="preset-parts">${row.attachments.map(part=>`<div class="preset-part ${part.placeholder?'placeholder':''}"><span>${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')||'<p>No changed attachment overrides.</p>'}</div><footer>${row.bisSupported?`<span>${row.bisMatches} saved overrides match the recommended build</span><details><summary>${row.bisMissing.length} recommended parts not present in saved overrides</summary><ul>${row.bisMissing.map(part=>`<li>${esc(part.slot)}: ${esc(part.name)}</li>`).join('')}</ul></details>`:'<span>No recommended-build comparison available.</span>'}</footer></article>`);for(const row of rigRows)cards.push(`<article class="preset-card"><header>${itemTypeIcon('rig equipment')}<div><span class="eyebrow">Rig preset · slot ${esc(row.saveIndex)}</span><h3>${esc(row.name)} ${technicalDetails(row.rigId,'Show rig technical ID')}</h3><p>${esc(row.rigName)}</p></div><div class="preset-badges">${row.active?'<span class="preset-badge active">Active</span>':''}</div></header><div class="preset-parts">${[...row.containers.map(part=>({...part,kind:'Container'})),...row.frames.map(part=>({...part,kind:'Frame'}))].map(part=>`<div class="preset-part"><span>${esc(part.kind)} ${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('')}</div></article>`);document.getElementById('presetStatus').textContent=`Showing ${cards.length} of ${presetData.summary.weaponPresets+presetData.summary.rigPresets} saved presets.`;setRenderedHtml(document.getElementById('presetContent'),`<div class="preset-summary"><strong>${presetData.summary.weaponPresets}</strong> weapon presets · <strong>${presetData.summary.rigPresets}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset||'none')}</strong></div><div class="preset-grid">${cards.join('')||noMatchesHtml('No presets match these filters')}</div>`);}
+function renderPresets() {
+  if (!presetData) return;
+  const q = document.getElementById('presetSearch').value.trim().toLowerCase();
+  const type = document.getElementById('presetType').value;
+  const weaponRows = (type === 'rigs' ? [] : presetData.weapons)
+    .filter(row => !q || presetToken(row).includes(q))
+    .sort((a, b) => (b.bisScore ?? -1) - (a.bisScore ?? -1));
+  const rigRows = (type === 'weapons' ? [] : presetData.rigs)
+    .filter(row => !q || presetToken(row).includes(q));
+  const cards = [];
+
+  for (const row of weaponRows) {
+    const badges = `${row.active ? '<span class="preset-badge active">Active</span>' : ''}${row.bisScore != null ? `<span class="preset-badge score">Match ${esc(row.bisScore)}</span>` : ''}`;
+    const parts = row.attachments.map(part => `<div class="preset-part ${part.placeholder ? 'placeholder' : ''}"><span>${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('') || '<p>No changed attachment overrides.</p>';
+    const comparison = row.bisSupported
+      ? `<span>${esc(row.bisMatches)} saved overrides match the recommended build</span><details><summary>${esc(row.bisMissing.length)} recommended parts not present in saved overrides</summary><ul>${row.bisMissing.map(part => `<li>${esc(part.slot)}: ${esc(part.name)}</li>`).join('')}</ul></details>`
+      : '<span>No recommended-build comparison available.</span>';
+    cards.push(entityCard({
+      cardClass: `preset-card ${row.active ? 'is-active' : ''}`,
+      iconHtml: itemTypeIcon('weapon'),
+      eyebrow: `${row.category} · slot ${row.saveIndex}`,
+      title: row.name,
+      titleHtml: ` ${technicalDetails(row.weaponId, 'Show weapon technical ID')}`,
+      subtitle: row.weaponName,
+      statusHtml: badges ? `<div class="preset-badges">${badges}</div>` : '',
+      bodyHtml: `<div class="preset-parts">${parts}</div>`,
+      footerHtml: comparison
+    }));
+  }
+
+  for (const row of rigRows) {
+    const parts = [...row.containers.map(part => ({ ...part, kind: 'Container' })), ...row.frames.map(part => ({ ...part, kind: 'Frame' }))]
+      .map(part => `<div class="preset-part"><span>${esc(part.kind)} ${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('');
+    cards.push(entityCard({
+      cardClass: `preset-card ${row.active ? 'is-active' : ''}`,
+      iconHtml: itemTypeIcon('rig equipment'),
+      eyebrow: `Rig preset · slot ${row.saveIndex}`,
+      title: row.name,
+      titleHtml: ` ${technicalDetails(row.rigId, 'Show rig technical ID')}`,
+      subtitle: row.rigName,
+      statusHtml: row.active ? '<div class="preset-badges"><span class="preset-badge active">Active</span></div>' : '',
+      bodyHtml: `<div class="preset-parts">${parts}</div>`
+    }));
+  }
+
+  const total = presetData.summary.weaponPresets + presetData.summary.rigPresets;
+  document.getElementById('presetStatus').textContent = `Showing ${cards.length} of ${total} saved presets.`;
+  setRenderedHtml(document.getElementById('presetContent'), `<div class="preset-summary"><strong>${esc(presetData.summary.weaponPresets)}</strong> weapon presets · <strong>${esc(presetData.summary.rigPresets)}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset || 'none')}</strong></div><div class="preset-grid">${cards.join('') || noMatchesHtml('No presets match these filters')}</div>`);
+}
 
 let weaponBuildData=null;
 async function loadWeaponBuilds(){showLoading(document.getElementById('weaponBuildContent'),4,'Loading weapon builds');try{weaponBuildData=await api('/weapon-builds');const category=document.getElementById('weaponBuildCategory');category.innerHTML='<option value="">All categories</option>'+weaponBuildData.categories.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('');category.value=sessionStorage.getItem('weaponBuildCategory')||'';updateOwnedWeaponBuildAction();renderWeaponBuildSelector();}catch(error){setRenderedHtml(document.getElementById('weaponBuildContent'),loadErrorHtml('weapon builds',error));}}

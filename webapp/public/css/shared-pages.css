@@ -206,3 +206,16 @@
   .chart-wrap { height: 220px; }
   .chart-figure-panels { flex-direction: column; }
 }
+    /* Shared anatomy for ordinary entity cards. Feature styles keep ownership
+       of domain-specific body layouts, badges, and state colors. */
+    .card-ui { display:flex; flex-direction:column; gap:.7rem; min-width:0; padding:1rem; border:1px solid var(--gunmetal); border-radius:var(--radius-lg); background:var(--surface-2); }
+    .card-ui__header { display:flex; align-items:flex-start; gap:.7rem; min-width:0; }
+    .card-ui__icon { display:grid; place-items:center; flex:0 0 auto; }
+    .card-ui__identity { min-width:0; flex:1; }
+    .card-ui__eyebrow { display:block; margin-bottom:.15rem; color:var(--teal-soft); font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+    .card-ui__title { margin:0; font-size:1rem; line-height:1.25; overflow-wrap:anywhere; }
+    .card-ui__subtitle { margin:.2rem 0 0; color:var(--text-2); font-size:.76rem; overflow-wrap:anywhere; }
+    .card-ui__status { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.3rem; margin-left:auto; }
+    .card-ui__body { min-width:0; }
+    .card-ui__footer { margin-top:auto; padding-top:.65rem; border-top:1px solid var(--gunmetal-dark); }
+    @media (max-width:700px) { .card-ui { padding:.85rem; } .card-ui__header { flex-wrap:wrap; } .card-ui__status { width:100%; margin-left:0; justify-content:flex-start; } }
