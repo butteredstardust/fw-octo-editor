@@ -1,4 +1,16 @@
+<div align="center">
+
 # FW OCTO Editor
+
+**Safely read and edit *The Forever Winter* encrypted saves. Local only, staged writes, automatic backups.**
+
+[![Release](https://img.shields.io/github/v/release/butteredstardust/fw-octo-editor?style=for-the-badge&logo=github&color=181717)](https://github.com/butteredstardust/fw-octo-editor/releases/latest)
+[![Build](https://img.shields.io/github/actions/workflow/status/butteredstardust/fw-octo-editor/release.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=build)](https://github.com/butteredstardust/fw-octo-editor/actions/workflows/release.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](webapp/LICENSE)
+[![Node](https://img.shields.io/badge/node-%E2%89%A5%2022-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/butteredstardust/fw-octo-editor/releases/latest)
+
+</div>
 
 A local, loopback-only Node.js/Express web application for safely reading and editing *The Forever Winter* encrypted save files. It provides a browser-based UI for modifying character progression, inventory, currencies, hub upgrades, weapon XP, vendor reputations, and more—with staged copy-on-write mutations, automatic backups, and byte-level integrity verification.
 
