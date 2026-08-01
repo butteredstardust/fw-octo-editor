@@ -341,7 +341,7 @@ function renderWeaponXp() {
   let html = '<div class="weapon-grid">';
   for (const cat of Object.keys(groups).sort()) {
     const list = groups[cat];
-    html += `<div class="weapon-cat">${esc(cat)}</div>`;
+    html += `<h3 class="weapon-cat">${esc(cat)}</h3>`;
     for (const w of list) {
       const currentXp = Number(w.xp) || 0;
       const target = weaponTargetXp(w.weapon);
@@ -349,24 +349,27 @@ function renderWeaponXp() {
       const pct = (target && target > 0) ? Math.min(100, Math.round((currentXp / target) * 100)) : (currentXp > 0 ? 100 : 0);
       const atRef = currentXp >= target;
       const delta = target - currentXp;
-      html += `<div class="weapon-card ${atRef ? 'done' : ''}">
-        <div class="weapon-card-head">
-          <span class="weapon-name-wrap"><span class="weapon-icon">${appIcon('weapon')}</span><span class="weapon-name">${esc(w.meta.name)}</span></span>
-          <span class="weapon-cat-badge">${esc(w.meta.cat)}</span>
-        </div>
-        <div class="weapon-scope">${technicalDetails(w.weapon, 'Show weapon scope ID')}</div>
-        <div class="weapon-xp-row"><span>Current XP</span><b>${currentXp.toLocaleString()}</b></div>
+      html += entityCard({
+        cardClass: `weapon-card ${atRef ? 'done' : ''}`,
+        data: { 'weapon-scope': w.weapon },
+        iconHtml: `<span class="weapon-icon">${appIcon('weapon')}</span>`,
+        eyebrow: w.meta.cat,
+        title: w.meta.name,
+        titleHtml: ` ${technicalDetails(w.weapon, 'Show weapon scope ID')}`,
+        headingLevel: 4,
+        statusHtml: `<span class="weapon-cat-badge">${esc(w.meta.cat)}</span>`,
+        bodyHtml: `<div class="weapon-xp-row"><span>Current XP</span><b>${currentXp.toLocaleString()}</b></div>
         <div class="weapon-bar"><span style="width:${pct}%" class="${atRef ? 'full' : ''}"></span></div>
         <div class="weapon-xp-row"><span>${hasRealRef ? '100% reference XP' : 'Target XP (no ref)'}</span><b>${target.toLocaleString()}</b></div>
         ${atRef
           ? '<div class="weapon-done">✓ At or above reference</div>'
-          : `<div class="weapon-delta">${delta.toLocaleString()} XP to reference</div>`}
-        <div class="weapon-actions">
+          : `<div class="weapon-delta">${delta.toLocaleString()} XP to reference</div>`}`,
+        footerHtml: `<div class="weapon-actions">
           <input type="number" id="xp-${encodeURIComponent(w.weapon)}" value="${currentXp}" min="0" step="1" aria-label="XP for ${esc(w.meta.name)}">
           <button class="set icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}<span class="sr-only">Set XP</span></button>
           <button class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
-        </div>
-      </div>`;
+        </div>`
+      });
     }
   }
   html += '</div>';

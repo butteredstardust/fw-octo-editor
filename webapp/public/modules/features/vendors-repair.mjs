@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { entityCard } from '../card-ui.mjs';
 
 // validateInteger is used for the preset-supplied score path (the trust tier
 // buttons pass data-value); it was missing here, so every tier preset threw
@@ -158,18 +159,15 @@ function renderVendors(data) {
   for (const f of factions) {
     const tier = trustTier(f.score);
     const enc = encodeURIComponent(f.scope);
-    html += `<div class="vendor-card">
-      <div class="vendor-head">
-        <div class="vendor-head-main">
-          <span class="vendor-icon">${appIcon('shield')}</span>
-          <div>
-            <div class="vendor-name">${esc(f.faction)} ${technicalDetails(f.scope, 'Show internal faction scope ID')}</div>
-          </div>
-        </div>
-        <span class="vendor-tier ${tier}">${TRUST_TIER_LABEL[tier]}</span>
-      </div>
-      ${trustTrack(f.score)}
-      <div class="vendor-score">
+    html += entityCard({
+      cardClass: 'vendor-card',
+      data: { 'faction-scope': f.scope },
+      iconHtml: `<span class="vendor-icon">${appIcon('shield')}</span>`,
+      title: f.faction,
+      titleHtml: ` ${technicalDetails(f.scope, 'Show internal faction scope ID')}`,
+      statusHtml: `<span class="vendor-tier ${tier}">${TRUST_TIER_LABEL[tier]}</span>`,
+      bodyHtml: trustTrack(f.score),
+      footerHtml: `<div class="vendor-score">
         <input type="number" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1">
         <button class="vendor-set icon-only" data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set score</span></button>
       </div>
@@ -177,8 +175,8 @@ function renderVendors(data) {
         <button class="mini tier-preset untrusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
         <button class="mini tier-preset neutral" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.neutral}">Neutral</button>
         <button class="mini tier-preset trusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.trusted}">Trusted</button>
-      </div>
-    </div>`;
+      </div>`
+    });
   }
   html += '</div>';
 
