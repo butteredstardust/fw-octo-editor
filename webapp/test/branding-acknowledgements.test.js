@@ -34,7 +34,10 @@ test('README gallery references six committed, nontrivial screenshots', () => {
     assert.ok(fs.statSync(file).size > 10_000, `${name} screenshot is nontrivial`);
     const png = fs.readFileSync(file);
     assert.deepEqual([...png.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10], `${name} is a PNG`);
-    assert.equal(png.readUInt32BE(16), 1440, `${name} width`);
-    assert.equal(png.readUInt32BE(20), 900, `${name} height`);
+    // 1440x900 viewport captured at deviceScaleFactor 2 (see
+    // scripts/capture-readme-screenshots.js), so README art stays sharp on
+    // HiDPI displays.
+    assert.equal(png.readUInt32BE(16), 2880, `${name} width`);
+    assert.equal(png.readUInt32BE(20), 1800, `${name} height`);
   }
 });
