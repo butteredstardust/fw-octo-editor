@@ -14,10 +14,15 @@ const path = require('path');
 const keyProtect = require('../utils/keyProtect');
 const config = require('../services/configService');
 
+// Accepts either the dev source shape (`$key='<32 chars>';`) or a bare
+// 32-character key on its own line, which is what CI writes from its secret.
 function parseKeyFromSource(raw) {
-  const match = raw.match(/'([^']*)'/);
-  if (!match || match[1].length !== 32) throw new Error('Valid database key not found in key source');
-  return match[1];
+  const text = String(raw).replace(/^\uFEFF/, '');
+  const quoted = text.match(/'([^']*)'/);
+  if (quoted && quoted[1].length === 32) return quoted[1];
+  const bare = text.split(/\r?\n/).map(line => line.trim()).find(line => line.length > 0);
+  if (!bare || bare.length !== 32) throw new Error('Valid database key not found in key source');
+  return bare;
 }
 
 function buildResource(sourcePath, destPath) {

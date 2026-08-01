@@ -12,9 +12,16 @@ test('parseKeyFromSource extracts a quoted 32-character key', () => {
   assert.equal(parseKeyFromSource(`$key='${SAMPLE_KEY}';`), SAMPLE_KEY);
 });
 
+test('parseKeyFromSource accepts a bare key, as written by CI from its secret', () => {
+  assert.equal(parseKeyFromSource(SAMPLE_KEY), SAMPLE_KEY);
+  assert.equal(parseKeyFromSource(`\uFEFF${SAMPLE_KEY}\r\n`), SAMPLE_KEY);
+});
+
 test('parseKeyFromSource rejects a missing or wrong-length key', () => {
   assert.throws(() => parseKeyFromSource('$key=;'));
   assert.throws(() => parseKeyFromSource("$key='tooshort';"));
+  assert.throws(() => parseKeyFromSource(''));
+  assert.throws(() => parseKeyFromSource(SAMPLE_KEY.slice(0, 19)));
 });
 
 test('buildResource writes an encrypted resource that keyLoader can read back to the original key', async t => {

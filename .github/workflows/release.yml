@@ -63,9 +63,20 @@ jobs:
           }
 
       - name: Prepare DB key
-        run: |
-          Set-Content -LiteralPath "fwinter-db-key.txt" -Value "${{ secrets.FWINTER_DB_KEY }}" -NoNewline
         shell: pwsh
+        env:
+          FWINTER_DB_KEY: ${{ secrets.FWINTER_DB_KEY }}
+        run: |
+          # Passed through env, never interpolated into the script: the key
+          # contains '$' and PowerShell would expand it inside a double-quoted
+          # literal, silently truncating the key.
+          $raw = $env:FWINTER_DB_KEY
+          if (-not $raw) { throw 'FWINTER_DB_KEY secret is empty or unset' }
+          # Accept either a bare key or the dev source shape ($key='...';).
+          $quoted = [regex]::Match($raw, "'([^']{32})'")
+          $key = if ($quoted.Success) { $quoted.Groups[1].Value } else { $raw.Trim() }
+          if ($key.Length -ne 32) { throw "FWINTER_DB_KEY must resolve to 32 characters, got $($key.Length)" }
+          Set-Content -LiteralPath $env:FW_RELEASE_KEY_FILE -Value $key -NoNewline -Encoding utf8NoBOM
 
       - name: Run unit tests
         run: npm test
