@@ -34,6 +34,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/dashboard') body = options.dashboard || { character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 }, loadout: {}, quests: [], inventory: [], currencies: { WaterBarrels: 10, TestCurrency: 20 } };
     else if (pathname === '/api/vendors') body = options.vendors || { factions: [], traders: [] };
     else if (pathname === '/api/characters') body = options.characters || [];
+    else if (/^\/api\/characters\/[^/]+\/details$/.test(pathname)) body = options.characterDetails || { xp: 0, skills: [] };
     else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
     else if (pathname === '/api/weapon-builds') body = options.weaponBuilds || { categories: [], weapons: [] };
     else if (pathname === '/api/presets') body = options.presets || { weapons: [], rigs: [], summary: { weaponPresets: 0, rigPresets: 0, activeWeaponPreset: null } };
@@ -411,6 +412,73 @@ test('fractional inputs are rejected without issuing a mutation', async ({ page 
   await expect(page.locator('#res-WaterBarrels')).toHaveAttribute('aria-invalid', 'true');
   await expect(page.locator('#resmsg-WaterBarrels')).toContainText('whole number');
   expect(mutations).toHaveLength(0);
+});
+
+test('value editors select, invoke only the marked primary action, and ignore disabled or outside inputs', async ({ page }) => {
+  const mutations = await mockApi(page, { weaponXp: [{ weapon: 'Scope.Weapon.RFL12', xp: 100 }], weaponReference: { 'Scope.Weapon.RFL12': 1000 } });
+  await page.goto(baseURL);
+  const water = page.locator('#res-WaterBarrels.value-editor');
+  await water.fill('123');
+  await water.blur();
+  await water.focus();
+  await page.keyboard.type('7');
+  await expect(water).toHaveValue('7');
+  await water.fill('123');
+  await water.press('Enter');
+  await expect.poll(() => mutations.length).toBe(1);
+  expect(mutations[0]).toMatchObject({ pathname: '/api/currencies/WaterBarrels', method: 'PUT', body: { amount: 123 } });
+
+  await page.evaluate(async () => { const { bindValueEditors } = await import('/modules/value-editor.mjs'); bindValueEditors(); bindValueEditors(); });
+  await water.fill('124');
+  await water.press('Enter');
+  await expect.poll(() => mutations.length).toBe(2);
+  expect(mutations[1]).toMatchObject({ pathname: '/api/currencies/WaterBarrels', method: 'PUT', body: { amount: 124 } });
+
+  await water.evaluate(input => { input.closest('.value-editor-pair').querySelector('[data-value-submit]').disabled = true; });
+  await water.press('Enter');
+  await page.waitForTimeout(40);
+  expect(mutations).toHaveLength(2);
+
+  await page.goto(`${baseURL}/#crafting`);
+  await page.locator('.recipe-qty-input').first().press('Enter');
+  await page.waitForTimeout(40);
+  expect(mutations).toHaveLength(2);
+});
+
+test('Weapon XP value editor Enter uses Set rather than the reference preset', async ({ page }) => {
+  const mutations = await mockApi(page, { weaponXp: [{ weapon: 'Scope.Weapon.RFL12', xp: 100 }], weaponReference: { 'Scope.Weapon.RFL12': 1000 } });
+  await page.goto(`${baseURL}/#weapon-xp`);
+  const xp = page.locator('.weapon-actions .value-editor');
+  await xp.fill('321');
+  await xp.press('Enter');
+  await expect.poll(() => mutations.length).toBe(1);
+  expect(mutations[0]).toMatchObject({ pathname: '/api/weapon-xp/Scope.Weapon.RFL12', method: 'PUT', body: { xp: 321 } });
+});
+
+test('value editor pairs are named and contained on narrow screens', async ({ page }) => {
+  await page.setViewportSize({ width:390, height:740 });
+  await mockApi(page, {
+    weaponXp: [{ weapon:'Scope.Weapon.RFL12', xp:100 }],
+    weaponReference: { 'Scope.Weapon.RFL12':1000 },
+    vendors: { factions:[{ faction:'Scavengers', scope:'Scavengers', score:0 }], traders:[], economy:null },
+    characters: [{ name:'Pawn.Player.Gunhead', characterId:'fixture-character', level:2, xp:10 }],
+    characterDetails: { xp:10, skills:[] }
+  });
+  await page.goto(baseURL);
+  await expect(page.locator('#res-WaterBarrels.value-editor')).toHaveAttribute('aria-label', 'New quantity for Water');
+  await page.goto(`${baseURL}/#weapon-xp`);
+  await expect(page.locator('.weapon-actions .value-editor')).toHaveAttribute('aria-label', /XP for/);
+  await page.goto(`${baseURL}/#vendors`);
+  await expect(page.locator('.vendor-score .value-editor')).toHaveAttribute('aria-label', 'Trust score for Scavengers');
+  await page.goto(`${baseURL}/#characters`);
+  await expect(page.locator('.char-control-group .value-editor')).toHaveCount(2);
+  await page.locator('[data-action="show-character"]').click();
+  await expect(page.locator('.char-detail-actions > .value-editor-pair')).toHaveCount(2);
+  await expect(page.locator('.char-detail-actions .value-editor').first()).toHaveAttribute('aria-label', /for Gunhead/);
+  const pairs = page.locator('#page-character .value-editor-pair');
+  for (let i = 0; i < await pairs.count(); i++) {
+    expect(await pairs.nth(i).evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  }
 });
 
 test('mobile navigation isolates content and restores toggle focus', async ({ page }) => {

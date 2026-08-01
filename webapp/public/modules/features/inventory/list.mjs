@@ -144,14 +144,14 @@ export function renderInventory() {
             trailingNameHtml: `<span class="inv-qty" title="Current quantity">${r.quantity.toLocaleString()}</span>`,
             trailingHtml: `${r.validLayout ? '' : '<span class="inv-invalid-flag">Needs review</span>'}<div class="operation-inline" id="op-${enc}" aria-live="polite"></div>`
           })}
-            <div class="inv-actions">
+            <div class="inv-actions value-editor-pair">
               <label class="inv-newqty" title="Set a new quantity">New
-                <input type="number" id="qty-${enc}" value="${r.quantity}" min="0" max="2147483647" step="1">
+                <input type="number" class="value-editor" id="qty-${enc}" value="${r.quantity}" min="0" max="2147483647" step="1" aria-label="New quantity for ${esc(r.d.wiki)}">
               </label>
               <input type="hidden" id="src-${enc}" value="${esc(r.sourceMap || 'Items')}">
-              <button class="set icon-only" data-action="update-item" data-name="${enc}" title="Set new quantity for ${esc(r.d.wiki)}">${actionIcon('check')}<span class="sr-only">Set</span></button>
-            <button class="mini" data-action="set-quantity" data-name="${enc}" data-value="0" title="Set quantity to 0">0</button>
-            <button class="mini" data-action="set-quantity" data-name="${enc}" data-value="9999" title="Set quantity to 9999 (caps display)">Max</button>
+              <button type="button" class="set icon-only" data-value-submit data-action="update-item" data-name="${enc}" title="Set new quantity for ${esc(r.d.wiki)}">${actionIcon('check')}<span class="sr-only">Set</span></button>
+            <button type="button" class="mini" data-action="set-quantity" data-name="${enc}" data-value="0" title="Set quantity to 0">0</button>
+            <button type="button" class="mini" data-action="set-quantity" data-name="${enc}" data-value="9999" title="Set quantity to 9999 (caps display)">Max</button>
           </div>
         </div>`;
       }

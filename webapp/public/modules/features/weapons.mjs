@@ -370,10 +370,10 @@ function renderWeaponXp() {
         ${atRef
           ? '<div class="weapon-done">✓ At or above reference</div>'
           : `<div class="weapon-delta">${delta.toLocaleString()} XP to reference</div>`}`,
-        footerHtml: `<div class="weapon-actions">
-          <input type="number" id="xp-${encodeURIComponent(w.weapon)}" value="${currentXp}" min="0" step="1" aria-label="XP for ${esc(w.meta.name)}">
-          <button class="set icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}<span class="sr-only">Set XP</span></button>
-          <button class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
+        footerHtml: `<div class="weapon-actions value-editor-pair">
+          <input type="number" class="value-editor" id="xp-${encodeURIComponent(w.weapon)}" value="${currentXp}" min="0" step="1" aria-label="XP for ${esc(w.meta.name)}">
+          <button type="button" class="set icon-only" data-value-submit data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}<span class="sr-only">Set XP</span></button>
+          <button type="button" class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
         </div>`
       });
     }

@@ -175,14 +175,14 @@ function renderVendors(data) {
       titleHtml: ` ${technicalDetails(f.scope, 'Show internal faction scope ID')}`,
       statusHtml: `<span class="vendor-tier ${tier}">${TRUST_TIER_LABEL[tier]}</span>`,
       bodyHtml: trustTrack(f.score),
-      footerHtml: `<div class="vendor-score">
-        <input type="number" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1">
-        <button class="vendor-set icon-only" data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set score</span></button>
+      footerHtml: `<div class="vendor-score value-editor-pair">
+        <input type="number" class="value-editor" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1" aria-label="Trust score for ${esc(f.faction)}">
+        <button type="button" class="vendor-set icon-only" data-value-submit data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set score</span></button>
       </div>
       <div class="vendor-presets">
-        <button class="mini tier-preset untrusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
-        <button class="mini tier-preset neutral" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.neutral}">Neutral</button>
-        <button class="mini tier-preset trusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.trusted}">Trusted</button>
+        <button type="button" class="mini tier-preset untrusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
+        <button type="button" class="mini tier-preset neutral" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.neutral}">Neutral</button>
+        <button type="button" class="mini tier-preset trusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.trusted}">Trusted</button>
       </div>`
     });
   }

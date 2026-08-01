@@ -250,10 +250,10 @@ function renderDashResources(dash) {
         <span class="res-cat">${esc(def.cat)}</span>
       </div>
       <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
-      <div class="res-controls">
-        <input type="number" class="res-input" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1">
-        ${def.kind === 'currency' || owned ? `<button class="res-set icon-only" data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(def.label)} quantity">${actionIcon('check')}<span class="sr-only">Set</span></button>` : ''}
-        ${def.kind === 'inventory' && !owned ? `<button class="res-add icon-only" data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(def.label)}">${actionIcon('add')}<span class="sr-only">Add</span></button>` : ''}
+      <div class="res-controls value-editor-pair">
+        <input type="number" class="res-input value-editor" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1" aria-label="New quantity for ${esc(def.label)}">
+        ${def.kind === 'currency' || owned ? `<button type="button" class="res-set icon-only" data-value-submit data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(def.label)} quantity">${actionIcon('check')}<span class="sr-only">Set</span></button>` : ''}
+        ${def.kind === 'inventory' && !owned ? `<button type="button" class="res-add icon-only" data-value-submit data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(def.label)}">${actionIcon('add')}<span class="sr-only">Add</span></button>` : ''}
       </div>
       <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
     </div>`;
