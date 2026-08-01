@@ -28,3 +28,6 @@ webapp/config/settings.json
 .temp/*
 !.temp/README.md
 webapp/.temp/
+
+# Local agent/IDE state (personal permission allowlists, debug configs)
+.claude/
