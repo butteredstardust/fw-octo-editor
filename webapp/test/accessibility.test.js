@@ -60,8 +60,10 @@ test('application dialogs replace blocking browser alert and confirm calls', () 
 
 test('interpolated hub and inventory category/name text is escaped', () => {
   // Regression guard: these were previously interpolated raw while sibling
-  // fields on the same rendered card were already escaped.
-  assert.match(frontendJs, /<span class="hub-name">\$\{esc\(meta\.name\)\}<\/span>/);
+  // fields on the same rendered card were already escaped. Hub titles now
+  // route through entityCard, whose title field is escaped centrally.
+  assert.match(frontendJs, /title: meta\.name/);
+  assert.match(frontendJs, /<\$\{Heading\} class="card-ui__title"\$\{titleAttributes\}>\$\{esc\(title\)\}\$\{titleHtml\}/);
   assert.match(frontendJs, /<span class="hub-chevron">▾<\/span>\$\{esc\(group\)\}/);
   assert.match(frontendJs, /<span class="inv-cat-title">\$\{esc\(cat\)\}<\/span>/);
   assert.match(frontendJs, /<span class="add-cat-title">\$\{esc\(cat\)\}<\/span>/);
@@ -247,7 +249,7 @@ test('vendors render as cards with an accessible three-stage trust track', () =>
   assert.match(frontendJs, /function trustTrack\(score\)/);
   assert.match(frontendJs, /class="trust-track" role="img" aria-label=/);
   assert.match(frontendJs, /class="trader-grid"/);
-  assert.match(frontendJs, /class="trader-card"/);
+  assert.match(frontendJs, /cardClass: 'trader-card'/);
   assert.match(frontendCss, /\.trust-track-labels/);
   assert.match(frontendJs, /<span>Untrusted<\/span><span>Neutral<\/span><span>Trusted<\/span>/);
 });

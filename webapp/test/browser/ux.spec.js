@@ -38,7 +38,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/weapon-builds') body = options.weaponBuilds || { categories: [], weapons: [] };
     else if (pathname === '/api/presets') body = options.presets || { weapons: [], rigs: [], summary: { weaponPresets: 0, rigPresets: 0, activeWeaponPreset: null } };
     else if (pathname === '/api/rigs') body = options.rigs || { rigs: [], ownedCount: 0, totalCount: 0 };
-    else if (pathname === '/api/hub-upgrades') body = [];
+    else if (pathname === '/api/hub-upgrades') body = options.hubUpgrades || [];
     else if (pathname === '/api/inventory') {
       if (options.inventoryError) {
         await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'fixture inventory failure' }) });
@@ -215,12 +215,56 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
 
   await page.goto(`${baseURL}/#vendors`);
   const vendor = page.locator('.vendor-card.card-ui');
-  await expect(vendor.locator('h3.card-ui__title')).toContainText(probe);
+  await expect(page.locator('h3.vendor-section-title', { hasText: 'Vendors' })).toHaveCount(1);
+  await expect(page.locator('h3.vendor-section-title', { hasText: 'Faction trust' })).toHaveCount(1);
+  await expect(vendor.locator('h4.card-ui__title')).toContainText(probe);
   await expect(vendor.locator('.card-ui__status .vendor-tier')).toContainText('Neutral');
   await expect(vendor.locator('.trust-track')).toHaveCount(1);
   await expect(vendor.locator('.card-ui__footer [data-action="set-faction"]')).toHaveCount(4);
   await expect(vendor.locator('[data-editable-card-probe]')).toHaveCount(0);
   expect(await vendor.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
+test('hub, vendor roster, and repair recipes render shared compact card anatomy', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, {
+    vendors: { factions: [{ faction: 'Scavengers', scope: 'Scavengers', score: 2200 }], traders: [], economy: null },
+    hubUpgrades: [{ upgradeTag: 'Hub.Upgrade.Category.Crafting.Ammo' }],
+    repair: {
+      repair: null,
+      iffs: [{ tag: 'IFF_Europa_03', quantity: 2 }],
+      destroyed: { GRL01_Broken: 1 }
+    }
+  });
+
+  await page.goto(`${baseURL}/#hub-upgrades`);
+  const hub = page.locator('.hub-card.card-ui').first();
+  await expect(page.locator('h3.hub-category-heading').first()).toBeVisible();
+  await expect(page.locator('h4.hub-group-heading').first()).toBeVisible();
+  await expect(hub.locator('h5.card-ui__title')).toBeVisible();
+  await expect(hub.locator('.card-ui__status .hub-pill')).toBeVisible();
+  await expect(hub.locator('[data-action="add-upgrade-materials"]')).toHaveCount(1);
+  await expect(hub.locator('.card-ui__footer [data-action="toggle-upgrade"]')).toHaveCount(1);
+  expect(await hub.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#vendors`);
+  const trader = page.locator('.trader-card.card-ui').first();
+  await expect(trader).toHaveClass(/card-ui--compact/);
+  await expect(trader.locator('h4.card-ui__title')).toBeVisible();
+  await expect(trader.locator('.card-ui__status .trader-status')).toBeVisible();
+  expect(await trader.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#repair`);
+  const readyRepair = page.locator('.repair-card.card-ui.ok').first();
+  await expect(readyRepair).toHaveClass(/card-ui--compact/);
+  await expect(readyRepair.locator('h4.card-ui__title')).toHaveText('Grenade Launcher');
+  await expect(readyRepair.locator('.repair-availability')).toHaveText('Ready');
+  await expect(readyRepair.locator('.repair-card-status')).toContainText('Ready to repair');
+  const unavailableRepair = page.locator('.repair-card.card-ui.no').first();
+  await expect(unavailableRepair.locator('.repair-availability')).toHaveText('Unavailable');
+  await expect(unavailableRepair.locator('.repair-card-status')).toContainText(/no destroyed counterpart|not enough IFF|bench occupied/);
+  await expect(page.locator('.repair-card-dot')).toHaveCount(0);
+  expect(await readyRepair.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
 test('shared metric grids preserve values, descriptions, zero states, and narrow containment', async ({ page }) => {

@@ -13,6 +13,7 @@ export function entityCard({
   headingLevel = 3,
   titleId = '',
   focusableTitle = false,
+  compact = false,
   subtitle = '',
   subtitleHtml = '',
   statusHtml = '',
@@ -24,8 +25,8 @@ export function entityCard({
     .map(([name, value]) => ` data-${name}="${esc(value)}"`)
     .join('');
   const titleAttributes = `${titleId ? ` id="${esc(titleId)}"` : ''}${focusableTitle ? ' tabindex="-1"' : ''}`;
-  const Heading = headingLevel === 4 ? 'h4' : 'h3';
-  return `<article class="card-ui ${esc(cardClass)}"${dataAttributes}>
+  const Heading = [3, 4, 5].includes(headingLevel) ? `h${headingLevel}` : 'h3';
+  return `<article class="card-ui ${compact ? 'card-ui--compact ' : ''}${esc(cardClass)}"${dataAttributes}>
     <header class="card-ui__header">
       ${iconHtml ? `<span class="card-ui__icon">${iconHtml}</span>` : ''}
       <div class="card-ui__identity">

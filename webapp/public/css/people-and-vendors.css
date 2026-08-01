@@ -94,11 +94,11 @@
     .vendor-presets { display: flex; gap: 0.4rem; flex-wrap: wrap; }
     .vendor-section-title { color: var(--amber); font-size: 1.05rem; margin: 1.25rem 0 0.6rem; border-bottom: 1px solid var(--gunmetal); padding-bottom: 0.25rem; }
     .trader-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:.7rem; }
-    .trader-card { display:flex; flex-direction:column; gap:.45rem; min-width:0; padding:.75rem .8rem; }
-    .trader-card-head, .trader-card-toggle { display:flex; align-items:center; justify-content:space-between; gap:.6rem; }
+    .trader-card { gap:.45rem; }
+    .trader-card-toggle { display:flex; align-items:center; justify-content:space-between; gap:.6rem; min-width:0; padding:.75rem .8rem; }
     .trader-name-wrap { display:flex; align-items:center; gap:.45rem; min-width:0; }
     .trader-icon { display:grid; place-items:center; width:1.85rem; height:1.85rem; flex:0 0 1.85rem; padding:.28rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); }
-    .trader-faction { color:var(--teal-soft); font-size:.72rem; }
+    .trader-card.card-ui .card-ui__eyebrow { color:var(--teal-soft); text-transform:none; letter-spacing:0; }
     .trader-card .vendor-note { margin:0; font-size:.76rem; line-height:1.35; }
     .trust-track { margin:.2rem 0 .35rem; }
     .trust-track-bar { height:8px; position:relative; border-radius:999px; background:linear-gradient(90deg,var(--red-border) 0 33%,var(--warn-border) 33% 66%,var(--green-border) 66% 100%); }

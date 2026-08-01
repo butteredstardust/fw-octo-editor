@@ -30,14 +30,11 @@
     .repair-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.65rem; margin-top:.5rem; }
     .repair-cards-wrap h3 { display: flex; align-items: center; gap: 0.6rem; }
     .repair-count { font-size: 0.7rem; color: var(--green); font-weight: 400; background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 10px; padding: 0.1rem 0.5rem; }
-    .repair-card { padding: 0.7rem 0.8rem; }
     .repair-card.ok { border-color: var(--green-border); background: var(--green-deep-bg); }
     .repair-card.no { border-color: var(--red-soft-border); }
-    .repair-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem; }
-    .repair-card-name { font-weight: 700; color: var(--text); font-size: 0.95rem; }
-    .repair-card-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .repair-card-dot.ok { background: var(--green); }
-    .repair-card-dot.no { background: var(--red); }
+    .repair-availability { flex:none; padding:.16rem .5rem; border:1px solid; border-radius:999px; font-size:.64rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
+    .repair-availability.ok { color:var(--green); border-color:var(--green-border); background:var(--green-bg); }
+    .repair-availability.no { color:var(--red); border-color:var(--red-border); background:var(--red-deep-bg); }
     .repair-req-chips { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.2rem; }
     .repair-chip { font-size: 0.76rem; padding: 0.2rem 0.5rem; border-radius: 6px; border: 1px solid var(--gunmetal); color: var(--text-2); }
     .repair-chip.ok { color: var(--green); border-color: var(--green-border); background: var(--green-deep-bg); }
