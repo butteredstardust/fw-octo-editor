@@ -253,8 +253,14 @@ async function addCanonicalComponents(components, inventory, mode, messageEl, bu
   const failures = [];
   for (const component of list) {
     try {
-      const response = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: component.itemId, quantity: component.addQuantity, sourceMap: component.sourceMap }) });
-      if (response.added === false) await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: component.itemId, quantity: (inventory[component.itemId] || 0) + component.addQuantity, sourceMap: component.sourceMap }) });
+      // /inventory/add is the whole operation: it appends a new row when the
+      // item is absent (added: true) and INCREMENTS the existing row when it
+      // is already present (added: false). added === false is not a failure
+      // signal, so there is no fallback to run -- a follow-up /inventory/update
+      // would either re-apply the same total (rejected as "Mutation produced no
+      // database change", reported here as a spurious failure) or, with a fresh
+      // inventory snapshot, add the quantity a second time.
+      await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: component.itemId, quantity: component.addQuantity, sourceMap: component.sourceMap }) });
       updated++;
     } catch (error) {
       failed++;

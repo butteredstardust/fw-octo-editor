@@ -300,15 +300,18 @@ async function addResource(id) {
   msg.className = 'res-msg';
   msg.textContent = 'Adding…';
   try {
-    let result = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
-    if (result.added === false) {
-      // Already present (or game re-added) — fall back to a quantity update.
-      result = await api('/inventory/update', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
-    }
+    // /inventory/add appends a new row when the resource is absent and
+    // INCREMENTS the existing row when it is already present, so added: false
+    // still means the quantity went up by qty. It is not a failure signal and
+    // must not be followed by an absolute /inventory/update — that used to
+    // overwrite the whole stack with qty (add 5 to a stack of 100 left you
+    // with 5). The receipt's quantity is the authoritative new total.
+    const result = await api('/inventory/add', { method: 'POST', body: JSON.stringify({ itemId: id, quantity: qty }) });
     if (!result.afterIntegrity || !result.afterIntegrity.passed) throw new Error('integrity check failed');
     msg.className = 'res-msg ok';
     msg.innerHTML = `Added ${qty.toLocaleString()}.${receiptHtml(result)}`;
-    document.getElementById('resvalue-' + id).textContent = qty.toLocaleString();
+    const newTotal = Number(result.quantity);
+    document.getElementById('resvalue-' + id).textContent = Number.isFinite(newTotal) ? newTotal.toLocaleString() : '—';
     input.value = '';
     showToast(`Added ${qty.toLocaleString()} ${def ? def.label : id}.`);
   } catch (err) {
