@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T20:09:19.800Z",
+  "generatedAt": "2026-08-01T19:13:36.247Z",
   "items": {
     "Alcohol01": {
       "id": "Alcohol01",
@@ -2052,6 +2052,138 @@
       },
       "sources": [
         "reference-save-2026-07-05",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "DecoLoot_04_WaterThiefMask01": {
+      "id": "DecoLoot_04_WaterThiefMask01",
+      "displayName": "Water Thief's Mask \"Oni\"",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.DecoLoot_04_WaterThiefMask01",
+      "taxonomy": {
+        "group": "Loot",
+        "type": "Wall decorations",
+        "subtype": null,
+        "tags": [
+          "Wall decorations"
+        ]
+      },
+      "wiki": {
+        "page": "Water Thief's Mask \"Oni\"",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Water_Thief's_Mask_%22Oni%22",
+        "imageFile": "T_WaterMaskOni.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WaterMaskOni.png",
+        "revisionId": null,
+        "description": "Mask formerly belonging to a water bandit.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "DecoLoot_05_WaterThiefMask02": {
+      "id": "DecoLoot_05_WaterThiefMask02",
+      "displayName": "Water Thief's Mask \"Thirsty\"",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.DecoLoot_05_WaterThiefMask02",
+      "taxonomy": {
+        "group": "Loot",
+        "type": "Wall decorations",
+        "subtype": null,
+        "tags": [
+          "Wall decorations"
+        ]
+      },
+      "wiki": {
+        "page": "Water Thief's Mask \"Thirsty\"",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Water_Thief's_Mask_%22Thirsty%22",
+        "imageFile": "T_WaterMaskThirsty.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WaterMaskThirsty.png",
+        "revisionId": null,
+        "description": "Mask formerly belonging to a water bandit.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "DecoLoot_06_WaterThiefMask03": {
+      "id": "DecoLoot_06_WaterThiefMask03",
+      "displayName": "Water Thief's Mask \"Bozo\"",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.DecoLoot_06_WaterThiefMask03",
+      "taxonomy": {
+        "group": "Loot",
+        "type": "Wall decorations",
+        "subtype": null,
+        "tags": [
+          "Wall decorations"
+        ]
+      },
+      "wiki": {
+        "page": "Water Thief's Mask \"Bozo\"",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Water_Thief's_Mask_%22Bozo%22",
+        "imageFile": "T_WaterMaskBozo.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WaterMaskBozo.png",
+        "revisionId": null,
+        "description": "Mask formerly belonging to a water bandit.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "DecoLoot_07_MysticalTechTotem": {
+      "id": "DecoLoot_07_MysticalTechTotem",
+      "displayName": "Mystical Tech Totem",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.DecoLoot_07_MysticalTechTotem",
+      "taxonomy": {
+        "group": "Loot",
+        "type": "Shelf decorations",
+        "subtype": null,
+        "tags": [
+          "Shelf decorations"
+        ]
+      },
+      "wiki": {
+        "page": "Mystical Tech Totem",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Mystical_Tech_Totem",
+        "imageFile": "T Item Quest Totem.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T%20Item%20Quest%20Totem.png",
+        "revisionId": null,
+        "description": "Sacred object. Does not aggro enemies and is not a quest target, unlike the large counterpart.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
         "wiki.gg-cargo-items"
       ]
     },
@@ -12875,6 +13007,40 @@
         "wiki.gg-cargo-items"
       ]
     },
+    "RFL01A_Surplus": {
+      "id": "RFL01A_Surplus",
+      "displayName": "Surplus Rifle",
+      "inventoryMap": "Weapons",
+      "internalTag": "Inventory.Weapon.RFL01A_Surplus",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Rifles",
+        "subtype": "Surplus weapons",
+        "tags": [
+          "Rifles",
+          "Surplus weapons"
+        ]
+      },
+      "wiki": {
+        "page": "Surplus Rifle",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Surplus_Rifle",
+        "imageFile": "T RFL01A.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T%20RFL01A.png",
+        "revisionId": null,
+        "description": "Surplus rifle. Uses 5.45mm. One of 2 default starting weapons in the game. Scavs best friend.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
     "RFL01B": {
       "id": "RFL01B",
       "displayName": "RPK",
@@ -13647,6 +13813,40 @@
       },
       "sources": [
         "reference-save-2026-07-05",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "SHG02_Surplus": {
+      "id": "SHG02_Surplus",
+      "displayName": "Surplus Shotgun",
+      "inventoryMap": "Weapons",
+      "internalTag": "Inventory.Weapon.SHG02_Surplus",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Shotguns",
+        "subtype": "Surplus weapons",
+        "tags": [
+          "Shotguns",
+          "Surplus weapons"
+        ]
+      },
+      "wiki": {
+        "page": "Surplus Shotgun",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Surplus_Shotgun",
+        "imageFile": "T SHG02.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T%20SHG02.png",
+        "revisionId": null,
+        "description": "Surplus shotgun. Uses 12-gauge. One of 2 starting weapons in the game. With unusually high damage, it can oneshot Cyborgs and even destroy a tank in 13 shots, provided you're shooting point blank and all pellets hit.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
         "wiki.gg-cargo-items"
       ]
     },
@@ -18596,6 +18796,40 @@
         "wiki.gg-cargo-items"
       ]
     },
+    "WPN_RFL02_UPP_02": {
+      "id": "WPN_RFL02_UPP_02",
+      "displayName": "VHS2 Upper Assembly B",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.WPN_RFL02_UPP_02",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Weapon parts",
+        "subtype": "Upper assembly",
+        "tags": [
+          "Weapon parts",
+          "Upper assembly"
+        ]
+      },
+      "wiki": {
+        "page": "VHS2 Upper Assembly B",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/VHS2_Upper_Assembly_B",
+        "imageFile": "T_WPN_RFL02_UPP_02.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WPN_RFL02_UPP_02.png",
+        "revisionId": null,
+        "description": "Weapon Reciever Upgrade",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
     "WPN_RFL12_BRL_01": {
       "id": "WPN_RFL12_BRL_01",
       "displayName": "M4A1 Barrel A",
@@ -18695,6 +18929,40 @@
       },
       "sources": [
         "reference-save-2026-07-05",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "WPN_RFL12_BRL_04": {
+      "id": "WPN_RFL12_BRL_04",
+      "displayName": "M4A1 Barrel",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.WPN_RFL12_BRL_04",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Weapon parts",
+        "subtype": "Barrel",
+        "tags": [
+          "Weapon parts",
+          "Barrel"
+        ]
+      },
+      "wiki": {
+        "page": "M4A1 Barrel",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/M4A1_Barrel",
+        "imageFile": "T_WPN_RFL12_BRL_04.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WPN_RFL12_BRL_04.png",
+        "revisionId": null,
+        "description": "Weapon Barrel Upgrade",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
         "wiki.gg-cargo-items"
       ]
     },
@@ -19375,6 +19643,74 @@
       },
       "sources": [
         "reference-save-2026-07-05",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "WPN_RFL12_HGD_15": {
+      "id": "WPN_RFL12_HGD_15",
+      "displayName": "M4A1 Handguard Upgrade L",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_15",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Weapon parts",
+        "subtype": "Handguard",
+        "tags": [
+          "Weapon parts",
+          "Handguard"
+        ]
+      },
+      "wiki": {
+        "page": "M4A1 Handguard Upgrade L",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/M4A1_Handguard_Upgrade_L",
+        "imageFile": "T_WPN_RFL12_HGD_15.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WPN_RFL12_HGD_15.png",
+        "revisionId": null,
+        "description": "Weapon Handguard Upgrade",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "WPN_RFL12_HGD_16": {
+      "id": "WPN_RFL12_HGD_16",
+      "displayName": "M4A1 Handguard Upgrade M",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.WPN_RFL12_HGD_16",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Weapon parts",
+        "subtype": "Handguard",
+        "tags": [
+          "Weapon parts",
+          "Handguard"
+        ]
+      },
+      "wiki": {
+        "page": "M4A1 Handguard Upgrade M",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/M4A1_Handguard_Upgrade_M",
+        "imageFile": "T_WPN_RFL12_HGD_16.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WPN_RFL12_HGD_16.png",
+        "revisionId": null,
+        "description": "Weapon Handguard Upgrade",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
         "wiki.gg-cargo-items"
       ]
     },
@@ -22506,6 +22842,40 @@
         "wiki.gg-cargo-items"
       ]
     },
+    "WPN_SHG03_HGD_01_1": {
+      "id": "WPN_SHG03_HGD_01_1",
+      "displayName": "USAS-12 Shotgun Handguard B",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.WPN_SHG03_HGD_01_1",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Weapon parts",
+        "subtype": "Handguard",
+        "tags": [
+          "Weapon parts",
+          "Handguard"
+        ]
+      },
+      "wiki": {
+        "page": "USAS-12 Shotgun Handguard B",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/USAS-12_Shotgun_Handguard_B",
+        "imageFile": "T_WPN_SHG03_HGD_01_1.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WPN_SHG03_HGD_01_1.png",
+        "revisionId": null,
+        "description": "Handguard Upgrade",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
+        "wiki.gg-cargo-items"
+      ]
+    },
     "WPN_SHG03_MAG_12G_01": {
       "id": "WPN_SHG03_MAG_12G_01",
       "displayName": "USAS-12 Shotgun Magazine A",
@@ -22911,6 +23281,40 @@
       },
       "sources": [
         "reference-save-2026-07-05",
+        "wiki.gg-cargo-items"
+      ]
+    },
+    "WPN_SHG06_MAG_12G_02": {
+      "id": "WPN_SHG06_MAG_12G_02",
+      "displayName": "HK CAWS Magazine B",
+      "inventoryMap": "Items",
+      "internalTag": "Inventory.Item.WPN_SHG06_MAG_12G_02",
+      "taxonomy": {
+        "group": "Weapons",
+        "type": "Weapon parts",
+        "subtype": "Magazine",
+        "tags": [
+          "Weapon parts",
+          "Magazine"
+        ]
+      },
+      "wiki": {
+        "page": "HK CAWS Magazine B",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/HK_CAWS_Magazine_B",
+        "imageFile": "T_WPN_SHG06_MAG_12G_02.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T_WPN_SHG06_MAG_12G_02.png",
+        "revisionId": null,
+        "description": "Weapon Magazine Upgrade",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "wiki-only-allowlist",
         "wiki.gg-cargo-items"
       ]
     },

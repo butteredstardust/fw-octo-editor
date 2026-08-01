@@ -1,21 +1,36 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T20:09:19.800Z",
-  "source": "public/items.csv",
+  "generatedAt": "2026-08-01T19:13:36.247Z",
+  "source": "data/items.csv",
   "counts": {
-    "canonical": 712,
-    "exactFriendlyNames": 693,
+    "canonical": 724,
+    "exactFriendlyNames": 705,
     "inferredNames": 19,
     "unresolvedNames": 0,
     "uncategorized": 0,
-    "withImages": 693,
+    "withImages": 705,
     "reviewed": 1,
-    "withDescription": 690,
+    "withDescription": 702,
     "withBuffOrDebuff": 32,
     "excludedWikiRows": 3,
     "wikiSnapshotItems": 764,
-    "referenceSnapshotItems": 712
+    "referenceSnapshotItems": 712,
+    "allowlistedWithoutReference": 12
   },
+  "allowlistedWithoutReferenceIds": [
+    "DecoLoot_04_WaterThiefMask01",
+    "DecoLoot_05_WaterThiefMask02",
+    "DecoLoot_06_WaterThiefMask03",
+    "DecoLoot_07_MysticalTechTotem",
+    "RFL01A_Surplus",
+    "SHG02_Surplus",
+    "WPN_RFL02_UPP_02",
+    "WPN_RFL12_BRL_04",
+    "WPN_RFL12_HGD_15",
+    "WPN_RFL12_HGD_16",
+    "WPN_SHG03_HGD_01_1",
+    "WPN_SHG06_MAG_12G_02"
+  ],
   "unresolvedIds": [],
   "uncategorizedIds": [],
   "excludedWikiRows": [

@@ -57,6 +57,8 @@ const overrides = JSON.parse(fs.readFileSync(overridesPath, 'utf8'));
 const wikiSnapshot = fs.existsSync(wikiSnapshotPath) ? JSON.parse(fs.readFileSync(wikiSnapshotPath, 'utf8')) : { items: [] };
 const referenceSnapshot = fs.existsSync(referenceSnapshotPath) ? JSON.parse(fs.readFileSync(referenceSnapshotPath, 'utf8')) : null;
 const referenceById = new Map((referenceSnapshot?.items || []).map(item => [item.name, item]));
+// IDs the wiki documents but the reference save never contained; admitted into the catalog anyway. See data/item-overrides.json.
+const allowlist = new Set(Object.keys(overrides.additionalItems || {}).filter(id => !id.startsWith('_')));
 const wikiById = new Map();
 const wikiByIdLower = new Map();
 for (const item of wikiSnapshot.items || []) {
@@ -86,7 +88,12 @@ for (const row of rows) {
   };
 }
 if (referenceSnapshot) {
-  for (const id of Object.keys(canonical)) if (!referenceById.has(id)) delete canonical[id];
+  for (const id of Object.keys(canonical)) if (!referenceById.has(id) && !allowlist.has(id)) delete canonical[id];
+  for (const id of allowlist) {
+    if (!canonical[id]) throw new Error(`additionalItems refers to an ID absent from data/items.csv: ${id}`);
+    if (referenceById.has(id)) continue;
+    canonical[id].sources = canonical[id].sources.map(source => (source === 'reference-save-2026-07-05' ? 'wiki-only-allowlist' : source));
+  }
   for (const [id, referenceItem] of referenceById) {
     if (canonical[id]) { canonical[id].inventoryMap = referenceItem.sourceMap === 'Base Weapons' ? 'Weapons' : (referenceItem.sourceMap === 'Damaged Weapons' ? 'DamagedWeapons' : 'Items'); continue; }
     const wikiItem = wikiById.get(id) || wikiByIdLower.get(id.toLowerCase()) || null;
@@ -118,7 +125,9 @@ const audit = { schemaVersion: 1, generatedAt: new Date().toISOString(), source:
   unresolvedNames: entries.filter(item => item.match.confidence === 0).length, uncategorized: entries.filter(item => !item.taxonomy.type).length,
   withImages: entries.filter(item => item.wiki.imageFile || item.wiki.imageUrl).length, reviewed: entries.filter(item => item.match.reviewed).length,
   withDescription: entries.filter(item => item.wiki.description).length, withBuffOrDebuff: entries.filter(item => item.wiki.buffs || item.wiki.debuffs).length,
-  excludedWikiRows: excluded.length, wikiSnapshotItems: (wikiSnapshot.items || []).length, referenceSnapshotItems: (referenceSnapshot?.items || []).length }, unresolvedIds: entries.filter(item => item.match.confidence === 0).map(item => item.id), uncategorizedIds: entries.filter(item => !item.taxonomy.type).map(item => item.id), excludedWikiRows: excluded };
+  excludedWikiRows: excluded.length, wikiSnapshotItems: (wikiSnapshot.items || []).length, referenceSnapshotItems: (referenceSnapshot?.items || []).length,
+  allowlistedWithoutReference: entries.filter(item => item.sources.includes('wiki-only-allowlist')).length },
+  allowlistedWithoutReferenceIds: entries.filter(item => item.sources.includes('wiki-only-allowlist')).map(item => item.id), unresolvedIds: entries.filter(item => item.match.confidence === 0).map(item => item.id), uncategorizedIds: entries.filter(item => !item.taxonomy.type).map(item => item.id), excludedWikiRows: excluded };
 fs.writeFileSync(canonicalPath, `${JSON.stringify({ schemaVersion: 1, generatedAt: audit.generatedAt, items: sorted }, null, 2)}\n`);
 fs.writeFileSync(catalogPath, `${JSON.stringify(catalog)}\n`);
 fs.writeFileSync(auditPath, `${JSON.stringify(audit, null, 2)}\n`);

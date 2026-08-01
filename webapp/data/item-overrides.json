@@ -1,5 +1,20 @@
 {
   "schemaVersion": 1,
+  "additionalItems": {
+    "_comment": "IDs the wiki documents but the 2026-07-05 reference save never contained, admitted into the catalog anyway. Each one is normal inventory loot with a confirmed Inventory.Item/Weapon internal tag. Quest items and Inventory.Dangly/BP_* world actors are deliberately NOT listed here: nothing has proven they have a valid player-inventory layout.",
+    "DecoLoot_04_WaterThiefMask01": "Water Thief's Mask \"Oni\" - wall decoration, already a recipe output",
+    "DecoLoot_05_WaterThiefMask02": "Water Thief's Mask \"Thirsty\" - wall decoration, already a recipe output",
+    "DecoLoot_06_WaterThiefMask03": "Water Thief's Mask \"Bozo\" - wall decoration, already a recipe output",
+    "DecoLoot_07_MysticalTechTotem": "Mystical Tech Totem - shelf decoration, same DecoLoot family as the reference-save 01/02/03",
+    "WPN_RFL02_UPP_02": "VHS2 Upper Assembly B - weapon part",
+    "WPN_RFL12_BRL_04": "M4A1 Barrel - weapon part",
+    "WPN_RFL12_HGD_15": "M4A1 Handguard Upgrade L - weapon part",
+    "WPN_RFL12_HGD_16": "M4A1 Handguard Upgrade M - weapon part",
+    "WPN_SHG03_HGD_01_1": "USAS-12 Shotgun Handguard B - weapon part",
+    "WPN_SHG06_MAG_12G_02": "HK CAWS Magazine B - weapon part",
+    "RFL01A_Surplus": "Surplus Rifle - surplus weapon",
+    "SHG02_Surplus": "Surplus Shotgun - surplus weapon"
+  },
   "items": {
     "RareLoot_47_SentientDrill": {
       "wiki": {
