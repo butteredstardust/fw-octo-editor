@@ -3,14 +3,17 @@
   "version": "0.10.0",
   "description": "FW OCTO Editor webapp for The Forever Winter saves",
   "main": "server.js",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "start": "node server.js",
-    "test": "node --test test/*.test.js",
-    "test:e2e": "node --test test/e2e/*.test.js",
-    "test:unit": "node --test test/*.test.js test/e2e/*.test.js",
+    "test": "node --test \"test/*.test.js\"",
+    "test:e2e": "node --test \"test/e2e/*.test.js\"",
+    "test:unit": "node --test \"test/*.test.js\" \"test/e2e/*.test.js\"",
     "test:browser": "playwright test",
-    "test:ci": "node --test test/*.test.js test/e2e/*.test.js && npm run lint && npm run test:coverage && playwright test",
-    "coverage": "node --test --experimental-test-coverage test/*.test.js test/e2e/*.test.js",
+    "test:ci": "node --test \"test/*.test.js\" \"test/e2e/*.test.js\" && npm run lint && npm run test:coverage && playwright test",
+    "coverage": "node --test --experimental-test-coverage \"test/*.test.js\" \"test/e2e/*.test.js\"",
     "test:coverage": "node scripts/coverage-gate.js",
     "lint": "eslint .",
     "key:build-resource": "node scripts/build-key-resource.js",

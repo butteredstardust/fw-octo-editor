@@ -116,7 +116,8 @@
       "Bash(cp public/modules/features/weapons.mjs /tmp/w.bak)",
       "Bash(sed -i 's/readIntegerInput, validateInteger, setOperationFeedback/readIntegerInput, setOperationFeedback/' public/modules/features/weapons.mjs)",
       "Bash(cp /tmp/w.bak public/modules/features/weapons.mjs)",
-      "Bash(rm /tmp/w.bak)"
+      "Bash(rm /tmp/w.bak)",
+      "Bash(gh run *)"
     ]
   }
 }
