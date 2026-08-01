@@ -39,6 +39,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/presets') body = options.presets || { weapons: [], rigs: [], summary: { weaponPresets: 0, rigPresets: 0, activeWeaponPreset: null } };
     else if (pathname === '/api/rigs') body = options.rigs || { rigs: [], ownedCount: 0, totalCount: 0 };
     else if (pathname === '/api/hub-upgrades') body = options.hubUpgrades || [];
+    else if (pathname === '/api/backups') body = options.backups || [];
     else if (pathname === '/api/inventory') {
       if (options.inventoryError) {
         await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'fixture inventory failure' }) });
@@ -184,7 +185,61 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   await expect(recipe).toBeVisible();
   await expect(recipe.locator('.card-ui__status .recipe-badge')).toHaveCount(1);
   await expect(recipe.locator('.card-ui__footer .recipe-card-actions button')).toHaveCount(2);
+  const recipeActions = recipe.locator('.recipe-card-actions');
+  const [addMissingBox, addAllBox] = await Promise.all([
+    recipeActions.locator('[data-action="craft-add-missing"]').boundingBox(),
+    recipeActions.locator('[data-action="craft-add-all"]').boundingBox()
+  ]);
+  expect(Math.abs(addMissingBox.y - addAllBox.y)).toBeLessThanOrEqual(1);
+  expect(Math.abs(addMissingBox.height - addAllBox.height)).toBeLessThanOrEqual(1);
+  expect(await recipeActions.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
   expect(await recipe.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  await page.setViewportSize({ width: 320, height: 740 });
+  expect(await recipeActions.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  expect(await recipe.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
+test('weapon XP icon controls stay centered and match responsive control sizing', async ({ page }) => {
+  const weaponXp = [{ weapon: 'Fixture.Weapon', xp: 10 }];
+  await mockApi(page, { weaponXp, weaponReference: { 'Fixture.Weapon': 100 } });
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto(`${baseURL}/#weapon-xp`);
+
+  const card = page.locator('.weapon-card.card-ui');
+  const input = card.locator('.weapon-actions input');
+  const buttons = card.locator('.weapon-actions .icon-only');
+  await expect(buttons).toHaveCount(2);
+  const inputBox = await input.boundingBox();
+  for (const button of await buttons.all()) {
+    const [buttonBox, iconBox] = await Promise.all([button.boundingBox(), button.locator('.action-icon').boundingBox()]);
+    expect(Math.abs((buttonBox.x + buttonBox.width / 2) - (iconBox.x + iconBox.width / 2))).toBeLessThanOrEqual(1);
+    expect(Math.abs((buttonBox.y + buttonBox.height / 2) - (iconBox.y + iconBox.height / 2))).toBeLessThanOrEqual(1);
+    expect(Math.abs(buttonBox.height - inputBox.height)).toBeLessThanOrEqual(1);
+  }
+
+  await page.setViewportSize({ width: 390, height: 740 });
+  for (const button of await buttons.all()) {
+    const buttonBox = await button.boundingBox();
+    expect(buttonBox.width).toBeGreaterThanOrEqual(44);
+    expect(buttonBox.height).toBeGreaterThanOrEqual(44);
+  }
+  expect(await card.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
+test('dashboard empty states share anatomy and offer a direct inventory recovery action', async ({ page }) => {
+  await mockApi(page);
+  await page.goto(`${baseURL}/#dashboard`);
+  await expect(page.locator('#dashQuests .empty-state__title')).toHaveText('No quests found');
+  await expect(page.locator('#dashInventory .empty-state__title')).toHaveText('Inventory is empty');
+  await expect(page.locator('#dashFactionTrust .empty-state__title')).toHaveText('No faction scores found');
+  const action = page.locator('#dashInventory [data-action="show-page"][data-page-target="add-items"]');
+  await expect(action).toBeVisible();
+  await action.click();
+  await expect(page).toHaveURL(/#add-items$/);
+  await expect(page.locator('#page-add-items')).toBeVisible();
+  await expect(page.locator('#addCatalogList .empty-state[role="alert"]')).toContainText('No catalog loaded');
+  await page.goto(`${baseURL}/#backups`);
+  await expect(page.locator('#backupList .empty-state__title')).toHaveText('No application backups found');
 });
 
 test('editable entity cards preserve headings, states, controls, and narrow containment', async ({ page }) => {
@@ -255,6 +310,12 @@ test('shared status badges preserve card anatomy, domain hooks, and narrow conta
   await expect(page.locator('.hub-card .hub-pill.locked').first()).toHaveClass(/status-badge--danger/);
   await expect(hub.locator('[data-action="add-upgrade-materials"]')).toHaveCount(1);
   await expect(hub.locator('.card-ui__footer [data-action="toggle-upgrade"]')).toHaveCount(1);
+  const [hubIdentityBox, hubStatusBox] = await Promise.all([
+    hub.locator('.card-ui__identity').boundingBox(),
+    hub.locator('.card-ui__status').boundingBox()
+  ]);
+  expect(hubStatusBox.y).toBeGreaterThanOrEqual(hubIdentityBox.y + hubIdentityBox.height - 1);
+  expect(Math.abs(hubStatusBox.x - hubIdentityBox.x)).toBeLessThanOrEqual(1);
   expect(await hub.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 
   await page.goto(`${baseURL}/#vendors`);

@@ -92,6 +92,17 @@ test('userMessage and errorDetailHtml are exposed through FW for feature modules
   assert.match(coreJs, /expose\(\{[\s\S]*userMessage,[\s\S]*errorDetailHtml,[\s\S]*\}\)/);
 });
 
+test('empty states share escaped copy, constrained live roles, and a documented trusted action slot', () => {
+  assert.match(coreJs, /const EMPTY_STATE_ROLES = new Set\(\['status', 'alert'\]\)/);
+  assert.match(coreJs, /export function emptyStateHtml\(title, hint = '', \{ actionHtml = '', role = '' \} = \{\}\)/);
+  assert.match(coreJs, /EMPTY_STATE_ROLES\.has\(role\)/);
+  assert.match(coreJs, /empty-state__title[^`]*\$\{esc\(title\)\}/);
+  assert.match(coreJs, /empty-state__hint[^`]*\$\{esc\(hint\)\}/);
+  assert.match(coreJs, /`actionHtml` is a trusted slot for locally generated controls/);
+  assert.match(coreJs, /function noMatchesHtml[\s\S]{0,180}return emptyStateHtml\(title, hint\)/);
+  assert.match(coreJs, /expose\(\{[\s\S]*emptyStateHtml,[\s\S]*noMatchesHtml/);
+});
+
 test('showToast renders a labelled, keyboard-reachable dismiss control and caps the stacked toast count', () => {
   assert.match(coreJs, /function showToast\(message, type = 'success'\)/);
   assert.match(coreJs, /dismiss\.setAttribute\('aria-label', 'Dismiss notification'\)/);

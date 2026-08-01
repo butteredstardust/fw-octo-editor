@@ -17,6 +17,9 @@
     .hub-group-progress.complete { color: var(--green); border-color: var(--green-border); }
     .hub-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; }
     .hub-card { gap:0.4rem; padding:.85rem; transition:border-color .15s; }
+    .hub-card .card-ui__header { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:start; }
+    .hub-card .card-ui__identity { grid-column:2; }
+    .hub-card .card-ui__status { grid-column:2; grid-row:2; justify-content:flex-start; width:auto; margin-left:0; }
     .hub-card.unlocked { border-color: var(--green-border); box-shadow: 0 0 0 1px rgba(95,211,138,0.25); }
     .hub-card.locked { opacity: 0.62; }
     .hub-card.perm { border-color: var(--amber-warn); box-shadow: 0 0 0 1px rgba(232,146,74,0.2); }
@@ -54,4 +57,6 @@
     .weapon-done { color: var(--green); font-size: 0.78rem; }
     .weapon-delta { color: var(--amber-warn); font-size: 0.78rem; }
     .weapon-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+    .weapon-actions .icon-only { align-self:center; }
     .weapon-actions input[type=number] { width: 110px; background: var(--surface-2); color: var(--text); border: 1px solid var(--gunmetal); border-radius: 5px; padding: 0.3rem 0.5rem; }
+    @media (max-width:700px) { .hub-card .card-ui__status { width:auto; } }

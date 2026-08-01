@@ -83,6 +83,9 @@ body {
 .receipt { margin-top:.65rem; border-top:1px solid var(--gunmetal-dark); padding-top:.55rem; color:var(--text-2); font-size:.74rem; }
 .receipt summary { cursor:pointer; color:var(--teal-soft); }
 .empty-state { padding:2.5rem 1rem; text-align:center; border:1px dashed var(--gunmetal); border-radius:8px; color:var(--text-2); }
+.empty-state__title { display:block; color:var(--text); }
+.empty-state__hint { margin:.4rem 0 0; color:var(--text-2); }
+.empty-state__actions { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin-top:1rem; }
 @media (max-width:1050px) { .filter-bar { grid-template-columns:repeat(2,minmax(0,1fr)); } .filter-bar--sticky { position:static; } }
 @media (max-width:780px) {
   .header { padding:.75rem 1rem; flex-wrap:wrap; row-gap:.5rem; }

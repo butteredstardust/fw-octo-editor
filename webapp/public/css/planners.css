@@ -7,7 +7,7 @@
        ready/missing badge, its full component list, and its own craft-qty +
        add actions) instead of a single dropdown-driven detail view, so every
        recipe -- and which ones are already craftable -- is scannable at once. */
-    .recipe-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:.85rem; margin-top:1rem; }
+    .recipe-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr)); gap:.85rem; margin-top:1rem; }
     .recipe-card { gap:.6rem; }
     .recipe-card.is-ready { border-color:var(--green-border); box-shadow:0 0 0 1px rgba(95,211,138,.14); }
     .recipe-icon { display:grid; place-items:center; width:2rem; height:2rem; flex:0 0 2rem; padding:.3rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); }
@@ -21,8 +21,9 @@
     .recipe-comp-status .add { color:var(--amber-warn); font-weight:600; }
     .recipe-comp-status .ok { color:var(--green); font-weight:600; }
     .recipe-crafts-note { font-size:.7rem; color:var(--text-2); }
-    .recipe-card-actions { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
-    .recipe-card-actions label { display:flex; align-items:center; gap:.35rem; font-size:.78rem; color:var(--text-2); }
+    .recipe-card-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:center; gap:.5rem; }
+    .recipe-card-actions label { grid-column:1 / -1; display:flex; align-items:center; gap:.35rem; font-size:.78rem; color:var(--text-2); }
+    .recipe-card-actions button { width:100%; min-width:0; white-space:nowrap; }
     .recipe-card-actions input[type=number] { width:76px; }
     .backup-toolbar { display:flex; gap:.75rem; align-items:end; flex-wrap:wrap; margin-bottom:1.25rem; }
     .backup-toolbar label { flex:1; min-width:240px; display:grid; gap:.3rem; }

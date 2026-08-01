@@ -145,8 +145,8 @@
     button.is-pending .action-icon { visibility:hidden; }
     /* Icon-only buttons: square touch target, no label text visible (kept for
        screen readers via .sr-only), tooltip supplied by the button's title attr. */
-    .icon-only { display:inline-grid; place-items:center; width:2rem; height:2rem; min-height:0; padding:0; flex:0 0 auto; }
-    .icon-only .action-icon { width:16px; height:16px; flex-basis:16px; margin-right:0; }
+    .icon-only { display:inline-flex; align-items:center; justify-content:center; width:var(--control-h); height:var(--control-h); min-height:var(--control-h); padding:0; flex:0 0 auto; vertical-align:middle; }
+    .icon-only .action-icon { display:block; width:16px; height:16px; flex-basis:16px; margin:0; vertical-align:0; }
     /* Shared small-caps category caption (weapon build summary, part slot,
        preset headers) -- previously emitted with no rule at all. */
     .eyebrow { display:inline-block; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--teal-soft); margin-bottom:0.15rem; }
@@ -168,7 +168,7 @@
        / 600 single-column / 430 compact fields. Other in-between values are content-driven
        and intentionally left unsnapped. */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 780px) { .two-col { grid-template-columns: 1fr; } }
+    @media (max-width: 780px) { .two-col { grid-template-columns: 1fr; } .icon-only { width:44px; height:44px; min-height:44px; } }
     .page { display: none; }
     .page.active { display: block; }
     .safety-bar { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:1px; background:var(--gunmetal); border-bottom:1px solid var(--gunmetal); }

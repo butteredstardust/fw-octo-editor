@@ -3,7 +3,7 @@ import { itemPresentation, sourceMapForCatalog, ITEM_CAT_ORDER, highValueBadge }
 import { buildFacetIndex, createSectionExpansionState, setSelectOptions } from './facets.mjs';
 import { itemIdentityHtml } from './item-view.mjs';
 
-const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, setInlineFeedback, showToast, loadErrorHtml, showLoading } = FW;
+const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, emptyStateHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, setInlineFeedback, showToast, loadErrorHtml, showLoading } = FW;
 
 // Category ordering for the Add Items page (gear/loot buckets from the wiki).
 const ADD_CAT_ORDER = ITEM_CAT_ORDER;
@@ -73,7 +73,7 @@ export function resetAddExpansion() {
 
 export function renderAddCatalog() {
   const el = document.getElementById('addCatalogList');
-  if (!_addCatalog.length) { setRenderedHtml(el, '<p>No catalog loaded.</p>'); return; }
+  if (!_addCatalog.length) { setRenderedHtml(el, emptyStateHtml('No catalog loaded', 'Reload the page to try loading the item catalog again.', { role: 'alert' })); return; }
   const filter = document.getElementById('addFilter').value;
   const subFilter = document.getElementById('addSubFilter').value;
   const q = document.getElementById('addSearch').value.trim().toLowerCase();

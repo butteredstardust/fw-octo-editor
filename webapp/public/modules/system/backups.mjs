@@ -1,7 +1,7 @@
 import { FW } from '../runtime.mjs';
 import { isGameRunning, formatTimestamp } from './status-utils.mjs';
 
-const { api, esc, actionIcon, showLoading, technicalDetails } = FW;
+const { api, esc, actionIcon, showLoading, technicalDetails, emptyStateHtml } = FW;
 
 // ---- Backups -------------------------------------------------------------
 let backupDialogAction = null;
@@ -41,7 +41,7 @@ export async function loadBackups() {
     const [backups, status] = await Promise.all([api('/backups'), api('/status')]);
     const sessionId = status.mutation && status.mutation.sessionBackupId;
     if (!backups.length) {
-      list.innerHTML = '<p class="char-hint">No application backups found.</p>';
+      list.innerHTML = emptyStateHtml('No application backups found');
     } else {
       list.innerHTML = backups.map(backup => {
         const id = esc(backup.name);
