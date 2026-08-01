@@ -24,7 +24,9 @@ export async function refreshSafetyStatus() {
     // installed somewhere this editor can find, and that's a normal,
     // informative state, not a broken one. See the safety-item's title
     // attribute in index.html for the fuller explanation shown on hover.
-    setSafetyValue('safetyGameVersion', status.verifiedGameVersion || 'Not detected', '');
+    const gameBuild = status.compatibility && status.compatibility.gameBuild;
+    const detectedVersion = gameBuild && gameBuild.detected && gameBuild.detected.version;
+    setSafetyValue('safetyGameVersion', detectedVersion || 'Not detected', gameBuild && !gameBuild.verified ? 'warn' : '');
     setSafetyValue('safetyAppVersion', status.appVersion ? `v${status.appVersion}` : 'Unknown', '');
     updatePreflightPanel(status);
 

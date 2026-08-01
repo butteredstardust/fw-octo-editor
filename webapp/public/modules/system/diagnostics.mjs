@@ -29,6 +29,7 @@ export async function runDiagnostics() {
     const running = isGameRunning(data);
     const reasons = compatibility.reasons || [];
     const gameVersion = data.gameVersion || {};
+    const gameBuild = compatibility.gameBuild || { verified: !!gameVersion.detected };
     const gvDetail = gameVersion.detected
       ? `Installed build ${esc(gameVersion.version)} (${esc(gameVersion.source === 'steam-buildid' ? 'Steam' : gameVersion.source === 'epic-manifest' ? 'Epic' : 'game binary')})${gameVersion.appId ? ` · app ${esc(gameVersion.appId)}` : ''}`
       : 'Installed game version could not be detected (set FW_GAME_EXE or FW_GAME_DIR if installed elsewhere).';
@@ -40,7 +41,7 @@ export async function runDiagnostics() {
     // compatibility.reasons (a narrower list), so it could say "None" while
     // individual cards below it read BLOCKED.
     const checks = [
-      { label: 'Game version', passed: gameVersion.detected, detail: gvDetail, warning: !gameVersion.detected },
+      { label: 'Game version', passed: !!gameBuild.verified, detail: gameBuild.verified ? `${gvDetail} This build is verified.` : `${gvDetail} This build has not been verified; edits remain available because the save, schema, and tools passed their safety checks.`, warning: !gameBuild.verified },
       { label: 'Three save variants', passed: filesOk, detail: filesOk ? 'Primary and both known-good variants found.' : 'One or more required save variants are missing.' },
       { label: 'SQLite3MC', passed: !!tools.sqlite3mc, detail: tools.sqlite3mc ? 'Database shell is available.' : 'SQLite3MC executable is missing.' },
       { label: 'uesave', passed: !!tools.uesave, detail: tools.uesave ? 'Structured GVAS tool is available.' : 'uesave is missing; inventory writes are disabled.' },
@@ -107,7 +108,7 @@ function preflightReasonText(reason) {
   return PREFLIGHT_REASON_TEXT[reason] || `An unrecognized setup issue was reported: ${reason}.`;
 }
 function computePreflightIssues(status) {
-  const issues = (status.blockingReasons || []).map(preflightReasonText);
+  const issues = [...(status.blockingReasons || []), ...((status.compatibility && status.compatibility.warnings) || [])].map(preflightReasonText);
   if (status.compatibility && status.compatibility.tools && status.compatibility.tools.uesave === false) {
     issues.push('The uesave tool used for inventory edits is missing. It is expected at tools/uesave-src/target/release/uesave.exe, or the location set by the GVAS_UESAVE_BIN environment variable. Inventory edits are disabled until it is restored.');
   }

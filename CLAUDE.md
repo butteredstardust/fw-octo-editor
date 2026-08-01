@@ -7,8 +7,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Forever Winter Save Editor is a **local, loopback-only Node.js/Express web app** for safely reading and editing encrypted *The Forever Winter* game save files. It provides a browser-based UI for character progression, inventory, currencies, hub upgrades, weapon XP, and vendor reputation management—with staged copy-on-write mutations, automatic backups, and byte-level integrity verification.
 
 **Key constraints:**
-- Single runtime dependency: `express` only
-- No build step; no bundler; vanilla ES modules (`webapp/public/app.mjs` + `webapp/public/modules/*.mjs`)
+- `express` is the only **runtime** dependency. `chart.js` is a **devDependency**: its ESM build is vendored into `webapp/public/vendor/` by `npm run vendor:chart` and the vendored output is committed, so `npm ci --omit=dev` still installs zero extra runtime packages.
+- No bundler and no build step for the app itself; the browser loads plain ES modules (`webapp/public/app.mjs` + `webapp/public/modules/*.mjs`, including `modules/charts.mjs`, which imports the vendored `vendor/chart.mjs` directly). `npm run vendor:chart` is a one-time/occasional vendoring step (re-run only when bumping the `chart.js` devDependency), not a per-change build.
 - Loopback-only binding (`127.0.0.1:3000`); cannot be exposed to network
 - Game must be closed during mutations (enforced at middleware level)
 
@@ -22,6 +22,8 @@ npm start                      # Start server on http://127.0.0.1:3000
 npm test                       # Run all unit & e2e tests (node --test)
 npm run test:coverage          # Run coverage gate check
 npm run lint                   # Lint with eslint
+npm run test:browser           # Playwright browser/UX tests
+npm run vendor:chart           # Re-vendor chart.js's ESM build into public/vendor/ (run after bumping the chart.js devDependency; output is committed)
 ```
 
 ### Data Generation & Wiki Sync
@@ -99,6 +101,7 @@ webapp/public/
     runtime.mjs       App bootstrap, page routing, state
     api-client.mjs    Typed fetch wrappers + CSRF injection
     ui-utils.mjs      Filtering, ranking, debounce, receipts
+    charts.mjs        Chart.js wrapper (createChart/chartFigure/destroyCharts) -- the only module that imports vendor/chart.mjs
     features/
       dashboard.mjs   Overview (character, loadout, quests, inventory, currencies)
       characters.mjs  Character list + skill editor
@@ -112,6 +115,7 @@ webapp/public/
     recipe-data.mjs   Recipe definitions
   styles.css, css/*.css  Base + page-specific styles
   catalog.json        100%-save item catalog (read-only data)
+  vendor/              Vendored ESM build of chart.js, committed output of `npm run vendor:chart` -- not hand-edited
 ```
 
 **State Management**: Module-scoped variables (e.g., `_inventory`, `_weaponXp`, `presetData`) + session storage for filter state. Pages re-fetch API after mutations; no centralized store.
@@ -220,6 +224,16 @@ router.post('/my-feature', handleMutation('my-feature-label', req =>
 4. Bind events via centralized dispatcher or `bind()` helper in `runtime.mjs`
 5. Add `data-page="my-feature"` nav button in appropriate group
 
+### Adding a Chart
+
+Feature modules never import Chart.js (or `vendor/chart.mjs`) directly -- everything goes through `webapp/public/modules/charts.mjs`:
+
+1. Build the figure's markup with `chartFigure({ id, ariaLabel, title, columns, rows, height })` from `charts.mjs` -- it renders a `<canvas role="img">` (or, for `panels: [...]`, several single-series canvases side by side) plus a **mandatory paired data table** behind a "Show data table" disclosure. Every chart ships a data table; a canvas is invisible to screen readers and there is no exception to this.
+2. In your page's render function, call `destroyCharts(container)` immediately **before** replacing the container's `innerHTML` (`setRenderedHtml`/`showLoading`) -- a stale `Chart` instance bound to a detached canvas leaks its ResizeObserver/animation loop otherwise. `createChart()` also destroys anything already bound to the exact canvas it's given, so re-rendering the same page is always safe, but the explicit `destroyCharts()` call before the innerHTML swap is what keeps a chart from leaking for even one tick.
+3. After the new markup is in the DOM, call `createChart(canvasEl, { type, data, options })` from `charts.mjs` (see `webapp/public/modules/features/stats.mjs` for worked examples) -- it merges shared theme/behavior defaults (dark-surface grid, legend shown only for >=2 series, tooltips, reduced-motion handling) under your config.
+4. **Color**: pick chart colors using the `dataviz` skill (a Claude Code skill, not a script in this repo) and validate every categorical (multi-series) palette with its `scripts/validate_palette.js` **before shipping** -- run it once per mode (`--mode light` / `--mode dark --surface "#15171C"`), with `--pairs all` for any chart where two series can sit side by side outside a fixed adjacency (grouped bars, small multiples, scatter). If no palette passes (see `stats.mjs`'s `STATUS_GREEN/RED/AMBER` comment for a fully-worked example of a failing triple and why), fall back to **small multiples** — `chartFigure`'s `panels` option — since a lone series carries no legend and no CVD-separation requirement, so any semantic color becomes legal by construction.
+5. Never introduce a second y-axis (dual-axis charts); use small multiples, an indexed common base, or facet instead.
+
 ## Key Files for Navigation
 
 - **Entry point**: `webapp/server.js` (middleware, bootstrapping, key loading)
@@ -235,6 +249,7 @@ router.post('/my-feature', handleMutation('my-feature-label', req =>
 - **SQL is raw**: No query builder or ORM. All SQL is string-interpolated with validators (`sqlStr()`, `toInteger()`, `toNumber()`). Maintainability hazard if validators are bypassed.
 - **Hardcoded Windows paths**: Some defaults assume Windows (e.g., `C:\tmp\fw-tools\...`). Linux/macOS users must override via env vars.
 - **Frontend is fully modular**: The legacy monolithic `webapp/public/app.js` bundle has been removed. The active frontend is modular under `webapp/public/modules/` with `app.mjs` as the entry point.
+- **Charts are vendored, not bundled**: `webapp/public/vendor/chart.mjs` is a committed, pre-built ESM artifact (`npm run vendor:chart` regenerates it from the `chart.js` devDependency); it is loaded by the browser as a plain ES module import, same as every other frontend file -- there is still no bundler step in the request path.
 - **Temp cleanup**: `gvasService` creates temp dirs under `os.tmpdir()` for `to-json`/`from-json` round-trips. Failures during cleanup are silently swallowed; investigate if temp files accumulate.
 - **Static CSRF token**: Token is generated once at boot and never rotated. Acceptable for loopback-only model; long-running processes would benefit from rotation.
 - **No `.env` support**: Environment variables are read directly from `process.env`. No `.env` loading library.
