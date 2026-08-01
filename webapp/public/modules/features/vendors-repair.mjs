@@ -104,7 +104,7 @@ function renderVendorEconomy(economy) {
   const eventNote = economy.nextResetEvent
     ? `<p class="char-hint">The save's shared restock event (one timer covering multiple shops) last pointed to ${esc(new Date(economy.nextResetEvent).toLocaleString())}${overdue ? ' — already elapsed, so a restock is due next time you play' : ''}. There's no separate per-vendor countdown recorded in the save.</p>`
     : '';
-  return `<div class="vendor-section-title">Vendor stock</div>${eventNote}${rows}`;
+  return `<h3 class="vendor-section-title">Vendor stock</h3>${eventNote}${rows}`;
 }
 
 function renderVendors(data) {
@@ -128,7 +128,7 @@ function renderVendors(data) {
   let html = '';
 
   // ---- Vendor roster (wiki-canonical) ----
-  html += '<div class="vendor-section-title">Vendors</div>';
+  html += '<h3 class="vendor-section-title">Vendors</h3>';
   html += '<div class="trader-grid">';
   const roster = [...VENDOR_ROSTER].sort((a, b) =>
     a.faction === b.faction ? a.name.localeCompare(b.name) : a.faction.localeCompare(b.faction));
@@ -143,24 +143,31 @@ function renderVendors(data) {
       status = on ? 'Unlocked' : 'Locked';
       statusCls = on ? 'on' : 'off';
     } else { status = 'Available'; statusCls = 'on'; }
-    html += `<article class="trader-card">
-      <div class="trader-card-head"><span class="trader-name-wrap"><span class="trader-icon">${appIcon(VENDOR_ICON[v.name])}</span><span class="tname">${esc(v.name)}</span></span><span class="trader-status ${statusCls}">${esc(status)}</span></div>
-      <div class="trader-faction">${esc(v.faction)}${tier ? ` · ${esc(tier)}` : ''}</div>
-      <p class="vendor-note">${esc(v.note)}</p>
-    </article>`;
+    html += entityCard({
+      compact: true,
+      cardClass: 'trader-card',
+      headingLevel: 4,
+      iconHtml: `<span class="trader-icon">${appIcon(VENDOR_ICON[v.name])}</span>`,
+      eyebrow: v.faction,
+      title: v.name,
+      subtitle: tier,
+      statusHtml: `<span class="trader-status ${statusCls}">${esc(status)}</span>`,
+      bodyHtml: `<p class="vendor-note">${esc(v.note)}</p>`
+    });
   }
   html += '</div>';
 
   html += renderVendorEconomy(data.economy);
 
   // ---- Faction Trust ----
-  html += '<div class="vendor-section-title">Faction trust</div>';
+  html += '<h3 class="vendor-section-title">Faction trust</h3>';
   html += '<div class="vendor-grid">';
   for (const f of factions) {
     const tier = trustTier(f.score);
     const enc = encodeURIComponent(f.scope);
     html += entityCard({
       cardClass: 'vendor-card',
+      headingLevel: 4,
       data: { 'faction-scope': f.scope },
       iconHtml: `<span class="vendor-icon">${appIcon('shield')}</span>`,
       title: f.faction,
@@ -183,7 +190,7 @@ function renderVendors(data) {
   // ---- Trader unlock toggles (Kane/Luca) ----
   const traderRows = traders.filter(t => !t.key.startsWith('Questgiver.') && t.key.startsWith('Trader.'));
   if (traderRows.length) {
-    html += '<div class="vendor-section-title">Vendor unlock</div>';
+    html += '<h3 class="vendor-section-title">Vendor unlock</h3>';
     html += '<div class="trader-grid">';
     for (const t of traderRows) {
       const label = t.key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '');
@@ -375,18 +382,18 @@ function renderRepairStatus(data) {
     if (!haveIff) reasons.push('not enough IFF');
     const ok = !benchBusy && haveBroken && haveIff;
     const iffMeta = IFF_LABELS[r.iff] || { name: r.iff, faction: '', level: '' };
-    return { ok, html: `
-      <div class="repair-card ${ok ? 'ok' : 'no'}">
-        <div class="repair-card-head">
-          <span class="repair-card-name">${esc(r.product)}</span>
-          <span class="repair-card-dot ${ok ? 'ok' : 'no'}"></span>
-        </div>
-        <div class="repair-req-chips">
+    return { ok, html: entityCard({
+      compact: true,
+      cardClass: `repair-card ${ok ? 'ok' : 'no'}`,
+      headingLevel: 4,
+      title: r.product,
+      statusHtml: `<span class="repair-availability ${ok ? 'ok' : 'no'}">${ok ? 'Ready' : 'Unavailable'}</span>`,
+      bodyHtml: `<div class="repair-req-chips">
           <span class="repair-chip ${haveBroken ? 'ok' : 'no'}">Destroyed: ${haveBroken ? 'yes' : 'no'} (${brokenQty[r.broken] || 0}${needBroken > 1 ? '/' + needBroken : ''})</span>
           <span class="repair-chip ${haveIff ? 'ok' : 'no'}">${esc(iffMeta.faction)} LVL${esc(iffMeta.level)} IFF: ${haveIff ? 'yes' : 'no'} (${esc(iffQty[r.iff] || 0)}/${esc(r.iffQty)})</span>
         </div>
-        <div class="repair-card-status ${ok ? 'ok' : 'no'}">${ok ? '✓ Ready to repair' : reasons.join(' · ')}</div>
-      </div>` };
+        <div class="repair-card-status ${ok ? 'ok' : 'no'}">${ok ? '✓ Ready to repair' : esc(reasons.join(' · '))}</div>`
+    }) };
   });
   repairCards.sort((a, b) => Number(b.ok) - Number(a.ok));
   const readyCount = repairCards.filter(card => card.ok).length;

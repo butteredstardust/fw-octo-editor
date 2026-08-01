@@ -79,7 +79,7 @@
     .repair-actions, .backup-actions { margin-top:auto; padding-top:.65rem; border-top:1px solid var(--gunmetal-dark); }
     .weapon-actions, .vendor-score, .vendor-presets, .repair-actions, .backup-actions { justify-content:flex-end; }
     .vendor-presets { padding-top:.4rem; }
-    .hub-card .hub-btn { margin-top:auto; padding-top:.55rem; border-top:1px solid var(--gunmetal-dark); }
+    .hub-card .card-ui__footer .hub-btn { margin-top:0; }
     .weapon-card, .vendor-card, .char-card, .hub-card { min-width:0; }
     .backup-actions { width:100%; }
     @media (max-width:800px) { .backup-row { display:grid; grid-template-columns:1fr; } .backup-head, .backup-meta, .backup-actions { grid-column:1; grid-row:auto; } }
@@ -216,6 +216,9 @@
     .card-ui__status { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.3rem; margin-left:auto; }
     .card-ui__body { min-width:0; }
     .card-ui__footer { margin-top:auto; padding-top:.65rem; border-top:1px solid var(--gunmetal-dark); }
+    .card-ui--compact { padding:.7rem .8rem; gap:.45rem; }
+    .card-ui--compact .card-ui__title { font-size:.9rem; }
+    .card-ui--compact .card-ui__subtitle { font-size:.72rem; }
     @media (max-width:700px) { .card-ui { padding:.85rem; } .card-ui__header { flex-wrap:wrap; } .card-ui__status { width:100%; margin-left:0; justify-content:flex-start; } }
 
     .metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--metric-min,9rem)),1fr)); gap:var(--metric-gap,.65rem); margin:0; padding:0; }

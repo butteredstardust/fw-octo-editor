@@ -33,10 +33,12 @@ test('entityCard escapes data fields and renders each shared anatomy region once
   assert.match(html, /trusted-body/);
 });
 
-test('entityCard allows only h3 or h4 card titles', async () => {
+test('entityCard allows h3 through h5 card titles and supports compact cards', async () => {
   const { entityCard } = await import(pathToFileURL(path.join(publicRoot, 'modules', 'card-ui.mjs')));
   assert.match(entityCard({ title: 'Default' }), /<h3 class="card-ui__title">Default<\/h3>/);
   assert.match(entityCard({ title: 'Nested', headingLevel: 4 }), /<h4 class="card-ui__title">Nested<\/h4>/);
+  assert.match(entityCard({ title: 'Deeply nested', headingLevel: 5 }), /<h5 class="card-ui__title">Deeply nested<\/h5>/);
+  assert.match(entityCard({ title: 'Compact', compact: true }), /class="card-ui card-ui--compact /);
   assert.match(entityCard({ title: 'Invalid', headingLevel: 2 }), /<h3 class="card-ui__title">Invalid<\/h3>/);
   assert.doesNotMatch(entityCard({ title: 'Hostile', headingLevel: '3><script>' }), /<script>|<h3><script>/);
 });
@@ -94,6 +96,21 @@ test('characters, weapon XP, and faction trust cards use shared anatomy without 
   assert.match(vendors, /data-action="set-faction"/);
 });
 
+test('hub, vendor roster, and repair recipes use compact shared cards with semantic status', () => {
+  const hub = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'hub.mjs'), 'utf8');
+  const vendorsRepair = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'vendors-repair.mjs'), 'utf8');
+  assert.match(hub, /import \{[^}]*entityCard/);
+  assert.match(hub, /headingLevel: 5/);
+  assert.match(hub, /<h3 class="hub-category-heading">/);
+  assert.match(hub, /<h4 class="hub-group-heading">/);
+  assert.match(hub, /data-action="toggle-upgrade"/);
+  assert.match(vendorsRepair, /compact: true/);
+  assert.match(vendorsRepair, /cardClass: 'trader-card'/);
+  assert.match(vendorsRepair, /cardClass: `repair-card/);
+  assert.match(vendorsRepair, /repair-availability/);
+  assert.doesNotMatch(vendorsRepair, /repair-card-dot/);
+});
+
 test('Stats, Repair, Rigs, and IFF summaries compose through metricGrid', () => {
   const stats = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'stats.mjs'), 'utf8');
   const vendorsRepair = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'vendors-repair.mjs'), 'utf8');
@@ -111,6 +128,7 @@ test('shared card CSS owns structure while feature CSS retains domain variants',
   const refinements = fs.readFileSync(path.join(publicRoot, 'css', 'refinements.css'), 'utf8');
   assert.match(shared, /\.card-ui \{[^}]*display:flex[^}]*border:1px solid var\(--gunmetal\)/);
   assert.match(shared, /\.card-ui__footer \{[^}]*margin-top:auto[^}]*border-top/);
+  assert.match(shared, /\.card-ui--compact \{[^}]*padding:\.7rem \.8rem/);
   assert.match(shared, /@media \(max-width:700px\)[\s\S]{0,250}\.card-ui__header \{ flex-wrap:wrap/);
   assert.match(planners, /\.recipe-card\.is-ready/);
   assert.match(refinements, /\.rig-card\.owned/);

@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { entityCard } from '../card-ui.mjs';
 
 const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, loadErrorHtml, noMatchesHtml } = FW;
 function addCanonicalComponents(...args) { return FW.addCanonicalComponents(...args); }
@@ -87,7 +88,7 @@ function renderHubUpgrades(unlockedTags) {
         const groupTotal = tags.length;
         const progress = groupTotal > 1 ? `<span class="hub-group-progress ${groupBuilt === groupTotal ? 'complete' : ''}">${groupBuilt} / ${groupTotal} built</span>` : '';
         catBodyHtml += `<div class="hub-group">
-          <button type="button" class="hub-group-title collapsible" data-action="toggle-section" data-target="${groupId}" aria-expanded="true"><span class="hub-chevron">▾</span>${esc(group)} ${progress}</button>
+          <h4 class="hub-group-heading"><button type="button" class="hub-group-title collapsible" data-action="toggle-section" data-target="${groupId}" aria-expanded="true"><span class="hub-chevron">▾</span>${esc(group)} ${progress}</button></h4>
           <div class="hub-cards" id="${groupId}">`;
         for (const tag of visibleTags) {
           const meta = HUB_UPGRADE_META[tag] || { name: tag.split('.').pop(), icon: '🔹', desc: '', group: 'Other' };
@@ -122,26 +123,27 @@ function renderHubUpgrades(unlockedTags) {
             : unlocked
               ? `<button class="hub-btn lock-btn" ${canRemove ? '' : 'disabled'} data-action="toggle-upgrade" data-tag="${esc(tag)}" data-enabled="false"${blockingDependentTag ? ` title="Remove ${esc(blockingDependentName)} first"` : ''}>${actionIcon('lock')}Remove</button>`
               : `<button class="hub-btn unlock-btn" ${canUnlock ? '' : 'disabled'} data-action="toggle-upgrade" data-tag="${esc(tag)}" data-enabled="true">${actionIcon('unlock')}Unlock</button>`;
-          catBodyHtml += `<div class="hub-card ${status} ${permanent ? 'perm' : ''}">
-            <div class="hub-card-head">
-            <span class="hub-icon">${appIcon(meta.icon)}</span>
-              <span class="hub-name">${esc(meta.name)}</span>
-              <span class="hub-pill ${status}">${statusLabel}</span>
-            </div>
-            ${water ? `<div class="hub-cost">${appIcon('water')} ${water} days water to unlock</div>` : ''}
+          catBodyHtml += entityCard({
+            cardClass: `hub-card ${status} ${permanent ? 'perm' : ''}`,
+            data: { 'upgrade-tag': tag },
+            headingLevel: 5,
+            iconHtml: `<span class="hub-icon">${appIcon(meta.icon)}</span>`,
+            title: meta.name,
+            statusHtml: `<span class="hub-pill ${status}">${statusLabel}</span>`,
+            bodyHtml: `${water ? `<div class="hub-cost">${appIcon('water')} ${water} days water to unlock</div>` : ''}
             <div class="hub-desc">${esc(meta.desc || '')}</div>
             ${meta.prereq ? `<div class="hub-prereq ${prereqMet ? '' : 'unmet'}">Requires: ${esc(prereqName)}${prereqMet ? ' ✓' : ' ✗'}</div>` : ''}
             ${blockingDependentTag ? `<div class="hub-prereq unmet">Blocks removal: ${esc(blockingDependentName)} is still unlocked</div>` : ''}
-            ${creditsLine}${timeLine}${reqBlock}
-            ${btn}
-          </div>`;
+            ${creditsLine}${timeLine}${reqBlock}`,
+            footerHtml: btn
+          });
         }
         catBodyHtml += '</div></div>';
       }
     if (!catHasVisible) continue;
     anyCategoryVisible = true;
     html += `<div class="hub-section">
-      <button type="button" class="hub-cat collapsible" data-action="toggle-section" data-target="${catId}" aria-expanded="true"><span class="hub-chevron">▾</span>${HUB_CATEGORY_LABELS[cat]} <span class="hub-cat-count">${catBuilt} / ${catTotal}</span></button>
+      <h3 class="hub-category-heading"><button type="button" class="hub-cat collapsible" data-action="toggle-section" data-target="${catId}" aria-expanded="true"><span class="hub-chevron">▾</span>${HUB_CATEGORY_LABELS[cat]} <span class="hub-cat-count">${catBuilt} / ${catTotal}</span></button></h3>
       <div class="hub-section-body" id="${catId}">${catBodyHtml}</div></div>`;
    }
 
