@@ -213,3 +213,32 @@ test('an unknown or malformed hash falls back to Overview and is never injected 
   await page.goto(`${baseURL}#totally-not-a-real-page`);
   await expect(page.locator('#page-dashboard')).toHaveClass(/active/);
 });
+
+test('floating shell keeps the sidebar below chrome and the mobile drawer restores focus', async ({ page }) => {
+  await mockApi(page);
+  await page.setViewportSize({ width: 1366, height: 768 });
+  await page.goto(baseURL);
+  const desktop = await page.evaluate(() => {
+    const header = document.querySelector('.header').getBoundingClientRect();
+    const safety = document.querySelector('.safety-bar').getBoundingClientRect();
+    const nav = document.getElementById('primaryNav').getBoundingClientRect();
+    return { headerBottom: header.bottom, safetyBottom: safety.bottom, navTop: nav.top };
+  });
+  expect(desktop.navTop).toBeGreaterThanOrEqual(desktop.headerBottom + 11);
+  expect(desktop.navTop).toBeGreaterThanOrEqual(desktop.safetyBottom + 15);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator('#navToggle').click();
+  await expect(page.locator('#navClose')).toBeFocused();
+  const nav = page.locator('#primaryNav');
+  await expect.poll(async () => (await nav.boundingBox()).x).toBeGreaterThanOrEqual(11);
+  const mobile = await nav.boundingBox();
+  expect(mobile.x).toBeGreaterThanOrEqual(11);
+  expect(mobile.y).toBeGreaterThanOrEqual(7);
+  expect(mobile.x + mobile.width).toBeLessThanOrEqual(379);
+  await page.keyboard.press('Tab');
+  await expect(page.locator('[data-page="dashboard"]')).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.locator('[data-page="characters"]')).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#navToggle')).toBeFocused();
+});

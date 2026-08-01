@@ -82,7 +82,8 @@ test('frontend rejects duplicate mutation requests', () => {
 
 test('mobile navigation isolates background content and restores focus', () => {
   assert.match(html, /id="navBackdrop"/);
-  assert.match(frontendJs, /toggleAttribute\('inert', open\)/);
+  assert.match(frontendJs, /setAttribute\('inert', ''\)/);
+  assert.match(frontendJs, /removeAttribute\('inert'\)/);
   assert.match(frontendJs, /function closeMobileNav\(/);
   assert.match(frontendJs, /event\.key === 'Tab'/);
 });

@@ -6,21 +6,6 @@ body {
     repeating-linear-gradient(115deg, rgba(255,255,255,.012) 0 1px, transparent 1px 9px),
     var(--bg);
 }
-.header { position:sticky; top:0; z-index:40; box-shadow:0 8px 30px rgba(0,0,0,.3); }
-.brand-lockup { display:flex; align-items:center; gap:.8rem; }
-.brand-mark { width:2rem; height:2rem; display:block; border-radius:6px; filter:drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
- .header-kicker { display:block; color:var(--amber-soft); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-.nav-toggle { display:none; margin-left:auto; background:transparent; border:1px solid var(--gunmetal); }
-.app-frame { display:grid; grid-template-columns:var(--sidebar) minmax(0,1fr); min-height:calc(100vh - 116px); }
-.nav { position:sticky; top:111px; align-self:start; height:calc(100vh - 111px); padding:1rem .75rem 2rem; display:block; overflow-y:auto; border-right:1px solid var(--gunmetal); border-bottom:0; background:linear-gradient(180deg,rgba(21,23,28,.98),rgba(13,14,17,.96)); }
-.nav-group { margin-bottom:1rem; }
-.nav-group-title { margin:.25rem .65rem .38rem; color:var(--muted-text); font-size:.64rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
-.nav button { width:100%; display:flex; align-items:center; min-height:2.35rem; margin:.12rem 0; padding:.48rem .7rem; text-align:left; border-left:2px solid transparent; border-radius:3px; }
-.nav-icon { display:inline-flex; width:18px; height:18px; flex:0 0 18px; margin-right:.65rem; color:inherit; }
-.nav-icon svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
-.nav button.active { background:linear-gradient(90deg,rgba(217,107,39,.3),rgba(217,107,39,.07)); border-left-color:var(--amber-soft); color:#fff; }
-.nav button.active .nav-icon { color:var(--amber-soft); }
-.content { width:100%; max-width:1480px; margin:0; padding:1.5rem clamp(1rem,3vw,2.5rem) 4rem; }
 .card { position:relative; overflow:hidden; background:linear-gradient(145deg,rgba(30,32,38,.96),rgba(20,22,27,.96)); border-color:#3a3e46; box-shadow:var(--shadow); }
 .card::before { content:''; position:absolute; inset:0 0 auto; height:2px; background:linear-gradient(90deg,var(--amber),transparent 42%); opacity:.75; border-radius:inherit; }
 /* .card's overflow:hidden exists only to clip ::before's top bar to the card's
@@ -88,21 +73,13 @@ body {
 .empty-state__actions { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin-top:1rem; }
 @media (max-width:1050px) { .filter-bar { grid-template-columns:repeat(2,minmax(0,1fr)); } .filter-bar--sticky { position:static; } }
 @media (max-width:780px) {
-  .header { padding:.75rem 1rem; flex-wrap:wrap; row-gap:.5rem; }
-  .header-tools { flex-basis:100%; order:3; flex-wrap:wrap; }
-  .nav-toggle { display:block; }
-  .app-frame { display:block; }
-  .nav { position:fixed; z-index:50; top:0; left:0; width:min(82vw,280px); height:100vh; padding-top:4.5rem; transform:translateX(-105%); transition:transform .2s ease; box-shadow:var(--shadow); }
-  body.nav-open .nav { transform:translateX(0); }
-  body.nav-open::after { content:''; position:fixed; z-index:45; inset:0; background:rgba(0,0,0,.68); }
   .filter-bar { grid-template-columns:1fr; }
-  .content { padding:1rem .75rem 3rem; }
   .card { padding:1rem; border-radius:6px; }
 }
 @media (prefers-reduced-motion:reduce) { .changed-flash,.toast { animation:none; } }
-.connection-banner{position:sticky;top:0;z-index:60;padding:.65rem 1rem;background:var(--red-bg);border-bottom:1px solid var(--red-border);color:var(--red);text-align:center}.connection-banner button{margin-left:.65rem}.mutation-status{position:fixed;right:1rem;bottom:1rem;z-index:90;display:flex;align-items:center;gap:.65rem;min-width:260px;padding:.8rem 1rem;border:1px solid var(--amber-soft);border-radius:7px;background:var(--surface);box-shadow:0 12px 30px rgba(0,0,0,.45)}.mutation-status[hidden],.connection-banner[hidden]{display:none}.mutation-status #mutationElapsed{margin-left:auto;color:var(--text-2);font-variant-numeric:tabular-nums}.mutation-spinner{width:1rem;height:1rem;border:2px solid var(--gunmetal);border-top-color:var(--amber-soft);border-radius:50%;animation:mutation-spin .8s linear infinite}@keyframes mutation-spin{to{transform:rotate(360deg)}}
-.nav-backdrop{display:none}.skeleton-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem}.skeleton-card{min-height:118px;padding:1rem;border:1px solid var(--gunmetal-dark);border-radius:8px;background:var(--surface-2)}.skeleton-card span{display:block;height:.7rem;margin:.65rem 0;border-radius:4px;background:linear-gradient(90deg,var(--gunmetal-dark),var(--gunmetal),var(--gunmetal-dark));background-size:200% 100%;animation:skeleton-shift 1.4s ease-in-out infinite}.skeleton-card span:nth-child(2){width:82%}.skeleton-card span:nth-child(3){width:58%}@keyframes skeleton-shift{to{background-position:-200% 0}}
-@media(max-width:780px){body.nav-open::after{content:none}.nav-backdrop{position:fixed;display:block;z-index:45;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:0;background:rgba(0,0,0,.68)}.nav-backdrop[hidden]{display:none}.mutation-status{left:.75rem;right:.75rem;bottom:.75rem;min-width:0}button,input,select{min-height:44px}}
+.mutation-status{position:fixed;right:1rem;bottom:1rem;z-index:90;display:flex;align-items:center;gap:.65rem;min-width:260px;padding:.8rem 1rem;border:1px solid var(--amber-soft);border-radius:7px;background:var(--surface);box-shadow:0 12px 30px rgba(0,0,0,.45)}.mutation-status[hidden]{display:none}.mutation-status #mutationElapsed{margin-left:auto;color:var(--text-2);font-variant-numeric:tabular-nums}.mutation-spinner{width:1rem;height:1rem;border:2px solid var(--gunmetal);border-top-color:var(--amber-soft);border-radius:50%;animation:mutation-spin .8s linear infinite}@keyframes mutation-spin{to{transform:rotate(360deg)}}
+.skeleton-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem}.skeleton-card{min-height:118px;padding:1rem;border:1px solid var(--gunmetal-dark);border-radius:8px;background:var(--surface-2)}.skeleton-card span{display:block;height:.7rem;margin:.65rem 0;border-radius:4px;background:linear-gradient(90deg,var(--gunmetal-dark),var(--gunmetal),var(--gunmetal-dark));background-size:200% 100%;animation:skeleton-shift 1.4s ease-in-out infinite}.skeleton-card span:nth-child(2){width:82%}.skeleton-card span:nth-child(3){width:58%}@keyframes skeleton-shift{to{background-position:-200% 0}}
+@media(max-width:780px){.mutation-status{left:.75rem;right:.75rem;bottom:.75rem;min-width:0}button,input,select{min-height:44px}}
 @media(prefers-reduced-motion:reduce){.mutation-spinner,.skeleton-card span{animation:none}.skeleton-card span{background:var(--gunmetal-dark)}}
 .app-icon{display:inline-flex;width:1em;height:1em;align-items:center;justify-content:center;vertical-align:-.12em;color:currentColor}
 .app-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -201,34 +178,4 @@ body {
 .wbr-suppressed.yes{color:var(--teal-soft)}
 @media(max-width:700px){.wbr-row{grid-template-columns:1.6rem minmax(0,1fr) 3.4rem}.wbr-parts,.wbr-suppressed{display:none}}
 
-/* Sidebar SYSTEM group (Backups/Diagnostics/Settings) was sitting below the
-   fold with no scroll cue at common laptop heights (e.g. 1366x768) -- the
-   nav already scrolls internally (see .nav in the base rule above), so
-   Backups, the most safety-critical page in the app, was effectively
-   undiscoverable on first load. Tighten density at short viewports and pair
-   it with an always-available fade+chevron affordance below (not gated to
-   this media query, since density tuning alone can't guarantee every
-   possible viewport/zoom/font-size combination fits). */
-@media (max-height:850px) {
-  .nav { padding:.6rem .75rem 1.4rem; }
-  .nav-group { margin-bottom:.4rem; }
-  .nav-group-title { margin:.1rem .65rem .2rem; font-size:.6rem; }
-  .nav button { min-height:1.9rem; margin:.03rem 0; padding:.32rem .65rem; font-size:.86rem; }
-  .nav-icon { width:15px; height:15px; flex:0 0 15px; margin-right:.5rem; }
-}
-.nav-scroll-hint { position:sticky; bottom:0; left:0; right:0; height:30px; margin-top:-30px; pointer-events:none; display:flex; align-items:flex-end; justify-content:center; padding-bottom:2px; background:linear-gradient(180deg,rgba(13,14,17,0),rgba(13,14,17,.94) 72%); opacity:0; transition:opacity .15s ease; }
-.nav-scroll-hint.visible { opacity:1; }
-.nav-scroll-hint svg { width:14px; height:14px; fill:none; stroke:var(--amber-soft); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; animation:nav-scroll-bounce 1.3s ease-in-out infinite; }
-@keyframes nav-scroll-bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(3px); } }
-@media (prefers-reduced-motion:reduce) { .nav-scroll-hint svg { animation:none; } }
-
-/* First-run preflight panel (see updatePreflightPanel() in system.mjs):
-   informational and dismissible, never a modal/focus trap. */
-.preflight-panel { margin:.75rem clamp(.75rem,2vw,2rem) 1.25rem; padding:.85rem 1rem; border:1px solid var(--red-border); border-left:4px solid var(--red); border-radius:8px; background:var(--red-bg); display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
-.preflight-panel[hidden] { display:none; }
-.preflight-body { flex:1 1 320px; min-width:0; }
-.preflight-body strong { display:block; margin-bottom:.35rem; color:var(--red); font-size:.92rem; }
-.preflight-body p { margin:.3rem 0; font-size:.82rem; line-height:1.45; color:var(--text-2); }
-.preflight-actions { display:flex; gap:.5rem; flex-wrap:wrap; align-items:flex-start; }
-@media (max-width:780px) { .preflight-panel { flex-direction:column; } .preflight-actions { width:100%; } .preflight-actions button { flex:1 1 auto; } }
 @media (max-width:780px) { .filter-bar { grid-template-columns:minmax(0,1fr); } }

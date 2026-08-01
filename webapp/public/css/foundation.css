@@ -62,27 +62,6 @@
        doesn't allow the fonts.googleapis.com stylesheet this used to load. */
     @font-face { font-family: 'Black Ops One'; src: url('../fonts/BlackOpsOne-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-    .header { background: var(--surface); padding: 1rem 2rem; border-bottom: 1px solid var(--gunmetal); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .header h1 { font-family: 'Black Ops One', 'Segoe UI', Tahoma, sans-serif; font-size: 1.35rem; letter-spacing: .02em; color: var(--text); }
-    .header-tools { display:flex; align-items:center; gap:.6rem; flex:0 0 auto; }
-    .header .status { display:inline-flex; align-items:center; gap:.4rem; font-size:.8rem; font-weight:600; padding:.3rem .7rem; border-radius:999px; border:1px solid var(--gunmetal); background:var(--surface-2); color:var(--text-2); white-space:nowrap; }
-    .header .status::before { content:""; width:.5rem; height:.5rem; border-radius:50%; background:currentColor; }
-    .header .status[data-state="closed"] { color:var(--green); border-color:var(--green-border); background:var(--green-bg); }
-    .header .status[data-state="running"] { color:var(--red); border-color:var(--red-border); background:var(--red-bg); }
-    .header .status[data-state="ready"] { color:var(--green); border-color:var(--green-border); background:var(--green-bg); }
-    .header .status[data-state="blocked"] { color:var(--red); border-color:var(--red-border); background:var(--red-bg); }
-    .header .status[data-state="checking"] { color:var(--amber-soft); border-color:var(--warn-border); }
-    .safety-value.truncate { display:block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; cursor:help; }
-    .info-button { flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; width:2.4rem; height:2.4rem; padding:0; border-radius:50%; border:1px solid var(--gunmetal); background:transparent; color:var(--text-2); cursor:pointer; }
-    .info-button .info-icon { display:block; width:20px; height:20px; }
-    .info-button:hover, .info-button:focus-visible { color:var(--text); border-color:var(--text-2); }
-    .nav { background: var(--surface-2); padding: 0.5rem 2rem; display: flex; gap: 0.5rem; border-bottom: 1px solid var(--gunmetal); overflow-x:auto; }
-    .nav button { background: transparent; border: none; color: var(--text-2); padding: 0.5rem 1rem; cursor: pointer; font-size: 0.9rem; border-radius: 4px; }
-    .nav button:hover { background: var(--surface); color: var(--text); }
-    /* .nav button.active color/background is set by refinements.css (sidebar
-       nav, loaded last, same specificity) -- do not redefine it here, it
-       would be dead code. */
-    .content { padding: 2rem; width:100%; max-width: none; margin: 0 auto; }
     .card { background: var(--surface); border: 1px solid var(--gunmetal); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
     .card h2 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text); }
     .warning { background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
@@ -171,12 +150,4 @@
     @media (max-width: 780px) { .two-col { grid-template-columns: 1fr; } .icon-only { width:44px; height:44px; min-height:44px; } }
     .page { display: none; }
     .page.active { display: block; }
-    .safety-bar { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:1px; background:var(--gunmetal); border-bottom:1px solid var(--gunmetal); }
-    .safety-item { background:var(--surface-2); padding:.55rem .8rem; min-width:0; }
-    .safety-label { display:block; color:var(--text-2); font-size:.65rem; text-transform:uppercase; letter-spacing:.05em; }
-    .safety-value { display:block; margin-top:.1rem; font-size:.78rem; font-weight:600; overflow-wrap:anywhere; }
-    .safety-value.good { color:var(--green); }
-    .safety-value.bad { color:var(--red); }
-    .safety-value.warn { color:var(--amber-soft); }
-    @media (max-width:780px) { .safety-bar { grid-template-columns:repeat(2,1fr); } .header { padding:1rem; } .nav { padding:.5rem 1rem; } .content { padding:1rem; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; } }
