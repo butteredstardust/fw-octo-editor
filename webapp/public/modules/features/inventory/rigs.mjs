@@ -1,5 +1,5 @@
 import { FW } from '../../runtime.mjs';
-import { entityCard } from '../../card-ui.mjs';
+import { entityCard, metricGrid } from '../../card-ui.mjs';
 
 const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, showLoading, technicalDetails, appIcon, actionIcon, setInlineFeedback, loadErrorHtml, showToast, confirmAction } = FW;
 function refreshSafetyStatus(...args) { return FW.refreshSafetyStatus?.(...args); }
@@ -62,10 +62,15 @@ function renderRigSummary() {
   if (!_rigData) return;
   const missing = _rigData.totalCount - _rigData.ownedCount;
   const uniqueHq = new Set(_rigData.rigs.flatMap(rig => rig.highQualityContainers)).size;
-  document.getElementById('rigSummary').innerHTML = `
-    <div class="rig-metric"><span>Owned rigs</span><strong>${esc(_rigData.ownedCount)} / ${esc(_rigData.totalCount)}</strong></div>
-    <div class="rig-metric"><span>Missing rigs</span><strong>${esc(missing)}</strong></div>
-    <div class="rig-metric"><span>HQ module types</span><strong>${uniqueHq}</strong></div>`;
+  document.getElementById('rigSummary').innerHTML = metricGrid({
+    className: 'rig-summary',
+    ariaLabel: 'Rig ownership summary',
+    items: [
+      { label: 'Owned rigs', value: _rigData.ownedCount, suffix: ` / ${_rigData.totalCount}` },
+      { label: 'Missing rigs', value: missing },
+      { label: 'HQ module types', value: uniqueHq }
+    ]
+  });
 }
 
 export function renderRigs() {

@@ -41,6 +41,27 @@ test('entityCard allows only h3 or h4 card titles', async () => {
   assert.doesNotMatch(entityCard({ title: 'Hostile', headingLevel: '3><script>' }), /<script>|<h3><script>/);
 });
 
+test('metricGrid escapes metric fields and keeps paired dt/dd semantics', async () => {
+  const { metricGrid } = await import(pathToFileURL(path.join(publicRoot, 'modules', 'card-ui.mjs')));
+  const html = metricGrid({
+    className: 'fixture <bad>',
+    ariaLabel: 'Summary <img data-metric-probe>',
+    items: [
+      { className: 'zero <bad>', label: '<script>Label</script>', value: '4 & 5', suffix: ' / 9', detail: '<img data-metric-probe>', detailHtml: '<span class="trusted-detail">Trusted</span>' },
+      { label: 'Second', value: 0 }
+    ]
+  });
+  assert.doesNotMatch(html, /<script>|<img data-metric-probe>/);
+  assert.match(html, /aria-label="Summary &lt;img data-metric-probe&gt;"/);
+  assert.match(html, /&lt;script&gt;Label&lt;\/script&gt;/);
+  assert.match(html, /4 &amp; 5/);
+  assert.match(html, /class="metric-tile__suffix"> \/ 9/);
+  assert.match(html, /trusted-detail/);
+  assert.equal((html.match(/<dt class="metric-tile__label">/g) || []).length, 2);
+  assert.equal((html.match(/<dd class="metric-tile__value">/g) || []).length, 2);
+  assert.match(metricGrid(), /^<dl class="metric-grid "><\/dl>$/);
+});
+
 test('recipes, rigs, and presets compose their feature content through entityCard', () => {
   const files = [
     'modules/features/settings-planners.mjs',
@@ -48,7 +69,7 @@ test('recipes, rigs, and presets compose their feature content through entityCar
     'modules/features/weapons.mjs'
   ].map(file => fs.readFileSync(path.join(publicRoot, file), 'utf8'));
   for (const source of files) {
-    assert.match(source, /import \{ entityCard \}/);
+    assert.match(source, /import \{[^}]*entityCard/);
     assert.match(source, /entityCard\(\{/);
   }
   assert.match(files[0], /data: \{ 'recipe-card': encId \}/);
@@ -61,7 +82,7 @@ test('characters, weapon XP, and faction trust cards use shared anatomy without 
   const weapons = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'weapons.mjs'), 'utf8');
   const vendors = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'vendors-repair.mjs'), 'utf8');
   for (const source of [characters, weapons, vendors]) {
-    assert.match(source, /import \{ entityCard \}/);
+    assert.match(source, /import \{[^}]*entityCard/);
     assert.match(source, /entityCard\(\{/);
   }
   assert.match(characters, /data-action="set-level"/);
@@ -71,6 +92,17 @@ test('characters, weapon XP, and faction trust cards use shared anatomy without 
   assert.match(weapons, /data-action="set-weapon-xp"/);
   assert.match(vendors, /bodyHtml: trustTrack\(f\.score\)/);
   assert.match(vendors, /data-action="set-faction"/);
+});
+
+test('Stats, Repair, Rigs, and IFF summaries compose through metricGrid', () => {
+  const stats = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'stats.mjs'), 'utf8');
+  const vendorsRepair = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'vendors-repair.mjs'), 'utf8');
+  const rigs = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'inventory', 'rigs.mjs'), 'utf8');
+  for (const source of [stats, vendorsRepair, rigs]) assert.match(source, /import \{[^}]*metricGrid/);
+  assert.match(stats, /ariaLabel: 'Lifetime player statistics'/);
+  assert.match(vendorsRepair, /ariaLabel: 'Repair bench summary'/);
+  assert.match(vendorsRepair, /ariaLabel: 'Faction IFF chip inventory'/);
+  assert.match(rigs, /ariaLabel: 'Rig ownership summary'/);
 });
 
 test('shared card CSS owns structure while feature CSS retains domain variants', () => {

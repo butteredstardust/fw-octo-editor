@@ -109,10 +109,10 @@ body {
 .dash-char-icon .app-icon,.char-icon .app-icon,.hub-icon .app-icon,.res-icon .app-icon,.vendor-icon .app-icon,.trader-icon .app-icon,.weapon-icon .app-icon,.recipe-icon .app-icon{width:100%;height:100%}
 .hub-req-line .app-icon,.hub-cost .app-icon{margin-right:.25rem}
 .rig-experimental{padding:.7rem .85rem;font-size:.8rem}
-.rig-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}
-.rig-metric{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem .9rem;border:1px solid var(--gunmetal-dark);border-radius:7px;background:rgba(10,11,14,.45)}
-.rig-metric span{color:var(--text-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
-.rig-metric strong{color:var(--amber-soft);font-size:1.1rem}
+.rig-summary{--metric-min:12rem;--metric-gap:.7rem;margin:1rem 0}
+.rig-summary .metric-tile{background:rgba(10,11,14,.45)}
+.rig-summary .metric-tile__label{font-size:.72rem;letter-spacing:.05em}
+.rig-summary .metric-tile__value strong{color:var(--amber-soft);font-size:1.1rem}
 .rig-filter-bar{grid-template-columns:minmax(260px,2fr) minmax(145px,1fr) minmax(160px,1fr) auto;position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
 .weapon-xp-controls{grid-template-columns:minmax(260px,2fr) minmax(180px,1fr) auto;position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
 /* Inventory and Add Items are the highest-traffic, longest-scrolling pages
@@ -142,8 +142,8 @@ body {
 .rig-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 .rig-actions button{width:100%}
 .rig-card>.technical-details{position:absolute;right:.75rem;bottom:.75rem;transform:translateY(calc(100% + .25rem))}
-@media(max-width:1050px){.rig-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.rig-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.weapon-xp-controls{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.weapon-build-toolbar{position:static}.preset-toolbar{position:static}}
-@media(max-width:780px){.rig-summary,.rig-capacity{grid-template-columns:1fr}.rig-grid{grid-template-columns:1fr}.rig-card{padding:.85rem}.rig-actions{grid-template-columns:1fr}.rig-kit-details li{grid-template-columns:minmax(0,1fr) auto}.rig-kit-details li .technical-details{grid-column:1/-1;margin-left:0}.rig-card>.technical-details{position:static;transform:none}}
+@media(max-width:1050px){.rig-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.weapon-xp-controls{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.weapon-build-toolbar{position:static}.preset-toolbar{position:static}}
+@media(max-width:780px){.rig-capacity{grid-template-columns:1fr}.rig-grid{grid-template-columns:1fr}.rig-card{padding:.85rem}.rig-actions{grid-template-columns:1fr}.rig-kit-details li{grid-template-columns:minmax(0,1fr) auto}.rig-kit-details li .technical-details{grid-column:1/-1;margin-left:0}.rig-card>.technical-details{position:static;transform:none}}
 
 .weapon-build-toolbar{grid-template-columns:2fr 1fr 2fr;position:sticky;top:7rem;z-index:8;box-shadow:0 8px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}.weapon-build-summary{display:flex;justify-content:space-between;gap:1rem;margin:1.25rem 0;padding:1rem;border:1px solid var(--gunmetal)}.build-metrics{display:grid;text-align:right}.build-metrics strong{font-size:2rem;color:var(--amber-soft)}.weapon-build-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}.weapon-part-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.75rem}
 .weapon-part-card{display:flex;gap:.75rem;padding:.8rem;border:1px solid var(--gunmetal);background:var(--surface-2);transition:border-color .15s,box-shadow .15s}
