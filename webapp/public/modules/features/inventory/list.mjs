@@ -2,6 +2,7 @@ import { FW } from '../../runtime.mjs';
 import { loadCatalog, describeItem, ITEM_CAT_ORDER, catalogWarningHtml, highValueBadge } from './catalog.mjs';
 import { buildFacetIndex, createSectionExpansionState, setSelectOptions } from './facets.mjs';
 import { itemIdentityHtml } from './item-view.mjs';
+import { disclosureSectionHtml, rerenderAndRestoreFocus } from '../../disclosure-ui.mjs';
 
 const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, setLocalBusy, setInlineFeedback, showToast, loadErrorHtml, showLoading } = FW;
 
@@ -117,18 +118,12 @@ export function renderInventory() {
     const list = groups[cat];
     const catUnits = list.reduce((n, r) => n + (r.quantity || 0), 0);
     const open = invExpansion.isOpen(cat);
-    html += `<div class="inv-section">
-      <button type="button" id="inventory-section-${encodeURIComponent(cat)}" class="inv-cat-head ${open ? 'open' : ''}" data-action="toggle-inventory-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
-        <span class="inv-caret">${open ? '▾' : '▸'}</span>
-        <span class="inv-cat-title">${esc(cat)}</span>
-        <span class="inv-cat-count">${list.length} types · ${catUnits.toLocaleString()} units</span>
-      </button>`;
+    let bodyHtml = '';
     if (open) {
-      html += '<div class="inv-grid">';
       for (const r of list) {
         const enc = encodeURIComponent(r.name);
         const hv = r.d.exactName ? highValueBadge(r.d.wiki) : '';
-        html += `<div class="inv-item ${r.validLayout ? '' : 'invalid'} ${hv ? 'high-value' : ''}">
+        bodyHtml += `<div class="inv-item ${r.validLayout ? '' : 'invalid'} ${hv ? 'high-value' : ''}">
           ${itemIdentityHtml({
             id: r.name,
             label: r.d.wiki,
@@ -155,22 +150,33 @@ export function renderInventory() {
           </div>
         </div>`;
       }
-      html += '</div>';
     }
-    html += '</div>';
+    html += disclosureSectionHtml({
+      id: `inventory-section-${encodeURIComponent(cat)}`,
+      headingLevel: 3,
+      title: cat,
+      count: `${list.length} types · ${catUnits.toLocaleString()} units`,
+      expanded: open,
+      action: 'toggle-inventory-section',
+      data: { category: cat },
+      className: 'inv-section',
+      toggleClass: 'inv-cat-head',
+      panelClass: 'inv-grid',
+      bodyHtml
+    });
   }
   setRenderedHtml(el, html);
 }
 
-export function toggleInvSection(cat) {
+export function toggleInvSection(cat, trigger) {
   invExpansion.toggle(cat);
-  renderInventory();
+  rerenderAndRestoreFocus(renderInventory, trigger);
 }
 
-export function toggleAllInvSections(open) {
-  const cats = [...document.querySelectorAll('#inventoryList .inv-cat-title')].map(e => e.textContent);
+export function toggleAllInvSections(open, trigger) {
+  const cats = [...document.querySelectorAll('#inventoryList [data-action="toggle-inventory-section"]')].map(element => element.dataset.category);
   invExpansion.setAll(cats, open);
-  renderInventory();
+  rerenderAndRestoreFocus(renderInventory, trigger);
 }
 
 export function findInventoryItem(name) {

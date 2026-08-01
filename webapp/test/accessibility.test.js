@@ -66,8 +66,9 @@ test('interpolated hub and inventory category/name text is escaped', () => {
   assert.match(frontendJs, /title: meta\.name/);
   assert.match(frontendJs, /<\$\{Heading\} class="card-ui__title"\$\{titleAttributes\}>\$\{esc\(title\)\}\$\{titleHtml\}/);
   assert.match(frontendJs, /<span class="hub-chevron">▾<\/span>\$\{esc\(group\)\}/);
-  assert.match(frontendJs, /<span class="inv-cat-title">\$\{esc\(cat\)\}<\/span>/);
-  assert.match(frontendJs, /<span class="add-cat-title">\$\{esc\(cat\)\}<\/span>/);
+  assert.match(frontendJs, /disclosureSectionHtml\(\{/);
+  assert.match(frontendJs, /data: \{ category: cat \}/);
+  assert.match(frontendCss, /\.disclosure-panel\[hidden\] \{ display:none; \}/);
 });
 
 test('frontend rejects duplicate mutation requests', () => {

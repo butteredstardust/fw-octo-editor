@@ -2,6 +2,7 @@ import { FW } from '../../runtime.mjs';
 import { itemPresentation, sourceMapForCatalog, ITEM_CAT_ORDER, highValueBadge } from './catalog.mjs';
 import { buildFacetIndex, createSectionExpansionState, setSelectOptions } from './facets.mjs';
 import { itemIdentityHtml } from './item-view.mjs';
+import { disclosureSectionHtml, rerenderAndRestoreFocus } from '../../disclosure-ui.mjs';
 
 const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, emptyStateHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, setInlineFeedback, showToast, loadErrorHtml, showLoading } = FW;
 
@@ -110,21 +111,15 @@ export function renderAddCatalog() {
   for (const cat of catsShown) {
     const list = groups[cat];
     const open = addExpansion.isOpen(cat);
-    html += `<div class="add-section">
-      <button type="button" id="add-items-section-${encodeURIComponent(cat)}" class="add-cat-head ${open ? 'open' : ''}" data-action="toggle-add-items-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
-        <span class="add-caret">${open ? '▾' : '▸'}</span>
-        <span class="add-cat-title">${esc(cat)}</span>
-        <span class="add-cat-count">${list.length} items</span>
-      </button>`;
+    let bodyHtml = '';
     if (open) {
-      html += '<div class="add-grid">';
     for (const r of list) {
       const enc = encodeURIComponent(r.id);
       const owned = r.have > 0;
       const haveCls = owned ? 'add-have' : 'add-have zero';
       const haveTxt = owned ? `Have ${r.have.toLocaleString()}` : 'Not owned';
       const hv = r.wiki ? highValueBadge(r.wiki) : '';
-      html += `<div class="add-item ${owned ? 'owned' : ''} ${hv ? 'high-value' : ''}">
+      bodyHtml += `<div class="add-item ${owned ? 'owned' : ''} ${hv ? 'high-value' : ''}">
         ${itemIdentityHtml({
           id: r.id,
           label: r.wiki || cleanFallbackName(r.id),
@@ -146,22 +141,33 @@ export function renderAddCatalog() {
         </div>
       </div>`;
     }
-    html += '</div>';
     }
-    html += '</div>';
+    html += disclosureSectionHtml({
+      id: `add-items-section-${encodeURIComponent(cat)}`,
+      headingLevel: 3,
+      title: cat,
+      count: `${list.length} items`,
+      expanded: open,
+      action: 'toggle-add-items-section',
+      data: { category: cat },
+      className: 'add-section',
+      toggleClass: 'add-cat-head',
+      panelClass: 'add-grid',
+      bodyHtml
+    });
   }
   setRenderedHtml(el, html);
 }
 
-export function toggleAddSection(cat) {
+export function toggleAddSection(cat, trigger) {
   addExpansion.toggle(cat);
-  renderAddCatalog();
+  rerenderAndRestoreFocus(renderAddCatalog, trigger);
 }
 
-export function toggleAllAddSections(open) {
-  const cats = [...document.querySelectorAll('#addCatalogList .add-cat-title')].map(e => e.textContent);
+export function toggleAllAddSections(open, trigger) {
+  const cats = [...document.querySelectorAll('#addCatalogList [data-action="toggle-add-items-section"]')].map(element => element.dataset.category);
   addExpansion.setAll(cats, open);
-  renderAddCatalog();
+  rerenderAndRestoreFocus(renderAddCatalog, trigger);
 }
 
 export async function addItem(encId) {
