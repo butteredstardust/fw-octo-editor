@@ -36,29 +36,52 @@ function response(pathname) {
   return { success: true, afterIntegrity: { passed: true }, afterFk: { passed: true } };
 }
 
+const PAGES = [
+  ['overview', '#dashboard', '#dashCharacter'], ['characters', '#characters', '#charactersList'],
+  ['weapon-builds', '#weapon-builds', '#weaponBuildContent'], ['inventory', '#inventory', '#inventoryList'],
+  ['stats', '#stats', '#statsContent'], ['acknowledgements', '#dashboard', '#dashCharacter', true]
+];
+
+// `--live[=url]` captures a running server (npm start) with its real save data
+// instead of serving public/ with the fictional fixtures above. Read-only: the
+// script never clicks anything that mutates.
+function liveUrl() {
+  const arg = process.argv.slice(2).find(value => value === '--live' || value.startsWith('--live='));
+  if (!arg) return null;
+  return arg.includes('=') ? arg.slice(arg.indexOf('=') + 1) : 'http://127.0.0.1:3000';
+}
+
 async function main() {
   fs.mkdirSync(output, { recursive: true });
-  const app = express();
-  app.use(express.static(path.join(root, 'public')));
-  const server = await new Promise(resolve => { const listener = app.listen(0, '127.0.0.1', () => resolve(listener)); });
-  const baseURL = `http://127.0.0.1:${server.address().port}`;
+  const live = liveUrl();
+  let server = null;
+  if (!live) {
+    const app = express();
+    app.use(express.static(path.join(root, 'public')));
+    server = await new Promise(resolve => { const listener = app.listen(0, '127.0.0.1', () => resolve(listener)); });
+  }
+  const baseURL = live || `http://127.0.0.1:${server.address().port}`;
   const browser = await chromium.launch();
   try {
-    for (const [name, hash, ready, modal] of [
-      ['overview', '#dashboard', '#dashCharacter'], ['characters', '#characters', '#charactersList'],
-      ['weapon-builds', '#weapon-builds', '#weaponBuildContent'], ['inventory', '#inventory', '#inventoryList'],
-      ['stats', '#stats', '#statsContent'], ['acknowledgements', '#dashboard', '#dashCharacter', true]
-    ]) {
-      const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
-      await page.route('**/api/**', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(response(new URL(route.request().url()).pathname)) }));
+    for (const [name, hash, ready, modal] of PAGES) {
+      const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+      if (!live) await page.route('**/api/**', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(response(new URL(route.request().url()).pathname)) }));
       await page.goto(`${baseURL}/${hash}`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready);
       await page.locator(ready).waitFor({ state: 'visible' });
+      // A live save may raise the pre-flight banner; it pushes the page content
+      // down and says nothing about the feature being illustrated.
+      const preflightDismiss = page.locator('#preflightDismissButton');
+      if (await preflightDismiss.isVisible().catch(() => false)) await preflightDismiss.click();
       if (modal) await page.locator('#infoButton').click();
-      await page.waitForTimeout(250);
+      // Nav clicks move focus to the page heading; the focus ring reads as an
+      // artifact in a still image.
+      else await page.evaluate(() => document.activeElement?.blur());
+      await page.waitForTimeout(live ? 1000 : 250);
       await page.screenshot({ path: path.join(output, `${name}.png`) });
+      console.log(`Captured ${name}.png`);
       await page.close();
     }
-  } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); }
+  } finally { await browser.close(); if (server) await new Promise(resolve => server.close(resolve)); }
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });
