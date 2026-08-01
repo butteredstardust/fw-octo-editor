@@ -1,16 +1,16 @@
 import { FW } from '../../runtime.mjs';
 import { itemPresentation, sourceMapForCatalog, ITEM_CAT_ORDER, highValueBadge } from './catalog.mjs';
+import { buildFacetIndex, createSectionExpansionState, setSelectOptions } from './facets.mjs';
 import { itemIdentityHtml } from './item-view.mjs';
 
-const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, showToast, errorDetailHtml, loadErrorHtml, receiptHtml, showLoading } = FW;
+const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, setInlineFeedback, showToast, loadErrorHtml, showLoading } = FW;
 
 // Category ordering for the Add Items page (gear/loot buckets from the wiki).
 const ADD_CAT_ORDER = ITEM_CAT_ORDER;
 
 let _addCatalog = [];
-let _addCatIndex = {};
-let _addSubByCat = {};
-let _addExpanded = null;
+let _addFacets = { categories: [], subcategories: {} };
+const addExpansion = createSectionExpansionState();
 
 export async function loadAddCatalog() {
   const el = document.getElementById('addCatalogList');
@@ -28,22 +28,12 @@ export async function loadAddCatalog() {
       const have = haveById[c.id] != null ? haveById[c.id] : c.have;
       return { ...c, grp, sub: presentation.sub, slot: presentation.slot, sourceMap: presentation.sourceMap, have: have || 0 };
     });
-    // Build category + sub-type indexes.
-    _addCatIndex = {};
-    _addSubByCat = {};
-    for (const c of _addCatalog) {
-      (_addCatIndex[c.grp] = _addCatIndex[c.grp] || new Set()).add(c.id);
-      const subKey = c.sub || '—';
-      (_addSubByCat[c.grp] = _addSubByCat[c.grp] || new Set()).add(subKey);
-    }
-    for (const k of Object.keys(_addCatIndex)) {
-      _addCatIndex[k] = [..._addCatIndex[k]].length;
-      _addSubByCat[k] = [..._addSubByCat[k]].sort((a, b) => a.localeCompare(b));
-    }
-    const sel = document.getElementById('addFilter');
-    const cats = ADD_CAT_ORDER.filter(c => _addCatIndex[c]);
-    sel.innerHTML = '<option value="">All</option>' +
-      cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+    _addFacets = buildFacetIndex(_addCatalog, {
+      categoryOf: item => item.grp,
+      subcategoryOf: item => item.sub,
+      categoryOrder: ADD_CAT_ORDER
+    });
+    setSelectOptions(document.getElementById('addFilter'), _addFacets.categories);
     populateAddSubFilter();
     renderAddCatalog();
   } catch (err) {
@@ -55,9 +45,8 @@ export async function loadAddCatalog() {
 function populateAddSubFilter() {
   const cat = document.getElementById('addFilter').value;
   const sub = document.getElementById('addSubFilter');
-  const subs = cat ? (_addSubByCat[cat] || []) : [];
-  sub.innerHTML = '<option value="">All</option>' +
-    subs.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join('');
+  const subs = cat ? (_addFacets.subcategories[cat] || []) : [];
+  setSelectOptions(sub, subs);
 }
 
 export function onAddCategoryChange() {
@@ -79,7 +68,7 @@ export function clearAddFilters() {
 
 // Reset to the default: only the first visible category is expanded.
 export function resetAddExpansion() {
-  _addExpanded = null;
+  addExpansion.reset();
 }
 
 export function renderAddCatalog() {
@@ -113,18 +102,16 @@ export function renderAddCatalog() {
   for (const r of rows) (groups[r.grp] = groups[r.grp] || []).push(r);
   const catsShown = ADD_CAT_ORDER.filter(c => groups[c]);
 
-  if (_addExpanded === null) {
-    _addExpanded = new Set(catsShown.length ? [catsShown[0]] : []);
-  }
+  addExpansion.initialize(catsShown, { expandAll: !!q });
 
   let html = `<div class="inv-summary-line">${rows.length} item(s) available to add · ` +
-    `<button type="button" class="inv-toggle-all" data-action="toggle-all-add-items" data-open="true">expand all</button> · ` +
-    `<button type="button" class="inv-toggle-all" data-action="toggle-all-add-items" data-open="false">collapse all</button></div>`;
+    `<button type="button" id="add-items-expand-all" class="inv-toggle-all" data-action="toggle-all-add-items" data-open="true">expand all</button> · ` +
+    `<button type="button" id="add-items-collapse-all" class="inv-toggle-all" data-action="toggle-all-add-items" data-open="false">collapse all</button></div>`;
   for (const cat of catsShown) {
     const list = groups[cat];
-    const open = _addExpanded.has(cat);
+    const open = addExpansion.isOpen(cat);
     html += `<div class="add-section">
-      <button type="button" class="add-cat-head ${open ? 'open' : ''}" data-action="toggle-add-items-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
+      <button type="button" id="add-items-section-${encodeURIComponent(cat)}" class="add-cat-head ${open ? 'open' : ''}" data-action="toggle-add-items-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
         <span class="add-caret">${open ? '▾' : '▸'}</span>
         <span class="add-cat-title">${esc(cat)}</span>
         <span class="add-cat-count">${list.length} items</span>
@@ -167,15 +154,13 @@ export function renderAddCatalog() {
 }
 
 export function toggleAddSection(cat) {
-  if (_addExpanded === null) _addExpanded = new Set();
-  if (_addExpanded.has(cat)) _addExpanded.delete(cat);
-  else _addExpanded.add(cat);
+  addExpansion.toggle(cat);
   renderAddCatalog();
 }
 
 export function toggleAllAddSections(open) {
   const cats = [...document.querySelectorAll('#addCatalogList .add-cat-title')].map(e => e.textContent);
-  _addExpanded = new Set(open ? cats : []);
+  addExpansion.setAll(cats, open);
   renderAddCatalog();
 }
 
@@ -189,22 +174,22 @@ export async function addItem(encId) {
   const sourceMap = cat ? sourceMapForCatalog(cat) : undefined;
   const body = { itemId: id, quantity: qty };
   if (sourceMap) body.sourceMap = sourceMap;
-  if (inline) { inline.className = 'operation-inline pending'; inline.textContent = `Adding ${qty.toLocaleString()}…`; }
+  setInlineFeedback(inline, { state: 'pending', message: `Adding ${qty.toLocaleString()}…` });
   const result = await api('/inventory/add', {
     method: 'POST', body: JSON.stringify(body)
   }).catch(err => {
-    if (inline) { inline.className = 'operation-inline error'; inline.innerHTML = errorDetailHtml(err, 'This item could not be added.'); }
+    setInlineFeedback(inline, { state: 'error', error: err, fallback: 'This item could not be added.' });
     showToast(`Could not add ${cat?.wiki || cleanFallbackName(id)}.`, 'error');
     return null;
   });
   if (!result) return;
   if (!result.success && !result.added) {
-    if (inline) { inline.className = 'operation-inline error'; inline.textContent = 'Could not confirm this was added. Try again.'; }
+    setInlineFeedback(inline, { state: 'error', message: 'Could not confirm this was added. Try again.' });
   } else if (result.added === false) {
-    if (inline) { inline.className = 'operation-inline'; inline.textContent = 'Already owned—adjust it from Inventory.'; }
+    setInlineFeedback(inline, { message: 'Already owned—adjust it from Inventory.' });
   } else {
     const friendly = cat?.wiki || cleanFallbackName(id);
-    if (inline) { inline.className = 'operation-inline success'; inline.innerHTML = `Added ${qty.toLocaleString()} × ${esc(friendly)}.${receiptHtml(result)}`; }
+    setInlineFeedback(inline, { state: 'success', message: `Added ${qty.toLocaleString()} × ${friendly}.`, result });
     row?.classList.add('changed-flash');
     showToast(`${friendly} was added and verified.`);
     if (cat) cat.have = (cat.have || 0) + qty;

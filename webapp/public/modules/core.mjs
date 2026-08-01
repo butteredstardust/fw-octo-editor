@@ -9,7 +9,7 @@ import {
 import { FW, expose } from './runtime.mjs';
 import { esc, technicalDetails, setRenderedHtml, showLoading, setLocalBusy, filterSummaryHtml, operationFeedbackFor } from './dom.mjs';
 import { itemTypeIcon, appIcon, actionIcon, itemCategoryPills } from './icons.mjs';
-import { showToast, receiptHtml, userMessage, errorDetailHtml, loadErrorHtml, noMatchesHtml, setOperationFeedback, openAppDialog, showNotice, confirmAction } from './feedback.mjs';
+import { showToast, receiptHtml, userMessage, errorDetailHtml, loadErrorHtml, noMatchesHtml, setOperationFeedback, setInlineFeedback, openAppDialog, showNotice, confirmAction } from './feedback.mjs';
 import {
   CHARACTER_META,
   PRESTIGE_CAP_LEVEL,
@@ -83,6 +83,7 @@ expose({
   loadErrorHtml,
   noMatchesHtml,
   setOperationFeedback,
+  setInlineFeedback,
   operationFeedbackFor,
   filterSummaryHtml,
   showLoading,

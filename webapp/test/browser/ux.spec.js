@@ -24,6 +24,10 @@ async function mockApi(page, options = {}) {
     const method = request.method();
     if (method !== 'GET') mutations.push({ pathname, method, body: request.postDataJSON() });
     if (options.delayMutation && method !== 'GET') await new Promise(resolve => setTimeout(resolve, options.delayMutation));
+    if (method !== 'GET' && options.mutationErrorPath === pathname) {
+      await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: options.mutationError || 'fixture mutation failure' }) });
+      return;
+    }
     let body;
     if (pathname === '/api/session') body = { csrfToken: 'fixture-token' };
     else if (pathname === '/api/status') body = { gameRunning: [], compatibility: { compatible: true }, writeReady: true, mutation: {}, activeSaveDir: 'fixture', blockingReasons: [] };
@@ -40,6 +44,7 @@ async function mockApi(page, options = {}) {
       }
       body = options.inventory || [];
     }
+    else if (pathname === '/api/inventory/catalog') body = options.inventoryCatalog || [];
     else if (pathname === '/api/weapon-xp') body = options.weaponXp || [];
     else if (pathname === '/api/weapon-xp/reference') body = options.weaponReference || {};
     else if (pathname === '/api/repair') body = { repairs: [], iff: [], destroyed: [] };
@@ -88,6 +93,60 @@ test('shared inventory identity renders one technical ID and reusable metadata',
   await expect(card.locator('.item-taxonomy .item-pill')).not.toHaveCount(0);
   await expect(card.locator('.hv-badge')).toHaveCount(1);
   await expect(card.locator('.item-desc')).toHaveCount(1);
+});
+
+test('inventory mutation feedback has shared receipt and accessible error semantics', async ({ page }) => {
+  const inventory = [{ name: 'RareLoot_33_Bolts', quantity: 3, sourceMap: 'Items', validLayout: true }];
+  await mockApi(page, { inventory });
+  await page.goto(baseURL);
+  await page.locator('[data-page="inventory"]').click();
+  await page.locator('[data-action="update-item"]').click();
+  const success = page.locator('#op-RareLoot_33_Bolts');
+  await expect(success).toHaveClass(/success/);
+  await expect(success).toHaveAttribute('role', 'status');
+  await expect(success).toHaveAttribute('aria-live', 'polite');
+  await expect(success.locator('.receipt')).toHaveCount(1);
+
+  await page.unroute('**/api/**');
+  await mockApi(page, {
+    inventory,
+    mutationErrorPath: '/api/inventory/update',
+    mutationError: 'SQL failed at C:\\private\\save <img data-inline-probe src=x>'
+  });
+  await page.reload();
+  await page.locator('[data-page="inventory"]').click();
+  await page.locator('[data-action="update-item"]').click();
+  const failure = page.locator('#op-RareLoot_33_Bolts');
+  await expect(failure).toHaveClass(/error/);
+  await expect(failure).toHaveAttribute('role', 'alert');
+  await expect(failure).toHaveAttribute('aria-live', 'assertive');
+  await expect(failure).toContainText('This quantity could not be saved.');
+  await expect(failure.locator('[data-inline-probe]')).toHaveCount(0);
+  await expect(failure.locator('.technical-details')).toContainText('SQL failed');
+});
+
+test('Add Items search expands matching sections and section focus survives rerender', async ({ page }) => {
+  await mockApi(page, { inventoryCatalog: [
+    { id: 'FixtureWeapon', wiki: 'Test Rifle', inventoryMap: 'Weapons', taxonomyTags: ['Weapons', 'Rifle'], have: 0 },
+    { id: 'FixtureLoot', wiki: 'Test Relic', inventoryMap: 'Items', taxonomyGroup: 'Loot', taxonomyTags: ['Relic'], have: 0 }
+  ] });
+  await page.goto(baseURL);
+  await page.locator('[data-page="add-items"]').click();
+  const headers = page.locator('#addCatalogList .add-cat-head');
+  await expect(headers).toHaveCount(2);
+  await page.locator('#addSearch').fill('test');
+  await expect.poll(() => headers.evaluateAll(nodes => nodes.map(node => node.getAttribute('aria-expanded')))).toEqual(['true', 'true']);
+
+  const firstHeader = headers.first();
+  const headerId = await firstHeader.getAttribute('id');
+  await firstHeader.focus();
+  await firstHeader.click();
+  await expect(page.locator(`#${headerId}`)).toBeFocused();
+
+  const expandAll = page.locator('#add-items-expand-all');
+  await expandAll.focus();
+  await expandAll.click();
+  await expect(page.locator('#add-items-expand-all')).toBeFocused();
 });
 
 test('Overview resources send the current mutation method and JSON body', async ({ page }) => {

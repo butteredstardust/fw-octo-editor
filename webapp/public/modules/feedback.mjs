@@ -89,6 +89,27 @@ export function noMatchesHtml(title, hint = 'Try a different search or filter.')
   return `<div class="empty-state"><strong>${esc(title)}</strong><br>${esc(hint)}</div>`;
 }
 
+const INLINE_FEEDBACK_STATES = new Set(['info', 'pending', 'success', 'error']);
+
+export function setInlineFeedback(target, {
+  state = 'info',
+  message = '',
+  result = null,
+  error = null,
+  fallback = ''
+} = {}) {
+  const element = typeof target === 'string' ? document.getElementById(target) : target;
+  if (!element) return false;
+  const safeState = INLINE_FEEDBACK_STATES.has(state) ? state : 'info';
+  element.className = `operation-inline${safeState === 'info' ? '' : ` ${safeState}`}`;
+  const isError = safeState === 'error';
+  element.setAttribute('role', isError ? 'alert' : 'status');
+  element.setAttribute('aria-live', isError ? 'assertive' : 'polite');
+  const body = isError ? errorDetailHtml(error, fallback || message) : esc(message);
+  element.innerHTML = `${body}${receiptHtml(result)}`;
+  return true;
+}
+
 export function setOperationFeedback(target, message, result, state = 'success', error = null) {
   const element = typeof target === 'string' ? document.getElementById(target) : target;
   if (!element) return false;

@@ -1,11 +1,13 @@
 import { FW } from '../../runtime.mjs';
 import { loadCatalog, describeItem, ITEM_CAT_ORDER, catalogWarningHtml, highValueBadge } from './catalog.mjs';
+import { buildFacetIndex, createSectionExpansionState, setSelectOptions } from './facets.mjs';
 import { itemIdentityHtml } from './item-view.mjs';
 
-const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, receiptHtml, readIntegerInput, setLocalBusy, showToast, errorDetailHtml, loadErrorHtml, showLoading } = FW;
+const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, setLocalBusy, setInlineFeedback, showToast, loadErrorHtml, showLoading } = FW;
 
 let _inventory = [];
-let _invSubByCat = {};
+let _invFacets = { categories: [], subcategories: {} };
+const invExpansion = createSectionExpansionState();
 
 export async function loadInventory() {
   const el = document.getElementById('inventoryList');
@@ -13,20 +15,12 @@ export async function loadInventory() {
   try {
     await loadCatalog();
     _inventory = await api('/inventory');
-    // Build category + sub-type indexes from the data.
-    const cats = [...new Set(_inventory.map(i => describeItem(i.name).cat))]
-      .sort((a, b) => ITEM_CAT_ORDER.indexOf(a) - ITEM_CAT_ORDER.indexOf(b));
-    _invSubByCat = {};
-    for (const i of _inventory) {
-      const d = describeItem(i.name);
-      (_invSubByCat[d.cat] = _invSubByCat[d.cat] || new Set()).add(d.sub || '—');
-    }
-    for (const k of Object.keys(_invSubByCat)) {
-      _invSubByCat[k] = [..._invSubByCat[k]].sort((a, b) => a.localeCompare(b));
-    }
-    const sel = document.getElementById('inventoryFilter');
-    sel.innerHTML = '<option value="">All</option>' +
-      cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+    _invFacets = buildFacetIndex(_inventory, {
+      categoryOf: item => describeItem(item.name).cat,
+      subcategoryOf: item => describeItem(item.name).sub,
+      categoryOrder: ITEM_CAT_ORDER
+    });
+    setSelectOptions(document.getElementById('inventoryFilter'), _invFacets.categories);
     populateInvSubFilter();
     renderInventory();
   } catch (err) {
@@ -38,7 +32,7 @@ export async function loadInventory() {
 // loadInventory(). Kept alongside that state rather than in catalog.mjs since
 // it reflects what's actually in this save's inventory, not the catalog.
 function invSubTypes(cat) {
-  return (_invSubByCat[cat] || []).slice();
+  return (_invFacets.subcategories[cat] || []).slice();
 }
 
 // Populate the sub-type dropdown for the currently selected category.
@@ -46,8 +40,7 @@ function populateInvSubFilter() {
   const cat = document.getElementById('inventoryFilter').value;
   const sub = document.getElementById('inventorySubFilter');
   const subs = cat ? invSubTypes(cat) : [];
-  sub.innerHTML = '<option value="">All</option>' +
-    subs.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join('');
+  setSelectOptions(sub, subs);
 }
 
 export function onInvCategoryChange() {
@@ -70,7 +63,7 @@ export function clearInvFilters() {
 
 // Reset to default expansion: only the first visible category open.
 export function resetInvExpansion() {
-  _invExpanded = null;
+  invExpansion.reset();
 }
 
 export function renderInventory() {
@@ -113,22 +106,19 @@ export function renderInventory() {
   // When a search query is active, expand every category that has matches so
   // results are never hidden inside a collapsed section (e.g. an item sorted
   // into "Other" would otherwise disappear from the results).
-  if (_invExpanded === null) {
-    if (q) _invExpanded = new Set(catsShown);
-    else _invExpanded = new Set(catsShown.length ? [catsShown[0]] : []);
-  }
+  invExpansion.initialize(catsShown, { expandAll: !!q });
 
   const totalUnits = rows.reduce((n, r) => n + (r.quantity || 0), 0);
   let html = catalogWarningHtml();
   html += `<div class="inv-summary-line">${rows.length} item type(s) · ${totalUnits.toLocaleString()} total unit(s) shown · ` +
-    `<button type="button" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="true">expand all</button> · ` +
-    `<button type="button" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="false">collapse all</button></div>`;
+    `<button type="button" id="inventory-expand-all" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="true">expand all</button> · ` +
+    `<button type="button" id="inventory-collapse-all" class="inv-toggle-all" data-action="toggle-all-inventory" data-open="false">collapse all</button></div>`;
   for (const cat of catsShown) {
     const list = groups[cat];
     const catUnits = list.reduce((n, r) => n + (r.quantity || 0), 0);
-    const open = _invExpanded.has(cat);
+    const open = invExpansion.isOpen(cat);
     html += `<div class="inv-section">
-      <button type="button" class="inv-cat-head ${open ? 'open' : ''}" data-action="toggle-inventory-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
+      <button type="button" id="inventory-section-${encodeURIComponent(cat)}" class="inv-cat-head ${open ? 'open' : ''}" data-action="toggle-inventory-section" data-category="${esc(cat)}" aria-expanded="${open ? 'true' : 'false'}">
         <span class="inv-caret">${open ? '▾' : '▸'}</span>
         <span class="inv-cat-title">${esc(cat)}</span>
         <span class="inv-cat-count">${list.length} types · ${catUnits.toLocaleString()} units</span>
@@ -172,18 +162,14 @@ export function renderInventory() {
   setRenderedHtml(el, html);
 }
 
-let _invExpanded = null;
-
 export function toggleInvSection(cat) {
-  if (_invExpanded === null) _invExpanded = new Set();
-  if (_invExpanded.has(cat)) _invExpanded.delete(cat);
-  else _invExpanded.add(cat);
+  invExpansion.toggle(cat);
   renderInventory();
 }
 
 export function toggleAllInvSections(open) {
   const cats = [...document.querySelectorAll('#inventoryList .inv-cat-title')].map(e => e.textContent);
-  _invExpanded = new Set(open ? cats : []);
+  invExpansion.setAll(cats, open);
   renderInventory();
 }
 
@@ -205,8 +191,8 @@ export async function updateItem(encName) {
   const sourceMap = srcInput ? srcInput.value : undefined;
   let qty;
   try { qty = readIntegerInput(qtyInput, 'Quantity', { min: 0, max: 2147483647 }); }
-  catch (err) { if (inline) { inline.className = 'operation-inline error'; inline.textContent = err.message; } return; }
-  if (inline) { inline.className = 'operation-inline pending'; inline.textContent = `Saving ${qty.toLocaleString()}…`; }
+  catch (err) { setInlineFeedback(inline, { state: 'error', message: err.message }); return; }
+  setInlineFeedback(inline, { state: 'pending', message: `Saving ${qty.toLocaleString()}…` });
   if (button) setLocalBusy(button, true, 'Saving…');
   try {
     const body = { itemId: name, quantity: qty };
@@ -215,12 +201,12 @@ export async function updateItem(encName) {
     if (!result.afterIntegrity || !result.afterIntegrity.passed) throw new Error('integrity check failed');
     const item = findInventoryItem(name);
     if (item) item.quantity = qty;
-    if (inline) { inline.className = 'operation-inline success'; inline.innerHTML = `Set to ${qty.toLocaleString()}.${receiptHtml(result)}`; }
+    setInlineFeedback(inline, { state: 'success', message: `Set to ${qty.toLocaleString()}.`, result });
     if (qtyInput) qtyInput.value = qty;
     showToast(`${name} set to ${qty.toLocaleString()}.`);
     setTimeout(loadInventory, 700);
   } catch (err) {
-    if (inline) { inline.className = 'operation-inline error'; inline.innerHTML = errorDetailHtml(err, 'This quantity could not be saved.'); }
+    setInlineFeedback(inline, { state: 'error', error: err, fallback: 'This quantity could not be saved.' });
     showToast(`Could not update ${name}.`, 'error');
   } finally {
     if (button) setLocalBusy(button, false);

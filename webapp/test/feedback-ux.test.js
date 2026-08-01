@@ -65,6 +65,28 @@ test('setOperationFeedback accepts an optional error and keeps raw detail out of
   assert.match(coreJs, /element\.setAttribute\('role', state === 'error' \? 'alert' : 'status'\)/);
 });
 
+test('setInlineFeedback centralizes safe inline states, live-region semantics, errors, and receipts', () => {
+  assert.match(coreJs, /const INLINE_FEEDBACK_STATES = new Set\(\['info', 'pending', 'success', 'error'\]\)/);
+  assert.match(coreJs, /function setInlineFeedback\(target, \{[\s\S]{0,300}if \(!element\) return false/);
+  assert.match(coreJs, /element\.setAttribute\('role', isError \? 'alert' : 'status'\)/);
+  assert.match(coreJs, /element\.setAttribute\('aria-live', isError \? 'assertive' : 'polite'\)/);
+  assert.match(coreJs, /isError \? errorDetailHtml\(error, fallback \|\| message\) : esc\(message\)/);
+  assert.match(coreJs, /element\.innerHTML = `\$\{body\}\$\{receiptHtml\(result\)\}`/);
+  assert.match(coreJs, /expose\(\{[\s\S]*setInlineFeedback,[\s\S]*\}\)/);
+});
+
+test('inventory mutations use shared inline feedback without duplicating receipt/error markup', () => {
+  for (const name of ['list.mjs', 'add-items.mjs', 'rigs.mjs']) {
+    const text = featureFiles.find(file => file.name === name).text;
+    assert.match(text, /setInlineFeedback\(/, `${name} does not use setInlineFeedback()`);
+    assert.doesNotMatch(text.split('\n')[2] || '', /receiptHtml|errorDetailHtml/, `${name} still imports legacy inline render helpers`);
+  }
+  const rigsJs = featureFiles.find(file => file.name === 'rigs.mjs').text;
+  assert.match(rigsJs, /id="rig-heading-\$\{enc\}" tabindex="-1"/);
+  assert.match(rigsJs, /getElementById\(`rig-heading-\$\{encId\}`\)\?\.focus\(\{ preventScroll: true \}\)/);
+  assert.match(rigsJs, /getElementById\(`rig-hq-\$\{encId\}`\)\?\.focus\(\{ preventScroll: true \}\)/);
+});
+
 test('userMessage and errorDetailHtml are exposed through FW for feature modules to use', () => {
   assert.match(coreJs, /expose\(\{[\s\S]*userMessage,[\s\S]*errorDetailHtml,[\s\S]*\}\)/);
 });
