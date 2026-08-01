@@ -33,6 +33,14 @@ test('entityCard escapes data fields and renders each shared anatomy region once
   assert.match(html, /trusted-body/);
 });
 
+test('entityCard allows only h3 or h4 card titles', async () => {
+  const { entityCard } = await import(pathToFileURL(path.join(publicRoot, 'modules', 'card-ui.mjs')));
+  assert.match(entityCard({ title: 'Default' }), /<h3 class="card-ui__title">Default<\/h3>/);
+  assert.match(entityCard({ title: 'Nested', headingLevel: 4 }), /<h4 class="card-ui__title">Nested<\/h4>/);
+  assert.match(entityCard({ title: 'Invalid', headingLevel: 2 }), /<h3 class="card-ui__title">Invalid<\/h3>/);
+  assert.doesNotMatch(entityCard({ title: 'Hostile', headingLevel: '3><script>' }), /<script>|<h3><script>/);
+});
+
 test('recipes, rigs, and presets compose their feature content through entityCard', () => {
   const files = [
     'modules/features/settings-planners.mjs',
@@ -46,6 +54,23 @@ test('recipes, rigs, and presets compose their feature content through entityCar
   assert.match(files[0], /data: \{ 'recipe-card': encId \}/);
   assert.match(files[1], /titleId: `rig-heading-\$\{enc\}`/);
   assert.match(files[1], /focusableTitle: true/);
+});
+
+test('characters, weapon XP, and faction trust cards use shared anatomy without losing controls', () => {
+  const characters = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'characters.mjs'), 'utf8');
+  const weapons = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'weapons.mjs'), 'utf8');
+  const vendors = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'vendors-repair.mjs'), 'utf8');
+  for (const source of [characters, weapons, vendors]) {
+    assert.match(source, /import \{ entityCard \}/);
+    assert.match(source, /entityCard\(\{/);
+  }
+  assert.match(characters, /data-action="set-level"/);
+  assert.match(characters, /data-action="set-character-xp"/);
+  assert.match(weapons, /<h3 class="weapon-cat">/);
+  assert.match(weapons, /headingLevel: 4/);
+  assert.match(weapons, /data-action="set-weapon-xp"/);
+  assert.match(vendors, /bodyHtml: trustTrack\(f\.score\)/);
+  assert.match(vendors, /data-action="set-faction"/);
 });
 
 test('shared card CSS owns structure while feature CSS retains domain variants', () => {

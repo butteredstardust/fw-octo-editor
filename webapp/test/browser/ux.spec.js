@@ -187,6 +187,42 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   expect(await recipe.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
+test('editable entity cards preserve headings, states, controls, and narrow containment', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  const probe = '<img data-editable-card-probe src=x>';
+  await mockApi(page, {
+    characters: [{ name: probe, characterId: 'fixture-character', level: 2, xp: 10 }],
+    dashboard: { character: { tag: probe }, loadout: {}, quests: [], inventory: [], currencies: {} },
+    weaponXp: [{ weapon: probe, xp: 10 }],
+    weaponReference: { [probe]: 100 },
+    vendors: { factions: [{ faction: probe, scope: 'Fixture.Faction', score: 0 }], traders: [], economy: null }
+  });
+  await page.goto(`${baseURL}/#characters`);
+  const character = page.locator('.char-card.card-ui');
+  await expect(character.locator('h3.card-ui__title')).toContainText(probe);
+  await expect(character.locator('.char-active-badge')).toContainText('Active');
+  await expect(character.locator('.card-ui__footer [data-action="set-level"]')).toHaveCount(1);
+  await expect(character.locator('[data-editable-card-probe]')).toHaveCount(0);
+  expect(await character.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#weapon-xp`);
+  const weapon = page.locator('.weapon-card.card-ui');
+  await expect(page.locator('.weapon-cat')).toHaveJSProperty('tagName', 'H3');
+  await expect(weapon.locator('h4.card-ui__title')).toContainText(probe);
+  await expect(weapon.locator('.card-ui__footer [data-action="set-weapon-xp"]')).toHaveCount(2);
+  await expect(weapon.locator('[data-editable-card-probe]')).toHaveCount(0);
+  expect(await weapon.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#vendors`);
+  const vendor = page.locator('.vendor-card.card-ui');
+  await expect(vendor.locator('h3.card-ui__title')).toContainText(probe);
+  await expect(vendor.locator('.card-ui__status .vendor-tier')).toContainText('Neutral');
+  await expect(vendor.locator('.trust-track')).toHaveCount(1);
+  await expect(vendor.locator('.card-ui__footer [data-action="set-faction"]')).toHaveCount(4);
+  await expect(vendor.locator('[data-editable-card-probe]')).toHaveCount(0);
+  expect(await vendor.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
 test('Overview resources send the current mutation method and JSON body', async ({ page }) => {
   const mutations = await mockApi(page);
   await page.goto(baseURL);

@@ -68,7 +68,7 @@
     .page > .card > h2 { font-size:1.4rem; margin-bottom:.3rem; }
     .page > .card > h2 + .page-intro, .page > .card > h2 + .char-hint, .page > .card > h2 + .hub-hint { margin-bottom:1rem; line-height:1.45; }
     input, select, button { min-height:var(--control-h); }
-    .char-card, .vendor-card, .repair-card, .backup-row, .weapon-row, .inv-item { padding:.7rem .8rem; }
+    .repair-card, .backup-row, .weapon-row, .inv-item { padding:.7rem .8rem; }
     .char-cards, .vendor-grid { gap:.7rem; }
     .backup-list { gap:.5rem; }
     .backup-row { grid-template-columns:minmax(0,1fr); align-items:center; }
@@ -76,12 +76,11 @@
     .diagnostic-details { border-top:1px solid var(--gunmetal-dark); padding-top:.5rem; }
     .settings-row { align-items:end; } .settings-row label { flex:1; } .settings-row input { width:100% !important; }
     /* Editable cards share the inventory pattern: identity, metadata, action footer. */
-    .char-control, .weapon-actions, .vendor-score, .repair-actions, .backup-actions { margin-top:auto; padding-top:.65rem; border-top:1px solid var(--gunmetal-dark); }
+    .repair-actions, .backup-actions { margin-top:auto; padding-top:.65rem; border-top:1px solid var(--gunmetal-dark); }
     .weapon-actions, .vendor-score, .vendor-presets, .repair-actions, .backup-actions { justify-content:flex-end; }
     .vendor-presets { padding-top:.4rem; }
     .hub-card .hub-btn { margin-top:auto; padding-top:.55rem; border-top:1px solid var(--gunmetal-dark); }
     .weapon-card, .vendor-card, .char-card, .hub-card { min-width:0; }
-    .weapon-card-head > :first-child, .vendor-head > :first-child, .char-head > :nth-child(2) { min-width:0; }
     .backup-actions { width:100%; }
     @media (max-width:800px) { .backup-row { display:grid; grid-template-columns:1fr; } .backup-head, .backup-meta, .backup-actions { grid-column:1; grid-row:auto; } }
     .res-qty-label { font-size: 0.78rem; color: var(--text-2); min-width: 54px; }

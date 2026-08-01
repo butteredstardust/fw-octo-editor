@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { entityCard } from '../card-ui.mjs';
 
 // confirmAction was missing from this destructure while both prestige paths
 // called it, so every "Apply prestige" click threw "confirmAction is not
@@ -24,15 +25,14 @@ async function loadCharacters() {
       const xpCap = PRESTIGE_XP_CAP[lvl] != null ? PRESTIGE_XP_CAP[lvl] : null;
       const overCap = xpCap != null && c.xp != null && c.xp > xpCap;
       const xpPct = (xpCap && c.xp != null) ? Math.min(100, Math.round((c.xp / xpCap) * 100)) : null;
-      html += `<div class="char-card${isActive ? ' active' : ''}">
-        <div class="char-head">
-          <span class="char-icon">${appIcon(meta.icon)}</span>
-          <div>
-            <div class="char-name">${esc(meta.name)}${isActive ? ' <span class="char-active-badge">Active</span>' : ''}</div>
-            <div class="char-role">${esc(meta.role)}</div>
-          </div>
-        </div>
-        <div class="char-blurb">${esc(meta.blurb)}</div>
+      html += entityCard({
+        cardClass: `char-card${isActive ? ' active' : ''}`,
+        data: { 'character-id': c.characterId },
+        iconHtml: `<span class="char-icon">${appIcon(meta.icon)}</span>`,
+        eyebrow: meta.role,
+        title: meta.name,
+        statusHtml: isActive ? '<span class="char-active-badge">Active</span>' : '',
+        bodyHtml: `<div class="char-blurb">${esc(meta.blurb)}</div>
         <div class="char-hp">
           <div class="char-hp-total">${totalHealth}<span class="char-hp-unit"> HP</span></div>
           <div class="char-hp-breakdown">base ${meta.health}${bonus.health ? ` + <span class="pos">${bonus.health} prestige</span>` : ''}${bonus.speed ? ` &middot; <span class="pos">+${bonus.speed}% speed</span>` : ''}</div>
@@ -46,8 +46,8 @@ async function loadCharacters() {
             ${xpPct != null ? `<span class="char-xp-bar${overCap ? ' over' : ''}"><span class="char-xp-fill" style="width:${xpPct}%"></span></span>` : ''}
           </div>
         </div>
-        <div class="char-skills"><span class="k">Skills</span><div class="char-skill-tags">${meta.skills.map(s => `<span class="char-skill-tag">${esc(s)}</span>`).join('')}</div></div>
-        <div class="char-control">
+        <div class="char-skills"><span class="k">Skills</span><div class="char-skill-tags">${meta.skills.map(s => `<span class="char-skill-tag">${esc(s)}</span>`).join('')}</div></div>`,
+        footerHtml: `<div class="char-control">
           <div class="char-control-group">
             <span class="char-control-label">LVL</span>
             <input type="number" id="level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1" class="char-control-input">
@@ -64,8 +64,8 @@ async function loadCharacters() {
               <button class="btn-ghost" data-action="show-character" data-id="${esc(c.characterId)}" title="Open skill editor">${actionIcon('arrowRight')}Skill editor</button>
             </div>
           </div>
-        </div>
-      </div>`;
+        </div>`
+      });
     }
     html += '</div>';
     setRenderedHtml(el, html);

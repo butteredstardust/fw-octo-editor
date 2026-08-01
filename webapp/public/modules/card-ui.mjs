@@ -10,6 +10,7 @@ export function entityCard({
   eyebrow = '',
   title = '',
   titleHtml = '',
+  headingLevel = 3,
   titleId = '',
   focusableTitle = false,
   subtitle = '',
@@ -23,12 +24,13 @@ export function entityCard({
     .map(([name, value]) => ` data-${name}="${esc(value)}"`)
     .join('');
   const titleAttributes = `${titleId ? ` id="${esc(titleId)}"` : ''}${focusableTitle ? ' tabindex="-1"' : ''}`;
+  const Heading = headingLevel === 4 ? 'h4' : 'h3';
   return `<article class="card-ui ${esc(cardClass)}"${dataAttributes}>
     <header class="card-ui__header">
       ${iconHtml ? `<span class="card-ui__icon">${iconHtml}</span>` : ''}
       <div class="card-ui__identity">
         ${eyebrow ? `<span class="card-ui__eyebrow">${esc(eyebrow)}</span>` : ''}
-        <h3 class="card-ui__title"${titleAttributes}>${esc(title)}${titleHtml}</h3>
+        <${Heading} class="card-ui__title"${titleAttributes}>${esc(title)}${titleHtml}</${Heading}>
         ${subtitle || subtitleHtml ? `<p class="card-ui__subtitle">${esc(subtitle)}${subtitleHtml}</p>` : ''}
       </div>
       ${statusHtml ? `<div class="card-ui__status">${statusHtml}</div>` : ''}
