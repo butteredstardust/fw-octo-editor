@@ -208,20 +208,80 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   await page.setViewportSize({ width: 390, height: 740 });
   await mockApi(page, { stats: {
     player: { kills: 12, deaths: 3, extractions: 9, downed: 1, attacks: 20, xp: 123456 },
-    damage: { Europa: { damage: 1000, kills: 5 }, [probe]: { damage: 250, kills: 2 } },
+    damage: {
+      All: { moddedDamage: 750, unmoddedDamage: 250, moddedKills: 6, unmoddedKills: 2 },
+      Europa: { damage: 1000, kills: 5 },
+      [probe]: { damage: 250, kills: 2 }
+    },
     factions: { Europa: { attacks: 10, kills: 5 }, [probe]: { attacks: 4, kills: 2 } },
     characters: { Gunhead: { kills: 8, extractions: 6, deaths: 2 }, [probe]: { kills: 1, extractions: 1, deaths: 0 } },
-    maps: [{ map: 'L_AshenMesa_WP', entry: 10, extract: 7, death: 4 }],
+    maps: [
+      { map: 'L_AshenMesa_WP', entry: 10, extract: 7, death: 4 },
+      { map: 'Dungeon_Tunnel2_01', entry: 2, extract: 1, death: 1 },
+      { map: 'Dungeon_Tunnel2_04', entry: 3, extract: 2, death: 1 }
+    ],
     territory: [{ location: 'AshenMesa', factions: { Europa: .6, [probe]: .4 } }]
   } });
   await page.goto(baseURL);
   await page.evaluate(() => document.querySelector('[data-page="stats"]').click());
   await expect(page.locator('.stats-kpi')).toContainText(['12', '3', '4.00', '9']);
-  await expect(page.locator('[role="img"][aria-label="Damage: 1,000"]')).toHaveCount(1);
-  await expect(page.locator('.map-stats-card')).toContainText('70');
-  await expect(page.locator('.map-stats-card')).toContainText('40');
-  await expect(page.locator('[role="img"][aria-label="Extraction rate: 70%"]')).toHaveCount(1);
-  await expect(page.locator('[role="img"][aria-label="Death rate: 40%"]')).toHaveCount(1);
+  // Faction combat profile uses a horizontal grouped bar plus paired data
+  // table. Unknown/new faction keys remain in both the denominator and the
+  // output, so the shares stay honest after a game update.
+  // Select figures by the stable data-chart hook (set by chartFigure()),
+  // not by walking ancestors from the canvas -- that selector broke the
+  // moment the figure grew extra wrapper markup for small multiples.
+  const profileFigure = page.locator('[data-chart="stats-chart-faction-profile"]');
+  await expect(page.locator('[role="img"][aria-label*="Faction combat profile"]')).toHaveCount(1);
+  await expect(profileFigure).toHaveCount(1);
+  // Pin the exact rendered row rather than a bare toContainText('1,000'),
+  // which would also pass on any other occurrence of those digits.
+  const profileRows = profileFigure.locator('.chart-data-table tbody tr');
+  await expect(profileRows.nth(0).locator('td')).toHaveText(['Europa', '1,000', '80.0%', '5', '71.4%']);
+  await expect(profileRows.nth(1).locator('td')).toHaveText([probe, '250', '20.0%', '2', '28.6%']);
+
+  const modSplitRows = page.locator('[data-chart="stats-chart-modsplit"] .chart-data-table tbody tr');
+  await expect(modSplitRows.nth(0).locator('td')).toHaveText(['Damage', '750', '75.0%', '250', '25.0%']);
+  await expect(modSplitRows.nth(1).locator('td')).toHaveText(['Kills', '6', '75.0%', '2', '25.0%']);
+
+  // Map activity and Combat by Character are now small-multiples figures
+  // (chartFigure's `panels` option -- one single-series canvas per metric,
+  // see charts.mjs and stats.mjs's STATUS_GREEN/RED/AMBER comment for why
+  // a single three-series grouped bar was dropped: no green/red/amber
+  // triple clears the dataviz-skill validator's CVD floor while also
+  // staying distinct from the on-page faction colors).
+  const mapFigure = page.locator('[data-chart="stats-chart-maps"]');
+  await expect(mapFigure).toHaveCount(1);
+  // Three single-series panels (Entries / Extractions / Deaths), each its
+  // own canvas with its own accessible name -- not one three-series
+  // grouped bar with one combined aria-label.
+  await expect(mapFigure.locator('canvas')).toHaveCount(3);
+  await expect(mapFigure.locator('[role="img"][aria-label="Entries by map"]')).toHaveCount(1);
+  await expect(mapFigure.locator('[role="img"][aria-label="Extractions by map"]')).toHaveCount(1);
+  await expect(mapFigure.locator('[role="img"][aria-label="Deaths by map"]')).toHaveCount(1);
+  await expect(mapFigure.locator('.chart-data-table caption')).toHaveText('Map activity');
+  const mapRow = mapFigure.locator('.chart-data-table tbody tr').first();
+  await expect(mapRow.locator('td')).toHaveText(['Ashen Mesa', '10', '7', '4', '70%', '40%', 'L_AshenMesa_WP']);
+  const tunnelRow = mapFigure.locator('.chart-data-table tbody tr').nth(1);
+  await expect(tunnelRow.locator('td').first()).toHaveText('Tunnel B');
+  await expect(tunnelRow.locator('td').last()).toHaveText('Dungeon_Tunnel2_01, Dungeon_Tunnel2_04');
+  // Extraction rate / death rate are restored as visible information, not
+  // just table cells behind the "Show data table" disclosure -- the old
+  // browser test asserted these exact percentages before the chart
+  // rewrite silently dropped them.
+  await expect(page.locator('.stats-rate-list')).toContainText('extraction rate 70%');
+  await expect(page.locator('.stats-rate-list')).toContainText('death rate 40%');
+
+  const charactersFigure = page.locator('[data-chart="stats-chart-characters"]');
+  await expect(charactersFigure.locator('canvas')).toHaveCount(3);
+  const charRow = charactersFigure.locator('.chart-data-table tbody tr').first();
+  await expect(charRow.locator('td')).toHaveText(['Gunhead', '8', '2', '6', '4.00']);
+
+  const territoryFigure = page.locator('[data-chart="stats-chart-territory"]');
+  await expect(territoryFigure.locator('.chart-data-table thead')).toContainText(probe);
+  await expect(territoryFigure.locator('.chart-data-table tbody tr').first().locator('td')).toHaveText(['Ashen Mesa', '60%', '40%']);
+  await expect(page.locator('.unknown-faction-marker')).not.toHaveCount(0);
+
   await expect(page.locator('#statsContent')).toContainText(probe);
   await expect(page.locator('[data-stats-probe]')).toHaveCount(0);
   expect(await page.evaluate(() => window.__statsProbe)).toBeUndefined();

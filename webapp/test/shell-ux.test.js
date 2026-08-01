@@ -57,7 +57,8 @@ test('diagnostics blocking-reasons summary is derived from the same checks the c
 test('diagnostics active save directory and safety-bar values have explicit fallbacks', () => {
   assert.match(systemJs, /esc\(data\.activeSaveDir \|\| 'Not configured — using default location\.'\)/);
   assert.match(systemJs, /setSafetyValue\('safetySave', status\.activeSaveDir \|\| 'Not configured', ''\)/);
-  assert.match(systemJs, /setSafetyValue\('safetyGameVersion', status\.verifiedGameVersion \|\| 'Not detected', ''\)/);
+  assert.match(systemJs, /const detectedVersion = gameBuild && gameBuild\.detected && gameBuild\.detected\.version;/);
+  assert.match(systemJs, /setSafetyValue\('safetyGameVersion', detectedVersion \|\| 'Not detected', gameBuild && !gameBuild\.verified \? 'warn' : ''\)/);
 });
 
 test('editor version is surfaced from /api/status appVersion', () => {

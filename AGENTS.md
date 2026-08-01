@@ -15,7 +15,7 @@ Read this before editing the webapp or save files. The **webapp** is the only su
 
 ## 1. Webapp Architecture
 
-`webapp/` is a Node/Express app with **no build step**. It listens on `127.0.0.1:3000` (loopback only).
+`webapp/` is a Node/Express app with **no build step for the app itself** — the browser loads plain ES modules directly, no bundler in the request path. `express` is the only **runtime** dependency; `chart.js` is a **devDependency** whose ESM build is vendored into `public/vendor/` by `npm run vendor:chart` (committed output, re-run only when bumping the devDependency), so `npm ci --omit=dev` still installs zero extra runtime packages. It listens on `127.0.0.1:3000` (loopback only).
 
 ### Frontend
 - **Entry:** `public/index.html` loads `public/app.mjs`
@@ -24,10 +24,12 @@ Read this before editing the webapp or save files. The **webapp** is the only su
   - `runtime.mjs` — app bootstrap, page routing, state
   - `api-client.mjs` — typed fetch wrappers
   - `ui-utils.mjs` — filtering, ranking, debounce, receipts
+  - `charts.mjs` — Chart.js wrapper (`createChart`/`chartFigure`/`destroyCharts`); the only module that imports `vendor/chart.mjs`. Always call `destroyCharts(container)` right before an innerHTML swap that removes old canvases, and always pair a chart with the paired data table `chartFigure()` renders — never canvas-only. Validate any multi-series (categorical) chart palette with the `dataviz` skill's `scripts/validate_palette.js` (not a repo script) before shipping it; if nothing passes, fall back to `chartFigure`'s `panels` option (small multiples — a lone series needs no legend and no CVD-separation check).
   - `features/dashboard.mjs`, `characters.mjs`, `hub.mjs`, `inventory/`, `vendors-repair.mjs`, `settings-planners.mjs`, `weapons.mjs`
   - `recipe-planner.mjs`, `recipe-data.mjs`
 - **Styles:** `public/styles.css` + `public/css/*.css` (foundation, shared-pages, inventory, progression, people-and-vendors, planners, repair, refinements)
 - **Data:** `public/catalog.json`, `public/workshop-recipes.js`, `public/munitions-recipes.js`
+- **Vendored:** `public/vendor/` — committed ESM build of chart.js from `npm run vendor:chart`; not hand-edited
 
 ### Backend
 - **Entry:** `server.js` — Express boot, CSRF, mutation gate, loopback bind
@@ -205,6 +207,7 @@ Every write route returns `beforeIntegrity/afterIntegrity`, `beforeFk/afterFk`, 
 - Requires `tools/uesave-src/target/release/uesave.exe` for inventory read/write. Override with `GVAS_UESAVE_BIN`.
 - Requires `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe`. Override with `FW_SQLITE_BIN`.
 - The game must be closed while the app edits the live save.
+- `npm run vendor:chart` regenerates `public/vendor/chart.mjs` from the `chart.js` devDependency; only needed when bumping that dependency, not part of the normal edit/refresh loop.
 
 ---
 

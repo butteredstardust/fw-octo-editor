@@ -11,7 +11,7 @@ const UESAVE_BIN = process.env.GVAS_UESAVE_BIN || path.resolve(__dirname, '..', 
 const REQUIRED_TABLES = ['BinaryData','Characters','CharacterSkills','Currencies','Names','PlayerUpgrades','ScopedCounterValues'];
 const VERIFIED_STEAM_BUILD = '24479102';
 
-function evaluateGameVersion(gameVersion, allowUnverified = process.env.FW_ALLOW_UNVERIFIED_GAME_VERSION === '1') {
+function evaluateGameVersion(gameVersion) {
   const detected = !!gameVersion?.detected;
   const value = String(gameVersion?.version || '');
   const verified = detected && (gameVersion.source === 'steam-buildid'
@@ -19,19 +19,26 @@ function evaluateGameVersion(gameVersion, allowUnverified = process.env.FW_ALLOW
     : value === VERIFIED_GAME_VERSION);
   return {
     verified,
-    overridden: !verified && allowUnverified,
-    allowUnverified,
     expected: { semanticVersion: VERIFIED_GAME_VERSION, steamBuildId: VERIFIED_STEAM_BUILD },
     detected: gameVersion || { detected: false, version: null, source: null }
   };
+}
+
+function gameVersionWarning(gameBuild) {
+  if (gameBuild.verified) return null;
+  return gameBuild.detected.detected ? 'unverified-game-version' : 'unknown-game-version';
 }
 
 async function checkCompatibility(key) {
   const saveDir = config.getSaveDir();
   const files = SAVE_FILES.map(name => ({ name, path: path.join(saveDir,name), exists: fs.existsSync(path.join(saveDir,name)) }));
   const reasons = [];
+  const warnings = [];
   const gameBuild = evaluateGameVersion(await getGameVersion());
-  if (!gameBuild.verified && !gameBuild.overridden) reasons.push(gameBuild.detected.detected ? 'unverified-game-version' : 'unknown-game-version');
+  // Version detection is advisory. Save/key/schema/tool checks below remain
+  // the compatibility gate used by every mutation.
+  const gameVersionAdvisory = gameVersionWarning(gameBuild);
+  if (gameVersionAdvisory) warnings.push(gameVersionAdvisory);
   if (files.some(file => !file.exists)) reasons.push('missing-save-variants');
   if (!fs.existsSync(SQLITE_SHELL)) reasons.push('missing-sqlite3mc');
   let tables = [];
@@ -47,6 +54,6 @@ async function checkCompatibility(key) {
       if (Number.parseInt(requiredRows[0],10) !== 21) reasons.push('missing-required-rows');
     } catch { reasons.push('key-or-database-incompatible'); }
   }
-  return { compatible: reasons.length === 0, reasons, schemaFingerprint, requiredTables:REQUIRED_TABLES, files, tools:{ sqlite3mc:fs.existsSync(SQLITE_SHELL), uesave:fs.existsSync(UESAVE_BIN) }, gameBuild };
+  return { compatible: reasons.length === 0, reasons, warnings, schemaFingerprint, requiredTables:REQUIRED_TABLES, files, tools:{ sqlite3mc:fs.existsSync(SQLITE_SHELL), uesave:fs.existsSync(UESAVE_BIN) }, gameBuild };
 }
-module.exports = { checkCompatibility, evaluateGameVersion, REQUIRED_TABLES, VERIFIED_STEAM_BUILD, SQLITE_SHELL, UESAVE_BIN };
+module.exports = { checkCompatibility, evaluateGameVersion, gameVersionWarning, REQUIRED_TABLES, VERIFIED_STEAM_BUILD, SQLITE_SHELL, UESAVE_BIN };

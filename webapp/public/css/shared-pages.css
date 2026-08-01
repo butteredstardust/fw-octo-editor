@@ -104,6 +104,8 @@
     .stats-kpi span { display:block; color:var(--text-2); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
     .stats-kpi strong { display:block; margin:.18rem 0; color:var(--text); font-size:1.35rem; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
     .stats-kpi small, .stats-note { color:var(--text-2); font-size:.7rem; line-height:1.4; }
+    .stats-rate-list { margin:.3rem 0 0; padding-left:1.1rem; font-size:.76rem; color:var(--text-2); line-height:1.6; }
+    .stats-rate-list b { color:var(--text); }
     .comparison-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
     .comparison-pair > div, .character-combat-card, .map-stats-card { min-width:0; padding:.75rem; border:1px solid var(--gunmetal-dark); border-radius:8px; background:rgba(0,0,0,.14); }
     .comparison-pair h4, .character-combat-card h4, .map-stats-card h4 { margin:0 0 .55rem; font-size:.82rem; }
@@ -166,3 +168,41 @@
 /* A <code> slot that is currently showing prose (a fallback sentence) rather
    than a real path should not wear monospace/code styling. */
 .is-prose-fallback { font-family:inherit; font-size:inherit; background:none; padding:0; }
+
+/* Chart.js containers (see modules/charts.mjs::chartFigure). The wrapper
+   gives the canvas a fixed, CSS-controlled height -- paired with
+   maintainAspectRatio:false in charts.mjs, this is what keeps the canvas
+   from growing unbounded on resize instead of filling its box. */
+.chart-figure { margin: .75rem 0; }
+.chart-wrap { position: relative; width: 100%; height: 260px; background: var(--surface-2); border: 1px solid var(--gunmetal-dark); border-radius: var(--radius-md); padding: .6rem; }
+/* Chart.js's responsive mode measures this box (position:relative + a fixed
+   CSS height) and sets the canvas's own inline width/height + backing-store
+   resolution (devicePixelRatio-aware) itself. Forcing both dimensions with
+   !important fights that -- documented by Chart.js as a cause of blurry
+   rendering or a resize feedback loop -- so this only forces display:block
+   (canvases are inline by default, which leaves stray baseline whitespace). */
+.chart-wrap canvas { display: block; }
+.chart-data-disclosure { margin-top: .35rem; font-size: .78rem; }
+.chart-data-disclosure summary { cursor: pointer; color: var(--teal-soft); list-style: none; }
+.chart-data-disclosure summary::-webkit-details-marker { display: none; }
+.chart-data-disclosure summary::before { content:'▸'; display:inline-block; margin-right:.35rem; transition:transform .15s ease; }
+.chart-data-disclosure[open] summary::before { transform:rotate(90deg); }
+.chart-data-scroll { overflow-x:auto; }
+.chart-data-table { margin-top: .5rem; width: 100%; min-width:max-content; border-collapse: collapse; font-size: .78rem; }
+.chart-data-table th, .chart-data-table td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid var(--gunmetal-dark); color: var(--text); }
+.chart-data-table th { color: var(--text-2); font-weight: 600; }
+.chart-data-table td { font-variant-numeric: tabular-nums; }
+.unknown-faction-marker { display:inline-grid; place-items:center; width:.9rem; height:.9rem; border:1px solid var(--text-2); border-radius:50%; font-size:.65rem; color:var(--text-2); }
+/* Small-multiples figure (chartFigure's `panels` option): one single-series
+   canvas per metric side by side, used where no legal categorical (>=2
+   series) palette exists for the data -- see modules/features/stats.mjs's
+   Combat by Character / Map activity charts. A lone series per panel needs
+   no legend and carries no CVD-separation requirement, so each panel is
+   free to use whatever semantic color fits its meaning. */
+.chart-figure-panels { display: flex; gap: .6rem; flex-wrap: wrap; }
+.chart-panel { flex: 1 1 240px; min-width: 0; }
+.chart-panel-label { margin: 0 0 .3rem; font-size: .78rem; font-weight: 600; color: var(--text-2); }
+@media (max-width: 800px) {
+  .chart-wrap { height: 220px; }
+  .chart-figure-panels { flex-direction: column; }
+}

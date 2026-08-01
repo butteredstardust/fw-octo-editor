@@ -6,7 +6,20 @@ yet reached `1.0.0` (see release blockers in `TODO.md`).
 
 ## [Unreleased]
 
-Internal, behavior-preserving modularization — no user-facing changes.
+Adds Chart.js visualizations to the Stats page; otherwise an internal,
+behavior-preserving modularization pass.
+
+### Added
+- Stats page (`webapp/public/modules/features/stats.mjs`) now renders
+  Chart.js visualizations — a faction combat-profile radar, a modded/unmodded
+  weapons split, a territory-control stacked bar, and small-multiples panels
+  for Combat by Character and Map activity — each paired with an accessible
+  data table (`webapp/public/modules/charts.mjs`'s `chartFigure()`). Map
+  activity restores per-map extraction rate / death rate as visible text and
+  table columns. `chart.js` is added as a devDependency; its ESM build is
+  vendored into `webapp/public/vendor/` via the new `npm run vendor:chart`
+  script and the vendored output is committed, so the shipped app still has
+  a single runtime dependency (`express`) and no bundler.
 
 ### Changed
 - Split `webapp/services/saveService.js` and `webapp/services/gvasService.js`

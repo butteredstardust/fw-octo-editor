@@ -14,6 +14,7 @@
     "test:coverage": "node scripts/coverage-gate.js",
     "lint": "eslint .",
     "key:build-resource": "node scripts/build-key-resource.js",
+    "vendor:chart": "node scripts/vendor-chart.js",
     "items:generate": "node scripts/generate-item-data.js",
     "items:fetch-wiki": "node scripts/fetch-wiki-items.js",
     "items:extract-reference": "node scripts/extract-reference-items.js",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
+    "chart.js": "^4.5.1",
     "eslint": "^9.39.5"
   }
 }
