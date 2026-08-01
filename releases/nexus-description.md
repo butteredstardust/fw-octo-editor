@@ -1,60 +1,71 @@
 # FW OCTO Editor
 
-A local save editor for *The Forever Winter*, forged in the bio-slums and upgraded with hope. It doesn't bleed blood—it bleeds data. Edit your scavenger's progression, stash, weapons, and reputation without losing your grip on what matters. *I wear it with gratitude.* Stay alive out there, comrade.
+A save editor for *The Forever Winter*. Fix a bad prestige reset, restock the gear a raid ate, top up Water and Credits, or unlock the Innards upgrades you already earned — all from a page in your browser, on your own PC.
 
-## What it does
+No account, no launcher, no internet connection. It doesn't bleed blood — it bleeds data.
 
-- **Characters**: Set prestige level, tweak XP, or open the full skill-node editor. Import exact skill grants from a verified reference—the real *hardening* process, but without the memory wipes. Your build stays clean, even if you can't quite remember your real name.
-- **Inventory**: Browse, search, and filter every item in your Inventory. Set quantities, add missing gear, or scrap the junk slowing you down—like looting the dead, but without the bandits stalking you.
-- **Currencies**: Top up Water and Credits directly. No more performing for performance credits like the old days in the Department of State Security.
-- **Hub Upgrades**: Unlock, lock, or remove Innards upgrades. Prerequisite chains are enforced; material costs are shown for planning but are not deducted or enforced. One less thing to grieve over.
-- **Weapon XP**: See exactly how far your weapons are from their best-in-slot potential. Set XP manually or batch-match the 100% reference in one click. Three-round groups at 300 meters, guaranteed.
-- **Weapon Builds**: Get best-in-slot recommendations derived from wiki data. Add every missing owned part with a single button press—like the Magnificent Seven, but without the drug raid.
-- **Vendors & Faction Trust**: Boost faction scores for better vendor access, or toggle trader-unlock flags directly. I advise on defense strategy and fighting tactics to improve the capability and readiness of your community.
-- **Repair Bench**: Mark jobs complete. Those six lungs don't tune themselves.
-- **Quests**: Mark quests ready to turn in (experimental—you still have to open the game to finish the hand-off). *I hope to make new memories here. Good ones.*
-- **Rigs**: Manage rig ownership and add high-quality container kits. Stay safe, and thank you again.
+![The editor's overview page: active scavenger, loadout, tracked quests, and resources](https://raw.githubusercontent.com/butteredstardust/fw-octo-editor/main/docs/screenshots/overview.png)
 
-## How it works
+## Get started
 
-The app runs locally on your machine, bound to `127.0.0.1:3000`. It never phones home, never requests outbound network access, and never touches your save while the game is running. Every write is staged and verified before an atomic install, with rollback on failure. One automatic session backup is created before the first write; you can create additional labeled backups at any time. *That felt like forever.*
+1. **Close *The Forever Winter*.** Completely — the editor refuses to touch a save the game still has open.
+2. Download the `.exe` below and run it. Everything it needs is inside the installer; there's nothing else to download or set up.
+3. Launch **FW OCTO Editor** from your Start menu. It opens a page in your browser — that page *is* the app.
 
-## Installation
+Windows SmartScreen may warn you about an unrecognised publisher, because this installer isn't code-signed. Choose **More info → Run anyway** if you're comfortable with that.
 
-1. Download the latest `.exe` installer.
-2. Run it. Everything the app needs—Node.js, dependencies, and native tools—is bundled. No separate setup required.
-3. **Close the game** before editing the live save.
+## What you can change
+
+**Your scavenger**
+- Set prestige level (0–50) and XP, for any character in your roster.
+- Open the full skill tree and grant nodes individually, or apply the exact skill set a maxed character is supposed to have.
+
+**Your stash**
+- Search and filter every item you own, then set any quantity you like.
+- Add items you don't have yet, including rig containers and high-quality kits.
+- Top up Water and Credits.
+
+**Your guns**
+- See how far each weapon is from max level, then set weapon XP by hand or match a maxed reference in one click.
+- Get a best-in-slot parts recommendation for any weapon, built from wiki stat data — and add every missing part for the guns you actually own with one button.
+
+**Your hub and standing**
+- Unlock, lock, or remove Innards upgrades. Prerequisites are enforced so you can't build an impossible hub; material costs are shown for planning but aren't charged.
+- Raise faction scores to open up vendor stock, or flip trader-unlock flags directly.
+- Clear Repair Bench jobs, and mark quests ready to turn in (you still finish the hand-off in-game).
+
+**Your numbers**
+- A read-only Stats page: lifetime kills, extractions, damage by faction, per-map activity, and territory control, drawn straight from your save.
+
+## Your save is not at risk
+
+- **Automatic backup.** A timestamped, checksummed copy of your save is made before the first change of every session. You can take extra labelled backups, and restore any of them, from the Backups page.
+- **Nothing is written while the game is open.** The editor checks, and refuses.
+- **Every change is rehearsed first.** Edits are applied to a copy, verified, and only then swapped into place. If anything looks wrong at any point, the original is put back automatically and you're told what happened.
+- **It stays on your PC.** The app is reachable only from your own machine and makes no outbound connections — nothing is uploaded, and nothing phones home.
+
+If something does go wrong, the [troubleshooting guide](https://github.com/butteredstardust/fw-octo-editor/blob/main/TROUBLESHOOTING.md) covers the usual causes, and you can [open an issue](https://github.com/butteredstardust/fw-octo-editor/issues).
 
 ## Requirements
 
-- Windows 10/11 (64-bit)
-- *The Forever Winter* installed via Steam
-- Local saves located at `%LOCALAPPDATA%\ForeverWinter\Saved\SaveGames`
+- Windows 10 or 11, 64-bit
+- *The Forever Winter* installed via Steam, with saves in the standard location (`%LOCALAPPDATA%\ForeverWinter\Saved\SaveGames`)
+- A web browser
 
-## Important Notes
+## Before you use it
 
-- **Unofficial tool**: This is not created, affiliated with, or endorsed by Fun Dog Studios. All game trademarks and copyrights remain the property of their respective owners.
-- **Single-player use only**: This editor modifies local save files for offline use. Using or distributing edited save data in online or multiplayer sessions may violate the game's End User License Agreement or Terms of Service and could result in account restrictions or bans. If in doubt, keep flight mode on.
-- **No warranty**: This tool is provided as-is. The authors make no guarantees about compatibility with current or future game versions. Always back up your save files before editing.
-- **Game must be closed**: The app will refuse to write while the Forever Winter process is running. Editing an active save will corrupt it.
-- **Backups are automatic**: One timestamped, checksummed session backup is created before the first write. You can create more labeled backups or restore them from the Backups page at any time.
+- **Single-player only.** This edits your local save for offline play. Taking edited saves into online or multiplayer sessions may breach the game's EULA or Terms of Service and could get your account restricted. If in doubt, don't.
+- **Unofficial.** Not made by, affiliated with, or endorsed by Fun Dog Studios. All game trademarks and copyrights belong to their owners.
+- **No warranty.** Provided as-is, with no guarantee it will keep working after a game update. Keep your own backups too.
+- **A game update can change the save format.** If the editor warns you that it hasn't been verified against your installed game version, that's exactly what it means — proceed carefully, or wait for an update.
 
-## Redistribution sign-off
+## Credits and licences
 
-The release package bundles an encrypted database-key resource and native `sqlite3mc`/`uesave` binaries. Their redistribution and the applicable game EULA/policy must be explicitly reviewed and approved before uploading this package to Nexus Mods.
+Full notices are in the app's **Acknowledgements** dialog.
 
-## Third-Party Notices
-
-This application bundles data and software from the following sources. Full notices, licenses, and attributions are available in the in-app **Acknowledgements** dialog.
-
-- **Game data** — derived from [The Forever Winter Wiki](https://theforeverwinter.wiki.gg) (CC BY-SA).
-- **Web server / runtime** — Express (MIT), Node.js (MIT).
-- **Save engine** — `sqlite3mc` (SQLite Public Domain / MPL 2.0), `uesave` (MIT).
-- **Typeface** — Black Ops One (OFL-1.1).
-
-## License
-
-The app source code is released under the **MIT License**. See `LICENSE` in the bundled package.
+- Game data derived from [The Forever Winter Wiki](https://theforeverwinter.wiki.gg) — CC BY-SA, by the wiki's contributors.
+- Bundled software: Node.js and Express (MIT), `sqlite3mc` (SQLite Public Domain / MPL 2.0), `uesave` (MIT), Black Ops One typeface (OFL-1.1).
+- The editor itself is MIT-licensed; `LICENSE` ships in the package.
 
 ---
 
