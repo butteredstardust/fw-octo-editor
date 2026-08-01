@@ -6,11 +6,14 @@ const { debounce, showToast, showNotice, setOperationFeedback, operationFeedback
 const feature = name => (...args) => FW[name](...args);
 const loadHubUpgrades = feature('loadHubUpgrades');
 const filterHubUpgrades = feature('filterHubUpgrades');
+const clearHubFilters = feature('clearHubFilters');
 const setCraftingKind = feature('setCraftingKind');
 const renderPresets = feature('renderPresets');
+const clearPresetFilters = feature('clearPresetFilters');
 const renderWeaponBuildSelector = feature('renderWeaponBuildSelector');
 const addMissingForOwnedWeapons = feature('addMissingForOwnedWeapons');
 const renderWeaponXp = feature('renderWeaponXp');
+const clearWeaponXpFilters = feature('clearWeaponXpFilters');
 const setAllToReference = feature('setAllToReference');
 const onInvCategoryChange = feature('onInvCategoryChange');
 const resetInvExpansion = feature('resetInvExpansion');
@@ -25,6 +28,7 @@ const toggleAllAddSections = feature('toggleAllAddSections');
 const renderRigs = feature('renderRigs');
 const clearRigFilters = feature('clearRigFilters');
 const renderCraftingGrid = feature('renderCraftingGrid');
+const clearCraftingFilters = feature('clearCraftingFilters');
 const updateCraftQty = feature('updateCraftQty');
 const craftingAddMissing = feature('craftingAddMissing');
 const craftingAddAll = feature('craftingAddAll');
@@ -108,6 +112,10 @@ bind('runDiagnosticsButton', 'click', runDiagnostics);
 
 const actionHandlers = new Map([
   ['quest-ready', control => markQuestReady(Number(control.dataset.id))],
+  ['clear-hub-filters', () => clearHubFilters()],
+  ['clear-preset-filters', () => clearPresetFilters()],
+  ['clear-weapon-xp-filters', () => clearWeaponXpFilters()],
+  ['clear-crafting-filters', () => clearCraftingFilters()],
   ['set-resource', control => setResource(control.dataset.id, control.dataset.kind)],
   ['add-resource', control => addResource(control.dataset.id)],
   ['set-level', control => setLevel(control.dataset.id)],

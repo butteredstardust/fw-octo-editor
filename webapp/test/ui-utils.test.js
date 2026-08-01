@@ -1,9 +1,9 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-let normalizeSearch, searchScore, filterAndRank, cleanFallbackName, receiptSummary, validateInteger;
+let normalizeSearch, searchScore, filterAndRank, cleanFallbackName, receiptSummary, validateInteger, resetFilterControls;
 
 test.before(async () => {
-  ({ normalizeSearch, searchScore, filterAndRank, cleanFallbackName, receiptSummary, validateInteger } = await import('../public/modules/ui-utils.mjs'));
+  ({ normalizeSearch, searchScore, filterAndRank, cleanFallbackName, receiptSummary, validateInteger, resetFilterControls } = await import('../public/modules/ui-utils.mjs'));
 });
 
 test('search normalization ignores punctuation, accents, and case', () => {
@@ -27,6 +27,21 @@ test('friendly-name matches rank above technical-id matches', () => {
 test('fallback labels clean technical separators without losing identity', () => {
   assert.equal(cleanFallbackName('Inventory.Item.Drone_Recovery'), 'Drone Recovery');
   assert.equal(cleanFallbackName('RFL12_Broken'), 'RFL12 (Destroyed)');
+});
+
+test('filter reset applies text, select, and checkbox defaults, ignores missing controls, and focuses search', () => {
+  const controls = {
+    search: { value: 'old', focused: false, focus() { this.focused = true; } },
+    state: { value: 'missing' },
+    flagged: { checked: true }
+  };
+  const root = { getElementById: id => controls[id] || null };
+  resetFilterControls({ search: '', state: 'any', flagged: false, absent: 'safe' }, { focusId: 'search', root });
+  assert.equal(controls.search.value, '');
+  assert.equal(controls.state.value, 'any');
+  assert.equal(controls.flagged.checked, false);
+  assert.equal(controls.search.focused, true);
+  assert.doesNotThrow(() => resetFilterControls({ absent: '' }, { focusId: 'absent', root }));
 });
 
 test('receipt summary exposes verification metadata without secret material', () => {

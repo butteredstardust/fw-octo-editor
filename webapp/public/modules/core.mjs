@@ -3,6 +3,7 @@ import {
   filterAndRank,
   cleanFallbackName,
   debounce,
+  resetFilterControls,
   readIntegerInput,
   validateInteger
 } from './ui-utils.mjs';
@@ -69,6 +70,7 @@ expose({
   filterAndRank,
   cleanFallbackName,
   debounce,
+  resetFilterControls,
   readIntegerInput,
   validateInteger,
   technicalDetails,

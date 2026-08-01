@@ -200,7 +200,23 @@ test('crafting recipes render as a searchable, filterable card grid with per-car
 test('dense app-wide controls retain mobile and reduced-motion fallbacks', () => {
   assert.match(frontendCss, /input, select, button \{ min-height:var\(--control-h\)/);
   assert.match(frontendCss, /@media \(max-width:800px\)/);
-  assert.match(frontendCss, /\.recipe-filter-bar \{ position:static/);
+  assert.match(frontendCss, /\.filter-bar--sticky \{ position:sticky/);
+  assert.match(frontendCss, /@media \(max-width:1050px\)/);
+  assert.match(frontendCss, /\.filter-bar--sticky \{ position:static/);
+});
+
+test('filter toolbars are labelled landmarks with shared sticky behavior and scoped clear actions', () => {
+  const filterBars = [...html.matchAll(/<div class="[^"]*\bfilter-bar\b[^"]*"[^>]*>/g)].map(match => match[0]);
+  assert.equal(filterBars.length, 8);
+  for (const bar of filterBars) {
+    assert.match(bar, /\bfilter-bar--sticky\b/);
+    assert.match(bar, /role="search"/);
+    assert.match(bar, /aria-label="Filter [^"]+"/);
+  }
+  for (const action of ['clear-hub-filters', 'clear-preset-filters', 'clear-weapon-xp-filters', 'clear-crafting-filters']) {
+    assert.match(html, new RegExp(`<button type="button" class="mini" data-action="${action}"`));
+  }
+  assert.doesNotMatch(html, /data-action="clear-weapon-build-filters"/);
 });
 
 test('inventory and add-item cards expose local iconography and visible taxonomy', () => {

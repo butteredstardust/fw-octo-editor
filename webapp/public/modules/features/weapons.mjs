@@ -4,7 +4,7 @@ import { entityCard } from '../card-ui.mjs';
 // validateInteger is used for the preset-supplied XP path (the per-weapon
 // "Set XP to 100,000" button passes data-value); it was missing here, so that
 // button threw "validateInteger is not defined" instead of setting XP.
-const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, validateInteger, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast, userMessage, loadErrorHtml, noMatchesHtml } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, itemTypeIcon, readIntegerInput, validateInteger, setOperationFeedback, confirmAction, showLoading, setRenderedHtml, filterAndRank, filterSummaryHtml, showToast, userMessage, loadErrorHtml, noMatchesHtml, resetFilterControls } = FW;
 
 const WEAPON_META = {
   'PST01': { name: 'USP', cat: 'Pistols' },
@@ -156,6 +156,12 @@ function renderPresets() {
   const total = presetData.summary.weaponPresets + presetData.summary.rigPresets;
   document.getElementById('presetStatus').textContent = `Showing ${cards.length} of ${total} saved presets.`;
   setRenderedHtml(document.getElementById('presetContent'), `<div class="preset-summary"><strong>${esc(presetData.summary.weaponPresets)}</strong> weapon presets · <strong>${esc(presetData.summary.rigPresets)}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset || 'none')}</strong></div><div class="preset-grid">${cards.join('') || noMatchesHtml('No presets match these filters')}</div>`);
+}
+
+function clearPresetFilters() {
+  resetFilterControls({ presetSearch: '', presetType: 'weapons' }, { focusId: 'presetSearch' });
+  sessionStorage.setItem('presetType', 'weapons');
+  renderPresets();
 }
 
 let weaponBuildData=null;
@@ -376,6 +382,11 @@ function renderWeaponXp() {
   setRenderedHtml(el, html);
 }
 
+function clearWeaponXpFilters() {
+  resetFilterControls({ weaponXpSearch: '', weaponFilter: '' }, { focusId: 'weaponXpSearch' });
+  renderWeaponXp();
+}
+
 async function setWeaponXp(encWeapon, xpValue) {
   const weapon = decodeURIComponent(encWeapon);
   const xp = xpValue != null ? validateInteger(xpValue, 'Weapon XP', { min: 0 }) : readIntegerInput(document.getElementById(`xp-${encWeapon}`), 'Weapon XP', { min: 0 });
@@ -410,5 +421,5 @@ async function setAllToReference() {
   }
 }
 
-expose({ WEAPON_META, loadPresets, renderPresets, loadWeaponBuilds, renderWeaponBuildSelector, renderWeaponBuild, renderWeaponBuildRanking, selectWeaponBuild, addWeaponBuildPart, addMissingWeaponBuildBundle, addMissingForOwnedWeapons, loadWeaponXp, renderWeaponXp, setWeaponXp, setAllToReference });
+expose({ WEAPON_META, loadPresets, renderPresets, clearPresetFilters, loadWeaponBuilds, renderWeaponBuildSelector, renderWeaponBuild, renderWeaponBuildRanking, selectWeaponBuild, addWeaponBuildPart, addMissingWeaponBuildBundle, addMissingForOwnedWeapons, loadWeaponXp, renderWeaponXp, clearWeaponXpFilters, setWeaponXp, setAllToReference });
 
