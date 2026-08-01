@@ -1,8 +1,10 @@
 import { FW } from '../runtime.mjs';
 import { showPage } from './router.mjs';
 import { runDiagnostics } from './diagnostics.mjs';
+import { bindValueEditors } from '../value-editor.mjs';
 
 const { debounce, showToast, showNotice, setOperationFeedback, operationFeedbackFor } = FW;
+bindValueEditors();
 const feature = name => (...args) => FW[name](...args);
 const loadHubUpgrades = feature('loadHubUpgrades');
 const filterHubUpgrades = feature('filterHubUpgrades');
@@ -171,40 +173,3 @@ document.addEventListener('click', async event => {
     if (isPendingCapable) control.classList.remove('is-pending');
   }
 });
-
-// Containers where a number input is immediately paired with the button that
-// applies it (Set / Add Item / Set XP / Set Score / Set Prestige / Set XP).
-const QUICK_SUBMIT_SCOPE = '.inv-actions, .add-actions, .weapon-actions, .vendor-score, .char-detail-actions';
-
-// The button a given number input should submit to: the nearest button that
-// follows it (or its wrapping <label>, when the input is label-wrapped) in
-// document order, skipping over any non-button siblings (e.g. a hidden
-// sourceMap input). This also correctly disambiguates containers that hold
-// more than one input/button pair -- e.g. .char-detail-actions has both a
-// Prestige-level and an XP field -- since each input's own nearest button is
-// resolved independently rather than picking "the" primary button for the
-// whole container.
-function nextButtonFor(input) {
-  let sib = (input.closest('label') || input).nextElementSibling;
-  while (sib && sib.tagName !== 'BUTTON') sib = sib.nextElementSibling;
-  return sib;
-}
-
-// Quantity/value fields: Enter submits the same as clicking the paired
-// button, so a value can be typed and applied without reaching for the
-// mouse -- the single most repeated action on these pages.
-document.addEventListener('keydown', event => {
-  if (event.key !== 'Enter') return;
-  const input = event.target;
-  if (input.tagName !== 'INPUT' || input.type !== 'number') return;
-  if (!input.closest(QUICK_SUBMIT_SCOPE)) return;
-  const primary = nextButtonFor(input);
-  if (primary && !primary.disabled) { event.preventDefault(); primary.click(); }
-});
-
-// Auto-select existing text when focusing one of these fields so typing
-// immediately replaces the value instead of requiring a manual select-all.
-document.addEventListener('focus', event => {
-  const input = event.target;
-  if (input.tagName === 'INPUT' && input.type === 'number' && input.closest(QUICK_SUBMIT_SCOPE)) input.select();
-}, true);

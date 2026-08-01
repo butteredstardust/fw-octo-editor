@@ -138,11 +138,11 @@ export function renderAddCatalog() {
           classes: { main: 'add-main', nameRow: 'add-name-row', name: 'add-name', tag: 'add-tag' },
           trailingHtml: `<div class="${haveCls}">${haveTxt}${owned ? ' · edit on Inventory page' : ''}</div><div class="operation-inline" id="addop-${enc}" aria-live="polite"></div>`
         })}
-        <div class="add-actions">
+        <div class="add-actions value-editor-pair">
           <label class="add-qty" title="Quantity to add">Qty
-            <input type="number" id="addqty-${enc}" value="1" min="1" max="2147483647" step="1" ${owned ? 'disabled' : ''}>
+            <input type="number" class="value-editor" id="addqty-${enc}" value="1" min="1" max="2147483647" step="1" aria-label="Quantity to add for ${esc(r.wiki || cleanFallbackName(r.id))}" ${owned ? 'disabled' : ''}>
           </label>
-          <button class="add1" data-action="add-item" data-id="${enc}" ${owned ? 'disabled' : ''}>${owned ? actionIcon('check') + 'Cannot Add Owned Item' : actionIcon('add') + 'Add Item'}</button>
+          <button type="button" class="add1" data-value-submit data-action="add-item" data-id="${enc}" ${owned ? 'disabled' : ''}>${owned ? actionIcon('check') + 'Cannot Add Owned Item' : actionIcon('add') + 'Add Item'}</button>
         </div>
       </div>`;
     }

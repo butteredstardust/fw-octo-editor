@@ -44,6 +44,9 @@
     .res-head { display:flex; align-items:center; gap:.45rem; } .res-icon { display:grid; place-items:center; width:1.9rem; height:1.9rem; flex:0 0 1.9rem; padding:.28rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); } .res-name { font-weight:700; } .res-cat { color:var(--text-2); font-size:.68rem; margin-left:auto; }
     .res-value { align-self:flex-end; margin-top:auto; font-size:2rem; line-height:1.1; font-weight:800; color:var(--amber-soft); padding:.15rem .65rem; border-radius:999px; background:rgba(217,107,39,.12); font-variant-numeric:tabular-nums; } .resource-secondary .res-value, .resource-tertiary .res-value { font-size:1.4rem; }
     .res-controls { display:flex; gap:.4rem; align-items:center; } .res-controls input { min-width:0; height:var(--control-h); } .res-controls button { height:var(--control-h); }
+    .value-editor-pair { display:flex; align-items:center; gap:.4rem; min-width:0; }
+    .value-editor { min-width:0; font-variant-numeric:tabular-nums; }
+    .value-editor-pair [data-value-submit] { flex:0 0 auto; }
     .res-msg { min-height:1.1rem; margin-top:.35rem; font-size:.75rem; } .res-msg.ok { color:var(--green); } .res-msg.err { color:var(--red); }
     .dash-loadout-row { display:block; min-width:0; } .dash-slot { display:block; margin-bottom:.25rem; }
     .dash-attachments-disclosure { margin-top:.35rem; font-size:.72rem; color:var(--teal-soft); } .dash-attachments-disclosure summary { cursor:pointer; min-height:2rem; display:flex; align-items:center; }

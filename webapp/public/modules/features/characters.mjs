@@ -48,20 +48,20 @@ async function loadCharacters() {
         </div>
         <div class="char-skills"><span class="k">Skills</span><div class="char-skill-tags">${meta.skills.map(s => `<span class="char-skill-tag">${esc(s)}</span>`).join('')}</div></div>`,
         footerHtml: `<div class="char-control">
-          <div class="char-control-group">
+          <div class="char-control-group value-editor-pair">
             <span class="char-control-label">LVL</span>
-            <input type="number" id="level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1" class="char-control-input">
+            <input type="number" id="level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1" class="char-control-input value-editor" aria-label="Prestige level for ${esc(meta.name)}">
             <div class="char-control-actions">
-              <button class="btn-primary icon-only" data-action="set-level" data-id="${esc(c.characterId)}" title="Set prestige level">${actionIcon('check')}<span class="sr-only">Set</span></button>
-              <button class="danger-btn icon-only" data-action="apply-prestige" data-id="${esc(c.characterId)}" title="Apply: sets the prestige level AND resets this character's skills to match it">${actionIcon('refresh')}<span class="sr-only">Apply</span></button>
+              <button type="button" class="btn-primary icon-only" data-value-submit data-action="set-level" data-id="${esc(c.characterId)}" title="Set prestige level">${actionIcon('check')}<span class="sr-only">Set</span></button>
+              <button type="button" class="danger-btn icon-only" data-action="apply-prestige" data-id="${esc(c.characterId)}" title="Apply: sets the prestige level AND resets this character's skills to match it">${actionIcon('refresh')}<span class="sr-only">Apply</span></button>
             </div>
           </div>
-          <div class="char-control-group">
+          <div class="char-control-group value-editor-pair">
             <span class="char-control-label">XP</span>
-            <input type="number" id="xp-${esc(c.characterId)}" value="${esc(c.xp != null ? c.xp : 0)}" min="0" step="1" class="char-control-input">
+            <input type="number" id="xp-${esc(c.characterId)}" value="${esc(c.xp != null ? c.xp : 0)}" min="0" step="1" class="char-control-input value-editor" aria-label="Character XP for ${esc(meta.name)}">
             <div class="char-control-actions">
-              <button class="set icon-only" data-action="set-character-xp" data-id="${esc(c.characterId)}" title="Set XP">${actionIcon('check')}<span class="sr-only">Set</span></button>
-              <button class="btn-ghost" data-action="show-character" data-id="${esc(c.characterId)}" title="Open skill editor">${actionIcon('arrowRight')}Skill editor</button>
+              <button type="button" class="set icon-only" data-value-submit data-action="set-character-xp" data-id="${esc(c.characterId)}" title="Set XP">${actionIcon('check')}<span class="sr-only">Set</span></button>
+              <button type="button" class="btn-ghost" data-action="show-character" data-id="${esc(c.characterId)}" title="Open skill editor">${actionIcon('arrowRight')}Skill editor</button>
             </div>
           </div>
         </div>`
@@ -250,11 +250,15 @@ function renderCharacterDetail(c, details) {
     <span>XP: <b>${detailXp != null ? detailXp.toLocaleString() : 0}</b>${detailXpCap != null ? ` <small>/ ${detailXpCap.toLocaleString()} cap</small>` : ''}${detailOverCap ? ' <span class="char-xp-over" title="Exceeds this level\'s XP cap">over cap</span>' : ''}</span>
   </div>`;
   html += `<div class="char-detail-actions">
-    <label>Prestige level <input type="number" class="char-level-input" id="d-level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1"></label>
-    <button class="btn-primary" data-action="set-detail-level" data-id="${esc(c.characterId)}">${actionIcon('check')}Set prestige</button>
-    <button class="danger-btn" data-action="detail-prestige" data-id="${esc(c.characterId)}" title="Sets the prestige level AND resets this character's skills to match it">${actionIcon('refresh')}Apply Prestige</button>
-    <label>XP <input type="number" class="char-xp-input" id="d-xp-${esc(c.characterId)}" value="${esc(details.xp != null ? details.xp : c.xp)}" min="0" step="1"></label>
-    <button class="set" data-action="set-detail-xp" data-id="${esc(c.characterId)}">${actionIcon('check')}Set XP</button>
+    <div class="value-editor-pair">
+      <label>Prestige level <input type="number" class="char-level-input value-editor" id="d-level-${esc(c.characterId)}" value="${lvl}" min="0" max="50" step="1" aria-label="Prestige level for ${esc(meta.name)}"></label>
+      <button type="button" class="btn-primary" data-value-submit data-action="set-detail-level" data-id="${esc(c.characterId)}">${actionIcon('check')}Set prestige</button>
+      <button type="button" class="danger-btn" data-action="detail-prestige" data-id="${esc(c.characterId)}" title="Sets the prestige level AND resets this character's skills to match it">${actionIcon('refresh')}Apply Prestige</button>
+    </div>
+    <div class="value-editor-pair">
+      <label>XP <input type="number" class="char-xp-input value-editor" id="d-xp-${esc(c.characterId)}" value="${esc(details.xp != null ? details.xp : c.xp)}" min="0" step="1" aria-label="Character XP for ${esc(meta.name)}"></label>
+      <button type="button" class="set" data-value-submit data-action="set-detail-xp" data-id="${esc(c.characterId)}">${actionIcon('check')}Set XP</button>
+    </div>
   </div>`;
 
   html += `<h3 class="char-section-heading">Skill tracks</h3>`;

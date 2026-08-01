@@ -12,6 +12,7 @@ const readTree = (root, extension) => fs.readdirSync(root, { withFileTypes: true
 ));
 const frontendJs = [fs.readFileSync(path.join(publicRoot, 'app.mjs'), 'utf8'), ...readTree(path.join(publicRoot, 'modules'), '.mjs')].join('\n');
 const apiClientJs = fs.readFileSync(path.join(publicRoot, 'modules', 'api-client.mjs'), 'utf8');
+const valueEditorJs = fs.readFileSync(path.join(publicRoot, 'modules', 'value-editor.mjs'), 'utf8');
 const frontendCss = [fs.readFileSync(path.join(publicRoot, 'styles.css'), 'utf8'), ...readTree(path.join(publicRoot, 'css'), '.css')].join('\n');
 const markupAndCss = html + frontendCss;
 
@@ -203,6 +204,25 @@ test('dense app-wide controls retain mobile and reduced-motion fallbacks', () =>
   assert.match(frontendCss, /\.filter-bar--sticky \{ position:sticky/);
   assert.match(frontendCss, /@media \(max-width:1050px\)/);
   assert.match(frontendCss, /\.filter-bar--sticky \{ position:static/);
+});
+
+test('value editors are explicitly opted in and bind one primary submit safely', () => {
+  assert.match(valueEditorJs, /export function bindValueEditors\(root = document\)/);
+  assert.match(valueEditorJs, /const bindings = new WeakMap\(\)/);
+  assert.match(valueEditorJs, /classList\.contains\('value-editor'\)/);
+  assert.match(valueEditorJs, /closest\('\.value-editor-pair'\)\?\.querySelector\('\[data-value-submit\]:not\(:disabled\)'\)/);
+  assert.match(valueEditorJs, /event\.target\.select\(\)/);
+  assert.match(valueEditorJs, /bindings\.get\(root\) !== unbind/);
+  assert.match(frontendJs, /import \{ bindValueEditors \} from '\.\.\/value-editor\.mjs';/);
+  assert.match(frontendJs, /bindValueEditors\(\);/);
+  assert.doesNotMatch(frontendJs, /QUICK_SUBMIT_SCOPE|function nextButtonFor/);
+  for (const source of ['inventory/list.mjs', 'inventory/add-items.mjs', 'weapons.mjs', 'vendors-repair.mjs', 'dashboard.mjs', 'characters.mjs']) {
+    const moduleJs = fs.readFileSync(path.join(publicRoot, 'modules', 'features', source), 'utf8');
+    assert.match(moduleJs, /value-editor/);
+    assert.match(moduleJs, /data-value-submit/);
+  }
+  assert.doesNotMatch(fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'settings-planners.mjs'), 'utf8'), /value-editor|data-value-submit/);
+  assert.match(frontendCss, /\.value-editor-pair \{ display:flex/);
 });
 
 test('filter toolbars are labelled landmarks with shared sticky behavior and scoped clear actions', () => {
