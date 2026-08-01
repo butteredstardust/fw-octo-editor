@@ -2,7 +2,7 @@ import { FW, expose } from '../runtime.mjs';
 import { createChart, destroyCharts, chartFigure, chartTheme, SERIES_COLORS } from '../charts.mjs';
 import { metricGrid } from '../card-ui.mjs';
 
-const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META, loadErrorHtml } = FW;
+const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META, loadErrorHtml, emptyStateHtml } = FW;
 
 // Semantic status colors for the per-character and per-map charts (kills /
 // deaths / extractions / entries) -- deliberately NOT charts.mjs's
@@ -679,7 +679,7 @@ async function loadStats() {
     // replacing innerHTML (see charts.mjs's lifecycle note); charts are then
     // (re)created below, after the new canvases are actually in the DOM.
     destroyCharts(el);
-    setRenderedHtml(el, html || '<div class="empty-state"><strong>No stats found</strong></div>');
+    setRenderedHtml(el, html || emptyStateHtml('No stats found'));
     if (html) {
       initFactionProfile(el, damage);
       initModSplit(el, damage);

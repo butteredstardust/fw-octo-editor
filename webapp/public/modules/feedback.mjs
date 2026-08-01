@@ -82,11 +82,22 @@ export function loadErrorHtml(label, error) {
   return `<div class="empty-state"><strong>Could not load ${esc(label)}</strong><br>${errorDetailHtml(error, sentenceCase + ' could not be read.')}</div>`;
 }
 
+const EMPTY_STATE_ROLES = new Set(['status', 'alert']);
+
+// `actionHtml` is a trusted slot for locally generated controls. Dynamic
+// title and hint copy is always escaped here.
+export function emptyStateHtml(title, hint = '', { actionHtml = '', role = '' } = {}) {
+  const roleAttr = EMPTY_STATE_ROLES.has(role) ? ` role="${role}"` : '';
+  const hintHtml = hint ? `<p class="empty-state__hint">${esc(hint)}</p>` : '';
+  const actionsHtml = actionHtml ? `<div class="empty-state__actions">${actionHtml}</div>` : '';
+  return `<div class="empty-state"${roleAttr}><strong class="empty-state__title">${esc(title)}</strong>${hintHtml}${actionsHtml}</div>`;
+}
+
 // Standard "nothing matches the current search/filter" empty state, used by
 // every searchable list page instead of restating slightly different
 // "Try a different filter" wording per module.
 export function noMatchesHtml(title, hint = 'Try a different search or filter.') {
-  return `<div class="empty-state"><strong>${esc(title)}</strong><br>${esc(hint)}</div>`;
+  return emptyStateHtml(title, hint);
 }
 
 const INLINE_FEEDBACK_STATES = new Set(['info', 'pending', 'success', 'error']);

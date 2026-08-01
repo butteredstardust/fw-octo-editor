@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 
-const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml, loadErrorHtml } = FW;
+const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml, loadErrorHtml, emptyStateHtml } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
 function loadCatalog(...args) { return FW.loadCatalog(...args); }
 
@@ -91,7 +91,7 @@ function questWikiDisclosure(wiki) {
 function renderDashQuests(quests) {
   const el = document.getElementById('dashQuests');
   if (!quests || !quests.length) {
-    setRenderedHtml(el, '<div class="empty-state"><strong>No quests found</strong><br>Your save has no tracked quests right now.</div>');
+    setRenderedHtml(el, emptyStateHtml('No quests found', 'Your save has no tracked quests right now.'));
     return;
   }
   const complete = quests.filter(q => q.state === 'complete').length;
@@ -148,7 +148,9 @@ function renderDashQuests(quests) {
 function renderDashInventory(inventory) {
   const el = document.getElementById('dashInventory');
   if (!inventory || !inventory.length) {
-    setRenderedHtml(el, '<div class="empty-state"><strong>Inventory is empty</strong><br>Open Add items to add one.</div>');
+    setRenderedHtml(el, emptyStateHtml('Inventory is empty', 'Add an item to get started.', {
+      actionHtml: `<button type="button" class="mini" data-action="show-page" data-page-target="add-items">${actionIcon('add')}Open Add items</button>`
+    }));
     return;
   }
   const total = inventory.reduce((a, i) => a + i.quantity, 0);
@@ -192,7 +194,7 @@ function trustTrack(score) {
 function renderDashFactionTrust(factions) {
   const el = document.getElementById('dashFactionTrust');
   if (!factions || !factions.length) {
-    setRenderedHtml(el, '<div class="empty-state"><strong>No faction scores found</strong></div>');
+    setRenderedHtml(el, emptyStateHtml('No faction scores found'));
     return;
   }
   setRenderedHtml(el, `<div class="overview-trust-grid">${factions.map(f => `<article class="overview-trust-card">
