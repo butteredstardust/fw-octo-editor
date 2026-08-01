@@ -29,11 +29,12 @@ let currentPageName = 'dashboard';
 
 export function closeMobileNav(returnFocus) {
   document.body.classList.remove('nav-open');
-  document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+  const toggle = document.getElementById('navToggle');
+  toggle.setAttribute('aria-expanded', 'false');
   document.getElementById('main-content').removeAttribute('inert');
   document.querySelector('.safety-bar').removeAttribute('inert');
   document.getElementById('navBackdrop').hidden = true;
-  if (returnFocus) document.getElementById('navToggle').focus();
+  if (returnFocus) toggle.focus();
 }
 
 // The set of page names that are safe to restore from a URL hash: exactly
@@ -102,22 +103,35 @@ window.addEventListener('hashchange', () => {
   if (name !== currentPageName) showPage(name, { fromHistory: true });
 });
 
+function openMobileNav() {
+  const nav = document.getElementById('primaryNav');
+  document.body.classList.add('nav-open');
+  document.getElementById('navToggle').setAttribute('aria-expanded', 'true');
+  document.getElementById('main-content').setAttribute('inert', '');
+  document.querySelector('.safety-bar').setAttribute('inert', '');
+  document.getElementById('navBackdrop').hidden = false;
+  const active = nav.querySelector('button.active') || nav.querySelector('button[data-page]');
+  active?.scrollIntoView({ block: 'nearest' });
+  document.getElementById('navClose').focus();
+}
 document.getElementById('navToggle').addEventListener('click', event => {
-  const open = document.body.classList.toggle('nav-open');
-  event.currentTarget.setAttribute('aria-expanded', String(open));
-  document.getElementById('main-content').toggleAttribute('inert', open);
-  document.querySelector('.safety-bar').toggleAttribute('inert', open);
-  document.getElementById('navBackdrop').hidden = !open;
-  if (open) (document.querySelector('.nav button.active') || document.querySelector('.nav button'))?.focus();
+  if (document.body.classList.contains('nav-open')) {
+    closeMobileNav(false);
+    return;
+  }
+  openMobileNav();
+  event.currentTarget.blur();
 });
+document.getElementById('navClose').addEventListener('click', () => closeMobileNav(true));
 document.getElementById('navBackdrop').addEventListener('click', () => closeMobileNav(true));
 document.getElementById('retryConnectionButton').addEventListener('click', refreshSafetyStatus);
 
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+    event.preventDefault();
     closeMobileNav(true);
   } else if (event.key === 'Tab' && document.body.classList.contains('nav-open')) {
-    const focusable = [document.getElementById('navToggle'), ...document.querySelectorAll('.nav button:not(:disabled)')];
+    const focusable = [...document.querySelectorAll('#primaryNav #navClose, #primaryNav button[data-page]:not(:disabled)')];
     const first = focusable[0], last = focusable[focusable.length - 1];
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
@@ -125,14 +139,31 @@ document.addEventListener('keydown', event => {
 });
 
 document.querySelector('.nav').addEventListener('keydown', event => {
-  if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-  const buttons = [...document.querySelectorAll('.nav button')];
+  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+  const buttons = [...document.querySelectorAll('.nav button[data-page]')];
   const current = buttons.indexOf(document.activeElement);
   if (current < 0) return;
   event.preventDefault();
-  const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (current + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+  const direction = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1;
+  const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (current + direction + buttons.length) % buttons.length;
   buttons[next].focus();
 });
+
+// Keep the sticky sidebar below the actual header, including wrapped status
+// chips and browser zoom. ResizeObserver is guarded for older web views.
+function updateShellOffset() {
+  const header = document.querySelector('.header');
+  if (!header) return;
+  const rect = header.getBoundingClientRect();
+  document.documentElement.style.setProperty('--shell-nav-offset', `${Math.ceil(rect.bottom + 12)}px`);
+}
+if (typeof ResizeObserver !== 'undefined') {
+  const shellObserver = new ResizeObserver(updateShellOffset);
+  const header = document.querySelector('.header');
+  if (header) shellObserver.observe(header);
+}
+window.addEventListener('resize', updateShellOffset);
+updateShellOffset();
 
 document.querySelectorAll('.page').forEach(page => { page.hidden = !page.classList.contains('active'); });
 document.querySelector('[data-page="dashboard"]')?.setAttribute('aria-current', 'page');

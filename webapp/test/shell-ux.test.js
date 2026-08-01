@@ -22,6 +22,7 @@ const systemJs = fs.readdirSync(systemDir)
   .map(name => fs.readFileSync(path.join(systemDir, name), 'utf8'))
   .join('\n');
 const refinementsCss = fs.readFileSync(path.join(publicRoot, 'css', 'refinements.css'), 'utf8');
+const shellCss = fs.readFileSync(path.join(publicRoot, 'css', 'shell.css'), 'utf8');
 
 test('gameRunning is normalized through one shared helper at every call site', () => {
   assert.match(systemJs, /function isGameRunning\(status\)/);
@@ -79,12 +80,12 @@ test('empty Settings interpolations fall back at the source, not via CSS masking
 test('SYSTEM nav group has a compact-density fallback and a scroll affordance', () => {
   assert.match(html, /id="navScrollHint"/);
   assert.match(html, /aria-hidden="true"[^>]*id="navScrollHint"|id="navScrollHint"[^>]*aria-hidden="true"/);
-  assert.match(refinementsCss, /@media \(max-height:850px\)/);
-  assert.match(refinementsCss, /\.nav-scroll-hint/);
+  assert.match(shellCss, /@media \(max-height:850px\)/);
+  assert.match(shellCss, /\.nav-scroll-hint/);
   assert.match(systemJs, /function updateNavScrollHint\(/);
   assert.match(systemJs, /nav\.scrollHeight - nav\.clientHeight - nav\.scrollTop > 4/);
   // Must not disturb the existing mobile off-canvas nav breakpoint/logic.
-  assert.match(refinementsCss, /@media \(max-width:780px\) \{[\s\S]*body\.nav-open \.nav \{ transform:translateX\(0\); \}/);
+  assert.match(shellCss, /@media \(max-width:780px\) \{[\s\S]*body\.nav-open \.nav \{ transform:translateX\(0\); \}/);
 });
 
 test('first-run preflight panel is markup-present, informational, and dismissible without a focus trap', () => {
@@ -109,7 +110,23 @@ test('first-run preflight panel is markup-present, informational, and dismissibl
 });
 
 test('preflight panel leaves breathing room before the navigation frame', () => {
-  assert.match(refinementsCss, /\.preflight-panel \{ margin:\.75rem clamp\(\.75rem,2vw,2rem\) 1\.25rem;/);
+  assert.match(shellCss, /\.connection-banner,\.preflight-panel \{ margin:\.75rem var\(--shell-gutter\) 0;/);
+  assert.match(shellCss, /\.app-frame \{ margin:var\(--shell-gap\) var\(--shell-gutter\) 0;/);
+});
+
+test('floating shell owns the inset surfaces, dynamic sidebar offset, and mobile drawer controls', () => {
+  assert.match(html, /class="nav-mobile-header"/);
+  assert.match(html, /id="navClose"/);
+  assert.match(shellCss, /--shell-gutter/);
+  assert.match(shellCss, /--shell-radius/);
+  assert.match(shellCss, /top:var\(--shell-nav-offset\)/);
+  assert.match(shellCss, /height:calc\(100dvh - 1rem\)/);
+  assert.match(shellCss, /@media \(prefers-reduced-motion:reduce\) \{ \.nav \{ transition:none;/);
+  assert.match(systemJs, /typeof ResizeObserver !== 'undefined'/);
+  assert.match(systemJs, /function updateShellOffset\(\)/);
+  assert.match(systemJs, /document\.getElementById\('navClose'\)\.addEventListener/);
+  assert.match(systemJs, /'ArrowUp', 'ArrowDown'/);
+  assert.match(systemJs, /active\?\.scrollIntoView\(\{ block: 'nearest' \}\)/);
 });
 
 test('preflight reason text is plain-language and named per specific blocker', () => {
