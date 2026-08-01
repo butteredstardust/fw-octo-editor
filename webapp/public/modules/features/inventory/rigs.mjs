@@ -1,5 +1,6 @@
 import { FW } from '../../runtime.mjs';
 import { entityCard, metricGrid } from '../../card-ui.mjs';
+import { statusBadgeHtml } from '../../status-ui.mjs';
 
 const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, showLoading, technicalDetails, appIcon, actionIcon, setInlineFeedback, loadErrorHtml, showToast, confirmAction } = FW;
 function refreshSafetyStatus(...args) { return FW.refreshSafetyStatus?.(...args); }
@@ -106,7 +107,10 @@ export function renderRigs() {
       titleId: `rig-heading-${enc}`,
       focusableTitle: true,
       subtitle: rig.weightClass,
-      statusHtml: `<span class="rig-owned-badge ${rig.owned ? 'owned' : 'missing'}">${rig.owned ? 'Owned' : 'Missing'}</span>`,
+      statusHtml: statusBadgeHtml(rig.owned ? 'Owned' : 'Missing', {
+        tone: rig.owned ? 'success' : 'danger',
+        className: `rig-owned-badge ${rig.owned ? 'owned' : 'missing'}`
+      }),
       bodyHtml: `<div class="rig-capacity"><span><small>Base capacity</small><b>${esc(rig.minCapacity.toLocaleString())} CU</b></span><span><small>HQ capacity</small><b>${esc(rig.maxCapacity.toLocaleString())} CU</b></span><span><small>Rig weight</small><b>${esc(rig.weight)} kg</b></span></div>
       ${rigSlotPills(rig.slots)}
       <p class="rig-characters"><b>Compatible:</b> ${esc(rig.compatibleCharacters.join(', '))}</p>

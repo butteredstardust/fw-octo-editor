@@ -1,5 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 import { entityCard } from '../card-ui.mjs';
+import { statusBadgeHtml } from '../status-ui.mjs';
 import { RECIPE_DATA } from '../recipe-data.mjs';
 import { recipePlannerTotals } from '../recipe-planner.mjs';
 
@@ -160,8 +161,8 @@ function renderRecipeCard({ recipe, requested, crafts, components }) {
   const ready = recipeReady({ components });
   const missingCount = components.filter(component => component.missing > 0).length;
   const badge = ready
-    ? '<span class="recipe-badge ready">Ready</span>'
-    : `<span class="recipe-badge missing">Missing ${missingCount}</span>`;
+    ? statusBadgeHtml('Ready', { tone: 'success', className: 'recipe-badge ready' })
+    : statusBadgeHtml(`Missing ${missingCount}`, { tone: 'warning', className: 'recipe-badge missing' });
   const compRows = components.map(component => {
     const unsupported = !component.writable || !component.itemId;
     const enough = !unsupported && component.owned >= component.total;

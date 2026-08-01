@@ -123,8 +123,6 @@ body {
 .rig-card{position:relative;gap:.72rem}
 .rig-card.owned{border-color:var(--green-border);box-shadow:0 0 0 1px rgba(95,211,138,.14)}
 .rig-icon{display:grid;place-items:center;width:2.75rem;height:2.75rem;border:1px solid var(--chip-border);border-radius:7px;background:var(--chip-bg);color:var(--teal-soft);font-size:1.55rem}
-.rig-owned-badge{padding:.16rem .5rem;border:1px solid var(--red-border);border-radius:999px;color:var(--red);background:var(--red-bg);font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-.rig-owned-badge.owned{border-color:var(--green-border);color:var(--green);background:var(--green-bg)}
 .rig-capacity{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem}
 .rig-capacity span{display:grid;gap:.12rem;padding:.5rem;border:1px solid var(--gunmetal-dark);border-radius:6px;background:rgba(0,0,0,.16)}
 .rig-capacity small{color:var(--text-2);font-size:.62rem}

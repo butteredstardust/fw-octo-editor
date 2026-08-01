@@ -150,6 +150,12 @@
     /* Shared small-caps category caption (weapon build summary, part slot,
        preset headers) -- previously emitted with no rule at all. */
     .eyebrow { display:inline-block; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--teal-soft); margin-bottom:0.15rem; }
+    .status-badge { display:inline-flex; align-items:center; max-width:100%; padding:.16rem .5rem; border:1px solid var(--gunmetal); border-radius:999px; font-size:.64rem; font-weight:800; line-height:1.25; text-transform:uppercase; letter-spacing:.04em; overflow-wrap:anywhere; }
+    .status-badge--success { color:var(--green); background:var(--green-bg); border-color:var(--green-border); }
+    .status-badge--warning { color:var(--amber-warn); background:var(--warn-bg); border-color:var(--warn-border); }
+    .status-badge--danger { color:var(--red); background:var(--red-bg); border-color:var(--red-border); }
+    .status-badge--info { color:var(--teal-soft); background:var(--teal-bg); border-color:var(--teal); }
+    .status-badge--neutral { color:var(--text-2); background:var(--chip-bg); border-color:var(--chip-border); }
     .char-card, .vendor-card, .hub-card, .weapon-card, .repair-card,
     .recipe-card, .trader-card, .preset-card, .weapon-part-card {
       background:var(--surface-2); border:1px solid var(--gunmetal); border-radius:var(--radius-lg);
