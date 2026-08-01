@@ -69,10 +69,13 @@ test('acknowledgements dialog opens with the gif and returns focus to the info b
   await page.locator('#infoButton').click();
   const dialog = page.locator('#acknowledgementsDialog');
   await expect(dialog).toBeVisible();
+  await expect(page.locator('#ackCloseButton')).toBeFocused();
   await expect(dialog.locator('img.ack-banner')).toHaveAttribute('src', 'mc_loop_res1.gif');
   await expect(dialog.locator('#ackDialogTitle')).toContainText('Acknowledgements');
 
-  await page.locator('#ackCloseButton').click();
+  await dialog.locator('#ackDialogBody').click();
+  await expect(dialog).toBeVisible();
+  await dialog.evaluate(node => node.dispatchEvent(new MouseEvent('click', { bubbles: true })));
   await expect(dialog).toBeHidden();
   await expect(page.locator('#infoButton')).toBeFocused();
   expect(pageErrors).toEqual([]);

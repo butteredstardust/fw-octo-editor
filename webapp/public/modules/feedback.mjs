@@ -1,6 +1,7 @@
 import { receiptSummary } from './ui-utils.mjs';
 import { esc, technicalDetails } from './dom.mjs';
 import { actionIcon } from './icons.mjs';
+import { createDialogController } from './dialog-ui.mjs';
 
 // Caps the visible toast stack so a burst of failures (e.g. a batch
 // operation that fails item-by-item) can't grow the region unbounded.
@@ -134,10 +135,13 @@ export function setOperationFeedback(target, message, result, state = 'success',
 }
 
 let appDialogResolve = null;
-let appDialogReturnFocus = null;
+const appDialog = document.getElementById('appDialog');
+const appDialogController = createDialogController(appDialog, {
+  initialFocus: () => document.getElementById('appDialogAccept')
+});
 function openAppDialog({ title, message, confirm = false, acceptLabel, tone = 'primary', icon }) {
-  const dialog = document.getElementById('appDialog');
-  appDialogReturnFocus = document.activeElement;
+  if (appDialog.open) return Promise.resolve(false);
+  const trigger = document.activeElement;
   document.getElementById('appDialogTitle').textContent = title;
   document.getElementById('appDialogMessage').textContent = message;
   const cancel = document.getElementById('appDialogCancel');
@@ -147,9 +151,7 @@ function openAppDialog({ title, message, confirm = false, acceptLabel, tone = 'p
   const acceptIcon = icon || (confirm ? 'check' : 'close');
   accept.innerHTML = `${actionIcon(acceptIcon)}${esc(label)}`;
   accept.className = tone === 'danger' ? 'danger-btn' : tone === 'warning' ? 'btn-warn' : 'btn-primary';
-  dialog.returnValue = '';
-  dialog.showModal();
-  accept.focus();
+  if (!appDialogController.open({ trigger })) return Promise.resolve(false);
   return new Promise(resolve => { appDialogResolve = resolve; });
 }
 
@@ -162,15 +164,11 @@ export function confirmAction(message, { title = 'Confirm change', acceptLabel =
   return openAppDialog({ title, message, confirm: true, acceptLabel, tone, icon });
 }
 
-document.getElementById('appDialogAccept').addEventListener('click', () => document.getElementById('appDialog').close('accept'));
-document.getElementById('appDialog').addEventListener('close', event => {
+document.getElementById('appDialogAccept').addEventListener('click', () => appDialogController.close('accept'));
+appDialog.addEventListener('close', event => {
   const accepted = event.target.returnValue === 'accept';
   if (appDialogResolve) appDialogResolve(accepted);
   appDialogResolve = null;
-  if (appDialogReturnFocus && appDialogReturnFocus.isConnected) {
-    const returnTarget = appDialogReturnFocus;
-    setTimeout(() => returnTarget.isConnected && returnTarget.focus(), 0);
-  }
 });
 
 export { openAppDialog };

@@ -1,11 +1,23 @@
 import { FW } from '../runtime.mjs';
 import { isGameRunning, formatTimestamp } from './status-utils.mjs';
+import { createDialogController } from '../dialog-ui.mjs';
 
-const { api, esc, actionIcon, showLoading, technicalDetails, emptyStateHtml } = FW;
+const { api, esc, actionIcon, showLoading, technicalDetails, emptyStateHtml, errorDetailHtml } = FW;
 
 // ---- Backups -------------------------------------------------------------
 let backupDialogAction = null;
-let backupDialogReturnFocus = null;
+let backupDialogFallbackFocus = null;
+const backupDialog = document.getElementById('backupConfirmDialog');
+const backupDialogController = createDialogController(backupDialog, {
+  initialFocus: () => document.getElementById('backupDialogInput'),
+  fallbackFocus: () => backupDialogFallbackFocus?.() || document.getElementById('createBackupButton')
+});
+
+function setBackupDialogBusy(busy) {
+  document.getElementById('backupDialogConfirm').disabled = busy;
+  document.getElementById('backupDialogCancel').disabled = busy;
+  backupDialogController.setBusy(busy);
+}
 
 function setBackupBusy(busy, message) {
   const list = document.getElementById('backupList');
@@ -72,40 +84,51 @@ export async function loadBackups() {
 // because both operations are irreversible outside the backup system itself (restore
 // overwrites the live save; delete removes the only remaining copy of that snapshot).
 function openBackupConfirmation({ title, description, phrase, action, trigger }) {
-  const dialog = document.getElementById('backupConfirmDialog');
+  if (backupDialog.open) return false;
   backupDialogAction = action;
-  backupDialogReturnFocus = trigger || document.activeElement;
+  const backupAction = trigger?.dataset.backupAction;
+  const backupId = trigger?.dataset.backupId;
+  backupDialogFallbackFocus = () => {
+    if (backupAction === 'restore') {
+      return [...document.querySelectorAll('[data-backup-action="restore"]')].find(button => button.dataset.backupId === backupId) || null;
+    }
+    return document.getElementById('createBackupButton');
+  };
   document.getElementById('backupDialogTitle').textContent = title;
   document.getElementById('backupDialogDescription').textContent = description;
   document.getElementById('backupDialogPhrase').textContent = phrase;
   document.getElementById('backupDialogInput').value = '';
   document.getElementById('backupDialogError').textContent = '';
-  dialog.showModal();
-  document.getElementById('backupDialogInput').focus();
+  setBackupDialogBusy(false);
+  return backupDialogController.open({ trigger });
 }
 
-document.getElementById('backupConfirmDialog').addEventListener('close', () => {
+backupDialog.addEventListener('close', () => {
   backupDialogAction = null;
-  if (backupDialogReturnFocus && backupDialogReturnFocus.isConnected) backupDialogReturnFocus.focus();
+  setBackupDialogBusy(false);
 });
 
+document.getElementById('backupDialogCancel').addEventListener('click', () => backupDialogController.close('cancel'));
+
 document.getElementById('backupDialogConfirm').addEventListener('click', async () => {
-  const dialog = document.getElementById('backupConfirmDialog');
   const input = document.getElementById('backupDialogInput');
   const expected = document.getElementById('backupDialogPhrase').textContent;
   const error = document.getElementById('backupDialogError');
   if (input.value !== expected) { error.textContent = 'The confirmation text does not match.'; input.focus(); return; }
-  const button = document.getElementById('backupDialogConfirm');
-  button.disabled = true;
+  setBackupDialogBusy(true);
   error.textContent = 'Working…';
   try {
     const result = await backupDialogAction(input.value);
-    dialog.close();
     showBackupReceipt(result.deleted ? 'Backup deleted.' : 'Primary save restored and verified.', result);
     await loadBackups();
+    setBackupDialogBusy(false);
+    backupDialogController.close('accept');
   } catch (operationError) {
-    error.textContent = `Error: ${operationError.message}`;
-  } finally { button.disabled = false; }
+    error.innerHTML = errorDetailHtml(operationError, 'This backup operation could not be completed.');
+    input.focus({ preventScroll: true });
+  } finally {
+    if (backupDialog.open) setBackupDialogBusy(false);
+  }
 });
 
 document.getElementById('backupList').addEventListener('click', event => {

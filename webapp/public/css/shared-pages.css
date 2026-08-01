@@ -56,6 +56,9 @@
     .disclosure-title { min-width:0; overflow-wrap:anywhere; }
     .disclosure-count { color:var(--green); font-size:.78rem; font-weight:400; }
     .disclosure-panel[hidden] { display:none; }
+    .dialog-actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.5rem; margin:0; padding:0; list-style:none; }
+    .dialog-actions button { min-width:0; }
+    @media (max-width:360px) { .dialog-actions { flex-direction:column; } .dialog-actions button { width:100%; } }
     @media (max-width:360px) { .disclosure-toggle { grid-template-columns:auto minmax(0,1fr); } .disclosure-count { grid-column:2; } }
     .res-msg { min-height:1.1rem; margin-top:.35rem; font-size:.75rem; } .res-msg.ok { color:var(--green); } .res-msg.err { color:var(--red); }
     .dash-loadout-row { display:block; min-width:0; } .dash-slot { display:block; margin-bottom:.25rem; }
