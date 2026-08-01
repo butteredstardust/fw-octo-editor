@@ -5,15 +5,24 @@ import { refreshSafetyStatus } from './safety-status.mjs';
 
 const { debounce } = FW;
 const feature = name => (...args) => FW[name](...args);
-const loadWeaponBuilds = feature('loadWeaponBuilds');
-const loadPresets = feature('loadPresets');
-const loadVendors = feature('loadVendors');
-const loadStats = feature('loadStats');
-const loadRepair = feature('loadRepair');
-const loadAddCatalog = feature('loadAddCatalog');
-const loadRigs = feature('loadRigs');
-const loadSettings = feature('loadSettings');
-const loadCrafting = feature('loadCrafting');
+
+// Page-specific refreshes are intentionally local to the router. The loader
+// registry keeps the navigation contract explicit while ensuring each page
+// transition can invoke at most its one associated loader. Feature wrappers
+// resolve FW at invocation time because those modules register via expose().
+const PAGE_LOADERS = new Map([
+  ['weapon-builds', feature('loadWeaponBuilds')],
+  ['presets', feature('loadPresets')],
+  ['vendors', feature('loadVendors')],
+  ['stats', feature('loadStats')],
+  ['repair', feature('loadRepair')],
+  ['add-items', feature('loadAddCatalog')],
+  ['rigs', feature('loadRigs')],
+  ['settings', feature('loadSettings')],
+  ['crafting', feature('loadCrafting')],
+  ['backups', loadBackups],
+  ['diagnostics', runDiagnostics]
+]);
 
 const pageScrollMemory = new Map();
 let currentPageName = 'dashboard';
@@ -59,17 +68,7 @@ export function showPage(pageName, { fromHistory = false } = {}) {
   currentPageName = pageName;
   closeMobileNav(false);
   requestAnimationFrame(() => window.scrollTo({ top: pageScrollMemory.get(pageName) || 0, behavior: 'instant' }));
-  if (pageName === 'weapon-builds') loadWeaponBuilds();
-  if (pageName === 'presets') loadPresets();
-  if (pageName === 'vendors') loadVendors();
-  if (pageName === 'stats') loadStats();
-  if (pageName === 'repair') loadRepair();
-  if (pageName === 'add-items') loadAddCatalog();
-  if (pageName === 'rigs') loadRigs();
-  if (pageName === 'settings') loadSettings();
-  if (pageName === 'crafting') loadCrafting();
-  if (pageName === 'backups') loadBackups();
-  if (pageName === 'diagnostics') runDiagnostics();
+  PAGE_LOADERS.get(pageName)?.();
   // fromHistory means this call originated from the browser (a hashchange
   // or popstate event, or the initial-load restore below) -- the URL
   // already reflects pageName, so pushing another entry would double up

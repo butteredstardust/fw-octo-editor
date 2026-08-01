@@ -1,6 +1,6 @@
 import { FW } from '../../runtime.mjs';
 
-const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, showLoading, technicalDetails, appIcon, actionIcon, receiptHtml, errorDetailHtml, loadErrorHtml, showToast, confirmAction } = FW;
+const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, showLoading, technicalDetails, appIcon, actionIcon, setInlineFeedback, loadErrorHtml, showToast, confirmAction } = FW;
 function refreshSafetyStatus(...args) { return FW.refreshSafetyStatus?.(...args); }
 
 // ---- Rigs and high-quality container kits ----
@@ -95,7 +95,7 @@ export function renderRigs() {
     return `<article class="rig-card ${rig.owned ? 'owned' : 'missing'}" data-rig-card="${enc}">
       <div class="rig-card-head">
         <span class="rig-icon" aria-hidden="true">${appIcon('pack')}</span>
-        <div><h3>${esc(rig.name)}</h3><span class="rig-class">${esc(rig.weightClass)}</span></div>
+        <div><h3 id="rig-heading-${enc}" tabindex="-1">${esc(rig.name)}</h3><span class="rig-class">${esc(rig.weightClass)}</span></div>
         <span class="rig-owned-badge ${rig.owned ? 'owned' : 'missing'}">${rig.owned ? 'Owned' : 'Missing'}</span>
       </div>
       <div class="rig-capacity"><span><small>Base capacity</small><b>${esc(rig.minCapacity.toLocaleString())} CU</b></span><span><small>HQ capacity</small><b>${esc(rig.maxCapacity.toLocaleString())} CU</b></span><span><small>Rig weight</small><b>${esc(rig.weight)} kg</b></span></div>
@@ -104,8 +104,8 @@ export function renderRigs() {
       <details class="rig-kit-details"><summary>HQ set · ${rig.highQualityContainers.length} container${rig.highQualityContainers.length === 1 ? '' : 's'}</summary><ul>${moduleList}</ul></details>
       <div class="operation-inline" id="rigop-${enc}" aria-live="polite"></div>
       <div class="rig-actions">
-        <button class="btn-primary" data-action="add-rig" data-id="${enc}" type="button" ${rig.owned ? 'disabled' : ''}>${rig.owned ? actionIcon('check') + 'Rig owned' : actionIcon('add') + 'Add rig'}</button>
-        <button class="btn-ghost" data-action="add-rig-kit" data-id="${enc}" type="button">${actionIcon('add')}Add HQ set</button>
+        <button id="rig-add-${enc}" class="btn-primary" data-action="add-rig" data-id="${enc}" type="button" ${rig.owned ? 'disabled' : ''}>${rig.owned ? actionIcon('check') + 'Rig owned' : actionIcon('add') + 'Add rig'}</button>
+        <button id="rig-hq-${enc}" class="btn-ghost" data-action="add-rig-kit" data-id="${enc}" type="button">${actionIcon('add')}Add HQ set</button>
       </div>
     </article>`;
   }).join('');
@@ -126,22 +126,19 @@ export async function addRig(encId) {
   const accepted = await confirmAction(`Add ownership of ${rig.name}? This will not equip it or change the active character's loadout.`, { title: 'Add rig?', acceptLabel: 'Add rig', icon: 'add' });
   if (!accepted) return;
   const inline = document.getElementById(`rigop-${encId}`);
-  inline.className = 'operation-inline pending';
-  inline.textContent = 'Adding and verifying rig ownership…';
+  setInlineFeedback(inline, { state: 'pending', message: 'Adding and verifying rig ownership…' });
   try {
     const result = await api(`/rigs/${encodeURIComponent(rigId)}/add`, { method: 'POST', body: '{}' });
     rig.owned = true;
     _rigData.ownedCount += 1;
     renderRigs();
-    const refreshed = document.querySelector(`[data-rig-card="${encId}"] [data-action="add-rig"]`);
-    refreshed?.focus();
     const updatedInline = document.getElementById(`rigop-${encId}`);
-    if (updatedInline) { updatedInline.className = 'operation-inline success'; updatedInline.innerHTML = `Rig added and verified.${receiptHtml(result)}`; }
+    setInlineFeedback(updatedInline, { state: 'success', message: 'Rig added and verified.', result });
+    document.getElementById(`rig-heading-${encId}`)?.focus({ preventScroll: true });
     showToast(`${rig.name} ownership was added and verified.`);
     refreshSafetyStatus();
   } catch (error) {
-    inline.className = 'operation-inline error';
-    inline.innerHTML = errorDetailHtml(error, 'This rig could not be added.');
+    setInlineFeedback(inline, { state: 'error', error, fallback: 'This rig could not be added.' });
     showToast(`Could not add ${rig.name}.`, 'error');
   }
 }
@@ -154,22 +151,19 @@ export async function addRigKit(encId) {
   const accepted = await confirmAction(`Add one complete HQ set for ${rig.name}? Each of these containers will increase by one: ${names}. Existing quantities will not be replaced.`, { title: 'Add container set?', acceptLabel: 'Add container set', icon: 'add' });
   if (!accepted) return;
   const inline = document.getElementById(`rigop-${encId}`);
-  inline.className = 'operation-inline pending';
-  inline.textContent = `Adding and verifying ${rig.highQualityContainers.length} container types…`;
+  setInlineFeedback(inline, { state: 'pending', message: `Adding and verifying ${rig.highQualityContainers.length} container types…` });
   try {
     const result = await api(`/rigs/${encodeURIComponent(rigId)}/high-quality-set`, { method: 'POST', body: '{}' });
     const byId = new Map(result.containers.map(change => [change.containerId, change.after]));
     for (const module of rig.highQualityContainerSet) if (byId.has(module.containerId)) module.quantity = byId.get(module.containerId);
     renderRigs();
-    const refreshed = document.querySelector(`[data-rig-card="${encId}"] [data-action="add-rig-kit"]`);
-    refreshed?.focus();
     const updatedInline = document.getElementById(`rigop-${encId}`);
-    if (updatedInline) { updatedInline.className = 'operation-inline success'; updatedInline.innerHTML = `HQ set added and verified.${receiptHtml(result)}`; }
+    setInlineFeedback(updatedInline, { state: 'success', message: 'HQ set added and verified.', result });
+    document.getElementById(`rig-hq-${encId}`)?.focus({ preventScroll: true });
     showToast(`${rig.name} HQ container set was added and verified.`);
     refreshSafetyStatus();
   } catch (error) {
-    inline.className = 'operation-inline error';
-    inline.innerHTML = errorDetailHtml(error, 'The HQ container set could not be added.');
+    setInlineFeedback(inline, { state: 'error', error, fallback: 'The HQ container set could not be added.' });
     showToast(`Could not add the ${rig.name} HQ set.`, 'error');
   }
 }

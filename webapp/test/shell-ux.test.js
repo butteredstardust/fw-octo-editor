@@ -142,6 +142,15 @@ test('showPage accepts a fromHistory option so history-originated navigation doe
   assert.match(systemJs, /if \(!fromHistory && knownPageNames\(\)\.has\(pageName\)\)/);
 });
 
+test('router uses one immutable page-loader registry for page-specific refreshes', () => {
+  assert.match(systemJs, /const PAGE_LOADERS = new Map\(\[/);
+  for (const page of ['weapon-builds', 'presets', 'vendors', 'stats', 'repair', 'add-items', 'rigs', 'settings', 'crafting', 'backups', 'diagnostics']) {
+    assert.match(systemJs, new RegExp(`\\['${page.replace('-', '\\-')}',`));
+  }
+  assert.match(systemJs, /PAGE_LOADERS\.get\(pageName\)\?\.\(\);/);
+  assert.doesNotMatch(systemJs, /if \(pageName === '(?:weapon-builds|presets|vendors|stats|repair|add-items|rigs|settings|crafting|backups|diagnostics)'\)/);
+});
+
 test('HTML ids remain unique after the new markup', () => {
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
   const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
