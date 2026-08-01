@@ -36,18 +36,30 @@ jobs:
         run: |
           git clone https://github.com/trumank/uesave.git tools/uesave-src
           cd tools/uesave-src
+          git checkout --detach 1917a22ab69e9a4045e613d9d7f39a49fe00bd46
           cargo build --release -p uesave_cli
 
       - name: Obtain sqlite3mc_shell_x64.exe
+        shell: pwsh
         run: |
-          New-Item -ItemType Directory -Force -Path "tools\sqlite3mc\bin" | Out-Null
-          # Place SQLite3MC 2.3.6 (SQLite 3.53.3) at tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
-          # Options:
-          #   1. Download from https://github.com/utopiatoken/sqlite3mc/releases
-          #   2. Build from source (see INSTALL_GUIDE.md)
-          #   3. Extract from a previously-built release package
-          if (-not (Test-Path -LiteralPath $env:FW_SQLITE_BIN)) {
-            throw "sqlite3mc_shell_x64.exe not found at $env:FW_SQLITE_BIN"
+          $archiveName = 'sqlite3mc-2.3.6-sqlite-3.53.3-win64.zip'
+          $archiveUrl = "https://github.com/utelle/SQLite3MultipleCiphers/releases/download/v2.3.6/$archiveName"
+          $expectedSha256 = '789ee3d846a21d01045fb027286735447b17cccf3fb07979fbef354a815defd7'
+          $archivePath = Join-Path $env:RUNNER_TEMP $archiveName
+          $extractPath = Join-Path $env:RUNNER_TEMP 'sqlite3mc'
+
+          Invoke-WebRequest -Uri $archiveUrl -OutFile $archivePath
+          $actualSha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $archivePath).Hash.ToLowerInvariant()
+          if ($actualSha256 -ne $expectedSha256) {
+            throw "SQLite3MC archive SHA-256 mismatch: expected $expectedSha256, got $actualSha256"
+          }
+
+          Expand-Archive -LiteralPath $archivePath -DestinationPath $extractPath -Force
+          New-Item -ItemType Directory -Force -Path (Split-Path -Parent $env:FW_SQLITE_BIN) | Out-Null
+          Copy-Item -LiteralPath (Join-Path $extractPath 'bin\sqlite3mc_shell_x64.exe') -Destination $env:FW_SQLITE_BIN -Force
+          & $env:FW_SQLITE_BIN -version
+          if ($LASTEXITCODE -ne 0) {
+            throw "SQLite3MC smoke test failed with exit code $LASTEXITCODE"
           }
 
       - name: Prepare DB key
@@ -64,7 +76,10 @@ jobs:
         working-directory: webapp
 
       - name: Build installer
-        run: powershell -File releases/build.ps1
+        shell: pwsh
+        run: |
+          $isccPath = (Get-Command ISCC.exe -ErrorAction Stop).Source
+          powershell -File releases/build.ps1 -IsccPath $isccPath
         working-directory: ${{ github.workspace }}
 
       - name: Upload installer artifact
