@@ -210,3 +210,23 @@ test('copy: confirmAction bodies drop the undefined "experimental" hedge', () =>
   const calls = [...featureJs.matchAll(/confirmAction\(\s*(`[^`]*`|'[^']*'|"[^"]*")/g)].map(m => m[1]);
   for (const raw of calls) assert.doesNotMatch(raw, /experimental/i);
 });
+
+// POST /api/inventory/add is the complete operation: it appends a row when the
+// item is absent (added: true) and increments the existing row when it is
+// already present (added: false). Three call sites read added === false as
+// "the write did not happen" and chased it with an absolute /inventory/update,
+// which either re-sent the same total (rejected by mutationService's no-op
+// guard and surfaced as a phantom "1 failed") or clobbered the stack with just
+// the amount added. Nothing may follow an add with an update again.
+test('inventory add is never followed by a compensating quantity update', () => {
+  for (const file of featureFiles) {
+    // Strip line comments first -- the modules explain this rule in prose that
+    // necessarily names both endpoints.
+    const code = file.text.replace(/^\s*\/\/.*$/gm, '');
+    for (const match of code.matchAll(/added\s*===?\s*false/g)) {
+      const window = code.slice(match.index, match.index + 400);
+      assert.doesNotMatch(window, /inventory\/update/,
+        `${file.name} treats added === false as a failed write and re-issues /inventory/update; add already applied the quantity`);
+    }
+  }
+});

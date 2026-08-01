@@ -52,7 +52,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/weapon-xp') body = options.weaponXp || [];
     else if (pathname === '/api/weapon-xp/reference') body = options.weaponReference || {};
     else if (pathname === '/api/repair') body = options.repair || { repair: null, iffs: [], destroyed: {} };
-    else body = { success: true, added: true, afterIntegrity: { passed: true }, afterFk: { passed: true }, operationId: 'fixture-op', backupId: 'fixture-backup' };
+    else body = { success: true, added: true, afterIntegrity: { passed: true }, afterFk: { passed: true }, operationId: 'fixture-op', backupId: 'fixture-backup', ...(options.mutationResponse || {}) };
     await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
   });
   return mutations;
@@ -442,6 +442,21 @@ test('Overview resources send the current mutation method and JSON body', async 
   await page.locator('[data-action="add-resource"][data-id="Drone_Recovery"]').click();
   await expect.poll(() => mutations.length).toBe(2);
   expect(mutations[1]).toMatchObject({ pathname: '/api/inventory/add', method: 'POST', body: { itemId: 'Drone_Recovery', quantity: 3 } });
+});
+
+// added: false means /inventory/add INCREMENTED an existing row, not that the
+// write was refused. The Overview add button used to chase it with an absolute
+// /inventory/update, which overwrote the whole stack with the amount added
+// (add 3 to a stack of 102 left you with 3). One request, and the displayed
+// total comes from the receipt.
+test('adding to an already-owned resource issues no follow-up update and shows the new total', async ({ page }) => {
+  const mutations = await mockApi(page, { mutationResponse: { added: false, quantity: 105 } });
+  await page.goto(baseURL);
+  await page.locator('#res-Drone_Recovery').fill('3');
+  await page.locator('[data-action="add-resource"][data-id="Drone_Recovery"]').click();
+  await expect(page.locator('#resvalue-Drone_Recovery')).toHaveText('105');
+  expect(mutations).toHaveLength(1);
+  expect(mutations[0]).toMatchObject({ pathname: '/api/inventory/add', method: 'POST', body: { itemId: 'Drone_Recovery', quantity: 3 } });
 });
 
 test('fractional inputs are rejected without issuing a mutation', async ({ page }) => {

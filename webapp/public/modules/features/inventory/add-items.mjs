@@ -189,16 +189,20 @@ export async function addItem(encId) {
     return null;
   });
   if (!result) return;
-  if (!result.success && !result.added) {
+  if (!result.success) {
     setInlineFeedback(inline, { state: 'error', message: 'Could not confirm this was added. Try again.' });
-  } else if (result.added === false) {
-    setInlineFeedback(inline, { message: 'Already owned—adjust it from Inventory.' });
   } else {
+    // added: true appended a new row; added: false INCREMENTED the row that was
+    // already there. Both applied the requested quantity, so both are a success
+    // -- the old "Already owned" branch reported a completed write as a no-op
+    // and left the catalog's have count stale.
     const friendly = cat?.wiki || cleanFallbackName(id);
-    setInlineFeedback(inline, { state: 'success', message: `Added ${qty.toLocaleString()} × ${friendly}.`, result });
+    const newTotal = Number(result.quantity);
+    const total = Number.isFinite(newTotal) ? newTotal : (cat?.have || 0) + qty;
+    setInlineFeedback(inline, { state: 'success', message: `Added ${qty.toLocaleString()} × ${friendly} (now ${total.toLocaleString()}).`, result });
     row?.classList.add('changed-flash');
     showToast(`${friendly} was added and verified.`);
-    if (cat) cat.have = (cat.have || 0) + qty;
+    if (cat) cat.have = total;
     setTimeout(renderAddCatalog, 850);
   }
 }
