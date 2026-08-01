@@ -1,5 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
-import { entityCard } from '../card-ui.mjs';
+import { entityCard, metricGrid } from '../card-ui.mjs';
 
 // validateInteger is used for the preset-supplied score path (the trust tier
 // buttons pass data-value); it was missing here, so every tier preset threw
@@ -342,19 +342,22 @@ function renderRepairStatus(data) {
   // Also note how many repairable weapons need each chip.
   const iffNeedCount = {};
   for (const rec of REPAIR_RECIPES) iffNeedCount[rec.iff] = (iffNeedCount[rec.iff] || 0) + 1;
-  const iffCards = data.iffs.map(f => {
+  const iffCards = metricGrid({
+    className: 'iff-grid',
+    ariaLabel: 'Faction IFF chip inventory',
+    items: data.iffs.map(f => {
     const meta = IFF_LABELS[f.tag] || { name: f.tag, faction: '', level: '' };
     const zero = f.quantity <= 0;
     const neededFor = iffNeedCount[f.tag] || 0;
-    return `<div class="iff-card ${zero ? 'zero' : ''}">
-      <div class="iff-card-head">
-        <span class="iff-card-name">${esc(meta.faction)} LVL${esc(meta.level)}</span>
-        <span class="iff-card-qty ${zero ? 'zero' : ''}">${esc(f.quantity)}</span>
-      </div>
-      <div class="iff-card-meta">${esc(meta.name)}</div>
-      ${neededFor ? `<div class="iff-card-used">used by ${esc(neededFor)} weapon(s)</div>` : ''}
-    </div>`;
-  }).join('');
+      return {
+        className: `iff-card ${zero ? 'zero' : ''}`,
+        label: `${meta.faction} LVL${meta.level}`,
+        value: f.quantity,
+        detail: meta.name,
+        detailHtml: neededFor ? `<span class="iff-card-used">used by ${esc(neededFor)} weapon(s)</span>` : ''
+      };
+    })
+  });
 
   // Repairable-weapon cards (view-only replica of the in-game bench grid).
   const benchBusy = data.repair != null; // a job is in progress or ready to collect
@@ -401,11 +404,15 @@ function renderRepairStatus(data) {
     : (data.repair ? 'Fast-forwards the in-progress timer so the item is ready to collect.' : '');
 
   setRenderedHtml(el, `
-    <div class="repair-summary" aria-label="Repair bench summary">
-      <div class="repair-metric"><span>Bench</span><strong>${data.repair ? (data.repair.ready ? 'Ready' : 'Busy') : 'Idle'}</strong></div>
-      <div class="repair-metric"><span>Ready recipes</span><strong>${readyCount}<small> / ${REPAIR_RECIPES.length}</small></strong></div>
-      <div class="repair-metric"><span>IFF types owned</span><strong>${ownedIffs}<small> / ${data.iffs.length}</small></strong></div>
-    </div>
+    ${metricGrid({
+      className: 'repair-summary',
+      ariaLabel: 'Repair bench summary',
+      items: [
+        { label: 'Bench', value: data.repair ? (data.repair.ready ? 'Ready' : 'Busy') : 'Idle' },
+        { label: 'Ready recipes', value: readyCount, suffix: ` / ${REPAIR_RECIPES.length}` },
+        { label: 'IFF types owned', value: ownedIffs, suffix: ` / ${data.iffs.length}` }
+      ]
+    })}
     <div class="repair-grid">
       <section class="repair-panel repair-job-panel">
         <h3>Active Repair Job</h3>
@@ -423,7 +430,7 @@ function renderRepairStatus(data) {
     </div>
     <div class="repair-cards-wrap">
       <div class="repair-list-head"><div><h3>Faction IFF Chips</h3><p class="char-hint">Repairing a destroyed weapon needs the IFF of its origin faction. "used by N weapon(s)" counts the recipes that require that chip.</p></div></div>
-      <div class="iff-grid">${iffCards}</div>
+      ${iffCards}
     </div>
     <div class="repair-cards-wrap">
       <div class="repair-list-head"><div><h3>Repairable Weapons <span class="repair-count">${REPAIR_RECIPES.length} recipes</span></h3><p class="char-hint">Ready recipes appear first. Repairs are started in-game.</p></div><span class="repair-ready-total">${readyCount} ready now</span></div>

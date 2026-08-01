@@ -39,3 +39,15 @@ export function entityCard({
     ${footerHtml ? `<footer class="card-ui__footer">${footerHtml}</footer>` : ''}
   </article>`;
 }
+
+// Semantic metric tiles. Dynamic fields are escaped; detailHtml accepts only
+// locally generated markup whose dynamic values have already been escaped.
+export function metricGrid({ className = '', ariaLabel = '', items = [] } = {}) {
+  const tiles = items.map(({ className: itemClass = '', label = '', value = '', suffix = '', detail = '', detailHtml = '' }) => `
+    <div class="metric-tile ${esc(itemClass)}">
+      <dt class="metric-tile__label">${esc(label)}</dt>
+      <dd class="metric-tile__value"><strong>${esc(value)}</strong>${suffix ? `<small class="metric-tile__suffix">${esc(suffix)}</small>` : ''}</dd>
+      ${detail || detailHtml ? `<div class="metric-tile__detail">${esc(detail)}${detailHtml}</div>` : ''}
+    </div>`).join('');
+  return `<dl class="metric-grid ${esc(className)}"${ariaLabel ? ` aria-label="${esc(ariaLabel)}"` : ''}>${tiles}</dl>`;
+}

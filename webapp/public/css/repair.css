@@ -1,8 +1,4 @@
-    .repair-summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.65rem; margin-bottom:.8rem; }
-    .repair-metric { padding:.65rem .8rem; background:var(--surface-2); border:1px solid var(--gunmetal-dark); border-radius:7px; }
-    .repair-metric span { display:block; color:var(--text-2); font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; }
-    .repair-metric strong { display:block; margin-top:.2rem; color:var(--text); font-size:1.25rem; }
-    .repair-metric strong small { color:var(--text-2); font-size:.72rem; font-weight:500; }
+    .repair-summary { --metric-min:12rem; margin-bottom:.8rem; }
     .repair-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; align-items:start; }
     .repair-panel { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 8px; padding: 1rem; }
     .repair-job-panel { min-height:100%; display:flex; flex-direction:column; }
@@ -22,15 +18,14 @@
     .repair-badge.ok { background: var(--green-bg); color: var(--green); }
     .repair-badge.missing { background: var(--red-bg); color: var(--red); }
     .repair-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .iff-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:.6rem; margin-top:.5rem; }
-    .iff-card { background: var(--surface-2); border: 1px solid var(--gunmetal); border-radius: 7px; padding: .6rem .7rem; }
+    .iff-grid { --metric-min:170px; --metric-gap:.6rem; margin-top:.5rem; }
+    .iff-card { border-color:var(--gunmetal); padding:.6rem .7rem; }
     .iff-card.zero { border-color: var(--red-soft-border); }
-    .iff-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
-    .iff-card-name { font-weight: 700; color: var(--text); font-size: .84rem; }
-    .iff-card-qty { font-weight: 700; font-size: 1.1rem; color: var(--text); font-variant-numeric: tabular-nums; }
-    .iff-card-qty.zero { color: var(--red); }
-    .iff-card-meta { color: var(--text-2); font-size: .7rem; margin-top: .15rem; }
-    .iff-card-used { color: var(--text-2); font-size: .68rem; margin-top: .3rem; }
+    .iff-card .metric-tile__label { font-weight:700; color:var(--text); font-size:.84rem; text-transform:none; letter-spacing:0; }
+    .iff-card .metric-tile__value strong { font-size:1.1rem; }
+    .iff-card.zero .metric-tile__value strong { color:var(--red); }
+    .iff-card .metric-tile__detail { font-size:.7rem; }
+    .iff-card-used { display:block; color:var(--text-2); font-size:.68rem; margin-top:.3rem; }
     .repair-cards-wrap { margin-top: 1.5rem; }
     .repair-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.65rem; margin-top:.5rem; }
     .repair-cards-wrap h3 { display: flex; align-items: center; gap: 0.6rem; }
@@ -54,7 +49,7 @@
     .repair-list-head .char-hint { margin:.25rem 0 0; }
     .repair-ready-total { flex:none; padding:.25rem .6rem; border:1px solid var(--green-border); border-radius:999px; background:var(--green-bg); color:var(--green); font-size:.72rem; }
     @media (max-width:850px) { .repair-grid { grid-template-columns:1fr; } .repair-job-panel { min-height:0; } }
-    @media (max-width:600px) { .repair-summary { grid-template-columns:1fr; } .repair-list-head { align-items:flex-start; flex-direction:column; } }
+    @media (max-width:600px) { .repair-list-head { align-items:flex-start; flex-direction:column; } }
     .add-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.6rem; }
     .add-item { background: var(--surface-2); border:1px solid var(--gunmetal); border-radius:8px; padding:.7rem .8rem; display:grid; grid-template-columns:auto minmax(0,1fr); align-items:start; gap:.65rem; }
     .add-item.owned { border-color: var(--gunmetal); background: var(--surface-owned); }

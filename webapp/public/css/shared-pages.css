@@ -98,11 +98,11 @@
     .stats-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .map-internal-tag { display:inline-block; margin-top:.2rem; padding:.1rem .5rem; border-radius:999px; background:var(--warn-bg); color:var(--amber-warn); font-size:.66rem; text-transform:uppercase; letter-spacing:.04em; }
 
-    .stats-kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.65rem; }
-    .stats-kpi { min-width:0; padding:.8rem; border:1px solid var(--gunmetal-dark); border-radius:8px; background:var(--surface-2); }
-    .stats-kpi span { display:block; color:var(--text-2); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
-    .stats-kpi strong { display:block; margin:.18rem 0; color:var(--text); font-size:1.35rem; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
-    .stats-kpi small, .stats-note { color:var(--text-2); font-size:.7rem; line-height:1.4; }
+    .stats-kpi-grid { --metric-min:150px; }
+    .stats-kpi-grid .metric-tile { padding:.8rem; border-radius:8px; }
+    .stats-kpi-grid .metric-tile__label { font-size:.72rem; }
+    .stats-kpi-grid .metric-tile__value strong { font-size:1.35rem; }
+    .stats-kpi-grid .metric-tile__detail, .stats-note { font-size:.7rem; line-height:1.4; }
     .stats-rate-list { margin:.3rem 0 0; padding-left:1.1rem; font-size:.76rem; color:var(--text-2); line-height:1.6; }
     .stats-rate-list b { color:var(--text); }
     .comparison-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
@@ -124,8 +124,7 @@
     .map-rate-grid { display:grid; gap:.55rem; }
     .map-stats-card > .stats-note { margin:.7rem 0 0; }
     #statsContent { min-width:0; overflow-wrap:anywhere; }
-    @media(max-width:700px) { .comparison-pair { grid-template-columns:1fr; } .stats-kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .character-combat-grid, .map-stats-grid, .territory-grid { grid-template-columns:minmax(0,1fr); } .territory-section { padding:.85rem; margin-inline:0; } }
-    @media(max-width:420px) { .stats-kpi-grid { grid-template-columns:1fr; } }
+    @media(max-width:700px) { .comparison-pair { grid-template-columns:1fr; } .character-combat-grid, .map-stats-grid, .territory-grid { grid-template-columns:minmax(0,1fr); } .territory-section { padding:.85rem; margin-inline:0; } }
 
     /* Territory Control -- faction identity (dot + label, never color alone) */
     .faction-dot { display:inline-block; width:.6rem; height:.6rem; border-radius:50%; margin-right:.4rem; flex:0 0 auto; box-shadow:0 0 0 2px rgba(0,0,0,.25); }
@@ -218,3 +217,12 @@
     .card-ui__body { min-width:0; }
     .card-ui__footer { margin-top:auto; padding-top:.65rem; border-top:1px solid var(--gunmetal-dark); }
     @media (max-width:700px) { .card-ui { padding:.85rem; } .card-ui__header { flex-wrap:wrap; } .card-ui__status { width:100%; margin-left:0; justify-content:flex-start; } }
+
+    .metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--metric-min,9rem)),1fr)); gap:var(--metric-gap,.65rem); margin:0; padding:0; }
+    .metric-tile { min-width:0; padding:.7rem .8rem; border:1px solid var(--gunmetal-dark); border-radius:7px; background:var(--surface-2); }
+    .metric-tile__label { color:var(--text-2); font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; }
+    .metric-tile__value { margin:.2rem 0 0; color:var(--text); overflow-wrap:anywhere; font-variant-numeric:tabular-nums; }
+    .metric-tile__value strong { font-size:1.25rem; }
+    .metric-tile__suffix { margin-left:.15rem; color:var(--text-2); font-size:.72rem; font-weight:500; }
+    .metric-tile__detail { margin-top:.25rem; color:var(--text-2); font-size:.72rem; line-height:1.35; }
+    @media(max-width:390px) { .metric-grid { grid-template-columns:1fr; } }

@@ -49,7 +49,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/inventory/catalog') body = options.inventoryCatalog || [];
     else if (pathname === '/api/weapon-xp') body = options.weaponXp || [];
     else if (pathname === '/api/weapon-xp/reference') body = options.weaponReference || {};
-    else if (pathname === '/api/repair') body = { repairs: [], iff: [], destroyed: [] };
+    else if (pathname === '/api/repair') body = options.repair || { repair: null, iffs: [], destroyed: {} };
     else body = { success: true, added: true, afterIntegrity: { passed: true }, afterFk: { passed: true }, operationId: 'fixture-op', backupId: 'fixture-backup' };
     await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
   });
@@ -223,6 +223,43 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
   expect(await vendor.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
+test('shared metric grids preserve values, descriptions, zero states, and narrow containment', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  const probe = '<img data-metric-probe src=x>';
+  await mockApi(page, {
+    stats: { player: { kills: 12, deaths: 3, extractions: 7, downed: 2, attacks: 90, xp: 12345 }, damage: {}, factions: {}, characters: {}, maps: [], territory: [] },
+    repair: { repair: null, iffs: [{ tag: probe, quantity: 0 }], destroyed: {} },
+    rigs: { rigs: [{ id: 'FixtureRig', name: 'Fixture rig', owned: true, weightClass: 'Medium', minCapacity: 10, maxCapacity: 20, weight: 3, slots: {}, compatibleCharacters: [], highQualityContainers: [], highQualityContainerSet: [] }], ownedCount: 1, totalCount: 1 }
+  });
+
+  await page.goto(`${baseURL}/#stats`);
+  const statsGrid = page.locator('dl.stats-kpi-grid');
+  await expect(statsGrid.locator('dt')).toHaveCount(8);
+  await expect(statsGrid.locator('dd')).toHaveCount(8);
+  await expect(statsGrid).toContainText('12,345');
+  await expect(statsGrid).toContainText('Lifetime XP');
+  expect(await statsGrid.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#repair`);
+  const repairSummary = page.locator('dl[aria-label="Repair bench summary"]');
+  await expect(repairSummary.locator('dt')).toHaveCount(3);
+  await expect(repairSummary.locator('dd')).toHaveCount(3);
+  await expect(repairSummary).toContainText('0 / 41');
+  const iff = page.locator('dl[aria-label="Faction IFF chip inventory"] .iff-card.zero');
+  await expect(iff.locator('dd strong')).toHaveText('0');
+  await expect(iff).toContainText(probe);
+  await expect(iff.locator('[data-metric-probe]')).toHaveCount(0);
+  expect(await repairSummary.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  expect(await iff.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#rigs`);
+  const rigSummary = page.locator('dl[aria-label="Rig ownership summary"]');
+  await expect(rigSummary.locator('dt')).toHaveCount(3);
+  await expect(rigSummary.locator('dd')).toHaveCount(3);
+  await expect(rigSummary).toContainText('1 / 1');
+  expect(await rigSummary.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
 test('Overview resources send the current mutation method and JSON body', async ({ page }) => {
   const mutations = await mockApi(page);
   await page.goto(baseURL);
@@ -390,7 +427,7 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   } });
   await page.goto(baseURL);
   await page.evaluate(() => document.querySelector('[data-page="stats"]').click());
-  await expect(page.locator('.stats-kpi')).toContainText(['12', '3', '4.00', '9']);
+  await expect(page.locator('.stats-kpi-grid .metric-tile')).toContainText(['12', '3', '4.00', '9']);
   // Faction combat profile uses a horizontal grouped bar plus paired data
   // table. Unknown/new faction keys remain in both the denominator and the
   // output, so the shares stay honest after a game update.
