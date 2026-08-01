@@ -1,5 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 import { entityCard } from '../card-ui.mjs';
+import { statusBadgeHtml } from '../status-ui.mjs';
 
 const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, loadErrorHtml, noMatchesHtml } = FW;
 function addCanonicalComponents(...args) { return FW.addCanonicalComponents(...args); }
@@ -129,7 +130,10 @@ function renderHubUpgrades(unlockedTags) {
             headingLevel: 5,
             iconHtml: `<span class="hub-icon">${appIcon(meta.icon)}</span>`,
             title: meta.name,
-            statusHtml: `<span class="hub-pill ${status}">${statusLabel}</span>`,
+            statusHtml: statusBadgeHtml(statusLabel, {
+              tone: status === 'unlocked' ? 'success' : status === 'available' ? 'info' : 'danger',
+              className: `hub-pill ${status}`
+            }),
             bodyHtml: `${water ? `<div class="hub-cost">${appIcon('water')} ${water} days water to unlock</div>` : ''}
             <div class="hub-desc">${esc(meta.desc || '')}</div>
             ${meta.prereq ? `<div class="hub-prereq ${prereqMet ? '' : 'unmet'}">Requires: ${esc(prereqName)}${prereqMet ? ' ✓' : ' ✗'}</div>` : ''}

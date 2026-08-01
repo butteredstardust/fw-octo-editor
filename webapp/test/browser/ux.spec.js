@@ -225,11 +225,19 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
   expect(await vendor.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
-test('hub, vendor roster, and repair recipes render shared compact card anatomy', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 740 });
+test('shared status badges preserve card anatomy, domain hooks, and narrow containment', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 740 });
   await mockApi(page, {
     vendors: { factions: [{ faction: 'Scavengers', scope: 'Scavengers', score: 2200 }], traders: [], economy: null },
     hubUpgrades: [{ upgradeTag: 'Hub.Upgrade.Category.Crafting.Ammo' }],
+    rigs: {
+      rigs: [
+        { id: 'OwnedRig', name: 'Owned rig', owned: true, weightClass: 'Medium', minCapacity: 10, maxCapacity: 20, weight: 3, slots: {}, compatibleCharacters: [], highQualityContainers: [], highQualityContainerSet: [] },
+        { id: 'MissingRig', name: 'Missing rig', owned: false, weightClass: 'Light', minCapacity: 5, maxCapacity: 10, weight: 2, slots: {}, compatibleCharacters: [], highQualityContainers: [], highQualityContainerSet: [] }
+      ],
+      ownedCount: 1,
+      totalCount: 2
+    },
     repair: {
       repair: null,
       iffs: [{ tag: 'IFF_Europa_03', quantity: 2 }],
@@ -242,7 +250,9 @@ test('hub, vendor roster, and repair recipes render shared compact card anatomy'
   await expect(page.locator('h3.hub-category-heading').first()).toBeVisible();
   await expect(page.locator('h4.hub-group-heading').first()).toBeVisible();
   await expect(hub.locator('h5.card-ui__title')).toBeVisible();
-  await expect(hub.locator('.card-ui__status .hub-pill')).toBeVisible();
+  await expect(page.locator('.hub-card .hub-pill.unlocked')).toHaveClass(/status-badge--success/);
+  await expect(page.locator('.hub-card .hub-pill.available').first()).toHaveClass(/status-badge--info/);
+  await expect(page.locator('.hub-card .hub-pill.locked').first()).toHaveClass(/status-badge--danger/);
   await expect(hub.locator('[data-action="add-upgrade-materials"]')).toHaveCount(1);
   await expect(hub.locator('.card-ui__footer [data-action="toggle-upgrade"]')).toHaveCount(1);
   expect(await hub.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
@@ -254,14 +264,28 @@ test('hub, vendor roster, and repair recipes render shared compact card anatomy'
   await expect(trader.locator('.card-ui__status .trader-status')).toBeVisible();
   expect(await trader.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 
+  await page.goto(`${baseURL}/#crafting`);
+  const recipeBadge = page.locator('.recipe-card .recipe-badge.missing').first();
+  await expect(recipeBadge).toHaveClass(/status-badge--warning/);
+  await expect(recipeBadge).toContainText('Missing');
+  expect(await recipeBadge.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#rigs`);
+  await expect(page.locator('.rig-owned-badge.owned')).toHaveClass(/status-badge--success/);
+  await expect(page.locator('.rig-owned-badge.missing')).toHaveClass(/status-badge--danger/);
+  const rigCard = page.locator('.rig-card.card-ui').first();
+  expect(await rigCard.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
   await page.goto(`${baseURL}/#repair`);
   const readyRepair = page.locator('.repair-card.card-ui.ok').first();
   await expect(readyRepair).toHaveClass(/card-ui--compact/);
   await expect(readyRepair.locator('h4.card-ui__title')).toHaveText('Grenade Launcher');
   await expect(readyRepair.locator('.repair-availability')).toHaveText('Ready');
+  await expect(readyRepair.locator('.repair-availability.ok')).toHaveClass(/status-badge--success/);
   await expect(readyRepair.locator('.repair-card-status')).toContainText('Ready to repair');
   const unavailableRepair = page.locator('.repair-card.card-ui.no').first();
   await expect(unavailableRepair.locator('.repair-availability')).toHaveText('Unavailable');
+  await expect(unavailableRepair.locator('.repair-availability.no')).toHaveClass(/status-badge--danger/);
   await expect(unavailableRepair.locator('.repair-card-status')).toContainText(/no destroyed counterpart|not enough IFF|bench occupied/);
   await expect(page.locator('.repair-card-dot')).toHaveCount(0);
   expect(await readyRepair.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);

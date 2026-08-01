@@ -1,5 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 import { entityCard, metricGrid } from '../card-ui.mjs';
+import { statusBadgeHtml } from '../status-ui.mjs';
 
 // validateInteger is used for the preset-supplied score path (the trust tier
 // buttons pass data-value); it was missing here, so every tier preset threw
@@ -387,7 +388,10 @@ function renderRepairStatus(data) {
       cardClass: `repair-card ${ok ? 'ok' : 'no'}`,
       headingLevel: 4,
       title: r.product,
-      statusHtml: `<span class="repair-availability ${ok ? 'ok' : 'no'}">${ok ? 'Ready' : 'Unavailable'}</span>`,
+      statusHtml: statusBadgeHtml(ok ? 'Ready' : 'Unavailable', {
+        tone: ok ? 'success' : 'danger',
+        className: `repair-availability ${ok ? 'ok' : 'no'}`
+      }),
       bodyHtml: `<div class="repair-req-chips">
           <span class="repair-chip ${haveBroken ? 'ok' : 'no'}">Destroyed: ${haveBroken ? 'yes' : 'no'} (${brokenQty[r.broken] || 0}${needBroken > 1 ? '/' + needBroken : ''})</span>
           <span class="repair-chip ${haveIff ? 'ok' : 'no'}">${esc(iffMeta.faction)} LVL${esc(iffMeta.level)} IFF: ${haveIff ? 'yes' : 'no'} (${esc(iffQty[r.iff] || 0)}/${esc(r.iffQty)})</span>

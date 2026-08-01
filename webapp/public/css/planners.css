@@ -11,9 +11,6 @@
     .recipe-card { gap:.6rem; }
     .recipe-card.is-ready { border-color:var(--green-border); box-shadow:0 0 0 1px rgba(95,211,138,.14); }
     .recipe-icon { display:grid; place-items:center; width:2rem; height:2rem; flex:0 0 2rem; padding:.3rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); }
-    .recipe-badge { flex:0 0 auto; padding:.16rem .55rem; border-radius:999px; font-size:.64rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; }
-    .recipe-badge.ready { background:var(--green-bg); color:var(--green); border:1px solid var(--green-border); }
-    .recipe-badge.missing { background:var(--warn-bg); color:var(--amber-warn); border:1px solid var(--warn-border); }
     .recipe-components { display:grid; gap:.35rem; }
     .recipe-comp-row { display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding:.35rem .55rem; border-radius:5px; background:rgba(0,0,0,.16); font-size:.76rem; color:var(--text-2); }
     .recipe-comp-row.have-enough { color:var(--text); }
