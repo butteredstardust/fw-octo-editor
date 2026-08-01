@@ -261,7 +261,7 @@ async function loadWeaponXp() {
 
     renderWeaponXp();
   } catch (err) {
-    el.innerHTML = loadErrorHtml('weapon XP', err);
+    setRenderedHtml(el, loadErrorHtml('weapon XP', err));
   }
 }
 
@@ -282,7 +282,7 @@ function renderWeaponXp() {
   document.getElementById('weaponXpFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
   if (!rows.length) {
-    el.innerHTML = noMatchesHtml('No weapons found');
+    setRenderedHtml(el, noMatchesHtml('No weapons found'));
     return;
   }
 

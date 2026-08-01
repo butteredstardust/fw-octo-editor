@@ -98,7 +98,18 @@ test('first-run preflight panel is markup-present, informational, and dismissibl
   assert.match(systemJs, /function computePreflightIssues\(status\)/);
   assert.match(systemJs, /function updatePreflightPanel\(status\)/);
   assert.match(systemJs, /preflightDismissedSignature = preflightCurrentSignature;/);
+  assert.match(systemJs, /function clearPreflightDismissTimer\(\)/);
+  assert.match(systemJs, /function schedulePreflightDismiss\(panel, signature\)/);
+  assert.match(systemJs, /preflightDismissedSignature = signature;/);
+  assert.match(systemJs, /if \(!issues\.length\) \{\s*preflightDismissedSignature = null;/);
+  assert.match(systemJs, /}, 15000\);/);
+  assert.match(systemJs, /generation !== preflightTimerGeneration \|\| panel\.hidden \|\| panel\.dataset\.signature !== signature/);
+  assert.match(systemJs, /clearPreflightDismissTimer\(\);\s*panel\.hidden = true;/);
   assert.match(systemJs, /updatePreflightPanel\(status\);/);
+});
+
+test('preflight panel leaves breathing room before the navigation frame', () => {
+  assert.match(refinementsCss, /\.preflight-panel \{ margin:\.75rem clamp\(\.75rem,2vw,2rem\) 1\.25rem;/);
 });
 
 test('preflight reason text is plain-language and named per specific blocker', () => {

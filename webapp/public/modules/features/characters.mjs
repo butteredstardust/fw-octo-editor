@@ -217,7 +217,7 @@ async function loadCharacterDetail(charId) {
     const details = await api(`/characters/${charId}/details`);
     renderCharacterDetail(c, details);
   } catch (err) {
-    el.innerHTML = loadErrorHtml('character details', err);
+    setRenderedHtml(el, loadErrorHtml('character details', err));
   }
 }
 

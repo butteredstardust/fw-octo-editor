@@ -33,7 +33,13 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
     else if (pathname === '/api/weapon-builds') body = options.weaponBuilds || { categories: [], weapons: [] };
     else if (pathname === '/api/hub-upgrades') body = [];
-    else if (pathname === '/api/inventory') body = [];
+    else if (pathname === '/api/inventory') {
+      if (options.inventoryError) {
+        await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'fixture inventory failure' }) });
+        return;
+      }
+      body = options.inventory || [];
+    }
     else if (pathname === '/api/weapon-xp') body = options.weaponXp || [];
     else if (pathname === '/api/weapon-xp/reference') body = options.weaponReference || {};
     else if (pathname === '/api/repair') body = { repairs: [], iff: [], destroyed: [] };
@@ -55,6 +61,33 @@ test('native modules and external styles boot without frontend errors', async ({
   expect(failedAssets).toEqual([]);
   expect(await page.locator('style').count()).toBe(0);
   expect(await page.locator('link[rel="stylesheet"][href*="styles.css"]').count()).toBe(1);
+});
+
+test('inventory loading clears busy state on errors and empty results', async ({ page }) => {
+  await mockApi(page, { inventoryError: true });
+  await page.goto(baseURL);
+  await page.locator('[data-page="inventory"]').click();
+  const list = page.locator('#inventoryList');
+  await expect(list).toContainText('Could not load your inventory');
+  await expect(list).not.toHaveAttribute('aria-busy', 'true');
+
+  await page.unroute('**/api/**');
+  await mockApi(page, { inventory: [] });
+  await page.reload();
+  await expect(list).toContainText('No matching items');
+  await expect(list).not.toHaveAttribute('aria-busy', 'true');
+});
+
+test('shared inventory identity renders one technical ID and reusable metadata', async ({ page }) => {
+  await mockApi(page, { inventory: [{ name: 'RareLoot_33_Bolts', quantity: 3, sourceMap: 'Items', validLayout: true }] });
+  await page.goto(baseURL);
+  await page.locator('[data-page="inventory"]').click();
+  const card = page.locator('.inv-item');
+  await expect(card).toContainText('Bolts');
+  await expect(card.locator('.technical-details')).toHaveCount(1);
+  await expect(card.locator('.item-taxonomy .item-pill')).not.toHaveCount(0);
+  await expect(card.locator('.hv-badge')).toHaveCount(1);
+  await expect(card.locator('.item-desc')).toHaveCount(1);
 });
 
 test('Overview resources send the current mutation method and JSON body', async ({ page }) => {

@@ -73,7 +73,7 @@ async function loadVendors() {
     const data = await api('/vendors');
     renderVendors(data);
   } catch (err) {
-    el.innerHTML = loadErrorHtml('vendors', err);
+    setRenderedHtml(el, loadErrorHtml('vendors', err));
   }
 }
 
@@ -402,7 +402,7 @@ function renderRepairStatus(data) {
     ? 'The repair is finished — collect it in-game to free the bench for the next job. This tool can only fast-forward the timer, not perform the in-game collection.'
     : (data.repair ? 'Fast-forwards the in-progress timer so the item is ready to collect.' : '');
 
-  el.innerHTML = `
+  setRenderedHtml(el, `
     <div class="repair-summary" aria-label="Repair bench summary">
       <div class="repair-metric"><span>Bench</span><strong>${data.repair ? (data.repair.ready ? 'Ready' : 'Busy') : 'Idle'}</strong></div>
       <div class="repair-metric"><span>Ready recipes</span><strong>${readyCount}<small> / ${REPAIR_RECIPES.length}</small></strong></div>
@@ -430,7 +430,7 @@ function renderRepairStatus(data) {
     <div class="repair-cards-wrap">
       <div class="repair-list-head"><div><h3>Repairable Weapons <span class="repair-count">${REPAIR_RECIPES.length} recipes</span></h3><p class="char-hint">Ready recipes appear first. Repairs are started in-game.</p></div><span class="repair-ready-total">${readyCount} ready now</span></div>
       <div class="repair-cards">${cards}</div>
-    </div>`;
+    </div>`);
 
   // Start/refresh the live countdown.
   if (_repairTimer) clearInterval(_repairTimer);
@@ -458,7 +458,7 @@ async function loadRepair() {
     const data = await api('/repair');
     renderRepairStatus(data);
   } catch (err) {
-    el.innerHTML = loadErrorHtml('the repair bench', err);
+    setRenderedHtml(el, loadErrorHtml('the repair bench', err));
   }
 }
 
@@ -495,4 +495,3 @@ expose({ loadVendors, setFactionScore, toggleTrader, loadRepair, collectRepair, 
 // ---- Settings page ----
 // Lets the user optionally override the save directory. Keys are loaded from
 // the local application resource and are never accepted by this settings UI.
-

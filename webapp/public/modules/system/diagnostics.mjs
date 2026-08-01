@@ -116,20 +116,52 @@ function computePreflightIssues(status) {
 }
 let preflightDismissedSignature = null;
 let preflightCurrentSignature = null;
+let preflightDismissTimer = null;
+let preflightTimerGeneration = 0;
+
+function clearPreflightDismissTimer() {
+  if (preflightDismissTimer !== null) clearTimeout(preflightDismissTimer);
+  preflightDismissTimer = null;
+  preflightTimerGeneration++;
+}
+
+function schedulePreflightDismiss(panel, signature) {
+  clearPreflightDismissTimer();
+  const generation = preflightTimerGeneration;
+  preflightDismissTimer = setTimeout(() => {
+    // Never let an old timer hide a newer issue set after a status refresh.
+    if (generation !== preflightTimerGeneration || panel.hidden || panel.dataset.signature !== signature) return;
+    preflightDismissedSignature = signature;
+    panel.hidden = true;
+    preflightDismissTimer = null;
+  }, 15000);
+}
 export function updatePreflightPanel(status) {
   const panel = document.getElementById('preflightPanel');
   if (!panel) return;
   const issues = computePreflightIssues(status);
   const signature = issues.join('|');
   preflightCurrentSignature = signature;
-  if (!issues.length || signature === preflightDismissedSignature) { panel.hidden = true; return; }
+  if (!issues.length) {
+    preflightDismissedSignature = null;
+    clearPreflightDismissTimer();
+    panel.hidden = true;
+    return;
+  }
+  if (signature === preflightDismissedSignature) {
+    clearPreflightDismissTimer();
+    panel.hidden = true;
+    return;
+  }
   if (panel.hidden || panel.dataset.signature !== signature) {
     document.getElementById('preflightMessage').innerHTML = issues.map(text => `<p>${esc(text)}</p>`).join('');
     panel.dataset.signature = signature;
+    schedulePreflightDismiss(panel, signature);
   }
   panel.hidden = false;
 }
 document.getElementById('preflightDismissButton')?.addEventListener('click', () => {
   preflightDismissedSignature = preflightCurrentSignature;
+  clearPreflightDismissTimer();
   document.getElementById('preflightPanel').hidden = true;
 });

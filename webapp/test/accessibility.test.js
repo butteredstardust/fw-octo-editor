@@ -206,10 +206,11 @@ test('inventory and add-item cards expose local iconography and visible taxonomy
   assert.match(frontendJs, /<svg viewBox="0 0 24 24" focusable="false">/);
   assert.match(frontendJs, /class="item-type-icon" aria-hidden="true"/);
   assert.match(frontendJs, /function itemCategoryPills\(category, subtype, source/);
-  assert.match(frontendJs, /itemTypeIcon\(r\.d\.cat, r\.d\.sub\)/);
-  assert.match(frontendJs, /itemTypeIcon\(r\.grp, r\.sub \|\| r\.category\)/);
-  assert.match(frontendJs, /itemCategoryPills\(r\.d\.cat, r\.d\.sub, r\.sourceMap\)/);
-  assert.match(frontendJs, /itemCategoryPills\(r\.grp, r\.sub \|\| r\.category, sourceMapForCatalog\(r\)\)/);
+  assert.match(frontendJs, /export function itemIdentityHtml/);
+  assert.match(frontendJs, /itemTypeIcon\(category, subtype\)/);
+  assert.match(frontendJs, /itemCategoryPills\(category, subtype, sourceMap\)/);
+  assert.match(frontendJs, /category: r\.d\.cat,[\s\S]*subtype: r\.d\.sub/);
+  assert.match(frontendJs, /category: r\.grp,[\s\S]*subtype: r\.sub \|\| r\.category/);
 });
 
 test('app-wide decorative icons render through the local SVG registry', () => {

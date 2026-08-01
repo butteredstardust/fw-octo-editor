@@ -1,7 +1,8 @@
 import { FW } from '../../runtime.mjs';
-import { loadCatalog, describeItem, ITEM_CAT_ORDER, catalogWarningHtml, highValueBadge, itemDescription } from './catalog.mjs';
+import { loadCatalog, describeItem, ITEM_CAT_ORDER, catalogWarningHtml, highValueBadge } from './catalog.mjs';
+import { itemIdentityHtml } from './item-view.mjs';
 
-const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, setRenderedHtml, itemTypeIcon, technicalDetails, itemCategoryPills, actionIcon, receiptHtml, readIntegerInput, setLocalBusy, showToast, errorDetailHtml, loadErrorHtml, showLoading } = FW;
+const { api, esc, filterAndRank, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, receiptHtml, readIntegerInput, setLocalBusy, showToast, errorDetailHtml, loadErrorHtml, showLoading } = FW;
 
 let _inventory = [];
 let _invSubByCat = {};
@@ -29,7 +30,7 @@ export async function loadInventory() {
     populateInvSubFilter();
     renderInventory();
   } catch (err) {
-    el.innerHTML = loadErrorHtml('your inventory', err);
+    setRenderedHtml(el, loadErrorHtml('your inventory', err));
   }
 }
 
@@ -102,7 +103,7 @@ export function renderInventory() {
   if (invalidOnly) parts.push('invalid');
   document.getElementById('invFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
-  if (!rows.length) { el.innerHTML = catalogWarningHtml() + noMatchesHtml('No matching items', 'Try fewer words, or clear a filter.'); return; }
+  if (!rows.length) { setRenderedHtml(el, catalogWarningHtml() + noMatchesHtml('No matching items', 'Try fewer words, or clear a filter.')); return; }
 
   const groups = {};
   for (const r of rows) (groups[r.d.cat] = groups[r.d.cat] || []).push(r);
@@ -138,18 +139,21 @@ export function renderInventory() {
         const enc = encodeURIComponent(r.name);
         const hv = r.d.exactName ? highValueBadge(r.d.wiki) : '';
         html += `<div class="inv-item ${r.validLayout ? '' : 'invalid'} ${hv ? 'high-value' : ''}">
-          ${itemTypeIcon(r.d.cat, r.d.sub)}
-          <div class="inv-item-main">
-            <div class="inv-name-row">
-              <span class="inv-name" title="${esc(r.name)}">${esc(r.d.wiki)}</span>${technicalDetails(r.name)}${hv}
-              <span class="inv-qty" title="Current quantity">${r.quantity.toLocaleString()}</span>
-            </div>
-            ${itemCategoryPills(r.d.cat, r.d.sub, r.sourceMap)}
-            <div class="inv-tag">${technicalDetails(r.name)}${r.d.slot ? ` <span>${esc(r.d.slot)}</span>` : ''}</div>
-            ${itemDescription(r.d.description, r.d.buffs, r.d.debuffs)}
-            ${r.validLayout ? '' : '<span class="inv-invalid-flag">Needs review</span>'}
-            <div class="operation-inline" id="op-${enc}" aria-live="polite"></div>
-          </div>
+          ${itemIdentityHtml({
+            id: r.name,
+            label: r.d.wiki,
+            category: r.d.cat,
+            subtype: r.d.sub,
+            sourceMap: r.sourceMap,
+            slot: r.d.slot,
+            badgeHtml: hv,
+            description: r.d.description,
+            buffs: r.d.buffs,
+            debuffs: r.d.debuffs,
+            classes: { main: 'inv-item-main', nameRow: 'inv-name-row', name: 'inv-name', tag: 'inv-tag' },
+            trailingNameHtml: `<span class="inv-qty" title="Current quantity">${r.quantity.toLocaleString()}</span>`,
+            trailingHtml: `${r.validLayout ? '' : '<span class="inv-invalid-flag">Needs review</span>'}<div class="operation-inline" id="op-${enc}" aria-live="polite"></div>`
+          })}
             <div class="inv-actions">
               <label class="inv-newqty" title="Set a new quantity">New
                 <input type="number" id="qty-${enc}" value="${r.quantity}" min="0" max="2147483647" step="1">
