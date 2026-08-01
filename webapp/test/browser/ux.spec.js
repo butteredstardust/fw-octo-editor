@@ -36,6 +36,8 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/characters') body = options.characters || [];
     else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
     else if (pathname === '/api/weapon-builds') body = options.weaponBuilds || { categories: [], weapons: [] };
+    else if (pathname === '/api/presets') body = options.presets || { weapons: [], rigs: [], summary: { weaponPresets: 0, rigPresets: 0, activeWeaponPreset: null } };
+    else if (pathname === '/api/rigs') body = options.rigs || { rigs: [], ownedCount: 0, totalCount: 0 };
     else if (pathname === '/api/hub-upgrades') body = [];
     else if (pathname === '/api/inventory') {
       if (options.inventoryError) {
@@ -147,6 +149,42 @@ test('Add Items search expands matching sections and section focus survives rere
   await expandAll.focus();
   await expandAll.click();
   await expect(page.locator('#add-items-expand-all')).toBeFocused();
+});
+
+test('shared entity cards keep consistent anatomy, escaped content, and narrow layouts', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, { presets: {
+    weapons: [{
+      active: true,
+      bisScore: 4,
+      category: 'Rifle',
+      saveIndex: 1,
+      name: '<img data-card-probe src=x>',
+      weaponName: 'Fixture rifle',
+      weaponId: 'Fixture.Weapon',
+      attachments: [],
+      bisSupported: false,
+      bisMatches: 0,
+      bisMissing: []
+    }],
+    rigs: [],
+    summary: { weaponPresets: 1, rigPresets: 0, activeWeaponPreset: 'Fixture' }
+  } });
+  await page.goto(`${baseURL}/#presets`);
+  const preset = page.locator('.preset-card.card-ui');
+  await expect(preset).toHaveCount(1);
+  await expect(preset.locator('.card-ui__header h3')).toContainText('<img data-card-probe src=x>');
+  await expect(preset.locator('[data-card-probe]')).toHaveCount(0);
+  await expect(preset.locator('.card-ui__status .preset-badge.active')).toContainText('Active');
+  await expect(preset.locator('.card-ui__footer')).toContainText('No recommended-build comparison available.');
+  expect(await preset.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+
+  await page.goto(`${baseURL}/#crafting`);
+  const recipe = page.locator('.recipe-card.card-ui').first();
+  await expect(recipe).toBeVisible();
+  await expect(recipe.locator('.card-ui__status .recipe-badge')).toHaveCount(1);
+  await expect(recipe.locator('.card-ui__footer .recipe-card-actions button')).toHaveCount(2);
+  expect(await recipe.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
 test('Overview resources send the current mutation method and JSON body', async ({ page }) => {
