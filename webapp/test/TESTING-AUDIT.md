@@ -1,4 +1,4 @@
-# Testing Audit & Hardening Plan — Forever Winter Save Editor (webapp)
+# Testing Audit & Hardening Plan — FW OCTO Editor (webapp)
 
 **Date:** 2026-07-19
 **Scope:** Unit tests (`test/*.test.js`) and browser/Playwright tests (`test/browser/ux.spec.js`)

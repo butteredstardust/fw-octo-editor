@@ -1,4 +1,4 @@
-# Forever Winter Save Editor
+# FW OCTO Editor
 
 A local save editor for *The Forever Winter*, forged in the bio-slums and upgraded with hope. It doesn't bleed blood—it bleeds data. Edit your scavenger's progression, stash, weapons, and reputation without losing your grip on what matters. *I wear it with gratitude.* Stay alive out there, comrade.
 

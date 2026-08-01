@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 
 let createDialogController;
 
-class FakeDialog extends EventTarget {
+class FakeDialog extends globalThis.EventTarget {
   constructor() {
     super();
     this.open = false;
@@ -14,7 +14,7 @@ class FakeDialog extends EventTarget {
   close(value = '') {
     this.returnValue = value;
     this.open = false;
-    this.dispatchEvent(new Event('close'));
+    this.dispatchEvent(new globalThis.Event('close'));
   }
   toggleAttribute(name, on) { if (on) this.attrs.add(name); else this.attrs.delete(name); }
   setAttribute(name, value) { this.attrs.add(name); this[name] = value; }
@@ -43,14 +43,14 @@ test('dialog controller guards open state, busy cancellation, backdrop close, an
     controller.setBusy(true);
     assert.equal(dialog.attrs.has('aria-busy'), true);
     assert.equal(dialog['aria-busy'], 'true');
-    const cancel = new Event('cancel', { cancelable: true });
+    const cancel = new globalThis.Event('cancel', { cancelable: true });
     dialog.dispatchEvent(cancel);
     assert.equal(cancel.defaultPrevented, true);
-    dialog.dispatchEvent(new Event('click'));
+    dialog.dispatchEvent(new globalThis.Event('click'));
     assert.equal(dialog.open, true);
 
     controller.setBusy(false);
-    dialog.dispatchEvent(new Event('click'));
+    dialog.dispatchEvent(new globalThis.Event('click'));
     assert.equal(dialog.open, false);
     await tick();
     assert.deepEqual(trigger.focusOptions, { preventScroll: true });

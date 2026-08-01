@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever Winter Save Editor</title>
+    <title>FW OCTO Editor</title>
     <link rel="icon" href="favicon.ico?v=20260719-ui-2">
     <link rel="stylesheet" href="styles.css?v=20260801-ui-37">
 </head>
@@ -11,8 +11,8 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="header">
     <div class="brand-lockup">
-      <img class="brand-mark" src="favicon.ico?v=20260719-ui-2" alt="Forever Winter Save Editor" width="32" height="32">
-      <h1><span class="header-kicker">Forged in the bio-slums, upgraded with hope. Stay alive out there.</span>Forever Winter Save Editor</h1>
+      <img class="brand-mark" src="favicon.ico?v=20260719-ui-2" alt="FW OCTO Editor" width="32" height="32">
+      <h1><span class="header-kicker">Forged in the bio-slums, upgraded with hope.</span>FW OCTO Editor</h1>
     </div>
     <div class="header-tools">
       <div class="status status-pill" id="gameStatus" role="status" data-state="checking">Checking game status…</div>
@@ -395,8 +395,8 @@
           <p>The underlying wiki content is licensed under the <strong>Creative Commons Attribution-ShareAlike (CC BY-SA)</strong> license. A copy of the license is available at <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank">creativecommons.org/licenses/by-sa/4.0</a>.</p>
 
           <h3>Application License</h3>
-          <p>The Forever Winter Save Editor webapp source code (the <code>webapp/</code> directory and associated scripts) is licensed under the <strong>MIT License</strong>. See <code>webapp/LICENSE</code> for the full text.</p>
-          <blockquote>Copyright (c) 2026 Forever Winter Save Editor contributors.<br>The MIT License does not grant any rights to the game <em>Forever Winter</em> or its assets, which are the property of their respective owners. This is an unofficial, community-made tool and is not affiliated with or endorsed by the game's developers or publishers.</blockquote>
+          <p>The FW OCTO Editor webapp source code (the <code>webapp/</code> directory and associated scripts) is licensed under the <strong>MIT License</strong>. See <code>webapp/LICENSE</code> for the full text.</p>
+          <blockquote>Copyright (c) 2026 FW OCTO Editor contributors.<br>The MIT License does not grant any rights to the game <em>Forever Winter</em> or its assets, which are the property of their respective owners. This is an unofficial, community-made tool and is not affiliated with or endorsed by the game's developers or publishers.</blockquote>
 
           <h3>Third-Party Software Notices</h3>
           <dl class="ack-notices">
@@ -410,8 +410,12 @@
             <dd>MIT — Copyright (c) 2022 Truman Kilen. <a href="https://github.com/trumank/uesave-rs" rel="noopener" target="_blank">github.com/trumank/uesave-rs</a>. Used to read/write the GVAS <code>TempInventory</code> blob (Unreal Engine 5 save data).</dd>
             <dt>Playwright (dev dependency)</dt>
             <dd>Apache-2.0 — Copyright (c) Microsoft Corporation. <a href="https://github.com/microsoft/playwright" rel="noopener" target="_blank">github.com/microsoft/playwright</a>. Used only for browser-based tests; not part of the distributed runtime.</dd>
+            <dt>Chart.js 4.5.1 and @kurkle/color 0.3.4</dt>
+            <dd>MIT — Copyright (c) 2014–2024 Chart.js Contributors and (c) 2018–2024 Jukka Kurkela for <code>@kurkle/color</code>. Chart.js is a development dependency; its generated ESM build is committed in <code>public/vendor/</code> for browser runtime. <a href="https://github.com/chartjs/Chart.js" rel="noopener" target="_blank">github.com/chartjs/Chart.js</a>; <a href="https://github.com/kurkle/color" rel="noopener" target="_blank">github.com/kurkle/color</a>.</dd>
             <dt>Black Ops One (typeface)</dt>
             <dd>SIL Open Font License 1.1 (OFL-1.1) — Copyright (c) 2011, Asterism (https://www.asterism-fonts.com), with Reserved Font Name "Black Ops One". Bundled locally as a TTF file (originally from <a href="https://fonts.google.com/specimen/Black+Ops+One" rel="noopener" target="_blank">fonts.google.com/specimen/Black+Ops+One</a>) so the app never makes an outbound request to load it. Used for the application title.</dd>
+            <dt>Local visual assets</dt>
+            <dd><code>mc_loop_res1.gif</code>, the favicon, and application icons are included as local application files. This notice makes no claim about their provenance or license beyond any applicable rights held by their respective owners.</dd>
           </dl>
 
           <h3>Trademarks</h3>
@@ -466,6 +470,6 @@
   </div>
   <div id="appAnnouncements" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div id="toastRegion" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
-  <script type="module" src="app.mjs?v=20260801-modules-17"></script>
+  <script type="module" src="app.mjs?v=20260801-modules-18"></script>
 </body>
 </html>

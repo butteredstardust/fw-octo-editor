@@ -1,10 +1,10 @@
-# Installation Guide — Forever Winter Save Editor
+# Installation Guide — FW OCTO Editor
 
-This guide walks a new developer from a fresh source download to a fully running local instance of the Forever Winter Save Editor webapp.
+This guide walks a new developer from a fresh source download to a fully running local instance of the FW OCTO Editor webapp.
 
 ## What this app is
 
-The Forever Winter Save Editor is a local, loopback-only Node.js/Express app that reads and edits the game's encrypted SQLite3MC save files. It uses a Rust-based GVAS parser (`trumank/uesave`) for structured inventory edits and provides a vanilla JS browser UI for managing characters, inventory, hub upgrades, weapon XP, vendors, and backups.
+FW OCTO Editor is a local, loopback-only Node.js/Express app that reads and edits the game's encrypted SQLite3MC save files. It uses a Rust-based GVAS parser (`trumank/uesave`) for structured inventory edits and provides a vanilla JS browser UI for managing characters, inventory, hub upgrades, weapon XP, vendors, and backups.
 
 ---
 

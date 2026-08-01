@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Forever Winter Save Editor webapp are documented in
+All notable changes to the FW OCTO Editor webapp are documented in
 this file. The project follows a simple `MAJOR.MINOR.PATCH` scheme; it has not
 yet reached `1.0.0` (see release blockers in `TODO.md`).
 

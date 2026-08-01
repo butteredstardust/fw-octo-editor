@@ -564,7 +564,7 @@ test('shared filter toolbars reset scoped controls, preserve navigation, and rem
   await expect(page.locator('#presetSearch')).toHaveValue('');
   await expect(page.locator('#presetType')).toHaveValue('weapons');
   await expect(page.locator('#presetSearch')).toBeFocused();
-  expect(await page.evaluate(() => sessionStorage.getItem('presetType'))).toBe('weapons');
+  expect(await page.evaluate(() => globalThis.sessionStorage.getItem('presetType'))).toBe('weapons');
 
   await page.goto(`${baseURL}/#weapon-xp`);
   await page.locator('#weaponXpSearch').fill('rifle');
