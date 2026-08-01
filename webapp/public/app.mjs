@@ -1,13 +1,13 @@
 import './modules/core.mjs';
 import './modules/features/weapons.mjs';
-import './modules/features/inventory.mjs';
+import './modules/features/inventory/index.mjs';
 import './modules/features/dashboard.mjs';
 import './modules/features/characters.mjs';
 import './modules/features/vendors-repair.mjs';
 import './modules/features/settings-planners.mjs';
 import './modules/features/hub.mjs';
 import './modules/features/stats.mjs';
-import './modules/system.mjs';
+import './modules/system/index.mjs';
 import { FW } from './modules/runtime.mjs';
 
 function pollStatus() {

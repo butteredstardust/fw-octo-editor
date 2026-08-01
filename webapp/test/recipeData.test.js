@@ -87,9 +87,9 @@ test('unsupported requirements are explicit and filtered before mutation', () =>
 test('frontend loads generated recipe data through the native module graph', () => {
   const html = fs.readFileSync(require.resolve('../public/index.html'), 'utf8');
   assert.match(html, /<script type="module" src="app\.mjs\?v=/);
-  const core = fs.readFileSync(require.resolve('../public/modules/core.mjs'), 'utf8');
+  const gameData = fs.readFileSync(require.resolve('../public/modules/game-data.mjs'), 'utf8');
   const planners = fs.readFileSync(require.resolve('../public/modules/features/settings-planners.mjs'), 'utf8');
-  assert.match(core, /from '\.\/recipe-data\.mjs'/);
+  assert.match(gameData, /from '\.\/recipe-data\.mjs'/);
   assert.match(planners, /from '\.\.\/recipe-planner\.mjs'/);
   assert.doesNotMatch(html, /workshop-recipes\.js|munitions-recipes\.js/);
 });

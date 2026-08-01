@@ -357,10 +357,12 @@ test('every FW helper a module calls is actually destructured from FW', () => {
   // ReferenceError that the central dispatcher swallowed into a generic
   // failure banner, so the button simply appeared not to work.
   const modulesRoot = path.join(publicRoot, 'modules');
-  const moduleFiles = [
-    ...fs.readdirSync(modulesRoot).filter(f => f.endsWith('.mjs')).map(f => path.join(modulesRoot, f)),
-    ...fs.readdirSync(path.join(modulesRoot, 'features')).map(f => path.join(modulesRoot, 'features', f))
-  ];
+  const readTreePaths = root => fs.readdirSync(root, { withFileTypes: true }).flatMap(entry => (
+    entry.isDirectory()
+      ? readTreePaths(path.join(root, entry.name))
+      : entry.name.endsWith('.mjs') ? [path.join(root, entry.name)] : []
+  ));
+  const moduleFiles = readTreePaths(modulesRoot);
   const coreSrc = fs.readFileSync(path.join(modulesRoot, 'core.mjs'), 'utf8');
   const exposed = new Set();
   for (const block of coreSrc.matchAll(/expose\(\{([\s\S]*?)\}\)/g)) {
@@ -374,6 +376,16 @@ test('every FW helper a module calls is actually destructured from FW', () => {
     const src = fs.readFileSync(file, 'utf8');
     const destructure = src.match(/const \{([^}]*)\} = FW;/);
     const imported = new Set(destructure ? destructure[1].split(',').map(s => s.trim()) : []);
+    // A helper can also legitimately arrive via a direct ES import from a
+    // sibling leaf module (e.g. feedback.mjs importing esc from dom.mjs)
+    // rather than through the FW registry -- that's not the ReferenceError
+    // bug this test guards against, so those names count as satisfied too.
+    for (const importBlock of src.matchAll(/import\s*\{([^}]*)\}\s*from\s*['"][^'"]+['"]/g)) {
+      for (const entry of importBlock[1].split(',')) {
+        const name = entry.trim().split(/\s+as\s+/).pop().trim();
+        if (name) imported.add(name);
+      }
+    }
     const localDefs = new Set([...src.matchAll(/(?:function|const|let|class)\s+([A-Za-z_$][\w$]*)/g)].map(m => m[1]));
     // Strip comments so a helper merely *mentioned* in prose isn't counted.
     const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
