@@ -110,7 +110,7 @@
         <p class="hub-hint">
           <strong>Terminals</strong> are functional buildings; <strong>Welfare</strong> are comfort items. Each card shows its water cost and prerequisite. <span class="hub-legend"><span class="status-badge status-badge--success hub-pill unlocked">Unlocked</span> built &nbsp; <span class="status-badge status-badge--info hub-pill available">Available</span> can be unlocked &nbsp; <span class="status-badge status-badge--danger hub-pill locked">Locked</span> needs prerequisite &nbsp; <span class="status-badge status-badge--success hub-pill unlocked">Permanent</span> DLC gift, fixed.</span>
         </p>
-        <div class="filter-bar hub-filter-bar" role="search">
+        <div class="filter-bar filter-bar--sticky hub-filter-bar" role="search" aria-label="Filter hub upgrades">
           <label class="filter-search">Search upgrades<input type="search" id="hubSearch" placeholder="Upgrade name, group, or description…" autocomplete="off"></label>
           <label>Status
             <select id="hubStatusFilter">
@@ -120,6 +120,7 @@
               <option value="locked">Locked</option>
             </select>
           </label>
+          <div class="filter-checks"><button type="button" class="mini" data-action="clear-hub-filters"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="hubFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="hubOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
@@ -132,7 +133,7 @@
         <div class="card">
           <h2>Saved presets</h2>
           <p class="page-intro">Read-only weapon and rig loadouts from your save, matched to their local preview images.</p>
-          <div class="filter-bar preset-toolbar" role="search"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Name, weapon, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
+          <div class="filter-bar filter-bar--sticky preset-toolbar" role="search" aria-label="Filter saved presets"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Name, weapon, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label><div class="filter-checks"><button type="button" class="mini" data-action="clear-preset-filters"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
         </div>
       </div>
 
@@ -141,21 +142,21 @@
         <h2>Weapon builds</h2>
           <p class="page-intro">Recommended weapon builds based on wiki stats and part compatibility.</p>
           <div class="weapon-build-command"><span id="weaponBuildOwnedSummary"><strong>Owned weapon loadout kit</strong><small>Load builds to check missing parts.</small></span><button id="weaponBuildAddOwned" type="button" disabled><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>Add recommended parts</button></div>
-          <div class="filter-bar weapon-build-toolbar" role="search"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
+          <div class="filter-bar filter-bar--sticky weapon-build-toolbar" role="search" aria-label="Filter weapon builds"><label class="filter-search">Search weapons<input id="weaponBuildSearch" type="search" placeholder="Weapon name or ID…" autocomplete="off"></label><label>Category<select id="weaponBuildCategory"><option value="">All categories</option></select></label><label>Weapon<select id="weaponBuildSelect"></select></label></div><div id="weaponBuildRanking" class="weapon-build-ranking"></div><div id="weaponBuildsOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div><div id="weaponBuildContent">Loading…</div></div>
     </div>
 
     <div class="page" id="page-weapon-xp">
       <div class="card">
         <h2>Weapon XP</h2>
         <p class="char-hint">Weapons earn XP through use, unlocking better vendor parts. Each target is from a 100% reference save (e.g. PST02 = 186, GRL02 ≈ 505k).</p>
-        <div class="filter-bar weapon-xp-controls">
+        <div class="filter-bar filter-bar--sticky weapon-xp-controls" role="search" aria-label="Filter weapon experience">
           <label class="filter-search">Search weapons<input type="search" id="weaponXpSearch" placeholder="Weapon name or ID…" autocomplete="off"></label>
           <label>Category
             <select id="weaponFilter">
               <option value="">All categories</option>
             </select>
           </label>
-          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Set visible weapons to 100,000 XP</button></div>
+          <div class="filter-checks"><button class="hub-btn unlock-btn" id="setWeaponReferenceButton" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 13a8 8 0 0 0 13.7 4.7L20 15.4M4 4v5h5M15 20h5v-5"/></svg></span>Set visible weapons to 100,000 XP</button><button type="button" class="mini" data-action="clear-weapon-xp-filters"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="weaponXpFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="weaponXpOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
@@ -167,7 +168,7 @@
       <div class="card">
         <h2>Inventory</h2>
         <p class="page-intro">Find items by name, category, or technical ID and change quantities in place. Avoid rows marked “Needs review.”</p>
-        <div class="filter-bar inv-filter-bar">
+        <div class="filter-bar filter-bar--sticky inv-filter-bar" role="search" aria-label="Filter inventory">
           <label class="filter-search">Search items<input type="search" id="inventorySearch" placeholder="Name, category, or technical ID…" autocomplete="off"></label>
           <label>Category
             <select id="inventoryFilter">
@@ -208,7 +209,7 @@
       <div class="card">
         <h2>Add items</h2>
         <p class="page-intro">Browse known game items and add ones that are missing. Items you already own can be adjusted from Inventory.</p>
-        <div class="filter-bar add-filter-bar">
+        <div class="filter-bar filter-bar--sticky add-filter-bar" role="search" aria-label="Filter addable items">
           <label class="filter-search">Search items<input type="search" id="addSearch" placeholder="Name, category, or technical ID…" autocomplete="off"></label>
           <label>Category
             <select id="addFilter">
@@ -248,7 +249,7 @@
         <h2>Rigs</h2>
         <p class="page-intro">Review owned rigs, add a missing rig, or add another complete set of high-quality containers for its fixed layout.</p>
         <div id="rigSummary" aria-live="polite"></div>
-        <div class="filter-bar rig-filter-bar">
+        <div class="filter-bar filter-bar--sticky rig-filter-bar" role="search" aria-label="Filter rigs">
           <label class="filter-search">Search rigs<input type="search" id="rigSearch" placeholder="Name, class, or character…" autocomplete="off"></label>
           <label>Ownership
             <select id="rigOwnership">
@@ -301,7 +302,7 @@
           <button type="button" class="crafting-tab active" id="craftingKindWorkshop" data-kind="workshop" role="tab" aria-selected="true">Workshop components</button>
           <button type="button" class="crafting-tab" id="craftingKindMunitions" data-kind="munitions" role="tab" aria-selected="false">Munitions</button>
         </div>
-        <div class="filter-bar recipe-filter-bar">
+        <div class="filter-bar filter-bar--sticky recipe-filter-bar" role="search" aria-label="Filter crafting recipes">
           <label class="filter-search">Search recipes<input type="search" id="craftingSearch" placeholder="Product or component…" autocomplete="off"></label>
           <label>State
             <select id="craftingStateFilter">
@@ -310,6 +311,7 @@
               <option value="missing">Missing components</option>
             </select>
           </label>
+          <div class="filter-checks"><button type="button" class="mini" data-action="clear-crafting-filters"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div>
         </div>
         <div id="craftingFilterSummary" class="filter-summary" role="status" aria-live="polite"></div>
         <div id="craftingOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>

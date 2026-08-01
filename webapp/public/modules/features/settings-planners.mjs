@@ -4,7 +4,7 @@ import { statusBadgeHtml } from '../status-ui.mjs';
 import { RECIPE_DATA } from '../recipe-data.mjs';
 import { recipePlannerTotals } from '../recipe-planner.mjs';
 
-const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml, showLoading, userMessage, errorDetailHtml, loadErrorHtml, noMatchesHtml } = FW;
+const { api, esc, appIcon, actionIcon, filterAndRank, filterSummaryHtml, technicalDetails, showToast, confirmAction, setRenderedHtml, showLoading, userMessage, errorDetailHtml, loadErrorHtml, noMatchesHtml, resetFilterControls } = FW;
 
 // Recipes only come from two stations, so a station-level icon (rather than a
 // guess per product name) is the reliable signal available at render time.
@@ -215,6 +215,11 @@ function renderCraftingGrid() {
   setRenderedHtml(grid, computed.map(renderRecipeCard).join(''));
 }
 
+function clearCraftingFilters() {
+  resetFilterControls({ craftingSearch: '', craftingStateFilter: 'any' }, { focusId: 'craftingSearch' });
+  renderCraftingGrid();
+}
+
 function updateCraftQty(recipeId, value) {
   let qty = Number(value);
   if (!Number.isFinite(qty) || qty < 1) qty = 1;
@@ -293,5 +298,5 @@ async function loadCrafting() {
   renderCraftingGrid();
 }
 
-expose({ loadSettings, pickSaveDir, clearSaveDir, saveSettings, toggleDbKeyVisibility, clearDbKey, loadCrafting, setCraftingKind, renderCraftingGrid, updateCraftQty, craftingAddMissing, craftingAddAll, addCanonicalComponents });
+expose({ loadSettings, pickSaveDir, clearSaveDir, saveSettings, toggleDbKeyVisibility, clearDbKey, loadCrafting, setCraftingKind, renderCraftingGrid, clearCraftingFilters, updateCraftQty, craftingAddMissing, craftingAddAll, addCanonicalComponents });
 

@@ -2,7 +2,7 @@ import { FW, expose } from '../runtime.mjs';
 import { entityCard } from '../card-ui.mjs';
 import { statusBadgeHtml } from '../status-ui.mjs';
 
-const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, loadErrorHtml, noMatchesHtml } = FW;
+const { api, esc, appIcon, actionIcon, technicalDetails, HUB_UPGRADE_META, HUB_UPGRADE_RECIPES, HUB_UPGRADE_TAGS, HUB_CATEGORY_LABELS, setOperationFeedback, showLoading, setRenderedHtml, confirmAction, filterAndRank, filterSummaryHtml, loadErrorHtml, noMatchesHtml, resetFilterControls } = FW;
 function addCanonicalComponents(...args) { return FW.addCanonicalComponents(...args); }
 
 let _hubInventory = {};
@@ -163,6 +163,11 @@ function filterHubUpgrades() {
   renderHubUpgrades(_hubUnlockedTags);
 }
 
+function clearHubFilters() {
+  resetFilterControls({ hubSearch: '', hubStatusFilter: '' }, { focusId: 'hubSearch' });
+  filterHubUpgrades();
+}
+
 // Upgrades whose prereq is this tag -- i.e. what currently sits "on top of"
 // it in the chain. Mirrors canUnlock's forward-direction prereq check so
 // removal enforces the same linear ordering (can't remove v2 while v3, which
@@ -252,7 +257,7 @@ async function addUpgradeMaterials(tag, button) {
   renderHubUpgrades(_hubUnlockedTags);
 }
 
-expose({ loadHubUpgrades, confirmBulkHub, toggleSection, toggleHubUpgrade, addUpgradeMaterials, filterHubUpgrades });
+expose({ loadHubUpgrades, confirmBulkHub, toggleSection, toggleHubUpgrade, addUpgradeMaterials, filterHubUpgrades, clearHubFilters });
 
 // Friendly weapon metadata: scope suffix (after 'Scope.Weapon.') -> {name, cat}.
 // Categories use the wiki's weapon classes. Gunhead-specific variants are

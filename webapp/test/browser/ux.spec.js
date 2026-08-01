@@ -364,6 +364,82 @@ test('mobile navigation isolates content and restores toggle focus', async ({ pa
   await expect(page.locator('#navToggle')).toBeFocused();
 });
 
+test('shared filter toolbars reset scoped controls, preserve navigation, and remain responsive', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await mockApi(page, {
+    weaponXp: [
+      { weapon: 'Scope.Weapon.RFL12', xp: 100 },
+      { weapon: 'Scope.Weapon.PST02', xp: 200 }
+    ],
+    weaponReference: { 'Scope.Weapon.RFL12': 1000, 'Scope.Weapon.PST02': 2000 }
+  });
+  await page.goto(`${baseURL}/#hub-upgrades`);
+
+  const bars = page.locator('.filter-bar--sticky');
+  await expect(bars).toHaveCount(8);
+  for (let index = 0; index < await bars.count(); index++) {
+    expect(await bars.nth(index).evaluate(node => getComputedStyle(node).position)).toBe('sticky');
+  }
+
+  await page.locator('#hubSearch').fill('water');
+  await page.locator('#hubStatusFilter').selectOption('locked');
+  await page.locator('[data-action="clear-hub-filters"]').click();
+  await expect(page.locator('#hubSearch')).toHaveValue('');
+  await expect(page.locator('#hubStatusFilter')).toHaveValue('');
+  await expect(page.locator('#hubSearch')).toBeFocused();
+
+  await page.goto(`${baseURL}/#presets`);
+  await page.locator('#presetSearch').fill('fixture');
+  await page.locator('#presetType').selectOption('rigs');
+  await page.locator('[data-action="clear-preset-filters"]').click();
+  await expect(page.locator('#presetSearch')).toHaveValue('');
+  await expect(page.locator('#presetType')).toHaveValue('weapons');
+  await expect(page.locator('#presetSearch')).toBeFocused();
+  expect(await page.evaluate(() => sessionStorage.getItem('presetType'))).toBe('weapons');
+
+  await page.goto(`${baseURL}/#weapon-xp`);
+  await page.locator('#weaponXpSearch').fill('rifle');
+  await page.locator('#weaponFilter').selectOption({ index: 1 });
+  await page.locator('[data-action="clear-weapon-xp-filters"]').click();
+  await expect(page.locator('#weaponXpSearch')).toHaveValue('');
+  await expect(page.locator('#weaponFilter')).toHaveValue('');
+  await expect(page.locator('#weaponXpSearch')).toBeFocused();
+  await expect(page.locator('#setWeaponReferenceButton')).toBeVisible();
+
+  await page.goto(`${baseURL}/#crafting`);
+  await page.locator('#craftingKindMunitions').click();
+  await page.locator('#craftingSearch').fill('grenade');
+  await page.locator('#craftingStateFilter').selectOption('missing');
+  await page.locator('[data-action="clear-crafting-filters"]').click();
+  await expect(page.locator('#craftingSearch')).toHaveValue('');
+  await expect(page.locator('#craftingStateFilter')).toHaveValue('any');
+  await expect(page.locator('#craftingSearch')).toBeFocused();
+  await expect(page.locator('#craftingKindMunitions')).toHaveAttribute('aria-selected', 'true');
+
+  await page.setViewportSize({ width: 320, height: 740 });
+  const mobileBars = [
+    ['hub-upgrades', '.hub-filter-bar'],
+    ['presets', '.preset-toolbar'],
+    ['weapon-builds', '.weapon-build-toolbar'],
+    ['weapon-xp', '.weapon-xp-controls'],
+    ['inventory', '.inv-filter-bar'],
+    ['add-items', '.add-filter-bar'],
+    ['rigs', '.rig-filter-bar'],
+    ['crafting', '.recipe-filter-bar']
+  ];
+  for (const [route, selector] of mobileBars) {
+    await page.goto(`${baseURL}/#${route}`);
+    const bar = page.locator(selector);
+    expect(await bar.evaluate(node => getComputedStyle(node).position)).toBe('static');
+    expect(await bar.evaluate(node => {
+      const children = [...node.children].filter(child => child.getBoundingClientRect().height > 0);
+      const left = children[0]?.getBoundingClientRect().left || 0;
+      return children.every(child => Math.abs(child.getBoundingClientRect().left - left) <= 1);
+    })).toBe(true);
+    expect(await bar.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  }
+});
+
 test('a visible single-flight indicator accompanies slow mutations', async ({ page }) => {
   await mockApi(page, { delayMutation: 300 });
   await page.goto(baseURL);

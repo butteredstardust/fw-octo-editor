@@ -56,6 +56,17 @@ export function debounce(fn, wait) {
   };
 }
 
+export function resetFilterControls(defaults, { focusId, root = globalThis.document } = {}) {
+  if (!root || typeof root.getElementById !== 'function') return;
+  for (const [id, value] of Object.entries(defaults || {})) {
+    const control = root.getElementById(id);
+    if (!control) continue;
+    if (typeof value === 'boolean') control.checked = value;
+    else control.value = value;
+  }
+  if (focusId) root.getElementById(focusId)?.focus();
+}
+
 export function receiptSummary(result) {
   if (!result) return '';
   const parts = [];
@@ -100,4 +111,3 @@ export function readIntegerInput(input, label, options) {
     throw error;
   }
 }
-
