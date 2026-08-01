@@ -24,17 +24,17 @@ Read this before editing the webapp or save files. The **webapp** is the only su
   - `runtime.mjs` — app bootstrap, page routing, state
   - `api-client.mjs` — typed fetch wrappers
   - `ui-utils.mjs` — filtering, ranking, debounce, receipts
-  - `features/dashboard.mjs`, `characters.mjs`, `hub.mjs`, `inventory.mjs`, `vendors-repair.mjs`, `settings-planners.mjs`, `weapons.mjs`
+  - `features/dashboard.mjs`, `characters.mjs`, `hub.mjs`, `inventory/`, `vendors-repair.mjs`, `settings-planners.mjs`, `weapons.mjs`
   - `recipe-planner.mjs`, `recipe-data.mjs`
 - **Styles:** `public/styles.css` + `public/css/*.css` (foundation, shared-pages, inventory, progression, people-and-vendors, planners, repair, refinements)
 - **Data:** `public/catalog.json`, `public/workshop-recipes.js`, `public/munitions-recipes.js`
 
 ### Backend
 - **Entry:** `server.js` — Express boot, CSRF, mutation gate, loopback bind
-- **Routes:** `routes/api.js` — all `/api/*` endpoints
+- **Routes:** `routes/api/` — all `/api/*` endpoints, split by domain (`settings.js`, `status.js`, `characters.js`, `hub.js`, `weapons.js`, `inventory.js`, `vendors.js`, `quests.js`, `backups.js`), mounted by `routes/api/index.js`; shared helpers in `routes/lib/context.js` (`resolveKey`, `runMutation`) and `routes/lib/handler.js` (`handle`, `handleMutation`)
 - **Services:**
-  - `saveService.js` — relational tables (Characters, Currencies, Hub, Quests, Vendors, Weapon XP, Repair, …)
-  - `gvasService.js` — TempInventory via uesave + binaryParser fallback
+  - `saveService.js` — facade over `services/save/*.js`; relational tables (Characters, Currencies, Hub, Quests, Vendors, Weapon XP, Repair, …)
+  - `gvasService.js` — facade over `services/gvas/*.js`; TempInventory via uesave + binaryParser fallback
   - `mutationService.js` — centralized staged writes with backup, integrity, rollback
   - `backupService.js` — versioned backups with manifests, restore, delete
   - `configService.js` — save-dir override + key-file resolution
@@ -50,7 +50,7 @@ Read this before editing the webapp or save files. The **webapp** is the only su
 - **Water** = `Currencies.RowName='WaterBarrels'`; **Credits** = `Currencies.RowName='TestCurrency'`.
 - Hub unlocks = `PlayerUpgrades.UpgradeTag` rows (`Permanent=0`). Include full prerequisite chains.
 - Inventory = GVAS blob `Name='TempInventory'` inside `BinaryData.Value`. `Items` MapProperty is a JSON array of `{key, value}` pairs. To add an item, `push` onto the array — assigning by key disappears on re-serialization.
-- `KnownItems` (separate `BinaryData` blob) = the game's "discovered weapon attachments / rig containers" list, not a general item log (ammo/meds/drones/codex are never in it). `ensureInventoryItems()` (gvasService.js) writes it in the same transaction as TempInventory whenever it adds a weapon part (sourceMap `'Items'`), so an added BIS part is also marked discovered; base weapons are intentionally excluded (never observed there in a real save).
+- `KnownItems` (separate `BinaryData` blob) = the game's "discovered weapon attachments / rig containers" list, not a general item log (ammo/meds/drones/codex are never in it). `ensureInventoryItems()` (`services/gvas/inventory-write.js`, re-exported from `gvasService.js`) writes it in the same transaction as TempInventory whenever it adds a weapon part (sourceMap `'Items'`), so an added BIS part is also marked discovered; base weapons are intentionally excluded (never observed there in a real save).
 - `VaultInventory` (separate `BinaryData` blob) = the home stash, distinct from `TempInventory`/`Currencies` — items and Credits stored there are invisible to every other page. Read-only today (`getVaultInventory()`).
 - Drones are inventory items: `Drone_FastTravel`, `Drone_Construction`, `Drone_Recovery`.
 
@@ -81,9 +81,9 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 ## 3. Conventions
 
 - **Frontend:** vanilla ES modules. Add UI as functions that call `FWAPI.*`, then set `el.innerHTML`. Escape dynamic values with `esc()`.
-- **Backend:** add service functions in `services/*.js`, export them, wire a route in `routes/api.js`.
+- **Backend:** add service functions in `services/save/*.js` or `services/gvas/*.js` (export them from the domain module, then from the `saveService.js`/`gvasService.js` facade), wire a route in the matching `routes/api/*.js` domain file using `handle()`/`handleMutation()` from `routes/lib/handler.js`.
 - **Input validation:** use `toNumber(value, label)` and `sqlStr(value, label)` from `saveService` before SQL interpolation. Wrap writes in `BEGIN IMMEDIATE … COMMIT`.
-- **Circular dependency:** `gvasService.js` and `saveService.js` require each other. Always `require('./saveService')` lazily inside functions in `gvasService`.
+- **Circular dependency:** `gvasService.js` and `saveService.js` require each other. Always `require('../saveService')` lazily inside functions in `services/gvas/*.js` (see `inventory-write.js`, `rigs.js`).
 - **Key secrecy:** never `console.log` the key, never return it in API responses, never write it to logs. `sanitizeOutput` redacts it from shell output.
 
 ---

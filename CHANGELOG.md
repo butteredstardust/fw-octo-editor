@@ -4,6 +4,29 @@ All notable changes to the Forever Winter Save Editor webapp are documented in
 this file. The project follows a simple `MAJOR.MINOR.PATCH` scheme; it has not
 yet reached `1.0.0` (see release blockers in `TODO.md`).
 
+## [Unreleased]
+
+Internal, behavior-preserving modularization — no user-facing changes.
+
+### Changed
+- Split `webapp/services/saveService.js` and `webapp/services/gvasService.js`
+  into domain modules under `webapp/services/save/` and `webapp/services/gvas/`
+  respectively, with the original files kept as thin re-exporting facades so
+  existing `require()` call sites are unaffected. Factored the repeated
+  before/after integrity+FK+hash snapshot in every write function into a
+  shared `withWriteReceipt()` helper (`webapp/services/save/receipt.js`).
+- Split `webapp/routes/api.js` into per-domain routers under
+  `webapp/routes/api/` (settings, status, characters, hub, weapons,
+  inventory, vendors, quests, backups), plus shared `webapp/routes/lib/`
+  helpers (`handle`/`handleMutation`, `resolveKey`/`runMutation`) factoring
+  out the repeated try/catch and mutation-response boilerplate.
+- Split the frontend `webapp/public/modules/core.mjs`,
+  `webapp/public/modules/system.mjs`, and
+  `webapp/public/modules/features/inventory.mjs` into smaller sibling
+  modules/directories, kept behind the same import surface.
+- HTTP routes, method/path pairs, and all public export surfaces are
+  unchanged; this is a file-layout refactor only.
+
 ## [0.10.0] — 2026-07-21
 
 Nexus-readiness pass: closes the shared-key distribution blocker, sweeps UI

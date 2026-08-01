@@ -9,9 +9,12 @@ The application follows a **layered service architecture** with no formal MVC fr
 public/                  Vanilla JS SPA (no bundler, no framework)
   index.html             Markup + inline CSS (~370 lines)
   app.mjs                Entry point — imports feature modules
-  app.js                 Legacy monolithic bundle (~3016 lines, retained but unused by index.html)
   modules/
-    core.mjs             Shared utilities, icons, escaping
+    core.mjs             Composition root re-exporting dom.mjs, icons.mjs, feedback.mjs, game-data.mjs (~104 lines)
+    dom.mjs              DOM helpers, escaping, loading/busy state
+    icons.mjs            Icon lookups
+    feedback.mjs         Toasts, notices, receipts, confirm dialogs
+    game-data.mjs        Character/hub/prestige constants
     runtime.mjs          App bootstrap, page routing, state
     api-client.mjs       Typed fetch wrappers
     ui-utils.mjs         Filtering, ranking, debounce, receipts
@@ -19,11 +22,11 @@ public/                  Vanilla JS SPA (no bundler, no framework)
       dashboard.mjs      Overview page
       characters.mjs     Characters + character detail
       weapons.mjs        Weapon builds, presets, weapon XP
-      inventory.mjs      Inventory + add items + rigs
+      inventory/         Inventory + add items + rigs (index.mjs, catalog.mjs, list.mjs, add-items.mjs, rigs.mjs)
       vendors-repair.mjs Vendors + repair bench
       settings-planners.mjs Settings + workshop + munitions
       hub.mjs            Hub upgrades
-    system.mjs           Backups + diagnostics
+    system/              Backups + diagnostics (index.mjs, router.mjs, dispatcher.mjs, diagnostics.mjs, safety-status.mjs, backups.mjs, acknowledgements.mjs, status-utils.mjs)
     recipe-planner.mjs   Workshop/munitions planning logic
     recipe-data.mjs      Recipe definitions
   styles.css             Base styles
@@ -37,20 +40,38 @@ public/                  Vanilla JS SPA (no bundler, no framework)
     repair.css
     refinements.css
   catalog.json           100%-save item catalog
-  workshop-recipes.js    Workshop recipe data
-  munitions-recipes.js   Munitions recipe data
-  ui-utils.js            Legacy shared utilities (retained)
-  api-client.js          Legacy API client (retained)
-  recipe-planner.js      Legacy recipe planner (retained)
-  recipe-data.js         Legacy recipe data (retained)
 
 routes/
-  api.js                 Express Router — all /api/* endpoints (~511 lines)
+  api/                   Express Router — all /api/* endpoints, split by domain
+    index.js             Mounts settings, status, characters, hub, weapons,
+                          inventory, vendors, quests, backups routers
+    settings.js, status.js, characters.js, hub.js, weapons.js,
+    inventory.js, vendors.js, quests.js, backups.js
+  lib/
+    context.js           resolveKey(req), runMutation(req, label, callback)
+    handler.js           handle(fn, opts) / handleMutation(label, fn, opts) —
+                          shared try/catch + receipt-response wrappers
   pages.js               SPA fallback (non-/api GETs -> index.html)
 
 services/
-  saveService.js         Relational-table reads/writes (~1012 lines)
-  gvasService.js         TempInventory / GVAS blob engine (~728 lines)
+  saveService.js         67-line facade re-exporting webapp/services/save/*.js
+  save/
+    paths.js, validators.js, receipt.js, constants.js, characters.js,
+    hub.js, weapons.js, vendors.js, currencies.js, dashboard.js,
+    repair.js, stats.js
+                          Relational-table reads/writes (SQLite), split by domain.
+                          receipt.js exports withWriteReceipt(dbPath, key, run,
+                          { withFk }), factoring out the before/after
+                          integrity+FK+hash snapshot every write repeated inline.
+  gvasService.js         Facade re-exporting webapp/services/gvas/*.js
+  gvas/
+    paths.js, constants.js, codec.js, inventory-read.js,
+    inventory-write.js, rigs.js, vault.js
+                          TempInventory / GVAS blob engine, split by concern.
+                          The documented saveService circular-dependency
+                          workaround is preserved: inventory-write.js and
+                          rigs.js lazily require('../saveService') inside
+                          functions.
   binaryParser.js        Legacy heuristic inventory parser (~178 lines, fallback only)
   mutationService.js     Staged copy-on-write mutation orchestrator (~122 lines)
   backupService.js       App-level backup creation / restore / delete (~188 lines)
@@ -78,7 +99,7 @@ utils/
 
 ### Read Request (e.g., `GET /api/characters`)
 1. **Middleware pipeline** (`server.js`): Host validation (rejects non-loopback `Host` headers), security headers (`X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, CSP), JSON body parsing (50MB limit), static file serving.
-2. **Route handler** (`routes/api.js`): Calls `resolveKey(req)`, which returns `configService.getActiveKeyOverride()` (a user-supplied key, if set) or falls back to the boot-time bundled key from `app.locals.dbKey`. Checked per-request so a key change in Settings takes effect without a restart.
+2. **Route handler** (`routes/api/*.js`): Calls `resolveKey(req)` (`routes/lib/context.js`), which returns `configService.getActiveKeyOverride()` (a user-supplied key, if set) or falls back to the boot-time bundled key from `app.locals.dbKey`. Checked per-request so a key change in Settings takes effect without a restart.
 3. **Service layer** (`saveService.listCharacters(key)`): Builds parameterized SQL, calls `runShell(dbPath, key, [sql])`.
 4. **Shell execution** (`utils/validation.js`): Spawns `sqlite3mc_shell_x64.exe`, pipes `PRAGMA key`, `PRAGMA cipher_compatibility = 3`, the SQL, and `.quit`. Filters `ok` lines and redacts the key from output via `sanitizeOutput()`.
 5. **Response**: Service returns parsed JSON; route sends `res.json()`.
@@ -110,7 +131,7 @@ utils/
 ## Core Modules & Services
 
 ### `saveService.js`
-The primary relational-table service. Contains:
+A 67-line facade re-exporting the domain modules under `services/save/*.js`, kept as a single entry point so existing `require('./services/saveService')` call sites across `routes/`, other `services/`, `scripts/`, and `test/` don't need to change. The primary relational-table service. Contains:
 - **Input validators**: `toNumber`, `toInteger`, `sqlStr`, `requireChangedRows`. All server-side; no client coercion is trusted.
 - **Character operations**: `listCharacters`, `updateCharacterLevel`, `setPrestige` (imports exact 28-row grant set from the reference save), `listCharacterDetails`, `setCharacterXp`, `setCharacterSkills`.
 - **Hub upgrades**: `listHubUpgrades`, `setHubUpgrades` (preserves unknown tags, replaces managed set).
@@ -120,9 +141,10 @@ The primary relational-table service. Contains:
 - **Dashboard**: `getDashboardData` aggregates character, loadout, quests, inventory, and currencies.
 - **Repair**: `getRepairStatus` (repair timer, bench unlock, IFF chips, destroyed weapons), `collectRepair` (sets `NextOccurrence` to now), `setQuestReady` (experimental — the game may re-validate quest counters on load and revert the status).
 - **Hashing**: `getFileHashes()` computes SHA-256 for all three save variants.
+- **Shared write-receipt helper**: `services/save/receipt.js` exports `withWriteReceipt(dbPath, key, run, { withFk })`, factoring out the before/after integrity+FK+hash snapshot that nearly every write function used to repeat inline. It captures the "before" snapshot, awaits `run()` (which performs the mutation and its own SQL-level verification), captures the "after" snapshot, and merges whatever `run()` returned over the shared envelope — `run()`'s fields win on overlap. `setCurrency()` is the one write that never checked foreign keys, so FK capture is optional via `withFk: false`.
 
 ### `gvasService.js`
-The GVAS blob engine. Contains:
+A facade re-exporting the domain modules under `services/gvas/*.js`, kept as a single entry point for the same reason as `saveService.js`. The GVAS blob engine. Contains:
 - `readTempInventoryBlob` / `writeTempInventoryBlob` — decrypt/encrypt via SQL shell.
 - `blobToJson` / `jsonToBlob` — shell out to `uesave to-json` / `uesave from-json` in temp dirs.
 - `listInventoryItems` — structured read across `Items_0`, `Weapons_0`, `Danglies_0`; falls back to `binaryParser` if uesave is unavailable.
@@ -336,41 +358,39 @@ All click actions are dispatched through a single `document.addEventListener('cl
 
 ## Adding New Features (Cookbook)
 
+Routes live under `routes/api/` — one file per domain (`settings.js`, `status.js`, `characters.js`, `hub.js`, `weapons.js`, `inventory.js`, `vendors.js`, `quests.js`, `backups.js`), mounted by `routes/api/index.js`. Add your route to the file matching its domain, or create a new domain file and mount it from `index.js`. `routes/lib/handler.js` (`handle`, `handleMutation`) and `routes/lib/context.js` (`resolveKey`, `runMutation`) factor out the boilerplate below.
+
 ### 1. Adding a New Read Route
 ```js
-// routes/api.js
-router.get('/my-feature', async (req, res) => {
-  try {
-    const data = await myService.readSomething(resolveKey(req));
-    res.json(data);
-  } catch (err) {
-    res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null });
-  }
-});
+// routes/api/my-domain.js
+const { resolveKey } = require('../lib/context');
+const { handle } = require('../lib/handler');
+
+router.get('/my-feature', handle(async (req, res) => {
+  const data = await myService.readSomething(resolveKey(req));
+  res.json(data);
+}));
 ```
+`handle(fn)` wraps `fn` in the standard `try { ... } catch (err) { res.status(err.status || 500).json({ error, operationId, backupId, rollbackStatus }) }` pattern (`{ onlyError: true }` for the few routes whose error envelope is just `{ error: err.message }`).
 
 ### 2. Adding a New Write Route
 ```js
-// routes/api.js
-router.post('/my-feature', async (req, res) => {
-  try {
-    const result = await runMutation(req, 'my-feature-label', () =>
-      myService.writeSomething(resolveKey(req), req.body.param)
-    );
-    res.json(result);
-  } catch (err) {
-    res.status(err.status || 500).json({ error: err.message, operationId: err.operationId || null, backupId: err.backupId || null, rollbackStatus: err.rollbackStatus || null });
-  }
-});
+// routes/api/my-domain.js
+const { handleMutation } = require('../lib/handler');
+
+router.post('/my-feature', handleMutation('my-feature-label', req =>
+  myService.writeSomething(resolveKey(req), req.body.param)
+));
 ```
+`handleMutation(label, fn)` runs `runMutation(req, label, () => fn(req))` and sends the receipt as JSON, wrapped in the same error handling as `handle()`.
 
 ### 3. Adding a Service Function
-Follow the existing mutation pattern in `saveService.js`:
+Follow the existing mutation pattern in `services/save/*.js`:
 1. Validate inputs with `toInteger`, `sqlStr`, etc.
-2. Capture `beforeIntegrity`, `beforeFk`, `beforeHashes`.
-3. Run `BEGIN IMMEDIATE` + SQL + `SELECT changes()` + `COMMIT` via `runShell`.
-4. Verify with `requireChangedRows` and a follow-up `SELECT`.
-5. Capture `afterIntegrity`, `afterFk`, `afterHashes`.
+2. Wrap the mutation in `withWriteReceipt(dbPath, key, run, { withFk })` (`services/save/receipt.js`) — it captures `beforeIntegrity`, `beforeFk`, `beforeHashes` before calling `run()`.
+3. Inside `run()`: run `BEGIN IMMEDIATE` + SQL + `SELECT changes()` + `COMMIT` via `runShell`.
+4. Inside `run()`: verify with `requireChangedRows` and a follow-up `SELECT`, returning any extra receipt fields to merge over the envelope.
+5. `withWriteReceipt()` captures `afterIntegrity`, `afterFk`, `afterHashes` after `run()` resolves.
 6. Return the standardized receipt object.
 
 For GVAS/inventory writes, follow `gvasService.js`:
@@ -381,7 +401,7 @@ For GVAS/inventory writes, follow `gvasService.js`:
 
 ### 4. Adding Frontend UI
 - Add a `<div class="page" id="page-my-feature">` section in `public/index.html` using the existing card/grid classes.
-- Add a render function in the appropriate `public/modules/features/*.mjs` or `public/modules/system.mjs` using `esc()` for all dynamic interpolation.
+- Add a render function in the appropriate `public/modules/features/*.mjs` or `public/modules/system/*.mjs` using `esc()` for all dynamic interpolation.
 - Use the existing `FWAPI.*` helpers (adds CSRF token for mutations, manages `mutationRequestActive`).
 - Bind events via the centralized `document.addEventListener('click', ...)` dispatcher or `bind()` helper in `runtime.mjs`.
 - Add a `data-page="my-feature"` nav button in the appropriate nav group.
@@ -402,18 +422,17 @@ For GVAS/inventory writes, follow `gvasService.js`:
 - **CSRF token is static per process**: The token is generated once at boot (`crypto.randomBytes(32)`) and never rotated. For the loopback-only threat model this is acceptable, but a long-running process would benefit from rotation.
 
 ### Code Quality
-- **Circular dependency**: `gvasService.js` and `saveService.js` require each other. This is managed with lazy `require()` inside functions, but it is a maintenance hazard.
+- **Circular dependency**: `gvasService.js` and `saveService.js` require each other. This is managed with lazy `require()` inside functions, but it is a maintenance hazard. The split into `services/gvas/*.js` and `services/save/*.js` preserves the same pattern — `services/gvas/inventory-write.js` and `services/gvas/rigs.js` still lazily `require('../saveService')`.
 - **Inline SQL**: All database access is raw SQL via the SQLite3MC shell. There is no query builder or ORM, which keeps the surface small but increases the risk of injection if validators are bypassed.
 - **Hardcoded paths**: Several paths are hardcoded to Windows-style locations (e.g., `C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe`). The app derives defaults from `LOCALAPPDATA`, but Linux/macOS would require manual overrides.
 - **No input length limits on strings**: `sqlStr()` rejects NUL and newlines but does not enforce a maximum length. Extremely long strings could cause shell buffer issues.
 - **Missing `.env` support**: Environment variables are read directly from `process.env`. There is no `.env` loading library (e.g., `dotenv`).
-- **Legacy monolithic frontend file**: `public/app.js` is ~3016 lines and is no longer loaded by `index.html`. The active frontend is now modular under `public/modules/` with `app.mjs` as the entry point. Keep `app.js` only as a reference or remove it once all functionality has been ported.
 
 ### Testing
 - **Good coverage of pure logic**: `backupService`, `configService`, `mutationService`, `weaponBuildService`, and `presetService` have unit tests using `node:test` and `node:assert/strict`.
 - **Gaps**: `saveService` and `gvasService` tests exist (`saveService.validation.test.js`, `gvasService.validation.test.js`) but rely on a real or mocked encrypted database. The actual database-mocking strategy is not visible in the test directory contents reviewed.
 - **No integration/E2E tests**: There are no tests that spin up the Express server and hit HTTP endpoints.
-- **Frontend has no automated tests**: UI logic (`app.js`) is untested. The `test/ui-utils.test.js` file covers only utility functions, not rendering or event handling.
+- **Frontend has no automated tests**: UI logic under `public/modules/` is untested. The `test/ui-utils.test.js` file covers only utility functions, not rendering or event handling.
 
 ### Performance
 - **Shell spawning per query**: `runShell` spawns a new `sqlite3mc_shell_x64.exe` process for every batch of SQL. For high-frequency reads, this is acceptable, but batch operations (e.g., `batchSetWeaponXp`) pack many commands into a single shell session to amortize the cost.

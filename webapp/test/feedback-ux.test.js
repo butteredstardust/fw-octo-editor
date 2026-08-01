@@ -10,11 +10,26 @@ const readTree = (root, extension) => fs.readdirSync(root, { withFileTypes: true
     : entry.name.endsWith(extension) ? [fs.readFileSync(path.join(root, entry.name), 'utf8')] : []
 ));
 
-const coreJs = fs.readFileSync(path.join(publicRoot, 'modules', 'core.mjs'), 'utf8');
-const featureFiles = fs.readdirSync(path.join(publicRoot, 'modules', 'features'))
-  .filter(name => name.endsWith('.mjs'))
-  .map(name => ({ name, text: fs.readFileSync(path.join(publicRoot, 'modules', 'features', name), 'utf8') }));
+// core.mjs was split into a composition root plus cohesive dom/icons/feedback/
+// game-data modules; these tests check properties of "what used to be
+// core.mjs" as a whole, so read the successor files back as one blob.
+const coreJs = ['core.mjs', 'dom.mjs', 'icons.mjs', 'feedback.mjs', 'game-data.mjs']
+  .map(name => fs.readFileSync(path.join(publicRoot, 'modules', name), 'utf8'))
+  .join('\n');
+const readFeatureFiles = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => (
+  entry.isDirectory()
+    ? readFeatureFiles(path.join(dir, entry.name))
+    : entry.name.endsWith('.mjs') ? [{ name: entry.name, text: fs.readFileSync(path.join(dir, entry.name), 'utf8') }] : []
+));
+const featureFiles = readFeatureFiles(path.join(publicRoot, 'modules', 'features'));
 const featureJs = featureFiles.map(f => f.text).join('\n');
+// inventory.mjs was split into a composition root plus cohesive catalog/list/
+// add-items/rigs modules under features/inventory/; these tests check
+// properties of "what used to be inventory.mjs" as a whole, so read the
+// successor files back as one blob (mirrors the coreJs pattern above).
+const inventoryJs = ['catalog.mjs', 'list.mjs', 'add-items.mjs', 'rigs.mjs', 'index.mjs']
+  .map(name => fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'inventory', name), 'utf8'))
+  .join('\n');
 const frontendCss = [
   fs.readFileSync(path.join(publicRoot, 'styles.css'), 'utf8'),
   ...readTree(path.join(publicRoot, 'css'), '.css')
@@ -80,7 +95,6 @@ test('feature modules route caught errors through the friendly mapper instead of
 });
 
 test('inventory catalog load failures are surfaced to the user, not silently swallowed', () => {
-  const inventoryJs = featureFiles.find(f => f.name === 'inventory.mjs').text;
   assert.match(inventoryJs, /let _catalogLoadFailed = false;/);
   assert.match(inventoryJs, /_catalogLoadFailed = true;/);
   assert.match(inventoryJs, /showToast\(userMessage\(e, 'Could not load the item catalog[^']*'\), 'error'\)/);
@@ -88,8 +102,7 @@ test('inventory catalog load failures are surfaced to the user, not silently swa
   assert.match(inventoryJs, /catalogWarningHtml\(\)/);
 });
 
-test('inventory.mjs resolves refreshSafetyStatus through FW instead of a dangling bare reference', () => {
-  const inventoryJs = featureFiles.find(f => f.name === 'inventory.mjs').text;
+test('inventory/rigs.mjs resolves refreshSafetyStatus through FW instead of a dangling bare reference', () => {
   assert.match(inventoryJs, /function refreshSafetyStatus\(\.\.\.args\) \{ return FW\.refreshSafetyStatus\?\.\(\.\.\.args\); \}/);
 });
 

@@ -310,11 +310,12 @@ Forever-Winter/
     package.json             Dependencies and scripts
     .gitignore               Ignores node_modules/ and config/settings.json
     routes/
-      api.js                 ALL /api/* endpoints
+      api/                   ALL /api/* endpoints, split by domain
+      lib/                   Shared route helpers (resolveKey/runMutation, handle/handleMutation)
       pages.js               SPA fallback
     services/
-      saveService.js         Relational-table reads/writes
-      gvasService.js         TempInventory / GVAS blob engine
+      saveService.js         Facade over services/save/*.js — relational-table reads/writes
+      gvasService.js         Facade over services/gvas/*.js — TempInventory / GVAS blob engine
       binaryParser.js        Legacy heuristic inventory parser (fallback)
       mutationService.js     Staged copy-on-write mutation orchestrator
       backupService.js       Backup creation / restore / delete
@@ -330,20 +331,18 @@ Forever-Winter/
       index.html             Markup + CSS (~370 lines)
       app.mjs                SPA entry point — imports feature modules
       modules/               Vanilla ES modules (no bundler)
-        core.mjs             Shared utilities, icons, escaping
+        core.mjs             Composition root re-exporting dom.mjs, icons.mjs, feedback.mjs, game-data.mjs
         runtime.mjs          App bootstrap, page routing, state
         api-client.mjs       Typed fetch wrappers
         ui-utils.mjs         Filtering, ranking, debounce, receipts
         features/            Page-specific logic
+        system/              Backups + diagnostics
         recipe-planner.mjs   Workshop/munitions planning logic
         recipe-data.mjs      Recipe definitions
       styles.css             Base styles
       css/                   Split stylesheets by feature
       catalog.json           100%-save item catalog
-      workshop-recipes.js    Workshop recipe data
-      munitions-recipes.js   Munitions recipe data
-      app.js                 Legacy monolithic bundle (~3016 lines, not loaded by index.html)
-    test/                    16 test files (node --test)
+    test/                    test files (node --test)
     config/
       settings.json          User overrides (save dir), created at runtime
 ```

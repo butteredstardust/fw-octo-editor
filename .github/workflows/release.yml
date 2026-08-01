@@ -1,0 +1,92 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    env:
+      FW_SQLITE_BIN: ${{ github.workspace }}\tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
+      GVAS_UESAVE_BIN: ${{ github.workspace }}\tools\uesave-src\target\release\uesave.exe
+      FW_RELEASE_KEY_FILE: ${{ github.workspace }}\fwinter-db-key.txt
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install webapp dependencies
+        run: npm ci
+        working-directory: webapp
+
+      - name: Install Inno Setup 6
+        run: choco install innosetup -y
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build uesave
+        run: |
+          git clone https://github.com/trumank/uesave.git tools/uesave-src
+          cd tools/uesave-src
+          cargo build --release -p uesave_cli
+
+      - name: Obtain sqlite3mc_shell_x64.exe
+        run: |
+          New-Item -ItemType Directory -Force -Path "tools\sqlite3mc\bin" | Out-Null
+          # Place SQLite3MC 2.3.6 (SQLite 3.53.3) at tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
+          # Options:
+          #   1. Download from https://github.com/utopiatoken/sqlite3mc/releases
+          #   2. Build from source (see INSTALL_GUIDE.md)
+          #   3. Extract from a previously-built release package
+          if (-not (Test-Path -LiteralPath $env:FW_SQLITE_BIN)) {
+            throw "sqlite3mc_shell_x64.exe not found at $env:FW_SQLITE_BIN"
+          }
+
+      - name: Prepare DB key
+        run: |
+          Set-Content -LiteralPath "fwinter-db-key.txt" -Value "${{ secrets.FWINTER_DB_KEY }}" -NoNewline
+        shell: pwsh
+
+      - name: Run unit tests
+        run: npm test
+        working-directory: webapp
+
+      - name: Lint
+        run: npm run lint
+        working-directory: webapp
+
+      - name: Build installer
+        run: powershell -File releases/build.ps1
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: installer
+          path: releases/fwinter-save-editor-*.exe
+          retention-days: 30
+
+      - name: Extract version
+        id: version
+        run: echo "VERSION=$(node -p "require('./webapp/package.json').version")" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.VERSION }}
+          name: v${{ steps.version.outputs.VERSION }}
+          body_path: releases/nexus-description.md
+          files: releases/fwinter-save-editor-*.exe
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

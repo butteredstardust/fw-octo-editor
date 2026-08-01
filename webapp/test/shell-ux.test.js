@@ -12,7 +12,15 @@ const path = require('node:path');
 
 const publicRoot = path.join(__dirname, '..', 'public');
 const html = fs.readFileSync(path.join(publicRoot, 'index.html'), 'utf8');
-const systemJs = fs.readFileSync(path.join(publicRoot, 'modules', 'system.mjs'), 'utf8');
+// system.mjs was split into public/modules/system/*.mjs (router, dispatcher,
+// diagnostics, safety-status, backups, acknowledgements, status-utils,
+// index); these tests check properties of "what used to be system.mjs" as a
+// whole, so read the successor files back as one blob.
+const systemDir = path.join(publicRoot, 'modules', 'system');
+const systemJs = fs.readdirSync(systemDir)
+  .filter(name => name.endsWith('.mjs'))
+  .map(name => fs.readFileSync(path.join(systemDir, name), 'utf8'))
+  .join('\n');
 const refinementsCss = fs.readFileSync(path.join(publicRoot, 'css', 'refinements.css'), 'utf8');
 
 test('gameRunning is normalized through one shared helper at every call site', () => {
