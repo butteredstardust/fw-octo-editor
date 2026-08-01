@@ -143,14 +143,54 @@ test('Add Items search expands matching sections and section focus survives rere
 
   const firstHeader = headers.first();
   const headerId = await firstHeader.getAttribute('id');
+  const panelId = await firstHeader.getAttribute('aria-controls');
+  await expect(page.locator(`#${panelId}`)).toHaveCount(1);
+  await expect(firstHeader.locator('.disclosure-caret')).toHaveAttribute('aria-hidden', 'true');
   await firstHeader.focus();
-  await firstHeader.click();
+  await firstHeader.press('Space');
   await expect(page.locator(`#${headerId}`)).toBeFocused();
+  await expect(page.locator(`#${headerId}`)).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator(`#${panelId}`)).toHaveAttribute('hidden', '');
+  await expect(page.locator(`#${panelId} .add-item`)).toHaveCount(0);
+  await page.locator(`#${headerId}`).press('Enter');
+  await expect(page.locator(`#${headerId}`)).toBeFocused();
+  await expect(page.locator(`#${headerId}`)).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator(`#${panelId}`)).not.toHaveAttribute('hidden', '');
+  await expect(page.locator(`#${panelId} .add-item`)).not.toHaveCount(0);
 
   const expandAll = page.locator('#add-items-expand-all');
   await expandAll.focus();
   await expandAll.click();
   await expect(page.locator('#add-items-expand-all')).toBeFocused();
+  const collapseAll = page.locator('#add-items-collapse-all');
+  await collapseAll.focus();
+  await collapseAll.click();
+  await expect(page.locator('#add-items-collapse-all')).toBeFocused();
+  await expect.poll(() => headers.evaluateAll(nodes => nodes.map(node => node.getAttribute('aria-expanded')))).toEqual(['false', 'false']);
+});
+
+test('shared disclosures contain category controls and panels at 320px', async ({ page }) => {
+  await page.setViewportSize({ width:320, height:740 });
+  await mockApi(page, {
+    inventoryCatalog: [
+      { id:'FixtureWeapon', wiki:'Test Rifle', inventoryMap:'Weapons', taxonomyTags:['Weapons','Rifle'], have:0 },
+      { id:'FixtureLoot', wiki:'Test Relic', inventoryMap:'Items', taxonomyGroup:'Loot', taxonomyTags:['Relic'], have:0 }
+    ],
+    inventory: [{ name:'RareLoot_33_Bolts', quantity:1, sourceMap:'Items', validLayout:true }]
+  });
+  await page.goto(`${baseURL}/#add-items`);
+  for (const selector of ['.disclosure-toggle', '.disclosure-panel']) {
+    const nodes = page.locator(selector);
+    for (let i = 0; i < await nodes.count(); i++) {
+      expect(await nodes.nth(i).evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+    }
+  }
+  await page.goto(`${baseURL}/#inventory`);
+  const inventoryToggle = page.locator('.disclosure-toggle').first();
+  await expect(inventoryToggle).toHaveAttribute('aria-expanded', 'true');
+  await inventoryToggle.click();
+  await expect(page.locator(`#${await inventoryToggle.getAttribute('id')}`)).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator(`#${await inventoryToggle.getAttribute('id')}`)).toBeFocused();
 });
 
 test('shared entity cards keep consistent anatomy, escaped content, and narrow layouts', async ({ page }) => {
