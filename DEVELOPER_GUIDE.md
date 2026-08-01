@@ -1,4 +1,4 @@
-# Developer Guide — Forever Winter Save Editor
+# Developer Guide — FW OCTO Editor
 
 ## System Architecture & Design Patterns
 

@@ -17,9 +17,9 @@ If exitCode <> 0 Then
     Case 4
       message = "The editor could not safely stop its installed server process."
     Case Else
-      message = "The Forever Winter Save Editor could not start (error " & exitCode & ")."
+      message = "FW OCTO Editor could not start (error " & exitCode & ")."
   End Select
-  shell.Popup message, 0, "Forever Winter Save Editor", 16
+  shell.Popup message, 0, "FW OCTO Editor", 16
 End If
 Set fso = Nothing
 Set shell = Nothing

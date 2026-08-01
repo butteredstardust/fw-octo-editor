@@ -75,7 +75,7 @@ test('acknowledgements dialog opens with the gif and returns focus to the info b
 
   await dialog.locator('#ackDialogBody').click();
   await expect(dialog).toBeVisible();
-  await dialog.evaluate(node => node.dispatchEvent(new MouseEvent('click', { bubbles: true })));
+  await dialog.evaluate(node => node.dispatchEvent(new globalThis.MouseEvent('click', { bubbles: true })));
   await expect(dialog).toBeHidden();
   await expect(page.locator('#infoButton')).toBeFocused();
   expect(pageErrors).toEqual([]);

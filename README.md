@@ -1,6 +1,15 @@
-# Forever Winter Save Editor
+# FW OCTO Editor
 
 A local, loopback-only Node.js/Express web application for safely reading and editing *The Forever Winter* encrypted save files. It provides a browser-based UI for modifying character progression, inventory, currencies, hub upgrades, weapon XP, vendor reputations, and more—with staged copy-on-write mutations, automatic backups, and byte-level integrity verification.
+
+| Overview | Progression and inventory |
+|---|---|
+| ![FW OCTO Editor overview showing an active scavenger, resources, loadout, and quests](docs/screenshots/overview.png) | ![FW OCTO Editor characters and prestige controls](docs/screenshots/characters.png) |
+| Active character, resources, loadout, and quest snapshot. | Character progression and prestige controls. |
+| ![FW OCTO Editor weapon-build recommendations](docs/screenshots/weapon-builds.png) | ![FW OCTO Editor inventory with categorized equipment](docs/screenshots/inventory.png) |
+| Best-in-slot build recommendations and owned-part actions. | Searchable, categorized inventory quantities. |
+| ![FW OCTO Editor lifetime statistics dashboard](docs/screenshots/stats.png) | ![FW OCTO Editor acknowledgements dialog](docs/screenshots/acknowledgements.png) |
+| Lifetime combat, map, and territory statistics. | Attribution, licenses, and the single-player disclaimer. |
 
 ## Tech Stack Overview
 

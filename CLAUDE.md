@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Forever Winter Save Editor is a **local, loopback-only Node.js/Express web app** for safely reading and editing encrypted *The Forever Winter* game save files. It provides a browser-based UI for character progression, inventory, currencies, hub upgrades, weapon XP, and vendor reputation management—with staged copy-on-write mutations, automatic backups, and byte-level integrity verification.
+FW OCTO Editor is a **local, loopback-only Node.js/Express web app** for safely reading and editing encrypted *The Forever Winter* game save files. It provides a browser-based UI for character progression, inventory, currencies, hub upgrades, weapon XP, and vendor reputation management—with staged copy-on-write mutations, automatic backups, and byte-level integrity verification.
 
 **Key constraints:**
 - `express` is the only **runtime** dependency. `chart.js` is a **devDependency**: its ESM build is vendored into `webapp/public/vendor/` by `npm run vendor:chart` and the vendored output is committed, so `npm ci --omit=dev` still installs zero extra runtime packages.

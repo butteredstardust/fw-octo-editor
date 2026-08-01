@@ -1,4 +1,4 @@
-# Forever Winter Save Editor — Agent Briefing
+# FW OCTO Editor — Agent Briefing
 
 Read this before editing the webapp or save files. The **webapp** is the only supported interface. Legacy PowerShell scripts have been retired to `archive/legacy/` — do not build new functionality on them; extend the webapp instead.
 

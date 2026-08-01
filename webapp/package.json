@@ -1,7 +1,7 @@
 {
   "name": "fwinter-save-webapp",
   "version": "0.10.0",
-  "description": "Forever Winter save editor webapp",
+  "description": "FW OCTO Editor webapp for The Forever Winter saves",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -15,6 +15,7 @@
     "lint": "eslint .",
     "key:build-resource": "node scripts/build-key-resource.js",
     "vendor:chart": "node scripts/vendor-chart.js",
+    "screenshots": "node scripts/capture-readme-screenshots.js",
     "items:generate": "node scripts/generate-item-data.js",
     "items:fetch-wiki": "node scripts/fetch-wiki-items.js",
     "items:extract-reference": "node scripts/extract-reference-items.js",
