@@ -233,7 +233,7 @@ body {
 
 /* First-run preflight panel (see updatePreflightPanel() in system.mjs):
    informational and dismissible, never a modal/focus trap. */
-.preflight-panel { margin:.75rem clamp(.75rem,2vw,2rem) 0; padding:.85rem 1rem; border:1px solid var(--red-border); border-left:4px solid var(--red); border-radius:8px; background:var(--red-bg); display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
+.preflight-panel { margin:.75rem clamp(.75rem,2vw,2rem) 1.25rem; padding:.85rem 1rem; border:1px solid var(--red-border); border-left:4px solid var(--red); border-radius:8px; background:var(--red-bg); display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
 .preflight-panel[hidden] { display:none; }
 .preflight-body { flex:1 1 320px; min-width:0; }
 .preflight-body strong { display:block; margin-bottom:.35rem; color:var(--red); font-size:.92rem; }

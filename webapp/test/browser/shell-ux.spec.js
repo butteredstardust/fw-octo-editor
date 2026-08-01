@@ -68,6 +68,12 @@ test('a failing /api/status produces a visible, specific, dismissible preflight 
 
   const panel = page.locator('#preflightPanel');
   await expect(panel).toBeVisible();
+  const panelGap = await page.evaluate(() => {
+    const panelBox = document.getElementById('preflightPanel').getBoundingClientRect();
+    const frameBox = document.querySelector('.app-frame').getBoundingClientRect();
+    return frameBox.top - panelBox.bottom;
+  });
+  expect(panelGap).toBeGreaterThanOrEqual(12);
   await expect(panel).toContainText('SQLite3MC');
   await expect(panel).toContainText('sqlite3mc_shell_x64.exe');
   // Must not be a modal / focus trap: no <dialog>, and the rest of the page
@@ -92,6 +98,49 @@ test('a failing /api/status produces a visible, specific, dismissible preflight 
   await page.evaluate(() => document.getElementById('retryConnectionButton').click());
   await expect(panel).toBeVisible();
   await expect(panel).toContainText('currently running');
+});
+
+test('the preflight warning resets its auto-dismiss timer for a newer issue set', async ({ page }) => {
+  await page.clock.install();
+  const brokenStatus = { gameRunning: [], compatibility: { compatible: false, tools: { sqlite3mc: false, uesave: true }, reasons: ['missing-sqlite3mc'] }, writeReady: false, mutation: {}, activeSaveDir: '', blockingReasons: ['missing-sqlite3mc'], appVersion: '0.10.0' };
+  await mockApi(page, { status: brokenStatus });
+  await page.goto(baseURL);
+  const panel = page.locator('#preflightPanel');
+  await expect(panel).toBeVisible();
+  await page.clock.fastForward(10000);
+
+  await page.unroute('**/api/**');
+  const newerStatus = { ...brokenStatus, gameRunning: ['TheForeverWinter.exe'], blockingReasons: ['missing-sqlite3mc', 'game-running'] };
+  await mockApi(page, { status: newerStatus });
+  await page.evaluate(() => document.getElementById('retryConnectionButton').click());
+  await expect(panel).toBeVisible();
+  await expect(panel).toContainText('currently running');
+
+  // This crosses the first timer's old deadline but not the newer timer's.
+  await page.clock.fastForward(5001);
+  await expect(panel).toBeVisible();
+  await page.clock.fastForward(9999);
+  await expect(panel).toBeHidden();
+
+  // The regular 10-second status poll must not resurrect the same issue set.
+  await page.clock.fastForward(10000);
+  await expect(panel).toBeHidden();
+
+  // Once the issue resolves, the same blocker recurring later is new and
+  // should be shown again rather than suppressed forever.
+  await page.unroute('**/api/**');
+  await mockApi(page, { status: HEALTHY_STATUS });
+  await Promise.all([
+    page.waitForResponse(response => new URL(response.url()).pathname === '/api/status'),
+    page.evaluate(() => document.getElementById('retryConnectionButton').click())
+  ]);
+  await page.unroute('**/api/**');
+  await mockApi(page, { status: newerStatus });
+  await Promise.all([
+    page.waitForResponse(response => new URL(response.url()).pathname === '/api/status'),
+    page.evaluate(() => document.getElementById('retryConnectionButton').click())
+  ]);
+  await expect(panel).toBeVisible();
 });
 
 test('the diagnostics/settings shortcuts on the preflight panel actually navigate', async ({ page }) => {

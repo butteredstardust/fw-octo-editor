@@ -1,7 +1,8 @@
 import { FW } from '../../runtime.mjs';
-import { itemPresentation, sourceMapForCatalog, ITEM_CAT_ORDER, itemDescription, highValueBadge } from './catalog.mjs';
+import { itemPresentation, sourceMapForCatalog, ITEM_CAT_ORDER, highValueBadge } from './catalog.mjs';
+import { itemIdentityHtml } from './item-view.mjs';
 
-const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, noMatchesHtml, setRenderedHtml, itemTypeIcon, itemCategoryPills, technicalDetails, actionIcon, readIntegerInput, showToast, errorDetailHtml, loadErrorHtml, receiptHtml, showLoading } = FW;
+const { api, esc, filterAndRank, cleanFallbackName, filterSummaryHtml, noMatchesHtml, setRenderedHtml, actionIcon, readIntegerInput, showToast, errorDetailHtml, loadErrorHtml, receiptHtml, showLoading } = FW;
 
 // Category ordering for the Add Items page (gear/loot buckets from the wiki).
 const ADD_CAT_ORDER = ITEM_CAT_ORDER;
@@ -46,7 +47,7 @@ export async function loadAddCatalog() {
     populateAddSubFilter();
     renderAddCatalog();
   } catch (err) {
-    el.innerHTML = loadErrorHtml('the item catalog', err);
+    setRenderedHtml(el, loadErrorHtml('the item catalog', err));
   }
 }
 
@@ -83,7 +84,7 @@ export function resetAddExpansion() {
 
 export function renderAddCatalog() {
   const el = document.getElementById('addCatalogList');
-  if (!_addCatalog.length) { el.innerHTML = '<p>No catalog loaded.</p>'; return; }
+  if (!_addCatalog.length) { setRenderedHtml(el, '<p>No catalog loaded.</p>'); return; }
   const filter = document.getElementById('addFilter').value;
   const subFilter = document.getElementById('addSubFilter').value;
   const q = document.getElementById('addSearch').value.trim().toLowerCase();
@@ -106,7 +107,7 @@ export function renderAddCatalog() {
   if (q) parts.push('“' + q + '”');
   document.getElementById('addFilterSummary').innerHTML = filterSummaryHtml(rows.length, parts);
 
-  if (!rows.length) { el.innerHTML = noMatchesHtml('No catalog matches', 'Try another name, or clear a filter.'); return; }
+  if (!rows.length) { setRenderedHtml(el, noMatchesHtml('No catalog matches', 'Try another name, or clear a filter.')); return; }
 
   const groups = {};
   for (const r of rows) (groups[r.grp] = groups[r.grp] || []).push(r);
@@ -137,15 +138,19 @@ export function renderAddCatalog() {
       const haveTxt = owned ? `Have ${r.have.toLocaleString()}` : 'Not owned';
       const hv = r.wiki ? highValueBadge(r.wiki) : '';
       html += `<div class="add-item ${owned ? 'owned' : ''} ${hv ? 'high-value' : ''}">
-        ${itemTypeIcon(r.grp, r.sub || r.category)}
-        <div class="add-main">
-          <div class="add-name" title="${esc(r.id)}">${esc(r.wiki || cleanFallbackName(r.id))}${technicalDetails(r.id)}${hv}</div>
-          ${itemCategoryPills(r.grp, r.sub || r.category, sourceMapForCatalog(r))}
-          <div class="add-tag">${technicalDetails(r.id)}</div>
-          ${itemDescription(r.description, r.buffs, r.debuffs)}
-          <div class="${haveCls}">${haveTxt}${owned ? ' · edit on Inventory page' : ''}</div>
-          <div class="operation-inline" id="addop-${enc}" aria-live="polite"></div>
-        </div>
+        ${itemIdentityHtml({
+          id: r.id,
+          label: r.wiki || cleanFallbackName(r.id),
+          category: r.grp,
+          subtype: r.sub || r.category,
+          sourceMap: sourceMapForCatalog(r),
+          badgeHtml: hv,
+          description: r.description,
+          buffs: r.buffs,
+          debuffs: r.debuffs,
+          classes: { main: 'add-main', nameRow: 'add-name-row', name: 'add-name', tag: 'add-tag' },
+          trailingHtml: `<div class="${haveCls}">${haveTxt}${owned ? ' · edit on Inventory page' : ''}</div><div class="operation-inline" id="addop-${enc}" aria-live="polite"></div>`
+        })}
         <div class="add-actions">
           <label class="add-qty" title="Quantity to add">Qty
             <input type="number" id="addqty-${enc}" value="1" min="1" max="2147483647" step="1" ${owned ? 'disabled' : ''}>
