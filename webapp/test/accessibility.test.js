@@ -57,6 +57,9 @@ test('application dialogs replace blocking browser alert and confirm calls', () 
   assert.doesNotMatch(frontendJs, /\b(?:alert|confirm)\s*\(/);
   assert.match(frontendJs, /function confirmAction\(/);
   assert.match(frontendJs, /function showNotice\(/);
+  assert.equal((html.match(/<menu class="dialog-actions">/g) || []).length, 3);
+  assert.match(html, /id="backupDialogCancel"[^>]*type="button"/);
+  assert.match(frontendCss, /\.dialog-actions \{ display:flex; flex-wrap:wrap/);
 });
 
 test('interpolated hub and inventory category/name text is escaped', () => {

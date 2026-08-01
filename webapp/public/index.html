@@ -357,8 +357,8 @@
           <input id="backupDialogInput" autocomplete="off" spellcheck="false">
         </label>
         <div id="backupDialogError" class="settings-msg err" role="alert"></div>
-        <menu>
-          <button value="cancel" class="btn-ghost"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
+        <menu class="dialog-actions">
+          <button id="backupDialogCancel" value="cancel" type="button" class="btn-ghost"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
           <button id="backupDialogConfirm" value="default" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 13l4 4L19 7"/></svg></span>Continue</button>
         </menu>
       </form>
@@ -368,7 +368,7 @@
       <form method="dialog" class="confirm-dialog">
         <h2 id="appDialogTitle">Confirm</h2>
         <p id="appDialogMessage"></p>
-        <menu>
+        <menu class="dialog-actions">
           <button id="appDialogCancel" value="cancel" class="btn-neutral"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cancel</button>
           <button id="appDialogAccept" value="default" type="button">Continue</button>
         </menu>
@@ -419,7 +419,7 @@
           <h3>Disclaimer</h3>
           <p>This tool is <strong>unofficial</strong>, <strong>not affiliated with or endorsed by Fun Dog Studios</strong>, and is intended for <strong>single-player use only</strong>. It is provided for personal save-backup and editing convenience; the authors make no warranty about compatibility with future game updates, and users are responsible for complying with the game's End User License Agreement and any applicable third-party platform terms.</p>
         </div>
-        <menu>
+        <menu class="dialog-actions">
           <button id="ackAcceptButton" value="default" type="button" class="btn-primary"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Close</button>
         </menu>
       </form>

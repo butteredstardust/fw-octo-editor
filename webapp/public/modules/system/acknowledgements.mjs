@@ -1,21 +1,17 @@
+import { createDialogController } from '../dialog-ui.mjs';
+
 // ---- Acknowledgements modal ----------------------------------------------
 const acknowledgementsDialog = document.getElementById('acknowledgementsDialog');
-let acknowledgementsReturnFocus = null;
+const acknowledgementsController = createDialogController(acknowledgementsDialog, {
+  initialFocus: () => document.getElementById('ackCloseButton'),
+  closeOnBackdrop: true,
+  fallbackFocus: () => document.getElementById('infoButton')
+});
 
 export function openAcknowledgements() {
-  acknowledgementsReturnFocus = document.activeElement;
-  acknowledgementsDialog.showModal();
-  document.getElementById('ackCloseButton').focus();
+  acknowledgementsController.open({ trigger: document.activeElement });
 }
 
-acknowledgementsDialog.addEventListener('close', () => {
-  if (acknowledgementsReturnFocus && acknowledgementsReturnFocus.isConnected) acknowledgementsReturnFocus.focus();
-});
-
 document.getElementById('infoButton').addEventListener('click', openAcknowledgements);
-document.getElementById('ackCloseButton').addEventListener('click', () => acknowledgementsDialog.close());
-document.getElementById('ackAcceptButton').addEventListener('click', () => acknowledgementsDialog.close());
-// Allow clicking the backdrop (outside the dialog surface) to dismiss.
-acknowledgementsDialog.addEventListener('click', event => {
-  if (event.target === acknowledgementsDialog) acknowledgementsDialog.close();
-});
+document.getElementById('ackCloseButton').addEventListener('click', () => acknowledgementsController.close());
+document.getElementById('ackAcceptButton').addEventListener('click', () => acknowledgementsController.close());

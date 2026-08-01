@@ -678,6 +678,19 @@ test('confirmation dialog uses action-specific tone and Cancel/Escape are no-ops
   await expect(page.locator('#appDialogAccept')).toHaveClass(/btn-primary/);
   await expect(page.locator('#appDialogAccept')).not.toHaveClass(/btn-warn|danger-btn/);
   await expect(page.locator('#appDialogAccept .action-icon')).toHaveCount(1);
+  const duplicateResult = await page.evaluate(async () => {
+    const { confirmAction } = await import('/modules/feedback.mjs');
+    return confirmAction('Second request', { title: 'Second dialog' });
+  });
+  expect(duplicateResult).toBe(false);
+  await expect(page.locator('#appDialogTitle')).toHaveText('Add recommended parts?');
+  await page.setViewportSize({ width:320, height:740 });
+  const appActions = page.locator('#appDialog .dialog-actions');
+  expect(await appActions.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  for (const button of await appActions.locator('button').all()) {
+    const box = await button.boundingBox();
+    expect(box.height).toBeGreaterThanOrEqual(44);
+  }
   await page.locator('#appDialogCancel').click();
   await expect(trigger).toBeFocused();
   expect(mutations).toHaveLength(0);
@@ -686,6 +699,62 @@ test('confirmation dialog uses action-specific tone and Cancel/Escape are no-ops
   await expect(page.locator('#appDialog')).toBeHidden();
   await expect(trigger).toBeFocused();
   expect(mutations).toHaveLength(0);
+});
+
+test('backup confirmation cannot dismiss an active restore and focuses its replacement after refresh', async ({ page }) => {
+  const backup = { name:'fixture-backup', label:'fixture', created:new Date().toISOString(), appVersion:'test', manifestValid:true };
+  await mockApi(page, { backups:[backup], delayMutation:300 });
+  await page.goto(`${baseURL}/#backups`);
+  await page.locator('[data-backup-action="restore"]').click();
+  const dialog = page.locator('#backupConfirmDialog');
+  const input = page.locator('#backupDialogInput');
+  await expect(input).toBeFocused();
+  await input.fill('RESTORE fixture-backup');
+  await page.locator('#backupDialogConfirm').click();
+  await expect(dialog).toHaveAttribute('aria-busy', 'true');
+  await expect(page.locator('#backupDialogConfirm')).toBeDisabled();
+  await expect(page.locator('#backupDialogCancel')).toBeDisabled();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toBeHidden({ timeout:3000 });
+  await expect(page.locator('[data-backup-action="restore"]')).toBeFocused();
+});
+
+test('backup confirmation keeps friendly failures retryable and delete uses safe fallback focus', async ({ page }) => {
+  const backup = { name:'fixture-backup', label:'fixture', created:new Date().toISOString(), appVersion:'test', manifestValid:true };
+  await mockApi(page, {
+    backups:[backup],
+    mutationErrorPath:'/api/backups/fixture-backup/restore',
+    mutationError:'SQL failed at C:\\private\\save'
+  });
+  await page.goto(`${baseURL}/#backups`);
+  await page.locator('[data-backup-action="restore"]').click();
+  const dialog = page.locator('#backupConfirmDialog');
+  const input = page.locator('#backupDialogInput');
+  await input.fill('wrong');
+  await page.locator('#backupDialogConfirm').click();
+  await expect(dialog).toBeVisible();
+  await expect(page.locator('#backupDialogError')).toContainText('does not match');
+  await expect(input).toBeFocused();
+
+  await input.fill('RESTORE fixture-backup');
+  await page.locator('#backupDialogConfirm').click();
+  await expect(page.locator('#backupDialogError')).toContainText('This backup operation could not be completed.');
+  await expect(page.locator('#backupDialogError .technical-details')).toContainText('SQL failed');
+  await expect(input).toBeFocused();
+  await expect(page.locator('#backupDialogCancel')).toBeEnabled();
+  await page.locator('#backupDialogCancel').click();
+  await expect(dialog).toBeHidden();
+
+  await page.unroute('**/api/**');
+  await mockApi(page, { backups:[backup] });
+  await page.reload();
+  await page.goto(`${baseURL}/#backups`);
+  await page.locator('[data-backup-action="delete"]').click();
+  await page.locator('#backupDialogInput').fill('DELETE fixture-backup');
+  await page.locator('#backupDialogConfirm').click();
+  await expect(dialog).toBeHidden();
+  await expect(page.locator('#createBackupButton')).toBeFocused();
 });
 
 test('destructive actions keep the danger tone that routine adds gave up', async ({ page }) => {
