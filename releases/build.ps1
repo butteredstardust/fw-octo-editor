@@ -39,7 +39,10 @@ Copy-Item -LiteralPath (Join-Path $root 'ACKNOWLEDGEMENTS.md') -Destination (Joi
 
 Write-Host 'Installing production dependencies...'
 Push-Location $appDest
-try { & $NpmCmd ci --omit=dev --no-audit --no-fund --loglevel=error 2>&1 | ForEach-Object { Write-Host $_ } }
+# --ignore-scripts: the staged app is a copy outside the repo, so lifecycle
+# scripts (husky's prepare) have neither husky installed nor a .git dir above
+# them. Their stderr would abort the build under ErrorActionPreference='Stop'.
+try { & $NpmCmd ci --omit=dev --ignore-scripts --no-audit --no-fund --loglevel=error 2>&1 | ForEach-Object { Write-Host $_ } }
 finally { Pop-Location }
 
 # npm packages sometimes publish their own test fixtures and repository
