@@ -89,20 +89,9 @@ jobs:
         run: npm run lint
         working-directory: webapp
 
-      - name: Build installer
-        shell: pwsh
-        run: |
-          $isccPath = (Get-Command ISCC.exe -ErrorAction Stop).Source
-          powershell -File releases/build.ps1 -IsccPath $isccPath
-        working-directory: ${{ github.workspace }}
-
-      - name: Upload installer artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: installer
-          path: releases/fwinter-save-editor-*.exe
-          retention-days: 30
-
+      # Runs before the build so the installer is stamped with the version it
+      # will actually be released under, rather than whatever webapp/package.json
+      # happens to say.
       - name: Compute next version
         id: version
         shell: bash
@@ -124,6 +113,20 @@ jobs:
           done
           echo "VERSION=${next_tag#v}" >> "$GITHUB_OUTPUT"
           echo "TAG=$next_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $isccPath = (Get-Command ISCC.exe -ErrorAction Stop).Source
+          powershell -File releases/build.ps1 -IsccPath $isccPath -Version '${{ steps.version.outputs.VERSION }}'
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: installer
+          path: releases/fwinter-save-editor-*.exe
+          retention-days: 30
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
