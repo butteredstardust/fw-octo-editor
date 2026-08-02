@@ -6,6 +6,7 @@ const sourcePath = path.join(root, 'data', 'items.csv');
 const overridesPath = path.join(root, 'data', 'item-overrides.json');
 const wikiSnapshotPath = path.join(root, 'data', 'wiki-items.snapshot.json');
 const referenceSnapshotPath = path.join(root, 'data', 'reference-items.snapshot.json');
+const gameSnapshotPath = path.join(root, 'data', 'game-items.snapshot.json');
 const canonicalPath = path.join(root, 'data', 'items.canonical.json');
 const catalogPath = path.join(root, 'public', 'catalog.json');
 const auditPath = path.join(root, 'data', 'item-map-audit.json');
@@ -45,6 +46,15 @@ function inferMap(id, top, categories) {
   if (top === 'Weapons' && categories.some(value => /^(weapons|pistols|rifles|shotguns|submachine|light machine|heavy)/i.test(value))) return 'Weapons';
   return 'Items';
 }
+// inventoryMap picks the GVAS map (Items_0 / Weapons_0 / Danglies_0); dataTablePath
+// picks the RowHandle's DataTable. They are NOT interchangeable: DanglyDetailsData and
+// DanglyDetailsData_DroppedWeapons both live in Danglies_0, so 'DamagedWeapons' alone
+// cannot say which table a row belongs to. Fallback only — the game snapshot is truth.
+const DATA_TABLE_BY_MAP = {
+  Items: '/Game/Blueprints/Data/ItemDetailsData.ItemDetailsData',
+  Weapons: '/Game/Blueprints/Data/WeaponsDetailsData.WeaponsDetailsData',
+  DamagedWeapons: '/Game/Blueprints/Data/DanglyDetailsData_DroppedWeapons.DanglyDetailsData_DroppedWeapons'
+};
 function merge(target, patch) {
   for (const [key, value] of Object.entries(patch || {})) {
     if (value && typeof value === 'object' && !Array.isArray(value)) target[key] = merge({ ...(target[key] || {}) }, value);
@@ -57,6 +67,11 @@ const overrides = JSON.parse(fs.readFileSync(overridesPath, 'utf8'));
 const wikiSnapshot = fs.existsSync(wikiSnapshotPath) ? JSON.parse(fs.readFileSync(wikiSnapshotPath, 'utf8')) : { items: [] };
 const referenceSnapshot = fs.existsSync(referenceSnapshotPath) ? JSON.parse(fs.readFileSync(referenceSnapshotPath, 'utf8')) : null;
 const referenceById = new Map((referenceSnapshot?.items || []).map(item => [item.name, item]));
+const gameSnapshot = fs.existsSync(gameSnapshotPath) ? JSON.parse(fs.readFileSync(gameSnapshotPath, 'utf8')) : null;
+const gameById = new Map((gameSnapshot?.items || []).map(item => [item.id, item]));
+// Rows the game defines but never finished: no authored name/description, dev or test
+// naming, bulk internal id patterns. Kept in the snapshot for auditing, kept OUT of the catalog.
+const gameAdmissible = item => !item.problems?.length && Boolean(item.inventoryMap);
 // IDs the wiki documents but the reference save never contained; admitted into the catalog anyway. See data/item-overrides.json.
 const allowlist = new Set(Object.keys(overrides.additionalItems || {}).filter(id => !id.startsWith('_')));
 const wikiById = new Map();
@@ -109,10 +124,31 @@ if (referenceSnapshot) {
     };
   }
 }
+// Admit items the shipped game DataTables define but the reference save never held. Runs
+// AFTER the reference-save intersection above so these survive the prune.
+const gameAdded = [];
+for (const [id, gameItem] of gameById) {
+  if (canonical[id] || !gameAdmissible(gameItem)) continue;
+  const wikiItem = wikiById.get(id) || wikiByIdLower.get(id.toLowerCase()) || null;
+  const categories = wikiItem?.categories?.length ? wikiItem.categories : inferredCategories(id);
+  const group = gameItem.inventoryMap === 'Weapons' ? 'Weapons' : (gameItem.inventoryMap === 'DamagedWeapons' ? 'Damaged Weapons' : 'Loot');
+  canonical[id] = {
+    id, displayName: wikiItem?.name || gameItem.displayName || id, inventoryMap: gameItem.inventoryMap,
+    internalTag: wikiItem?.internalTag || null,
+    taxonomy: { group, type: categories[0] || gameItem.category || null, subtype: categories[1] || null, tags: categories },
+    wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, description: wikiItem?.description || gameItem.description || null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
+    match: { method: wikiItem ? 'wiki-cargo-internal-tag' : 'game-datatable-row', confidence: wikiItem ? 1 : 0.8, reviewed: false },
+    sources: [`game-datatables-${gameSnapshot.gameBuild}`, ...(wikiItem ? ['wiki.gg-cargo-items'] : [])]
+  };
+  gameAdded.push(id);
+}
+// Every item carries the DataTable its RowHandle must reference. The game snapshot wins;
+// otherwise fall back to the historical one-table-per-map assumption.
+for (const [id, item] of Object.entries(canonical)) item.dataTablePath = gameById.get(id)?.dataTablePath || DATA_TABLE_BY_MAP[item.inventoryMap] || null;
 for (const [id, patch] of Object.entries(overrides.items || {})) { if (!canonical[id]) throw new Error(`Override refers to unknown reference-save ID: ${id}`); canonical[id] = merge(canonical[id], patch); }
 const sorted = Object.fromEntries(Object.entries(canonical).sort(([a], [b]) => a.localeCompare(b)));
 const catalog = Object.fromEntries(Object.entries(sorted).map(([id, item]) => [id, {
-  wiki: item.displayName, category: item.taxonomy.tags.join(','), top: item.taxonomy.group, inventoryMap: item.inventoryMap,
+  wiki: item.displayName, category: item.taxonomy.tags.join(','), top: item.taxonomy.group, inventoryMap: item.inventoryMap, dataTablePath: item.dataTablePath,
   taxonomyGroup: item.taxonomy.group, taxonomyType: item.taxonomy.type, taxonomySubtype: item.taxonomy.subtype, taxonomyTags: item.taxonomy.tags,
   internalTag: item.internalTag, imageFile: item.wiki.imageFile, imageUrl: item.wiki.imageUrl, wikiPage: item.wiki.page,
   wikiUrl: item.wiki.pageUrl, matchConfidence: item.match.confidence, reviewed: item.match.reviewed,
@@ -126,7 +162,12 @@ const audit = { schemaVersion: 1, generatedAt: new Date().toISOString(), source:
   withImages: entries.filter(item => item.wiki.imageFile || item.wiki.imageUrl).length, reviewed: entries.filter(item => item.match.reviewed).length,
   withDescription: entries.filter(item => item.wiki.description).length, withBuffOrDebuff: entries.filter(item => item.wiki.buffs || item.wiki.debuffs).length,
   excludedWikiRows: excluded.length, wikiSnapshotItems: (wikiSnapshot.items || []).length, referenceSnapshotItems: (referenceSnapshot?.items || []).length,
-  allowlistedWithoutReference: entries.filter(item => item.sources.includes('wiki-only-allowlist')).length },
+  allowlistedWithoutReference: entries.filter(item => item.sources.includes('wiki-only-allowlist')).length,
+  gameSnapshotItems: (gameSnapshot?.items || []).length, gameSnapshotAdmissible: (gameSnapshot?.items || []).filter(gameAdmissible).length,
+  addedFromGameDataTables: gameAdded.length, withDataTablePath: entries.filter(item => item.dataTablePath).length,
+  nonDefaultDataTablePath: entries.filter(item => item.dataTablePath && item.dataTablePath !== DATA_TABLE_BY_MAP[item.inventoryMap]).length },
+  addedFromGameDataTableIds: gameAdded.sort(),
+  nonDefaultDataTablePathIds: entries.filter(item => item.dataTablePath && item.dataTablePath !== DATA_TABLE_BY_MAP[item.inventoryMap]).map(item => item.id),
   allowlistedWithoutReferenceIds: entries.filter(item => item.sources.includes('wiki-only-allowlist')).map(item => item.id), unresolvedIds: entries.filter(item => item.match.confidence === 0).map(item => item.id), uncategorizedIds: entries.filter(item => !item.taxonomy.type).map(item => item.id), excludedWikiRows: excluded };
 fs.writeFileSync(canonicalPath, `${JSON.stringify({ schemaVersion: 1, generatedAt: audit.generatedAt, items: sorted }, null, 2)}\n`);
 fs.writeFileSync(catalogPath, `${JSON.stringify(catalog)}\n`);

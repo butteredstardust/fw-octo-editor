@@ -147,15 +147,25 @@ async function updateInventoryItem(key, itemName, quantity, sourceMap) {
   };
 }
 
-// Build a new, correctly-shaped entry for the given map. The handle key and
-// DataTable differ per map (ItemRowHandle_0 vs WeaponRowHandle_0 vs
-// DanglyRowHandle_0), but each carries a RowName_0 + Quantity_0.
+// A map does not determine the DataTable. Danglies_0 ("Damaged Weapons") holds rows
+// from BOTH DanglyDetailsData_DroppedWeapons (broken guns) and DanglyDetailsData (rig
+// equipment, turret parts) — writing the wrong one produces a RowHandle the game cannot
+// resolve. The catalog records the real table per item; the constants are the fallback
+// for ids the catalog does not cover.
+function dataTableFor(itemName, fallback) {
+  const entry = require('../../public/catalog.json')[itemName];
+  return (entry && typeof entry.dataTablePath === 'string' && entry.dataTablePath) || fallback;
+}
+
+// Build a new, correctly-shaped entry for the given map. The handle key differs per
+// map (ItemRowHandle_0 vs WeaponRowHandle_0 vs DanglyRowHandle_0), but each carries a
+// RowName_0 + Quantity_0.
 function buildEntry(sourceMap, itemName, quantity) {
   if (sourceMap === 'Base Weapons') {
     return {
       key: itemName,
       value: {
-        WeaponRowHandle_0: { DataTable_0: WEAPON_DATA_TABLE, RowName_0: itemName },
+        WeaponRowHandle_0: { DataTable_0: dataTableFor(itemName, WEAPON_DATA_TABLE), RowName_0: itemName },
         Quantity_0: quantity
       }
     };
@@ -164,7 +174,7 @@ function buildEntry(sourceMap, itemName, quantity) {
     return {
       key: itemName,
       value: {
-        DanglyRowHandle_0: { DataTable_0: DANGLY_DATA_TABLE, RowName_0: itemName },
+        DanglyRowHandle_0: { DataTable_0: dataTableFor(itemName, DANGLY_DATA_TABLE), RowName_0: itemName },
         Quantity_0: quantity
       }
     };
@@ -172,7 +182,7 @@ function buildEntry(sourceMap, itemName, quantity) {
   return {
     key: itemName,
     value: {
-      ItemRowHandle_0: { DataTable_0: ITEM_DATA_TABLE, RowName_0: itemName },
+      ItemRowHandle_0: { DataTable_0: dataTableFor(itemName, ITEM_DATA_TABLE), RowName_0: itemName },
       Quantity_0: quantity
     }
   };

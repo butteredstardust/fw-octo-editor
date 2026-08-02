@@ -21,3 +21,36 @@ test('G-L 19 is an authoritative addable base weapon', () => {
   assert.equal(item.internalTag, 'Inventory.Weapon.PST10');
   assert.equal(item.match.confidence, 1);
 });
+// The GVAS "Damaged Weapons" map (Danglies_0) holds rows from two different
+// DataTables, so inventoryMap alone cannot build a resolvable RowHandle.
+test('every canonical item carries the DataTable its RowHandle must reference', () => {
+  const known = new Set([
+    '/Game/Blueprints/Data/ItemDetailsData.ItemDetailsData',
+    '/Game/Blueprints/Data/WeaponsDetailsData.WeaponsDetailsData',
+    '/Game/Blueprints/Data/DanglyDetailsData_DroppedWeapons.DanglyDetailsData_DroppedWeapons',
+    '/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData'
+  ]);
+  for (const [id, item] of Object.entries(canonical.items)) {
+    assert.ok(known.has(item.dataTablePath), `${id} has unknown dataTablePath ${item.dataTablePath}`);
+    assert.equal(catalog[id].dataTablePath, item.dataTablePath);
+  }
+});
+test('rig equipment and broken weapons share a map but not a DataTable', () => {
+  const rig = canonical.items.RIG_EQUIPMENT_ExoLegs;
+  const broken = canonical.items.LMG01_Broken;
+  assert.equal(rig.inventoryMap, 'DamagedWeapons');
+  assert.equal(broken.inventoryMap, 'DamagedWeapons');
+  assert.equal(rig.dataTablePath, '/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData');
+  assert.equal(broken.dataTablePath, '/Game/Blueprints/Data/DanglyDetailsData_DroppedWeapons.DanglyDetailsData_DroppedWeapons');
+  assert.notEqual(rig.dataTablePath, broken.dataTablePath);
+});
+test('game DataTable additions are attributed and free of unfinished rows', () => {
+  const added = audit.addedFromGameDataTableIds;
+  assert.ok(Array.isArray(added) && added.length > 0);
+  for (const id of added) {
+    const item = canonical.items[id];
+    assert.ok(item, `${id} was reported added but is absent from the catalog`);
+    assert.ok(item.sources.some(source => source.startsWith('game-datatables-')));
+    assert.doesNotMatch(item.displayName || '', /placeholder/i);
+  }
+});
