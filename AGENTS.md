@@ -1,6 +1,6 @@
 # FW OCTO Editor — Agent Briefing
 
-Read this before editing the webapp or save files. The **webapp** is the only supported interface. Legacy PowerShell scripts have been retired to `archive/legacy/` — do not build new functionality on them; extend the webapp instead.
+Read this before editing the webapp or save files. The **webapp** is the only supported interface. Legacy PowerShell scripts have been retired and are not part of this repository — do not build new functionality on them; extend the webapp instead.
 
 ## TL;DR
 
@@ -26,9 +26,9 @@ Read this before editing the webapp or save files. The **webapp** is the only su
   - `ui-utils.mjs` — filtering, ranking, debounce, receipts
   - `charts.mjs` — Chart.js wrapper (`createChart`/`chartFigure`/`destroyCharts`); the only module that imports `vendor/chart.mjs`. Always call `destroyCharts(container)` right before an innerHTML swap that removes old canvases, and always pair a chart with the paired data table `chartFigure()` renders — never canvas-only. Validate any multi-series (categorical) chart palette with the `dataviz` skill's `scripts/validate_palette.js` (not a repo script) before shipping it; if nothing passes, fall back to `chartFigure`'s `panels` option (small multiples — a lone series needs no legend and no CVD-separation check).
   - `features/dashboard.mjs`, `characters.mjs`, `hub.mjs`, `inventory/`, `vendors-repair.mjs`, `settings-planners.mjs`, `weapons.mjs`
-  - `recipe-planner.mjs`, `recipe-data.mjs`
-- **Styles:** `public/styles.css` + `public/css/*.css` (foundation, shared-pages, inventory, progression, people-and-vendors, planners, repair, refinements)
-- **Data:** `public/catalog.json`, `public/workshop-recipes.js`, `public/munitions-recipes.js`
+  - `recipe-planner.mjs`, `recipe-data.mjs`, `game-data.mjs`
+- **Styles:** `public/styles.css` + `public/css/*.css` (foundation, shared-pages, shell, inventory, progression, people-and-vendors, planners, repair, refinements)
+- **Data:** `public/catalog.json`, loaded through the native ES module graph (`game-data.mjs` → `recipe-data.mjs`) — there is no separate `workshop-recipes.js`/`munitions-recipes.js` bundle
 - **Vendored:** `public/vendor/` — committed ESM build of chart.js from `npm run vendor:chart`; not hand-edited
 
 ### Backend
@@ -149,6 +149,7 @@ Frontend pages check `afterIntegrity.passed` before accepting a result.
 | GET | `/api/weapon-builds` | BIS weapon builds |
 | POST | `/api/weapon-builds/add-missing-owned` | Add BIS parts for all owned weapons |
 | POST | `/api/weapon-builds/:weaponId/add-missing` | Add missing BIS parts for one weapon |
+| POST | `/api/weapon-builds/:weaponId/add-missing-with-weapon` | Add the base weapon itself plus its missing BIS parts |
 | POST | `/api/weapon-builds/:weaponId/parts/:partId/add` | Add specific BIS part |
 | GET | `/api/stats` | Read-only lifetime combat/progression stats |
 
