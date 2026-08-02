@@ -1,5 +1,5 @@
 'use strict';
-const test = require('node:test');
+const nodeTest = require('node:test');
 const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const fs = require('node:fs/promises');
@@ -11,6 +11,18 @@ const weaponBuildService = require('../../services/weaponBuildService');
 const backupService = require('../../services/backupService');
 const binaryParser = require('../../services/binaryParser');
 const { SAVE_FILES } = require('./helpers/e2e-harness');
+const { liveSaveAvailable } = require('../helpers/live-save');
+
+// Every test here drives the REAL save through the REAL sqlite3mc/uesave
+// toolchain, so it needs the live save files on disk. They are not in the repo
+// (see reference/README.md), so skip the suite where they are absent instead of
+// failing with ENOENT — e.g. on macOS/Linux, or on a machine without the game.
+const skipReason = liveSaveAvailable()
+  ? null
+  : 'live save unavailable — set FW_LIVE_SAVE_DIR to a directory holding the save files';
+const test = skipReason
+  ? (name, fn) => nodeTest(name, { skip: skipReason }, fn)
+  : nodeTest;
 
 async function primaryHash(ctx) {
   return crypto.createHash('sha256').update(await fs.readFile(path.join(ctx.saveDir, SAVE_FILES[0]))).digest('hex');
