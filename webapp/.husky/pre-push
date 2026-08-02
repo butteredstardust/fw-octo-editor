@@ -1,0 +1,68 @@
+#!/bin/sh
+# fw-octo-editor pre-push: runs lint + unit/e2e tests, warns on failure, never blocks
+#
+# core.hooksPath points at webapp/.husky, but git always runs hooks with
+# CWD set to the repository root (even when invoked from a GUI client),
+# so resolve the webapp dir robustly before running npm.
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+WEBAPP_DIR="$REPO_ROOT/webapp"
+
+WARN() { echo ""; echo "  ⚠️  WARN  $1"; }
+OK()   { echo "  ✅  $1"; }
+INFO() { echo "  →  $1"; }
+
+echo ""
+echo "  fw-octo-editor pre-push checks (warn only)"
+echo "  ────────────────────────────────────────"
+
+# ESLint check
+echo ""
+INFO "Running ESLint (webapp)..."
+LINT_OUT=""
+LINT_OUT=$(cd "$WEBAPP_DIR" && npm run lint 2>&1) || LINT_RC=$?
+if [ "${LINT_RC:-0}" -ne 0 ]; then
+  WARN "ESLint errors in webapp"
+  echo "$LINT_OUT" | tail -20 | sed 's/^/       /'
+  INFO "Fix lint errors before merging to main."
+else
+  OK "ESLint check passed"
+fi
+
+# Unit + e2e tests (native node --test)
+echo ""
+INFO "Running unit + e2e tests (webapp)..."
+TEST_OUT=""
+TEST_OUT=$(cd "$WEBAPP_DIR" && npm run test:unit 2>&1) || TEST_RC=$?
+if [ "${TEST_RC:-0}" -ne 0 ]; then
+  WARN "Tests failed in webapp"
+  echo "$TEST_OUT" | tail -20 | sed 's/^/       /'
+  INFO "Fix failing tests before merging to main."
+else
+  OK "Tests passed"
+fi
+
+# Check for unresolved merge conflict markers
+CONFLICT_FILES=$(git diff --name-only HEAD 2>/dev/null | xargs grep -l "^<<<<<<< \|^>>>>>>> \|^=======$" 2>/dev/null) || true
+if [ -n "$CONFLICT_FILES" ]; then
+  WARN "Unresolved merge conflict markers found"
+  echo "$CONFLICT_FILES" | sed 's/^/       /'
+fi
+
+# Warn if pushing directly to main without a PR
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+while IFS= read -r line; do
+  DEST_BRANCH=$(echo "$line" | awk '{print $2}' | sed 's/refs\/heads\///')
+  if [ "$DEST_BRANCH" = "main" ] && [ "$CURRENT_BRANCH" = "main" ]; then
+    echo ""
+    INFO "Pushing directly to main. Consider using a PR for significant changes."
+  fi
+done
+
+echo ""
+echo "  ────────────────────────────────────────"
+echo "  Note: browser tests (npm run test:browser) and the coverage gate"
+echo "  (npm run test:coverage) are not run here — CI runs those."
+echo "  Pre-push checks complete. Push proceeds regardless."
+echo "  Run 'git push --no-verify' to skip these checks."
+echo ""
+exit 0

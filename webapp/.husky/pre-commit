@@ -1,0 +1,12 @@
+#!/bin/sh
+# fw-octo-editor pre-commit: lint-staged (blocking)
+#
+# core.hooksPath points at webapp/.husky, but git always runs hooks with
+# CWD set to the repository root (even when invoked from a GUI client).
+# lint-staged's config lives in webapp/package.json and its globs are
+# relative to its own cwd, so resolve the webapp dir robustly and cd
+# into it before running.
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT/webapp" || exit 1
+
+npx lint-staged
