@@ -34,7 +34,7 @@
     "quests:fetch-wiki": "node scripts/fetch-wiki-quests.js",
     "quests:generate": "node scripts/generate-quest-data.js",
     "quests:audit": "node -e \"console.log(require('./data/quest-map-audit.json').counts)\"",
-    "prepare": "cd .. && husky webapp/.husky"
+    "prepare": "cd .. && husky webapp/.husky || exit 0"
   },
   "dependencies": {
     "express": "^4.18.2"
