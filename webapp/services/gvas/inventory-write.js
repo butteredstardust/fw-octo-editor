@@ -25,6 +25,7 @@ const {
   requireByteIdenticalRoundTrip
 } = require('./codec');
 const { extractEntryNameAndQty, extractItems, normalizeItems } = require('./inventory-read');
+const catalog = require('../../public/catalog.json');
 
 function validateInventoryInput(itemName, quantity, sourceMap) {
   if (typeof itemName !== 'string' || !itemName || /[\0\r\n]/.test(itemName)) throw Object.assign(new Error('itemId must be non-empty text without control characters'), { status: 400 });
@@ -153,7 +154,7 @@ async function updateInventoryItem(key, itemName, quantity, sourceMap) {
 // resolve. The catalog records the real table per item; the constants are the fallback
 // for ids the catalog does not cover.
 function dataTableFor(itemName, fallback) {
-  const entry = require('../../public/catalog.json')[itemName];
+  const entry = catalog[itemName];
   return (entry && typeof entry.dataTablePath === 'string' && entry.dataTablePath) || fallback;
 }
 
@@ -342,6 +343,7 @@ async function ensureInventoryItems(key, requested) {
 module.exports = {
   validateInventoryInput,
   findMapsForItem,
+  buildEntry,
   resolveUpdateTargets,
   updateInventoryItem,
   addInventoryItem,
