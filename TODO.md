@@ -1,8 +1,47 @@
-# 0.9 stabilization checklist
+# TODO — FW OCTO Editor
 
-Current version: **0.9.0**. This is a stabilization build and is **not ready for Nexus publication**.
+Current version: **0.10.0** (see `webapp/package.json`, `CHANGELOG.md`). This is a Nexus-readiness pass and is **not yet ready for Nexus publication** — see the open items below. The rest of this file is a historical log of stabilization work already completed.
 
-## Completed
+## Remaining work before 1.0.0
+
+### Safety and tests
+
+- Add comprehensive GVAS golden fixtures for every supported map, duplicate names, additions, malformed layouts, and missing uesave.
+- Add API smoke tests for every route and response-code class.
+- Add browser tests for onboarding, navigation, write-disabled states, dialogs, error recovery, keyboard operation, responsive layouts, and reduced motion.
+
+### Backup UX
+
+- Add browser automation for backup keyboard flow, dialog focus trapping, API failures, and narrow responsive layouts.
+
+### Data and licensing
+
+- Add CC BY-SA dataset attribution plus application license and third-party notices for Express, Node, SQLite3MC, and uesave.
+- Verify shared-key and native-binary redistribution against the game EULA and Nexus policy before packaging.
+
+### Distribution and documentation
+
+- Build the offline per-user Inno Setup installer with bundled Node, production dependencies, pinned native tools, hidden launcher, duplicate-instance protection, health polling, and backup-preserving uninstall.
+- Add README, installation/troubleshooting guide, privacy statement, changelog, support template, Nexus description, and release guide.
+- Audit the release package to exclude saves, reference saves, secrets, developer paths, temporary exports, and development `node_modules` debris.
+
+### Acceptance
+
+- Validate install, launch, read, backup, staged write, restore, restart, and uninstall on a clean offline Windows VM.
+- Complete final closed-game live-save acceptance with one minimal change per feature family, successful in-game persistence, and restoration afterward.
+- Demonstrate end-to-end rollback and confirm there are no known data-loss defects.
+- Confirm the package makes no outbound requests and passes Defender/Nexus scanning.
+- Promote to `1.0.0` only after every release blocker above is resolved.
+
+### Weapon builds
+
+- Re-fetch and regenerate weapon data after major game/wiki schema changes; structured inventory acceptance still requires in-game confirmation.
+
+---
+
+## Completed (historical log)
+
+This section is a running record of stabilization work already finished. Nothing below is an open item — it is kept for context on what has already been built and verified.
 
 ### Save safety and mutations
 
@@ -63,26 +102,19 @@ Current version: **0.9.0**. This is a stabilization build and is **not ready for
 - Added validation, structural, accessibility, duplicate, malformed-map, insertion, increment, and overflow tests.
 - Corrected Overview loadout semantics: `ThrowWeapon_0/GRL00` is retained only as an internal throw mechanism in the API and is no longer presented as the equipped throwable, whose selection is not persisted in the readable loadout blobs.
 
-## Remaining release blockers
-
-### Safety and tests
+### Safety and tests (release-blocker items now complete)
 
 - Dependency-injected mutation fault coverage is implemented for concurrency, game/hash races, validation/action failures, install-copy failure, exact rollback, and rollback-copy failure reporting.
-- Add comprehensive GVAS golden fixtures for every supported map, duplicate names, additions, malformed layouts, and missing uesave.
-- Add API smoke tests for every route and response-code class.
-- Add browser tests for onboarding, navigation, write-disabled states, dialogs, error recovery, keyboard operation, responsive layouts, and reduced motion.
 - Read-only diagnostics now surface save/tool/schema readiness and the inventory byte-round-trip result before mutation.
 
-### Backup UX
+### Backup UX (release-blocker items now complete)
 
 - Validated backup deletion and the accessible create/restore/delete UI are implemented with typed confirmations, progress states, focus return, active-session protection, and operation receipts.
-- Add browser automation for backup keyboard flow, dialog focus trapping, API failures, and narrow responsive layouts.
 
 ### UI and accessibility
 
 - [done 2026-07-19] Reviewed and corrected the automated UI/UX audit; fixed broken Overview resource request signatures, strict integer validation, visible mutation progress, ambiguous connection handling, mobile drawer focus isolation, page/render state preservation, skeleton/empty states, action contrast, touch targets, and last-verified-edit status.
 - [done 2026-07-19] Added development-only Playwright coverage using a fully intercepted static fixture so browser UX tests cannot touch the live save.
-
 - [done 2026-07-19] Semantic header/nav/main landmarks, skip navigation, visible focus, arrow-key navigation, page focus/announcements, responsive navigation, reduced-motion support, and the persistent safety header are implemented.
 - [done 2026-07-19] Reorganized navigation into the planned Overview, Progression, Innards, Inventory, and System groups with a responsive mobile drawer.
 - [done 2026-07-19] Added a cinematic industrial visual layer, balanced compact filtering layouts, and responsive data-heavy pages.
@@ -110,8 +142,6 @@ Current version: **0.9.0**. This is a stabilization build and is **not ready for
 - [done 2026-07-19] Version Workshop, Munitions, and Innards recipes through wiki snapshots, canonical generation, reviewed overrides, and audit data.
 - [done 2026-07-19] Hub-upgrade costs, prerequisites, exact tag checks, and recipe/prerequisite cycle validation are generated and tested.
 - [done 2026-07-19] Manufacture Booster now comes directly from the structured wiki recipe snapshot.
-- Add CC BY-SA dataset attribution plus application license and third-party notices for Express, Node, SQLite3MC, and uesave.
-- Verify shared-key and native-binary redistribution against the game EULA and Nexus policy before packaging.
 
 ### Distribution and documentation
 
@@ -121,19 +151,7 @@ Current version: **0.9.0**. This is a stabilization build and is **not ready for
 - [done 2026-07-21] Fixed a real bug on the Overview Resources cards (`dashboard.mjs`): the "Set" button was always shown for every Codex/Drone card, but `POST /inventory/update` throws ("Item X not found in TempInventory") for any inventory item not yet owned — so clicking Set on an unowned Codex card (quantity 0, which is all 6 of them by default) was a guaranteed error. Since this is the shared `RESOURCE_DEFS` render path, the same bug affected the 3 Drone cards too, not just Codex. Fixed by hiding the Set button whenever an inventory-kind card isn't owned yet, leaving only Add (which is the only op that can actually succeed); currency cards (Water/Credits) are unaffected since currency rows always exist and Set always works there. Verified live: all 6 unowned Codex cards now show only Add, while owned Drone cards still show Set; full suite (132/132) and lint pass.
 - [done 2026-07-21] Fixed wasted space on the Repair Bench page: the "Active Repair Job" panel was forced to `min-height:100%` against a right-hand sidebar stack containing both the Workbench panel and a tall 9-row Faction IFF Chips list, so an idle job (just a status line + em-dash) got stretched to match that combined height, leaving a large empty gap before the button (pinned to the bottom via `margin-top:auto`). Split Faction IFF Chips out of the sidebar into its own full-width section below, rendered as a `.iff-grid` of small per-chip cards (name, faction/level, quantity, "used by N weapon(s)") instead of one narrow list — same pattern already used for Repairable Weapons. `.repair-grid` is now just two comparably-sized panels (Active Repair Job, Workbench) side by side, so the height-matching no longer produces a large gap. Removed the now-dead `.repair-side-stack`/`.repair-iff-panel`/`.repair-req-row` CSS this replaced. Verified live: IFF chips now render as a 5-column card grid and the top panels are both compact regardless of repair state; full suite (132/132) and lint pass.
 - [done 2026-07-21] Package the portable loader with a release-only encrypted key resource (never the plaintext key file); `releases/build.ps1` builds and bundles `webapp/resources/dbkey.resource.json` instead of copying `fwinter-db-key.txt`.
-- Build the offline per-user Inno Setup installer with bundled Node, production dependencies, pinned native tools, hidden launcher, duplicate-instance protection, health polling, and backup-preserving uninstall.
-- Add README, installation/troubleshooting guide, privacy statement, changelog, support template, Nexus description, and release guide.
-- Audit the release package to exclude saves, reference saves, secrets, developer paths, temporary exports, and development `node_modules` debris.
-
-### Acceptance
-
-- Validate install, launch, read, backup, staged write, restore, restart, and uninstall on a clean offline Windows VM.
-- Complete final closed-game live-save acceptance with one minimal change per feature family, successful in-game persistence, and restoration afterward.
-- Demonstrate end-to-end rollback and confirm there are no known data-loss defects.
-- Confirm the package makes no outbound requests and passes Defender/Nexus scanning.
-- Promote to `1.0.0` only after every release blocker above is resolved.
 
 ### Weapon builds
 
 - Added a versioned wiki Cargo snapshot, canonical mapping audit, deterministic balanced build recommendations, progression/ownership disclosure, and guarded experimental one-pass missing-part additions.
-- Re-fetch and regenerate weapon data after major game/wiki schema changes; structured inventory acceptance still requires in-game confirmation.

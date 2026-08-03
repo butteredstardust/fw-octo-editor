@@ -42,7 +42,7 @@ The FW OCTO Editor webapp source code (the `webapp/` directory and associated sc
 ### uesave
 
 - Binary: `uesave.exe` (from `tools/uesave-src`); license: MIT; copyright: (c) 2022 Truman Kilen.
-- <https://github.com/trumank/uesave-rs>
+- <https://github.com/trumank/uesave>
 - Used to read and write the Unreal Engine 5 GVAS `TempInventory` blob.
 
 ### Playwright (development dependency)
