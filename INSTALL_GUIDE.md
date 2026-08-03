@@ -12,10 +12,10 @@ FW OCTO Editor is a local, loopback-only Node.js/Express app that reads and edit
 
 | Tool | Minimum version | Purpose | Install / verify |
 |------|-----------------|---------|-----------------|
-| **Node.js** | v18+ (LTS recommended) | Runtime for the webapp and build scripts | `node --version` |
-| **npm** | v8+ (bundled with Node) | Dependency install and script runner | `npm --version` |
+| **Node.js** | `>=22` (required by `webapp/package.json`'s `engines` field) | Runtime for the webapp and build scripts | `node --version` |
+| **npm** | bundled with Node | Dependency install and script runner | `npm --version` |
 | **Git** | any | Clone the repository | `git --version` |
-| **Rust** | 1.94+ (stable) | Build the `uesave` GVAS CLI | `rustc --version` |
+| **Rust** | stable toolchain | Build the `uesave` GVAS CLI | `rustc --version` |
 | **Cargo** | bundled with Rust | Rust package manager / build tool | `cargo --version` |
 | **SQLite3MC shell** | `sqlite3mc_shell_x64.exe` | Encrypted SQLite3 database access | See below |
 | **The Forever Winter** | installed on Windows | Provides the live save files and DB key | — |
@@ -27,55 +27,63 @@ FW OCTO Editor is a local, loopback-only Node.js/Express app that reads and edit
 ## Step 1: Clone the repository
 
 ```bash
-git clone <repository-url>
-cd Forever-Winter
+git clone <repository-url> fw-octo-editor
+cd fw-octo-editor
 ```
 
-The repository root should contain:
+(The clone directory can be named anything — `fw-octo-editor` above is just a suggestion.)
+
+The repository root contains:
 ```
 AGENTS.md
 README.md
 reference/
 releases/
-tools/
 webapp/
 ```
 
-Retired content (deprecated legacy scripts, old manual backups, one-off investigation
-scripts) lives under `archive/` — not part of the working app, kept only for reference.
+There is **no `tools/` or `archive/` directory in the repository**. `tools/` is where you'll
+build the `uesave` CLI locally (Step 3) — the CI release workflow
+(`.github/workflows/release.yml`) creates it the same way, from scratch, on every build. Any
+mention of `archive/` in older notes refers to content that has since been removed from the
+project entirely; there is nothing to restore.
 
 ---
 
 ## Step 2: Obtain the SQLite3MC shell
 
-The app shells out to `sqlite3mc_shell_x64.exe` for all database operations. This is **not** an npm package — it is a standalone native binary.
+The app shells out to `sqlite3mc_shell_x64.exe` for all database operations. This is **not** an npm package — it is a standalone native binary. The release workflow (`.github/workflows/release.yml`) downloads it directly from the upstream GitHub release and verifies its checksum; do the same locally:
 
-**Option A — Use the bundled path (if present)**
+**Option A — Use the default path (if present)**
 Check if the file already exists at:
 ```
 C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
 ```
 If it exists, no further action is needed.
 
-**Option B — Build or download SQLite3MC**
-If the binary is missing:
-1. Obtain the SQLite3MC (SQLite3 with SEE/Cipher compatibility) build for Windows x64.
-2. Place it at a known location, for example:
-   ```
-   C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
-   ```
-3. Note the path — you will set `FW_SQLITE_BIN` if you use a non-default location.
+**Option B — Download SQLite3MC**
+If the binary is missing, download the exact build CI uses:
+```powershell
+$archiveUrl = 'https://github.com/utelle/SQLite3MultipleCiphers/releases/download/v2.3.6/sqlite3mc-2.3.6-sqlite-3.53.3-win64.zip'
+Invoke-WebRequest -Uri $archiveUrl -OutFile sqlite3mc.zip
+Expand-Archive -LiteralPath sqlite3mc.zip -DestinationPath sqlite3mc -Force
+```
+This is SQLite3MC 2.3.6 (SQLite 3.53.3) for Windows x64. Copy `sqlite3mc\bin\sqlite3mc_shell_x64.exe` to a known location, e.g.:
+```
+C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe
+```
+Note the path — you will set `FW_SQLITE_BIN` if you use a non-default location.
 
 ---
 
 ## Step 3: Build the `uesave` GVAS CLI
 
-The app requires `uesave.exe` (trumank/uesave, pinned v0.7.1) for structured inventory reads and writes.
+The app requires `uesave.exe` (trumank/uesave) for structured inventory reads and writes. The release workflow pins an exact commit rather than a tagged version; build the same one:
 
 ```bash
-cd tools
-git clone https://github.com/trumank/uesave.git uesave-src
-cd uesave-src
+git clone https://github.com/trumank/uesave.git tools/uesave-src
+cd tools/uesave-src
+git checkout --detach 1917a22ab69e9a4045e613d9d7f39a49fe00bd46
 cargo build --release -p uesave_cli
 ```
 
@@ -86,7 +94,7 @@ tools/uesave-src/target/release/uesave.exe
 
 Verify it:
 ```bash
-tools/uesave-src/target/release\uesave.exe --help
+tools\uesave-src\target\release\uesave.exe --help
 ```
 
 If you place the binary elsewhere, set the environment variable:
@@ -124,7 +132,7 @@ npm install
 This installs the single runtime dependency:
 - `express` ^4.18.2
 
-Dev dependencies are not used; the project relies on Node's built-in test runner.
+It also installs the devDependencies used for testing and tooling: `@playwright/test` (browser tests), `chart.js` (vendored into `public/vendor/`, not shipped as a live dependency), and `eslint` (linting). The project's own test runner is still Node's built-in `node --test`.
 
 ---
 
@@ -229,23 +237,13 @@ The server binds to **loopback only** (`127.0.0.1:3000`). It must not be exposed
 
 ```bash
 cd webapp
-npm test
+npm test           # unit tests: node --test "test/*.test.js"
+npm run test:unit  # unit + e2e: adds "test/e2e/*.test.js"
+npm run test:browser  # Playwright browser/UX tests (test/browser/*.spec.js)
+npm run lint        # ESLint
 ```
 
-This invokes Node's built-in test runner (`node --test`) against the `test/` directory. Current coverage includes:
-- `backupService.test.js` — backup creation, manifest hashes, restore/delete confirmation
-- `compatibilityService.test.js` — schema, table, and row checks
-- `configService.test.js` — save-dir override and context isolation
-- `gvasService.validation.test.js` — inventory map extraction and validation
-- `keyLoader.test.js` — key file parsing and redaction
-- `mutationService.test.js` — staged copy-on-write, rollback, concurrency
-- `presetService.test.js` — preset parsing and BIS comparison
-- `recipeData.test.js` — recipe catalog integrity
-- `rigs.test.js` — rig catalog and container logic
-- `saveService.validation.test.js` — character, weapon, hub, and currency validation
-- `ui-utils.test.js` — frontend utility functions
-- `weaponBuildPartAction.test.js` — BIS part add logic
-- `weaponBuildService.test.js` — build selection and scoring
+`npm test` runs Node's built-in test runner against every `test/*.test.js` file — dozens of files covering backup service, compatibility, config, DB key encryption, GVAS validation, key loading, mutation service, presets, recipes/items/weapons data integrity, rigs, save validation, UI utils, and weapon builds. `test/e2e/services.e2e.test.js` drives the real `sqlite3mc`/`uesave` binaries against an isolated copy of a save. Playwright specs under `test/browser/` cover accessibility, contrast, feedback UX, shell UX, and per-page smoke tests against intercepted static fixtures (never the live save). See `webapp/test/TESTING-AUDIT.md` for the test-hardening history, and `npm run test:ci` for the full gate CI runs (unit + e2e, lint, coverage gate, Playwright).
 
 ---
 
@@ -277,8 +275,8 @@ This invokes Node's built-in test runner (`node --test`) against the `test/` dir
 
 ### `Inventory byte-identical round-trip failed`
 - The `uesave` binary is present but produced different bytes when re-serializing the save's TempInventory blob.
-- This usually means the `uesave` version is incompatible with the current save format.
-- Rebuild `uesave` from the pinned `uesave-src` and ensure `GVAS_UESAVE_BIN` points to the new binary.
+- This usually means the `uesave` build is incompatible with the current save format.
+- Rebuild `uesave` from the pinned commit (Step 3) and ensure `GVAS_UESAVE_BIN` points to the new binary.
 
 ### `Port 3000 already in use`
 - Another instance of the app is already running, or another process is using the port.
@@ -290,19 +288,16 @@ This invokes Node's built-in test runner (`node --test`) against the `test/` dir
 ## Project structure reference
 
 ```
-Forever-Winter/
+<clone-root>/
   AGENTS.md                  Agent briefing and canonical rules
-  README.md                  Project overview and API docs
+  README.md                  Project overview and navigation
   INSTALL_GUIDE.md           This file
-  TODO.md                    0.9 stabilization checklist
-  tools/
-    uesave-src/              trumank/uesave repo (v0.7.1) — required build tool
+  TODO.md                    Remaining 1.0.0 blockers + historical stabilization log
+  tools/                     NOT checked into the repo — created locally by Step 3
+    uesave-src/              trumank/uesave repo, built from the pinned commit
   reference/
     README.md                Reference save instructions
     YOUR_HASHCODE_HERE.dat   100% reference save (placeholder name)
-  archive/                   Retired backups, deprecated legacy/ scripts, and
-                              one-off GVAS investigation scripts. Not part of
-                              the working app; kept only as historical reference.
   webapp/
     server.js                Express boot, loopback bind, key load
     start.bat                Windows launcher (install + start + open browser)
@@ -351,7 +346,6 @@ Forever-Winter/
 
 ## Next steps
 
-- Read `AGENTS.md` for the canonical save-editing rules and safety workflow.
-- Read `README.md` for the full API surface and feature overview.
+- Read `AGENTS.md` for the canonical save-editing rules, safety workflow, and full API surface.
 - Read `DEVELOPER_GUIDE.md` for architecture, request lifecycles, and contribution patterns.
-- Run `npm test` to confirm your environment matches the expected test baseline.
+- Run `npm test` (from `webapp/`) to confirm your environment matches the expected test baseline.

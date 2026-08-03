@@ -1,5 +1,7 @@
 # Developer Guide — FW OCTO Editor
 
+For setup, prerequisites, environment variables, and running the app/tests, see `INSTALL_GUIDE.md`. This guide assumes a working local install and covers architecture, request lifecycle, and how to extend the app.
+
 ## System Architecture & Design Patterns
 
 ### Architectural Paradigm
@@ -297,7 +299,7 @@ Aggregated dashboard loading four endpoints in parallel:
 - **Repairable Weapons**: 40 recipe cards sorted by readiness. Each card shows destroyed weapon requirement, IFF chip requirement, and readiness status. Bench-busy state blocks all cards.
 
 #### Workshop (`page-workshop`) & Munitions (`page-munitions`)
-- Shared recipe planner architecture (`recipe-planner.js`).
+- Shared recipe planner architecture (`recipe-planner.mjs`).
 - Loads `/api/inventory` to build local inventory map.
 - Product search, product selector, quantity input.
 - Component preview: lists each requirement with needed/have/missing/unsupported status.
@@ -408,10 +410,38 @@ For GVAS/inventory writes, follow `gvasService.js`:
 
 ### 5. Adding Data Files
 - Canonical item data lives in `data/items.canonical.json` and `public/catalog.json`.
-- Recipe data lives in `data/recipes.canonical.json` and `public/recipe-data.js`.
+- Recipe data lives in `data/recipes.canonical.json` and `public/modules/recipe-data.mjs`.
 - Weapon build data lives in `data/weapon-builds.canonical.json`.
 - Rig data lives in `data/rigs.json`.
 - Generation scripts in `scripts/` fetch wiki snapshots and produce the canonical files.
+
+### 6. Item Data Sources
+
+`npm run items:generate` merges three input snapshots in `data/`; the wiki is no longer the
+authority for item identity:
+
+| Snapshot | Produced by | Authority for |
+|---|---|---|
+| `game-items.snapshot.json` | **No npm script — extracted out-of-repo, see below** | Item IDs, `dataTablePath`, `inventoryMap`, in-game names/descriptions |
+| `wiki-items.snapshot.json` | `npm run items:fetch-wiki` | Portrait filenames, prose the game omits |
+| `reference-items.snapshot.json` | `npm run items:extract-reference` | Cross-check against a real 100% save |
+
+`game-items.snapshot.json` is extracted from the game's own shipped DataTables
+(`ItemDetailsData`, `WeaponsDetailsData`, `DanglyDetailsData`,
+`DanglyDetailsData_DroppedWeapons`, `QuestItemDetailsData`) with **CUE4Parse plus a
+build-matched `Mappings.usmap`** from the modding kit — a .NET toolchain that is
+deliberately *not* a repo dependency, since `express`-only is a project constraint and this
+is an offline generation step, not a runtime one. The committed snapshot records its
+`gameBuild`; refresh it only when a game patch changes the tables, then re-run
+`items:generate` and `recipes:generate`. Rows carrying a non-empty `problems` array are
+internal/unfinished and are not admitted to the catalog.
+
+Two Dangly tables share the single `Danglies_0` GVAS map (broken weapons vs. rig equipment
+and turret parts), so `inventoryMap` alone cannot build a resolvable RowHandle — only
+`dataTablePath` can. That is why it is carried per item all the way through to
+`public/catalog.json` and read back by `dataTableFor()` in
+`services/gvas/inventory-write.js`; `test/inventoryEntry.test.js` guards the handle that
+actually gets written.
 
 ## Technical Debt & Architectural Observations
 
@@ -429,10 +459,10 @@ For GVAS/inventory writes, follow `gvasService.js`:
 - **Missing `.env` support**: Environment variables are read directly from `process.env`. There is no `.env` loading library (e.g., `dotenv`).
 
 ### Testing
-- **Good coverage of pure logic**: `backupService`, `configService`, `mutationService`, `weaponBuildService`, and `presetService` have unit tests using `node:test` and `node:assert/strict`.
-- **Gaps**: `saveService` and `gvasService` tests exist (`saveService.validation.test.js`, `gvasService.validation.test.js`) but rely on a real or mocked encrypted database. The actual database-mocking strategy is not visible in the test directory contents reviewed.
-- **No integration/E2E tests**: There are no tests that spin up the Express server and hit HTTP endpoints.
-- **Frontend has no automated tests**: UI logic under `public/modules/` is untested. The `test/ui-utils.test.js` file covers only utility functions, not rendering or event handling.
+- **Good coverage of pure logic**: `backupService`, `configService`, `mutationService`, `weaponBuildService`, `presetService`, and many more domain modules have unit tests using `node:test` and `node:assert/strict` (`webapp/test/*.test.js`).
+- **HTTP-boundary and E2E coverage exist**: `test/api.boundary.test.js` boots the real Express server and asserts CSRF/origin/host/404/game-running gates; `test/e2e/services.e2e.test.js` drives the real `sqlite3mc`/`uesave` binaries against an isolated copy of a save.
+- **Frontend has Playwright coverage**: `test/browser/*.spec.js` (accessibility, contrast, feedback UX, shell UX, per-page smoke) exercises the SPA against intercepted static fixtures — never the live save. `test/ui-utils.test.js` additionally covers pure frontend utility functions at the unit level.
+- **Coverage gate**: `npm run test:coverage` (`scripts/coverage-gate.js`) enforces a regression floor (default 20% lines on `services/`, `utils/`, `routes/`, overridable via `COVERAGE_MIN`) rather than a fixed target — see `webapp/test/TESTING-AUDIT.md` for the hardening history and current known gaps.
 
 ### Performance
 - **Shell spawning per query**: `runShell` spawns a new `sqlite3mc_shell_x64.exe` process for every batch of SQL. For high-frequency reads, this is acceptable, but batch operations (e.g., `batchSetWeaponXp`) pack many commands into a single shell session to amortize the cost.

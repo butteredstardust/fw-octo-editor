@@ -1,8 +1,9 @@
 # Testing Audit & Hardening Plan — FW OCTO Editor (webapp)
 
-**Date:** 2026-07-19
-**Scope:** Unit tests (`test/*.test.js`) and browser/Playwright tests (`test/browser/ux.spec.js`)
-**Current state:** 90 unit tests pass / 90; 1 Playwright spec (9 tests) with 1 known pre-existing failure (WCAG amber-CTA contrast, unrelated to recent work).
+**Originally authored:** 2026-07-19
+**Scope at authoring:** Unit tests (`test/*.test.js`) and one browser/Playwright spec (`test/browser/ux.spec.js`)
+
+> **Historical snapshot — read this note first.** The inventory, gap list, and "Implementation status" table below describe the suite as it stood on 2026-07-19 and are kept for their reasoning, not as current numbers. The suite has grown substantially since: `test/` now holds several dozen `*.test.js` files (spanning services, GVAS/inventory, key protection, UI-logic units, and more) plus `test/e2e/services.e2e.test.js`, and `test/browser/` now holds five Playwright specs (`contrast.spec.js`, `feedback-ux.spec.js`, `pages.spec.js`, `shell-ux.spec.js`, `ux.spec.js`) rather than the single `ux.spec.js` described here. Do not cite the pass counts below as current — run `npm test` and `npm run test:browser` (from `webapp/`) for up-to-date results. `npm run test:coverage` runs the coverage gate (`scripts/coverage-gate.js`), which enforces a regression floor rather than a fixed target.
 
 ---
 
@@ -128,7 +129,7 @@ All priority phases are implemented and passing.
 | **E4 — ESLint gate** | `eslint.config.js` (flat config), `package.json` (`lint` → `eslint .`, devDep `eslint@9`) | Done — `eslint:recommended` + `no-undef`/`no-unused-vars` as errors, `no-console` as warn. Lint caught and fixed 6 real dead-code/undef issues. `no-console` warnings on `server.js` startup logs are allowed. |
 | **E5 — Portability** | `utils/validation.js` (`FW_SQLITE_BIN` override), `test/helpers/live-save.js` (`FW_LIVE_SAVE_DIR`) | Done. |
 
-**Totals (final verification 2026-07-19):** **110 unit/e2e tests pass** (`node --test test/*.test.js test/e2e/*.test.js`); **lint clean** (0 errors); **coverage gate passes**; **25/26 Playwright tests pass**. The single remaining Playwright failure (`ux.spec.js › primary action colors meet WCAG AA contrast`) is the pre-existing, unrelated amber-CTA contrast issue already tracked as a known design decision — not caused by this work.
+**Totals (historical, as verified 2026-07-19):** **110 unit/e2e tests pass** (`node --test test/*.test.js test/e2e/*.test.js`); **lint clean** (0 errors); **coverage gate passes**; **25/26 Playwright tests pass**. The single remaining Playwright failure at the time (`ux.spec.js › primary action colors meet WCAG AA contrast`) was the pre-existing amber-CTA contrast issue, since fixed (see `TODO.md`'s `[done 2026-07-21]` contrast entry). These totals predate the later growth of the suite described in the note at the top of this file — re-run `npm test` / `npm run test:browser` for current numbers.
 
 **Safety:** e2e tests operate only on a temporary copy of the live save (seeded once, never written back); the live save directory is confirmed byte-identical before/after.
 

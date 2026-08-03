@@ -3,6 +3,7 @@ name: Build and Release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,6 +18,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -86,11 +89,36 @@ jobs:
         run: npm run lint
         working-directory: webapp
 
+      # Runs before the build so the installer is stamped with the version it
+      # will actually be released under, rather than whatever webapp/package.json
+      # happens to say.
+      - name: Compute next version
+        id: version
+        shell: bash
+        run: |
+          git fetch --tags --force
+          latest_tag=$(git tag --list 'v*.*.*' | sort -V | tail -n1)
+          if [ -z "$latest_tag" ]; then
+            latest_tag="v0.0.0"
+          fi
+          version="${latest_tag#v}"
+          IFS='.' read -r major minor patch <<< "$version"
+          next_patch=$((patch + 1))
+          next_tag="v$major.$minor.$next_patch"
+          # Guard against the tag already existing (e.g. a re-run, or a race
+          # with another push) so we never try to reuse/overwrite a release.
+          while git ls-remote --exit-code --tags origin "refs/tags/$next_tag" >/dev/null 2>&1; do
+            next_patch=$((next_patch + 1))
+            next_tag="v$major.$minor.$next_patch"
+          done
+          echo "VERSION=${next_tag#v}" >> "$GITHUB_OUTPUT"
+          echo "TAG=$next_tag" >> "$GITHUB_OUTPUT"
+
       - name: Build installer
         shell: pwsh
         run: |
           $isccPath = (Get-Command ISCC.exe -ErrorAction Stop).Source
-          powershell -File releases/build.ps1 -IsccPath $isccPath
+          powershell -File releases/build.ps1 -IsccPath $isccPath -Version '${{ steps.version.outputs.VERSION }}'
         working-directory: ${{ github.workspace }}
 
       - name: Upload installer artifact
@@ -100,16 +128,11 @@ jobs:
           path: releases/fwinter-save-editor-*.exe
           retention-days: 30
 
-      - name: Extract version
-        id: version
-        run: echo "VERSION=$(node -p "require('./webapp/package.json').version")" >> $env:GITHUB_OUTPUT
-        shell: pwsh
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.version.outputs.VERSION }}
-          name: v${{ steps.version.outputs.VERSION }}
+          tag_name: ${{ steps.version.outputs.TAG }}
+          name: ${{ steps.version.outputs.TAG }}
           body_path: releases/nexus-description.md
           files: releases/fwinter-save-editor-*.exe
           draft: false

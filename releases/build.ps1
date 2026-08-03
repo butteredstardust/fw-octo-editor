@@ -7,6 +7,10 @@ param(
   [string]$SqliteBin = $(if ($env:FW_SQLITE_BIN) { $env:FW_SQLITE_BIN } else { 'C:\tmp\fw-tools\sqlite3mc\bin\sqlite3mc_shell_x64.exe' }),
   [string]$UesaveBin = $(if ($env:GVAS_UESAVE_BIN) { $env:GVAS_UESAVE_BIN } else { Join-Path $ProjectRoot 'tools\uesave-src\target\release\uesave.exe' }),
   [string]$KeyFile = $(if ($env:FW_RELEASE_KEY_FILE) { $env:FW_RELEASE_KEY_FILE } else { Join-Path $ProjectRoot 'fwinter-db-key.txt' }),
+  # Release version to stamp the installer with. Defaults to webapp/package.json
+  # for local builds; CI passes the tag it is about to publish, which is the
+  # authoritative version.
+  [string]$Version = '',
   [string]$Publisher = 'FW OCTO Editor',
   [string]$PublisherUrl = '',
   [string]$SupportUrl = '',
@@ -39,7 +43,10 @@ Copy-Item -LiteralPath (Join-Path $root 'ACKNOWLEDGEMENTS.md') -Destination (Joi
 
 Write-Host 'Installing production dependencies...'
 Push-Location $appDest
-try { & $NpmCmd ci --omit=dev --no-audit --no-fund --loglevel=error 2>&1 | ForEach-Object { Write-Host $_ } }
+# --ignore-scripts: the staged app is a copy outside the repo, so lifecycle
+# scripts (husky's prepare) have neither husky installed nor a .git dir above
+# them. Their stderr would abort the build under ErrorActionPreference='Stop'.
+try { & $NpmCmd ci --omit=dev --ignore-scripts --no-audit --no-fund --loglevel=error 2>&1 | ForEach-Object { Write-Host $_ } }
 finally { Pop-Location }
 
 # npm packages sometimes publish their own test fixtures and repository
@@ -68,8 +75,14 @@ Copy-Item -LiteralPath (Join-Path $root 'icons\app_icon.ico') -Destination (Join
 
 & (Join-Path $releases 'audit-package.ps1') -StageRoot $appDest -SourceRoot $root -PlaintextKeyFile $KeyFile
 
-$pkg = Get-Content (Join-Path $webapp 'package.json') -Raw | ConvertFrom-Json
-$version = $pkg.version
+if (-not $Version) {
+  $pkg = Get-Content (Join-Path $webapp 'package.json') -Raw | ConvertFrom-Json
+  $Version = $pkg.version
+}
+if ($Version -notmatch '^\d+\.\d+\.\d+$') { throw "Invalid version: '$Version'" }
+# Note: PowerShell variable names are case-insensitive, so $version below is the
+# same variable as the $Version parameter.
+$version = $Version
 $publisherUrlLines = if ($PublisherUrl) { "AppPublisherURL=$PublisherUrl" } else { '' }
 $supportUrlLines = if ($SupportUrl) { "AppSupportURL=$SupportUrl" } else { '' }
 $iss = @"

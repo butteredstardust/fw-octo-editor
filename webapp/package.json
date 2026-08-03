@@ -33,7 +33,8 @@
     "weapons:audit": "node -e \"console.log(require('./data/weapon-build-audit.json').counts)\"",
     "quests:fetch-wiki": "node scripts/fetch-wiki-quests.js",
     "quests:generate": "node scripts/generate-quest-data.js",
-    "quests:audit": "node -e \"console.log(require('./data/quest-map-audit.json').counts)\""
+    "quests:audit": "node -e \"console.log(require('./data/quest-map-audit.json').counts)\"",
+    "prepare": "cd .. && husky webapp/.husky || exit 0"
   },
   "dependencies": {
     "express": "^4.18.2"
@@ -41,6 +42,13 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "chart.js": "^4.5.1",
-    "eslint": "^9.39.5"
+    "eslint": "^9.39.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix --no-warn-ignored"
+    ]
   }
 }
