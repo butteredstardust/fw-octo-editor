@@ -26,8 +26,8 @@ test('canonical recipe snapshot covers all three implemented stations', () => {
     munitions: 23,
     upgrades: 36,
     components: 332,
-    unsupportedComponents: 11,
-    unsupportedProducts: 1
+    unsupportedComponents: 0,
+    unsupportedProducts: 0
   });
 });
 
@@ -75,9 +75,21 @@ test('crafted intermediates use output batch sizes rather than multiplying full 
   assert.equal(fourBatches.find(component => component.name === 'Gunpowder').total, 4);
 });
 
+// Every recipe requirement now resolves to a catalog item on a writable map, so the planner
+// has nothing left to show as "holding unknown". The frontend still filters unwritable
+// requirements out of a mutation -- that guard has to survive a future wiki-only ingredient.
 test('unsupported requirements are explicit and filtered before mutation', () => {
-  assert.ok(audit.unresolved.some(row => row.name === 'Explosives' && row.status === 'unsupported'));
-  assert.ok(audit.unresolved.some(row => row.name === 'Military Hard Drive' && row.status === 'unsupported'));
+  assert.deepEqual(audit.unresolved, [], `unresolved recipe requirements: ${audit.unresolved.map(row => row.name).join(', ')}`);
+  assert.equal(audit.counts.unsupportedComponents, 0);
+  assert.equal(audit.counts.unsupportedProducts, 0);
+  for (const recipes of Object.values(canonical.recipes)) {
+    for (const recipe of recipes) {
+      for (const component of recipe.components) {
+        assert.ok(component.itemId, `${recipe.id} component ${component.name} has no item ID`);
+        assert.ok(component.writable, `${recipe.id} component ${component.name} is not writable`);
+      }
+    }
+  }
   const app = frontendSource();
   assert.match(app, /components\.filter\(component => component\.writable && component\.itemId\)/);
   assert.match(app, /sourceMap: component\.sourceMap/);

@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { lifetimeSummaryHtml } from './lifetime-summary.mjs';
 
 const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml, loadErrorHtml, emptyStateHtml } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
@@ -204,28 +205,76 @@ function renderDashFactionTrust(factions) {
 }
 
 // Resource cards: Water + Credits (Currencies table), the three drones, and
-// the six Codex variants (all TempInventory items; Drones/Codex reuse the
+// the nine Codex variants (all TempInventory items; Drones/Codex reuse the
 // inventory update/add endpoints). Codex items are the highest-value loot
 // in the game (boss-drop crafting/quest materials -- see
 // https://theforeverwinter.wiki.gg/wiki/Codex), not a lore/collectible
 // system, so they're presented the same way as any other trackable
-// resource. Only variants confirmed present in the 100% reference save are
-// listed here (items.canonical.json); the wiki also names Toothy, OrgaMech,
-// and Kotleta Codex variants that aren't yet in the canonical catalog, so
-// they're intentionally omitted rather than guessed.
+// resource. All nine the wiki documents are listed: each is a distinct
+// DataTable row in items.canonical.json, named after the boss that drops it.
+//
+// Water and Credits keep the full card -- they're the two values most often
+// edited, and their magnitudes are worth the space. Drones and codexes are
+// small fixed sets of like-for-like counters, so they render as compact rows
+// where the name, the count and the editor sit on one line: nine full-height
+// codex cards pushed everything below them off the first screen.
 const RESOURCE_DEFS = [
-  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Resource' },
-  { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits' },
-  { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel Drone', icon: '🚁', cat: 'Utility Drone' },
-  { id: 'Drone_Construction', kind: 'inventory', label: 'Construction Drone', icon: '🔧', cat: 'Utility Drone' },
-  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery Drone', icon: '🛰️', cat: 'Utility Drone' },
-  { id: 'Codex.RatKing', kind: 'inventory', label: 'Rat King Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.MediumMech', kind: 'inventory', label: 'Medium Mech Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.Grabber', kind: 'inventory', label: 'Grabber Codex', icon: '📖', cat: 'Codex' },
-  { id: 'CodexShieldOfficer', kind: 'inventory', label: 'Shield Officer Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.MotherCourage', kind: 'inventory', label: 'Mother Courage Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.Opal', kind: 'inventory', label: 'Opal Codex', icon: '📖', cat: 'Codex' }
+  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Resource', group: 'primary' },
+  { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits', group: 'primary' },
+  { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel', icon: '🚁', cat: 'Utility Drone', group: 'drones' },
+  { id: 'Drone_Construction', kind: 'inventory', label: 'Construction', icon: '🔧', cat: 'Utility Drone', group: 'drones' },
+  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery', icon: '🛰️', cat: 'Utility Drone', group: 'drones' },
+  { id: 'Codex.RatKing', kind: 'inventory', label: 'Rat King', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.MediumMech', kind: 'inventory', label: 'Medium Mech', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Grabber', kind: 'inventory', label: 'Grabber', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'CodexShieldOfficer', kind: 'inventory', label: 'Shield Officer', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.MotherCourage', kind: 'inventory', label: 'Mother Courage', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Opal', kind: 'inventory', label: 'Opal', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Orga', kind: 'inventory', label: 'Orga', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Toothy', kind: 'inventory', label: 'Toothy', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'CodexMeatMan', kind: 'inventory', label: 'Kotleta', icon: '📖', cat: 'Codex', group: 'codex' }
 ];
+
+const RESOURCE_GROUPS = [
+  { key: 'primary', className: 'resource-primary' },
+  { key: 'drones', className: 'resource-compact', title: 'Utility drones' },
+  { key: 'codex', className: 'resource-compact', title: 'Codexes', hint: 'One per boss — the rarest loot in the game.' }
+];
+
+// The editor is identical for every resource; only the surrounding card
+// changes between the full and compact presentations. The compact rows drop
+// the category off the visible name to stay on one line, so the accessible
+// name puts it back -- "Rat King" alone doesn't say what is being edited.
+function resourceEditor(def, owned, accessibleName) {
+  return `<div class="res-controls value-editor-pair">
+      <input type="number" class="res-input value-editor" id="res-${def.id}" placeholder="qty" min="0" max="2147483647" step="1" aria-label="New quantity for ${esc(accessibleName)}">
+      ${def.kind === 'currency' || owned ? `<button type="button" class="res-set icon-only" data-value-submit data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(accessibleName)} quantity">${actionIcon('check')}<span class="sr-only">Set ${esc(accessibleName)}</span></button>` : ''}
+      ${def.kind === 'inventory' && !owned ? `<button type="button" class="res-add icon-only" data-value-submit data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(accessibleName)}">${actionIcon('add')}<span class="sr-only">Add ${esc(accessibleName)}</span></button>` : ''}
+    </div>`;
+}
+
+function resourceCard(def, current, owned) {
+  return `<div class="res-card ${def.kind === 'currency' ? 'metric' : 'utility'}">
+      <div class="res-head">
+        <span class="res-icon">${appIcon(def.icon)}</span>
+        <span class="res-name">${esc(def.label)}</span>
+        <span class="res-cat">${esc(def.cat)}</span>
+      </div>
+      <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
+      ${resourceEditor(def, owned, def.label)}
+      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
+    </div>`;
+}
+
+function resourceRow(def, current, owned) {
+  return `<div class="res-row ${owned || def.kind === 'currency' ? '' : 'is-absent'}">
+      <span class="res-row__icon">${appIcon(def.icon)}</span>
+      <span class="res-row__name" title="${esc(def.label)} ${esc(def.cat)}">${esc(def.label)}</span>
+      <output class="res-row__value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
+      ${resourceEditor(def, owned, `${def.label} ${def.cat}`)}
+      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
+    </div>`;
+}
 
 function renderDashResources(dash) {
   const el = document.getElementById('dashResources');
@@ -234,31 +283,22 @@ function renderDashResources(dash) {
   if (dash && dash.inventory) {
     for (const i of dash.inventory) invByName[i.name] = i.quantity;
   }
+  const valueOf = def => (def.kind === 'currency'
+    ? (currencies[def.id] != null ? currencies[def.id] : 0)
+    : (invByName[def.id] != null ? invByName[def.id] : 0));
 
-  let html = '<div class="resource-primary">';
-  for (const def of RESOURCE_DEFS) {
-    const current = def.kind === 'currency'
-      ? (currencies[def.id] != null ? currencies[def.id] : 0)
-      : (invByName[def.id] != null ? invByName[def.id] : 0);
-    const owned = def.kind === 'inventory' && invByName[def.id] != null;
-    if (def.id === 'Drone_FastTravel') html += '</div><div class="resource-secondary">';
-    else if (def.id === 'Codex.RatKing') html += '</div><div class="resource-tertiary">';
-    html += `<div class="res-card ${def.kind === 'currency' ? 'metric' : 'utility'}">
-      <div class="res-head">
-        <span class="res-icon">${appIcon(def.icon)}</span>
-        <span class="res-name">${esc(def.label)}</span>
-        <span class="res-cat">${esc(def.cat)}</span>
-      </div>
-      <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
-      <div class="res-controls value-editor-pair">
-        <input type="number" class="res-input value-editor" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1" aria-label="New quantity for ${esc(def.label)}">
-        ${def.kind === 'currency' || owned ? `<button type="button" class="res-set icon-only" data-value-submit data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(def.label)} quantity">${actionIcon('check')}<span class="sr-only">Set</span></button>` : ''}
-        ${def.kind === 'inventory' && !owned ? `<button type="button" class="res-add icon-only" data-value-submit data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(def.label)}">${actionIcon('add')}<span class="sr-only">Add</span></button>` : ''}
-      </div>
-      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
-    </div>`;
-  }
-  html += '</div>';
+  const html = RESOURCE_GROUPS.map(group => {
+    const defs = RESOURCE_DEFS.filter(def => def.group === group.key);
+    if (!defs.length) return '';
+    const cells = defs.map(def => {
+      const owned = def.kind === 'inventory' && invByName[def.id] != null;
+      return group.key === 'primary' ? resourceCard(def, valueOf(def), owned) : resourceRow(def, valueOf(def), owned);
+    }).join('');
+    const heading = group.title
+      ? `<div class="resource-group__head"><h3 class="resource-group__title">${esc(group.title)}</h3>${group.hint ? `<p class="resource-group__hint">${esc(group.hint)}</p>` : ''}</div>`
+      : '';
+    return `<section class="resource-group">${heading}<div class="${group.className}">${cells}</div></section>`;
+  }).join('');
   setRenderedHtml(el, html);
 }
 
@@ -353,15 +393,17 @@ async function loadDashboard() {
   showLoading(document.getElementById('dashFactionTrust'), 3, 'Loading faction trust');
   showLoading(document.getElementById('dashResources'), 5, 'Loading resources');
   showLoading(document.getElementById('dashVault'), 2, 'Loading vault');
+  showLoading(document.getElementById('dashLifetime'), 2, 'Loading lifetime summary');
   try {
     await loadCatalog();
     // Game/writes status pills are refreshSafetyStatus()'s responsibility
     // (system.mjs) -- it's the single source of truth, called on its own
     // poll interval, so this doesn't duplicate that fetch.
-    const [dash, vendors, vault] = await Promise.all([
+    const [dash, vendors, vault, stats] = await Promise.all([
       api('/dashboard').catch(() => null),
       api('/vendors').catch(() => null),
-      api('/vault').catch(() => null)
+      api('/vault').catch(() => null),
+      api('/stats').catch(() => null)
     ]);
     if (dash) {
       renderDashCharacter(dash.character, dash.loadout);
@@ -377,6 +419,9 @@ async function loadDashboard() {
     }
     renderDashFactionTrust(vendors && vendors.factions);
     renderDashVault(vault);
+    setRenderedHtml(document.getElementById('dashLifetime'), stats
+      ? lifetimeSummaryHtml(stats.player)
+      : loadErrorHtml('lifetime statistics', null));
   } catch (err) {
     const failMsg = loadErrorHtml('dashboard data', err);
     setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
@@ -385,6 +430,7 @@ async function loadDashboard() {
     setRenderedHtml(document.getElementById('dashFactionTrust'), failMsg);
     setRenderedHtml(document.getElementById('dashResources'), failMsg);
     setRenderedHtml(document.getElementById('dashVault'), failMsg);
+    setRenderedHtml(document.getElementById('dashLifetime'), failMsg);
   }
 }
 

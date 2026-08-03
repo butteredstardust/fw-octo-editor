@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-21T19:27:09.678Z",
+  "generatedAt": "2026-08-03T08:22:19.584Z",
   "source": {
     "url": "https://theforeverwinter.wiki.gg/api.php",
     "fetchedAt": "2026-07-18T22:34:09.360Z",
@@ -1013,10 +1013,10 @@
           {
             "name": "Explosives",
             "itemId": "BP_Loot_Explosives_C",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "DamagedWeapons",
+            "sourceMap": "Damaged Weapons",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           }
@@ -1105,10 +1105,10 @@
         "product": {
           "name": "IED",
           "itemId": "IEDxplosive",
-          "inventoryMap": null,
-          "sourceMap": null,
-          "status": "unsupported",
-          "writable": false,
+          "inventoryMap": "Items",
+          "sourceMap": "Items",
+          "status": "reviewed",
+          "writable": true,
           "resolution": "override",
           "quantity": 1
         },
@@ -1125,10 +1125,10 @@
           {
             "name": "Explosives",
             "itemId": "BP_Loot_Explosives_C",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "DamagedWeapons",
+            "sourceMap": "Damaged Weapons",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -1191,10 +1191,10 @@
           {
             "name": "Military Hard Drive",
             "itemId": "Plans03",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -1617,7 +1617,7 @@
             "sourceMap": "Items",
             "status": "reference-verified",
             "writable": true,
-            "resolution": "canonical-display-name",
+            "resolution": "canonical-wiki-page",
             "quantity": 1
           },
           {
@@ -1969,7 +1969,7 @@
           "sourceMap": "Damaged Weapons",
           "status": "reference-verified",
           "writable": true,
-          "resolution": "canonical-display-name",
+          "resolution": "wiki-internal-tag",
           "quantity": 1
         },
         "duration": {
@@ -2391,10 +2391,10 @@
           {
             "name": "Explosives",
             "itemId": "BP_Loot_Explosives_C",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "DamagedWeapons",
+            "sourceMap": "Damaged Weapons",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -2953,10 +2953,10 @@
           {
             "name": "Explosives",
             "itemId": "BP_Loot_Explosives_C",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "DamagedWeapons",
+            "sourceMap": "Damaged Weapons",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -4562,10 +4562,10 @@
           {
             "name": "Toothy Codex",
             "itemId": "Codex.Toothy",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
@@ -4620,10 +4620,10 @@
           {
             "name": "Explosives",
             "itemId": "BP_Loot_Explosives_C",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "DamagedWeapons",
+            "sourceMap": "Damaged Weapons",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 8
           },
@@ -4952,20 +4952,20 @@
           {
             "name": "Water Thief's Mask \"Bozo\"",
             "itemId": "DecoLoot_06_WaterThiefMask03",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },
           {
             "name": "Water Thief's Mask \"Thirsty\"",
             "itemId": "DecoLoot_05_WaterThiefMask02",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           }
@@ -5118,10 +5118,10 @@
           {
             "name": "Water Thief's Mask \"Oni\"",
             "itemId": "DecoLoot_04_WaterThiefMask01",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           }
@@ -5810,10 +5810,10 @@
           {
             "name": "Orga Codex",
             "itemId": "Codex.Orga",
-            "inventoryMap": null,
-            "sourceMap": null,
-            "status": "unsupported",
-            "writable": false,
+            "inventoryMap": "Items",
+            "sourceMap": "Items",
+            "status": "reviewed",
+            "writable": true,
             "resolution": "override",
             "quantity": 1
           },

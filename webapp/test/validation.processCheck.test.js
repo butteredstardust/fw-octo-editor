@@ -59,6 +59,18 @@ test('isGameRunning treats a spawn error as not-running', async () => {
   assert.equal(await isGameRunning(fakeExec), false);
 });
 
+// A blocked PowerShell profile prints several hundred bytes of complaint to stderr on every
+// invocation. It must not overrun the buffer, because this check fails closed and would then
+// block every write with 'game-process-unknown'.
+test('process enumeration ignores the profile and survives stderr noise', async () => {
+  let received;
+  const fakeExec = async (command, options) => { received = { command, options }; return { stdout: '', stderr: 'x'.repeat(64 * 1024) }; };
+  const state = await getGameProcessState(fakeExec);
+  assert.match(received.command, /-NoProfile\b/);
+  assert.ok(received.options.maxBuffer > 64 * 1024);
+  assert.deepEqual(state, { known: true, running: false, processes: [], error: null });
+});
+
 test('structured process state fails closed when process enumeration fails', async () => {
   const state = await getGameProcessState(async () => { throw new Error('access denied'); });
   assert.deepEqual(state.processes, []);

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FW OCTO Editor</title>
     <link rel="icon" href="favicon.ico?v=20260719-ui-2">
-    <link rel="stylesheet" href="styles.css?v=20260801-ui-37">
+    <link rel="stylesheet" href="styles.css?v=20260803-ui-39">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -63,6 +63,10 @@
     <div class="page active" id="page-dashboard">
         <div id="dashboardOperationStatus" class="operation-banner" data-operation-status role="status" aria-live="polite"></div>
         <p class="page-intro">Every change is backed up and verified before it's written to your save — see the safety status above for this session's details.</p>
+        <section class="card overview-card" aria-labelledby="overviewLifetimeTitle">
+          <div class="overview-trust-head"><h2 id="overviewLifetimeTitle">Lifetime summary</h2><button class="btn-ghost" data-action="show-page" data-page-target="stats" type="button"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>All stats</button></div>
+          <div id="dashLifetime">Loading…</div>
+        </section>
         <div class="overview-pair">
           <section class="card overview-card"><h2>Active loadout</h2><div id="dashCharacter">Loading…</div></section>
           <section class="card overview-card"><h2>Tracked quests</h2><div id="dashQuests">Loading…</div></section>
@@ -470,6 +474,6 @@
   </div>
   <div id="appAnnouncements" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div id="toastRegion" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
-  <script type="module" src="app.mjs?v=20260801-modules-18"></script>
+  <script type="module" src="app.mjs?v=20260803-modules-21"></script>
 </body>
 </html>
