@@ -147,9 +147,8 @@
     </div>
 
     <div class="page" id="page-presets">
-        <div class="card">
-          <h2>Saved presets</h2>
-          <p class="page-intro">Read-only weapon and rig loadouts from your save, matched to their local preview images.</p>
+        <div class="card preset-page-card">
+          <div class="page-head arsenal-page-head preset-page-head"><span class="arsenal-page-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 5h14v14H5zM8 9h8M8 13h5M9 2v3m6-3v3"/></svg></span><div><span class="eyebrow">Saved loadouts</span><h2>Saved presets</h2><p>Review weapon and rig configurations, preview-file coverage, and how saved weapon overrides compare with recommended builds.</p></div><span class="arsenal-readonly-badge"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Read-only</span></div>
           <div class="filter-bar filter-bar--sticky preset-toolbar" role="search" aria-label="Filter saved presets"><label class="filter-search">Search presets<input id="presetSearch" type="search" placeholder="Name, weapon, or technical ID…" autocomplete="off"></label><label>Type<select id="presetType"><option value="weapons">Weapon presets</option><option value="rigs">Rig presets</option><option value="all">All presets</option></select></label><div class="filter-checks"><button type="button" class="mini" data-action="clear-preset-filters"><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Clear filters</button></div></div><div id="presetStatus" role="status" aria-live="polite"></div><div id="presetContent">Loading…</div>
         </div>
       </div>
@@ -163,9 +162,8 @@
     </div>
 
     <div class="page" id="page-weapon-xp">
-      <div class="card">
-        <h2>Weapon XP</h2>
-        <p class="char-hint">Weapons earn XP through use, unlocking better vendor parts. Each target is from a 100% reference save (e.g. PST02 = 186, GRL02 ≈ 505k).</p>
+      <div class="card weapon-xp-page-card">
+        <div class="page-head arsenal-page-head weapon-xp-page-head"><span class="arsenal-page-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 11h10l3-3h5v4h-4l-2 3h-4l-1 5H7l1-5H3z"/></svg></span><div><span class="eyebrow">Weapon progression</span><h2>Weapon XP</h2><p>Track progress toward reference-save XP values, update individual weapons, or set the currently filtered selection to 100,000 XP. Reference examples: PST02 = 186; GRL02 ≈ 505k.</p></div></div>
         <div class="filter-bar filter-bar--sticky weapon-xp-controls" role="search" aria-label="Filter weapon experience">
           <label class="filter-search">Search weapons<input type="search" id="weaponXpSearch" placeholder="Weapon name or ID…" autocomplete="off"></label>
           <label>Category

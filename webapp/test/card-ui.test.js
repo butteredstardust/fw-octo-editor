@@ -89,7 +89,7 @@ test('characters, weapon XP, and faction trust cards use shared anatomy without 
   }
   assert.match(characters, /data-action="set-level"/);
   assert.match(characters, /data-action="set-character-xp"/);
-  assert.match(weapons, /<h3 class="weapon-cat">/);
+  assert.match(weapons, /class="weapon-cat"><h3>/);
   assert.match(weapons, /headingLevel: 4/);
   assert.match(weapons, /data-action="set-weapon-xp"/);
   assert.match(vendors, /bodyHtml: `[^`]*\$\{trustTrack\(f\.score\)\}`/);
