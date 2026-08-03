@@ -108,23 +108,31 @@ function weaponTargetXp(weapon) {
 let presetData=null;
 async function loadPresets(){showLoading(document.getElementById('presetContent'),6,'Loading presets');try{presetData=await api('/presets');document.getElementById('presetType').value=sessionStorage.getItem('presetType')||'weapons';renderPresets();}catch(error){setRenderedHtml(document.getElementById('presetContent'),loadErrorHtml('presets',error));}}
 function presetToken(row){return JSON.stringify(row).toLowerCase();}
+function presetPartsHtml(parts, emptyText) {
+  if (!parts.length) return `<p class="preset-empty">${esc(emptyText)}</p>`;
+  const rowHtml = part => `<div class="preset-part ${part.placeholder ? 'placeholder' : ''}"><span>${esc(part.label)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`;
+  const visible = parts.slice(0, 4).map(rowHtml).join('');
+  const remaining = parts.slice(4).map(rowHtml).join('');
+  return `<div class="preset-parts">${visible}</div>${remaining ? `<details class="preset-more"><summary>Show ${parts.length - 4} more ${parts.length - 4 === 1 ? 'override' : 'overrides'}</summary><div class="preset-parts">${remaining}</div></details>` : ''}`;
+}
 function renderPresets() {
   if (!presetData) return;
   const q = document.getElementById('presetSearch').value.trim().toLowerCase();
   const type = document.getElementById('presetType').value;
   const weaponRows = (type === 'rigs' ? [] : presetData.weapons)
     .filter(row => !q || presetToken(row).includes(q))
-    .sort((a, b) => (b.bisScore ?? -1) - (a.bisScore ?? -1));
+    .sort((a, b) => Number(b.active) - Number(a.active) || (b.bisScore ?? -1) - (a.bisScore ?? -1));
   const rigRows = (type === 'weapons' ? [] : presetData.rigs)
     .filter(row => !q || presetToken(row).includes(q));
   const cards = [];
 
   for (const row of weaponRows) {
-    const badges = `${row.active ? '<span class="preset-badge active">Active</span>' : ''}${row.bisScore != null ? `<span class="preset-badge score">Match ${esc(row.bisScore)}</span>` : ''}`;
-    const parts = row.attachments.map(part => `<div class="preset-part ${part.placeholder ? 'placeholder' : ''}"><span>${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('') || '<p>No changed attachment overrides.</p>';
+    const badges = `${row.active ? '<span class="preset-badge active">Active</span>' : ''}${row.hasPreview ? '<span class="preset-badge preview">Preview found</span>' : '<span class="preset-badge muted">No preview</span>'}${row.bisScore != null ? `<span class="preset-badge score">Build score ${esc(row.bisScore)}</span>` : ''}`;
+    const parts = row.attachments.map(part => ({ ...part, label: part.slot }));
+    const overrides = row.savedOverrides != null ? row.savedOverrides : row.attachments.filter(part => !part.placeholder).length;
     const comparison = row.bisSupported
-      ? `<span>${esc(row.bisMatches)} saved overrides match the recommended build</span><details><summary>${esc(row.bisMissing.length)} recommended parts not present in saved overrides</summary><ul>${row.bisMissing.map(part => `<li>${esc(part.slot)}: ${esc(part.name)}</li>`).join('')}</ul></details>`
-      : '<span>No recommended-build comparison available.</span>';
+      ? `<div class="preset-comparison"><span><b>${esc(row.bisMatches)}</b> recommended ${row.bisMatches === 1 ? 'match' : 'matches'}</span><span><b>${esc(row.bisMissing.length)}</b> recommended ${row.bisMissing.length === 1 ? 'part' : 'parts'} absent</span></div>${row.bisMissing.length ? `<details class="preset-missing"><summary>Review missing recommended parts</summary><ul>${row.bisMissing.map(part => `<li><span>${esc(part.slot)}</span><b>${esc(part.name)}</b></li>`).join('')}</ul></details>` : '<span class="preset-ready">All recommended overrides are represented.</span>'}`
+      : '<span class="preset-unavailable">No recommended-build comparison available.</span>';
     cards.push(entityCard({
       cardClass: `preset-card ${row.active ? 'is-active' : ''}`,
       iconHtml: itemTypeIcon('weapon'),
@@ -133,14 +141,15 @@ function renderPresets() {
       titleHtml: ` ${technicalDetails(row.weaponId, 'Show weapon technical ID')}`,
       subtitle: row.weaponName,
       statusHtml: badges ? `<div class="preset-badges">${badges}</div>` : '',
-      bodyHtml: `<div class="preset-parts">${parts}</div>`,
+      bodyHtml: `<div class="preset-facts"><span><b>${overrides}</b> saved overrides</span><span><b>${row.attachments.length}</b> recorded slots</span></div>${presetPartsHtml(parts, 'No changed attachment overrides.')}`,
       footerHtml: comparison
     }));
   }
 
   for (const row of rigRows) {
     const parts = [...row.containers.map(part => ({ ...part, kind: 'Container' })), ...row.frames.map(part => ({ ...part, kind: 'Frame' }))]
-      .map(part => `<div class="preset-part"><span>${esc(part.kind)} ${esc(part.slot)}</span><b>${esc(part.name)}</b>${technicalDetails(part.itemId)}</div>`).join('');
+      .map(part => ({ ...part, label: `${part.kind} ${part.slot}` }));
+    const badges = `${row.active ? '<span class="preset-badge active">Active</span>' : ''}${row.hasPreview ? '<span class="preset-badge preview">Preview found</span>' : '<span class="preset-badge muted">No preview</span>'}`;
     cards.push(entityCard({
       cardClass: `preset-card ${row.active ? 'is-active' : ''}`,
       iconHtml: itemTypeIcon('rig equipment'),
@@ -148,14 +157,19 @@ function renderPresets() {
       title: row.name,
       titleHtml: ` ${technicalDetails(row.rigId, 'Show rig technical ID')}`,
       subtitle: row.rigName,
-      statusHtml: row.active ? '<div class="preset-badges"><span class="preset-badge active">Active</span></div>' : '',
-      bodyHtml: `<div class="preset-parts">${parts}</div>`
+      statusHtml: `<div class="preset-badges">${badges}</div>`,
+      bodyHtml: `<div class="preset-facts"><span><b>${parts.length}</b> saved rig overrides</span></div>${presetPartsHtml(parts, 'No changed rig overrides.')}`
     }));
   }
 
   const total = presetData.summary.weaponPresets + presetData.summary.rigPresets;
   document.getElementById('presetStatus').textContent = `Showing ${cards.length} of ${total} saved presets.`;
-  setRenderedHtml(document.getElementById('presetContent'), `<div class="preset-summary"><strong>${esc(presetData.summary.weaponPresets)}</strong> weapon presets · <strong>${esc(presetData.summary.rigPresets)}</strong> rig presets · active: <strong>${esc(presetData.summary.activeWeaponPreset || 'none')}</strong></div><div class="preset-grid">${cards.join('') || noMatchesHtml('No presets match these filters')}</div>`);
+  setRenderedHtml(document.getElementById('presetContent'), `<div class="preset-summary" aria-label="Saved preset summary">
+    <div><span>Weapon presets</span><strong>${esc(presetData.summary.weaponPresets)}</strong></div>
+    <div><span>Rig presets</span><strong>${esc(presetData.summary.rigPresets)}</strong></div>
+    <div><span>Preview files found</span><strong>${esc(presetData.summary.previewsMatched ?? 0)}<small> / ${total}</small></strong></div>
+    <div class="preset-summary-active"><span>Active weapon preset</span><strong>${esc(presetData.summary.activeWeaponPreset || 'None')}</strong></div>
+  </div><div class="preset-grid">${cards.join('') || noMatchesHtml('No presets match these filters')}</div>`);
 }
 
 function clearPresetFilters() {
@@ -344,10 +358,24 @@ function renderWeaponXp() {
   const groups = {};
   for (const w of rows) (groups[w.meta.cat] = groups[w.meta.cat] || []).push(w);
 
-  let html = '<div class="weapon-grid">';
+  const rowProgress = w => {
+    const current = Number(w.xp) || 0;
+    const target = weaponTargetXp(w.weapon);
+    return target > 0 ? Math.min(100, Math.round(current / target * 100)) : (current > 0 ? 100 : 0);
+  };
+  const completed = rows.filter(w => (Number(w.xp) || 0) >= weaponTargetXp(w.weapon)).length;
+  const totalXp = rows.reduce((sum, w) => sum + (Number(w.xp) || 0), 0);
+  const averageProgress = rows.length ? Math.round(rows.reduce((sum, w) => sum + rowProgress(w), 0) / rows.length) : 0;
+  let html = `<div class="weapon-xp-summary" aria-label="Visible weapon XP summary">
+    <div><span>Visible weapons</span><strong>${rows.length}</strong></div>
+    <div><span>Reference met</span><strong>${completed}<small> / ${rows.length}</small></strong></div>
+    <div><span>Total XP</span><strong>${totalXp.toLocaleString()}</strong></div>
+    <div><span>Average progress</span><strong>${averageProgress}<small>%</small></strong></div>
+  </div><div class="weapon-grid">`;
   for (const cat of Object.keys(groups).sort()) {
     const list = groups[cat];
-    html += `<h3 class="weapon-cat">${esc(cat)}</h3>`;
+    const categoryDone = list.filter(w => (Number(w.xp) || 0) >= weaponTargetXp(w.weapon)).length;
+    html += `<div class="weapon-cat"><h3>${esc(cat)}</h3><span>${categoryDone} of ${list.length} at reference</span></div>`;
     for (const w of list) {
       const currentXp = Number(w.xp) || 0;
       const target = weaponTargetXp(w.weapon);
@@ -363,17 +391,16 @@ function renderWeaponXp() {
         title: w.meta.name,
         titleHtml: ` ${technicalDetails(w.weapon, 'Show weapon scope ID')}`,
         headingLevel: 4,
-        statusHtml: `<span class="weapon-cat-badge">${esc(w.meta.cat)}</span>`,
-        bodyHtml: `<div class="weapon-xp-row"><span>Current XP</span><b>${currentXp.toLocaleString()}</b></div>
+        statusHtml: `<span class="weapon-progress-badge ${atRef ? 'complete' : ''}">${atRef ? 'Reference met' : `${pct}%`}</span>`,
+        bodyHtml: `<div class="weapon-xp-current"><span>Current XP</span><strong>${currentXp.toLocaleString()}</strong><small>of ${target.toLocaleString()} ${hasRealRef ? 'reference' : 'fallback target'}</small></div>
         <div class="weapon-bar"><span style="width:${pct}%" class="${atRef ? 'full' : ''}"></span></div>
-        <div class="weapon-xp-row"><span>${hasRealRef ? '100% reference XP' : 'Target XP (no ref)'}</span><b>${target.toLocaleString()}</b></div>
         ${atRef
-          ? '<div class="weapon-done">✓ At or above reference</div>'
+          ? '<div class="weapon-done">At or above the reference value</div>'
           : `<div class="weapon-delta">${delta.toLocaleString()} XP to reference</div>`}`,
         footerHtml: `<div class="weapon-actions value-editor-pair">
           <input type="number" class="value-editor" id="xp-${encodeURIComponent(w.weapon)}" value="${currentXp}" min="0" step="1" aria-label="XP for ${esc(w.meta.name)}">
-          <button type="button" class="set icon-only" data-value-submit data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}<span class="sr-only">Set XP</span></button>
-          <button type="button" class="ref icon-only" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000">${actionIcon('refresh')}<span class="sr-only">Set 100,000</span></button>
+          <button type="button" class="set" data-value-submit data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" title="Set XP to the value above">${actionIcon('check')}Set</button>
+          <button type="button" class="ref mini" data-action="set-weapon-xp" data-weapon="${encodeURIComponent(w.weapon)}" data-value="100000" title="Set XP to 100,000">${actionIcon('refresh')}100k</button>
         </div>`
       });
     }
@@ -400,7 +427,9 @@ async function setWeaponXp(encWeapon, xpValue) {
 
 async function setAllToReference() {
   const filter = document.getElementById('weaponFilter').value;
-  const targets = _weaponXp.filter(w => !filter || weaponLabel(w.weapon).cat === filter);
+  const q = document.getElementById('weaponXpSearch').value.trim();
+  let targets = _weaponXp.map(w => ({ ...w, meta: weaponLabel(w.weapon) })).filter(w => !filter || w.meta.cat === filter);
+  if (q) targets = filterAndRank(targets, q, w => [w.meta.name, w.weapon, w.meta.cat]);
   if (!targets.length) { setOperationFeedback('weaponXpOperationStatus', 'No weapons are in the current filter.', null, 'info'); return; }
   const items = targets
     .map(w => ({ scope: w.weapon, xp: 100000 }))

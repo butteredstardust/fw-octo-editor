@@ -219,6 +219,8 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   await expect(preset.locator('.card-ui__header h3')).toContainText('<img data-card-probe src=x>');
   await expect(preset.locator('[data-card-probe]')).toHaveCount(0);
   await expect(preset.locator('.card-ui__status .preset-badge.active')).toContainText('Active');
+  await expect(preset.locator('.card-ui__status .preset-badge.score')).toHaveText('Build score 4');
+  await expect(preset.locator('.card-ui__status')).not.toContainText('Match 4');
   await expect(preset.locator('.card-ui__footer')).toContainText('No recommended-build comparison available.');
   expect(await preset.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 
@@ -241,7 +243,7 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   expect(await recipe.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
-test('weapon XP icon controls stay centered and match responsive control sizing', async ({ page }) => {
+test('weapon XP actions use clear labels and responsive control sizing', async ({ page }) => {
   const weaponXp = [{ weapon: 'Fixture.Weapon', xp: 10 }];
   await mockApi(page, { weaponXp, weaponReference: { 'Fixture.Weapon': 100 } });
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -249,13 +251,12 @@ test('weapon XP icon controls stay centered and match responsive control sizing'
 
   const card = page.locator('.weapon-card.card-ui');
   const input = card.locator('.weapon-actions input');
-  const buttons = card.locator('.weapon-actions .icon-only');
+  const buttons = card.locator('.weapon-actions button');
   await expect(buttons).toHaveCount(2);
+  await expect(buttons).toHaveText(['Set', '100k']);
   const inputBox = await input.boundingBox();
   for (const button of await buttons.all()) {
-    const [buttonBox, iconBox] = await Promise.all([button.boundingBox(), button.locator('.action-icon').boundingBox()]);
-    expect(Math.abs((buttonBox.x + buttonBox.width / 2) - (iconBox.x + iconBox.width / 2))).toBeLessThanOrEqual(1);
-    expect(Math.abs((buttonBox.y + buttonBox.height / 2) - (iconBox.y + iconBox.height / 2))).toBeLessThanOrEqual(1);
+    const buttonBox = await button.boundingBox();
     expect(Math.abs(buttonBox.height - inputBox.height)).toBeLessThanOrEqual(1);
   }
 
@@ -345,7 +346,7 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
 
   await page.goto(`${baseURL}/#weapon-xp`);
   const weapon = page.locator('.weapon-card.card-ui');
-  await expect(page.locator('.weapon-cat')).toHaveJSProperty('tagName', 'H3');
+  await expect(page.locator('.weapon-cat h3')).toHaveJSProperty('tagName', 'H3');
   await expect(weapon.locator('h4.card-ui__title')).toContainText(probe);
   await expect(weapon.locator('.card-ui__footer [data-action="set-weapon-xp"]')).toHaveCount(2);
   await expect(weapon.locator('[data-editable-card-probe]')).toHaveCount(0);
@@ -996,4 +997,30 @@ test('per-weapon "set XP" preset button issues the mutation it advertises', asyn
   await preset.click();
   await expect.poll(() => mutations.length).toBe(1);
   expect(mutations[0].body).toMatchObject({ xp: 100000 });
+});
+
+test('batch weapon XP updates only the searched selection', async ({ page }) => {
+  const mutations = await mockApi(page, {
+    weaponXp: [
+      { weapon: 'Scope.Weapon.RFL12', xp: 100 },
+      { weapon: 'Scope.Weapon.PST02', xp: 186 }
+    ],
+    weaponReference: {
+      'Scope.Weapon.RFL12': 1000,
+      'Scope.Weapon.PST02': 186
+    },
+    mutationResponse: { updated: 1, failed: 0 }
+  });
+  await page.goto(`${baseURL}/#weapon-xp`);
+  await page.locator('#weaponXpSearch').fill('M4A1');
+  await expect(page.locator('.weapon-card')).toHaveCount(1);
+  await page.locator('#setWeaponReferenceButton').click();
+  await expect(page.locator('#appDialog')).toBeVisible();
+  await page.locator('#appDialogAccept').click();
+  await expect.poll(() => mutations.length).toBe(1);
+  expect(mutations[0]).toMatchObject({
+    pathname: '/api/weapon-xp/batch',
+    method: 'POST',
+    body: { items: [{ scope: 'Scope.Weapon.RFL12', xp: 100000 }] }
+  });
 });
