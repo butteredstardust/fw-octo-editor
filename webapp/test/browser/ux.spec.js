@@ -223,6 +223,14 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   await expect(preset.locator('.card-ui__status')).not.toContainText('Match 4');
   await expect(preset.locator('.card-ui__footer')).toContainText('No recommended-build comparison available.');
   expect(await preset.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  const [presetIdentityBox, presetStatusBox] = await Promise.all([
+    preset.locator('.card-ui__identity').boundingBox(),
+    preset.locator('.card-ui__status').boundingBox()
+  ]);
+  expect(presetIdentityBox.width).toBeGreaterThan(180);
+  expect(presetStatusBox.y).toBeGreaterThanOrEqual(presetIdentityBox.y + presetIdentityBox.height - 1);
+  expect(Math.abs(presetStatusBox.x - presetIdentityBox.x)).toBeLessThanOrEqual(1);
 
   await page.goto(`${baseURL}/#crafting`);
   const recipe = page.locator('.recipe-card.card-ui').first();
