@@ -193,8 +193,15 @@ function metricBar(label, value, max, color = 'var(--amber)', displayValue = fmt
   return `<div class="metric-bar" role="img" aria-label="${esc(label)}: ${esc(displayValue)}"><span class="metric-bar-label">${esc(label)} <b>${esc(displayValue)}</b></span><span class="metric-bar-track"><span style="width:${width.toFixed(2)}%;background:${esc(color)}"></span></span></div>`;
 }
 
+function sectionHeading(icon, eyebrow, title, description = '') {
+  return `<header class="stats-section__head">
+    <span class="stats-section__icon">${appIcon(icon)}</span>
+    <div><span class="eyebrow">${esc(eyebrow)}</span><h3>${esc(title)}</h3>${description ? `<p>${esc(description)}</p>` : ''}</div>
+  </header>`;
+}
+
 function renderPlayerSummary(player) {
-  return `<section class="stats-section"><h3>Lifetime summary</h3>${lifetimeSummaryHtml(player)}</section>`;
+  return `<section class="stats-section stats-section--summary">${sectionHeading('shield', 'Your record', 'Lifetime summary', 'A friendly snapshot of every run, across all characters.')}${lifetimeSummaryHtml(player)}</section>`;
 }
 
 function comparisonRows(entries, metric, label) {
@@ -220,7 +227,7 @@ function renderFactionProfile(damage) {
   const { keys, totalDamage, totalKills, damageShares, killShares } = factionShareData(damage);
   if (!keys.length || (totalDamage <= 0 && totalKills <= 0)) return '';
   const rows = keys.map((f, i) => [factionMeta(f).name, fmt(damage[f].damage), `${damageShares[i].toFixed(1)}%`, fmt(damage[f].kills), `${killShares[i].toFixed(1)}%`]);
-  return `<section class="stats-section"><h3>Faction combat profile</h3><p class="char-hint">Each faction's share of total damage dealt and kills recorded -- percentages, not raw magnitudes, which differ by orders of magnitude between factions.</p>${chartFigure({
+  return `<section class="stats-section stats-section--chart stats-section--combat">${sectionHeading('target', 'Combat intelligence', 'Faction combat profile', 'Where your damage and kills have landed.')}${chartFigure({
     id: 'stats-chart-faction-profile',
     ariaLabel: 'Faction combat profile: share of total damage and share of total kills, by faction',
     title: 'Faction combat profile (% of total)',
@@ -273,7 +280,7 @@ function renderModSplit(damage) {
     ['Damage', fmt(dmgModded), pct(dmgModded, dmgTotal), fmt(dmgUnmodded), pct(dmgUnmodded, dmgTotal)],
     ['Kills', fmt(killsModded), pct(killsModded, killsTotal), fmt(killsUnmodded), pct(killsUnmodded, killsTotal)]
   ];
-  return `<section class="stats-section"><h3>Modded vs. unmodded weapons</h3><p class="char-hint">Share of total damage and kills split between modded and unmodded weapons.</p>${chartFigure({
+  return `<section class="stats-section stats-section--chart stats-section--loadout">${sectionHeading('weapon', 'Loadout insight', 'Modded vs. unmodded weapons', 'The share of damage and kills earned with each weapon setup.')}${chartFigure({
     id: 'stats-chart-modsplit',
     ariaLabel: 'Modded versus unmodded weapons: percent of total damage and percent of total kills',
     title: 'Modded vs. unmodded (% of total)',
@@ -312,7 +319,7 @@ function renderFactionCombat(factions) {
   const present = entityOrder(Object.keys(factions)).filter(f => factions[f] && (factions[f].attacks != null || factions[f].kills != null));
   if (!present.length) return '';
   const entries = present.map(key => [key, factions[key]]);
-  return `<section class="stats-section"><h3>Combat by Faction</h3><p class="char-hint">Separate counters from the game's own combat log—not necessarily the same tally as the damage stats above.</p><div class="comparison-pair"><div><h4>Attacks</h4>${comparisonRows(entries, 'attacks', 'Attacks')}</div><div><h4>Kills</h4>${comparisonRows(entries, 'kills', 'Kills')}</div></div></section>`;
+  return `<section class="stats-section stats-section--combat">${sectionHeading('shield', 'Combat log', 'Combat by faction', 'Game combat-log counters; these can differ from damage totals.')}<div class="comparison-pair"><div><h4>Attacks</h4>${comparisonRows(entries, 'attacks', 'Attacks')}</div><div><h4>Kills</h4>${comparisonRows(entries, 'kills', 'Kills')}</div></div></section>`;
 }
 
 function characterOrder(characters) {
@@ -345,7 +352,7 @@ function renderCharacterCombat(characters) {
   // not as data -- show an honest sentence instead of a chart nobody can
   // read anything from.
   if (!characterHasActivity(characters, order)) {
-    return `<section class="stats-section"><h3>Combat by Character</h3><p class="stats-note">No kills, deaths, or extractions recorded yet.</p></section>`;
+    return `<section class="stats-section stats-section--chart stats-section--crew">${sectionHeading('mask', 'Crew performance', 'Combat by character')}<p class="stats-note">No kills, deaths, or extractions recorded yet.</p></section>`;
   }
   const rows = order.map(name => {
     const c = characters[name] || {};
@@ -359,7 +366,7 @@ function renderCharacterCombat(characters) {
       played ? (kd ?? '—') : '—'
     ];
   });
-  return `<section class="stats-section"><h3>Combat by Character</h3>${chartFigure({
+  return `<section class="stats-section stats-section--chart stats-section--crew">${sectionHeading('mask', 'Crew performance', 'Combat by character', 'Compare each scavenger’s combat record at a glance.')}${chartFigure({
     id: 'stats-chart-characters',
     ariaLabel: 'Kills, deaths, and extractions by character',
     title: 'Combat by character',
@@ -417,9 +424,6 @@ function mapChartLabel(g) {
   return meta && meta.internal ? `${label} (Internal/QA)` : label;
 }
 
-// Per-map activity: three single-series horizontal-bar panels (entries /
-// extractions / deaths), sorted by entries descending -- same reasoning and
-// same semantic status colors as the per-character chart above.
 function mapHasActivity(groups) {
   return groups.some(g => g.entry > 0 || g.extract > 0 || g.death > 0);
 }
@@ -437,63 +441,42 @@ function mapRates(g) {
   return { extractRate: percent(g.extract, g.entry), deathRate: percent(g.death, g.entry) };
 }
 
-function renderMapChart(maps) {
-  if (!maps.length) return '';
-  const groups = groupMapStats(maps).sort((a, b) => b.entry - a.entry);
-  // Same all-zero guard as the character chart: 0 entries everywhere is not
-  // a chart worth drawing an empty axis for.
-  if (!mapHasActivity(groups)) {
-    return `<section class="stats-section"><h3>Map activity</h3><p class="stats-note">No entries recorded yet.</p></section>`;
-  }
-  const rows = groups.map(g => {
-    const { extractRate, deathRate } = mapRates(g);
-    return [mapChartLabel(g), fmt(g.entry), fmt(g.extract), fmt(g.death), extractRate == null ? '—' : `${extractRate}%`, deathRate == null ? '—' : `${deathRate}%`, g.ids.join(', ')];
-  });
-  // Visible per-map rate summary (not buried behind the data-table
-  // disclosure) -- one line per map, top 5 by entries, same wording/shape
-  // as the old "Extraction rate: 70%" / "Death rate: 40%" cards.
-  const rateList = groups.slice(0, 5).map(g => {
-    const { extractRate, deathRate } = mapRates(g);
-    return `<li><b>${esc(mapChartLabel(g))}</b>: extraction rate ${extractRate == null ? '—' : `${extractRate}%`}, death rate ${deathRate == null ? '—' : `${deathRate}%`}</li>`;
-  }).join('');
-  return `<section class="stats-section"><h3>Map activity</h3>${chartFigure({
-    id: 'stats-chart-maps',
-    ariaLabel: 'Entries, extractions, and deaths by map, sorted by entries',
-    title: 'Map activity',
-    columns: ['Map', 'Entries', 'Extractions', 'Deaths', 'Extraction rate', 'Death rate', 'Internal source ID(s)'],
-    rows,
-    height: Math.max(220, groups.length * 50),
-    panels: [
-      { id: 'stats-chart-maps-entries', label: 'Entries', ariaLabel: 'Entries by map' },
-      { id: 'stats-chart-maps-extractions', label: 'Extractions', ariaLabel: 'Extractions by map' },
-      { id: 'stats-chart-maps-deaths', label: 'Deaths', ariaLabel: 'Deaths by map' }
-    ]
-  })}<p class="char-hint">Extraction/death rate = extractions or deaths divided by entries for that map (top 5 by entries shown; full list in the data table).</p><ul class="stats-rate-list">${rateList}</ul></section>`;
+function mapActivityRow(g, rank) {
+  const { extractRate, deathRate } = mapRates(g);
+  const meta = MAP_META[g.key];
+  const sourceLabel = g.ids.length > 1
+    ? `${g.ids.length} grouped variants: ${g.ids.join(', ')}`
+    : g.ids[0];
+  const source = technicalDetails(sourceLabel, g.ids.length > 1 ? 'Show grouped location IDs' : 'Show internal location ID');
+  const rate = extractRate == null ? '—' : `${extractRate}%`;
+  const rateWidth = extractRate == null ? 0 : Math.max(0, Math.min(100, extractRate));
+  return `<article class="map-activity-row" role="listitem">
+    <span class="map-activity-rank" aria-label="Rank ${rank}">${rank}</span>
+    <div class="map-activity-place"><h4>${esc(mapChartLabel(g))}</h4>${source}${meta && meta.blurb ? `<p>${esc(meta.blurb)}</p>` : ''}</div>
+    <dl class="map-activity-metrics" aria-label="Activity for ${esc(mapChartLabel(g))}">
+      <div><dt>Entries</dt><dd>${fmt(g.entry)}</dd></div>
+      <div><dt>Extracted</dt><dd>${fmt(g.extract)}</dd></div>
+      <div><dt>Deaths</dt><dd>${fmt(g.death)}</dd></div>
+    </dl>
+    <div class="map-activity-rate" aria-label="Extraction rate ${esc(rate)}; death rate ${deathRate == null ? '—' : `${deathRate}%`}">
+      <span><b>${esc(rate)}</b> extracted</span>
+      <span class="map-activity-rate__track"><span style="width:${rateWidth}%"></span></span>
+    </div>
+  </article>`;
 }
 
-function initMapChart(container, maps) {
-  if (!maps.length) return;
+function renderMapActivity(maps) {
+  if (!maps.length) return '';
   const groups = groupMapStats(maps).sort((a, b) => b.entry - a.entry);
-  if (!mapHasActivity(groups)) return;
-  const labels = groups.map(mapChartLabel);
-  const metricChart = (canvasId, values, color, rateKey) => {
-    const canvas = container.querySelector(`#${canvasId}`);
-    if (!canvas) return;
-    createChart(canvas, {
-      type: 'bar',
-      data: { labels, datasets: [{ label: canvasId, data: values, backgroundColor: color }] },
-      options: {
-        indexAxis: 'y',
-        plugins: rateKey ? { tooltip: { callbacks: { label: ctx => {
-          const rate = mapRates(groups[ctx.dataIndex])[rateKey];
-          return `${fmt(ctx.parsed.x)}${rate == null ? '' : ` (${rate}%)`}`;
-        } } } } : {}
-      }
-    });
-  };
-  metricChart('stats-chart-maps-entries', groups.map(g => g.entry), STATUS_AMBER, null);
-  metricChart('stats-chart-maps-extractions', groups.map(g => g.extract), STATUS_GREEN, 'extractRate');
-  metricChart('stats-chart-maps-deaths', groups.map(g => g.death), STATUS_RED, 'deathRate');
+  if (!mapHasActivity(groups)) {
+    return `<section class="stats-section stats-section--route">${sectionHeading('runner', 'Route history', 'Map activity')}<p class="stats-note">No entries recorded yet.</p></section>`;
+  }
+  const visible = groups.slice(0, 6).map((g, index) => mapActivityRow(g, index + 1)).join('');
+  const remaining = groups.slice(6).map((g, index) => mapActivityRow(g, index + 7)).join('');
+  return `<section class="stats-section stats-section--route">${sectionHeading('runner', 'Route history', 'Map activity', 'Your busiest locations, ranked by entries with extraction performance alongside.')}
+    <div class="map-activity-list" role="list">${visible}</div>
+    ${remaining ? `<details class="map-activity-more"><summary>${groups.length - 6} more ${groups.length - 6 === 1 ? 'location' : 'locations'}</summary><div class="map-activity-list" role="list">${remaining}</div></details>` : ''}
+  </section>`;
 }
 
 // Some raw locations normalize to the same canonical place (e.g. ThunderDome
@@ -632,13 +615,13 @@ function renderTerritory(territory, groups) {
   const knownFactions = territoryFactions.filter(f => FACTION_META[f]);
   const unknownFactions = territoryFactions.filter(f => !FACTION_META[f]);
   const legend = `${factionLegend(knownFactions)}${unknownFactions.length ? `<div class="faction-legend"><span class="faction-tag"><span class="unknown-faction-marker" aria-hidden="true">?</span>${esc(unknownFactions.length === 1 ? factionMeta(unknownFactions[0]).name : 'Unrecognized factions (see data table)')}</span></div>` : ''}`;
-  return `<div class="stats-section territory-section">
-    <h3>Territory control</h3>
-    <p class="char-hint">Per-location faction control share (the game's own "Theater of War" system) -- higher control means both <b>more</b> hostiles and <b>better-equipped</b> ones for that faction. <a href="https://theforeverwinter.wiki.gg/wiki/Factions" target="_blank" rel="noopener noreferrer">theforeverwinter.wiki.gg/wiki/Factions</a></p>
+  return `<section class="stats-section stats-section--territory territory-section">
+    ${sectionHeading('target', 'Theater of War', 'Territory control', 'Higher faction control means more—and better-equipped—hostiles in that location.')}
+    <p class="territory-source"><a href="https://theforeverwinter.wiki.gg/wiki/Factions" target="_blank" rel="noopener noreferrer">Faction reference on the Forever Winter wiki</a></p>
     ${legend}
     ${renderTerritoryChart(groups)}
     <div class="territory-grid">${groups.map(territoryCard).join('')}</div>
-  </div>`;
+  </section>`;
 }
 
 async function loadStats() {
@@ -652,15 +635,21 @@ async function loadStats() {
     const maps = stats.maps || [];
     const territory = stats.territory || [];
     const territoryGroups = groupTerritory(territory);
-    const html = [
-      renderTerritory(territory, territoryGroups),
+    const characterCombat = renderCharacterCombat(characters);
+    const mapActivity = renderMapActivity(maps);
+    const factionCombat = renderFactionCombat(stats.factions || {});
+    const factionProfile = renderFactionProfile(damage);
+    const activityStory = characterCombat || mapActivity
+      ? `<div class="stats-story-grid">${characterCombat}${mapActivity}</div>` : '';
+    const combatStory = factionCombat || factionProfile
+      ? `<div class="stats-story-grid stats-story-grid--combat">${factionCombat}${factionProfile}</div>` : '';
+    const html = `<div class="stats-dashboard-intro"><span class="stats-dashboard-intro__icon">${appIcon('target')}</span><div><span class="eyebrow">Read-only field report</span><p>Your combat history, organized from your personal record to the state of the war.</p></div></div>${[
       renderPlayerSummary(stats.player || {}),
-      renderFactionProfile(damage),
-      renderModSplit(damage),
-      renderFactionCombat(stats.factions || {}),
-      renderCharacterCombat(characters),
-      renderMapChart(maps)
-    ].join('');
+      renderTerritory(territory, territoryGroups),
+      activityStory,
+      combatStory,
+      renderModSplit(damage)
+    ].join('')}`;
     // Destroy any charts bound to the outgoing markup's canvases BEFORE
     // replacing innerHTML (see charts.mjs's lifecycle note); charts are then
     // (re)created below, after the new canvases are actually in the DOM.
@@ -670,7 +659,6 @@ async function loadStats() {
       initFactionProfile(el, damage);
       initModSplit(el, damage);
       initCharacterCombat(el, characters);
-      initMapChart(el, maps);
       initTerritoryChart(el, territoryGroups);
     }
   } catch (error) {

@@ -357,10 +357,12 @@ test('the weapon XP intro cites the real reference-save value, not a stale examp
   assert.match(html, /PST02\s*=\s*186/);
 });
 
-test('overview surfaces read-only faction trust with a vendor shortcut', () => {
+test('overview leads with actionable inventory, then read-only vault and faction trust', () => {
   const overview = html.match(/id="page-dashboard">([\s\S]*?)<div class="page" id="page-characters">/)[1];
-  assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashFactionTrust"'));
-  assert.ok(overview.indexOf('id="dashFactionTrust"') < overview.indexOf('id="dashInventory"'));
+  assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashInventory"'));
+  assert.ok(overview.indexOf('id="dashInventory"') < overview.indexOf('id="dashVault"'));
+  assert.ok(overview.indexOf('id="dashVault"') < overview.indexOf('id="dashFactionTrust"'));
+  assert.match(overview, /overview-readonly-badge[^>]*>[\s\S]*Read-only/);
   assert.match(overview, /data-page-target="vendors"/);
   assert.match(frontendJs, /function renderDashFactionTrust\(factions\)/);
   assert.match(frontendJs, /api\('\/vendors'\)\.catch/);
