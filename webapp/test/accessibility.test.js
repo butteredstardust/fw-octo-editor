@@ -62,6 +62,20 @@ test('application dialogs replace blocking browser alert and confirm calls', () 
   assert.match(frontendCss, /\.dialog-actions \{ display:flex; flex-wrap:wrap/);
 });
 
+test('every feature page except Overview uses the shared visual header', () => {
+  const pages = [...html.matchAll(/<div class="page(?: active)?" id="page-([^"]+)">([\s\S]*?)(?=<div class="page(?: active)?" id="page-|<\/main>)/g)];
+  for (const [, id, body] of pages) {
+    if (id === 'dashboard') {
+      assert.doesNotMatch(body, /class="[^"]*feature-page-head/);
+      continue;
+    }
+    assert.match(body, /class="[^"]*feature-page-head/, `page-${id} should use the shared feature header`);
+    assert.match(body, /class="feature-page-icon"/, `page-${id} should have a header icon`);
+    assert.match(body, /class="feature-page-copy"/, `page-${id} should have header copy`);
+    assert.match(body, /<span class="eyebrow">[^<]+<\/span><h2[ >]/, `page-${id} should have an eyebrow and h2`);
+  }
+});
+
 test('interpolated hub and inventory category/name text is escaped', () => {
   // Regression guard: these were previously interpolated raw while sibling
   // fields on the same rendered card were already escaped. Hub titles now
