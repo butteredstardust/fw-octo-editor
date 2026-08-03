@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-02T22:22:36.110Z",
+  "generatedAt": "2026-08-03T08:22:19.528Z",
   "items": {
     "Alcohol01": {
       "id": "Alcohol01",
@@ -1629,6 +1629,39 @@
       ],
       "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
     },
+    "BP_DangleContainerSleepingRoll_C": {
+      "id": "BP_DangleContainerSleepingRoll_C",
+      "displayName": "Sleeping Roll",
+      "inventoryMap": "DamagedWeapons",
+      "internalTag": null,
+      "taxonomy": {
+        "group": "Damaged Weapons",
+        "type": "Rig components",
+        "subtype": null,
+        "tags": [
+          "Rig components"
+        ]
+      },
+      "wiki": {
+        "page": null,
+        "pageUrl": null,
+        "imageFile": null,
+        "imageUrl": null,
+        "revisionId": null,
+        "description": null,
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "game-datatable-row",
+        "confidence": 0.8,
+        "reviewed": false
+      },
+      "sources": [
+        "game-datatables-2026-08-01"
+      ],
+      "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
+    },
     "BP_Eurasian_LockBox_Large_Quest": {
       "id": "BP_Eurasian_LockBox_Large_Quest",
       "displayName": "Eurasian Supply Crate",
@@ -1664,6 +1697,72 @@
       ],
       "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
     },
+    "BP_Helmet_C": {
+      "id": "BP_Helmet_C",
+      "displayName": "Helmet",
+      "inventoryMap": "DamagedWeapons",
+      "internalTag": null,
+      "taxonomy": {
+        "group": "Damaged Weapons",
+        "type": "Rig components",
+        "subtype": null,
+        "tags": [
+          "Rig components"
+        ]
+      },
+      "wiki": {
+        "page": null,
+        "pageUrl": null,
+        "imageFile": null,
+        "imageUrl": null,
+        "revisionId": null,
+        "description": null,
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "game-datatable-row",
+        "confidence": 0.8,
+        "reviewed": false
+      },
+      "sources": [
+        "game-datatables-2026-08-01"
+      ],
+      "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
+    },
+    "BP_JetPackEquipment_Training_C": {
+      "id": "BP_JetPackEquipment_Training_C",
+      "displayName": "Jetpack Equipment",
+      "inventoryMap": "DamagedWeapons",
+      "internalTag": null,
+      "taxonomy": {
+        "group": "Damaged Weapons",
+        "type": "Rig components",
+        "subtype": null,
+        "tags": [
+          "Rig components"
+        ]
+      },
+      "wiki": {
+        "page": null,
+        "pageUrl": null,
+        "imageFile": null,
+        "imageUrl": null,
+        "revisionId": null,
+        "description": null,
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "game-datatable-row",
+        "confidence": 0.8,
+        "reviewed": false
+      },
+      "sources": [
+        "game-datatables-2026-08-01"
+      ],
+      "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
+    },
     "BP_LockBox_Large_C": {
       "id": "BP_LockBox_Large_C",
       "displayName": "Large Lockbox",
@@ -1695,6 +1794,74 @@
       "sources": [
         "game-datatables-2026-08-01",
         "wiki.gg-cargo-items"
+      ],
+      "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
+    },
+    "BP_Loot_Explosives_C": {
+      "id": "BP_Loot_Explosives_C",
+      "displayName": "Explosives",
+      "inventoryMap": "DamagedWeapons",
+      "internalTag": "Inventory.Dangly.BP_Loot_Explosives_C",
+      "taxonomy": {
+        "group": "Damaged Weapons",
+        "type": "Large items",
+        "subtype": "Quest items",
+        "tags": [
+          "Large items",
+          "Quest items"
+        ]
+      },
+      "wiki": {
+        "page": "Explosives",
+        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/Explosives",
+        "imageFile": "T Explosives.png",
+        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/T%20Explosives.png",
+        "revisionId": null,
+        "description": "A commodity used to create explosions.",
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "wiki-cargo-internal-tag",
+        "confidence": 1,
+        "reviewed": false
+      },
+      "sources": [
+        "game-datatables-2026-08-01",
+        "wiki.gg-cargo-items"
+      ],
+      "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
+    },
+    "BP_PaperBag_C": {
+      "id": "BP_PaperBag_C",
+      "displayName": "Paper Bag",
+      "inventoryMap": "DamagedWeapons",
+      "internalTag": null,
+      "taxonomy": {
+        "group": "Damaged Weapons",
+        "type": "Rig components",
+        "subtype": null,
+        "tags": [
+          "Rig components"
+        ]
+      },
+      "wiki": {
+        "page": null,
+        "pageUrl": null,
+        "imageFile": null,
+        "imageUrl": null,
+        "revisionId": null,
+        "description": null,
+        "buffs": null,
+        "debuffs": null
+      },
+      "match": {
+        "method": "game-datatable-row",
+        "confidence": 0.8,
+        "reviewed": false
+      },
+      "sources": [
+        "game-datatables-2026-08-01"
       ],
       "dataTablePath": "/Game/Blueprints/Data/DanglyDetailsData.DanglyDetailsData"
     },
@@ -2011,7 +2178,7 @@
     },
     "Codex.Grabber": {
       "id": "Codex.Grabber",
-      "displayName": "Codex",
+      "displayName": "Grabber Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2028,7 +2195,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Grabber Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2045,7 +2212,7 @@
     },
     "Codex.MediumMech": {
       "id": "Codex.MediumMech",
-      "displayName": "Codex",
+      "displayName": "Medium Mech Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2062,7 +2229,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Mech Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2079,7 +2246,7 @@
     },
     "Codex.MotherCourage": {
       "id": "Codex.MotherCourage",
-      "displayName": "Codex",
+      "displayName": "Mother Courage Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2096,7 +2263,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Mother Courage codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2113,7 +2280,7 @@
     },
     "Codex.Opal": {
       "id": "Codex.Opal",
-      "displayName": "Codex",
+      "displayName": "Opal Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2130,7 +2297,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Opal Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2147,7 +2314,7 @@
     },
     "Codex.Orga": {
       "id": "Codex.Orga",
-      "displayName": "Codex",
+      "displayName": "Orga Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2164,7 +2331,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Orga Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2181,7 +2348,7 @@
     },
     "Codex.RatKing": {
       "id": "Codex.RatKing",
-      "displayName": "Codex",
+      "displayName": "Rat King Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2198,7 +2365,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Rat King Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2215,7 +2382,7 @@
     },
     "Codex.Toothy": {
       "id": "Codex.Toothy",
-      "displayName": "Codex",
+      "displayName": "Toothy Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2232,7 +2399,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Toothy Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2249,7 +2416,7 @@
     },
     "CodexMeatMan": {
       "id": "CodexMeatMan",
-      "displayName": "Codex",
+      "displayName": "Kotleta Codex",
       "inventoryMap": "Items",
       "internalTag": "Inventory.Item.Codex.Grabber<br>Inventory.Item.Codex.MediumMech<br>Inventory.Item.Codex.MotherCourage<br>Inventory.Item.CodexMeatMan<br>Inventory.Item.CodexShieldOfficer<br>Inventory.Item.Codex.RatKing<br>Inventory.Item.Codex.Toothy<br>Inventory.Item.Codex.Orga<br>Inventory.Item.Codex.Opal",
       "taxonomy": {
@@ -2266,7 +2433,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Kotleta Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2283,7 +2450,7 @@
     },
     "CodexShieldOfficer": {
       "id": "CodexShieldOfficer",
-      "displayName": "Codex",
+      "displayName": "Shield Officer Codex",
       "inventoryMap": "Items",
       "internalTag": null,
       "taxonomy": {
@@ -2300,7 +2467,7 @@
         "imageFile": "Codex.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Codex.png",
         "revisionId": null,
-        "description": "A rare, valuable Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of. Codexes are the highest value loot a scav can find. They are extremely rare due to the difficulty in acquiring them from enemies that are extremely difficult or outright impossible to down by normal means. The following bosses each have their own named codex: Rat King Europan Medium Mech (Euruskan Medium Mech shares the same Codex) Grabber* (Stalker shares the same Codex) Toothy Euruskan OrgaMech Euruskan Shield Officer Euruskan Kotleta** Eurasian MotherCourage Eurasian Opal While the Grabber is confirmed to be lootable, it may take several raids, as it sometimes refuses to get stunned after 5+ railgun hits. Its container also spawns far from its body, making it likely to end up out of map bounds. Unlike other Codexes, Kotleta's Codex can spawn on the ground at raid start and triggers unique events when picked up. See Kotleta for more info.",
+        "description": "A rare, valuable Shield officer Codex. Looks like it may have some currently unknown utility. Think carefully before getting rid of.",
         "buffs": null,
         "debuffs": null
       },
@@ -2523,7 +2690,7 @@
         "imageFile": "Rail Gun Turret Ammo Supply.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Rail%20Gun%20Turret%20Ammo%20Supply.png",
         "revisionId": null,
-        "description": null,
+        "description": "Part of a usable turret. Attach this to a Rail Gun Turret Weapon already on a Turret Base. The Turret will then be usable.",
         "buffs": null,
         "debuffs": null
       },
@@ -2557,7 +2724,7 @@
         "imageFile": "Rail Gun Turret Weapon.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Rail%20Gun%20Turret%20Weapon.png",
         "revisionId": null,
-        "description": null,
+        "description": "Part of a usable turret. Attach this to a Turret Base so another place can attach the ammo supply to it.",
         "buffs": null,
         "debuffs": null
       },
@@ -2591,7 +2758,7 @@
         "imageFile": "Turret Base.png",
         "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/Turret%20Base.png",
         "revisionId": null,
-        "description": null,
+        "description": "The base of a usable turret. Place this 1st so another player can attach a turret weapon to it.",
         "buffs": null,
         "debuffs": null
       },
@@ -3294,7 +3461,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "For 5 seconds, damage all foes around you Volume: {Volume} Weight: {Weight}",
+        "description": "For 5 seconds, damage all foes around you",
         "buffs": null,
         "debuffs": null
       },
@@ -3429,7 +3596,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Use for trade or place and shoot to blow up your foes. Volume: {Volume} Weight: {Weight}",
+        "description": "Use for trade or place and shoot to blow up your foes.",
         "buffs": null,
         "debuffs": null
       },
@@ -5538,7 +5705,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Place an extraction point at your current location Volume: {Volume} Weight: {Weight}",
+        "description": "Place an extraction point at your current location",
         "buffs": null,
         "debuffs": null
       },
@@ -5569,7 +5736,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Base ammo. Non-user-facing Volume: {Volume} Weight: {Weight}",
+        "description": "Base ammo. Non-user-facing",
         "buffs": null,
         "debuffs": null
       },
@@ -5783,40 +5950,6 @@
       },
       "sources": [
         "reference-save-2026-07-05",
-        "wiki.gg-cargo-items"
-      ],
-      "dataTablePath": "/Game/Blueprints/Data/ItemDetailsData.ItemDetailsData"
-    },
-    "Item.Ammo.45acp": {
-      "id": "Item.Ammo.45acp",
-      "displayName": ".45 ACP Ammo",
-      "inventoryMap": "Items",
-      "internalTag": "Inventory.Item.Item.Ammo.45acp",
-      "taxonomy": {
-        "group": "Loot",
-        "type": "Ammo",
-        "subtype": null,
-        "tags": [
-          "Ammo"
-        ]
-      },
-      "wiki": {
-        "page": ".45 ACP Ammo",
-        "pageUrl": "https://theforeverwinter.wiki.gg/wiki/.45_ACP_Ammo",
-        "imageFile": "ItemPortrait_Demo_Ammo_45acp.png",
-        "imageUrl": "https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/ItemPortrait_Demo_Ammo_45acp.png",
-        "revisionId": null,
-        "description": "Ammunition for the Europan USP and SOG.",
-        "buffs": null,
-        "debuffs": null
-      },
-      "match": {
-        "method": "wiki-cargo-internal-tag",
-        "confidence": 1,
-        "reviewed": false
-      },
-      "sources": [
-        "game-datatables-2026-08-01",
         "wiki.gg-cargo-items"
       ],
       "dataTablePath": "/Game/Blueprints/Data/ItemDetailsData.ItemDetailsData"
@@ -6214,7 +6347,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Thrown Bait Grenades Volume: {Volume} Weight: {Weight}",
+        "description": "Thrown Bait Grenades",
         "buffs": null,
         "debuffs": null
       },
@@ -6247,7 +6380,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Thrown Chaff Grenades Volume: {Volume} Weight: {Weight}",
+        "description": "Thrown Chaff Grenades",
         "buffs": null,
         "debuffs": null
       },
@@ -6348,7 +6481,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Thrown Flare Grenades Volume: {Volume} Weight: {Weight}",
+        "description": "Thrown Flare Grenades",
         "buffs": null,
         "debuffs": null
       },
@@ -6415,7 +6548,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Thrown Homing Grenades Volume: {Volume} Weight: {Weight}",
+        "description": "Thrown Homing Grenades",
         "buffs": null,
         "debuffs": null
       },
@@ -6482,7 +6615,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Thrown Scanning Grenades Volume: {Volume} Weight: {Weight}",
+        "description": "Thrown Scanning Grenades",
         "buffs": null,
         "debuffs": null
       },
@@ -6513,7 +6646,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -7240,7 +7373,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Damage is reduced by 1/2 for 60s Volume: {Volume} Weight: {Weight}",
+        "description": "Damage is reduced by 1/2 for 60s",
         "buffs": null,
         "debuffs": null
       },
@@ -7305,7 +7438,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Take no damage for 10 seconds Volume: {Volume} Weight: {Weight}",
+        "description": "Take no damage for 10 seconds",
         "buffs": null,
         "debuffs": null
       },
@@ -8036,7 +8169,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Attachment (works on multiple weapons) Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Attachment (works on multiple weapons)",
         "buffs": null,
         "debuffs": null
       },
@@ -8767,7 +8900,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Rear Sight (works on multiple weapons). Volume: {Volume} Weight: {Weight}",
+        "description": "Rear Sight (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -8798,7 +8931,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Rear Sight (works on multiple weapons). Volume: {Volume} Weight: {Weight}",
+        "description": "Rear Sight (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -8832,7 +8965,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "3x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -8902,7 +9035,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "2x Scope (works on multiple weapons). Volume: {Volume} Weight: {Weight}",
+        "description": "2x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -8936,7 +9069,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "2x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -8971,7 +9104,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "2x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9006,7 +9139,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "2x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9076,7 +9209,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "3x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9111,7 +9244,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "3x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9146,7 +9279,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "4x Scope (works on multiple weapons). Volume: {Volume} Weight: {Weight}",
+        "description": "4x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9180,7 +9313,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "2x Scope (works on multiple weapons). Volume: {Volume} Weight: {Weight}",
+        "description": "2x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9214,7 +9347,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "3x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -9249,7 +9382,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "4x Scope (works on multiple weapons). Volume: {Volume} Weight: {Weight}",
+        "description": "4x Scope (works on multiple weapons).",
         "buffs": null,
         "debuffs": null
       },
@@ -10490,7 +10623,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Experimental Combat Stimulant Drug Volume: {Volume} Weight: {Weight}",
+        "description": "Experimental Combat Stimulant Drug",
         "buffs": null,
         "debuffs": null
       },
@@ -10692,7 +10825,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Pheromone sac of a grabber. Volume: {Volume} Weight: {Weight}",
+        "description": "Pheromone sac of a grabber.",
         "buffs": null,
         "debuffs": null
       },
@@ -10757,7 +10890,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Water Cache Volume: {Volume} Weight: {Weight}",
+        "description": "Water Cache",
         "buffs": null,
         "debuffs": null
       },
@@ -11132,7 +11265,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Plantable Bug Volume: {Volume} Weight: {Weight}",
+        "description": "Plantable Bug",
         "buffs": null,
         "debuffs": null
       },
@@ -11163,7 +11296,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Transmitting Camera Volume: {Volume} Weight: {Weight}",
+        "description": "Transmitting Camera",
         "buffs": null,
         "debuffs": null
       },
@@ -11194,7 +11327,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Sabotaged MRE Volume: {Volume} Weight: {Weight}",
+        "description": "Sabotaged MRE",
         "buffs": null,
         "debuffs": null
       },
@@ -11392,7 +11525,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Control Panel in SN. Volume: {Volume} Weight: {Weight}",
+        "description": "Control Panel in SN.",
         "buffs": null,
         "debuffs": null
       },
@@ -11423,7 +11556,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Crates Volume: {Volume} Weight: {Weight}",
+        "description": "Crates",
         "buffs": null,
         "debuffs": null
       },
@@ -16533,7 +16666,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "An actuator component - used for manufacturing Volume: {Volume} Weight: {Weight}",
+        "description": "An actuator component - used for manufacturing",
         "buffs": null,
         "debuffs": null
       },
@@ -16600,7 +16733,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "A rotating gimble - used for manufacturing Volume: {Volume} Weight: {Weight}",
+        "description": "A rotating gimble - used for manufacturing",
         "buffs": null,
         "debuffs": null
       },
@@ -16631,7 +16764,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "A mount for attaching weaponry - used for manufacturing Volume: {Volume} Weight: {Weight}",
+        "description": "A mount for attaching weaponry - used for manufacturing",
         "buffs": null,
         "debuffs": null
       },
@@ -16698,7 +16831,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Feeding mechanics for delivering various ammo types to weapon systems - used for manufacturing Volume: {Volume} Weight: {Weight}",
+        "description": "Feeding mechanics for delivering various ammo types to weapon systems - used for manufacturing",
         "buffs": null,
         "debuffs": null
       },
@@ -16801,7 +16934,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Computer interface used to tie a weapon system into its firing controls - used for manufacturing Volume: {Volume} Weight: {Weight}",
+        "description": "Computer interface used to tie a weapon system into its firing controls - used for manufacturing",
         "buffs": null,
         "debuffs": null
       },
@@ -16903,7 +17036,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Reactive Explosive Housing - used for manufacturing Volume: {Volume} Weight: {Weight}",
+        "description": "Reactive Explosive Housing - used for manufacturing",
         "buffs": null,
         "debuffs": null
       },
@@ -16970,7 +17103,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Key component of a powerful rail gun. Tungsten darts are chambered via its mechanism. Volume: {Volume} Weight: {Weight}",
+        "description": "Key component of a powerful rail gun. Tungsten darts are chambered via its mechanism.",
         "buffs": null,
         "debuffs": null
       },
@@ -17037,7 +17170,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Take no damage for 30 seconds Volume: {Volume} Weight: {Weight}",
+        "description": "Take no damage for 30 seconds",
         "buffs": null,
         "debuffs": null
       },
@@ -18159,7 +18292,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Drop an explosive that arms itself and detonates on proximity",
         "buffs": null,
         "debuffs": null
       },
@@ -20124,7 +20257,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -20298,7 +20431,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "SCAR Front Sight Volume: {Volume} Weight: {Weight}",
+        "description": "SCAR Front Sight",
         "buffs": null,
         "debuffs": null
       },
@@ -20682,7 +20815,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "SCAR Folded Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "SCAR Folded Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -20786,7 +20919,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Sight Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Sight Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -21240,7 +21373,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Front Sight (works on M60). Volume: {Volume} Weight: {Weight}",
+        "description": "Front Sight (works on M60).",
         "buffs": null,
         "debuffs": null
       },
@@ -21344,7 +21477,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Rear Sight (works on M60). Volume: {Volume} Weight: {Weight}",
+        "description": "Rear Sight (works on M60).",
         "buffs": null,
         "debuffs": null
       },
@@ -22498,7 +22631,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "AK Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -22603,7 +22736,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "AK Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -22778,7 +22911,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Handguard Upgrade for AK or RPK",
         "buffs": null,
         "debuffs": null
       },
@@ -22813,7 +22946,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Handguard Upgrade for AK or RPK",
         "buffs": null,
         "debuffs": null
       },
@@ -22848,7 +22981,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Handguard Upgrade for AK or RPK",
         "buffs": null,
         "debuffs": null
       },
@@ -24248,7 +24381,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24317,7 +24450,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24351,7 +24484,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24385,7 +24518,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Gas Tube Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Gas Tube Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24419,7 +24552,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Gas Tube Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Gas Tube Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24453,7 +24586,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24487,7 +24620,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24521,7 +24654,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24555,7 +24688,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Charging Handle Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Charging Handle Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24589,7 +24722,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Charging Handle Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Charging Handle Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24623,7 +24756,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24657,7 +24790,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -24691,7 +24824,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -25215,7 +25348,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -26614,7 +26747,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "SA58 Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "SA58 Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -27453,7 +27586,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Charging Handle Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Charging Handle Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -27487,7 +27620,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Charging Handle Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Charging Handle Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -27836,7 +27969,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -27870,7 +28003,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -28848,7 +28981,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -28988,7 +29121,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29022,7 +29155,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29056,7 +29189,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29090,7 +29223,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29124,7 +29257,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Grip Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Grip Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29158,7 +29291,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Grip Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Grip Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29192,7 +29325,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Grip Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Grip Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29226,7 +29359,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Grip Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Grip Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29260,7 +29393,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Magazine Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Magazine Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29294,7 +29427,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Magazine Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Magazine Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29328,7 +29461,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Magazine Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Magazine Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29362,7 +29495,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29396,7 +29529,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29430,7 +29563,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29464,7 +29597,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29498,7 +29631,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29532,7 +29665,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29566,7 +29699,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29600,7 +29733,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29634,7 +29767,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -29773,7 +29906,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Front Sight Volume: {Volume} Weight: {Weight}",
+        "description": "Front Sight",
         "buffs": null,
         "debuffs": null
       },
@@ -29842,7 +29975,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Handguard Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Handguard Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30296,7 +30429,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30330,7 +30463,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Barrel Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Barrel Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30364,7 +30497,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Magazine Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Magazine Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30433,7 +30566,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30467,7 +30600,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Reciever Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Reciever Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30746,7 +30879,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30780,7 +30913,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Weapon Stock Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30814,7 +30947,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30849,7 +30982,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30884,7 +31017,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -30919,7 +31052,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": null,
+        "description": "Weapon Stock Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -31234,7 +31367,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Charging Handle Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Charging Handle Upgrade",
         "buffs": null,
         "debuffs": null
       },
@@ -31268,7 +31401,7 @@
         "imageFile": null,
         "imageUrl": null,
         "revisionId": null,
-        "description": "Charging Handle Upgrade Volume: {Volume} Weight: {Weight}",
+        "description": "Charging Handle Upgrade",
         "buffs": null,
         "debuffs": null
       },

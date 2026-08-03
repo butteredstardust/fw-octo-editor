@@ -403,12 +403,22 @@ test('shared metric grids preserve values, descriptions, zero states, and narrow
   });
 
   await page.goto(`${baseURL}/#stats`);
-  const statsGrid = page.locator('dl.stats-kpi-grid');
-  await expect(statsGrid.locator('dt')).toHaveCount(8);
-  await expect(statsGrid.locator('dd')).toHaveCount(8);
+  // Kills, K/D and extraction rate lead the summary as a hero figure, a ratio and
+  // a meter; the remaining five counts stay ordinary metric-grid tiles.
+  const lifetime = page.locator('#page-stats .lifetime');
+  await expect(lifetime.locator('.lifetime-hero__value')).toHaveText('12');
+  await expect(lifetime.locator('.lifetime-ratio__value')).toHaveText('4.00');
+  await expect(lifetime.locator('.lifetime-meter__value')).toHaveText('70%');
+  // Scoped to the Stats page: the Overview renders the very same component, so an
+  // unscoped locator matches both copies in the SPA's always-present markup.
+  const statsGrid = page.locator('#page-stats dl.lifetime-kpis');
+  await expect(page.locator('dl.lifetime-kpis')).toHaveCount(2);
+  await expect(statsGrid.locator('dt')).toHaveCount(5);
+  await expect(statsGrid.locator('dd')).toHaveCount(5);
   await expect(statsGrid).toContainText('12,345');
-  await expect(statsGrid).toContainText('Lifetime XP');
+  await expect(statsGrid).toContainText('Total XP');
   expect(await statsGrid.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  expect(await lifetime.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 
   await page.goto(`${baseURL}/#repair`);
   const repairSummary = page.locator('dl[aria-label="Repair bench summary"]');
@@ -824,7 +834,9 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   } });
   await page.goto(baseURL);
   await page.evaluate(() => document.querySelector('[data-page="stats"]').click());
-  await expect(page.locator('.stats-kpi-grid .metric-tile')).toContainText(['12', '3', '4.00', '9']);
+  await expect(page.locator('#page-stats .lifetime-hero__value')).toHaveText('12');
+  await expect(page.locator('#page-stats .lifetime-ratio__value')).toHaveText('4.00');
+  await expect(page.locator('.lifetime-kpis .metric-tile')).toContainText(['3', '1', '9', '20']);
   // Faction combat profile uses a horizontal grouped bar plus paired data
   // table. Unknown/new faction keys remain in both the denominator and the
   // output, so the shares stay honest after a game update.

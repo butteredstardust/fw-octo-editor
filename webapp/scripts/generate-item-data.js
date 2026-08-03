@@ -69,9 +69,20 @@ const referenceSnapshot = fs.existsSync(referenceSnapshotPath) ? JSON.parse(fs.r
 const referenceById = new Map((referenceSnapshot?.items || []).map(item => [item.name, item]));
 const gameSnapshot = fs.existsSync(gameSnapshotPath) ? JSON.parse(fs.readFileSync(gameSnapshotPath, 'utf8')) : null;
 const gameById = new Map((gameSnapshot?.items || []).map(item => [item.id, item]));
-// Rows the game defines but never finished: no authored name/description, dev or test
-// naming, bulk internal id patterns. Kept in the snapshot for auditing, kept OUT of the catalog.
-const gameAdmissible = item => !item.problems?.length && Boolean(item.inventoryMap);
+// Unreal resolves DataTable rows through FName, which is case-insensitive, so the same item
+// legitimately appears as 'Item.Ammo.45acp' in the shipped table and 'Item.Ammo.45ACP' in a
+// save. Look rows up either way rather than treating the two spellings as different items.
+const gameByIdLower = new Map();
+for (const [id, item] of gameById) if (!gameByIdLower.has(id.toLowerCase())) gameByIdLower.set(id.toLowerCase(), item);
+const gameRow = id => gameById.get(id) || gameByIdLower.get(String(id).toLowerCase()) || null;
+// Rows the game defines but never finished: no authored name, dev or test naming, bulk
+// internal id patterns. Kept in the snapshot for auditing, kept OUT of the catalog.
+// A missing description alone is a content gap, not an unfinished row: "Explosives",
+// "Sleeping Roll" and friends are named, weighted danglies the wiki lists as real recipe
+// ingredients, so excluding them left those recipes permanently unwritable.
+const IGNORABLE_PROBLEMS = new Set(['no-description']);
+const gameAdmissible = item => Boolean(item.inventoryMap)
+  && !(item.problems || []).some(problem => !IGNORABLE_PROBLEMS.has(problem));
 // IDs the wiki documents but the reference save never contained; admitted into the catalog anyway. See data/item-overrides.json.
 const allowlist = new Set(Object.keys(overrides.additionalItems || {}).filter(id => !id.startsWith('_')));
 const wikiById = new Map();
@@ -83,6 +94,30 @@ for (const item of wikiSnapshot.items || []) {
     if (!wikiByIdLower.has(id.toLowerCase())) wikiByIdLower.set(id.toLowerCase(), item);
   }
 }
+// A wiki page whose InternalTag cell lists several save IDs describes all of them at once:
+// the single "Codex" page covers nine distinct boss codexes, so every one of them would be
+// called "Codex" with the same paragraph. The game's DataTable rows are authored per ID
+// ("Orga Codex", "Kotleta Codex"), so they win the name and description whenever the wiki
+// entry is shared. Wiki text still wins wherever it identifies exactly one item.
+const wikiIdCount = new Map();
+for (const item of wikiById.values()) wikiIdCount.set(item, (wikiIdCount.get(item) || 0) + 1);
+const identifiesOneItem = item => Boolean(item) && wikiIdCount.get(item) === 1;
+// DataTable text ends with the in-game UI's unresolved format tokens ("... Volume: {Volume}
+// Weight: {Weight}"). The label is matched as a single word so a trailing token cannot eat
+// the sentence in front of it.
+// The extractor also stamps "[NEEDS REVIEW: ...]" where a row has no authored text at all;
+// that marker is an audit signal, never something to show a player.
+const GAME_TEXT_PLACEHOLDERS = /(?:\s*\b\w+:\s*\{[^}]*\})+\s*$/;
+const NEEDS_REVIEW = /\[NEEDS REVIEW\b/i;
+const gameText = value => {
+  const text = String(value || '').replace(GAME_TEXT_PLACEHOLDERS, '').trim();
+  return text && !NEEDS_REVIEW.test(text) ? text : null;
+};
+const nameFor = (id, wikiItem, ...fallbacks) => (identifiesOneItem(wikiItem) ? wikiItem.name : null)
+  || gameText(gameRow(id)?.displayName) || wikiItem?.name || fallbacks.find(Boolean) || id;
+const descriptionFor = (id, wikiItem) => (identifiesOneItem(wikiItem) ? wikiItem.description : null)
+  || gameText(gameRow(id)?.description) || wikiItem?.description || null;
+
 const canonical = {}; const excluded = [];
 for (const row of rows) {
   const id = (row.CsvItemName || row.DbItemName || '').trim();
@@ -90,14 +125,14 @@ for (const row of rows) {
   const wikiItem = wikiById.get(id) || wikiByIdLower.get(id.toLowerCase()) || null;
   const categories = splitCategories(row.Category || '');
   if (!categories.length) categories.push(...(wikiItem?.categories || inferredCategories(id)));
-  const displayName = wikiItem?.name || row.WikiPage || id;
+  const displayName = nameFor(id, wikiItem, row.WikiPage);
   const matched = Boolean(wikiItem) || (row.Source === 'Matched' && Boolean(row.WikiPage));
   const wikiPage = wikiItem?.page || row.WikiPage || null;
   const imageFile = wikiItem?.imageFile || null;
   canonical[id] = {
     id, displayName, inventoryMap: inferMap(id, row.TopLevelCategory, categories), internalTag: row.InternalTag || null,
     taxonomy: { group: row.TopLevelCategory || 'Loot', type: categories[0] || null, subtype: categories[1] || null, tags: categories },
-    wiki: { page: wikiPage, pageUrl: wikiPage ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiPage.replace(/ /g, '_'))}` : null, imageFile, imageUrl: imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(imageFile)}` : null, revisionId: null, description: wikiItem?.description || null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
+    wiki: { page: wikiPage, pageUrl: wikiPage ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiPage.replace(/ /g, '_'))}` : null, imageFile, imageUrl: imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(imageFile)}` : null, revisionId: null, description: descriptionFor(id, wikiItem), buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
     match: { method: wikiItem ? 'wiki-cargo-internal-tag' : (matched ? 'legacy-exact-tag' : 'unmatched-reference-id'), confidence: wikiItem ? 1 : (matched ? 0.9 : 0), reviewed: false },
     sources: ['reference-save-2026-07-05', wikiItem ? 'wiki.gg-cargo-items' : (matched ? 'wiki.gg-legacy-export' : 'reference-save-only')]
   };
@@ -114,11 +149,11 @@ if (referenceSnapshot) {
     const wikiItem = wikiById.get(id) || wikiByIdLower.get(id.toLowerCase()) || null;
     const categories = wikiItem?.categories?.length ? wikiItem.categories : inferredCategories(id);
     canonical[id] = {
-      id, displayName: wikiItem?.name || id,
+      id, displayName: nameFor(id, wikiItem),
       inventoryMap: referenceItem.sourceMap === 'Base Weapons' ? 'Weapons' : (referenceItem.sourceMap === 'Damaged Weapons' ? 'DamagedWeapons' : 'Items'),
       internalTag: wikiItem?.internalTag || null,
       taxonomy: { group: referenceItem.sourceMap === 'Base Weapons' ? 'Weapons' : (referenceItem.sourceMap === 'Damaged Weapons' ? 'Damaged Weapons' : 'Loot'), type: categories[0] || null, subtype: categories[1] || null, tags: categories },
-      wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, description: wikiItem?.description || null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
+      wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, description: descriptionFor(id, wikiItem), buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
       match: { method: wikiItem ? 'wiki-cargo-internal-tag' : 'unmatched-reference-id', confidence: wikiItem ? 1 : 0, reviewed: false },
       sources: ['reference-save-2026-07-05', wikiItem ? 'wiki.gg-cargo-items' : 'reference-save-only']
     };
@@ -126,17 +161,22 @@ if (referenceSnapshot) {
 }
 // Admit items the shipped game DataTables define but the reference save never held. Runs
 // AFTER the reference-save intersection above so these survive the prune.
+// Admitting a DataTable spelling that only differs in case from an ID the catalog already
+// carries would list one item twice and, worse, write a second inventory row beside the one
+// the player already holds. The save's own spelling wins, since that is what existing rows use.
+const canonicalIdsLower = new Set(Object.keys(canonical).map(id => id.toLowerCase()));
 const gameAdded = [];
 for (const [id, gameItem] of gameById) {
-  if (canonical[id] || !gameAdmissible(gameItem)) continue;
+  if (canonical[id] || canonicalIdsLower.has(id.toLowerCase()) || !gameAdmissible(gameItem)) continue;
+  canonicalIdsLower.add(id.toLowerCase());
   const wikiItem = wikiById.get(id) || wikiByIdLower.get(id.toLowerCase()) || null;
   const categories = wikiItem?.categories?.length ? wikiItem.categories : inferredCategories(id);
   const group = gameItem.inventoryMap === 'Weapons' ? 'Weapons' : (gameItem.inventoryMap === 'DamagedWeapons' ? 'Damaged Weapons' : 'Loot');
   canonical[id] = {
-    id, displayName: wikiItem?.name || gameItem.displayName || id, inventoryMap: gameItem.inventoryMap,
+    id, displayName: nameFor(id, wikiItem), inventoryMap: gameItem.inventoryMap,
     internalTag: wikiItem?.internalTag || null,
     taxonomy: { group, type: categories[0] || gameItem.category || null, subtype: categories[1] || null, tags: categories },
-    wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, description: wikiItem?.description || gameItem.description || null, buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
+    wiki: { page: wikiItem?.page || null, pageUrl: wikiItem?.page ? `https://theforeverwinter.wiki.gg/wiki/${encodeURIComponent(wikiItem.page.replace(/ /g, '_'))}` : null, imageFile: wikiItem?.imageFile || null, imageUrl: wikiItem?.imageFile ? `https://theforeverwinter.wiki.gg/wiki/Special:Redirect/file/${encodeURIComponent(wikiItem.imageFile)}` : null, revisionId: null, description: descriptionFor(id, wikiItem), buffs: wikiItem?.buffs || null, debuffs: wikiItem?.debuffs || null },
     match: { method: wikiItem ? 'wiki-cargo-internal-tag' : 'game-datatable-row', confidence: wikiItem ? 1 : 0.8, reviewed: false },
     sources: [`game-datatables-${gameSnapshot.gameBuild}`, ...(wikiItem ? ['wiki.gg-cargo-items'] : [])]
   };
@@ -144,7 +184,7 @@ for (const [id, gameItem] of gameById) {
 }
 // Every item carries the DataTable its RowHandle must reference. The game snapshot wins;
 // otherwise fall back to the historical one-table-per-map assumption.
-for (const [id, item] of Object.entries(canonical)) item.dataTablePath = gameById.get(id)?.dataTablePath || DATA_TABLE_BY_MAP[item.inventoryMap] || null;
+for (const [id, item] of Object.entries(canonical)) item.dataTablePath = gameRow(id)?.dataTablePath || DATA_TABLE_BY_MAP[item.inventoryMap] || null;
 for (const [id, patch] of Object.entries(overrides.items || {})) { if (!canonical[id]) throw new Error(`Override refers to unknown reference-save ID: ${id}`); canonical[id] = merge(canonical[id], patch); }
 const sorted = Object.fromEntries(Object.entries(canonical).sort(([a], [b]) => a.localeCompare(b)));
 const catalog = Object.fromEntries(Object.entries(sorted).map(([id, item]) => [id, {

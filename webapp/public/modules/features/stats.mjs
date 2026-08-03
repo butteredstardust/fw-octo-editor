@@ -1,6 +1,6 @@
 import { FW, expose } from '../runtime.mjs';
 import { createChart, destroyCharts, chartFigure, chartTheme, SERIES_COLORS } from '../charts.mjs';
-import { metricGrid } from '../card-ui.mjs';
+import { lifetimeSummaryHtml } from './lifetime-summary.mjs';
 
 const { api, esc, appIcon, showLoading, setRenderedHtml, technicalDetails, CHARACTER_META, loadErrorHtml, emptyStateHtml } = FW;
 
@@ -194,21 +194,7 @@ function metricBar(label, value, max, color = 'var(--amber)', displayValue = fmt
 }
 
 function renderPlayerSummary(player) {
-  const kd = ratio(player.kills, player.deaths);
-  const runTotal = Number(player.extractions || 0) + Number(player.deaths || 0);
-  const extractionRate = percent(player.extractions, runTotal);
-  const display = value => value == null ? '—' : typeof value === 'number' ? fmt(value) : value;
-  const items = [
-    { label: 'Kills', value: display(player.kills), detail: 'Lifetime confirmed kills' },
-    { label: 'Deaths', value: display(player.deaths), detail: 'Lifetime deaths' },
-    { label: 'K/D', value: display(kd), detail: kd == null ? 'Unavailable until at least one death is recorded' : 'Kills divided by deaths' },
-    { label: 'Extractions', value: display(player.extractions), detail: 'Lifetime successful extractions' },
-    { label: 'Extraction rate', value: display(extractionRate == null ? null : `${extractionRate}%`), detail: extractionRate == null ? 'Unavailable until an extraction or death is recorded' : 'Extractions divided by extractions plus deaths' },
-    { label: 'Downed', value: display(player.downed), detail: 'Lifetime downs' },
-    { label: 'Attacks', value: display(player.attacks), detail: 'Lifetime attacks' },
-    { label: 'Total XP', value: display(player.xp), detail: 'Lifetime XP' }
-  ];
-  return `<section class="stats-section"><h3>Lifetime summary</h3>${metricGrid({ className: 'stats-kpi-grid', ariaLabel: 'Lifetime player statistics', items })}</section>`;
+  return `<section class="stats-section"><h3>Lifetime summary</h3>${lifetimeSummaryHtml(player)}</section>`;
 }
 
 function comparisonRows(entries, metric, label) {

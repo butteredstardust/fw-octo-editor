@@ -4,9 +4,12 @@ const execAsync = util.promisify(exec);
 
 async function getGameProcessState(run = execAsync) {
   try {
-    const result = await run('powershell -Command "Get-Process -Name ForeverWinter* -ErrorAction SilentlyContinue | Select-Object -ExpandProperty ProcessName"', {
+    // -NoProfile: a user profile that cannot be loaded (unsigned, blocked by execution
+    // policy) writes its complaint to stderr. That noise used to overrun maxBuffer, and
+    // since this check fails closed, it blocked every write with 'game-process-unknown'.
+    const result = await run('powershell -NoProfile -Command "Get-Process -Name ForeverWinter* -ErrorAction SilentlyContinue | Select-Object -ExpandProperty ProcessName"', {
       encoding: 'utf8',
-      maxBuffer: 4096
+      maxBuffer: 256 * 1024
     });
     const names = result.stdout.split('\n').map(n => n.trim()).filter(Boolean);
     return { known: true, running: names.length > 0, processes: names, error: null };
