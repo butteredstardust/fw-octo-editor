@@ -81,6 +81,14 @@ export function catalogSourceMap(meta = {}) {
   return 'Items';
 }
 
+// The "Damaged Weapons" map (Danglies_0) holds rows from two different DataTables:
+// broken guns from DanglyDetailsData_DroppedWeapons, and rig equipment / turret parts
+// from DanglyDetailsData. They share a map, so only dataTablePath separates them --
+// without this, exo-legs and tactical cameras render as "Destroyed weapons".
+export function isRigEquipment(meta = {}) {
+  return /\/DanglyDetailsData\.DanglyDetailsData$/.test(String(meta.dataTablePath || ''));
+}
+
 // One presentation taxonomy for both Manage Inventory and Add Items. The
 // canonical source map decides weapon state; ordered tags decide family/slot.
 export function itemPresentation(name, meta = {}) {
@@ -93,7 +101,8 @@ export function itemPresentation(name, meta = {}) {
   let cat = 'Other'; let sub = ''; let slot = '';
   const classTag = tags.find((tag, index) => !/^(weapons|destroyed weapons|surplus weapons)$/i.test(tag) &&
     /pistol|rifle|shotgun|submachine|machinegun|grenade launcher/i.test(tag));
-  if (sourceMap !== 'Items') { cat = 'Weapons'; sub = classTag || (sourceMap === 'Damaged Weapons' ? 'Destroyed weapons' : 'Weapon'); }
+  if (sourceMap !== 'Items' && isRigEquipment(meta)) { cat = 'Equipment'; sub = 'Rig equipment'; }
+  else if (sourceMap !== 'Items') { cat = 'Weapons'; sub = classTag || (sourceMap === 'Damaged Weapons' ? 'Destroyed weapons' : 'Weapon'); }
   else if (lower.includes('weapon attachments')) { cat = 'Weapon attachments'; slot = tags[tags.length - 1]; sub = slot === 'Weapon attachments' ? 'Attachment' : slot; }
   else if (lower.includes('weapon parts')) { cat = 'Weapon parts'; slot = tags[tags.length - 1]; sub = slot === 'Weapon parts' ? 'Part' : slot; }
   else if (meta.taxonomyGroup === 'Ammo' || lower.some(tag => tag === 'ammo' || tag === 'grenades')) { cat = 'Ammo'; sub = lower.includes('grenades') ? 'Grenades' : 'Ammunition'; }

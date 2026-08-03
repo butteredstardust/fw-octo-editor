@@ -89,10 +89,10 @@ test('characters, weapon XP, and faction trust cards use shared anatomy without 
   }
   assert.match(characters, /data-action="set-level"/);
   assert.match(characters, /data-action="set-character-xp"/);
-  assert.match(weapons, /<h3 class="weapon-cat">/);
+  assert.match(weapons, /class="weapon-cat"><h3>/);
   assert.match(weapons, /headingLevel: 4/);
   assert.match(weapons, /data-action="set-weapon-xp"/);
-  assert.match(vendors, /bodyHtml: trustTrack\(f\.score\)/);
+  assert.match(vendors, /bodyHtml: `[^`]*\$\{trustTrack\(f\.score\)\}`/);
   assert.match(vendors, /data-action="set-faction"/);
 });
 
@@ -105,21 +105,48 @@ test('hub, vendor roster, and repair recipes use compact shared cards with seman
   assert.match(hub, /<h4 class="hub-group-heading">/);
   assert.match(hub, /data-action="toggle-upgrade"/);
   assert.match(vendorsRepair, /compact: true/);
-  assert.match(vendorsRepair, /cardClass: 'trader-card'/);
+  assert.match(vendorsRepair, /cardClass: `trader-card trader-card--\$\{statusCls\}`/);
   assert.match(vendorsRepair, /cardClass: `repair-card/);
   assert.match(vendorsRepair, /repair-availability/);
   assert.doesNotMatch(vendorsRepair, /repair-card-dot/);
 });
 
 test('Stats, Repair, Rigs, and IFF summaries compose through metricGrid', () => {
-  const stats = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'stats.mjs'), 'utf8');
+  const lifetime = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'lifetime-summary.mjs'), 'utf8');
   const vendorsRepair = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'vendors-repair.mjs'), 'utf8');
   const rigs = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'inventory', 'rigs.mjs'), 'utf8');
-  for (const source of [stats, vendorsRepair, rigs]) assert.match(source, /import \{[^}]*metricGrid/);
-  assert.match(stats, /ariaLabel: 'Lifetime player statistics'/);
+  for (const source of [lifetime, vendorsRepair, rigs]) assert.match(source, /import \{[^}]*metricGrid/);
+  assert.match(lifetime, /ariaLabel: 'Lifetime player statistics'/);
   assert.match(vendorsRepair, /ariaLabel: 'Repair bench summary'/);
   assert.match(vendorsRepair, /ariaLabel: 'Faction IFF chip inventory'/);
   assert.match(rigs, /ariaLabel: 'Rig ownership summary'/);
+});
+
+// The Overview and Stats pages must render the same lifetime numbers from one
+// component -- two copies would drift the moment either is restyled.
+test('the lifetime summary is one component used by both pages', () => {
+  const dashboard = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'dashboard.mjs'), 'utf8');
+  const stats = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'stats.mjs'), 'utf8');
+  for (const source of [dashboard, stats]) assert.match(source, /import \{ lifetimeSummaryHtml \} from '\.\/lifetime-summary\.mjs'/);
+  assert.match(dashboard, /lifetimeSummaryHtml\(stats\.player\)/);
+  const html = fs.readFileSync(path.join(publicRoot, 'index.html'), 'utf8');
+  assert.match(html, /id="dashLifetime"/);
+});
+
+// Every codex the game defines is editable here; the set used to stop at six
+// because three of them were missing from the catalog.
+test('the overview lists all nine codexes and renders them compactly', () => {
+  const dashboard = fs.readFileSync(path.join(publicRoot, 'modules', 'features', 'dashboard.mjs'), 'utf8');
+  const canonical = require('../data/items.canonical.json').items;
+  const listed = [...dashboard.matchAll(/\{ id: '([^']+)'[^}]*group: 'codex' \}/g)].map(match => match[1]);
+  assert.equal(listed.length, 9);
+  for (const id of listed) assert.ok(canonical[id], `${id} is on the overview but absent from the catalog`);
+  const catalogCodexes = Object.keys(canonical).filter(id => /^Codex/i.test(id));
+  assert.deepEqual(listed.slice().sort(), catalogCodexes.slice().sort());
+  // Compact rows, not full cards: nine codex cards pushed the page's other sections off-screen.
+  assert.match(dashboard, /group: 'codex'/);
+  assert.match(dashboard, /function resourceRow/);
+  assert.match(fs.readFileSync(path.join(publicRoot, 'css', 'shared-pages.css'), 'utf8'), /\.resource-compact \{[^}]*grid-template-columns/);
 });
 
 test('shared card CSS owns structure while feature CSS retains domain variants', () => {

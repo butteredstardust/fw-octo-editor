@@ -1,4 +1,5 @@
 import { FW, expose } from '../runtime.mjs';
+import { lifetimeSummaryHtml } from './lifetime-summary.mjs';
 
 const { api, esc, technicalDetails, appIcon, actionIcon, readIntegerInput, setLocalBusy, setOperationFeedback, showLoading, setRenderedHtml, showToast, receiptHtml, CHARACTER_META, prestigeBonus, PRESTIGE_MAX_FOR_WARNING, PRESTIGE_XP_CAP, WEAPON_META, userMessage, errorDetailHtml, loadErrorHtml, emptyStateHtml } = FW;
 function describeItem(...args) { return FW.describeItem(...args); }
@@ -154,7 +155,31 @@ function renderDashInventory(inventory) {
     return;
   }
   const total = inventory.reduce((a, i) => a + i.quantity, 0);
-  setRenderedHtml(el, `<div class="inventory-shortcuts"><div class="inventory-metric"><strong>${inventory.length.toLocaleString()}</strong> item types · ${total.toLocaleString()} total units</div><button class="shortcut" data-action="show-page" data-page-target="inventory">${actionIcon('arrowRight')}Manage inventory</button><button class="shortcut" data-action="show-page" data-page-target="add-items">${actionIcon('arrowRight')}Add items</button></div>`);
+  const categories = new Map();
+  for (const item of inventory) {
+    const category = describeItem(item.name).cat || 'Other';
+    const current = categories.get(category) || { types: 0, units: 0 };
+    current.types += 1;
+    current.units += Number(item.quantity) || 0;
+    categories.set(category, current);
+  }
+  const categoryRows = [...categories.entries()].sort((a, b) => b[1].units - a[1].units).slice(0, 5);
+  const mix = categoryRows.map(([category, values]) => {
+    const width = total > 0 ? Math.max(2, Math.min(100, values.units / total * 100)) : 0;
+    return `<div class="inventory-mix-row">
+      <span class="inventory-mix-name">${esc(category)}</span>
+      <span class="inventory-mix-track" aria-hidden="true"><span style="width:${width.toFixed(1)}%"></span></span>
+      <span class="inventory-mix-value">${values.units.toLocaleString()} <small>units · ${values.types} ${values.types === 1 ? 'type' : 'types'}</small></span>
+    </div>`;
+  }).join('');
+  setRenderedHtml(el, `<div class="overview-metric-grid inventory-overview-metrics">
+      <div class="overview-metric"><span>Item types</span><strong>${inventory.length.toLocaleString()}</strong><small>Distinct inventory entries</small></div>
+      <div class="overview-metric"><span>Total units</span><strong>${total.toLocaleString()}</strong><small>Across every item stack</small></div>
+    </div>
+    <div class="inventory-overview-body">
+      <div class="inventory-mix"><div class="overview-subhead"><h3>Largest categories</h3><span>by total units</span></div>${mix}</div>
+      <div class="inventory-overview-actions"><button class="shortcut overview-primary-action" data-action="show-page" data-page-target="inventory">${actionIcon('arrowRight')}Manage inventory</button><button class="btn-ghost" data-action="show-page" data-page-target="add-items">${actionIcon('add')}Add items</button></div>
+    </div>`);
 }
 
 // Kept local to this module: ES modules do not share vendor-page helpers.
@@ -197,35 +222,94 @@ function renderDashFactionTrust(factions) {
     setRenderedHtml(el, emptyStateHtml('No faction scores found'));
     return;
   }
-  setRenderedHtml(el, `<div class="overview-trust-grid">${factions.map(f => `<article class="overview-trust-card">
-    <div class="overview-trust-meta"><span class="overview-trust-name">${esc(f.faction)}</span><span class="overview-trust-score">${Number(f.score).toLocaleString()}</span></div>
+  const tierOrder = { untrusted: 0, neutral: 1, trusted: 2 };
+  const ordered = [...factions].sort((a, b) => tierOrder[trustTier(a.score)] - tierOrder[trustTier(b.score)] || Number(a.score) - Number(b.score));
+  const counts = ordered.reduce((result, faction) => {
+    result[trustTier(faction.score)] += 1;
+    return result;
+  }, { untrusted: 0, neutral: 0, trusted: 0 });
+  const summary = ['untrusted', 'neutral', 'trusted'].map(tier => `<span class="trust-summary-item trust-summary-item--${tier}"><b>${counts[tier]}</b> ${tier}</span>`).join('');
+  setRenderedHtml(el, `<div class="overview-trust-summary" aria-label="Faction trust summary">${summary}</div><div class="overview-trust-grid">${ordered.map(f => {
+    const tier = trustTier(f.score);
+    return `<article class="overview-trust-card overview-trust-card--${tier}">
+    <span class="overview-trust-monogram" aria-hidden="true">${esc(String(f.faction || '?').trim().charAt(0).toUpperCase() || '?')}</span>
+    <div class="overview-trust-content"><div class="overview-trust-meta"><span class="overview-trust-name">${esc(f.faction)}</span><span class="overview-trust-tier">${esc(TRUST_TIER_LABEL[tier])}</span></div>
     ${trustTrack(f.score)}
-  </article>`).join('')}</div>`);
+    <span class="overview-trust-score">Score ${Number(f.score).toLocaleString()}</span></div>
+  </article>`; }).join('')}</div>`);
 }
 
 // Resource cards: Water + Credits (Currencies table), the three drones, and
-// the six Codex variants (all TempInventory items; Drones/Codex reuse the
+// the nine Codex variants (all TempInventory items; Drones/Codex reuse the
 // inventory update/add endpoints). Codex items are the highest-value loot
 // in the game (boss-drop crafting/quest materials -- see
 // https://theforeverwinter.wiki.gg/wiki/Codex), not a lore/collectible
 // system, so they're presented the same way as any other trackable
-// resource. Only variants confirmed present in the 100% reference save are
-// listed here (items.canonical.json); the wiki also names Toothy, OrgaMech,
-// and Kotleta Codex variants that aren't yet in the canonical catalog, so
-// they're intentionally omitted rather than guessed.
+// resource. All nine the wiki documents are listed: each is a distinct
+// DataTable row in items.canonical.json, named after the boss that drops it.
+//
+// Water and Credits keep the full card -- they're the two values most often
+// edited, and their magnitudes are worth the space. Drones and codexes are
+// small fixed sets of like-for-like counters, so they render as compact rows
+// where the name, the count and the editor sit on one line: nine full-height
+// codex cards pushed everything below them off the first screen.
 const RESOURCE_DEFS = [
-  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Resource' },
-  { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits' },
-  { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel Drone', icon: '🚁', cat: 'Utility Drone' },
-  { id: 'Drone_Construction', kind: 'inventory', label: 'Construction Drone', icon: '🔧', cat: 'Utility Drone' },
-  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery Drone', icon: '🛰️', cat: 'Utility Drone' },
-  { id: 'Codex.RatKing', kind: 'inventory', label: 'Rat King Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.MediumMech', kind: 'inventory', label: 'Medium Mech Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.Grabber', kind: 'inventory', label: 'Grabber Codex', icon: '📖', cat: 'Codex' },
-  { id: 'CodexShieldOfficer', kind: 'inventory', label: 'Shield Officer Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.MotherCourage', kind: 'inventory', label: 'Mother Courage Codex', icon: '📖', cat: 'Codex' },
-  { id: 'Codex.Opal', kind: 'inventory', label: 'Opal Codex', icon: '📖', cat: 'Codex' }
+  { id: 'WaterBarrels', kind: 'currency', label: 'Water', icon: '💧', cat: 'Resource', group: 'primary' },
+  { id: 'TestCurrency', kind: 'currency', label: 'Credits', icon: '💰', cat: 'Credits', group: 'primary' },
+  { id: 'Drone_FastTravel', kind: 'inventory', label: 'Fast Travel', icon: '🚁', cat: 'Utility Drone', group: 'drones' },
+  { id: 'Drone_Construction', kind: 'inventory', label: 'Construction', icon: '🔧', cat: 'Utility Drone', group: 'drones' },
+  { id: 'Drone_Recovery', kind: 'inventory', label: 'Recovery', icon: '🛰️', cat: 'Utility Drone', group: 'drones' },
+  { id: 'Codex.RatKing', kind: 'inventory', label: 'Rat King', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.MediumMech', kind: 'inventory', label: 'Medium Mech', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Grabber', kind: 'inventory', label: 'Grabber', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'CodexShieldOfficer', kind: 'inventory', label: 'Shield Officer', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.MotherCourage', kind: 'inventory', label: 'Mother Courage', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Opal', kind: 'inventory', label: 'Opal', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Orga', kind: 'inventory', label: 'Orga', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'Codex.Toothy', kind: 'inventory', label: 'Toothy', icon: '📖', cat: 'Codex', group: 'codex' },
+  { id: 'CodexMeatMan', kind: 'inventory', label: 'Kotleta', icon: '📖', cat: 'Codex', group: 'codex' }
 ];
+
+const RESOURCE_GROUPS = [
+  { key: 'primary', className: 'resource-primary' },
+  { key: 'drones', className: 'resource-compact', title: 'Utility drones' },
+  { key: 'codex', className: 'resource-compact', title: 'Codexes', hint: 'One per boss — the rarest loot in the game.' }
+];
+
+// The editor is identical for every resource; only the surrounding card
+// changes between the full and compact presentations. The compact rows drop
+// the category off the visible name to stay on one line, so the accessible
+// name puts it back -- "Rat King" alone doesn't say what is being edited.
+function resourceEditor(def, owned, accessibleName) {
+  return `<div class="res-controls value-editor-pair">
+      <input type="number" class="res-input value-editor" id="res-${def.id}" placeholder="qty" min="0" max="2147483647" step="1" aria-label="New quantity for ${esc(accessibleName)}">
+      ${def.kind === 'currency' || owned ? `<button type="button" class="res-set icon-only" data-value-submit data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(accessibleName)} quantity">${actionIcon('check')}<span class="sr-only">Set ${esc(accessibleName)}</span></button>` : ''}
+      ${def.kind === 'inventory' && !owned ? `<button type="button" class="res-add icon-only" data-value-submit data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(accessibleName)}">${actionIcon('add')}<span class="sr-only">Add ${esc(accessibleName)}</span></button>` : ''}
+    </div>`;
+}
+
+function resourceCard(def, current, owned) {
+  return `<div class="res-card ${def.kind === 'currency' ? 'metric' : 'utility'}">
+      <div class="res-head">
+        <span class="res-icon">${appIcon(def.icon)}</span>
+        <span class="res-name">${esc(def.label)}</span>
+        <span class="res-cat">${esc(def.cat)}</span>
+      </div>
+      <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
+      ${resourceEditor(def, owned, def.label)}
+      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
+    </div>`;
+}
+
+function resourceRow(def, current, owned) {
+  return `<div class="res-row ${owned || def.kind === 'currency' ? '' : 'is-absent'}">
+      <span class="res-row__icon">${appIcon(def.icon)}</span>
+      <span class="res-row__name" title="${esc(def.label)} ${esc(def.cat)}">${esc(def.label)}</span>
+      <output class="res-row__value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
+      ${resourceEditor(def, owned, `${def.label} ${def.cat}`)}
+      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
+    </div>`;
+}
 
 function renderDashResources(dash) {
   const el = document.getElementById('dashResources');
@@ -234,31 +318,22 @@ function renderDashResources(dash) {
   if (dash && dash.inventory) {
     for (const i of dash.inventory) invByName[i.name] = i.quantity;
   }
+  const valueOf = def => (def.kind === 'currency'
+    ? (currencies[def.id] != null ? currencies[def.id] : 0)
+    : (invByName[def.id] != null ? invByName[def.id] : 0));
 
-  let html = '<div class="resource-primary">';
-  for (const def of RESOURCE_DEFS) {
-    const current = def.kind === 'currency'
-      ? (currencies[def.id] != null ? currencies[def.id] : 0)
-      : (invByName[def.id] != null ? invByName[def.id] : 0);
-    const owned = def.kind === 'inventory' && invByName[def.id] != null;
-    if (def.id === 'Drone_FastTravel') html += '</div><div class="resource-secondary">';
-    else if (def.id === 'Codex.RatKing') html += '</div><div class="resource-tertiary">';
-    html += `<div class="res-card ${def.kind === 'currency' ? 'metric' : 'utility'}">
-      <div class="res-head">
-        <span class="res-icon">${appIcon(def.icon)}</span>
-        <span class="res-name">${esc(def.label)}</span>
-        <span class="res-cat">${esc(def.cat)}</span>
-      </div>
-      <output class="res-value" id="resvalue-${def.id}">${Number(current).toLocaleString()}</output>
-      <div class="res-controls value-editor-pair">
-        <input type="number" class="res-input value-editor" id="res-${def.id}" placeholder="new qty" min="0" max="2147483647" step="1" aria-label="New quantity for ${esc(def.label)}">
-        ${def.kind === 'currency' || owned ? `<button type="button" class="res-set icon-only" data-value-submit data-action="set-resource" data-id="${esc(def.id)}" data-kind="${esc(def.kind)}" title="Set ${esc(def.label)} quantity">${actionIcon('check')}<span class="sr-only">Set</span></button>` : ''}
-        ${def.kind === 'inventory' && !owned ? `<button type="button" class="res-add icon-only" data-value-submit data-action="add-resource" data-id="${esc(def.id)}" title="Add ${esc(def.label)}">${actionIcon('add')}<span class="sr-only">Add</span></button>` : ''}
-      </div>
-      <div class="res-msg" id="resmsg-${def.id}" role="status" aria-live="polite"></div>
-    </div>`;
-  }
-  html += '</div>';
+  const html = RESOURCE_GROUPS.map(group => {
+    const defs = RESOURCE_DEFS.filter(def => def.group === group.key);
+    if (!defs.length) return '';
+    const cells = defs.map(def => {
+      const owned = def.kind === 'inventory' && invByName[def.id] != null;
+      return group.key === 'primary' ? resourceCard(def, valueOf(def), owned) : resourceRow(def, valueOf(def), owned);
+    }).join('');
+    const heading = group.title
+      ? `<div class="resource-group__head"><h3 class="resource-group__title">${esc(group.title)}</h3>${group.hint ? `<p class="resource-group__hint">${esc(group.hint)}</p>` : ''}</div>`
+      : '';
+    return `<section class="resource-group">${heading}<div class="${group.className}">${cells}</div></section>`;
+  }).join('');
   setRenderedHtml(el, html);
 }
 
@@ -330,19 +405,22 @@ function renderDashVault(vault) {
   if (!vault) { setRenderedHtml(el, loadErrorHtml('the vault', null)); return; }
   const items = vault.items || [];
   const amount = (vault.currency && vault.currency.amount) || 0;
-  const itemChips = items.length
-    ? items.map(item => {
-        const meta = WEAPON_META[item.name];
-        const label = meta ? meta.name : describeItem(item.name).wiki;
-        return `<span class="stat-chip" title="${esc(item.tag || item.name)}">${esc(label)}<b>&times;${item.quantity}</b></span>`;
-      }).join('')
-    : '<span class="dash-empty">No items in the vault</span>';
+  const totalUnits = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+  const ordered = [...items].sort((a, b) => Number(b.quantity) - Number(a.quantity));
+  const itemRow = item => {
+    const meta = WEAPON_META[item.name];
+    const label = meta ? meta.name : describeItem(item.name).wiki;
+    return `<div class="vault-item-row"><span>${esc(label)} ${technicalDetails(item.tag || item.name, 'Show vault item technical ID')}</span><b>&times;${Number(item.quantity).toLocaleString()}</b></div>`;
+  };
+  const visible = ordered.slice(0, 5).map(itemRow).join('');
+  const remaining = ordered.slice(5).map(itemRow).join('');
   setRenderedHtml(el, `
-    <div class="dash-stats">
-      <div><span class="k">Vault Credits</span><span class="v">${amount.toLocaleString()}</span></div>
-      <div><span class="k">Vault Items</span><span class="v">${items.length}</span></div>
+    <div class="overview-metric-grid vault-overview-metrics">
+      <div class="overview-metric"><span>Credits</span><strong>${amount.toLocaleString()}</strong></div>
+      <div class="overview-metric"><span>Item types</span><strong>${items.length.toLocaleString()}</strong></div>
+      <div class="overview-metric"><span>Total units</span><strong>${totalUnits.toLocaleString()}</strong></div>
     </div>
-    <div class="stats-chips">${itemChips}</div>
+    ${items.length ? `<div class="vault-item-list">${visible}</div>${remaining ? `<details class="vault-more"><summary>Show ${ordered.length - 5} more ${ordered.length - 5 === 1 ? 'item' : 'items'}</summary><div class="vault-item-list">${remaining}</div></details>` : ''}` : '<p class="dash-empty vault-empty">No items in the vault</p>'}
   `);
 }
 
@@ -353,15 +431,17 @@ async function loadDashboard() {
   showLoading(document.getElementById('dashFactionTrust'), 3, 'Loading faction trust');
   showLoading(document.getElementById('dashResources'), 5, 'Loading resources');
   showLoading(document.getElementById('dashVault'), 2, 'Loading vault');
+  showLoading(document.getElementById('dashLifetime'), 2, 'Loading lifetime summary');
   try {
     await loadCatalog();
     // Game/writes status pills are refreshSafetyStatus()'s responsibility
     // (system.mjs) -- it's the single source of truth, called on its own
     // poll interval, so this doesn't duplicate that fetch.
-    const [dash, vendors, vault] = await Promise.all([
+    const [dash, vendors, vault, stats] = await Promise.all([
       api('/dashboard').catch(() => null),
       api('/vendors').catch(() => null),
-      api('/vault').catch(() => null)
+      api('/vault').catch(() => null),
+      api('/stats').catch(() => null)
     ]);
     if (dash) {
       renderDashCharacter(dash.character, dash.loadout);
@@ -377,6 +457,9 @@ async function loadDashboard() {
     }
     renderDashFactionTrust(vendors && vendors.factions);
     renderDashVault(vault);
+    setRenderedHtml(document.getElementById('dashLifetime'), stats
+      ? lifetimeSummaryHtml(stats.player)
+      : loadErrorHtml('lifetime statistics', null));
   } catch (err) {
     const failMsg = loadErrorHtml('dashboard data', err);
     setRenderedHtml(document.getElementById('dashCharacter'), failMsg);
@@ -385,8 +468,8 @@ async function loadDashboard() {
     setRenderedHtml(document.getElementById('dashFactionTrust'), failMsg);
     setRenderedHtml(document.getElementById('dashResources'), failMsg);
     setRenderedHtml(document.getElementById('dashVault'), failMsg);
+    setRenderedHtml(document.getElementById('dashLifetime'), failMsg);
   }
 }
 
 expose({ loadDashboard, setResource, addResource });
-

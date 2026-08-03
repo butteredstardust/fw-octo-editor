@@ -415,6 +415,34 @@ For GVAS/inventory writes, follow `gvasService.js`:
 - Rig data lives in `data/rigs.json`.
 - Generation scripts in `scripts/` fetch wiki snapshots and produce the canonical files.
 
+### 6. Item Data Sources
+
+`npm run items:generate` merges three input snapshots in `data/`; the wiki is no longer the
+authority for item identity:
+
+| Snapshot | Produced by | Authority for |
+|---|---|---|
+| `game-items.snapshot.json` | **No npm script — extracted out-of-repo, see below** | Item IDs, `dataTablePath`, `inventoryMap`, in-game names/descriptions |
+| `wiki-items.snapshot.json` | `npm run items:fetch-wiki` | Portrait filenames, prose the game omits |
+| `reference-items.snapshot.json` | `npm run items:extract-reference` | Cross-check against a real 100% save |
+
+`game-items.snapshot.json` is extracted from the game's own shipped DataTables
+(`ItemDetailsData`, `WeaponsDetailsData`, `DanglyDetailsData`,
+`DanglyDetailsData_DroppedWeapons`, `QuestItemDetailsData`) with **CUE4Parse plus a
+build-matched `Mappings.usmap`** from the modding kit — a .NET toolchain that is
+deliberately *not* a repo dependency, since `express`-only is a project constraint and this
+is an offline generation step, not a runtime one. The committed snapshot records its
+`gameBuild`; refresh it only when a game patch changes the tables, then re-run
+`items:generate` and `recipes:generate`. Rows carrying a non-empty `problems` array are
+internal/unfinished and are not admitted to the catalog.
+
+Two Dangly tables share the single `Danglies_0` GVAS map (broken weapons vs. rig equipment
+and turret parts), so `inventoryMap` alone cannot build a resolvable RowHandle — only
+`dataTablePath` can. That is why it is carried per item all the way through to
+`public/catalog.json` and read back by `dataTableFor()` in
+`services/gvas/inventory-write.js`; `test/inventoryEntry.test.js` guards the handle that
+actually gets written.
+
 ## Technical Debt & Architectural Observations
 
 ### Security

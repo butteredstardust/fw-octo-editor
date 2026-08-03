@@ -62,6 +62,20 @@ test('application dialogs replace blocking browser alert and confirm calls', () 
   assert.match(frontendCss, /\.dialog-actions \{ display:flex; flex-wrap:wrap/);
 });
 
+test('every feature page except Overview uses the shared visual header', () => {
+  const pages = [...html.matchAll(/<div class="page(?: active)?" id="page-([^"]+)">([\s\S]*?)(?=<div class="page(?: active)?" id="page-|<\/main>)/g)];
+  for (const [, id, body] of pages) {
+    if (id === 'dashboard') {
+      assert.doesNotMatch(body, /class="[^"]*feature-page-head/);
+      continue;
+    }
+    assert.match(body, /class="[^"]*feature-page-head/, `page-${id} should use the shared feature header`);
+    assert.match(body, /class="feature-page-icon"/, `page-${id} should have a header icon`);
+    assert.match(body, /class="feature-page-copy"/, `page-${id} should have header copy`);
+    assert.match(body, /<span class="eyebrow">[^<]+<\/span><h2[ >]/, `page-${id} should have an eyebrow and h2`);
+  }
+});
+
 test('interpolated hub and inventory category/name text is escaped', () => {
   // Regression guard: these were previously interpolated raw while sibling
   // fields on the same rendered card were already escaped. Hub titles now
@@ -290,7 +304,7 @@ test('vendors render as cards with an accessible three-stage trust track', () =>
   assert.match(frontendJs, /function trustTrack\(score\)/);
   assert.match(frontendJs, /class="trust-track" role="img" aria-label=/);
   assert.match(frontendJs, /class="trader-grid"/);
-  assert.match(frontendJs, /cardClass: 'trader-card'/);
+  assert.match(frontendJs, /cardClass: `trader-card trader-card--\$\{statusCls\}`/);
   assert.match(frontendCss, /\.trust-track-labels/);
   assert.match(frontendJs, /<span>Untrusted<\/span><span>Neutral<\/span><span>Trusted<\/span>/);
 });
@@ -357,10 +371,12 @@ test('the weapon XP intro cites the real reference-save value, not a stale examp
   assert.match(html, /PST02\s*=\s*186/);
 });
 
-test('overview surfaces read-only faction trust with a vendor shortcut', () => {
+test('overview leads with actionable inventory, then read-only vault and faction trust', () => {
   const overview = html.match(/id="page-dashboard">([\s\S]*?)<div class="page" id="page-characters">/)[1];
-  assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashFactionTrust"'));
-  assert.ok(overview.indexOf('id="dashFactionTrust"') < overview.indexOf('id="dashInventory"'));
+  assert.ok(overview.indexOf('id="dashResources"') < overview.indexOf('id="dashInventory"'));
+  assert.ok(overview.indexOf('id="dashInventory"') < overview.indexOf('id="dashVault"'));
+  assert.ok(overview.indexOf('id="dashVault"') < overview.indexOf('id="dashFactionTrust"'));
+  assert.match(overview, /overview-readonly-badge[^>]*>[\s\S]*Read-only/);
   assert.match(overview, /data-page-target="vendors"/);
   assert.match(frontendJs, /function renderDashFactionTrust\(factions\)/);
   assert.match(frontendJs, /api\('\/vendors'\)\.catch/);

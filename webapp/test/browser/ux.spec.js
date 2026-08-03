@@ -33,6 +33,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/status') body = { gameRunning: [], compatibility: { compatible: true }, writeReady: true, mutation: {}, activeSaveDir: 'fixture', blockingReasons: [] };
     else if (pathname === '/api/dashboard') body = options.dashboard || { character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 }, loadout: {}, quests: [], inventory: [], currencies: { WaterBarrels: 10, TestCurrency: 20 } };
     else if (pathname === '/api/vendors') body = options.vendors || { factions: [], traders: [] };
+    else if (pathname === '/api/vault') body = options.vault || { items: [], currency: { amount: 0 } };
     else if (pathname === '/api/characters') body = options.characters || [];
     else if (/^\/api\/characters\/[^/]+\/details$/.test(pathname)) body = options.characterDetails || { xp: 0, skills: [] };
     else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
@@ -218,8 +219,18 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   await expect(preset.locator('.card-ui__header h3')).toContainText('<img data-card-probe src=x>');
   await expect(preset.locator('[data-card-probe]')).toHaveCount(0);
   await expect(preset.locator('.card-ui__status .preset-badge.active')).toContainText('Active');
+  await expect(preset.locator('.card-ui__status .preset-badge.score')).toHaveText('Build score 4');
+  await expect(preset.locator('.card-ui__status')).not.toContainText('Match 4');
   await expect(preset.locator('.card-ui__footer')).toContainText('No recommended-build comparison available.');
   expect(await preset.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  const [presetIdentityBox, presetStatusBox] = await Promise.all([
+    preset.locator('.card-ui__identity').boundingBox(),
+    preset.locator('.card-ui__status').boundingBox()
+  ]);
+  expect(presetIdentityBox.width).toBeGreaterThan(180);
+  expect(presetStatusBox.y).toBeGreaterThanOrEqual(presetIdentityBox.y + presetIdentityBox.height - 1);
+  expect(Math.abs(presetStatusBox.x - presetIdentityBox.x)).toBeLessThanOrEqual(1);
 
   await page.goto(`${baseURL}/#crafting`);
   const recipe = page.locator('.recipe-card.card-ui').first();
@@ -240,7 +251,7 @@ test('shared entity cards keep consistent anatomy, escaped content, and narrow l
   expect(await recipe.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
-test('weapon XP icon controls stay centered and match responsive control sizing', async ({ page }) => {
+test('weapon XP actions use clear labels and responsive control sizing', async ({ page }) => {
   const weaponXp = [{ weapon: 'Fixture.Weapon', xp: 10 }];
   await mockApi(page, { weaponXp, weaponReference: { 'Fixture.Weapon': 100 } });
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -248,13 +259,12 @@ test('weapon XP icon controls stay centered and match responsive control sizing'
 
   const card = page.locator('.weapon-card.card-ui');
   const input = card.locator('.weapon-actions input');
-  const buttons = card.locator('.weapon-actions .icon-only');
+  const buttons = card.locator('.weapon-actions button');
   await expect(buttons).toHaveCount(2);
+  await expect(buttons).toHaveText(['Set', '100k']);
   const inputBox = await input.boundingBox();
   for (const button of await buttons.all()) {
-    const [buttonBox, iconBox] = await Promise.all([button.boundingBox(), button.locator('.action-icon').boundingBox()]);
-    expect(Math.abs((buttonBox.x + buttonBox.width / 2) - (iconBox.x + iconBox.width / 2))).toBeLessThanOrEqual(1);
-    expect(Math.abs((buttonBox.y + buttonBox.height / 2) - (iconBox.y + iconBox.height / 2))).toBeLessThanOrEqual(1);
+    const buttonBox = await button.boundingBox();
     expect(Math.abs(buttonBox.height - inputBox.height)).toBeLessThanOrEqual(1);
   }
 
@@ -283,6 +293,47 @@ test('dashboard empty states share anatomy and offer a direct inventory recovery
   await expect(page.locator('#backupList .empty-state__title')).toHaveText('No application backups found');
 });
 
+test('overview inventory, vault, and faction trust emphasize useful summaries and actions', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, {
+    dashboard: {
+      character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 },
+      loadout: {}, quests: [], currencies: { WaterBarrels: 10, TestCurrency: 20 },
+      inventory: [
+        { name: 'Drone_FastTravel', quantity: 8 },
+        { name: 'Drone_Construction', quantity: 3 },
+        { name: 'Drone_Recovery', quantity: 1 }
+      ]
+    },
+    vault: {
+      currency: { amount: 12345 },
+      items: Array.from({ length: 7 }, (_, index) => ({ name: `Vault_Item_${index}`, tag: `Vault.Tag.${index}`, quantity: index + 1 }))
+    },
+    vendors: { factions: [
+      { faction: 'Trusted faction', score: 160000 },
+      { faction: 'Neutral faction', score: 500 },
+      { faction: 'Untrusted faction', score: -10 }
+    ], traders: [] }
+  });
+  await page.goto(`${baseURL}/#dashboard`);
+
+  await expect(page.locator('.inventory-overview-metrics .overview-metric strong')).toHaveText(['3', '12']);
+  await expect(page.locator('.inventory-mix-row')).not.toHaveCount(0);
+  await expect(page.locator('.inventory-overview-actions button').first()).toContainText('Manage inventory');
+
+  await expect(page.locator('.vault-overview-metrics .overview-metric strong')).toHaveText(['12,345', '7', '28']);
+  await expect(page.locator('#dashVault > .vault-item-list .vault-item-row')).toHaveCount(5);
+  await expect(page.locator('.vault-more > summary')).toHaveText('Show 2 more items');
+
+  await expect(page.locator('.overview-trust-summary')).toContainText('1 untrusted');
+  await expect(page.locator('.overview-trust-name')).toHaveText(['Untrusted faction', 'Neutral faction', 'Trusted faction']);
+  await expect(page.locator('.overview-trust-tier')).toHaveText(['Untrusted (I)', 'Neutral (II)', 'Trusted (III)']);
+  for (const selector of ['.overview-card--inventory', '.overview-card--vault', '.overview-card--trust']) {
+    const card = page.locator(selector);
+    expect(await card.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  }
+});
+
 test('editable entity cards preserve headings, states, controls, and narrow containment', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 740 });
   const probe = '<img data-editable-card-probe src=x>';
@@ -303,7 +354,7 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
 
   await page.goto(`${baseURL}/#weapon-xp`);
   const weapon = page.locator('.weapon-card.card-ui');
-  await expect(page.locator('.weapon-cat')).toHaveJSProperty('tagName', 'H3');
+  await expect(page.locator('.weapon-cat h3')).toHaveJSProperty('tagName', 'H3');
   await expect(weapon.locator('h4.card-ui__title')).toContainText(probe);
   await expect(weapon.locator('.card-ui__footer [data-action="set-weapon-xp"]')).toHaveCount(2);
   await expect(weapon.locator('[data-editable-card-probe]')).toHaveCount(0);
@@ -311,7 +362,7 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
 
   await page.goto(`${baseURL}/#vendors`);
   const vendor = page.locator('.vendor-card.card-ui');
-  await expect(page.locator('h3.vendor-section-title', { hasText: 'Vendors' })).toHaveCount(1);
+  await expect(page.locator('h3.vendor-section-title', { hasText: 'Vendor access' })).toHaveCount(1);
   await expect(page.locator('h3.vendor-section-title', { hasText: 'Faction trust' })).toHaveCount(1);
   await expect(vendor.locator('h4.card-ui__title')).toContainText(probe);
   await expect(vendor.locator('.card-ui__status .vendor-tier')).toContainText('Neutral');
@@ -319,6 +370,41 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
   await expect(vendor.locator('.card-ui__footer [data-action="set-faction"]')).toHaveCount(4);
   await expect(vendor.locator('[data-editable-card-probe]')).toHaveCount(0);
   expect(await vendor.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
+test('Vendors prioritizes faction trust, integrates unlocks, and keeps stock secondary', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, { vendors: {
+    factions: [
+      { faction: 'Europa', scope: 'Scope.Faction.Europa', score: 160000 },
+      { faction: 'Eurasia', scope: 'Scope.Faction.Eurasia', score: -50 },
+      { faction: 'Euruska', scope: 'Scope.Faction.Euruska', score: 500 }
+    ],
+    traders: [
+      { key: 'Trader.Kane.Unlocked', unlocked: false },
+      { key: 'Trader.Luca.Unlocked', unlocked: true }
+    ],
+    economy: {
+      nextResetEvent: '2099-01-01T00:00:00.000Z',
+      vendors: [{ name: 'AmmoVendor_V1', lastReset: null, consumedItems: [{ itemId: 'Drone_FastTravel', quantity: 2 }] }]
+    }
+  } });
+  await page.goto(`${baseURL}/#vendors`);
+
+  await expect(page.locator('.vendor-page-summary .vendor-summary-tile strong')).toContainText(['8', '1', '1', '1']);
+  await expect(page.locator('.vendor-page-section').first()).toHaveClass(/vendor-page-section--trust/);
+  await expect(page.locator('.vendor-card .card-ui__title')).toContainText(['Eurasia', 'Euruska', 'Europa']);
+
+  const kane = page.locator('.trader-card', { has: page.locator('h4', { hasText: 'Kane' }) });
+  const luca = page.locator('.trader-card', { has: page.locator('h4', { hasText: 'Luca' }) });
+  await expect(kane.locator('.vendor-unlock-control .trader-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(luca.locator('.vendor-unlock-control .trader-toggle')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.trader-card-toggle')).toHaveCount(0);
+
+  const stock = page.locator('.vendor-stock-disclosure');
+  await expect(stock).not.toHaveAttribute('open', '');
+  await expect(stock.locator(':scope > summary')).toContainText('1 shops');
+  expect(await page.locator('#page-vendors').evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
 test('shared status badges preserve card anatomy, domain hooks, and narrow containment', async ({ page }) => {
@@ -403,12 +489,22 @@ test('shared metric grids preserve values, descriptions, zero states, and narrow
   });
 
   await page.goto(`${baseURL}/#stats`);
-  const statsGrid = page.locator('dl.stats-kpi-grid');
-  await expect(statsGrid.locator('dt')).toHaveCount(8);
-  await expect(statsGrid.locator('dd')).toHaveCount(8);
+  // Kills, K/D and extraction rate lead the summary as a hero figure, a ratio and
+  // a meter; the remaining five counts stay ordinary metric-grid tiles.
+  const lifetime = page.locator('#page-stats .lifetime');
+  await expect(lifetime.locator('.lifetime-hero__value')).toHaveText('12');
+  await expect(lifetime.locator('.lifetime-ratio__value')).toHaveText('4.00');
+  await expect(lifetime.locator('.lifetime-meter__value')).toHaveText('70%');
+  // Scoped to the Stats page: the Overview renders the very same component, so an
+  // unscoped locator matches both copies in the SPA's always-present markup.
+  const statsGrid = page.locator('#page-stats dl.lifetime-kpis');
+  await expect(page.locator('dl.lifetime-kpis')).toHaveCount(2);
+  await expect(statsGrid.locator('dt')).toHaveCount(5);
+  await expect(statsGrid.locator('dd')).toHaveCount(5);
   await expect(statsGrid).toContainText('12,345');
-  await expect(statsGrid).toContainText('Lifetime XP');
+  await expect(statsGrid).toContainText('Total XP');
   expect(await statsGrid.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  expect(await lifetime.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 
   await page.goto(`${baseURL}/#repair`);
   const repairSummary = page.locator('dl[aria-label="Repair bench summary"]');
@@ -824,7 +920,14 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   } });
   await page.goto(baseURL);
   await page.evaluate(() => document.querySelector('[data-page="stats"]').click());
-  await expect(page.locator('.stats-kpi-grid .metric-tile')).toContainText(['12', '3', '4.00', '9']);
+  // The page leads with the player’s own record, then groups related detail
+  // into friendly cards instead of presenting one uninterrupted sheet.
+  await expect(page.locator('.stats-dashboard-intro')).toContainText('Read-only field report');
+  await expect(page.locator('#statsContent > .stats-section').first()).toHaveClass(/stats-section--summary/);
+  await expect(page.locator('#statsContent .stats-story-grid').first().locator('.stats-section__icon')).toHaveCount(2);
+  await expect(page.locator('#page-stats .lifetime-hero__value')).toHaveText('12');
+  await expect(page.locator('#page-stats .lifetime-ratio__value')).toHaveText('4.00');
+  await expect(page.locator('.lifetime-kpis .metric-tile')).toContainText(['3', '1', '9', '20']);
   // Faction combat profile uses a horizontal grouped bar plus paired data
   // table. Unknown/new faction keys remain in both the denominator and the
   // output, so the shares stay honest after a game update.
@@ -844,33 +947,15 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   await expect(modSplitRows.nth(0).locator('td')).toHaveText(['Damage', '750', '75.0%', '250', '25.0%']);
   await expect(modSplitRows.nth(1).locator('td')).toHaveText(['Kills', '6', '75.0%', '2', '25.0%']);
 
-  // Map activity and Combat by Character are now small-multiples figures
-  // (chartFigure's `panels` option -- one single-series canvas per metric,
-  // see charts.mjs and stats.mjs's STATUS_GREEN/RED/AMBER comment for why
-  // a single three-series grouped bar was dropped: no green/red/amber
-  // triple clears the dataviz-skill validator's CVD floor while also
-  // staying distinct from the on-page faction colors).
-  const mapFigure = page.locator('[data-chart="stats-chart-maps"]');
-  await expect(mapFigure).toHaveCount(1);
-  // Three single-series panels (Entries / Extractions / Deaths), each its
-  // own canvas with its own accessible name -- not one three-series
-  // grouped bar with one combined aria-label.
-  await expect(mapFigure.locator('canvas')).toHaveCount(3);
-  await expect(mapFigure.locator('[role="img"][aria-label="Entries by map"]')).toHaveCount(1);
-  await expect(mapFigure.locator('[role="img"][aria-label="Extractions by map"]')).toHaveCount(1);
-  await expect(mapFigure.locator('[role="img"][aria-label="Deaths by map"]')).toHaveCount(1);
-  await expect(mapFigure.locator('.chart-data-table caption')).toHaveText('Map activity');
-  const mapRow = mapFigure.locator('.chart-data-table tbody tr').first();
-  await expect(mapRow.locator('td')).toHaveText(['Ashen Mesa', '10', '7', '4', '70%', '40%', 'L_AshenMesa_WP']);
-  const tunnelRow = mapFigure.locator('.chart-data-table tbody tr').nth(1);
-  await expect(tunnelRow.locator('td').first()).toHaveText('Tunnel B');
-  await expect(tunnelRow.locator('td').last()).toHaveText('Dungeon_Tunnel2_01, Dungeon_Tunnel2_04');
-  // Extraction rate / death rate are restored as visible information, not
-  // just table cells behind the "Show data table" disclosure -- the old
-  // browser test asserted these exact percentages before the chart
-  // rewrite silently dropped them.
-  await expect(page.locator('.stats-rate-list')).toContainText('extraction rate 70%');
-  await expect(page.locator('.stats-rate-list')).toContainText('death rate 40%');
+  // Map activity uses compact ranked rows instead of three tall chart panels.
+  // Counts, rates, and grouped source IDs remain present and accessible.
+  const mapRows = page.locator('.map-activity-row');
+  await expect(mapRows).toHaveCount(2);
+  await expect(mapRows.first().locator('.map-activity-place h4')).toHaveText('Ashen Mesa');
+  await expect(mapRows.first().locator('.map-activity-metrics dd')).toHaveText(['10', '7', '4']);
+  await expect(mapRows.first().locator('.map-activity-rate')).toHaveAttribute('aria-label', 'Extraction rate 70%; death rate 40%');
+  await expect(mapRows.nth(1).locator('.map-activity-place h4')).toHaveText('Tunnel B');
+  await expect(mapRows.nth(1).locator('.technical-details')).toContainText('Dungeon_Tunnel2_01, Dungeon_Tunnel2_04');
 
   const charactersFigure = page.locator('[data-chart="stats-chart-characters"]');
   await expect(charactersFigure.locator('canvas')).toHaveCount(3);
@@ -881,6 +966,7 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   await expect(territoryFigure.locator('.chart-data-table thead')).toContainText(probe);
   await expect(territoryFigure.locator('.chart-data-table tbody tr').first().locator('td')).toHaveText(['Ashen Mesa', '60%', '40%']);
   await expect(page.locator('.unknown-faction-marker')).not.toHaveCount(0);
+  await expect(page.locator('#statsContent > .stats-section').nth(1)).toHaveClass(/stats-section--territory/);
 
   await expect(page.locator('#statsContent')).toContainText(probe);
   await expect(page.locator('[data-stats-probe]')).toHaveCount(0);
@@ -919,4 +1005,30 @@ test('per-weapon "set XP" preset button issues the mutation it advertises', asyn
   await preset.click();
   await expect.poll(() => mutations.length).toBe(1);
   expect(mutations[0].body).toMatchObject({ xp: 100000 });
+});
+
+test('batch weapon XP updates only the searched selection', async ({ page }) => {
+  const mutations = await mockApi(page, {
+    weaponXp: [
+      { weapon: 'Scope.Weapon.RFL12', xp: 100 },
+      { weapon: 'Scope.Weapon.PST02', xp: 186 }
+    ],
+    weaponReference: {
+      'Scope.Weapon.RFL12': 1000,
+      'Scope.Weapon.PST02': 186
+    },
+    mutationResponse: { updated: 1, failed: 0 }
+  });
+  await page.goto(`${baseURL}/#weapon-xp`);
+  await page.locator('#weaponXpSearch').fill('M4A1');
+  await expect(page.locator('.weapon-card')).toHaveCount(1);
+  await page.locator('#setWeaponReferenceButton').click();
+  await expect(page.locator('#appDialog')).toBeVisible();
+  await page.locator('#appDialogAccept').click();
+  await expect.poll(() => mutations.length).toBe(1);
+  expect(mutations[0]).toMatchObject({
+    pathname: '/api/weapon-xp/batch',
+    method: 'POST',
+    body: { items: [{ scope: 'Scope.Weapon.RFL12', xp: 100000 }] }
+  });
 });

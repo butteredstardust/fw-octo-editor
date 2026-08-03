@@ -59,6 +59,20 @@ for (const pageName of PAGES) {
   });
 }
 
+test('shared feature headers stay contained on mobile across every non-Overview route', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page);
+  for (const pageName of PAGES.filter(name => name !== 'dashboard')) {
+    await page.goto(`${baseURL}/#${pageName}`);
+    const header = page.locator(`#page-${pageName} > .card > .feature-page-head`);
+    await expect(header).toBeVisible();
+    await expect(header.locator('.feature-page-icon')).toHaveCount(1);
+    await expect(header.locator('.eyebrow')).not.toBeEmpty();
+    expect(await header.evaluate(node => node.scrollWidth - node.clientWidth), `${pageName} header overflow`).toBeLessThanOrEqual(1);
+  }
+  await expect(page.locator('#page-dashboard .feature-page-head')).toHaveCount(0);
+});
+
 // D2: Acknowledgements dialog opens, shows the gif, and returns focus on close.
 test('acknowledgements dialog opens with the gif and returns focus to the info button', async ({ page }) => {
   const pageErrors = [];

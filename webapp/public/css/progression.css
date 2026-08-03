@@ -43,12 +43,24 @@
     .hub-btn.lock-btn:hover:not(:disabled) { background: var(--red-bg-hover); }
     .hub-btn.perm-btn { background: var(--warn-bg); color: var(--amber-warn); cursor: default; }
     .char-hint { font-size: 0.82rem; color: var(--text-2); margin-bottom: 1rem; line-height: 1.4; }
-    .weapon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-    .weapon-cat { color: var(--amber); font-size: 1.05rem; margin: 1.25rem 0 0.6rem; border-bottom: 1px solid var(--gunmetal); padding-bottom: 0.25rem; grid-column: 1 / -1; }
-    .weapon-card { gap:0.5rem; }
+    .weapon-xp-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.6rem; margin:.85rem 0 1rem; }
+    .weapon-xp-summary > div { min-width:0; padding:.7rem .75rem; border:1px solid var(--gunmetal-dark); border-radius:8px; background:var(--surface-2); }
+    .weapon-xp-summary span { display:block; color:var(--text-2); font-size:.64rem; text-transform:uppercase; letter-spacing:.05em; }
+    .weapon-xp-summary strong { display:block; margin-top:.15rem; color:var(--text); font-size:1.2rem; font-variant-numeric:tabular-nums; }
+    .weapon-xp-summary strong small { color:var(--text-2); font-size:.72rem; font-weight:500; }
+    .weapon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%,280px), 1fr)); gap: .7rem; }
+    .weapon-cat { display:flex; align-items:baseline; justify-content:space-between; gap:.75rem; margin:1rem 0 0; padding:.45rem .15rem; border-bottom:1px solid var(--gunmetal); grid-column:1 / -1; }
+    .weapon-cat h3 { margin:0; color:var(--amber); font-size:1rem; }
+    .weapon-cat span { color:var(--text-2); font-size:.68rem; }
+    .weapon-card { gap:0.5rem; padding:.85rem; }
     .weapon-card.done { border-color: var(--green-border); box-shadow: 0 0 0 1px rgba(95,211,138,0.25); }
     .weapon-icon { display:grid; place-items:center; width:1.85rem; height:1.85rem; flex:0 0 1.85rem; padding:.28rem; border:1px solid var(--chip-border); border-radius:6px; background:var(--chip-bg); color:var(--teal-soft); }
-    .weapon-cat-badge { font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 10px; background: var(--teal-bg); color: var(--teal-soft); white-space: nowrap; }
+    .weapon-progress-badge { padding:.18rem .45rem; border:1px solid var(--teal); border-radius:999px; background:var(--teal-bg); color:var(--teal-soft); font-size:.67rem; font-weight:700; white-space:nowrap; }
+    .weapon-progress-badge.complete { border-color:var(--green-border); background:var(--green-bg); color:var(--green); }
+    .weapon-xp-current { display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:.12rem .5rem; }
+    .weapon-xp-current > span { color:var(--text-2); font-size:.68rem; }
+    .weapon-xp-current strong { color:var(--text); font-size:1.15rem; font-variant-numeric:tabular-nums; }
+    .weapon-xp-current small { grid-column:1 / -1; color:var(--text-2); font-size:.65rem; }
     .weapon-xp-row { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-2); }
     .weapon-xp-row b { color: var(--text); }
     .weapon-bar { height: 8px; background: var(--gunmetal-dark); border-radius: 4px; overflow: hidden; margin: 0.15rem 0 0.35rem; }
@@ -56,7 +68,8 @@
     .weapon-bar > span.full { background: linear-gradient(90deg,var(--green-border),var(--green)); }
     .weapon-done { color: var(--green); font-size: 0.78rem; }
     .weapon-delta { color: var(--amber-warn); font-size: 0.78rem; }
-    .weapon-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
-    .weapon-actions .icon-only { align-self:center; }
-    .weapon-actions input[type=number] { width: 110px; background: var(--surface-2); color: var(--text); border: 1px solid var(--gunmetal); border-radius: 5px; padding: 0.3rem 0.5rem; }
-    @media (max-width:700px) { .hub-card .card-ui__status { width:auto; } }
+    .weapon-actions { display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:.4rem; align-items:center; }
+    .weapon-actions input[type=number] { width:100%; min-width:0; background:var(--surface-2); color:var(--text); border:1px solid var(--gunmetal); border-radius:5px; padding:.3rem .5rem; }
+    .weapon-actions button { white-space:nowrap; }
+    @media (max-width:700px) { .hub-card .card-ui__status { width:auto; } .weapon-xp-summary { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:380px) { .weapon-xp-summary { grid-template-columns:1fr; } .weapon-actions { grid-template-columns:1fr 1fr; } .weapon-actions input { grid-column:1 / -1; } }
