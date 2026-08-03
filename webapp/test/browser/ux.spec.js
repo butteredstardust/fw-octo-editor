@@ -33,6 +33,7 @@ async function mockApi(page, options = {}) {
     else if (pathname === '/api/status') body = { gameRunning: [], compatibility: { compatible: true }, writeReady: true, mutation: {}, activeSaveDir: 'fixture', blockingReasons: [] };
     else if (pathname === '/api/dashboard') body = options.dashboard || { character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 }, loadout: {}, quests: [], inventory: [], currencies: { WaterBarrels: 10, TestCurrency: 20 } };
     else if (pathname === '/api/vendors') body = options.vendors || { factions: [], traders: [] };
+    else if (pathname === '/api/vault') body = options.vault || { items: [], currency: { amount: 0 } };
     else if (pathname === '/api/characters') body = options.characters || [];
     else if (/^\/api\/characters\/[^/]+\/details$/.test(pathname)) body = options.characterDetails || { xp: 0, skills: [] };
     else if (pathname === '/api/stats') body = options.stats || { player: {}, damage: {}, factions: {}, characters: {}, maps: [], territory: [] };
@@ -281,6 +282,47 @@ test('dashboard empty states share anatomy and offer a direct inventory recovery
   await expect(page.locator('#addCatalogList .empty-state[role="alert"]')).toContainText('No catalog loaded');
   await page.goto(`${baseURL}/#backups`);
   await expect(page.locator('#backupList .empty-state__title')).toHaveText('No application backups found');
+});
+
+test('overview inventory, vault, and faction trust emphasize useful summaries and actions', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, {
+    dashboard: {
+      character: { tag: 'Pawn.Player.Gunhead', shortName: 'Gunhead', level: 1, xp: 0 },
+      loadout: {}, quests: [], currencies: { WaterBarrels: 10, TestCurrency: 20 },
+      inventory: [
+        { name: 'Drone_FastTravel', quantity: 8 },
+        { name: 'Drone_Construction', quantity: 3 },
+        { name: 'Drone_Recovery', quantity: 1 }
+      ]
+    },
+    vault: {
+      currency: { amount: 12345 },
+      items: Array.from({ length: 7 }, (_, index) => ({ name: `Vault_Item_${index}`, tag: `Vault.Tag.${index}`, quantity: index + 1 }))
+    },
+    vendors: { factions: [
+      { faction: 'Trusted faction', score: 160000 },
+      { faction: 'Neutral faction', score: 500 },
+      { faction: 'Untrusted faction', score: -10 }
+    ], traders: [] }
+  });
+  await page.goto(`${baseURL}/#dashboard`);
+
+  await expect(page.locator('.inventory-overview-metrics .overview-metric strong')).toHaveText(['3', '12']);
+  await expect(page.locator('.inventory-mix-row')).not.toHaveCount(0);
+  await expect(page.locator('.inventory-overview-actions button').first()).toContainText('Manage inventory');
+
+  await expect(page.locator('.vault-overview-metrics .overview-metric strong')).toHaveText(['12,345', '7', '28']);
+  await expect(page.locator('#dashVault > .vault-item-list .vault-item-row')).toHaveCount(5);
+  await expect(page.locator('.vault-more > summary')).toHaveText('Show 2 more items');
+
+  await expect(page.locator('.overview-trust-summary')).toContainText('1 untrusted');
+  await expect(page.locator('.overview-trust-name')).toHaveText(['Untrusted faction', 'Neutral faction', 'Trusted faction']);
+  await expect(page.locator('.overview-trust-tier')).toHaveText(['Untrusted (I)', 'Neutral (II)', 'Trusted (III)']);
+  for (const selector of ['.overview-card--inventory', '.overview-card--vault', '.overview-card--trust']) {
+    const card = page.locator(selector);
+    expect(await card.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+  }
 });
 
 test('editable entity cards preserve headings, states, controls, and narrow containment', async ({ page }) => {
@@ -834,6 +876,11 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   } });
   await page.goto(baseURL);
   await page.evaluate(() => document.querySelector('[data-page="stats"]').click());
+  // The page leads with the player’s own record, then groups related detail
+  // into friendly cards instead of presenting one uninterrupted sheet.
+  await expect(page.locator('.stats-dashboard-intro')).toContainText('Read-only field report');
+  await expect(page.locator('#statsContent > .stats-section').first()).toHaveClass(/stats-section--summary/);
+  await expect(page.locator('#statsContent .stats-story-grid').first().locator('.stats-section__icon')).toHaveCount(2);
   await expect(page.locator('#page-stats .lifetime-hero__value')).toHaveText('12');
   await expect(page.locator('#page-stats .lifetime-ratio__value')).toHaveText('4.00');
   await expect(page.locator('.lifetime-kpis .metric-tile')).toContainText(['3', '1', '9', '20']);
@@ -856,33 +903,15 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   await expect(modSplitRows.nth(0).locator('td')).toHaveText(['Damage', '750', '75.0%', '250', '25.0%']);
   await expect(modSplitRows.nth(1).locator('td')).toHaveText(['Kills', '6', '75.0%', '2', '25.0%']);
 
-  // Map activity and Combat by Character are now small-multiples figures
-  // (chartFigure's `panels` option -- one single-series canvas per metric,
-  // see charts.mjs and stats.mjs's STATUS_GREEN/RED/AMBER comment for why
-  // a single three-series grouped bar was dropped: no green/red/amber
-  // triple clears the dataviz-skill validator's CVD floor while also
-  // staying distinct from the on-page faction colors).
-  const mapFigure = page.locator('[data-chart="stats-chart-maps"]');
-  await expect(mapFigure).toHaveCount(1);
-  // Three single-series panels (Entries / Extractions / Deaths), each its
-  // own canvas with its own accessible name -- not one three-series
-  // grouped bar with one combined aria-label.
-  await expect(mapFigure.locator('canvas')).toHaveCount(3);
-  await expect(mapFigure.locator('[role="img"][aria-label="Entries by map"]')).toHaveCount(1);
-  await expect(mapFigure.locator('[role="img"][aria-label="Extractions by map"]')).toHaveCount(1);
-  await expect(mapFigure.locator('[role="img"][aria-label="Deaths by map"]')).toHaveCount(1);
-  await expect(mapFigure.locator('.chart-data-table caption')).toHaveText('Map activity');
-  const mapRow = mapFigure.locator('.chart-data-table tbody tr').first();
-  await expect(mapRow.locator('td')).toHaveText(['Ashen Mesa', '10', '7', '4', '70%', '40%', 'L_AshenMesa_WP']);
-  const tunnelRow = mapFigure.locator('.chart-data-table tbody tr').nth(1);
-  await expect(tunnelRow.locator('td').first()).toHaveText('Tunnel B');
-  await expect(tunnelRow.locator('td').last()).toHaveText('Dungeon_Tunnel2_01, Dungeon_Tunnel2_04');
-  // Extraction rate / death rate are restored as visible information, not
-  // just table cells behind the "Show data table" disclosure -- the old
-  // browser test asserted these exact percentages before the chart
-  // rewrite silently dropped them.
-  await expect(page.locator('.stats-rate-list')).toContainText('extraction rate 70%');
-  await expect(page.locator('.stats-rate-list')).toContainText('death rate 40%');
+  // Map activity uses compact ranked rows instead of three tall chart panels.
+  // Counts, rates, and grouped source IDs remain present and accessible.
+  const mapRows = page.locator('.map-activity-row');
+  await expect(mapRows).toHaveCount(2);
+  await expect(mapRows.first().locator('.map-activity-place h4')).toHaveText('Ashen Mesa');
+  await expect(mapRows.first().locator('.map-activity-metrics dd')).toHaveText(['10', '7', '4']);
+  await expect(mapRows.first().locator('.map-activity-rate')).toHaveAttribute('aria-label', 'Extraction rate 70%; death rate 40%');
+  await expect(mapRows.nth(1).locator('.map-activity-place h4')).toHaveText('Tunnel B');
+  await expect(mapRows.nth(1).locator('.technical-details')).toContainText('Dungeon_Tunnel2_01, Dungeon_Tunnel2_04');
 
   const charactersFigure = page.locator('[data-chart="stats-chart-characters"]');
   await expect(charactersFigure.locator('canvas')).toHaveCount(3);
@@ -893,6 +922,7 @@ test('Stats renders exact accessible comparisons, unknown entities, and narrow l
   await expect(territoryFigure.locator('.chart-data-table thead')).toContainText(probe);
   await expect(territoryFigure.locator('.chart-data-table tbody tr').first().locator('td')).toHaveText(['Ashen Mesa', '60%', '40%']);
   await expect(page.locator('.unknown-faction-marker')).not.toHaveCount(0);
+  await expect(page.locator('#statsContent > .stats-section').nth(1)).toHaveClass(/stats-section--territory/);
 
   await expect(page.locator('#statsContent')).toContainText(probe);
   await expect(page.locator('[data-stats-probe]')).toHaveCount(0);
