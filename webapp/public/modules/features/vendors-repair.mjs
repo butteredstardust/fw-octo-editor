@@ -105,7 +105,14 @@ function renderVendorEconomy(economy) {
   const eventNote = economy.nextResetEvent
     ? `<p class="char-hint">The save's shared restock event (one timer covering multiple shops) last pointed to ${esc(new Date(economy.nextResetEvent).toLocaleString())}${overdue ? ' — already elapsed, so a restock is due next time you play' : ''}. There's no separate per-vendor countdown recorded in the save.</p>`
     : '';
-  return `<h3 class="vendor-section-title">Vendor stock</h3>${eventNote}${rows}`;
+  return `<details class="vendor-stock-disclosure">
+    <summary><span class="vendor-stock-summary-icon">${appIcon('pack')}</span><span><b>Vendor stock</b><small>Read-only sales history and shared restock timing</small></span><span class="vendor-stock-count">${economy.vendors.length} shops</span></summary>
+    <div class="vendor-stock-body">${eventNote}<div class="vendor-stock-list">${rows}</div></div>
+  </details>`;
+}
+
+function vendorSectionHeading(icon, eyebrow, title, description, aside = '') {
+  return `<header class="vendor-section-head"><span class="vendor-section-icon">${appIcon(icon)}</span><div><span class="eyebrow">${esc(eyebrow)}</span><h3 class="vendor-section-title">${esc(title)}</h3><p>${esc(description)}</p></div>${aside}</header>`;
 }
 
 function renderVendors(data) {
@@ -126,82 +133,83 @@ function renderVendors(data) {
     }
   }
 
-  let html = '';
+  const traderRows = traders.filter(t => !t.key.startsWith('Questgiver.') && t.key.startsWith('Trader.'));
+  const tierOrder = { untrusted: 0, neutral: 1, trusted: 2 };
+  const orderedFactions = [...factions].sort((a, b) => tierOrder[trustTier(a.score)] - tierOrder[trustTier(b.score)] || Number(a.score) - Number(b.score));
+  const tierCounts = orderedFactions.reduce((counts, faction) => {
+    counts[trustTier(faction.score)] += 1;
+    return counts;
+  }, { untrusted: 0, neutral: 0, trusted: 0 });
+  const lockedFlags = traderRows.filter(t => !t.unlocked).length;
+  const economyCount = data.economy && Array.isArray(data.economy.vendors) ? data.economy.vendors.length : 0;
 
-  // ---- Vendor roster (wiki-canonical) ----
-  html += '<h3 class="vendor-section-title">Vendors</h3>';
-  html += '<div class="trader-grid">';
-  const roster = [...VENDOR_ROSTER].sort((a, b) =>
-    a.faction === b.faction ? a.name.localeCompare(b.name) : a.faction.localeCompare(b.faction));
-  for (const v of roster) {
-    const faction = factionByScope[v.scope];
-    const tier = faction ? TRUST_TIER_LABEL[trustTier(faction.score)] : '';
-    let status, statusCls;
-    if (v.availability === 'auto') { status = 'Tunnels (auto)'; statusCls = 'auto'; }
-    else if (v.availability === 'water') { status = 'Water-tank unlock'; statusCls = 'water'; }
-    else if (v.availability === 'flag') {
-      const on = traderUnlocked[v.name];
-      status = on ? 'Unlocked' : 'Locked';
-      statusCls = on ? 'on' : 'off';
-    } else { status = 'Available'; statusCls = 'on'; }
-    html += entityCard({
-      compact: true,
-      cardClass: 'trader-card',
-      headingLevel: 4,
-      iconHtml: `<span class="trader-icon">${appIcon(VENDOR_ICON[v.name])}</span>`,
-      eyebrow: v.faction,
-      title: v.name,
-      subtitle: tier,
-      statusHtml: `<span class="trader-status ${statusCls}">${esc(status)}</span>`,
-      bodyHtml: `<p class="vendor-note">${esc(v.note)}</p>`
-    });
-  }
-  html += '</div>';
+  let html = `<div class="vendor-page-summary" aria-label="Vendor overview">
+    <div class="vendor-summary-tile"><span>Known vendors</span><strong>${VENDOR_ROSTER.length}</strong><small>Across four factions</small></div>
+    <div class="vendor-summary-tile ${lockedFlags ? 'needs-attention' : ''}"><span>Locked vendors</span><strong>${lockedFlags}</strong><small>${traderRows.length} save-controlled unlocks</small></div>
+    <div class="vendor-summary-tile"><span>Trusted factions</span><strong>${tierCounts.trusted}<small> / ${factions.length}</small></strong><small>${tierCounts.untrusted} untrusted · ${tierCounts.neutral} neutral</small></div>
+    <div class="vendor-summary-tile"><span>Stock ledgers</span><strong>${economyCount}</strong><small>Read-only shop histories</small></div>
+  </div>`;
 
-  html += renderVendorEconomy(data.economy);
-
-  // ---- Faction Trust ----
-  html += '<h3 class="vendor-section-title">Faction trust</h3>';
-  html += '<div class="vendor-grid">';
-  for (const f of factions) {
+  // ---- Faction Trust: editable relationships lead the page. ----
+  const trustSummary = `<div class="vendor-tier-summary" aria-label="Faction trust summary"><span class="untrusted"><b>${tierCounts.untrusted}</b> untrusted</span><span class="neutral"><b>${tierCounts.neutral}</b> neutral</span><span class="trusted"><b>${tierCounts.trusted}</b> trusted</span></div>`;
+  html += `<section class="vendor-page-section vendor-page-section--trust">${vendorSectionHeading('shield', 'Relationships', 'Faction trust', 'Relationships needing attention appear first. Choose a tier, or expand the exact-score editor.', trustSummary)}<div class="vendor-grid">`;
+  for (const f of orderedFactions) {
     const tier = trustTier(f.score);
     const enc = encodeURIComponent(f.scope);
     html += entityCard({
-      cardClass: 'vendor-card',
+      cardClass: `vendor-card vendor-card--${tier}`,
       headingLevel: 4,
       data: { 'faction-scope': f.scope },
       iconHtml: `<span class="vendor-icon">${appIcon('shield')}</span>`,
       title: f.faction,
       titleHtml: ` ${technicalDetails(f.scope, 'Show internal faction scope ID')}`,
       statusHtml: `<span class="vendor-tier ${tier}">${TRUST_TIER_LABEL[tier]}</span>`,
-      bodyHtml: trustTrack(f.score),
-      footerHtml: `<div class="vendor-score value-editor-pair">
-        <input type="number" class="value-editor" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1" aria-label="Trust score for ${esc(f.faction)}">
-        <button type="button" class="vendor-set icon-only" data-value-submit data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set score</span></button>
-      </div>
-      <div class="vendor-presets">
+      bodyHtml: `<div class="vendor-current-score"><span>Current score</span><strong>${Number(f.score).toLocaleString()}</strong></div>${trustTrack(f.score)}`,
+      footerHtml: `<div class="vendor-tier-actions"><span>Set trust tier</span><div class="vendor-presets">
         <button type="button" class="mini tier-preset untrusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.untrusted}">Untrusted</button>
         <button type="button" class="mini tier-preset neutral" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.neutral}">Neutral</button>
         <button type="button" class="mini tier-preset trusted" data-action="set-faction" data-scope="${enc}" data-value="${TRUST_PRESETS.trusted}">Trusted</button>
-      </div>`
+      </div></div><details class="vendor-exact-score"><summary>Set exact score</summary><div class="vendor-score value-editor-pair">
+        <input type="number" class="value-editor" id="vscore-${enc}" value="${f.score}" min="-2147483648" max="2147483647" step="1" aria-label="Trust score for ${esc(f.faction)}">
+        <button type="button" class="vendor-set icon-only" data-value-submit data-action="set-faction" data-scope="${enc}" title="Set trust score for ${esc(f.faction)}">${actionIcon('check')}<span class="sr-only">Set score</span></button>
+      </div></details>`
     });
   }
-  html += '</div>';
+  html += '</div></section>';
 
-  // ---- Trader unlock toggles (Kane/Luca) ----
-  const traderRows = traders.filter(t => !t.key.startsWith('Questgiver.') && t.key.startsWith('Trader.'));
-  if (traderRows.length) {
-    html += '<h3 class="vendor-section-title">Vendor unlock</h3>';
-    html += '<div class="trader-grid">';
-    for (const t of traderRows) {
-      const label = t.key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '');
-      html += `<div class="trader-card trader-card-toggle">
-        <span class="trader-name-wrap"><span class="trader-icon">${appIcon(VENDOR_ICON[label])}</span><span class="tname">${esc(label)}</span></span>
-        <button class="trader-toggle ${t.unlocked ? 'on' : ''}" data-action="toggle-trader" data-key="${encodeURIComponent(t.key)}" aria-pressed="${t.unlocked ? 'true' : 'false'}">${t.unlocked ? actionIcon('unlock') + 'Unlocked' : actionIcon('lock') + 'Locked'}</button>
-      </div>`;
-    }
-    html += '</div>';
+  // ---- Vendor roster (wiki-canonical), with save-controlled unlocks in place. ----
+  html += `<section class="vendor-page-section vendor-page-section--access">${vendorSectionHeading('credits', 'Marketplace', 'Vendor access', 'See what each vendor offers and manage the unlocks that are actually stored in this save.')}<div class="trader-grid">`;
+  const roster = [...VENDOR_ROSTER].sort((a, b) =>
+    a.faction === b.faction ? a.name.localeCompare(b.name) : a.faction.localeCompare(b.faction));
+  for (const v of roster) {
+    const faction = factionByScope[v.scope];
+    const tier = faction ? TRUST_TIER_LABEL[trustTier(faction.score)] : '';
+    let status, statusCls;
+    if (v.availability === 'auto') { status = 'Tunnels only'; statusCls = 'auto'; }
+    else if (v.availability === 'water') { status = 'Water-gated'; statusCls = 'water'; }
+    else if (v.availability === 'flag') {
+      const on = traderUnlocked[v.name];
+      status = on ? 'Unlocked' : 'Locked';
+      statusCls = on ? 'on' : 'off';
+    } else { status = 'Available'; statusCls = 'on'; }
+    const traderRow = v.availability === 'flag' ? traderRows.find(t => t.key.replace(/^Trader\./, '').replace(/\.Unlocked$/, '') === v.name) : null;
+    const footer = traderRow ? `<div class="vendor-unlock-control"><span>Vendor unlock</span><button class="trader-toggle ${traderRow.unlocked ? 'on' : ''}" data-action="toggle-trader" data-key="${encodeURIComponent(traderRow.key)}" aria-pressed="${traderRow.unlocked ? 'true' : 'false'}">${traderRow.unlocked ? actionIcon('unlock') + 'Unlocked' : actionIcon('lock') + 'Locked'}</button></div>` : '';
+    html += entityCard({
+      compact: true,
+      cardClass: `trader-card trader-card--${statusCls}`,
+      headingLevel: 4,
+      iconHtml: `<span class="trader-icon">${appIcon(VENDOR_ICON[v.name])}</span>`,
+      eyebrow: v.faction,
+      title: v.name,
+      subtitle: tier,
+      statusHtml: `<span class="trader-status ${statusCls}">${esc(status)}</span>`,
+      bodyHtml: `<p class="vendor-note">${esc(v.note)}</p>`,
+      footerHtml: footer
+    });
   }
+  html += '</div></section>';
+
+  html += renderVendorEconomy(data.economy);
   setRenderedHtml(el, html);
 }
 

@@ -290,7 +290,7 @@ test('vendors render as cards with an accessible three-stage trust track', () =>
   assert.match(frontendJs, /function trustTrack\(score\)/);
   assert.match(frontendJs, /class="trust-track" role="img" aria-label=/);
   assert.match(frontendJs, /class="trader-grid"/);
-  assert.match(frontendJs, /cardClass: 'trader-card'/);
+  assert.match(frontendJs, /cardClass: `trader-card trader-card--\$\{statusCls\}`/);
   assert.match(frontendCss, /\.trust-track-labels/);
   assert.match(frontendJs, /<span>Untrusted<\/span><span>Neutral<\/span><span>Trusted<\/span>/);
 });

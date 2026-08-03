@@ -92,7 +92,7 @@ test('characters, weapon XP, and faction trust cards use shared anatomy without 
   assert.match(weapons, /<h3 class="weapon-cat">/);
   assert.match(weapons, /headingLevel: 4/);
   assert.match(weapons, /data-action="set-weapon-xp"/);
-  assert.match(vendors, /bodyHtml: trustTrack\(f\.score\)/);
+  assert.match(vendors, /bodyHtml: `[^`]*\$\{trustTrack\(f\.score\)\}`/);
   assert.match(vendors, /data-action="set-faction"/);
 });
 
@@ -105,7 +105,7 @@ test('hub, vendor roster, and repair recipes use compact shared cards with seman
   assert.match(hub, /<h4 class="hub-group-heading">/);
   assert.match(hub, /data-action="toggle-upgrade"/);
   assert.match(vendorsRepair, /compact: true/);
-  assert.match(vendorsRepair, /cardClass: 'trader-card'/);
+  assert.match(vendorsRepair, /cardClass: `trader-card trader-card--\$\{statusCls\}`/);
   assert.match(vendorsRepair, /cardClass: `repair-card/);
   assert.match(vendorsRepair, /repair-availability/);
   assert.doesNotMatch(vendorsRepair, /repair-card-dot/);

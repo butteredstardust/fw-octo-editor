@@ -353,7 +353,7 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
 
   await page.goto(`${baseURL}/#vendors`);
   const vendor = page.locator('.vendor-card.card-ui');
-  await expect(page.locator('h3.vendor-section-title', { hasText: 'Vendors' })).toHaveCount(1);
+  await expect(page.locator('h3.vendor-section-title', { hasText: 'Vendor access' })).toHaveCount(1);
   await expect(page.locator('h3.vendor-section-title', { hasText: 'Faction trust' })).toHaveCount(1);
   await expect(vendor.locator('h4.card-ui__title')).toContainText(probe);
   await expect(vendor.locator('.card-ui__status .vendor-tier')).toContainText('Neutral');
@@ -361,6 +361,41 @@ test('editable entity cards preserve headings, states, controls, and narrow cont
   await expect(vendor.locator('.card-ui__footer [data-action="set-faction"]')).toHaveCount(4);
   await expect(vendor.locator('[data-editable-card-probe]')).toHaveCount(0);
   expect(await vendor.evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
+});
+
+test('Vendors prioritizes faction trust, integrates unlocks, and keeps stock secondary', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 740 });
+  await mockApi(page, { vendors: {
+    factions: [
+      { faction: 'Europa', scope: 'Scope.Faction.Europa', score: 160000 },
+      { faction: 'Eurasia', scope: 'Scope.Faction.Eurasia', score: -50 },
+      { faction: 'Euruska', scope: 'Scope.Faction.Euruska', score: 500 }
+    ],
+    traders: [
+      { key: 'Trader.Kane.Unlocked', unlocked: false },
+      { key: 'Trader.Luca.Unlocked', unlocked: true }
+    ],
+    economy: {
+      nextResetEvent: '2099-01-01T00:00:00.000Z',
+      vendors: [{ name: 'AmmoVendor_V1', lastReset: null, consumedItems: [{ itemId: 'Drone_FastTravel', quantity: 2 }] }]
+    }
+  } });
+  await page.goto(`${baseURL}/#vendors`);
+
+  await expect(page.locator('.vendor-page-summary .vendor-summary-tile strong')).toContainText(['8', '1', '1', '1']);
+  await expect(page.locator('.vendor-page-section').first()).toHaveClass(/vendor-page-section--trust/);
+  await expect(page.locator('.vendor-card .card-ui__title')).toContainText(['Eurasia', 'Euruska', 'Europa']);
+
+  const kane = page.locator('.trader-card', { has: page.locator('h4', { hasText: 'Kane' }) });
+  const luca = page.locator('.trader-card', { has: page.locator('h4', { hasText: 'Luca' }) });
+  await expect(kane.locator('.vendor-unlock-control .trader-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(luca.locator('.vendor-unlock-control .trader-toggle')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.trader-card-toggle')).toHaveCount(0);
+
+  const stock = page.locator('.vendor-stock-disclosure');
+  await expect(stock).not.toHaveAttribute('open', '');
+  await expect(stock.locator(':scope > summary')).toContainText('1 shops');
+  expect(await page.locator('#page-vendors').evaluate(node => node.scrollWidth - node.clientWidth)).toBeLessThanOrEqual(1);
 });
 
 test('shared status badges preserve card anatomy, domain hooks, and narrow containment', async ({ page }) => {
