@@ -50,5 +50,8 @@
     "*.js": [
       "eslint --fix --no-warn-ignored"
     ]
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
   }
 }
